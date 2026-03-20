@@ -14,6 +14,10 @@
   --gold:        #C98A4B;
   --gold-light:  #E0A96D;
   --gold-dim:    rgba(201, 138, 75, 0.15);
+  --teal:        #5ACEC0;
+  --teal-light:  #7DDDD2;
+  --teal-dim:    rgba(90, 206, 192, 0.12);
+  --border-teal: rgba(90, 206, 192, 0.25);
   --white:       #ffffff;
   --text:        #e8e8e8;
   --text-muted:  #888888;
@@ -47,7 +51,7 @@ body {
 }
 
 /* ── UTILITIES ─────────────────────────────────────────────── */
-.gold { color: var(--gold); }
+.gold { color: var(--teal); }
 .container { max-width: 1180px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 60px); }
 .label-tag {
   display: inline-block;
@@ -56,9 +60,9 @@ body {
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--gold);
-  background: var(--gold-dim);
-  border: 1px solid var(--border-gold);
+  color: var(--teal);
+  background: var(--teal-dim);
+  border: 1px solid var(--border-teal);
   padding: 5px 14px;
   border-radius: 100px;
   margin-bottom: 20px;
@@ -317,7 +321,7 @@ body {
   position: absolute;
   top: 0; left: -100%;
   width: 100%; height: 100%;
-  background: var(--gold);
+  background: var(--teal);
   animation: scrollLine 1.8s ease-in-out infinite;
 }
 @keyframes scrollLine { to { left: 100%; } }
@@ -346,7 +350,7 @@ body {
   font-family: var(--font-head);
   font-size: clamp(36px, 4vw, 56px);
   font-weight: 700;
-  color: var(--gold);
+  color: var(--teal);
   line-height: 1;
   margin-bottom: 6px;
 }
@@ -393,7 +397,7 @@ body {
 .about__img-border {
   position: absolute;
   inset: 12px -12px -12px 12px;
-  border: 1px solid var(--border-gold);
+  border: 1px solid var(--border-teal);
   border-radius: var(--radius-lg);
   z-index: 0;
 }
@@ -449,7 +453,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 14px;
 }
 .case-card__title {
@@ -537,7 +541,7 @@ body {
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 6px;
 }
 .portfolio-card__info h4 {
@@ -590,7 +594,7 @@ body {
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.14em;
-  color: var(--gold);
+  color: var(--teal);
   margin-bottom: 16px;
 }
 .process-step__icon {
@@ -614,7 +618,7 @@ body {
   align-self: center;
   width: 48px;
   height: 1px;
-  background: var(--border-gold);
+  background: var(--border-teal);
   position: relative;
   margin: 0 -1px;
 }
@@ -624,8 +628,8 @@ body {
   right: -4px;
   top: -3px;
   width: 7px; height: 7px;
-  border-top: 1px solid var(--gold);
-  border-right: 1px solid var(--gold);
+  border-top: 1px solid var(--teal);
+  border-right: 1px solid var(--teal);
   transform: rotate(45deg);
 }
 
@@ -661,8 +665,8 @@ body {
   text-align: center;
   transition: border-color 0.3s;
 }
-.testimonial:hover { border-color: var(--border-gold); }
-.testimonial__stars { color: var(--gold); font-size: 18px; letter-spacing: 2px; margin-bottom: 20px; }
+.testimonial:hover { border-color: var(--border-teal); }
+.testimonial__stars { color: var(--teal); font-size: 18px; letter-spacing: 2px; margin-bottom: 20px; }
 .testimonial__quote {
   font-size: clamp(16px, 1.5vw, 19px);
   color: var(--text);
@@ -681,7 +685,7 @@ body {
   height: 48px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--border-gold);
+  border: 2px solid var(--border-teal);
 }
 .testimonial__footer strong { display: block; font-weight: 600; color: var(--white); font-size: 15px; }
 .testimonial__footer span { display: block; font-size: 13px; color: var(--text-muted); }
@@ -736,7 +740,7 @@ body {
   transform: translateX(-50%);
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(201,138,75,0.06) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(90,206,192,0.06) 0%, transparent 70%);
   pointer-events: none;
 }
 .contact__inner {
