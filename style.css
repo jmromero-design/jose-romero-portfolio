@@ -25,7 +25,7 @@
   --radius-lg:   24px;
   --shadow:      0 8px 40px rgba(0,0,0,0.6);
   --shadow-gold: 0 0 40px rgba(201,138,75,0.12);
-  --font-head:   'Syne', sans-serif;
+  --font-head:   'Space Grotesk', sans-serif;
   --font-body:   'DM Sans', sans-serif;
   --nav-h:       72px;
   --section-gap: 120px;
@@ -65,7 +65,7 @@ body {
 }
 .section { padding: var(--section-gap) 0; }
 .section__header { text-align: center; max-width: 640px; margin: 0 auto 72px; }
-.section__header h2 { font-family: var(--font-head); font-size: clamp(32px,4vw,52px); font-weight: 800; line-height: 1.1; margin-bottom: 16px; color: var(--white); }
+.section__header h2 { font-family: var(--font-head); font-size: clamp(32px,4vw,52px); font-weight: 700; line-height: 1.1; margin-bottom: 16px; color: var(--white); }
 .section__sub { color: var(--text-muted); font-size: 17px; line-height: 1.6; }
 .tag {
   display: inline-block;
@@ -208,9 +208,8 @@ body {
 .hero {
   min-height: 100svh;
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: 1fr;
   align-items: center;
-  gap: 60px;
   padding: calc(var(--nav-h) + 80px) clamp(20px, 5vw, 60px) 80px;
   max-width: 1180px;
   margin: 0 auto;
@@ -223,7 +222,7 @@ body {
   transform: translateY(-50%);
   font-family: var(--font-head);
   font-size: clamp(120px, 18vw, 260px);
-  font-weight: 800;
+  font-weight: 700;
   color: transparent;
   -webkit-text-stroke: 1px rgba(255,255,255,0.03);
   pointer-events: none;
@@ -234,7 +233,7 @@ body {
 .hero__content {
   position: relative;
   z-index: 1;
-  max-width: 640px;
+  max-width: 800px;
 }
 .hero__badge {
   display: inline-block;
@@ -251,7 +250,7 @@ body {
 .hero__heading {
   font-family: var(--font-head);
   font-size: clamp(38px, 5.5vw, 76px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--white);
@@ -346,7 +345,7 @@ body {
   display: block;
   font-family: var(--font-head);
   font-size: clamp(36px, 4vw, 56px);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--gold);
   line-height: 1;
   margin-bottom: 6px;
@@ -402,7 +401,7 @@ body {
 .about__heading {
   font-family: var(--font-head);
   font-size: clamp(28px, 3.5vw, 46px);
-  font-weight: 800;
+  font-weight: 700;
   line-height: 1.1;
   color: var(--white);
   margin-bottom: 24px;
@@ -439,7 +438,7 @@ body {
   right: 28px;
   font-family: var(--font-head);
   font-size: 72px;
-  font-weight: 800;
+  font-weight: 700;
   color: rgba(255,255,255,0.03);
   line-height: 1;
   pointer-events: none;
@@ -602,7 +601,7 @@ body {
 .process-step h3 {
   font-family: var(--font-head);
   font-size: 22px;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   margin-bottom: 12px;
 }
@@ -749,7 +748,7 @@ body {
 .contact__text h2 {
   font-family: var(--font-head);
   font-size: clamp(32px, 4vw, 52px);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--white);
   line-height: 1.1;
   margin-bottom: 20px;
@@ -882,9 +881,7 @@ body {
 
 /* ── RESPONSIVE ────────────────────────────────────────────── */
 @media (max-width: 1024px) {
-  .hero { grid-template-columns: 1fr; gap: 48px; }
   .hero__bg-text { display: none; }
-  .hero__portrait-wrap { display: none; }
   .hero__content { max-width: 100%; }
   .cases { grid-template-columns: 1fr; }
   .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
