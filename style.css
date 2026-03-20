@@ -160,6 +160,7 @@ body {
   justify-content: space-between;
 }
 .nav__logo img, .nav__logo svg { display: block; height: 40px; width: auto; }
+.nav__logo-img { height: 40px; width: auto; display: block; }
 .nav__links { display: flex; align-items: center; gap: 36px; }
 .nav__links a {
   font-family: var(--font-body);
@@ -847,6 +848,7 @@ body {
   flex-wrap: wrap;
 }
 .footer__brand img, .footer__brand svg { display: block; height: 36px; width: auto; margin-bottom: 10px; }
+.footer__logo-img { height: 36px; width: auto; display: block; margin-bottom: 10px; }
 .footer__brand p { font-size: 13px; color: var(--text-faint); }
 .footer__links { display: flex; gap: 28px; }
 .footer__links a {
