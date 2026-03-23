@@ -195,10 +195,15 @@ body {
   padding: 32px clamp(20px, 5vw, 60px);
   gap: 28px;
   transform: translateY(-110%);
-  transition: transform 0.4s var(--ease);
+  visibility: hidden;
+  transition: transform 0.4s var(--ease), visibility 0s linear 0.4s;
   border-bottom: 1px solid var(--border);
 }
-.mobile-menu.open { transform: translateY(0); }
+.mobile-menu.open {
+  transform: translateY(0);
+  visibility: visible;
+  transition: transform 0.4s var(--ease), visibility 0s linear 0s;
+}
 .mobile-menu__link {
   font-family: var(--font-head);
   font-size: 28px;
