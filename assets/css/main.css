@@ -742,65 +742,63 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* ------------------------------------------------------------
    11. PROJECT COVER PLACEHOLDERS
-   Unified concentric-circle system with per-project icon
+   Concentric-circle system — measurements from Pencil spec (576×324 canvas)
    ------------------------------------------------------------ */
 .cover-placeholder {
   position: absolute; inset: 0;
   overflow: hidden;
-  background: var(--bg-surface-2);
+  background: var(--bg-surface); /* #111110 — matches card bg */
 }
 
-/* Concentric filled circles emanating from bottom-left corner */
 .cover-visual {
   position: absolute;
   inset: 0;
 }
 
+/* Circle center at (60, 269) in 576×324 card → left:-43px bottom:-48px */
 .cover-visual::before {
   content: '';
   position: absolute;
-  width: 240px; height: 240px;
+  width: 206px; height: 206px;
   border-radius: 50%;
-  /* Inner filled circle — darkest, slight teal cast */
-  background: color-mix(in srgb, var(--teal) 8%, var(--bg-base));
-  bottom: -50px;
-  left: -50px;
-  /* Four filled rings expanding outward, each 55px wide */
+  background: var(--bg-surface-2); /* innermost: #181816 */
+  left: -43px;
+  bottom: -48px;
   box-shadow:
-    0 0 0 55px  color-mix(in srgb, var(--teal) 11%, var(--bg-surface-2)),
-    0 0 0 110px color-mix(in srgb, var(--teal) 7%,  var(--bg-surface-2)),
-    0 0 0 165px color-mix(in srgb, var(--teal) 3.5%, var(--bg-surface-2)),
-    0 0 0 220px color-mix(in srgb, var(--teal) 1.5%, transparent);
+    0 0 0 85px  color-mix(in srgb, var(--teal) 20%, var(--bg-surface-2)), /* inner ring  #2a413f */
+    0 0 0 188px color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)), /* middle ring #202f2d */
+    0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));   /* outer ring  #192120 */
   pointer-events: none;
 }
 
-/* Per-project icon — bottom-left, inside the dark inner circle */
+/* Icon centered at circle origin — left:33px bottom:28px at 576×324 */
 .cover-icon {
   position: absolute;
-  bottom: var(--sp-6);
-  left: var(--sp-6);
-  width: 44px; height: 44px;
+  left: 33px;
+  bottom: 28px;
+  width: 54px; height: 54px;
   z-index: 1;
-  stroke: var(--teal-text);
+  stroke: var(--teal);
   stroke-width: 1.5;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
+  opacity: 0.6;
 }
 
-/* Cover number — upper-right, ghost gray */
+/* Number — Fraunces 300, 100px, right-aligned at top-right */
 .cover-number {
   position: absolute;
-  top: var(--sp-2);
-  right: var(--sp-3);
+  top: 0;
+  right: 24px;
   left: auto;
   transform: none;
   font-family: var(--font-display);
-  font-size: clamp(6rem, 18vw, 11rem);
+  font-size: clamp(3.5rem, 8vw, 6.25rem); /* ≈100px at 576px card */
   font-weight: 300;
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: color-mix(in srgb, var(--bg-surface-2) 55%, var(--text-primary));
+  color: color-mix(in srgb, var(--bg-surface-2) 50%, var(--text-primary)); /* ≈#37342e */
   opacity: 1;
   pointer-events: none;
   user-select: none;
@@ -1483,7 +1481,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .work-card-img {
   width: 100%;
   aspect-ratio: 16/9;
-  background-color: var(--bg-surface-2);
+  background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-default);
   position: relative;
   overflow: hidden;
