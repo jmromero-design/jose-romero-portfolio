@@ -86,9 +86,9 @@
   --radius-lg:   12px;
 
   /* Transitions */
-  --ease-fast:   150ms ease;
-  --ease-base:   220ms ease;
-  --ease-slow:   360ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-fast:   180ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-base:   280ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ease-slow:   420ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 /* ------------------------------------------------------------
@@ -177,7 +177,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background-color 0.3s ease, color 0.2s ease;
+  transition: background-color var(--ease-base), color var(--ease-base);
 }
 
 /* Grain texture — dark mode only */
@@ -897,6 +897,12 @@ strong { font-weight: 500; color: var(--text-primary); }
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
+  transition: border-color var(--ease-base), transform var(--ease-slow);
+}
+
+.stat-item:hover {
+  border-color: var(--border-strong);
+  transform: translateY(-2px);
 }
 
 /* Stat values — teal (informational) */
@@ -1058,7 +1064,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   border: 1px solid var(--border-subtle);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
-  transition: all var(--ease-base);
+  transition: border-color var(--ease-base), background var(--ease-base), transform var(--ease-slow);
   cursor: pointer;
 }
 
@@ -1095,7 +1101,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .wli-arrow {
   color: var(--text-tertiary);
   font-size: var(--text-xl);
-  transition: all var(--ease-base);
+  transition: color var(--ease-base), transform var(--ease-slow);
   flex-shrink: 0;
 }
 
@@ -1182,7 +1188,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 .next-project:hover {
-  border-color: var(--gold-dim);
+  border-color: var(--border-strong);
   transform: translateY(-2px);
 }
 
@@ -1366,7 +1372,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   transition: border-color var(--ease-base);
 }
 
-.skill-item:hover { border-color: var(--teal-dim); }
+.skill-item:hover { border-color: var(--border-strong); transform: translateY(-2px); }
 
 .skill-name {
   font-size: var(--text-base);
@@ -1394,7 +1400,8 @@ strong { font-weight: 500; color: var(--text-primary); }
 .reveal {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .reveal.visible { opacity: 1; transform: translateY(0); }

@@ -23,7 +23,14 @@
     const toggles = document.querySelectorAll('.theme-toggle');
     const isDark = html.getAttribute('data-theme') !== 'light' &&
       !(window.matchMedia('(prefers-color-scheme: light)').matches && !html.getAttribute('data-theme'));
-    toggles.forEach(t => { t.textContent = isDark ? '○' : '●'; t.title = isDark ? 'Switch to light mode' : 'Switch to dark mode'; });
+    toggles.forEach(t => {
+      const iconName = isDark ? 'sun' : 'moon';
+      const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+      t.innerHTML = `<i data-lucide="${iconName}" class="icon"></i>`;
+      t.title = label;
+      t.setAttribute('aria-label', label);
+      if (window.lucide) lucide.createIcons({ nodes: [t] });
+    });
   }
 
   document.addEventListener('click', (e) => {
@@ -202,6 +209,13 @@
         el.innerHTML = '<i data-lucide="arrow-right" class="icon"></i>';
       });
 
+      // Replace card-footer inline arrow spans
+      document.querySelectorAll('.card-footer span').forEach(el => {
+        if (el.textContent.trim() === '→') {
+          el.innerHTML = '<i data-lucide="arrow-right" class="icon"></i>';
+        }
+      });
+
       // Replace breadcrumb → separators with chevron-right
       document.querySelectorAll('.breadcrumb span').forEach(el => {
         if (el.textContent.trim() === '→') {
@@ -217,6 +231,9 @@
       });
 
       lucide.createIcons();
+
+      // Re-render theme toggle now that Lucide is available
+      updateToggleIcon();
     };
     document.head.appendChild(script);
   })();
