@@ -48,7 +48,7 @@
   --font-mono:        'DM Mono', 'Fira Code', monospace;
 
   /* Type scale — 16px base, 12px floor */
-  --text-xs:    0.75rem;
+  --text-xs:    0.875rem;
   --text-sm:    0.875rem;
   --text-base:  1rem;
   --text-lg:    1.125rem;
@@ -1350,15 +1350,15 @@ strong { font-weight: 500; color: var(--text-primary); }
 .skill-item:hover { border-color: var(--teal-dim); }
 
 .skill-name {
-  font-size: var(--text-sm);
+  font-size: var(--text-base);
   font-weight: 500;
   color: var(--text-primary);
   margin-bottom: var(--sp-2);
 }
 
 .skill-desc {
-  font-size: var(--text-xs);
-  color: var(--text-tertiary);
+  font-size: var(--text-base);
+  color: var(--text-secondary);
   line-height: 1.7;
   margin: 0;
 }
