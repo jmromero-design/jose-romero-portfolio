@@ -1,0 +1,32 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    { "source": "/applied-cro-in-the-financial-sector-case-study", "destination": "/work/santander-nordics-cro/", "permanent": true },
+    { "source": "/fashion-ecommerce-design-website", "destination": "/work/xti-ecommerce-redesign/", "permanent": true },
+    { "source": "/iqos-club-cro-success-case-study", "destination": "/work/iqos-club-cro/", "permanent": true },
+    { "source": "/improving-the-digital-experience-for-a-financial-app", "destination": "/work/mapfre-afin-digital-expansion/", "permanent": true },
+    { "source": "/marketing-campaign-management-platform", "destination": "/work/melia-hotels-campaign-platform/", "permanent": true },
+    { "source": "/dian-rene-music-services-website", "destination": "/work/", "permanent": true },
+    { "source": "/sports-betting-web-application", "destination": "/work/", "permanent": true },
+    { "source": "/delivery-service-website-design", "destination": "/work/", "permanent": true },
+    { "source": "/creative-agency-portfolio-website", "destination": "/work/", "permanent": true },
+    { "source": "/topics/projects", "destination": "/work/", "permanent": true }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }
+      ]
+    }
+  ]
+}

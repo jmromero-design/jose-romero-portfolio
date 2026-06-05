@@ -1,416 +1,696 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jose Romero — UX/UI Designer & CRO Strategist</title>
-  <meta name="description" content="Discover how product design strategy can drive your company's performance in the digital world." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jose Romero — Senior Product Designer</title>
+  <meta name="description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA. Based in Spain, open to remote.">
+  <link rel="canonical" href="https://joseromerodesign.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Jose Romero — Senior Product Designer">
+  <meta property="og:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA.">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:url" content="https://joseromerodesign.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jose Romero — Senior Product Designer">
+  <meta name="twitter:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy.">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+
+  <!-- Schema.org Person -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Jose Romero",
+    "jobTitle": "Senior Product Designer",
+    "url": "https://joseromerodesign.com",
+    "sameAs": ["https://www.linkedin.com/in/joseromerodesign/"],
+    "knowsAbout": ["Product Design","UX Design","Conversion Rate Optimisation","Behavioral Economics","Design Systems","Design Operations","AI Workflow Design","CRO Strategy"],
+    "worksFor": {"@type": "Organization","name": "Garaje de Ideas / Groupe EDG"},
+    "alumniOf": [{"@type": "Organization","name": "Flat 101"},{"@type": "Organization","name": "ISDi / Universidad de La Habana"}],
+    "address": {"@type": "PostalAddress","addressLocality": "Zaragoza","addressCountry": "ES"},
+    "knowsLanguage": ["Spanish","English"]
+  }
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+
+  <style>
+    /* ── Page-specific overrides ── */
+
+    /* About teaser two-col */
+    .about-teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--sp-12), 6vw, var(--sp-24));
+      align-items: center;
+    }
+
+    .about-teaser-visual {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-default);
+    }
+
+    /* Teal portrait placeholder */
+    .about-teaser-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)) 0%,
+        var(--bg-surface-2) 55%,
+        color-mix(in srgb, var(--gold) 4%, var(--bg-surface-2)) 100%
+      );
+    }
+
+    .about-teaser-visual::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--bg-surface-2), transparent);
+    }
+
+    .about-teaser-visual .portrait-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(var(--teal-tint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .about-teaser-visual .portrait-label {
+      position: absolute;
+      bottom: var(--sp-5); left: var(--sp-5);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
+      z-index: 1;
+    }
+
+    /* Thinking teaser quote styling */
+    .thinking-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.45;
+      border-left: 2px solid var(--gold);
+      padding-left: var(--sp-6);
+      margin-bottom: var(--sp-8);
+    }
+
+    .thinking-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+
+    .thinking-topic {
+      font-size: var(--text-xs);
+      color: var(--teal);
+      border: 1px solid var(--teal-tint-strong);
+      background: var(--teal-tint);
+      border-radius: 2px;
+      padding: var(--sp-2) var(--sp-3);
+      letter-spacing: 0.06em;
+    }
+
+    /* Short engagement list */
+    .short-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: var(--sp-6);
+    }
+
+    .short-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) var(--sp-4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      transition: border-color var(--ease-fast);
+    }
+
+    .short-item:hover { border-color: var(--border-default); }
+
+    .short-item-name {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+
+    .short-item-meta {
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+      max-width: 18ch;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 860px) {
+      .about-teaser-grid { grid-template-columns: 1fr; }
+      .about-teaser-visual { aspect-ratio: 16/7; max-height: 300px; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <header class="nav" id="nav">
-    <div class="nav__inner">
-      <a href="#" class="nav__logo" aria-label="Jose Romero Design">
-        <img src="logo.png" alt="Jose Romero Design" class="nav__logo-img" />
-      </a>
-      <nav class="nav__links">
-        <a href="#work">Work</a>
-        <a href="#about">About</a>
-        <a href="#process">Process</a>
-        <a href="#contact" class="nav__cta">Let's Talk</a>
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo" aria-label="Jose Romero — Home">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links" role="list">
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/thinking/">Thinking</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ══════════════════════════════════════════
+         HERO & STATS (Unified)
+    ══════════════════════════════════════════ -->
+    <section class="home-hero section--hero" aria-label="Introduction" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 1px solid var(--border-default);">
+      
+      <!-- Subtle Teal Grid Background -->
+      <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none;
+                  background-image: linear-gradient(var(--teal-tint) 1px, transparent 1px),
+                                    linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
+                  background-size: 40px 40px;
+                  -webkit-mask-image: radial-gradient(ellipse at 50% 0%, black 10%, transparent 70%);
+                  mask-image: radial-gradient(ellipse at 50% 0%, black 10%, transparent 70%);
+                  opacity: 0.6;">
+      </div>
+
+      <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+
+        <div class="hero-animate">
+          <span class="eyebrow">Senior Product Designer · Zaragoza, Spain</span>
+        </div>
+
+        <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
+          Design that works<br>
+          <em class="accent-italic">inside complexity.</em>
+        </h1>
+
+        <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-10);">
+          I'm Jose Romero. I've spent 12 years designing digital products
+          for companies where the work is hard, the teams are large,
+          and the decisions carry real weight.
+          <br><br>
+          Currently embedded at IKEA, working on two of their new
+          business platforms across Europe. Previously at Flat 101, leading
+          CRO and UX for clients including Santander, Meliá Hotels,
+          Mapfre, IQOS, and Mutua Madrileña.
+        </p>
+
+        <div class="hero-actions hero-animate">
+          <a href="/work/" class="btn btn-primary">
+            See my work <span class="arrow">→</span>
+          </a>
+          <a href="/thinking/" class="btn btn-ghost">
+            Read my approach <span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- Stats embedded at the bottom of the hero block -->
+      <div style="border-top: 1px solid var(--border-subtle); background: color-mix(in srgb, var(--bg-surface) 60%, transparent); backdrop-filter: blur(8px);">
+        <div class="container">
+          <div class="stats-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0;">
+            <div class="stat-item" style="padding: var(--sp-6) var(--sp-4); border-right: 1px solid var(--border-subtle);">
+              <div class="stat-value" style="font-family: var(--font-display); font-size: var(--text-4xl); color: var(--teal); line-height: 1; margin-bottom: var(--sp-2);">12 yrs</div>
+              <div class="stat-label" style="font-size: var(--text-xs); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">Professional experience</div>
+            </div>
+            <div class="stat-item" style="padding: var(--sp-6) var(--sp-4); border-right: 1px solid var(--border-subtle);">
+              <div class="stat-value" style="font-family: var(--font-display); font-size: var(--text-4xl); color: var(--teal); line-height: 1; margin-bottom: var(--sp-2);">500k+</div>
+              <div class="stat-label" style="font-size: var(--text-xs); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">IKEA Home Services downloads</div>
+            </div>
+            <div class="stat-item" style="padding: var(--sp-6) var(--sp-4); border-right: 1px solid var(--border-subtle);">
+              <div class="stat-value" style="font-family: var(--font-display); font-size: var(--text-4xl); color: var(--teal); line-height: 1; margin-bottom: var(--sp-2);">+41%</div>
+              <div class="stat-label" style="font-size: var(--text-xs); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">Lead uplift, Mutua Madrileña</div>
+            </div>
+            <div class="stat-item" style="padding: var(--sp-6) var(--sp-4);">
+              <div class="stat-value" style="font-family: var(--font-display); font-size: var(--text-4xl); color: var(--teal); line-height: 1; margin-bottom: var(--sp-2);">4.9</div>
+              <div class="stat-label" style="font-size: var(--text-xs); color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.08em;">IKEA Home Services CSAT</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+    <!-- ══════════════════════════════════════════
+         SELECTED WORK
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="work-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2 id="work-heading">
+            Projects across<br>
+            <em class="accent-italic">complexity and craft.</em>
+          </h2>
+          <p>Enterprise product design, CRO, and design systems work — across banking, marketplace, hospitality, insurance, and retail. Mostly for large organisations, always in complex environments.</p>
+        </div>
+
+        <!-- Featured projects grid -->
+        <div class="grid-auto" role="list">
+
+          <!-- IKEA Home Services -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-ikea-home" role="img" aria-label="IKEA Home Services project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Marketplace</span>
+                </div>
+                <h3 class="card-title">IKEA Home Services</h3>
+                <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
+                <div class="card-footer">
+                  <span class="card-client">Garaje de Ideas × IKEA</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- IKEA Second-hand Marketplace -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/ikea-secondhand-marketplace/" aria-label="View IKEA Second-hand Marketplace case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-ikea-second" role="img" aria-label="IKEA Second-hand Marketplace project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Circular Commerce</span>
+                </div>
+                <h3 class="card-title">IKEA Second&#8209;hand Marketplace</h3>
+                <p class="card-summary">Peer-to-peer resale of IKEA products using IKEA's own catalogue as a listing backbone. Piloted in Spain, now live in five European countries and scaling across the continent.</p>
+                <div class="card-footer">
+                  <span class="card-client">Garaje de Ideas × IKEA</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Santander Nordics CRO -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-santander" role="img" aria-label="Santander Nordics CRO project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--teal">Flat 101</span>
+                  <span class="tag">CRO</span>
+                  <span class="tag">Banking</span>
+                </div>
+                <h3 class="card-title">Santander Nordics — CRO Programme</h3>
+                <p class="card-summary">Lead UX/CRO designer across consumer loan, credit card, deposit, and insurance funnels in Denmark, Sweden, Finland, and Norway. Data-driven experimentation in a regulated, multi-market environment.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Santander</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Meliá Hotels -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/melia-hotels-campaign-platform/" aria-label="View Meliá Hotels case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-melia" role="img" aria-label="Meliá Hotels Campaign Platform project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--teal">Flat 101 · 3 years</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Hospitality</span>
+                </div>
+                <h3 class="card-title">Meliá Hotels — Campaign Management Platform</h3>
+                <p class="card-summary">Conceptualised, designed, and optimised an internal marketing campaign management platform from scratch for Meliá's international headquarters — through director-level workshops to a fully live tool managing campaigns across all countries.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Meliá Hotels International</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- IQOS Club CRO -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/iqos-club-cro/" aria-label="View IQOS Club CRO case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-iqos" role="img" aria-label="IQOS Club CRO project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--teal">Flat 101</span>
+                  <span class="tag">CRO</span>
+                  <span class="tag">Behavioral Economics</span>
+                </div>
+                <h3 class="card-title">IQOS Club Spain — CRO Programme</h3>
+                <p class="card-summary">Project lead for ongoing conversion optimisation across the IQOS Club loyalty portal — fast-cycle experimentation under limited traffic, behavioral economics applied to habit and retention mechanics.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Philip Morris</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- Mapfre AFIN -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/mapfre-afin-digital-expansion/" aria-label="View Mapfre AFIN case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-mapfre" role="img" aria-label="Mapfre AFIN Digital Expansion project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--teal">Flat 101</span>
+                  <span class="tag">Mobile</span>
+                  <span class="tag">FinTech</span>
+                </div>
+                <h3 class="card-title">Mapfre — AFIN App &amp; Digital Expansion</h3>
+                <p class="card-summary">UX design for AFIN, Mapfre's self-service financial app covering investments, savings, and pension plans. Plus digital platform scaling for Mapfre's international brands across Italy, Germany, and Spain.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Mapfre</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- XTI Ecommerce -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/xti-ecommerce-redesign/" aria-label="View XTI Store case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-xti" role="img" aria-label="XTI Store E-commerce Redesign project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--teal">Flat 101</span>
+                  <span class="tag">E-commerce</span>
+                  <span class="tag">Fashion</span>
+                </div>
+                <h3 class="card-title">XTI Store — E-commerce Redesign</h3>
+                <p class="card-summary">Full redesign of a national fashion retailer's digital storefront — balancing brand ambition against the constraints of a Magento platform migration, informed by competitive analysis and Hotjar behavioral data.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × XTI Store</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <!-- IKEA Ways of Working -->
+          <article class="card reveal" role="listitem">
+            <a href="/work/ikea-ways-of-working/" aria-label="View IKEA Ways of Working case study" style="display:contents;">
+              <div class="card-image">
+                <div class="cover-placeholder cover-wow" role="img" aria-label="IKEA Ways of Working System project cover"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Design Ops</span>
+                  <span class="tag">Systems</span>
+                </div>
+                <h3 class="card-title">IKEA — Ways of Working System</h3>
+                <p class="card-summary">Built a cross-tool design operations framework from first principles — spanning Figma, Jira, Confluence, and Phrase — replacing an informal, person-dependent process with something documented, teachable, and resilient.</p>
+                <div class="card-footer">
+                  <span class="card-client">Garaje de Ideas × IKEA</span>
+                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- Shorter engagements -->
+        <div class="reveal" style="margin-top: var(--sp-16);">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--sp-4); margin-bottom: var(--sp-6);">
+            <h3 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300;">Other selected projects</h3>
+            <span style="font-size: var(--text-sm); color: var(--text-tertiary);">Additional engagements at Flat 101</span>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-6);">
+            <!-- Item -->
+            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
+              <div style="display: flex; gap: var(--sp-2);">
+                <span class="tag">Insurance</span>
+                <span class="tag">CRO</span>
+              </div>
+              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Mutua Madrileña</h4>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Ongoing optimization and redesign program.</p>
+              <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+41% lead increase</div>
+            </div>
+
+            <!-- Item -->
+            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
+              <div style="display: flex; gap: var(--sp-2);">
+                <span class="tag">Insurance</span>
+                <span class="tag">CRO</span>
+              </div>
+              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">AXA Spain</h4>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Conversion strategy across multiple product lines.</p>
+              <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+18% insurance contracts</div>
+            </div>
+
+            <!-- Item -->
+            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
+              <div style="display: flex; gap: var(--sp-2);">
+                <span class="tag">Banking</span>
+                <span class="tag">Audit</span>
+              </div>
+              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Bankinter</h4>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Comprehensive experience and conversion audit.</p>
+              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
+            </div>
+
+            <!-- Item -->
+            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
+              <div style="display: flex; gap: var(--sp-2);">
+                <span class="tag">Automotive</span>
+                <span class="tag">Audit</span>
+              </div>
+              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Subaru Spain</h4>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Behavioral and structural site analysis.</p>
+              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
+            </div>
+
+            <!-- Item -->
+            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
+              <div style="display: flex; gap: var(--sp-2);">
+                <span class="tag">Pet Care</span>
+                <span class="tag">CRO</span>
+              </div>
+              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Affinity Petcare</h4>
+              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Ongoing e-commerce conversion optimization.</p>
+              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
+            </div>
+
+          </div>
+          
+          <p style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--sp-8); text-align: right;">
+            Data published by Flat 101. My role was as part of the wider project team.
+          </p>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--sp-10); text-align: center;">
+          <a href="/work/" class="btn btn-ghost">
+            View full work index <span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ABOUT TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="about-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="about-teaser-grid">
+
+          <div class="about-teaser-visual reveal" aria-hidden="true">
+            <div class="portrait-grid"></div>
+            <span class="portrait-label">Jose Romero · Zaragoza, Spain</span>
+          </div>
+
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">About</span>
+            <h2 id="about-heading" style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); margin-bottom: var(--sp-6);">
+              Twelve years.<br>
+              <em class="accent-italic">One consistent way of working.</em>
+            </h2>
+            <p class="body-lg" style="margin-bottom: var(--sp-4);">
+              I've been doing this since I was 21 — first running a small design studio in Havana, then building a career across Spain's largest enterprise accounts, and now embedded inside one of Europe's most recognised brands.
+            </p>
+            <p style="margin-bottom: var(--sp-8);">
+              What's stayed constant across all of it: I work best when the environment is complex, the brief is incomplete, and the answer isn't obvious yet. I work in English and Spanish at professional level and operate comfortably across both.
+            </p>
+            <a href="/about/" class="btn btn-primary">
+              More about me <span class="arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         THINKING TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="thinking-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container container--narrow">
+        <div class="reveal">
+          <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Thinking</span>
+        </div>
+        <blockquote class="thinking-quote reveal">
+          "Most design decisions are behavioral decisions.<br>Treat them that way."
+        </blockquote>
+        <div class="thinking-topics reveal">
+          <span class="thinking-topic">Empathy as a strategic tool</span>
+          <span class="thinking-topic">Behavioral economics in design</span>
+          <span class="thinking-topic">Systems that survive people</span>
+          <span class="thinking-topic">Designing with AI</span>
+        </div>
+        <div class="reveal">
+          <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
+            How I approach<br><em class="accent-italic">the work.</em>
+          </h2>
+          <p style="margin-bottom: var(--sp-8); max-width: 52ch;">
+            A few core ideas I keep coming back to — drawn from 12 years of project work across enterprise digital products, CRO, and team leadership. Not a blog. Just positions.
+          </p>
+          <a href="/thinking/" class="btn btn-ghost">
+            Read my approach <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CLOSING CTA
+    ══════════════════════════════════════════ -->
+    <section class="section--sm" aria-labelledby="cta-heading">
+      <div class="container">
+        <div class="cta-section reveal">
+          <div>
+            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Let's chat</span>
+            <h2 id="cta-heading">
+              Let's collaborate<br>
+              <em>on your next project.</em>
+            </h2>
+          </div>
+          <div class="cta-actions">
+            <a href="https://www.linkedin.com/in/joseromerodesign/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary">
+              Connect on LinkedIn <span class="arrow">→</span>
+            </a>
+            <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+              Send an email <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Jose <span>Romero</span></p>
+        <p class="footer-sub">Senior Product Designer</p>
+        <p class="footer-sub">Zaragoza, Spain · Open to remote opportunities</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
       </nav>
-      <button class="nav__burger" aria-label="Menu" id="burgerBtn">
-        <span></span><span></span><span></span>
-      </button>
     </div>
-  </header>
-
-  <!-- MOBILE MENU -->
-  <div class="mobile-menu" id="mobileMenu">
-    <a href="#work" class="mobile-menu__link">Work</a>
-    <a href="#about" class="mobile-menu__link">About</a>
-    <a href="#process" class="mobile-menu__link">Process</a>
-    <a href="#contact" class="mobile-menu__link">Let's Talk</a>
-  </div>
-
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg-text" aria-hidden="true">UX/UI</div>
-    <div class="hero__content">
-      <div class="hero__badge reveal">Based in Spain 🇪🇸</div>
-      <h1 class="hero__heading reveal">
-        Digital Design that<br/>
-        <span class="gold">Connects, Persuades</span><br/>
-        &amp; Converts
-      </h1>
-      <p class="hero__sub reveal">
-        I combine design, data, and strategic thinking to create interactive
-        digital products that attract the right customers, deliver exceptional
-        experiences, and drive measurable growth.
-      </p>
-      <div class="hero__actions reveal">
-        <a href="#work" class="btn btn--primary">Explore My Work</a>
-        <a href="#contact" class="btn btn--ghost">Let's Talk</a>
-      </div>
-    </div>
-
-    <div class="hero__scroll-hint" aria-hidden="true">
-      <span>Scroll</span>
-      <div class="hero__scroll-line"></div>
-    </div>
-  </section>
-
-  <!-- STATS RIBBON -->
-  <section class="stats reveal">
-    <div class="stats__inner">
-      <div class="stats__item">
-        <span class="stats__num" data-target="10">0</span>
-        <span class="stats__label">Years designing digital</span>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item">
-        <span class="stats__num" data-target="100">0</span>
-        <span class="stats__label">Design projects completed</span>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item">
-        <span class="stats__num" data-target="60">0</span>
-        <span class="stats__label">Specialized digital tools</span>
-      </div>
-      <div class="stats__divider"></div>
-      <div class="stats__item">
-        <span class="stats__num" data-target="5">0</span>
-        <span class="stats__label">Years of university education</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="about section" id="about">
-    <div class="about__inner container">
-      <div class="about__portrait-col reveal">
-        <div class="about__img-wrap">
-          <img
-            src="https://joseromerodesign.com/wp-content/uploads/2024/09/Jose-Romero-Portrait.webp"
-            alt="Jose Romero Portrait"
-          />
-          <div class="about__img-border"></div>
-        </div>
-      </div>
-      <div class="about__text-col reveal">
-        <span class="label-tag">About me</span>
-        <h2 class="about__heading">
-          Your Trusted Partner in<br/>
-          <span class="gold">Design-Driven Growth</span>
-        </h2>
-        <p>
-          I leverage my <strong>10 years of design expertise</strong> and deep understanding of
-          <strong>CRO and Behavioral Economics</strong> to help businesses create
-          websites that are both <strong>beautiful and functional.</strong>
-        </p>
-        <p>
-          I'm passionate about <strong>crafting user experiences</strong> that drive results and
-          <strong>fuel business success.</strong>
-        </p>
-        <div class="about__tags">
-          <span class="tag">UX/UI Design</span>
-          <span class="tag">Product Strategy</span>
-          <span class="tag">CRO</span>
-          <span class="tag">Behavioral Economics</span>
-          <span class="tag">Design Research</span>
-          <span class="tag">E-commerce</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CASE STUDIES -->
-  <section class="section" id="work">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="label-tag">Case Studies</span>
-        <h2>Featured <span class="gold">Projects</span></h2>
-        <p class="section__sub">Real-world challenges, strategic design solutions, measurable results.</p>
-      </div>
-
-      <div class="cases">
-        <article class="case-card reveal" data-index="01">
-          <div class="case-card__tag">Finance</div>
-          <h3 class="case-card__title">From Insights to Growth: Applied CRO in the Financial Sector</h3>
-          <p class="case-card__desc">Leveraging behavioral data to redesign critical conversion flows, increasing qualified leads by 37% for a major financial institution.</p>
-          <div class="case-card__meta">
-            <span>CRO</span><span>UX Research</span><span>Finance</span>
-          </div>
-          <a href="#" class="case-card__link">View Case Study →</a>
-        </article>
-
-        <article class="case-card reveal" data-index="02">
-          <div class="case-card__tag">Music</div>
-          <h3 class="case-card__title">Building a Compelling Website for Music Experiences</h3>
-          <p class="case-card__desc">Crafting a brand-aligned digital presence for Dian Rene that captures the emotion and energy of live music performances.</p>
-          <div class="case-card__meta">
-            <span>Web Design</span><span>Branding</span><span>Music</span>
-          </div>
-          <a href="#" class="case-card__link">View Case Study →</a>
-        </article>
-
-        <article class="case-card reveal" data-index="03">
-          <div class="case-card__tag">Fashion</div>
-          <h3 class="case-card__title">Balancing Brand Vision and Technical Constraints</h3>
-          <p class="case-card__desc">Redesigning the XTI Store e-commerce experience to align brand identity with high-performance conversion architecture.</p>
-          <div class="case-card__meta">
-            <span>E-commerce</span><span>UI Design</span><span>Fashion</span>
-          </div>
-          <a href="#" class="case-card__link">View Case Study →</a>
-        </article>
-
-        <article class="case-card reveal" data-index="04">
-          <div class="case-card__tag">Devices</div>
-          <h3 class="case-card__title">Quitting the Ordinary &amp; Elevating Conversions</h3>
-          <p class="case-card__desc">CRO strategy for IQOS Club, transforming a loyalty portal into a high-conversion digital experience through behavioral design.</p>
-          <div class="case-card__meta">
-            <span>CRO</span><span>Product Design</span><span>Loyalty</span>
-          </div>
-          <a href="#" class="case-card__link">View Case Study →</a>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO GRID -->
-  <section class="section portfolio-section">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="label-tag">Portfolio</span>
-        <h2>More <span class="gold">Work</span></h2>
-      </div>
-      <div class="portfolio-grid">
-        <a href="#" class="portfolio-card reveal">
-          <div class="portfolio-card__img">
-            <img src="https://joseromerodesign.com/wp-content/uploads/2023/11/Portfolio-Cover-1-1024x768.webp"
-                 alt="Creative Agency Portfolio Website" loading="lazy" />
-          </div>
-          <div class="portfolio-card__info">
-            <span class="portfolio-card__cat">Agency / Branding</span>
-            <h4>Creative Agency Portfolio Website</h4>
-          </div>
-          <div class="portfolio-card__hover">View Project →</div>
-        </a>
-
-        <a href="#" class="portfolio-card reveal">
-          <div class="portfolio-card__img">
-            <img src="https://joseromerodesign.com/wp-content/uploads/2023/11/Portfolio-Cover-1024x768.webp"
-                 alt="Delivery Service Website — Cuba" loading="lazy" />
-          </div>
-          <div class="portfolio-card__info">
-            <span class="portfolio-card__cat">E-commerce / Travel</span>
-            <h4>Delivery Service Website Design — Cuba</h4>
-          </div>
-          <div class="portfolio-card__hover">View Project →</div>
-        </a>
-
-        <a href="#" class="portfolio-card reveal">
-          <div class="portfolio-card__img">
-            <img src="https://joseromerodesign.com/wp-content/uploads/2023/11/Portfolio-Cover-2-1024x768.webp"
-                 alt="Sports Betting Web Application" loading="lazy" />
-          </div>
-          <div class="portfolio-card__info">
-            <span class="portfolio-card__cat">Web App / Sports</span>
-            <h4>Sports Betting Web Application</h4>
-          </div>
-          <div class="portfolio-card__hover">View Project →</div>
-        </a>
-      </div>
-      <div class="portfolio-cta reveal">
-        <a href="#" class="btn btn--ghost">See All Projects</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section class="section process-section" id="process">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="label-tag">How I Work</span>
-        <h2>A Proven <span class="gold">Process</span></h2>
-        <p class="section__sub">Three phases that transform business objectives into measurable digital results.</p>
-      </div>
-      <div class="process-steps">
-        <div class="process-step reveal">
-          <div class="process-step__num">01</div>
-          <div class="process-step__icon">🔍</div>
-          <h3>Understand</h3>
-          <p>Research business objectives and user behavioral patterns to define the design strategy grounded in data.</p>
-        </div>
-        <div class="process-step__connector" aria-hidden="true"></div>
-        <div class="process-step reveal">
-          <div class="process-step__num">02</div>
-          <div class="process-step__icon">✦</div>
-          <h3>Create</h3>
-          <p>Apply proven design methodology combining the right tools and processes to craft experiences that resonate.</p>
-        </div>
-        <div class="process-step__connector" aria-hidden="true"></div>
-        <div class="process-step reveal">
-          <div class="process-step__num">03</div>
-          <div class="process-step__icon">📈</div>
-          <h3>Optimize</h3>
-          <p>Use CRO techniques and controlled experimentation to continuously refine and drive measurable growth.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section class="section testimonials-section">
-    <div class="container">
-      <div class="section__header reveal">
-        <span class="label-tag">Testimonials</span>
-        <h2>What People <span class="gold">Say</span></h2>
-      </div>
-      <div class="testimonials-track" id="testimonialsTrack">
-        <div class="testimonial-slide active">
-          <blockquote class="testimonial">
-            <div class="testimonial__stars">★★★★★</div>
-            <p class="testimonial__quote">"His exceptional ability to direct and organize work processes ensures alignment and quality. Jose's strategic vision and attention to detail make him an invaluable partner."</p>
-            <footer class="testimonial__footer">
-              <img src="https://joseromerodesign.com/wp-content/uploads/2024/04/Isabel-Vidal.jpeg"
-                   alt="Isabel Vidal" class="testimonial__avatar" />
-              <div>
-                <strong>Isabel Vidal</strong>
-                <span>Product Designer</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="testimonial-slide">
-          <blockquote class="testimonial">
-            <div class="testimonial__stars">★★★★★</div>
-            <p class="testimonial__quote">"Jose brings strategy and fluid client communication to every project. One of the best design professionals I've had the pleasure of working with."</p>
-            <footer class="testimonial__footer">
-              <img src="https://joseromerodesign.com/wp-content/uploads/2024/04/Emilio-Bordona.jpeg"
-                   alt="Emilio Bordona" class="testimonial__avatar" />
-              <div>
-                <strong>Emilio Bordona</strong>
-                <span>Project Manager</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="testimonial-slide">
-          <blockquote class="testimonial">
-            <div class="testimonial__stars">★★★★★</div>
-            <p class="testimonial__quote">"Vast knowledge of technologies and capable of moving between areas of knowledge seamlessly. Truly a designer who understands the full product ecosystem."</p>
-            <footer class="testimonial__footer">
-              <img src="https://joseromerodesign.com/wp-content/uploads/2024/04/Luis-Enrique-Lazaro.jpeg"
-                   alt="Luis Enrique Lázaro" class="testimonial__avatar" />
-              <div>
-                <strong>Luis Enrique Lázaro</strong>
-                <span>Architect &amp; Designer</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-        <div class="testimonial-slide">
-          <blockquote class="testimonial">
-            <div class="testimonial__stars">★★★★★</div>
-            <p class="testimonial__quote">"Meticulous attention to detail and commitment to perfection are admirable. Jose consistently delivers work that exceeds expectations and sets a new standard."</p>
-            <footer class="testimonial__footer">
-              <img src="https://joseromerodesign.com/wp-content/uploads/2024/04/Erick-Hernandez.jpeg"
-                   alt="Erick Hernández" class="testimonial__avatar" />
-              <div>
-                <strong>Erick Hernández</strong>
-                <span>Visual Designer</span>
-              </div>
-            </footer>
-          </blockquote>
-        </div>
-      </div>
-      <div class="testimonials-nav reveal">
-        <button class="testimonials-nav__btn" id="prevBtn" aria-label="Previous">←</button>
-        <div class="testimonials-nav__dots" id="navDots">
-          <button class="dot active" data-index="0"></button>
-          <button class="dot" data-index="1"></button>
-          <button class="dot" data-index="2"></button>
-          <button class="dot" data-index="3"></button>
-        </div>
-        <button class="testimonials-nav__btn" id="nextBtn" aria-label="Next">→</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section class="section contact-section" id="contact">
-    <div class="container">
-      <div class="contact__inner">
-        <div class="contact__text reveal">
-          <span class="label-tag">Get in Touch</span>
-          <h2>Let's Discuss<br/><span class="gold">Your Project</span></h2>
-          <p>Let's discuss your project and explore how I can help you achieve your goals.</p>
-          <a href="https://linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener" class="contact__linkedin">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-            Connect on LinkedIn
-          </a>
-        </div>
-        <form class="contact__form reveal" id="contactForm">
-          <div class="form-group">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" name="name" placeholder="John Smith" required />
-          </div>
-          <div class="form-group">
-            <label for="email">Email Address</label>
-            <input type="email" id="email" name="email" placeholder="john@company.com" required />
-          </div>
-          <div class="form-group">
-            <label for="project">Tell me about your project</label>
-            <textarea id="project" name="project" rows="5" placeholder="I need help with..." required></textarea>
-          </div>
-          <button type="submit" class="btn btn--primary btn--full">
-            Send Message
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13"/><path d="M22 2L15 22 11 13 2 9l20-7z"/></svg>
-          </button>
-          <div class="form__success" id="formSuccess">
-            ✓ Message sent! I'll be in touch shortly.
-          </div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__inner">
-        <div class="footer__brand">
-          <img src="logo.png" alt="Jose Romero Design" class="footer__logo-img" />
-          <p>UX/UI Designer · CRO Strategist · Based in Spain</p>
-        </div>
-        <div class="footer__links">
-          <a href="#work">Work</a>
-          <a href="#about">About</a>
-          <a href="#process">Process</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <div class="footer__social">
-          <a href="https://linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener" aria-label="LinkedIn">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          </a>
-          <a href="https://joseromerodesign.com" target="_blank" rel="noopener" aria-label="Website">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          </a>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <p>&copy; 2026 Jose Romero Design. All rights reserved.</p>
-        <a href="#">Privacy Policy</a>
-      </div>
-    </div>
+    <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
-  <script src="main.js"></script>
+  <script src="/assets/js/main.js" defer></script>
+
 </body>
 </html>
