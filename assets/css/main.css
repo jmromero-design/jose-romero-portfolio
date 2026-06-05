@@ -353,21 +353,24 @@ strong { font-weight: 500; color: var(--text-primary); }
   align-items: center;
   justify-content: space-between;
   padding-inline: var(--gutter);
+  background: color-mix(in srgb, var(--bg-base) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.4);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4);
+  border-bottom: 1px solid var(--border-subtle);
   transition: background var(--ease-base), border-color var(--ease-base);
 }
 
 .nav.scrolled {
-  background: color-mix(in srgb, var(--bg-base) 92%, transparent);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--border-subtle);
+  background: color-mix(in srgb, var(--bg-base) 94%, transparent);
+  border-bottom-color: var(--border-default);
 }
 
-/* Wordmark — Fraunces with italic surname */
+/* Wordmark — full name italic in Fraunces */
 .nav-logo {
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 400;
+  font-style: italic;
   color: var(--text-primary);
   transition: color var(--ease-fast);
   letter-spacing: 0.01em;
@@ -479,7 +482,9 @@ strong { font-weight: 500; color: var(--text-primary); }
   .nav-links {
     position: fixed;
     top: var(--nav-height); left: 0; right: 0; bottom: 0;
-    background: var(--bg-base);
+    background: color-mix(in srgb, var(--bg-base) 92%, transparent);
+    backdrop-filter: blur(20px) saturate(1.3);
+    -webkit-backdrop-filter: blur(20px) saturate(1.3);
     flex-direction: column;
     justify-content: center;
     gap: var(--sp-8);
@@ -888,29 +893,31 @@ strong { font-weight: 500; color: var(--text-primary); }
   box-shadow: inset 0 0 0 8px var(--teal-tint);
 }
 
-/* Cover typographic overlay — text identity on all project covers */
-.cover-text {
+/* Cover number — over-scaled ordinal as visual decoration */
+.cover-number {
   position: absolute;
-  bottom: 0; left: 0; right: 0;
-  z-index: 2;
-  padding: var(--sp-6) var(--sp-5) var(--sp-4);
-  background: linear-gradient(to bottom, transparent, color-mix(in srgb, var(--bg-surface-2) 90%, transparent));
-}
-.cover-label {
-  display: block;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   font-family: var(--font-display);
-  font-size: var(--text-base);
-  font-weight: 400;
-  color: var(--text-primary);
-  line-height: 1.2;
-  margin-bottom: var(--sp-1);
+  font-size: clamp(4.5rem, 14vw, 8rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--teal-dim);
+  opacity: 0.35;
+  pointer-events: none;
+  user-select: none;
 }
-.cover-cat {
-  display: block;
-  font-size: var(--text-xs);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--teal-text);
+
+/* Hero stats strip — persistent glass treatment */
+.hero-stats {
+  border-top: 1px solid var(--border-default);
+  background: color-mix(in srgb, var(--bg-surface) 82%, transparent);
+  backdrop-filter: blur(10px) saturate(1.3);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  padding: var(--sp-8) 0;
+  margin-top: auto;
 }
 
 /* ------------------------------------------------------------

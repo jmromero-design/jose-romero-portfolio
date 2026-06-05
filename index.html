@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Jose Romero — Senior Product Designer</title>
-  <meta name="description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA. Based in Spain, open to remote.">
+  <meta name="description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA. Working from Zaragoza, Spain.">
   <link rel="canonical" href="https://joseromerodesign.com/">
 
   <!-- Open Graph -->
@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=5">
+  <link rel="stylesheet" href="/assets/css/main.css?v=6">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
   <style>
@@ -251,7 +251,7 @@
       </div>
 
       <!-- Stats embedded at the bottom of the hero block -->
-      <div style="border-top: 1px solid var(--border-default); background: var(--bg-surface); padding: var(--sp-8) 0; margin-top: auto;">
+      <div class="hero-stats">
         <div class="container">
           <div class="stats-grid">
             <div class="stat-item hero-animate" style="animation-delay:0.55s">
@@ -300,7 +300,7 @@
             <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-ikea-home" role="img" aria-label="IKEA Home Services project cover">
-                  <div class="cover-text"><span class="cover-label">IKEA Home Services</span><span class="cover-cat">Product Design</span></div>
+                  <span class="cover-number">01</span>
                 </div>
               </div>
               <div class="card-body">
@@ -324,7 +324,7 @@
             <a href="/work/ikea-secondhand-marketplace/" aria-label="View IKEA Second-hand Marketplace case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-ikea-second" role="img" aria-label="IKEA Second-hand Marketplace project cover">
-                  <div class="cover-text"><span class="cover-label">IKEA Second-hand</span><span class="cover-cat">Circular Commerce</span></div>
+                  <span class="cover-number">02</span>
                 </div>
               </div>
               <div class="card-body">
@@ -348,7 +348,7 @@
             <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-santander" role="img" aria-label="Santander Nordics CRO project cover">
-                  <div class="cover-text"><span class="cover-label">Santander Nordics</span><span class="cover-cat">CRO · Banking</span></div>
+                  <span class="cover-number">03</span>
                 </div>
               </div>
               <div class="card-body">
@@ -372,7 +372,7 @@
             <a href="/work/melia-hotels-campaign-platform/" aria-label="View Meliá Hotels case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-melia" role="img" aria-label="Meliá Hotels Campaign Platform project cover">
-                  <div class="cover-text"><span class="cover-label">Meliá Hotels</span><span class="cover-cat">Campaign Platform</span></div>
+                  <span class="cover-number">04</span>
                 </div>
               </div>
               <div class="card-body">
@@ -396,7 +396,7 @@
             <a href="/work/iqos-club-cro/" aria-label="View IQOS Club CRO case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-iqos" role="img" aria-label="IQOS Club CRO project cover">
-                  <div class="cover-text"><span class="cover-label">IQOS Club Spain</span><span class="cover-cat">CRO · Loyalty</span></div>
+                  <span class="cover-number">05</span>
                 </div>
               </div>
               <div class="card-body">
@@ -420,7 +420,7 @@
             <a href="/work/mapfre-afin-digital-expansion/" aria-label="View Mapfre AFIN case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-mapfre" role="img" aria-label="Mapfre AFIN Digital Expansion project cover">
-                  <div class="cover-text"><span class="cover-label">Mapfre AFIN</span><span class="cover-cat">Mobile · FinTech</span></div>
+                  <span class="cover-number">06</span>
                 </div>
               </div>
               <div class="card-body">
@@ -444,7 +444,7 @@
             <a href="/work/xti-ecommerce-redesign/" aria-label="View XTI Store case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-xti" role="img" aria-label="XTI Store E-commerce Redesign project cover">
-                  <div class="cover-text"><span class="cover-label">XTI Store</span><span class="cover-cat">E-commerce</span></div>
+                  <span class="cover-number">07</span>
                 </div>
               </div>
               <div class="card-body">
@@ -468,7 +468,7 @@
             <a href="/work/ikea-ways-of-working/" aria-label="View IKEA Ways of Working case study" style="display:contents;">
               <div class="card-image">
                 <div class="cover-placeholder cover-wow" role="img" aria-label="IKEA Ways of Working System project cover">
-                  <div class="cover-text"><span class="cover-label">IKEA Ways of Working</span><span class="cover-cat">Design Ops</span></div>
+                  <span class="cover-number">08</span>
                 </div>
               </div>
               <div class="card-body">
@@ -643,10 +643,10 @@
       <div class="container">
         <div class="cta-section reveal">
           <div>
-            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Let's chat</span>
+            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Available</span>
             <h2 id="cta-heading">
-              Let's collaborate<br>
-              <em>on your next project.</em>
+              Hard problems,<br>
+              <em class="accent-italic">welcome.</em>
             </h2>
           </div>
           <div class="cta-actions">
@@ -674,7 +674,7 @@
       <div>
         <p class="footer-name">Jose <span>Romero</span></p>
         <p class="footer-sub">Senior Product Designer</p>
-        <p class="footer-sub">Zaragoza, Spain · Open to remote opportunities</p>
+        <p class="footer-sub">Working from Zaragoza, Spain</p>
       </div>
       <nav class="footer-nav" aria-label="Footer navigation">
         <a href="/work/">Work</a>
@@ -687,7 +687,7 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
-  <script src="/assets/js/main.js?v=5" defer></script>
+  <script src="/assets/js/main.js?v=6" defer></script>
 
 </body>
 </html>
