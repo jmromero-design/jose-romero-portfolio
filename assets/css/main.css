@@ -1003,16 +1003,16 @@ strong { font-weight: 500; color: var(--text-primary); }
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  /* clear nav + breathing room above eyebrow */
-  padding-top: calc(var(--nav-height) + clamp(var(--sp-8), 5vw, var(--sp-16)));
+  /* nav clearance + 80px breathing room above eyebrow */
+  padding-top: calc(var(--nav-height) + var(--sp-20));
   padding-bottom: 0;
   position: relative;
   overflow: hidden;
 }
 
-/* breathing room between last button and stats strip */
+/* 80px breathing room between last button and stats strip */
 .home-hero > .container {
-  padding-bottom: clamp(var(--sp-10), 5vw, var(--sp-14));
+  padding-bottom: var(--sp-20);
 }
 
 /* Teal architectural grid — right half */
