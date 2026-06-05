@@ -1102,6 +1102,19 @@ strong { font-weight: 500; color: var(--text-primary); }
 /* ------------------------------------------------------------
    17. CASE STUDY PAGES
    ------------------------------------------------------------ */
+.breadcrumb {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-8);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+.breadcrumb a { color: var(--text-tertiary); transition: color var(--ease-fast); }
+.breadcrumb a:hover { color: var(--gold); }
+.breadcrumb span { color: var(--text-secondary); }
+
 .cs-hero {
   padding-top: calc(var(--nav-height) + var(--sp-16));
   padding-bottom: var(--sp-16);
