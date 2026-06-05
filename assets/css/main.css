@@ -750,43 +750,45 @@ strong { font-weight: 500; color: var(--text-primary); }
   background: var(--bg-surface-2);
 }
 
-/* Concentric circles + icon — positioned left, covers ~65% of card */
+/* Concentric filled circles emanating from bottom-left corner */
 .cover-visual {
   position: absolute;
-  top: 0; left: 0; bottom: 0;
-  width: 65%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: visible;
+  inset: 0;
 }
 
 .cover-visual::before {
   content: '';
   position: absolute;
-  width: 84px; height: 84px;
+  width: 240px; height: 240px;
   border-radius: 50%;
-  border: 1.5px solid var(--teal-dim);
+  /* Inner filled circle — darkest, slight teal cast */
+  background: color-mix(in srgb, var(--teal) 8%, var(--bg-base));
+  bottom: -50px;
+  left: -50px;
+  /* Four filled rings expanding outward, each 55px wide */
   box-shadow:
-    0 0 0 26px var(--teal-tint),
-    0 0 0 52px color-mix(in srgb, var(--teal) 4%, transparent),
-    0 0 0 78px color-mix(in srgb, var(--teal) 2%, transparent);
+    0 0 0 55px  color-mix(in srgb, var(--teal) 11%, var(--bg-surface-2)),
+    0 0 0 110px color-mix(in srgb, var(--teal) 7%,  var(--bg-surface-2)),
+    0 0 0 165px color-mix(in srgb, var(--teal) 3.5%, var(--bg-surface-2)),
+    0 0 0 220px color-mix(in srgb, var(--teal) 1.5%, transparent);
   pointer-events: none;
 }
 
-/* Per-project icon — Lucide SVG, centered in circles */
+/* Per-project icon — bottom-left, inside the dark inner circle */
 .cover-icon {
-  width: 80px; height: 80px;
-  position: relative;
+  position: absolute;
+  bottom: var(--sp-6);
+  left: var(--sp-6);
+  width: 44px; height: 44px;
   z-index: 1;
-  stroke: color-mix(in srgb, var(--teal) 60%, var(--teal-text));
-  stroke-width: 1.25;
+  stroke: var(--teal-text);
+  stroke-width: 1.5;
   fill: none;
   stroke-linecap: round;
   stroke-linejoin: round;
 }
 
-/* Cover number — upper-right corner, ~50% larger, background-ghost gray */
+/* Cover number — upper-right, ghost gray */
 .cover-number {
   position: absolute;
   top: var(--sp-2);
