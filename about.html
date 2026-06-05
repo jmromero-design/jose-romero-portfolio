@@ -57,6 +57,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="preload" href="/assets/images/portrait.webp" as="image" fetchpriority="high">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
   <style>
@@ -144,7 +145,8 @@
                    class="portrait-img"
                    width="1200" height="1400"
                    loading="eager"
-                   decoding="async">
+                   decoding="async"
+                   fetchpriority="high">
             </div>
             <div class="portrait-caption">Jose Romero · Zaragoza, Spain</div>
           </div>
