@@ -659,6 +659,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   overflow: hidden;
   position: relative;
   background: var(--bg-surface-2);
+  container-type: inline-size;
 }
 
 .card-image img {
@@ -753,6 +754,9 @@ strong { font-weight: 500; color: var(--text-primary); }
 .cover-visual {
   position: absolute;
   inset: 0;
+  /* Scale from icon center (60px from left, 55px from bottom) */
+  transform-origin: 60px calc(100% - 55px);
+  scale: calc(100cqw / 576);
 }
 
 /* Circle center at (60, 269) in 576×324 card → left:-43px bottom:-48px */
@@ -786,19 +790,23 @@ strong { font-weight: 500; color: var(--text-primary); }
   opacity: 0.6;
 }
 
-/* Number — Fraunces 300, 100px, right-aligned at top-right */
+/* Number — fixed at spec size (100px), scaled via container query */
 .cover-number {
   position: absolute;
   top: 0;
   right: 24px;
   left: auto;
   transform: none;
+  /* Scale from top-right corner, stays anchored to card's top-right */
+  transform-origin: top right;
+  scale: calc(100cqw / 576);
   font-family: var(--font-display);
-  font-size: clamp(3.5rem, 8vw, 6.25rem); /* ≈100px at 576px card */
+  font-size: 6.25rem; /* 100px at spec — container query handles all scaling */
   font-weight: 300;
   line-height: 0.9;
   letter-spacing: -0.04em;
-  color: color-mix(in srgb, var(--bg-surface-2) 50%, var(--text-primary)); /* ≈#37342e */
+  /* Subtler than before: mostly background, hint of foreground */
+  color: color-mix(in srgb, var(--bg-surface-2) 75%, var(--text-primary));
   opacity: 1;
   pointer-events: none;
   user-select: none;
@@ -1485,6 +1493,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   border-bottom: 1px solid var(--border-default);
   position: relative;
   overflow: hidden;
+  container-type: inline-size;
 }
 
 .work-card-content {
