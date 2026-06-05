@@ -43,7 +43,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=3">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
   <style>
@@ -205,7 +205,7 @@
     <!-- ══════════════════════════════════════════
          HERO & STATS (Unified)
     ══════════════════════════════════════════ -->
-    <section class="home-hero section--hero" aria-label="Introduction" style="position: relative; display: flex; flex-direction: column; justify-content: space-between; border-bottom: 1px solid var(--border-default); padding-bottom: 0;">
+    <section class="home-hero section--hero" aria-label="Introduction" style="position: relative; display: flex; flex-direction: column; border-bottom: 1px solid var(--border-default); padding-bottom: 0;">
       
       <!-- Subtle Teal Grid Background -->
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none;
@@ -251,7 +251,7 @@
       </div>
 
       <!-- Stats embedded at the bottom of the hero block -->
-      <div style="border-top: 1px solid var(--border-default); background: var(--bg-surface); padding: var(--sp-8) 0;">
+      <div style="border-top: 1px solid var(--border-default); background: var(--bg-surface); padding: var(--sp-8) 0; margin-top: auto;">
         <div class="container">
           <div class="stats-grid">
             <div class="stat-item hero-animate" style="animation-delay:0.55s">
@@ -311,7 +311,7 @@
                 <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
                 <div class="card-footer">
                   <span class="card-client">Garaje de Ideas × IKEA</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -333,7 +333,7 @@
                 <p class="card-summary">Peer-to-peer resale of IKEA products using IKEA's own catalogue as a listing backbone. Piloted in Spain, now live in five European countries and scaling across the continent.</p>
                 <div class="card-footer">
                   <span class="card-client">Garaje de Ideas × IKEA</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -355,7 +355,7 @@
                 <p class="card-summary">Lead UX/CRO designer across consumer loan, credit card, deposit, and insurance funnels in Denmark, Sweden, Finland, and Norway. Data-driven experimentation in a regulated, multi-market environment.</p>
                 <div class="card-footer">
                   <span class="card-client">Flat 101 × Santander</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -377,7 +377,7 @@
                 <p class="card-summary">Conceptualised, designed, and optimised an internal marketing campaign management platform from scratch for Meliá's international headquarters — through director-level workshops to a fully live tool managing campaigns across all countries.</p>
                 <div class="card-footer">
                   <span class="card-client">Flat 101 × Meliá Hotels International</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -399,7 +399,7 @@
                 <p class="card-summary">Project lead for ongoing conversion optimisation across the IQOS Club loyalty portal — fast-cycle experimentation under limited traffic, behavioral economics applied to habit and retention mechanics.</p>
                 <div class="card-footer">
                   <span class="card-client">Flat 101 × Philip Morris</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -421,7 +421,7 @@
                 <p class="card-summary">UX design for AFIN, Mapfre's self-service financial app covering investments, savings, and pension plans. Plus digital platform scaling for Mapfre's international brands across Italy, Germany, and Spain.</p>
                 <div class="card-footer">
                   <span class="card-client">Flat 101 × Mapfre</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -443,7 +443,7 @@
                 <p class="card-summary">Full redesign of a national fashion retailer's digital storefront — balancing brand ambition against the constraints of a Magento platform migration, informed by competitive analysis and Hotjar behavioral data.</p>
                 <div class="card-footer">
                   <span class="card-client">Flat 101 × XTI Store</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -465,7 +465,7 @@
                 <p class="card-summary">Built a cross-tool design operations framework from first principles — spanning Figma, Jira, Confluence, and Phrase — replacing an informal, person-dependent process with something documented, teachable, and resilient.</p>
                 <div class="card-footer">
                   <span class="card-client">Garaje de Ideas × IKEA</span>
-                  <span style="color: var(--gold); font-size: var(--text-base);">→</span>
+                  <span class="arrow">→</span>
                 </div>
               </div>
             </a>
@@ -477,7 +477,7 @@
         <div class="reveal" style="margin-top: var(--sp-16);">
           <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--sp-4); margin-bottom: var(--sp-6);">
             <h3 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300;">Other selected projects</h3>
-            <span style="font-size: var(--text-sm); color: var(--text-tertiary);">Additional engagements at Flat 101</span>
+            <span style="font-size: var(--text-sm); color: var(--text-secondary);">Additional engagements at Flat 101</span>
           </div>
           
           <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-6);">
@@ -488,7 +488,7 @@
                 <span class="tag">CRO</span>
               </div>
               <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Mutua Madrileña</h4>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Ongoing optimization and redesign program.</p>
+              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Ongoing optimization and redesign program.</p>
               <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+41% lead increase</div>
             </div>
 
@@ -499,7 +499,7 @@
                 <span class="tag">CRO</span>
               </div>
               <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">AXA Spain</h4>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Conversion strategy across multiple product lines.</p>
+              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Conversion strategy across multiple product lines.</p>
               <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+18% insurance contracts</div>
             </div>
 
@@ -510,7 +510,7 @@
                 <span class="tag">Audit</span>
               </div>
               <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Bankinter</h4>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Comprehensive experience and conversion audit.</p>
+              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Comprehensive experience and conversion audit.</p>
               <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
             </div>
 
@@ -521,7 +521,7 @@
                 <span class="tag">Audit</span>
               </div>
               <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Subaru Spain</h4>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Behavioral and structural site analysis.</p>
+              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Behavioral and structural site analysis.</p>
               <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
             </div>
 
@@ -532,7 +532,7 @@
                 <span class="tag">CRO</span>
               </div>
               <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Affinity Petcare</h4>
-              <p style="font-size: var(--text-sm); color: var(--text-secondary); margin: 0; flex: 1;">Ongoing e-commerce conversion optimization.</p>
+              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Ongoing e-commerce conversion optimization.</p>
               <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Results NDA protected</div>
             </div>
 
@@ -671,7 +671,7 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=3" defer></script>
 
 </body>
 </html>

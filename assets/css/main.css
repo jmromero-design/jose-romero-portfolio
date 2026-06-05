@@ -41,6 +41,7 @@
   --teal-dim:         #2A7A72;
   --teal-tint:        rgba(75, 191, 178, 0.08);
   --teal-tint-strong: rgba(75, 191, 178, 0.15);
+  --teal-text:        #66D4C8; /* text-on-dark: ~5.2:1 on bg-surface */
 
   /* Typography */
   --font-display:     'Fraunces', Georgia, serif;
@@ -122,6 +123,7 @@
   --teal-dim:         #145E58;
   --teal-tint:        rgba(31, 138, 128, 0.08);
   --teal-tint-strong: rgba(31, 138, 128, 0.14);
+  --teal-text:        #0E5750; /* text-on-light: ~5.8:1 on bg-surface */
 }
 
 /* System preference fallback (no JS required) */
@@ -148,6 +150,7 @@
     --teal-dim:         #145E58;
     --teal-tint:        rgba(31, 138, 128, 0.08);
     --teal-tint-strong: rgba(31, 138, 128, 0.14);
+    --teal-text:        #0E5750;
   }
 }
 
@@ -681,7 +684,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 .tag--teal {
-  color: var(--teal);
+  color: var(--teal-text);
   border-color: var(--teal-tint-strong);
   background: var(--teal-tint);
 }
@@ -948,6 +951,7 @@ strong { font-weight: 500; color: var(--text-primary); }
    ------------------------------------------------------------ */
 .section-header { margin-bottom: clamp(var(--sp-10), 5vw, var(--sp-16)); }
 .section-header .eyebrow { margin-bottom: var(--sp-4); }
+.section-header h2 { font-family: var(--font-display); font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); font-weight: 400; }
 .section-header p { margin-top: var(--sp-5); max-width: 52ch; font-size: var(--text-lg); }
 
 /* ------------------------------------------------------------
@@ -1654,8 +1658,93 @@ strong { font-weight: 500; color: var(--text-primary); }
   .cta-section { flex-direction: column; align-items: flex-start; }
 }
 
+/* Work card footer — mirrors .card-footer */
+.work-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: var(--sp-4);
+  border-top: 1px solid var(--border-subtle);
+  margin-top: auto;
+}
+
+.work-card-client {
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+}
+
 /* Arrow spans in buttons and CTAs */
 .arrow { display: inline-flex; align-items: center; margin-left: var(--sp-1); }
+
+/* ------------------------------------------------------------
+   27. THINKING PAGE
+   ------------------------------------------------------------ */
+.article-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-12);
+}
+
+.article-toc a {
+  font-size: var(--text-xs);
+  color: var(--teal-text);
+  border: 1px solid var(--teal-tint-strong);
+  background: var(--teal-tint);
+  border-radius: 2px;
+  padding: var(--sp-2) var(--sp-3);
+  letter-spacing: 0.06em;
+  text-decoration: none;
+  transition: background var(--ease-fast), border-color var(--ease-fast);
+}
+
+.article-toc a:hover {
+  background: var(--teal-tint-strong);
+  border-color: var(--teal-dim);
+}
+
+.article-block {
+  max-width: 720px;
+  margin: 0 auto clamp(var(--sp-12), 10vw, var(--sp-24));
+  border-left: 2px solid var(--border-default);
+  padding-left: clamp(var(--sp-4), 4vw, var(--sp-8));
+  transition: border-color var(--ease-base);
+}
+
+.article-block:hover {
+  border-left-color: var(--gold);
+}
+
+.article-title {
+  font-family: var(--font-display);
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+  font-weight: 300;
+  color: var(--text-primary);
+  margin-bottom: var(--sp-6);
+  line-height: 1.25;
+}
+
+.article-body p {
+  margin-bottom: var(--sp-4);
+  font-size: var(--text-lg);
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+.article-body p:last-child {
+  margin-bottom: 0;
+}
+
+.update-note {
+  text-align: center;
+  font-size: var(--text-sm);
+  color: var(--text-tertiary);
+  border-top: 1px solid var(--border-subtle);
+  padding-top: var(--sp-8);
+  max-width: 720px;
+  margin: 0 auto;
+}
 
 /* ------------------------------------------------------------
    25. PRINT

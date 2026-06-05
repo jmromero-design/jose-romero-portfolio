@@ -26,88 +26,10 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/main.css?v=3">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
-  <style>
-    /* ── Page-specific overrides ── */
-    
-    .article-block {
-      max-width: 720px;
-      margin: 0 auto clamp(var(--sp-12), 10vw, var(--sp-24));
-      border-left: 2px solid var(--border-default);
-      padding-left: clamp(var(--sp-4), 4vw, var(--sp-8));
-      transition: border-color var(--ease-default);
-    }
-    
-    .article-block:hover {
-      border-left-color: var(--gold);
-    }
 
-    .article-title {
-      font-family: var(--font-display);
-      font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
-      font-weight: 300;
-      color: var(--text-primary);
-      margin-bottom: var(--sp-6);
-      line-height: 1.25;
-    }
-
-    .article-body p {
-      margin-bottom: var(--sp-4);
-      font-size: var(--text-lg);
-      line-height: 1.7;
-      color: var(--text-secondary);
-    }
-
-    .article-body p:last-child {
-      margin-bottom: 0;
-    }
-
-    .update-note {
-      text-align: center;
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      border-top: 1px solid var(--border-subtle);
-      padding-top: var(--sp-8);
-      max-width: 720px;
-      margin: 0 auto;
-    }
-
-    /* CTA section */
-    .cta-section {
-      background: var(--bg-surface);
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
-      padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--sp-8);
-      flex-wrap: wrap;
-    }
-
-    .cta-section h2 {
-      font-size: clamp(var(--text-xl), 3.5vw, var(--text-3xl));
-      max-width: 24ch;
-    }
-
-    .cta-section h2 em {
-      font-style: italic;
-      color: var(--gold);
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: var(--sp-4);
-      flex-wrap: wrap;
-      flex-shrink: 0;
-    }
-
-    @media (max-width: 860px) {
-      .cta-section { flex-direction: column; align-items: flex-start; }
-    }
-  </style>
 </head>
 <body>
 
@@ -162,8 +84,15 @@
     <section class="section" style="padding-top: 0;">
       <div class="container">
 
+        <nav class="article-toc reveal" aria-label="Jump to article">
+          <a href="#empathy">Empathy as a strategic tool</a>
+          <a href="#behavioral-decisions">Behavioral decisions</a>
+          <a href="#process">Process that survives people</a>
+          <a href="#ai-ratio">AI and the ratio of thinking</a>
+        </nav>
+
         <!-- Piece 1 -->
-        <article class="article-block reveal">
+        <article id="empathy" class="article-block reveal">
           <h2 class="article-title">Empathy isn't about feeling what other people feel. It's about understanding how they see.</h2>
           <div class="article-body">
             <p>There's a version of empathy that's emotional — you put yourself in someone's position and feel what they might feel. That has its place. But in design work, especially inside large organisations, what's more useful is a colder, more deliberate kind: the ability to map how another person understands the situation, what they're optimising for, what they're afraid of, and what they need to be true in order to move forward.</p>
@@ -173,7 +102,7 @@
         </article>
 
         <!-- Piece 2 -->
-        <article class="article-block reveal">
+        <article id="behavioral-decisions" class="article-block reveal">
           <h2 class="article-title">Most design decisions are behavioral decisions. Treat them that way.</h2>
           <div class="article-body">
             <p>The standard design process asks: what do users need? That's a good question. But the behavioral economics question is different: given how human cognition actually works — with its shortcuts, biases, and context-dependence — what does this interface make people likely to do?</p>
@@ -184,7 +113,7 @@
         </article>
 
         <!-- Piece 3 -->
-        <article class="article-block reveal">
+        <article id="process" class="article-block reveal">
           <h2 class="article-title">The best process is one that doesn't depend on any single person to remember it.</h2>
           <div class="article-body">
             <p>When I joined the IKEA Home Services team, there was no shared working system. Files existed everywhere. The hierarchy of work — what belonged in Figma, what in Confluence, what in Jira — was unclear and inconsistently applied. The process that existed depended on specific individuals to hold it in memory and transmit it informally. When those individuals weren't available, the system collapsed.</p>
@@ -194,7 +123,7 @@
         </article>
 
         <!-- Piece 4 -->
-        <article class="article-block reveal">
+        <article id="ai-ratio" class="article-block reveal">
           <h2 class="article-title">AI changes the ratio of thinking to doing. That's not a small thing.</h2>
           <div class="article-body">
             <p>What I've been exploring over the past year is what happens when you introduce AI into a design process that was already complex — specifically, the Shape Up methodology my team uses at IKEA. Shape Up asks people to hold a lot of context, make judgment calls on incomplete information, and move quickly through shaping decisions that have long downstream consequences.</p>
@@ -223,7 +152,7 @@
               Let's collaborate<br>
               <em class="accent-italic">on your next project.</em>
             </h2>
-            <p style="margin-top: var(--sp-4); max-width: 48ch; font-size: var(--text-sm);">
+            <p style="margin-top: var(--sp-4); max-width: 48ch;">
               If you have a complex problem that needs a strategic design approach, or if you just want to connect and talk about product work — I'd be glad to have a conversation.
             </p>
           </div>
@@ -265,7 +194,7 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
-  <script src="/assets/js/main.js" defer></script>
+  <script src="/assets/js/main.js?v=3" defer></script>
 
 </body>
 </html>
