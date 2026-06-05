@@ -742,176 +742,64 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* ------------------------------------------------------------
    11. PROJECT COVER PLACEHOLDERS
-   All use teal palette — swappable with real images
+   Unified concentric-circle system with per-project icon
    ------------------------------------------------------------ */
 .cover-placeholder {
   position: absolute; inset: 0;
   overflow: hidden;
+  background: var(--bg-surface-2);
 }
 
-/* IKEA Home Services */
-.cover-ikea-home {
-  background: linear-gradient(135deg, color-mix(in srgb, var(--teal) 6%, var(--bg-surface-2)) 0%, var(--bg-surface-2) 100%);
+/* Concentric circles + icon — positioned left, covers ~65% of card */
+.cover-visual {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 65%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
 }
-.cover-ikea-home::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--teal-tint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
-  background-size: 24px 24px;
-}
-.cover-ikea-home::after {
+
+.cover-visual::before {
   content: '';
   position: absolute;
+  width: 84px; height: 84px;
+  border-radius: 50%;
+  border: 1.5px solid var(--teal-dim);
+  box-shadow:
+    0 0 0 26px var(--teal-tint),
+    0 0 0 52px color-mix(in srgb, var(--teal) 4%, transparent),
+    0 0 0 78px color-mix(in srgb, var(--teal) 2%, transparent);
+  pointer-events: none;
+}
+
+/* Per-project icon — Lucide SVG, centered in circles */
+.cover-icon {
   width: 80px; height: 80px;
-  border: 1px solid var(--teal-dim);
-  border-radius: 50%;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 20px var(--teal-tint), 0 0 40px var(--teal-tint);
+  position: relative;
+  z-index: 1;
+  stroke: color-mix(in srgb, var(--teal) 60%, var(--teal-text));
+  stroke-width: 1.25;
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-/* IKEA Secondhand */
-.cover-ikea-second {
-  background: var(--bg-surface-2);
-}
-.cover-ikea-second::before {
-  content: '';
-  position: absolute;
-  width: 160px; height: 160px;
-  border: 1px solid var(--teal-tint-strong);
-  border-radius: 50%;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 0 0 32px var(--teal-tint), 0 0 0 64px color-mix(in srgb, var(--teal) 3%, transparent);
-}
-.cover-ikea-second::after {
-  content: '↻';
-  position: absolute;
-  font-size: 2rem;
-  color: var(--teal-dim);
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  font-family: sans-serif;
-}
-
-/* Santander CRO */
-.cover-santander {
-  background: var(--bg-surface-2);
-}
-.cover-santander::before {
-  content: '';
-  position: absolute;
-  bottom: 28%; left: 10%; right: 10%; height: 1px;
-  background: var(--teal-dim);
-}
-.cover-santander::after {
-  content: '';
-  position: absolute;
-  bottom: 28%; left: 14%;
-  width: 58%; height: 36%;
-  background: linear-gradient(to top, var(--teal-tint-strong) 0%, transparent 100%);
-  clip-path: polygon(0 100%, 12% 55%, 32% 72%, 54% 28%, 76% 44%, 100% 10%, 100% 100%);
-}
-
-/* Meliá Hotels */
-.cover-melia {
-  background: var(--bg-surface-2);
-}
-.cover-melia::before {
-  content: '';
-  position: absolute; inset: 18%;
-  border: 1px solid var(--teal-dim);
-  transform: rotate(5deg);
-}
-.cover-melia::after {
-  content: '';
-  position: absolute; inset: 18%;
-  border: 1px solid var(--teal-tint-strong);
-  transform: rotate(-5deg);
-}
-
-/* IQOS */
-.cover-iqos {
-  background: var(--bg-surface-2);
-}
-.cover-iqos::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 50% 50%, var(--teal-tint-strong) 0%, transparent 60%);
-}
-.cover-iqos::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 1px; height: 60%;
-  background: linear-gradient(to bottom, transparent, var(--teal-dim), transparent);
-}
-
-/* Mapfre */
-.cover-mapfre {
-  background: var(--bg-surface-2);
-}
-.cover-mapfre::before {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 52px; height: 88px;
-  border: 1px solid var(--teal-dim);
-  border-radius: 7px;
-  box-shadow: 0 0 0 12px var(--teal-tint);
-}
-
-/* XTI Fashion */
-.cover-xti {
-  background: var(--bg-surface-2);
-}
-.cover-xti::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image: linear-gradient(var(--teal-tint) 1px, transparent 1px);
-  background-size: 100% 16px;
-}
-
-/* Ways of Working */
-.cover-wow {
-  background: var(--bg-surface-2);
-}
-.cover-wow::before {
-  content: '';
-  position: absolute; inset: 0;
-  background-image:
-    linear-gradient(var(--teal-tint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
-  background-size: 36px 36px;
-}
-.cover-wow::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 64px; height: 64px;
-  border: 1px solid var(--teal-dim);
-  border-radius: var(--radius-md);
-  box-shadow: inset 0 0 0 8px var(--teal-tint);
-}
-
-/* Cover number — over-scaled ordinal as visual decoration */
+/* Cover number — upper-right corner, ~50% larger, background-ghost gray */
 .cover-number {
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  top: var(--sp-2);
+  right: var(--sp-3);
+  left: auto;
+  transform: none;
   font-family: var(--font-display);
-  font-size: clamp(4.5rem, 14vw, 8rem);
+  font-size: clamp(6rem, 18vw, 11rem);
   font-weight: 300;
-  line-height: 1;
-  letter-spacing: -0.03em;
-  color: var(--teal-dim);
-  opacity: 0.35;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: color-mix(in srgb, var(--bg-surface-2) 55%, var(--text-primary));
+  opacity: 1;
   pointer-events: none;
   user-select: none;
 }
@@ -1594,10 +1482,6 @@ strong { font-weight: 500; color: var(--text-primary); }
   width: 100%;
   aspect-ratio: 16/9;
   background-color: var(--bg-surface-2);
-  background-image:
-    linear-gradient(var(--teal-tint) 1px, transparent 1px),
-    linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
-  background-size: 28px 28px;
   border-bottom: 1px solid var(--border-default);
   position: relative;
   overflow: hidden;
