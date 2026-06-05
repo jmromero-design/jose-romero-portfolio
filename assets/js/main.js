@@ -186,4 +186,39 @@
     });
   }
 
+
+  /* ----------------------------------------------------------
+     8. LUCIDE ICONS — load and auto-replace arrow/chevron patterns
+     ---------------------------------------------------------- */
+  (function loadIcons() {
+    const script = document.createElement('script');
+    script.src = 'https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js';
+    script.defer = true;
+    script.onload = function () {
+      if (!window.lucide) return;
+
+      // Replace .arrow text spans with arrow-right icon
+      document.querySelectorAll('.arrow').forEach(el => {
+        el.innerHTML = '<i data-lucide="arrow-right" class="icon"></i>';
+      });
+
+      // Replace breadcrumb → separators with chevron-right
+      document.querySelectorAll('.breadcrumb span').forEach(el => {
+        if (el.textContent.trim() === '→') {
+          el.innerHTML = '<i data-lucide="chevron-right" class="icon icon--xs"></i>';
+        }
+      });
+
+      // Add external-link icon to all external links (footer, nav, etc.)
+      document.querySelectorAll('a[target="_blank"]').forEach(el => {
+        if (!el.querySelector('[data-lucide]') && !el.querySelector('img')) {
+          el.insertAdjacentHTML('beforeend', '<i data-lucide="external-link" class="icon icon--xs" style="margin-left:0.25em;opacity:0.7;"></i>');
+        }
+      });
+
+      lucide.createIcons();
+    };
+    document.head.appendChild(script);
+  })();
+
 })();
