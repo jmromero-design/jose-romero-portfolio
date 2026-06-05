@@ -1408,10 +1408,11 @@ strong { font-weight: 500; color: var(--text-primary); }
 .skill-item:hover { border-color: var(--border-strong); transform: translateY(-2px); }
 
 .skill-name {
-  font-size: var(--text-base);
-  font-weight: 500;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 400;
   color: var(--text-primary);
-  margin-bottom: var(--sp-2);
+  margin-bottom: var(--sp-3);
 }
 
 .skill-desc {
