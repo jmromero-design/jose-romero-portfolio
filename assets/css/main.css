@@ -24,7 +24,7 @@
 
   /* Text */
   --text-primary:     #F2EEE6;
-  --text-secondary:   #9A9690;
+  --text-secondary:   #D4CFC6;
   --text-tertiary:    #5C5955;
   --text-inverse:     #090908;
 
@@ -105,7 +105,7 @@
   --border-strong:    #B0ABA2;
 
   --text-primary:     #1A1917;
-  --text-secondary:   #5A5650;
+  --text-secondary:   #2E2B28;
   --text-tertiary:    #8A8680;
   --text-inverse:     #F7F4EF;
 
@@ -135,7 +135,7 @@
     --border-default:   #C8C3BB;
     --border-strong:    #B0ABA2;
     --text-primary:     #1A1917;
-    --text-secondary:   #5A5650;
+    --text-secondary:   #2E2B28;
     --text-tertiary:    #8A8680;
     --text-inverse:     #F7F4EF;
     --gold:             #B85520;
@@ -462,7 +462,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .nav-toggle span {
   display: block;
   width: 22px; height: 1px;
-  background: var(--text-secondary);
+  background: var(--text-primary);
   transition: transform var(--ease-base), opacity var(--ease-base);
 }
 
