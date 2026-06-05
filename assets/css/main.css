@@ -631,13 +631,15 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 .card:hover {
-  border-color: var(--border-strong);
+  border-color: var(--gold-dim);
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 0 1px var(--teal-tint);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.3), 0 0 0 1px var(--gold-tint);
 }
 
+.card:hover .arrow { color: var(--gold); }
+
 [data-theme="light"] .card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 0 0 1px var(--teal-tint-strong);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 0 0 1px var(--gold-tint-strong);
 }
 
 .card-image {
@@ -1192,9 +1194,11 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 .next-project:hover {
-  border-color: var(--border-strong);
+  border-color: var(--gold-dim);
   transform: translateY(-2px);
 }
+
+.next-project:hover .arrow { color: var(--gold); }
 
 .next-project-label {
   font-size: var(--text-xs);
@@ -1529,10 +1533,12 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 .work-card:hover {
-  border-color: var(--border-strong);
+  border-color: var(--gold-dim);
   transform: translateY(-3px);
   box-shadow: 0 12px 40px rgba(0,0,0,0.25);
 }
+
+.work-card:hover .arrow { color: var(--gold); }
 
 [data-theme="light"] .work-card:hover {
   box-shadow: 0 6px 24px rgba(0,0,0,0.10);
