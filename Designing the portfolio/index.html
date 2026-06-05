@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,21 +62,44 @@
       aspect-ratio: 4/5;
       border-radius: var(--radius-lg);
       overflow: hidden;
-      background-color: var(--bg-surface-2);
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-default);
+    }
+
+    /* Teal portrait placeholder */
+    .about-teaser-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        160deg,
+        color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)) 0%,
+        var(--bg-surface-2) 55%,
+        color-mix(in srgb, var(--gold) 4%, var(--bg-surface-2)) 100%
+      );
+    }
+
+    .about-teaser-visual::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 40%;
+      background: linear-gradient(to top, var(--bg-surface-2), transparent);
+    }
+
+    .about-teaser-visual .portrait-grid {
+      position: absolute; inset: 0;
       background-image:
         linear-gradient(var(--teal-tint) 1px, transparent 1px),
         linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
       background-size: 32px 32px;
-      border: 1px solid var(--border-default);
     }
 
-    .about-teaser-portrait {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center bottom;
-      display: block;
-      position: relative;
+    .about-teaser-visual .portrait-label {
+      position: absolute;
+      bottom: var(--sp-5); left: var(--sp-5);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.08em;
       z-index: 1;
     }
 
@@ -559,13 +582,9 @@
       <div class="container">
         <div class="about-teaser-grid">
 
-          <div class="about-teaser-visual reveal">
-            <img src="/assets/images/portrait.webp"
-                 alt="Jose Romero, Senior Product Designer"
-                 class="about-teaser-portrait"
-                 width="1200" height="1400"
-                 loading="lazy"
-                 decoding="async">
+          <div class="about-teaser-visual reveal" aria-hidden="true">
+            <div class="portrait-grid"></div>
+            <span class="portrait-label">Jose Romero · Zaragoza, Spain</span>
           </div>
 
           <div class="reveal">

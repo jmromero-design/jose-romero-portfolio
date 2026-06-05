@@ -1,0 +1,341 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.hp{background:#090908;color:#F2EEE6;font-family:'Outfit',sans-serif;font-weight:300;font-size:16px;border-radius:8px;overflow:hidden}
+.hp a{color:inherit;text-decoration:none}
+
+/* NAV */
+.n{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(9,9,8,0.95);border-bottom:1px solid #2A2A27}
+.nlogo{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:#F2EEE6}
+.nlogo em{font-style:italic}
+.nlinks{display:flex;gap:32px;align-items:center}
+.nlink{font-size:14px;color:#9A9690}
+.ncta{font-size:14px;color:#E8955A;border:1.5px solid #9A5A28;padding:8px 20px;border-radius:4px;background:rgba(232,149,90,0.1)}
+.ntog{font-size:16px;color:#5C5955;border:1px solid #2A2A27;width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+
+/* HERO & STATS */
+.hero{position:relative;display:flex;flex-direction:column;justify-content:space-between;border-bottom:1px solid #1E1E1B;min-height:100vh}
+.hero-bg{position:absolute;top:0;left:0;right:0;bottom:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(75,191,178,0.08) 1px,transparent 1px),linear-gradient(90deg,rgba(75,191,178,0.08) 1px,transparent 1px);background-size:40px 40px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,black 10%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0%,black 10%,transparent 70%);opacity:0.6}
+.hero-inner{padding:calc(72px + 5vh) 40px 5vh;display:flex;flex-direction:column;justify-content:center;flex:1}
+.heye{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#4BBFB2;display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.heye::after{content:'';height:1px;width:36px;background:#2A7A72}
+.hh1{font-family:'Fraunces',serif;font-size:clamp(44px, 7vw, 84px);font-weight:300;line-height:1.1;letter-spacing:-0.02em;color:#F2EEE6;margin-bottom:24px;max-width:900px}
+.hh1 em{font-style:italic;color:#E8955A}
+.hsub{font-size:18px;color:#9A9690;line-height:1.85;max-width:600px;margin-bottom:40px}
+.hacts{display:flex;gap:24px;align-items:center}
+.hbtnp{font-size:14px;font-weight:500;color:#E8955A;border:1.5px solid #9A5A28;padding:12px 24px;border-radius:4px;background:rgba(232,149,90,0.1);letter-spacing:0.05em;cursor:pointer}
+.hbtng{font-size:14px;color:#9A9690;letter-spacing:0.04em;cursor:pointer}
+
+/* STATS BAR */
+.stats-wrap{border-top:1px solid #2A2A27;background:rgba(17,17,16,0.6);backdrop-filter:blur(8px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat{padding:24px 32px;border-right:1px solid #2A2A27;display:flex;flex-direction:column;justify-content:center}
+.stat:last-child{border-right:none}
+.sv{font-family:'Fraunces',serif;font-size:36px;font-weight:300;color:#4BBFB2;line-height:1;margin-bottom:8px}
+.sl{font-size:12px;color:#5C5955;letter-spacing:0.08em;text-transform:uppercase;font-family:'Outfit',sans-serif}
+
+/* WORK SECTION */
+.ws{padding:clamp(80px, 10vw, 128px) 40px;border-bottom:1px solid #1E1E1B;min-height:70vh;display:flex;flex-direction:column;justify-content:center}
+.seye{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#4BBFB2;display:flex;align-items:center;gap:16px;margin-bottom:24px}
+.seye::after{content:'';height:1px;width:36px;background:#2A7A72}
+.sh2{font-family:'Fraunces',serif;font-size:clamp(32px, 5vw, 60px);font-weight:300;color:#F2EEE6;line-height:1.1;margin-bottom:24px}
+.sh2 em{font-style:italic;color:#E8955A}
+.ssub{font-size:16px;color:#9A9690;max-width:600px;margin-bottom:48px;line-height:1.8}
+.cards{display:grid;grid-template-columns:repeat(auto-fill, minmax(340px, 1fr));gap:24px}
+.card{background:#111110;border:1px solid #2A2A27;border-radius:12px;overflow:hidden;display:flex;flex-direction:column}
+.cimg{aspect-ratio:16/9;position:relative;overflow:hidden;background:#181816}
+
+/* Cover placeholders */
+.c1{background:linear-gradient(135deg,rgba(75,191,178,0.06) 0%,#181816 100%)}
+.c1::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(75,191,178,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(75,191,178,0.07) 1px,transparent 1px);background-size:20px 20px}
+.c1::after{content:'';position:absolute;width:50px;height:50px;border:1px solid #2A7A72;border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 14px rgba(75,191,178,0.05)}
+.c2{background:#181816}
+.c2::before{content:'';position:absolute;width:120px;height:120px;border:1px solid rgba(75,191,178,0.15);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 24px rgba(75,191,178,0.04)}
+.c3{background:#181816}
+.c3::after{content:'';position:absolute;bottom:25%;left:10%;right:10%;height:1px;background:#2A7A72}
+.c3::before{content:'';position:absolute;bottom:25%;left:14%;width:56%;height:34%;background:linear-gradient(to top,rgba(75,191,178,0.15) 0%,transparent 100%);clip-path:polygon(0 100%,12% 55%,32% 72%,54% 28%,76% 44%,100% 10%,100% 100%)}
+.c4{background:#181816}
+.c4::before{content:'';position:absolute;inset:18%;border:1px solid #2A7A72;transform:rotate(5deg)}
+.c4::after{content:'';position:absolute;inset:18%;border:1px solid rgba(75,191,178,0.12);transform:rotate(-5deg)}
+.c5{background:#181816}
+.c5::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 50% 50%,rgba(75,191,178,0.1) 0%,transparent 60%)}
+.c5::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:1px;height:56%;background:linear-gradient(to bottom,transparent,#2A7A72,transparent)}
+.c6{background:#181816}
+.c6::before{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:40px;height:68px;border:1px solid #2A7A72;border-radius:5px;box-shadow:0 0 0 10px rgba(75,191,178,0.05)}
+
+.cbody{padding:24px 24px 32px;display:flex;flex-direction:column;flex:1}
+.ctags{display:flex;gap:8px;margin-bottom:16px;flex-wrap:wrap}
+.tag{font-size:12px;padding:4px 8px;border-radius:2px;letter-spacing:0.05em}
+.tg{color:#E8955A;background:rgba(232,149,90,0.1);border:1px solid rgba(232,149,90,0.2)}
+.tt{color:#4BBFB2;background:rgba(75,191,178,0.08);border:1px solid rgba(75,191,178,0.15)}
+.tn{color:#5C5955;background:transparent;border:1px solid #1E1E1B}
+.ctitle{font-family:'Fraunces',serif;font-size:24px;font-weight:400;color:#F2EEE6;line-height:1.2;margin-bottom:12px}
+.ctext{font-size:14px;color:#9A9690;line-height:1.75;flex:1}
+.cfoot{margin-top:24px;padding-top:16px;border-top:1px solid #1E1E1B;display:flex;justify-content:space-between;align-items:center}
+.cclient{font-size:12px;color:#5C5955;letter-spacing:0.05em}
+.carr{font-size:16px;color:#3A3A36}
+
+/* SHORTER LIST */
+.slist{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.sitem{display:flex;flex-direction:column;gap:12px;padding:24px;background:#111110;border:1px solid #1E1E1B;border-radius:6px}
+.sitem-tags{display:flex;gap:8px}
+.siname{font-size:18px;font-weight:400;color:#F2EEE6;line-height:1.4}
+.simeta{font-size:14px;color:#9A9690;flex:1}
+.sresult{font-size:12px;color:#4BBFB2;font-weight:500;margin-top:auto;padding-top:16px;border-top:1px solid #1E1E1B}
+.slabel{font-size:12px;color:#5C5955;margin-top:32px;text-align:right}
+
+/* ABOUT TEASER */
+.at{padding:clamp(80px, 10vw, 128px) 40px;border-bottom:1px solid #1E1E1B;display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center;min-height:70vh}
+.avis{border-radius:12px;overflow:hidden;aspect-ratio:4/5;background:#181816;border:1px solid #2A2A27;position:relative;max-height:600px}
+.avis::before{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(75,191,178,0.1) 0%,#181816 55%,rgba(232,149,90,0.04) 100%)}
+.avis .agrid{position:absolute;inset:0;background-image:linear-gradient(rgba(75,191,178,0.05) 1px,transparent 1px),linear-gradient(90deg,rgba(75,191,178,0.05) 1px,transparent 1px);background-size:28px 28px}
+.alabel{position:absolute;bottom:20px;left:20px;font-size:12px;color:#5C5955;letter-spacing:0.06em;z-index:1}
+.ah2{font-family:'Fraunces',serif;font-size:clamp(32px, 5vw, 60px);font-weight:300;color:#F2EEE6;line-height:1.15;margin-bottom:24px}
+.ah2 em{font-style:italic;color:#E8955A}
+.abody{font-size:16px;color:#9A9690;line-height:1.8;margin-bottom:24px}
+.abtn{font-size:14px;font-weight:500;color:#E8955A;border:1.5px solid #9A5A28;padding:12px 24px;border-radius:4px;background:rgba(232,149,90,0.1);display:inline-block;margin-top:8px;cursor:pointer}
+
+/* THINKING TEASER */
+.tt2{padding:clamp(80px, 10vw, 128px) 40px;border-bottom:1px solid #1E1E1B;min-height:70vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.tt2 .seye{justify-content:center;margin-bottom:24px}
+.tt2 .seye::after{display:none}
+.tq{font-family:'Fraunces',serif;font-style:italic;font-size:clamp(24px, 4vw, 44px);font-weight:300;color:#F2EEE6;line-height:1.45;margin-bottom:40px;max-width:800px}
+.ttopics{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:32px}
+.ttopic{font-size:12px;color:#4BBFB2;border:1px solid rgba(75,191,178,0.2);background:rgba(75,191,178,0.08);border-radius:4px;padding:8px 16px;letter-spacing:0.05em}
+.tbody{font-size:16px;color:#9A9690;max-width:600px;margin-bottom:32px;line-height:1.8}
+.tlink{font-size:14px;color:#9A9690;letter-spacing:0.04em;cursor:pointer}
+
+/* CTA */
+.cta2{padding:clamp(64px, 8vw, 96px) 40px}
+.ctabox{background:#111110;border:1px solid #2A2A27;border-radius:12px;padding:48px;display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap;max-width:1200px;margin:0 auto}
+.ctah2{font-family:'Fraunces',serif;font-size:clamp(24px, 4vw, 44px);font-weight:300;color:#F2EEE6;line-height:1.25;max-width:600px}
+.ctah2 em{font-style:italic;color:#E8955A}
+.ctaacts{display:flex;gap:16px;flex-wrap:wrap;flex-shrink:0}
+.ctabtn{font-size:14px;font-weight:500;color:#E8955A;border:1.5px solid #9A5A28;padding:12px 24px;border-radius:4px;background:rgba(232,149,90,0.1);letter-spacing:0.04em;cursor:pointer}
+.ctabtn2{font-size:14px;color:#9A9690;letter-spacing:0.04em;padding:12px;cursor:pointer}
+
+/* FOOTER */
+.ft{padding:48px 40px 32px;border-top:1px solid #2A2A27}
+.fti{display:flex;justify-content:space-between;margin-bottom:32px;max-width:1200px;margin:0 auto 32px}
+.ftn{font-family:'Fraunces',serif;font-size:20px;color:#F2EEE6;font-weight:400;margin-bottom:8px}
+.ftn em{font-style:italic}
+.fts{font-size:14px;color:#5C5955;line-height:1.7}
+.flinks{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.flink{font-size:14px;color:#5C5955;cursor:pointer}
+.fcopy{font-size:12px;color:#3A3A36;border-top:1px solid #1E1E1B;padding-top:24px;max-width:1200px;margin:0 auto}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:none}
+  .stat:nth-child(1),.stat:nth-child(2){border-bottom:1px solid #2A2A27}
+  .at{grid-template-columns:1fr;gap:40px}
+}
+@media (max-width: 768px) {
+  .n{padding:0 20px}
+  .nlinks{display:none} /* Hamburger goes here */
+  .hero-inner{padding:calc(72px + 5vh) 20px 5vh}
+  .hacts{flex-direction:column;align-items:flex-start}
+  .ws, .at, .tt2, .cta2, .ft{padding-left:20px;padding-right:20px}
+  .ctabox{flex-direction:column;align-items:flex-start;padding:32px 24px}
+  .fti{flex-direction:column;gap:32px}
+  .flinks{align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+}
+@media (max-width: 480px) {
+  .stats{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}
+  .stat{flex:0 0 70%;scroll-snap-align:start;border-right:1px solid #2A2A27;border-bottom:none !important}
+  .sitem{flex-direction:column;align-items:flex-start;gap:8px}
+}
+</style>
+
+<div class="hp">
+
+  <div class="n">
+    <div class="nlogo">Jose <em>Romero</em></div>
+    <div class="nlinks">
+      <span class="nlink">Work</span>
+      <span class="nlink">About</span>
+      <span class="nlink">Thinking</span>
+      <span class="ncta">Contact</span>
+      <span class="ntog">○</span>
+    </div>
+  </div>
+
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-inner">
+      <div class="heye">Senior Product Designer · Zaragoza, Spain</div>
+      <div class="hh1">Design that works<br><em>inside complexity.</em></div>
+      <p class="hsub">I'm Jose Romero. I've spent 12 years designing digital products for companies where the work is hard, the teams are large, and the decisions carry real weight.<br><br>Currently embedded at IKEA. Previously leading CRO and UX at Flat 101 for Santander, Meliá Hotels, and Mapfre.</p>
+      <div class="hacts">
+        <span class="hbtnp">See my work →</span>
+        <span class="hbtng">Read my approach →</span>
+      </div>
+    </div>
+    <div class="stats-wrap">
+      <div class="stats">
+        <div class="stat"><div class="sv">12 yrs</div><div class="sl">Professional experience</div></div>
+        <div class="stat"><div class="sv">500k+</div><div class="sl">IKEA downloads</div></div>
+        <div class="stat"><div class="sv">+41%</div><div class="sl">Leads, Mutua Madrileña</div></div>
+        <div class="stat"><div class="sv">4.9</div><div class="sl">IKEA Home Services CSAT</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ws">
+    <div class="seye">Selected work</div>
+    <div class="sh2">Projects across<br><em>complexity and craft.</em></div>
+    <p class="ssub">Enterprise product design, CRO, and design systems work — across banking, marketplace, hospitality, insurance, and retail.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="cimg c1"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tg">IKEA · Current</span><span class="tag tn">Product Design</span></div>
+          <div class="ctitle">IKEA Home Services</div>
+          <p class="ctext">Peer-to-peer marketplace. 500,000+ downloads, 7 cities, 4.9/5.</p>
+          <div class="cfoot"><span class="cclient">Garaje de Ideas × IKEA</span><span class="carr">→</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cimg c2"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tg">IKEA · Current</span><span class="tag tn">Circular Commerce</span></div>
+          <div class="ctitle">IKEA Second-hand Marketplace</div>
+          <p class="ctext">Peer-to-peer resale, live in five European countries.</p>
+          <div class="cfoot"><span class="cclient">Garaje de Ideas × IKEA</span><span class="carr">→</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cimg c3"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tt">Flat 101</span><span class="tag tn">CRO · Banking</span></div>
+          <div class="ctitle">Santander Nordics — CRO</div>
+          <p class="ctext">Lead UX/CRO across four Nordic banking markets.</p>
+          <div class="cfoot"><span class="cclient">Flat 101 × Santander</span><span class="carr">→</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cimg c4"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tt">Flat 101 · 3 yrs</span><span class="tag tn">Hospitality</span></div>
+          <div class="ctitle">Meliá Hotels — Campaign Platform</div>
+          <p class="ctext">Built from zero to a live, global internal platform.</p>
+          <div class="cfoot"><span class="cclient">Flat 101 × Meliá Hotels</span><span class="carr">→</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cimg c5"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tt">Flat 101</span><span class="tag tn">Behavioral Economics</span></div>
+          <div class="ctitle">IQOS Club — CRO Programme</div>
+          <p class="ctext">Fast-cycle experimentation under limited traffic.</p>
+          <div class="cfoot"><span class="cclient">Flat 101 × Philip Morris</span><span class="carr">→</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="cimg c6"></div>
+        <div class="cbody">
+          <div class="ctags"><span class="tag tt">Flat 101</span><span class="tag tn">Mobile · FinTech</span></div>
+          <div class="ctitle">Mapfre — AFIN App</div>
+          <p class="ctext">Self-service financial app + international expansion.</p>
+          <div class="cfoot"><span class="cclient">Flat 101 × Mapfre</span><span class="carr">→</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 64px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #1E1E1B;padding-bottom:16px;margin-bottom:24px;">
+        <h3 style="font-family:'Fraunces',serif;font-size:20px;font-weight:300;">Other selected projects</h3>
+        <span style="font-size:14px;color:#5C5955;">Additional engagements at Flat 101</span>
+      </div>
+      <div class="slist">
+        <div class="sitem">
+          <div class="sitem-tags"><span class="tag tn">Insurance</span><span class="tag tn">CRO</span></div>
+          <div class="siname">Mutua Madrileña</div>
+          <div class="simeta">Ongoing optimization and redesign program.</div>
+          <div class="sresult">+41% lead increase</div>
+        </div>
+        <div class="sitem">
+          <div class="sitem-tags"><span class="tag tn">Insurance</span><span class="tag tn">CRO</span></div>
+          <div class="siname">AXA Spain</div>
+          <div class="simeta">Conversion strategy across multiple product lines.</div>
+          <div class="sresult">+18% insurance contracts</div>
+        </div>
+        <div class="sitem">
+          <div class="sitem-tags"><span class="tag tn">Banking</span><span class="tag tn">Audit</span></div>
+          <div class="siname">Bankinter</div>
+          <div class="simeta">Comprehensive experience and conversion audit.</div>
+          <div class="sresult" style="color:#5C5955;">Results NDA protected</div>
+        </div>
+        <div class="sitem">
+          <div class="sitem-tags"><span class="tag tn">Automotive</span><span class="tag tn">Audit</span></div>
+          <div class="siname">Subaru Spain</div>
+          <div class="simeta">Behavioral and structural site analysis.</div>
+          <div class="sresult" style="color:#5C5955;">Results NDA protected</div>
+        </div>
+        <div class="sitem">
+          <div class="sitem-tags"><span class="tag tn">Pet Care</span><span class="tag tn">CRO</span></div>
+          <div class="siname">Affinity Petcare</div>
+          <div class="simeta">Ongoing e-commerce conversion optimization.</div>
+          <div class="sresult" style="color:#5C5955;">Results NDA protected</div>
+        </div>
+      </div>
+      <div class="slabel">Data published by Flat 101. My role was as part of the wider project team.</div>
+    </div>
+  </div>
+
+  <div class="at">
+    <div class="avis">
+      <div class="agrid"></div>
+      <span class="alabel">Jose Romero · Zaragoza, Spain</span>
+    </div>
+    <div>
+      <div class="seye" style="margin-bottom:14px">About</div>
+      <div class="ah2">Twelve years.<br><em>One consistent way of working.</em></div>
+      <p class="abody">I've been doing this since I was 21 — first running a small design studio in Havana, then building a career across Spain's largest enterprise accounts, and now embedded inside one of Europe's most recognised brands.</p>
+      <p class="abody">What's stayed constant: I work best when the environment is complex, the brief is incomplete, and the answer isn't obvious yet.</p>
+      <span class="abtn">More about me →</span>
+    </div>
+  </div>
+
+  <div class="tt2">
+    <div class="seye" style="margin-bottom:14px">Thinking</div>
+    <blockquote class="tq">"Most design decisions are behavioral decisions.<br>Treat them that way."</blockquote>
+    <div class="ttopics">
+      <span class="ttopic">Empathy as a strategic tool</span>
+      <span class="ttopic">Behavioral economics in design</span>
+      <span class="ttopic">Systems that survive people</span>
+      <span class="ttopic">Designing with AI</span>
+    </div>
+    <p class="tbody">A few core ideas I keep coming back to — drawn from 12 years of project work. Not a blog. Just positions.</p>
+    <span class="tlink">Read my approach →</span>
+  </div>
+
+  <div class="cta2">
+    <div class="ctabox">
+      <div class="ctah2">Let's collaborate<br><em>on your next project.</em></div>
+      <div class="ctaacts">
+        <span class="ctabtn">Connect on LinkedIn →</span>
+        <span class="ctabtn2">Send an email →</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ft">
+    <div class="fti">
+      <div>
+        <div class="ftn">Jose <em>Romero</em></div>
+        <div class="fts">Senior Product Designer<br>Zaragoza, Spain · Open to remote</div>
+      </div>
+      <div class="flinks">
+        <span class="flink">Work</span>
+        <span class="flink">About</span>
+        <span class="flink">Thinking</span>
+        <span class="flink">LinkedIn →</span>
+        <span class="flink">Email →</span>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 Jose Romero. All rights reserved.</div>
+  </div>
+
+</div>

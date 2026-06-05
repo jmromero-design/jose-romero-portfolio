@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,15 +61,6 @@
 
   <style>
     /* ── Page-specific overrides ── */
-
-    /* Portrait image */
-    .portrait-img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-      display: block;
-    }
 
     /* CTA section */
     .cta-section {
@@ -139,12 +130,7 @@
           <!-- Left Column: Portrait -->
           <div class="about-portrait hero-animate">
             <div class="portrait-frame">
-              <img src="/assets/images/portrait.webp"
-                   alt="Jose Romero, Senior Product Designer"
-                   class="portrait-img"
-                   width="1200" height="1400"
-                   loading="eager"
-                   decoding="async">
+              <div class="portrait-placeholder" role="img" aria-label="Jose Romero portrait placeholder"></div>
             </div>
             <div class="portrait-caption">Jose Romero · Zaragoza, Spain</div>
           </div>

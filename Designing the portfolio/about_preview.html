@@ -1,0 +1,342 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.ap{background:#090908;color:#F2EEE6;font-family:'Outfit',sans-serif;font-weight:300;font-size:16px;border-radius:8px;overflow:hidden}
+.ap a{color:inherit;text-decoration:none}
+
+/* NAV */
+.ap .n{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(9,9,8,0.95);border-bottom:1px solid #2A2A27}
+.ap .nlogo{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:#F2EEE6}
+.ap .nlogo em{font-style:italic}
+.ap .nlinks{display:flex;gap:32px;align-items:center}
+.ap .nlink{font-size:14px;color:#9A9690}
+.ap .nlink.active{color:#F2EEE6;border-bottom:1px solid #4BBFB2;padding-bottom:2px}
+.ap .ncta{font-size:14px;color:#E8955A;border:1.5px solid #9A5A28;padding:8px 20px;border-radius:4px;background:rgba(232,149,90,0.1)}
+.ap .ntog{font-size:16px;color:#5C5955;border:1px solid #2A2A27;width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+
+/* TYPOGRAPHY UTILS */
+.ap em{font-style:italic;color:#E8955A}
+.ap .eyebrow{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#4BBFB2;display:inline-flex;align-items:center;gap:16px;margin-bottom:24px}
+.ap .eyebrow::after{content:'';height:1px;width:36px;background:#2A7A72}
+.ap .eyebrow--bare::after{display:none}
+
+/* INTRO / HERO */
+.ap .aint{padding:calc(72px + 10vh) 40px 10vh;display:grid;grid-template-columns:1fr 1.4fr;gap:64px;align-items:center;border-bottom:1px solid #1E1E1B;min-height:100vh}
+.ap .aport{width:100%;aspect-ratio:3/4;border-radius:12px;overflow:hidden;background:#181816;border:1px solid #2A2A27;position:relative;max-height:600px}
+.ap .aplaceholder{position:absolute;inset:0;background:linear-gradient(160deg,rgba(75,191,178,0.1) 0%,#181816 100%);display:flex;align-items:center;justify-content:center}
+.ap .aplaceholder::before{content:'';position:absolute;inset:20%;border:1px solid rgba(75,191,178,0.15);border-radius:50%}
+.ap .acaption{position:absolute;bottom:20px;left:0;right:0;font-size:12px;color:#5C5955;text-align:center;letter-spacing:0.06em;z-index:2}
+.ap .ah1{font-family:'Fraunces',serif;font-size:clamp(44px, 7vw, 84px);font-weight:300;line-height:1.1;color:#F2EEE6;margin-bottom:32px}
+.ap .abody-lg{font-size:18px;color:#F2EEE6;line-height:1.85;margin-bottom:24px}
+.ap .abody-para{font-size:16px;color:#9A9690;line-height:1.8;margin-bottom:24px}
+.ap .abody-para:last-child{margin-bottom:0}
+
+/* EXPERIENCE SECTION */
+.ap .exp-sec{padding:clamp(80px, 10vw, 128px) 40px;border-bottom:1px solid #1E1E1B;min-height:70vh;max-width:1200px;margin:0 auto}
+.ap .sh2{font-family:'Fraunces',serif;font-size:clamp(32px, 5vw, 60px);font-weight:300;color:#F2EEE6;line-height:1.2;margin-bottom:48px}
+.ap .r-block{padding:48px 0;border-top:1px solid #1E1E1B;display:grid;grid-template-columns:240px 1fr;gap:48px}
+.ap .r-block:first-of-type{border-top:none}
+.ap .r-meta{font-size:14px}
+.ap .r-comp{font-size:16px;font-weight:500;color:#F2EEE6;margin-bottom:8px}
+.ap .r-period{font-size:12px;color:#5C5955;font-family:monospace;letter-spacing:0.05em;margin-bottom:12px}
+.ap .r-title{font-size:12px;font-weight:600;color:#2A7A72;letter-spacing:0.06em;text-transform:uppercase}
+.ap .r-meta-loc{font-size:12px;color:#5C5955;margin-top:8px}
+.ap .r-body p{font-size:16px;color:#9A9690;line-height:1.8;margin-bottom:16px}
+.ap .r-body p:last-child{margin-bottom:0}
+.ap .r-sub{margin-top:24px;padding:24px;background:#111110;border:1px solid #1E1E1B;border-left:2px solid #2A7A72;border-radius:0 8px 8px 0}
+.ap .r-sub h6{font-family:'Outfit',sans-serif;font-size:16px;font-weight:500;color:#4BBFB2;margin-bottom:8px}
+.ap .r-sub p{font-size:14px;color:#9A9690;line-height:1.7;margin:0}
+.ap .r-sub ul{list-style-type:disc;padding-left:24px;margin-top:12px;font-size:14px;color:#9A9690}
+.ap .r-sub li{margin-bottom:8px}
+
+/* CAPABILITIES SECTION */
+.ap .cap-sec{padding:clamp(80px, 10vw, 128px) 40px;border-bottom:1px solid #1E1E1B;max-width:1200px;margin:0 auto}
+.ap .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;margin-bottom:48px}
+.ap .skill-item{padding:24px;background:#111110;border:1px solid #1E1E1B;border-radius:8px}
+.ap .skill-name{font-size:18px;font-weight:500;color:#F2EEE6;margin-bottom:8px}
+.ap .skill-desc{font-size:14px;color:#9A9690;line-height:1.7;margin:0}
+.ap .tags-container{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.ap .tag{font-size:12px;padding:4px 10px;border-radius:4px;letter-spacing:0.04em;color:#4BBFB2;background:rgba(75,191,178,0.08);border:1px solid rgba(75,191,178,0.15)}
+
+/* CLOSING CTA */
+.ap .cta-sec{padding:clamp(64px, 8vw, 96px) 40px;border-bottom:1px solid #1E1E1B}
+.ap .ctabox{background:#111110;border:1px solid #2A2A27;border-radius:12px;padding:48px;display:flex;flex-direction:column;gap:24px;max-width:1200px;margin:0 auto}
+.ap .ctah2{font-family:'Fraunces',serif;font-size:clamp(24px, 4vw, 44px);font-weight:300;color:#F2EEE6;line-height:1.25}
+.ap .ctap{font-size:16px;color:#9A9690;line-height:1.8;max-width:600px}
+.ap .ctaacts{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px}
+.ap .ctabtn{font-size:14px;font-weight:500;color:#E8955A;border:1.5px solid #9A5A28;padding:12px 24px;border-radius:4px;background:rgba(232,149,90,0.1);letter-spacing:0.04em;cursor:pointer}
+.ap .ctabtn2{font-size:14px;color:#9A9690;letter-spacing:0.04em;display:flex;align-items:center;padding:12px;cursor:pointer}
+
+/* FOOTER */
+.ap .ft{padding:48px 40px 32px}
+.ap .fti{display:flex;justify-content:space-between;margin-bottom:32px;max-width:1200px;margin:0 auto 32px}
+.ap .ftn{font-family:'Fraunces',serif;font-size:20px;color:#F2EEE6;font-weight:400;margin-bottom:8px}
+.ap .fts{font-size:14px;color:#5C5955;line-height:1.7}
+.ap .flinks{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.ap .flink{font-size:14px;color:#5C5955;cursor:pointer}
+.ap .fcopy{font-size:12px;color:#3A3A36;border-top:1px solid #1E1E1B;padding-top:24px;max-width:1200px;margin:0 auto}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .ap .aint{gap:40px}
+}
+@media (max-width: 768px) {
+  .ap .n{padding:0 20px}
+  .ap .nlinks{display:none} /* Hamburger goes here */
+  .ap .aint{grid-template-columns:1fr;padding:calc(72px + 5vh) 20px 5vh;min-height:auto}
+  .ap .aport{max-height:300px;aspect-ratio:16/9;order:-1}
+  .ap .exp-sec, .ap .cap-sec, .ap .cta-sec, .ap .ft{padding-left:20px;padding-right:20px}
+  .ap .r-block{grid-template-columns:1fr;gap:16px}
+  .ap .skills-grid{grid-template-columns:1fr}
+  .ap .ctabox{padding:32px 24px}
+  .ap .fti{flex-direction:column;gap:32px}
+  .ap .flinks{align-items:flex-start;flex-direction:row;flex-wrap:wrap;gap:16px}
+}
+</style>
+
+<div class="ap">
+
+  <!-- NAVIGATION -->
+  <div class="n">
+    <div class="nlogo">Jose <em>Romero</em></div>
+    <div class="nlinks">
+      <span class="nlink">Work</span>
+      <span class="nlink active">About</span>
+      <span class="nlink">Thinking</span>
+      <span class="ncta">Contact</span>
+      <span class="ntog">○</span>
+    </div>
+  </div>
+
+  <!-- HERO / STORY -->
+  <div class="aint">
+    <!-- Portrait placeholder -->
+    <div class="aport">
+      <div class="aplaceholder"></div>
+      <div class="acaption">Jose Romero · Zaragoza, Spain</div>
+    </div>
+
+    <!-- Text body -->
+    <div>
+      <div class="eyebrow">About</div>
+      <h1 class="ah1">
+        I've always been more comfortable<br>
+        <em>with hard problems than easy briefs.</em>
+      </h1>
+      <p class="abody-lg">
+        I'm Jose Romero — a senior product designer with 12 years of experience across digital products, conversion strategy, and design systems. I work in English and Spanish at professional level, and I'm currently based in Zaragoza, Spain, working as an embedded senior designer on IKEA's New Business Platform — part of the team building two peer-to-peer marketplaces from their early stages through European expansion.
+      </p>
+      <p class="abody-para">
+        Before that, I spent three years at Flat 101, one of Spain's leading digital consultancies, running UX and CRO work across four to eight concurrent enterprise accounts simultaneously. Santander Nordics, Meliá Hotels International, Mapfre, Mutua Madrileña, AXA Spain, IQOS, XTI — different industries, different team structures, often at the same time.
+      </p>
+      <p class="abody-para">
+        That period built something I didn't fully understand until later: the ability to enter an unfamiliar environment, read what it needs, adapt my role to fit, and move things forward without waiting for a clarity that may never fully arrive.
+      </p>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="exp-sec">
+    <div class="eyebrow">Experience</div>
+    <h2 class="sh2">Tenures in digital product design<br><em>&amp; strategic CRO.</em></h2>
+
+    <!-- IKEA -->
+    <div class="r-block">
+      <div class="r-meta">
+        <div class="r-comp">Garaje de Ideas / Groupe EDG — IKEA New Business Platform</div>
+        <div class="r-period">2023 — Present</div>
+        <div class="r-title">Senior Product Designer (Implant)</div>
+        <div class="r-meta-loc">Zaragoza, Spain (English environment)</div>
+      </div>
+      <div class="r-body">
+        <p>Embedded full-time within IKEA's New Business Platform — an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe.</p>
+        
+        <div class="r-sub">
+          <h6>IKEA Home Services</h6>
+          <p>A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ service categories. Launched Madrid 2024, expanded to seven Spanish cities by mid-2026. 500,000+ downloads, 21,000 requests, 4.9/5 satisfaction. I work across user flows, prototyping, research, and accessibility audits.</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>IKEA Second-hand Marketplace</h6>
+          <p>Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed.</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>Design operations</h6>
+          <p>Built the team's ways-of-working system from scratch — a cross-tool framework spanning Figma (source of truth), Jira, Confluence, and Phrase — replacing an informal, person-dependent process.</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>AI &amp; facilitation</h6>
+          <p>Facilitating Shape Up methodology sessions. Leading design-side exploration of AI-assisted facilitation workflows and multi-agent orchestration for complex features. Running AI literacy sessions.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Flat 101 -->
+    <div class="r-block">
+      <div class="r-meta">
+        <div class="r-comp">Flat 101 (Digital consultancy)</div>
+        <div class="r-period">2021 — 2023</div>
+        <div class="r-title">Senior UX/CRO Designer</div>
+        <div class="r-meta-loc">Spain</div>
+      </div>
+      <div class="r-body">
+        <p>Worked across 4–8 concurrent enterprise accounts — each with different teams, methodologies, and definitions of success — simultaneously.</p>
+        
+        <div class="r-sub">
+          <h6>Meliá Hotels International</h6>
+          <p>Three-year engagement on design/optimisation of an internal marketing campaign management platform, built from scratch. Conducted workshops with senior directors at headquarters to define requirements. Managed a cross-functional design/dev team.</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>Santander Nordics</h6>
+          <p>Lead UX/CRO designer across consumer loan, credit card, and deposit funnels in Denmark, Sweden, Finland, and Norway. Multi-market data-driven experimentation in a regulated environment.</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>Mapfre</h6>
+          <p>UX design for AFIN, Mapfre's self-service financial app (investments, savings, pensions). Scaled digital platforms for international brands (Verti Italy, Germany, Spain).</p>
+        </div>
+
+        <div class="r-sub">
+          <h6>CRO &amp; E-commerce Optimisation Programmes</h6>
+          <p>Led and contributed to various optimization and redesign initiatives:</p>
+          <ul>
+            <li><strong>Mutua Madrileña:</strong> CRO programme contributing to +41% lead increase.</li>
+            <li><strong>AXA Spain:</strong> CRO programme contributing to +18% insurance contracts.</li>
+            <li><strong>IQOS Club Spain:</strong> Project lead for loyalty portal CRO; fast-cycle experimentation under limited traffic.</li>
+            <li><strong>XTI Store:</strong> E-commerce platform redesign during Magento migration.</li>
+            <li><strong>Audits:</strong> Experience and behavioral audits for Bankinter, Subaru Spain, and Affinity Petcare.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Independent Studio -->
+    <div class="r-block">
+      <div class="r-meta">
+        <div class="r-comp">Independent Studio</div>
+        <div class="r-period">2013 — 2019</div>
+        <div class="r-title">Design Director / Founder</div>
+        <div class="r-meta-loc">Havana, Cuba</div>
+      </div>
+      <div class="r-body">
+        <p>Started working professionally at 21, balancing a Visual Communication degree. Grew work into a studio of five people covering brand identity, digital interfaces, editorial design, illustration, and animation for national clients.</p>
+        <p>Handled client relationships, team management, supplier negotiations, and finances. Formed a foundation in structured thinking and commercial reality under resource constraints.</p>
+      </div>
+    </div>
+
+    <!-- Teaching -->
+    <div class="r-block">
+      <div class="r-meta">
+        <div class="r-comp">ISDi / Universidad de La Habana</div>
+        <div class="r-period">2018 — 2021</div>
+        <div class="r-title">UI Design Professor</div>
+        <div class="r-meta-loc">Havana, Cuba / Remote</div>
+      </div>
+      <div class="r-body">
+        <p>Taught UI design at the affiliated university, developing curriculum and facilitating studio sessions to build understanding of complex concepts across varying student levels.</p>
+        <p>Developed key facilitator habits: making the implicit explicit, adjusting communication based on audience, and building consensus around ambiguous problems.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CAPABILITIES -->
+  <div class="cap-sec">
+    <div class="eyebrow">Capabilities</div>
+    <h2 class="sh2">Skillsets shaped in<br><em>real-world environments.</em></h2>
+
+    <div class="skills-grid">
+      <div class="skill-item">
+        <div class="skill-name">Product Design</div>
+        <p class="skill-desc">End-to-end design across web &amp; mobile — from research to high-fidelity handoff specs.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Conversion Rate Optimisation</div>
+        <p class="skill-desc">Data-driven A/B testing and analysis across retail, banking, and insurance.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Behavioral Economics</div>
+        <p class="skill-desc">Applying cognitive science and bias frameworks to digital interfaces.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">UX Research</div>
+        <p class="skill-desc">Moderated/unmoderated testing, heuristic auditing, and WCAG accessibility passes.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Design Operations</div>
+        <p class="skill-desc">Process mapping, Jira/Figma integrations, and team workflows facilitation.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">AI Workflow Integration</div>
+        <p class="skill-desc">Facilitating AI-assisted product shaping and orchestrating multi-agent flows.</p>
+      </div>
+      <div class="skill-item">
+        <div class="skill-name">Stakeholder Communication</div>
+        <p class="skill-desc">Operating inside large enterprise teams, managing competing priorities in EN/ES.</p>
+      </div>
+    </div>
+
+    <!-- Tags -->
+    <div style="border-top: 1px solid #1E1E1B; padding-top: 18px;">
+      <span class="eyebrow eyebrow--bare" style="margin-bottom: 8px;">Tools &amp; Platforms</span>
+      <div class="tags-container">
+        <span class="tag">Figma</span>
+        <span class="tag">FigJam</span>
+        <span class="tag">Jira</span>
+        <span class="tag">Confluence</span>
+        <span class="tag">Miro</span>
+        <span class="tag">Hotjar</span>
+        <span class="tag">ContentSquare</span>
+        <span class="tag">Optimizely</span>
+        <span class="tag">AB Tasty</span>
+        <span class="tag">VWO</span>
+        <span class="tag">Optimal Workshop</span>
+        <span class="tag">Phrase</span>
+        <span class="tag">Notion</span>
+        <span class="tag">Google Analytics</span>
+        <span class="tag">AI Orchestration Platforms</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOSING CTA -->
+  <div class="cta-sec">
+    <div class="ctabox">
+      <div class="eyebrow eyebrow--bare">Let's chat</div>
+      <h2 class="ctah2">
+        Let's collaborate<br>
+        <em>on your next project.</em>
+      </h2>
+      <p class="ctap">
+        If you have a complex problem that needs a strategic design approach, or if you just want to connect and talk about product work — I'd be glad to have a conversation.
+      </p>
+      <div class="ctaacts">
+        <span class="ctabtn">Connect on LinkedIn →</span>
+        <span class="ctabtn2">Send an email →</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="ft">
+    <div class="fti">
+      <div>
+        <div class="ftn font-display">Jose <em>Romero</em></div>
+        <div class="fts">Senior Product Designer<br>Zaragoza, Spain · Open to remote opportunities</div>
+      </div>
+      <div class="flinks">
+        <span class="flink">Work</span>
+        <span class="flink">About</span>
+        <span class="flink">Thinking</span>
+        <span class="flink">LinkedIn →</span>
+        <span class="flink">Email →</span>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 Jose Romero. All rights reserved.</div>
+  </div>
+
+</div>

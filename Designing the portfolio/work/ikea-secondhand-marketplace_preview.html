@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IKEA Second-hand Marketplace — Preview</title>
+  <meta name="description" content="Preview of IKEA Second-hand Marketplace case study page for portfolio." />
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Outfit:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+.ap{background:#090908;color:#F2EEE6;font-family:'Outfit',sans-serif;font-weight:300;font-size:16px;border-radius:8px;overflow:hidden;border:1px solid #1E1E1B}
+.ap a{color:inherit;text-decoration:none}
+/* NAV */
+.ap .n{height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 40px;background:rgba(9,9,8,0.95);border-bottom:1px solid #2A2A27;position:sticky;top:0;z-index:10}
+.ap .nlogo{font-family:'Fraunces',serif;font-size:20px;font-weight:400;color:#F2EEE6}
+.ap .nlogo em{font-style:italic}
+.ap .nlinks{display:flex;gap:32px;align-items:center}
+.ap .nlink{font-size:14px;color:#9A9690}
+.ap .nlink.active{color:#F2EEE6;border-bottom:1px solid #4BBFB2;padding-bottom:2px}
+.ap .ncta{font-size:14px;color:#E8955A;border:1.5px solid #9A5A28;padding:8px 20px;border-radius:4px;background:rgba(232,149,90,0.1)}
+.ap .ntog{font-size:16px;color:#5C5955;border:1px solid #2A2A27;width:32px;height:32px;border-radius:4px;display:flex;align-items:center;justify-content:center}
+/* TYPOGRAPHY UTILS */
+.ap em{font-style:italic;color:#E8955A}
+.ap .eyebrow{font-size:12px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:#4BBFB2;display:inline-flex;align-items:center;gap:16px;margin-bottom:24px}
+.ap .eyebrow::after{content:'';height:1px;width:36px;background:#2A7A72}
+.ap .eyebrow--bare::after{display:none}
+/* HERO */
+.ap .aint{padding:clamp(80px,10vw,128px) 40px;border-bottom:1px solid #1E1E1B;max-width:1000px;margin:0 auto;min-height:50vh;display:flex;flex-direction:column;justify-content:center}
+.ap .headline{font-family:'Fraunces',serif;font-size:clamp(44px,8vw,84px);font-weight:300;line-height:1.1;color:#F2EEE6;margin-bottom:32px}
+.ap .subhead{font-size:16px;color:#9A9690;margin-bottom:16px}
+.ap .intro{font-size:14px;color:#9A9690;line-height:1.6}
+/* FOOTER */
+.ap .ft{padding:48px 40px 32px;border-top:1px solid #1E1E1B}
+.ap .fti{display:flex;justify-content:space-between;margin-bottom:32px;max-width:1200px;margin:0 auto 32px}
+.ap .ftn{font-family:'Fraunces',serif;font-size:20px;color:#F2EEE6;font-weight:400;margin-bottom:8px}
+.ap .fts{font-size:14px;color:#5C5955;line-height:1.7}
+.ap .flinks{display:flex;flex-direction:column;gap:12px;align-items:flex-end}
+.ap .flink{font-size:14px;color:#5C5955;cursor:pointer}
+.ap .fcopy{font-size:12px;color:#3A3A36;border-top:1px solid #1E1E1B;padding-top:24px;max-width:1200px;margin:0 auto}
+/* RESPONSIVE */
+@media (max-width:768px){.ap .n{padding:0 20px}.ap .nlinks{display:none}.ap .aint,.ap .ft{padding-left:20px;padding-right:20px}}
+  </style>
+</head>
+<body>
+<div class="ap">
+  <nav class="n">
+    <div class="nlogo">Jose <em>Romero</em></div>
+    <div class="nlinks">
+      <span class="nlink">Work</span>
+      <span class="nlink active">About</span>
+      <span class="nlink">Thinking</span>
+      <span class="ncta">Contact</span>
+      <span class="ntog">○</span>
+    </div>
+  </nav>
+  <section class="aint">
+    <div class="eyebrow">IKEA Second-hand Marketplace</div>
+    <h1 class="headline">Circular resale platform for IKEA products</h1>
+    <p class="subhead">Empowering customers to buy and sell pre‑owned IKEA items across Europe.</p>
+    <p class="intro">Piloted in Madrid, now live in five European countries, supporting sustainable consumption and extending product lifecycles.</p>
+  </section>
+  <footer class="ft">
+    <div class="fti">
+      <div>
+        <div class="ftn">Jose <em>Romero</em></div>
+        <div class="fts">Senior Product Designer<br/>Zaragoza, Spain · Open to remote</div>
+      </div>
+      <div class="flinks">
+        <span class="flink">Work</span>
+        <span class="flink">About</span>
+        <span class="flink">Thinking</span>
+        <span class="flink">LinkedIn →</span>
+        <span class="flink">Email →</span>
+      </div>
+    </div>
+    <div class="fcopy">© 2026 Jose Romero. All rights reserved.</div>
+  </footer>
+</div>
+<script src="/assets/js/main.js" defer></script>
+</body>
+</html>
