@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -133,31 +133,140 @@
             <p>The additional complexity: we were building a new product inside a very large, brand-sensitive organisation, working with multiple stakeholders across product, service design, engineering, content, and the in-store IKEA network. Decisions had to be made at pace, but they had to hold up to scrutiny. The brief was never fully stable.</p>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="Dual-sided marketplace trust architecture">
+          <figure class="diagram-block reveal" aria-label="Dual-sided marketplace trust chain">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    subgraph HO ["Homeowner"]
-        H1[Discovery] --> H2[Browse 50+ categories] --> H3[View profiles and reviews] --> H4[Book and pay] --> H5[Rate and review]
-    end
-    subgraph PRO ["Professional"]
-        P1[Onboarding and vetting] --> P2[Profile setup] --> P3[Accept jobs] --> P4[Complete service] --> P5[Build review history]
-    end
-    subgraph TRUST ["Trust design layer"]
-        T1[Verified badge]
-        T2[Transparent pricing]
-        T3[In-app messaging]
-        T4[Two-sided reviews]
-        T5[IKEA brand guarantee]
-    end
-    T1 --> H3 & P2
-    T2 --> H2
-    T3 --> H4 & P3
-    T4 --> H5 & P5
-    T5 --> H1
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 728 272" width="100%" style="min-width:520px;display:block;" role="img" aria-label="Dual-sided marketplace trust chain">
+                <defs>
+                  <style>
+                    .dn  { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .dt  { stroke: var(--teal); stroke-width: 1.5; }
+                    .nl  { font-family: var(--font-body); font-size: 11.5px; font-weight: 300; fill: var(--text-secondary); text-anchor: middle; }
+                    .nt  { fill: var(--teal-text); font-weight: 500; }
+                    .rl  { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); dominant-baseline: middle; }
+                    .rt  { fill: var(--teal); }
+                    .al  { stroke: var(--border-default); stroke-width: 1; }
+                    .tl  { stroke: var(--teal); stroke-width: 1; opacity: 0.6; }
+                    .dl  { stroke: var(--teal); stroke-width: 1; opacity: 0.35; fill: none; }
+                    .fh  { fill: var(--border-default); }
+                    .ft  { fill: var(--teal); }
+                  </style>
+                </defs>
+
+                <!-- Row labels -->
+                <text class="rl"    x="6" y="52">HOMEOWNER</text>
+                <text class="rl rt" x="6" y="136">TRUST LAYER</text>
+                <text class="rl"    x="6" y="220">PROFESSIONAL</text>
+
+                <!-- ── HOMEOWNER ROW ──────────────────────────────────── -->
+                <rect class="dn" x="80"  y="24" width="108" height="56" rx="5"/>
+                <text class="nl" x="134" y="47">1. Discovery</text>
+                <text class="nl" x="134" y="62">(IKEA Store / App)</text>
+
+                <rect class="dn" x="215" y="24" width="108" height="56" rx="5"/>
+                <text class="nl" x="269" y="47">2. Browse</text>
+                <text class="nl" x="269" y="62">50+ Services</text>
+
+                <rect class="dn" x="350" y="24" width="108" height="56" rx="5"/>
+                <text class="nl" x="404" y="47">3. View Profiles</text>
+                <text class="nl" x="404" y="62">&amp; Reviews</text>
+
+                <rect class="dn" x="485" y="24" width="108" height="56" rx="5"/>
+                <text class="nl" x="539" y="47">4. Book &amp; Pay</text>
+                <text class="nl" x="539" y="62">On Platform</text>
+
+                <rect class="dn" x="620" y="24" width="108" height="56" rx="5"/>
+                <text class="nl" x="674" y="47">5. Rate &amp; Review</text>
+                <text class="nl" x="674" y="62">Double Loop</text>
+
+                <!-- H row horizontal arrows → -->
+                <line class="al" x1="188" y1="52" x2="212" y2="52"/>
+                <polygon class="fh" points="215,52 208,48 208,56"/>
+                <line class="al" x1="323" y1="52" x2="347" y2="52"/>
+                <polygon class="fh" points="350,52 343,48 343,56"/>
+                <line class="al" x1="458" y1="52" x2="482" y2="52"/>
+                <polygon class="fh" points="485,52 478,48 478,56"/>
+                <line class="al" x1="593" y1="52" x2="617" y2="52"/>
+                <polygon class="fh" points="620,52 613,48 613,56"/>
+
+                <!-- ── TRUST LAYER ROW ──────────────────────────────────── -->
+                <rect class="dn dt" x="80"  y="108" width="108" height="56" rx="5"/>
+                <text class="nl nt" x="134" y="131">IKEA Brand</text>
+                <text class="nl nt" x="134" y="146">Guarantee</text>
+
+                <rect class="dn dt" x="215" y="108" width="108" height="56" rx="5"/>
+                <text class="nl nt" x="269" y="131">Transparent</text>
+                <text class="nl nt" x="269" y="146">Pricing Models</text>
+
+                <rect class="dn dt" x="350" y="108" width="108" height="56" rx="5"/>
+                <text class="nl nt" x="404" y="131">Verified Badge</text>
+                <text class="nl nt" x="404" y="146">System</text>
+
+                <rect class="dn dt" x="485" y="108" width="108" height="56" rx="5"/>
+                <text class="nl nt" x="539" y="131">In-App Messaging</text>
+                <text class="nl nt" x="539" y="146">&amp; Safe Tracking</text>
+
+                <rect class="dn dt" x="620" y="108" width="108" height="56" rx="5"/>
+                <text class="nl nt" x="674" y="131">Double-Sided</text>
+                <text class="nl nt" x="674" y="146">Review Architecture</text>
+
+                <!-- Trust → Homeowner vertical arrows ↑ (all 5 cols) -->
+                <line class="tl" x1="134" y1="107" x2="134" y2="84"/>
+                <polygon class="ft" points="134,80 130,87 138,87"/>
+                <line class="tl" x1="269" y1="107" x2="269" y2="84"/>
+                <polygon class="ft" points="269,80 265,87 273,87"/>
+                <line class="tl" x1="404" y1="107" x2="404" y2="84"/>
+                <polygon class="ft" points="404,80 400,87 408,87"/>
+                <line class="tl" x1="539" y1="107" x2="539" y2="84"/>
+                <polygon class="ft" points="539,80 535,87 543,87"/>
+                <line class="tl" x1="674" y1="107" x2="674" y2="84"/>
+                <polygon class="ft" points="674,80 670,87 678,87"/>
+
+                <!-- ── PROFESSIONAL ROW ──────────────────────────────────── -->
+                <rect class="dn" x="80"  y="192" width="108" height="56" rx="5"/>
+                <text class="nl" x="134" y="215">1. Onboarding</text>
+                <text class="nl" x="134" y="230">&amp; Vetting</text>
+
+                <rect class="dn" x="215" y="192" width="108" height="56" rx="5"/>
+                <text class="nl" x="269" y="215">2. Profile &amp;</text>
+                <text class="nl" x="269" y="230">Portfolio Setup</text>
+
+                <rect class="dn" x="350" y="192" width="108" height="56" rx="5"/>
+                <text class="nl" x="404" y="215">3. Receive &amp;</text>
+                <text class="nl" x="404" y="230">Accept Jobs</text>
+
+                <rect class="dn" x="485" y="192" width="108" height="56" rx="5"/>
+                <text class="nl" x="539" y="215">4. Complete</text>
+                <text class="nl" x="539" y="230">Service</text>
+
+                <rect class="dn" x="620" y="192" width="108" height="56" rx="5"/>
+                <text class="nl" x="674" y="215">5. Build Review</text>
+                <text class="nl" x="674" y="230">History</text>
+
+                <!-- P row horizontal arrows → -->
+                <line class="al" x1="188" y1="220" x2="212" y2="220"/>
+                <polygon class="fh" points="215,220 208,216 208,224"/>
+                <line class="al" x1="323" y1="220" x2="347" y2="220"/>
+                <polygon class="fh" points="350,220 343,216 343,224"/>
+                <line class="al" x1="458" y1="220" x2="482" y2="220"/>
+                <polygon class="fh" points="485,220 478,216 478,224"/>
+                <line class="al" x1="593" y1="220" x2="617" y2="220"/>
+                <polygon class="fh" points="620,220 613,216 613,224"/>
+
+                <!-- ── TRUST → PROFESSIONAL CONNECTIONS ─────────────────── -->
+                <!-- T5 → P5 vertical ↓ -->
+                <line class="tl" x1="674" y1="165" x2="674" y2="190"/>
+                <polygon class="ft" points="674,192 670,185 678,185"/>
+
+                <!-- T2 → P3 diagonal (pricing model → job acceptance) -->
+                <line class="dl" x1="269" y1="164" x2="401" y2="192"/>
+                <circle class="ft" cx="404" cy="192" r="3" opacity="0.7"/>
+
+                <!-- T3 → P4 diagonal (verified badge → service delivery) -->
+                <line class="dl" x1="404" y1="164" x2="536" y2="192"/>
+                <circle class="ft" cx="539" cy="192" r="3" opacity="0.7"/>
+              </svg>
             </div>
-            <figcaption>Both sides of the marketplace must be convinced simultaneously. The trust design layer is what makes that legible to each.</figcaption>
+            <figcaption>Both sides of the marketplace must be convinced simultaneously. The trust infrastructure acts as the design layer that makes credibility and transparency legible to both homeowners and professionals.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
