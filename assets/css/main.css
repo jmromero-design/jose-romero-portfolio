@@ -446,6 +446,35 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 /* Theme toggle button */
+/* Language toggle — sits between nav-links and theme-toggle */
+.lang-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  flex-shrink: 0;
+}
+
+.lang-current {
+  color: var(--text-primary);
+}
+
+.lang-sep {
+  color: var(--border-strong);
+  font-weight: 300;
+}
+
+.lang-link {
+  color: var(--text-tertiary);
+  text-decoration: none;
+  transition: color var(--ease-fast);
+}
+
+.lang-link:hover { color: var(--teal-text); }
+
 .theme-toggle {
   display: flex;
   align-items: center;

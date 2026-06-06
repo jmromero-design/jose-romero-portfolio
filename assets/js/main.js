@@ -195,7 +195,17 @@
 
 
   /* ----------------------------------------------------------
-     8. LUCIDE ICONS — load and auto-replace arrow/chevron patterns
+     8. LANGUAGE TOGGLE — set explicit preference before navigating
+     ---------------------------------------------------------- */
+  document.querySelectorAll('[data-lang-switch]').forEach(function (link) {
+    link.addEventListener('click', function () {
+      localStorage.setItem('jr-lang', this.getAttribute('data-lang-switch'));
+      /* href navigation continues naturally */
+    });
+  });
+
+  /* ----------------------------------------------------------
+     9. LUCIDE ICONS — load and auto-replace arrow/chevron patterns
      ---------------------------------------------------------- */
   (function loadIcons() {
     const script = document.createElement('script');
