@@ -32,7 +32,7 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
 
@@ -123,20 +123,99 @@
 
         <figure class="diagram-block article-diagram reveal" aria-label="Emotional vs positional empathy in design">
           <div class="diagram-wrap">
-            <pre class="mermaid">
-flowchart LR
-    subgraph EMO ["Emotional empathy"]
-        E1[Feel what they feel]
-        E2[Useful in consumer research and usability testing]
-    end
-    subgraph POS ["Positional empathy — the design tool"]
-        P1[Map how they see]
-        P2[What are they optimising for?]
-        P3[What are they afraid of?]
-        P4[What needs to be true for them to move forward?]
-    end
-    POS --> OUT[Find the path — not by winning, but by understanding the terrain]
-            </pre>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 340" width="100%" style="min-width:520px;display:block;" role="img" aria-label="Three approaches to empathy: emotional resonance, alignment path, and perspective coordinates">
+              <defs>
+                <style>
+                  .te1pn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                  .te1pm { fill: #141413; stroke: var(--border-default); stroke-width: 1; }
+                  .te1td { font-family: var(--font-display); font-size: 14px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                  .te1ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                  .te1nt { fill: var(--teal-text); }
+                  .te1tl { stroke: var(--teal); stroke-width: 1; opacity: 0.3; fill: none; }
+                  .te1ax { stroke: var(--border-strong); stroke-width: 1; }
+                </style>
+              </defs>
+
+              <!-- ── PANEL 1: EMOTIONAL RESONANCE ────────────── -->
+              <rect class="te1pn" x="6" y="6" width="210" height="326" rx="8"/>
+              <text style="font-family:var(--font-body);font-size:8px;font-weight:700;letter-spacing:1.5px;fill:#E28B72;text-anchor:middle;" x="111" y="30">COMPASSION-LED</text>
+              <text class="te1td" x="111" y="52">Emotional</text>
+              <text class="te1td" x="111" y="70">Resonance</text>
+              <text class="te1ts" x="111" y="92">Focuses on feeling what</text>
+              <text class="te1ts" x="111" y="106">others feel. Deep connection</text>
+              <text class="te1ts" x="111" y="120">but scales poorly across</text>
+              <text class="te1ts" x="111" y="134">conflicting incentives.</text>
+              <!-- Concentric emotional waves -->
+              <ellipse cx="111" cy="238" rx="76" ry="60" fill="none" stroke="#E28B72" stroke-width="1" opacity="0.1"/>
+              <ellipse cx="111" cy="238" rx="52" ry="40" fill="none" stroke="#E28B72" stroke-width="1" opacity="0.18"/>
+              <ellipse cx="111" cy="238" rx="30" ry="24" fill="none" stroke="#E28B72" stroke-width="1.2" opacity="0.28"/>
+              <circle cx="111" cy="238" r="13" fill="#E28B72" opacity="0.55"/>
+              <text style="font-family:var(--font-body);font-size:7.5px;font-weight:600;fill:#E28B72;text-anchor:middle;letter-spacing:0.8px;" x="111" y="284">SHARED FEELING CORE</text>
+
+              <!-- ── PANEL 2: ALIGNMENT TERRAIN ─────────────── -->
+              <rect class="te1pm" x="224" y="6" width="274" height="326" rx="8"/>
+              <!-- Grid lines (inside panel) -->
+              <line class="te1tl" x1="274" y1="8" x2="274" y2="330"/>
+              <line class="te1tl" x1="324" y1="8" x2="324" y2="330"/>
+              <line class="te1tl" x1="374" y1="8" x2="374" y2="330"/>
+              <line class="te1tl" x1="424" y1="8" x2="424" y2="330"/>
+              <line class="te1tl" x1="474" y1="8" x2="474" y2="330"/>
+              <line class="te1tl" x1="226" y1="116" x2="496" y2="116"/>
+              <line class="te1tl" x1="226" y1="166" x2="496" y2="166"/>
+              <line class="te1tl" x1="226" y1="216" x2="496" y2="216"/>
+              <line class="te1tl" x1="226" y1="266" x2="496" y2="266"/>
+              <!-- Panel header -->
+              <text style="font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle;" x="361" y="30">TACTICAL NAVIGATION</text>
+              <text class="te1td te1nt" x="361" y="52">The Alignment Path</text>
+              <!-- Strategic path (S-curve through terrain) -->
+              <path d="M 244,316 C 258,280 292,254 330,218 C 364,184 400,148 464,88" fill="none" stroke="var(--teal)" stroke-width="2.5" opacity="0.7"/>
+              <!-- Path origin dot (warm) -->
+              <circle cx="244" cy="316" r="5" fill="#E28B72" opacity="0.75"/>
+              <!-- Target node -->
+              <rect style="fill:var(--teal);fill-opacity:0.15;stroke:var(--teal);stroke-width:1.5;" x="406" y="64" width="82" height="22" rx="11"/>
+              <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;fill:var(--teal-text);text-anchor:middle;letter-spacing:1px;" x="447" y="79">ALIGNMENT MET</text>
+              <!-- Stakeholder card 1 -->
+              <rect style="fill:var(--bg-surface-2);fill-opacity:0.9;stroke:#E28B72;stroke-opacity:0.5;stroke-width:1;" x="232" y="266" width="114" height="42" rx="5"/>
+              <text style="font-family:var(--font-display);font-size:9.5px;fill:var(--text-primary);text-anchor:middle;" x="289" y="283">1. Executive Sponsor</text>
+              <text style="font-family:var(--font-body);font-size:8px;fill:var(--text-tertiary);text-anchor:middle;" x="289" y="299">Incentive: Budget &amp; ROI</text>
+              <!-- Stakeholder card 2 -->
+              <rect style="fill:var(--bg-surface-2);fill-opacity:0.9;stroke:var(--teal);stroke-opacity:0.4;stroke-width:1;" x="338" y="168" width="120" height="42" rx="5"/>
+              <text style="font-family:var(--font-display);font-size:9.5px;fill:var(--text-primary);text-anchor:middle;" x="398" y="185">2. Compliance Officer</text>
+              <text style="font-family:var(--font-body);font-size:8px;fill:var(--text-tertiary);text-anchor:middle;" x="398" y="201">Incentive: Risk Mitigation</text>
+              <!-- Stakeholder card 3 -->
+              <rect style="fill:var(--bg-surface-2);fill-opacity:0.9;stroke:var(--teal);stroke-opacity:0.4;stroke-width:1;" x="232" y="82" width="120" height="42" rx="5"/>
+              <text style="font-family:var(--font-display);font-size:9.5px;fill:var(--text-primary);text-anchor:middle;" x="292" y="99">3. Engineering Lead</text>
+              <text style="font-family:var(--font-body);font-size:8px;fill:var(--text-tertiary);text-anchor:middle;" x="292" y="115">Incentive: Technical Debt</text>
+
+              <!-- ── PANEL 3: PERSPECTIVE COORDINATES ────────── -->
+              <rect class="te1pn" x="506" y="6" width="208" height="326" rx="8"/>
+              <text style="font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle;" x="610" y="30">ACCURACY-LED</text>
+              <text class="te1td te1nt" x="610" y="52">Perspective</text>
+              <text class="te1td te1nt" x="610" y="70">Coordinates</text>
+              <text class="te1ts" x="610" y="92">Maps structural perspectives</text>
+              <text class="te1ts" x="610" y="106">as objective coordinates.</text>
+              <text class="te1ts" x="610" y="120">Finds alignment vectors,</text>
+              <text class="te1ts" x="610" y="134">not shared feelings.</text>
+              <!-- Axes -->
+              <line class="te1ax" x1="522" y1="268" x2="700" y2="268"/>
+              <line class="te1ax" x1="600" y1="268" x2="600" y2="148"/>
+              <text style="font-family:var(--font-body);font-size:7.5px;fill:var(--text-tertiary);text-anchor:middle;" x="654" y="280">Influence Power</text>
+              <text style="font-family:var(--font-body);font-size:7.5px;fill:var(--text-tertiary);text-anchor:start;" x="606" y="154">↑ Alignment</text>
+              <!-- Data points (stakeholder positions) -->
+              <circle cx="546" cy="236" r="5" fill="var(--teal)" opacity="0.8"/>
+              <line stroke="var(--teal)" stroke-width="1.2" stroke-dasharray="3 2" x1="546" y1="236" x2="574" y2="206"/>
+              <circle cx="632" cy="202" r="5" fill="var(--teal)" opacity="0.8"/>
+              <line stroke="var(--teal)" stroke-width="1.2" stroke-dasharray="3 2" x1="632" y1="202" x2="648" y2="174"/>
+              <circle cx="662" cy="252" r="5" fill="var(--teal)" opacity="0.8"/>
+              <line stroke="var(--teal)" stroke-width="1.2" stroke-dasharray="3 2" x1="662" y1="252" x2="670" y2="226"/>
+              <!-- Alignment target -->
+              <circle cx="600" cy="166" r="10" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity="0.5"/>
+              <circle cx="600" cy="166" r="4" fill="var(--teal)" opacity="0.5"/>
+
+              <!-- Bridge connections between panels -->
+              <path d="M 216,240 Q 220,254 224,268" fill="none" stroke="#E28B72" stroke-width="1" stroke-opacity="0.4"/>
+              <path d="M 498,200 L 506,200" fill="none" stroke="var(--teal)" stroke-width="1" stroke-opacity="0.4"/>
+            </svg>
           </div>
           <figcaption>Positional empathy is not compassion. It is a map. You do not feel your way to alignment — you think your way there.</figcaption>
         </figure>
@@ -160,21 +239,128 @@ flowchart LR
           </div>
         </article>
 
-        <figure class="diagram-block article-diagram reveal" aria-label="The gap between user needs and user behavior">
+        <figure class="diagram-block article-diagram reveal" aria-label="Standard vs behavioral choice architecture">
           <div class="diagram-wrap">
-            <pre class="mermaid">
-flowchart TD
-    DQ[Standard design question — what do users need?]
-    BQ[Behavioral question — what will users actually do?]
-    DQ -. not the same question .-> BQ
-    BQ --> M1[Information order shapes attention]
-    BQ --> M2[Gain vs loss framing shapes how choices feel]
-    BQ --> M3[Defaults shape behaviour without deciding]
-    BQ --> M4[Perceived effort determines whether action happens]
-    M1 & M2 & M3 & M4 --> OUT[These are the mechanisms by which design works or does not]
-            </pre>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 336" width="100%" style="min-width:540px;display:block;" role="img" aria-label="Standard vs behavioral choice architecture diagram">
+              <defs>
+                <style>
+                  .te2dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                  .te2dt { stroke: var(--teal); stroke-width: 1.2; }
+                  .te2dg { stroke: var(--gold); stroke-width: 1; }
+                  .te2tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                  .te2ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                  .te2td { font-family: var(--font-display); font-size: 13px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                  .te2nt { fill: var(--teal-text); font-weight: 600; }
+                  .te2ng { fill: var(--gold); }
+                  .te2sl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); text-anchor: middle; }
+                  .te2al { stroke: var(--border-default); stroke-width: 1; }
+                  .te2tl { stroke: var(--teal); stroke-width: 1.2; opacity: 0.6; }
+                  .te2fh { fill: var(--border-default); }
+                  .te2ft { fill: var(--teal); }
+                  .te2bk { fill: var(--bg-surface-2); fill-opacity: 0.35; stroke: var(--border-default); stroke-width: 1; }
+                  .te2oc { fill: var(--teal); fill-opacity: 0.06; stroke: var(--teal); stroke-width: 1.5; }
+                </style>
+              </defs>
+
+              <!-- Stage labels -->
+              <text class="te2sl" x="100" y="18">01 / INQUIRY</text>
+              <text class="te2sl" x="362" y="18">02 / PSYCHOLOGICAL LEVERS</text>
+              <text class="te2sl" x="630" y="18">03 / OUTCOMES</text>
+
+              <!-- ── LEFT COLUMN: INQUIRY ─────────────────── -->
+              <!-- Standard Inquiry -->
+              <rect class="te2dn" x="8" y="30" width="184" height="120" rx="6"/>
+              <text class="te2ts" x="100" y="52" style="font-size:8px;font-weight:600;letter-spacing:1px;">STANDARD INQUIRY</text>
+              <text class="te2td" x="100" y="72">Stated Preferences</text>
+              <text style="font-family:var(--font-body);font-size:11px;font-weight:500;fill:var(--gold);text-anchor:middle;" x="100" y="92">What do users need?</text>
+              <text class="te2ts" x="100" y="110">Explicit surveys &amp; interviews</text>
+              <text class="te2ts" x="100" y="124">Prone to intent-action gap</text>
+
+              <!-- Behavioral Inquiry (teal) -->
+              <rect class="te2dn te2dt" x="8" y="168" width="184" height="136" rx="6"/>
+              <text class="te2ts te2nt" x="100" y="190" style="font-size:8px;font-weight:600;letter-spacing:1px;">BEHAVIORAL INQUIRY</text>
+              <text class="te2td te2nt" x="100" y="210">Revealed Preferences</text>
+              <text style="font-family:var(--font-body);font-size:11px;font-weight:500;fill:var(--teal-text);text-anchor:middle;" x="100" y="230">What will users do?</text>
+              <text class="te2ts" x="100" y="250">Observed choices &amp; A/B tests</text>
+              <text class="te2ts" x="100" y="265">Optimizes default states</text>
+              <text class="te2ts" x="100" y="280">Bypasses intent-action barrier</text>
+
+              <!-- ── CENTER: LEVER PANEL ─────────────────── -->
+              <rect class="te2bk" x="204" y="30" width="296" height="274" rx="8"/>
+              <text class="te2sl" x="352" y="52" style="fill:var(--text-tertiary);">EXECUTION MECHANISM</text>
+
+              <!-- Lever 1 (Framing) -->
+              <rect class="te2dn" x="216" y="62" width="130" height="94" rx="5"/>
+              <text class="te2tt" x="281" y="81">01 / Framing</text>
+              <text class="te2ts" x="281" y="96">Structures choices to</text>
+              <text class="te2ts" x="281" y="110">highlight salience. Guides</text>
+              <text class="te2ts" x="281" y="124">decision without restricting.</text>
+
+              <!-- Lever 2 (Defaults, teal) -->
+              <rect class="te2dn te2dt" x="354" y="62" width="130" height="94" rx="5"/>
+              <text class="te2tt te2nt" x="419" y="81">02 / Defaults</text>
+              <text class="te2ts" x="419" y="96">Pre-selected paths of</text>
+              <text class="te2ts" x="419" y="110">least resistance. Captures</text>
+              <text class="te2ts" x="419" y="124">optimal conversion paths.</text>
+
+              <!-- Lever 3 (Effort) -->
+              <rect class="te2dn" x="216" y="168" width="130" height="94" rx="5"/>
+              <text class="te2tt" x="281" y="187">03 / Effort</text>
+              <text class="te2ts" x="281" y="202">Minimizes friction for</text>
+              <text class="te2ts" x="281" y="216">desired actions. Adds</text>
+              <text class="te2ts" x="281" y="230">friction to prevent errors.</text>
+
+              <!-- Lever 4 (Context) -->
+              <rect class="te2dn" x="354" y="168" width="130" height="94" rx="5"/>
+              <text class="te2tt" x="419" y="187">04 / Context</text>
+              <text class="te2ts" x="419" y="202">Environmental prompts</text>
+              <text class="te2ts" x="419" y="216">aligned to peak user</text>
+              <text class="te2ts" x="419" y="230">motivation states.</text>
+
+              <!-- ── RIGHT COLUMN: OUTCOMES ──────────────── -->
+              <!-- Stated Intent (unoptimized) -->
+              <rect class="te2dn" x="512" y="30" width="200" height="96" rx="6"/>
+              <text class="te2ts" x="612" y="52" style="font-size:8px;font-weight:600;letter-spacing:1px;">UNOPTIMIZED</text>
+              <text class="te2td" x="612" y="72">Stated Intent</text>
+              <text class="te2td" x="612" y="90">Interface</text>
+              <text class="te2ts" x="612" y="112">High friction, poor conversion</text>
+
+              <!-- Action-Aligned (teal, optimized) -->
+              <rect class="te2oc" x="512" y="140" width="200" height="164" rx="6"/>
+              <text class="te2ts te2nt" x="612" y="163" style="font-size:8px;font-weight:600;letter-spacing:1px;">OPTIMIZED</text>
+              <text class="te2td te2nt" x="612" y="184">Action-Aligned</text>
+              <text class="te2td te2nt" x="612" y="202">Design</text>
+              <text class="te2ts" x="612" y="222">Choice architecture tailored</text>
+              <text class="te2ts" x="612" y="236">to cognitive heuristics</text>
+              <text class="te2ts te2nt" x="612" y="256">· Minimal Cognitive Friction</text>
+              <text class="te2ts te2nt" x="612" y="270">· High Default Compliance</text>
+              <text class="te2ts te2nt" x="612" y="284">· Symmetrical Choice Loops</text>
+
+              <!-- ── CONNECTIONS ─────────────────────────── -->
+              <!-- Standard → Stated Intent (direct, boring track) -->
+              <line class="te2al" x1="192" y1="79" x2="510" y2="79" stroke-dasharray="4 3" opacity="0.5"/>
+              <polygon class="te2fh" points="512,79 505,75 505,83"/>
+
+              <!-- Behavioral → Levers (teal entry) -->
+              <line class="te2tl" x1="192" y1="236" x2="212" y2="215"/>
+              <polygon class="te2ft" points="214,213 209,221 217,218"/>
+
+              <!-- Internal lever connectors (horizontal) -->
+              <line class="te2al" x1="346" y1="109" x2="352" y2="109"/>
+              <polygon class="te2fh" points="354,109 347,105 347,113"/>
+              <line class="te2al" x1="346" y1="215" x2="352" y2="215"/>
+              <polygon class="te2fh" points="354,215 347,211 347,219"/>
+
+              <!-- Lever 2 output → Action-Aligned -->
+              <line class="te2tl" x1="484" y1="109" x2="510" y2="180"/>
+              <circle fill="var(--teal)" cx="511" cy="181" r="3" opacity="0.7"/>
+
+              <!-- Lever 4 output → Action-Aligned -->
+              <line class="te2tl" x1="484" y1="215" x2="510" y2="222"/>
+              <polygon class="te2ft" points="512,222 505,218 505,226"/>
+            </svg>
           </div>
-          <figcaption>What users need and what users do are not the same question. Good behavioral design answers both.</figcaption>
+          <figcaption>What users need and what users do are not the same question. The behavioral approach works by modifying choice architecture through psychological levers — not by gathering more stated preferences.</figcaption>
         </figure>
 
         <!-- Piece 3 -->
@@ -197,21 +383,124 @@ flowchart TD
           </div>
         </article>
 
-        <figure class="diagram-block article-diagram reveal" aria-label="Person-dependent vs principle-first systems">
+        <figure class="diagram-block article-diagram reveal" aria-label="Resilience consolidation hourglass">
           <div class="diagram-wrap">
-            <pre class="mermaid">
-flowchart TD
-    subgraph FRAGILE ["Person-dependent system"]
-        F1[Process lives in memory] --> F2[Transmitted informally] --> F3[Key person unavailable] --> F4[System collapses]
-    end
-    subgraph BUILD ["Building the alternative"]
-        B1[Map actual work and lost decisions] --> B2[Derive structural rules] --> B3[Design for imperfect adoption]
-    end
-    subgraph RESILIENT ["Principle-first system"]
-        R1[Survives personnel change] & R2[Survives new members] & R3[Survives low-maintenance periods]
-    end
-    FRAGILE --> BUILD --> RESILIENT
-            </pre>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 296" width="100%" style="min-width:520px;display:block;" role="img" aria-label="Resilience consolidation hourglass: fragile states through consolidation to resilient outcomes">
+              <defs>
+                <style>
+                  .te3dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                  .te3dt { stroke: var(--teal); stroke-width: 1.5; }
+                  .te3core { fill: var(--gold); fill-opacity: 0.06; stroke: var(--gold); stroke-width: 1.5; }
+                  .te3oc { fill: var(--teal); fill-opacity: 0.06; stroke: var(--teal); stroke-width: 1.5; }
+                  .te3tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                  .te3ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                  .te3td { font-family: var(--font-display); font-size: 14px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                  .te3nt { fill: var(--teal-text); font-weight: 600; }
+                  .te3ng { fill: var(--gold); }
+                  .te3sl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; }
+                  .te3al { stroke: var(--border-default); stroke-width: 1; }
+                  .te3tl { stroke: var(--teal); stroke-width: 1.2; opacity: 0.5; }
+                  .te3fh { fill: var(--border-default); }
+                  .te3ft { fill: var(--teal); }
+                </style>
+              </defs>
+
+              <!-- Column labels -->
+              <text class="te3sl" x="76" y="16" fill="#5C5955" text-anchor="middle">FRAGILE — PERSON DEPENDENT</text>
+              <text class="te3sl" x="530" y="16" fill="var(--teal)" text-anchor="middle">RESILIENT — PRINCIPLE FIRST</text>
+
+              <!-- ── FRAGILE NODES ──────────────────────── -->
+              <rect class="te3dn" x="4" y="28" width="144" height="44" rx="5"/>
+              <text class="te3tt" x="76" y="45">1. Memory Dependent</text>
+              <text class="te3ts" x="76" y="60">Process lives only in memory</text>
+
+              <rect class="te3dn" x="4" y="88" width="144" height="44" rx="5"/>
+              <text class="te3tt" x="76" y="105">2. Informal Transmit</text>
+              <text class="te3ts" x="76" y="120">Passed verbally, undocumented</text>
+
+              <rect class="te3dn" x="4" y="148" width="144" height="44" rx="5"/>
+              <text class="te3tt" x="76" y="165">3. Person Unavailable</text>
+              <text class="te3ts" x="76" y="180">Process holder leaves or shifts</text>
+
+              <rect class="te3dn" x="4" y="208" width="144" height="44" rx="5"/>
+              <text class="te3tt" x="76" y="225">4. Operational Collapse</text>
+              <text class="te3ts" x="76" y="240">Workflow degrades or vanishes</text>
+
+              <!-- F node vertical arrows -->
+              <line class="te3al" x1="76" y1="72" x2="76" y2="86"/>
+              <polygon class="te3fh" points="76,88 72,81 80,81"/>
+              <line class="te3al" x1="76" y1="132" x2="76" y2="146"/>
+              <polygon class="te3fh" points="76,148 72,141 80,141"/>
+              <line class="te3al" x1="76" y1="192" x2="76" y2="206"/>
+              <polygon class="te3fh" points="76,208 72,201 80,201"/>
+
+              <!-- ── CONSOLIDATION CORE ──────────────────── -->
+              <rect class="te3core" x="160" y="76" width="152" height="144" rx="8"/>
+              <text class="te3ts te3ng" x="236" y="100" style="font-size:8px;font-weight:600;letter-spacing:1px;">THE CONSOLIDATION CORE</text>
+              <text class="te3tt te3ng" x="236" y="120">Map actual task</text>
+              <text class="te3tt te3ng" x="236" y="136">types. Derive rules.</text>
+              <text class="te3ts" x="236" y="156">Embed guidelines inside</text>
+              <text class="te3ts" x="236" y="170">tools. Design for</text>
+              <text class="te3ts" x="236" y="184">imperfect compliance.</text>
+
+              <!-- ── RESILIENT NODES (teal) ──────────────── -->
+              <rect class="te3dn te3dt" x="324" y="28" width="144" height="44" rx="5"/>
+              <text class="te3tt te3nt" x="396" y="45">1. Process Survives</text>
+              <text class="te3ts" x="396" y="60">Survives personnel shifts</text>
+
+              <rect class="te3dn te3dt" x="324" y="88" width="144" height="44" rx="5"/>
+              <text class="te3tt te3nt" x="396" y="105">2. Teachable Onboard</text>
+              <text class="te3ts" x="396" y="120">Survives new team entries</text>
+
+              <rect class="te3dn te3dt" x="324" y="148" width="144" height="44" rx="5"/>
+              <text class="te3tt te3nt" x="396" y="165">3. Low Maintenance</text>
+              <text class="te3ts" x="396" y="180">Holds with zero maintenance</text>
+
+              <rect class="te3dn te3dt" x="324" y="208" width="144" height="44" rx="5"/>
+              <text class="te3tt te3nt" x="396" y="225">4. Structural Bones</text>
+              <text class="te3ts" x="396" y="240">Bones hold if corners drift</text>
+
+              <!-- ── OUTCOME CARD ────────────────────────── -->
+              <rect class="te3oc" x="482" y="64" width="196" height="172" rx="8"/>
+              <text class="te3ts te3nt" x="580" y="88" style="font-size:8px;font-weight:600;letter-spacing:1.5px;">RESILIENCE CONDITION</text>
+              <text class="te3td te3nt" x="580" y="112">Bones over</text>
+              <text class="te3td te3nt" x="580" y="130">Control</text>
+              <text class="te3ts" x="580" y="152">Imperfect adoption of</text>
+              <text class="te3ts" x="580" y="166">a strong system is the</text>
+              <text class="te3ts" x="580" y="180">success condition —</text>
+              <text class="te3ts" x="580" y="194">not perfect compliance.</text>
+              <text class="te3ts" x="580" y="214">The goal is survival.</text>
+
+              <!-- ── CONNECTIONS: Fragile → Core ────────── -->
+              <line class="te3al" x1="148" y1="50" x2="158" y2="116"/>
+              <circle class="te3fh" cx="159" cy="117" r="3"/>
+              <line class="te3al" x1="148" y1="110" x2="158" y2="130"/>
+              <circle class="te3fh" cx="159" cy="131" r="3"/>
+              <line class="te3al" x1="148" y1="170" x2="158" y2="168"/>
+              <polygon class="te3fh" points="160,168 153,164 153,172"/>
+              <line class="te3al" x1="148" y1="230" x2="158" y2="184"/>
+              <circle class="te3fh" cx="159" cy="183" r="3"/>
+
+              <!-- Core → Resilient (teal, diverging) -->
+              <line class="te3tl" x1="312" y1="118" x2="322" y2="50"/>
+              <circle class="te3ft" cx="323" cy="49" r="3" opacity="0.7"/>
+              <line class="te3tl" x1="312" y1="132" x2="322" y2="110"/>
+              <circle class="te3ft" cx="323" cy="109" r="3" opacity="0.7"/>
+              <line class="te3tl" x1="312" y1="166" x2="322" y2="170"/>
+              <polygon class="te3ft" points="324,170 317,166 317,174"/>
+              <line class="te3tl" x1="312" y1="182" x2="322" y2="230"/>
+              <circle class="te3ft" cx="323" cy="231" r="3" opacity="0.7"/>
+
+              <!-- R nodes → Outcome (teal, converging) -->
+              <line class="te3tl" x1="468" y1="50" x2="480" y2="116"/>
+              <circle class="te3ft" cx="481" cy="117" r="3" opacity="0.7"/>
+              <line class="te3tl" x1="468" y1="110" x2="480" y2="136"/>
+              <circle class="te3ft" cx="481" cy="137" r="3" opacity="0.7"/>
+              <line class="te3tl" x1="468" y1="170" x2="480" y2="168"/>
+              <polygon class="te3ft" points="482,168 475,164 475,172"/>
+              <line class="te3tl" x1="468" y1="230" x2="480" y2="196"/>
+              <circle class="te3ft" cx="481" cy="195" r="3" opacity="0.7"/>
+            </svg>
           </div>
           <figcaption>Imperfect adoption of a well-structured system is the success condition — not perfect compliance. The goal is survival, not control.</figcaption>
         </figure>
@@ -235,20 +524,112 @@ flowchart TD
           </div>
         </article>
 
-        <figure class="diagram-block article-diagram reveal" aria-label="How AI shifts the bottleneck from generation to sense-making">
+        <figure class="diagram-block article-diagram reveal" aria-label="AI bottleneck shift from generation to sense-making">
           <div class="diagram-wrap">
-            <pre class="mermaid">
-flowchart LR
-    subgraph BEFORE ["Before AI"]
-        BA1[Generate options] -->|bottleneck| BA2[Evaluate] --> BA3[Decide]
-    end
-    subgraph AFTER ["With AI"]
-        AA1[Generate fast] --> AA2[Make sense of options] -->|bottleneck shifts here| AA3[Decide]
-    end
-    AFTER --> DP[The design problem is human not technical — structure the process so output is useful, not just voluminous]
-            </pre>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 336" width="100%" style="min-width:520px;display:block;" role="img" aria-label="AI shifts the bottleneck from generation to sense-making">
+              <defs>
+                <style>
+                  .te4dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                  .te4dt { stroke: var(--teal); stroke-width: 1.5; }
+                  .te4dg { stroke: var(--gold); stroke-width: 1.5; }
+                  .te4oc { fill: var(--teal); fill-opacity: 0.06; stroke: var(--teal); stroke-width: 1.5; }
+                  .te4og { fill: var(--gold); fill-opacity: 0.05; stroke: var(--gold); stroke-width: 1.5; }
+                  .te4tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                  .te4ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                  .te4td { font-family: var(--font-display); font-size: 14px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                  .te4nt { fill: var(--teal-text); font-weight: 600; }
+                  .te4ng { fill: var(--gold); }
+                  .te4sl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); }
+                  .te4al { stroke: var(--border-default); stroke-width: 1; }
+                  .te4tl { stroke: var(--teal); stroke-width: 1.2; opacity: 0.6; }
+                  .te4fh { fill: var(--border-default); }
+                  .te4ft { fill: var(--teal); }
+                  .te4fg { fill: var(--gold); }
+                </style>
+              </defs>
+
+              <!-- ── ROW 1: BEFORE AI ──────────────────── -->
+              <text class="te4sl" x="4" y="18" fill="#5C5955">BEFORE AI — GENERATIVE BOTTLENECK</text>
+
+              <!-- BA1 (GENERATE — bottleneck, gold) -->
+              <rect class="te4og te4dg" x="4" y="26" width="144" height="58" rx="5"/>
+              <text class="te4tt te4ng" x="76" y="48">GENERATE</text>
+              <text class="te4ts" x="76" y="63">Slow, handcrafted options</text>
+              <text class="te4ts te4ng" x="76" y="78" style="font-size:8px;font-weight:700;">← BOTTLENECK</text>
+
+              <!-- BA2 (EVALUATE) -->
+              <rect class="te4dn" x="196" y="26" width="144" height="58" rx="5"/>
+              <text class="te4tt" x="268" y="48">EVALUATE</text>
+              <text class="te4ts" x="268" y="63">Fast, few options to</text>
+              <text class="te4ts" x="268" y="77">consider</text>
+
+              <!-- BA3 (DECIDE) -->
+              <rect class="te4dn" x="388" y="26" width="144" height="58" rx="5"/>
+              <text class="te4tt" x="460" y="48">DECIDE</text>
+              <text class="te4ts" x="460" y="63">Clear, unobstructed</text>
+              <text class="te4ts" x="460" y="77">field</text>
+
+              <!-- Row 1 arrows -->
+              <line class="te4al" x1="148" y1="55" x2="194" y2="55"/>
+              <polygon class="te4fh" points="196,55 189,51 189,59"/>
+              <line class="te4al" x1="340" y1="55" x2="386" y2="55"/>
+              <polygon class="te4fh" points="388,55 381,51 381,59"/>
+
+              <!-- ── ROW 2: WITH AI ─────────────────────── -->
+              <text class="te4sl" x="4" y="168" fill="var(--teal)">WITH AI — SENSE-MAKING BOTTLENECK</text>
+
+              <!-- AA1 (GENERATE — instant now) -->
+              <rect class="te4dn" x="4" y="176" width="144" height="58" rx="5"/>
+              <text class="te4tt" x="76" y="198">GENERATE</text>
+              <text class="te4ts" x="76" y="213">Instant volume,</text>
+              <text class="te4ts" x="76" y="227">zero friction</text>
+
+              <!-- AA2 (SENSE-MAKING — new bottleneck, teal) -->
+              <rect class="te4oc te4dt" x="196" y="176" width="144" height="58" rx="5"/>
+              <text class="te4tt te4nt" x="268" y="198">SENSE-MAKING</text>
+              <text class="te4ts" x="268" y="213">Slow, high noise,</text>
+              <text class="te4ts te4nt" x="268" y="228" style="font-size:8px;font-weight:700;">← BOTTLENECK SHIFTS</text>
+
+              <!-- AA3 (DECIDE — harder) -->
+              <rect class="te4dn" x="388" y="176" width="144" height="58" rx="5"/>
+              <text class="te4tt" x="460" y="198">DECIDE</text>
+              <text class="te4ts" x="460" y="213">Hard, drowning in</text>
+              <text class="te4ts" x="460" y="227">generated text</text>
+
+              <!-- Row 2 arrows -->
+              <line class="te4tl" x1="148" y1="205" x2="194" y2="205"/>
+              <polygon class="te4ft" points="196,205 189,201 189,209"/>
+              <line class="te4tl" x1="340" y1="205" x2="386" y2="205"/>
+              <polygon class="te4ft" points="388,205 381,201 381,209"/>
+
+              <!-- ── BOTTLENECK SHIFT ARROW ──────────────── -->
+              <path d="M 76,84 C 80,120 200,140 268,176" fill="none" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="5 3" opacity="0.7"/>
+              <polygon class="te4fg" points="268,176 262,170 270,168"/>
+              <text style="font-family:var(--font-body);font-size:8.5px;font-weight:600;fill:var(--gold);letter-spacing:1px;" x="110" y="136">BOTTLENECK SHIFT</text>
+
+              <!-- ── DP CARD (facilitation insight) ────────── -->
+              <rect class="te4oc" x="548" y="20" width="168" height="262" rx="8"/>
+              <text class="te4ts te4nt" x="632" y="42" style="font-size:8px;font-weight:600;letter-spacing:1.5px;">HUMAN DESIGN ROLE</text>
+              <text class="te4td te4nt" x="632" y="66">Facilitation</text>
+              <text class="te4td te4nt" x="632" y="84">as Design</text>
+              <text class="te4ts" x="632" y="108">Structure the process</text>
+              <text class="te4ts" x="632" y="122">so output is useful,</text>
+              <text class="te4ts" x="632" y="136">not just voluminous.</text>
+              <text class="te4ts" x="632" y="158">Build the right check-</text>
+              <text class="te4ts" x="632" y="172">points for human</text>
+              <text class="te4ts" x="632" y="186">judgment.</text>
+              <text class="te4ts" x="632" y="208">Facilitation is the</text>
+              <text class="te4ts" x="632" y="222">actual design problem.</text>
+              <text class="te4ts te4nt" x="632" y="252" style="font-size:8.5px;font-weight:600;">Not technical. Human.</text>
+
+              <!-- Connections: rows → DP card -->
+              <line class="te4al" x1="532" y1="55" x2="546" y2="120"/>
+              <circle fill="var(--border-default)" cx="547" cy="121" r="3"/>
+              <line class="te4tl" x1="532" y1="205" x2="546" y2="185"/>
+              <circle fill="var(--teal)" cx="547" cy="184" r="3" opacity="0.7"/>
+            </svg>
           </div>
-          <figcaption>AI does not remove the need for judgment. It moves it. The bottleneck shifts from generation to sense-making — and that is a design problem.</figcaption>
+          <figcaption>AI does not remove the need for judgment. It moves it. The bottleneck shifts from generation to sense-making — and structuring that process is a design problem.</figcaption>
         </figure>
 
         <div class="update-note reveal">

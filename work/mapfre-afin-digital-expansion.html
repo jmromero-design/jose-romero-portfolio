@@ -252,21 +252,97 @@
             <p>The expansion work involved auditing the existing experiences across all three markets, identifying where divergence was intentional (regulatory or cultural) and where it was simply accidental drift, and establishing shared standards for the components and flows that should be consistent regardless of market.</p>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="Verti cross-market platform convergence">
+          <figure class="diagram-block reveal" aria-label="Verti cross-market platform convergence">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart LR
-    subgraph BEFORE ["Three independent platforms"]
-        IT[Verti Italy] & DE[Verti Germany] & ES[Verti Spain]
-    end
-    BEFORE --> AUD[Audit divergence across UX patterns and flows]
-    AUD --> SYS[Shared design system and components]
-    SYS --> OPT[Aligned conversion flows]
-    SYS & OPT --> SHARED[Shared UX architecture]
-    SHARED --> LOC[Market layer — language, regulation, product]
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 310" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Verti multi-market platform standardization diagram">
+                <defs>
+                  <style>
+                    .cvdn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .cvout { fill: var(--gold); fill-opacity: 0.05; stroke: var(--gold); stroke-width: 1.5; }
+                    .cvhub { fill: var(--teal); fill-opacity: 0.06; stroke: var(--teal); stroke-width: 2; }
+                    .cvtt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .cvts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .cvlb { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); text-anchor: middle; }
+                    .cvng { fill: var(--gold); }
+                    .cvhc { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--teal-text); text-anchor: middle; }
+                    .cvht { font-family: var(--font-body); font-size: 13px; font-weight: 600; fill: var(--text-primary); text-anchor: middle; }
+                    .cvhd { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .cval { stroke: var(--border-default); stroke-width: 1; }
+                    .cvtl { stroke: var(--teal); stroke-width: 1.2; opacity: 0.6; }
+                    .cvgl { stroke: var(--gold); stroke-width: 1.2; opacity: 0.5; }
+                    .cvfh { fill: var(--border-default); }
+                    .cvft { fill: var(--teal); }
+                    .cvfg { fill: var(--gold); }
+                  </style>
+                </defs>
+
+                <!-- Column labels -->
+                <text class="cvlb" x="82" y="16">BEFORE</text>
+                <text class="cvlb cvng" x="678" y="16">AFTER</text>
+
+                <!-- ── BEFORE NODES ──────────────────────────── -->
+                <rect class="cvdn" x="12" y="32" width="140" height="44" rx="5"/>
+                <text class="cvtt" x="82" y="49">Verti Italy</text>
+                <text class="cvts" x="82" y="64">Divergent UX patterns</text>
+
+                <rect class="cvdn" x="12" y="128" width="140" height="44" rx="5"/>
+                <text class="cvtt" x="82" y="145">Verti Germany</text>
+                <text class="cvts" x="82" y="160">Independent conversion flows</text>
+
+                <rect class="cvdn" x="12" y="224" width="140" height="44" rx="5"/>
+                <text class="cvtt" x="82" y="241">Verti Spain</text>
+                <text class="cvts" x="82" y="256">Custom market-specific logic</text>
+
+                <!-- ── AUDIT NODE ──────────────────────────── -->
+                <rect class="cvdn" x="200" y="82" width="148" height="136" rx="6"/>
+                <text class="cvtt" x="274" y="136">Unified Audit</text>
+                <text class="cvtt" x="274" y="152">&amp; Mapping</text>
+                <text class="cvts" x="274" y="170">Consolidating divergent</text>
+                <text class="cvts" x="274" y="184">patterns into baseline</text>
+
+                <!-- ── SHARED PLATFORM CORE (hub) ────────────── -->
+                <rect class="cvhub" x="400" y="90" width="152" height="152" rx="76"/>
+                <text class="cvhc" x="476" y="148">SHARED PLATFORM</text>
+                <text class="cvht" x="476" y="168">Unified Design</text>
+                <text class="cvht" x="476" y="186">System</text>
+                <text class="cvhd" x="476" y="208">Multi-market</text>
+                <text class="cvhd" x="476" y="222">component library</text>
+
+                <!-- ── AFTER NODES (gold) ──────────────────── -->
+                <rect class="cvout" x="608" y="32" width="140" height="44" rx="5"/>
+                <text class="cvtt cvng" x="678" y="49">Verti Italy Live</text>
+                <text class="cvts" x="678" y="64">Unified · localized surface</text>
+
+                <rect class="cvout" x="608" y="128" width="140" height="44" rx="5"/>
+                <text class="cvtt cvng" x="678" y="145">Verti Germany Live</text>
+                <text class="cvts" x="678" y="160">Unified · localized surface</text>
+
+                <rect class="cvout" x="608" y="224" width="140" height="44" rx="5"/>
+                <text class="cvtt cvng" x="678" y="241">Verti Spain Live</text>
+                <text class="cvts" x="678" y="256">Unified · localized surface</text>
+
+                <!-- ── CONNECTIONS: Before → Audit ─────────── -->
+                <line class="cval" x1="152" y1="54" x2="198" y2="118"/>
+                <circle class="cvfh" cx="199" cy="119" r="3"/>
+                <line class="cval" x1="152" y1="150" x2="198" y2="150"/>
+                <polygon class="cvfh" points="200,150 193,146 193,154"/>
+                <line class="cval" x1="152" y1="246" x2="198" y2="182"/>
+                <circle class="cvfh" cx="199" cy="181" r="3"/>
+
+                <!-- Audit → Core (teal) -->
+                <line class="cvtl" x1="348" y1="150" x2="398" y2="162"/>
+                <polygon class="cvft" points="400,163 393,158 395,166"/>
+
+                <!-- Core → After (gold, diverging) -->
+                <line class="cvgl" x1="552" y1="126" x2="606" y2="54"/>
+                <circle class="cvfg" cx="607" cy="53" r="3"/>
+                <line class="cvgl" x1="552" y1="166" x2="606" y2="150"/>
+                <polygon class="cvfg" points="608,150 601,146 601,154"/>
+                <line class="cvgl" x1="552" y1="206" x2="606" y2="246"/>
+                <circle class="cvfg" cx="607" cy="247" r="3"/>
+              </svg>
             </div>
-            <figcaption>Three markets that evolved independently. The design work was convergence — shared structure, local surface.</figcaption>
+            <figcaption>Three markets that evolved independently. The design work was convergence — shared structure, localized surface. One component library, three market layers.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
