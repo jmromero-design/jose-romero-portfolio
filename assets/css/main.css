@@ -756,6 +756,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   position: absolute; inset: 0;
   overflow: hidden;
   background: var(--bg-surface); /* #111110 — matches card bg */
+  container-type: inline-size;   /* enables cqw scaling for .cover-visual and .cover-number */
 }
 
 .cover-visual {
