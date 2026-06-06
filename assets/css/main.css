@@ -614,16 +614,23 @@ strong { font-weight: 500; color: var(--text-primary); }
   transform: translateY(-1px);
 }
 
-/* Ghost — no border */
+/* Ghost — same box as primary, no visible border/bg at rest */
 .btn-ghost {
   color: var(--text-secondary);
   font-weight: 400;
+  padding: var(--sp-3) var(--sp-6);
+  border-radius: var(--radius-sm);
+  border: 1.5px solid transparent;
+  background: transparent;
 }
 
 .btn-ghost .arrow { transition: transform var(--ease-base); }
 
 .btn-ghost:hover {
-  color: var(--gold);
+  color: var(--text-primary);
+  background: var(--bg-hover);
+  border-color: var(--border-default);
+  transform: translateY(-1px);
 }
 
 .btn-ghost:hover .arrow { transform: translateX(5px); }
