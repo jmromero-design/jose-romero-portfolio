@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -133,22 +133,145 @@
             <p>This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Italy. Localisation wasn't an afterthought — it was a structural constraint from the beginning of the expansion phase.</p>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="IKEA catalogue data backbone enabling multi-market expansion">
+          <figure class="diagram-block reveal" aria-label="IKEA catalogue backbone and multi-market scale">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    CAT[(IKEA Catalogue)]
-    CAT --> L1[Scan or search product]
-    L1 --> L2[Auto-fill specs and dimensions]
-    L2 --> L3[Seller adds photos and price]
-    L3 --> L4[Listing published]
-    CAT --> B1[Known product specifications]
-    L4 & B1 & B2[Seller rating] --> B3[Buyer confidence and purchase]
-    L4 --> M1[Spain pilot] --> M2[Four additional EU markets] --> M3[Full EU rollout committed]
-    M3 -.->|localisation layer| M4[Market-specific payment and regulation]
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 530" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Catalogue backbone and multi-market scale diagram">
+                <defs>
+                  <style>
+                    .c2dn  { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .c2dt  { stroke: var(--teal); stroke-width: 1.5; }
+                    .c2nl  { font-family: var(--font-body); font-size: 11px; font-weight: 300; fill: var(--text-secondary); text-anchor: middle; }
+                    .c2nt  { fill: var(--teal-text); font-weight: 500; }
+                    .c2nm  { font-size: 10px; }
+                    .c2sl  { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); }
+                    .c2sg  { fill: var(--gold); }
+                    .c2al  { stroke: var(--border-default); stroke-width: 1; }
+                    .c2tl  { stroke: var(--teal); stroke-width: 1; opacity: 0.6; fill: none; }
+                    .c2dl  { stroke: var(--teal); stroke-width: 1; opacity: 0.35; fill: none; }
+                    .c2gl  { stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
+                    .c2fh  { fill: var(--border-default); }
+                    .c2ft  { fill: var(--teal); }
+                    .c2fg  { fill: var(--gold); }
+                    .c2sgf { fill: var(--bg-surface-2); fill-opacity: 0.25; stroke: var(--border-default); stroke-width: 1; }
+                    .c2sgg { fill: var(--gold); fill-opacity: 0.04; stroke: var(--gold); stroke-opacity: 0.2; stroke-width: 1; }
+                  </style>
+                </defs>
+
+                <!-- Subgraph backgrounds -->
+                <rect class="c2sgf" x="32" y="95" width="203" height="304" rx="6"/>
+                <rect class="c2sgf" x="272" y="95" width="456" height="304" rx="6"/>
+                <rect class="c2sgg" x="32" y="424" width="697" height="95" rx="6"/>
+
+                <!-- Subgraph labels -->
+                <text class="c2sl" x="50" y="110">LISTING CREATION (SELLER)</text>
+                <text class="c2sl" x="290" y="110">TRUST SIGNALS (BUYER)</text>
+                <text class="c2sl c2sg" x="50" y="438">MULTI-MARKET EXPANSION</text>
+
+                <!-- CAT node — central data backbone -->
+                <rect class="c2dn c2dt" x="310" y="19" width="139" height="51" rx="5"/>
+                <text class="c2nl c2nt" x="380" y="37">IKEA Product Catalogue</text>
+                <text class="c2nl c2nt" x="380" y="52">(data backbone)</text>
+
+                <!-- ── SELLER FLOW (L nodes) ────────────────────────── -->
+                <rect class="c2dn" x="70" y="133" width="127" height="44" rx="5"/>
+                <text class="c2nl" x="134" y="148">Scan / Search</text>
+                <text class="c2nl" x="134" y="163">IKEA Product</text>
+
+                <rect class="c2dn" x="70" y="196" width="127" height="44" rx="5"/>
+                <text class="c2nl" x="134" y="211">Auto-Fill:</text>
+                <text class="c2nl" x="134" y="226">Dim · Mat · Assembly</text>
+
+                <rect class="c2dn" x="70" y="260" width="127" height="44" rx="5"/>
+                <text class="c2nl" x="134" y="275">Seller Adds:</text>
+                <text class="c2nl" x="134" y="290">Photos · Price · Condition</text>
+
+                <rect class="c2dn" x="70" y="323" width="127" height="44" rx="5"/>
+                <text class="c2nl" x="134" y="338">Listing Published</text>
+                <text class="c2nl" x="134" y="353">with Full Context</text>
+
+                <!-- ── BUYER TRUST SIGNALS (B nodes, left col) ────────── -->
+                <rect class="c2dn" x="310" y="133" width="139" height="44" rx="5"/>
+                <text class="c2nl" x="380" y="148">Verified IKEA</text>
+                <text class="c2nl" x="380" y="163">Product Identity</text>
+
+                <rect class="c2dn" x="310" y="215" width="139" height="44" rx="5"/>
+                <text class="c2nl" x="380" y="230">Seller Rating</text>
+                <text class="c2nl" x="380" y="245">&amp; History</text>
+
+                <rect class="c2dn" x="310" y="323" width="139" height="44" rx="5"/>
+                <text class="c2nl" x="380" y="338">Known Product</text>
+                <text class="c2nl" x="380" y="353">Specifications</text>
+
+                <!-- BUYER right col — purchase node -->
+                <rect class="c2dn" x="551" y="215" width="139" height="44" rx="5"/>
+                <text class="c2nl" x="621" y="230">Purchase &amp; Payment</text>
+                <text class="c2nl" x="621" y="245">In-Platform</text>
+
+                <!-- ── MULTI-MARKET SCALE (M nodes) ───────────────────── -->
+                <rect class="c2dn" x="70"  y="448" width="114" height="38" rx="5"/>
+                <text class="c2nl c2nm" x="127" y="470">Spain (pilot)</text>
+
+                <rect class="c2dn" x="241" y="448" width="127" height="38" rx="5"/>
+                <text class="c2nl c2nm" x="304" y="470">+4 European Markets</text>
+
+                <rect class="c2dn" x="418" y="448" width="127" height="38" rx="5"/>
+                <text class="c2nl c2nm" x="481" y="461">Full EU Rollout</text>
+                <text class="c2nl c2nm" x="481" y="476">(Committed)</text>
+
+                <rect class="c2dn" x="595" y="448" width="127" height="38" rx="5"/>
+                <text class="c2nl c2nm" x="658" y="461">Market-Specific:</text>
+                <text class="c2nl c2nm" x="658" y="476">pay · law · locale</text>
+
+                <!-- ── CONNECTIONS ──────────────────────────────────────── -->
+
+                <!-- CAT → L1 diagonal (teal — catalogue feeds listing flow) -->
+                <line class="c2tl" x1="310" y1="70" x2="137" y2="133"/>
+                <circle class="c2ft" cx="134" cy="133" r="3" opacity="0.7"/>
+
+                <!-- CAT → B2 vertical ↓ (teal — catalogue confirms product identity) -->
+                <line class="c2tl" x1="380" y1="70" x2="380" y2="131"/>
+                <polygon class="c2ft" points="380,133 376,126 384,126"/>
+
+                <!-- Seller flow L1 → L2 → L3 → L4 ↓ -->
+                <line class="c2al" x1="134" y1="177" x2="134" y2="194"/>
+                <polygon class="c2fh" points="134,196 130,189 138,189"/>
+                <line class="c2al" x1="134" y1="240" x2="134" y2="258"/>
+                <polygon class="c2fh" points="134,260 130,253 138,253"/>
+                <line class="c2al" x1="134" y1="304" x2="134" y2="321"/>
+                <polygon class="c2fh" points="134,323 130,316 138,316"/>
+
+                <!-- L4 → B1 (listing feeds known product specs trust signal) → -->
+                <line class="c2al" x1="197" y1="345" x2="308" y2="345"/>
+                <polygon class="c2fh" points="310,345 303,341 303,349"/>
+
+                <!-- Trust signals converge on Purchase node -->
+                <!-- B2 (Verified identity) → B4 diagonal ↘ (teal) -->
+                <line class="c2dl" x1="449" y1="155" x2="549" y2="215"/>
+                <circle class="c2ft" cx="551" cy="215" r="3" opacity="0.7"/>
+                <!-- B3 (Rating) → B4 horizontal → -->
+                <line class="c2al" x1="449" y1="237" x2="549" y2="237"/>
+                <polygon class="c2fh" points="551,237 544,233 544,241"/>
+                <!-- B1 (Specifications) → B4 diagonal ↗ -->
+                <line class="c2al" x1="449" y1="345" x2="549" y2="259"/>
+                <circle class="c2fh" cx="551" cy="259" r="3"/>
+
+                <!-- L4 → M1 (listing infrastructure enables market expansion) ↓ -->
+                <line class="c2al" x1="134" y1="367" x2="127" y2="446"/>
+                <polygon class="c2fh" points="127,448 123,441 131,441"/>
+
+                <!-- Market expansion M1 → M2 → M3 → -->
+                <line class="c2al" x1="184" y1="467" x2="239" y2="467"/>
+                <polygon class="c2fh" points="241,467 234,463 234,471"/>
+                <line class="c2al" x1="368" y1="467" x2="416" y2="467"/>
+                <polygon class="c2fh" points="418,467 411,463 411,471"/>
+
+                <!-- M3 → M4 dashed gold (localisation layer) -->
+                <line class="c2gl" x1="545" y1="467" x2="593" y2="467"/>
+                <polygon class="c2fg" points="595,467 588,463 588,471"/>
+                <text class="c2sl c2sg" x="570" y="440" text-anchor="middle">Localisation Layer</text>
+              </svg>
             </div>
-            <figcaption>The catalogue backbone removes the hardest part of listing creation. The same architecture enables expansion without rebuilding.</figcaption>
+            <figcaption>The IKEA product catalogue acts as a structured data backbone — removing listing friction for sellers while providing verified product identity for buyers. The same architecture enables seamless multi-market rollout.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
