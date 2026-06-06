@@ -10,7 +10,17 @@
   var path     = location.pathname;
 
   /* Pages that have a Spanish equivalent. Extend when more are added. */
-  var translated = ['/', '/work/', '/about/', '/thinking/'];
+  var translated = [
+    '/', '/work/', '/about/', '/thinking/',
+    '/work/ikea-home-services/',
+    '/work/ikea-secondhand-marketplace/',
+    '/work/santander-nordics-cro/',
+    '/work/melia-hotels-campaign-platform/',
+    '/work/mapfre-afin-digital-expansion/',
+    '/work/iqos-club-cro/',
+    '/work/xti-ecommerce-redesign/',
+    '/work/ikea-ways-of-working/'
+  ];
 
   function hasEs(p) { return translated.indexOf(p) !== -1; }
 
