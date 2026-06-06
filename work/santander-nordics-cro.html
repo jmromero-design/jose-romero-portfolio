@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -142,24 +142,99 @@
             <p>I was also responsible for communicating results clearly to Santander's teams across four markets — translating statistical results into actionable design direction and translating stakeholder feedback into testable hypotheses.</p>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="CRO experimentation cycle under multi-market regulatory constraints">
+          <figure class="diagram-block reveal" aria-label="CRO experimentation cycle under multi-market regulatory constraints">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    OBS[Observe analytics and session data] --> HYP[Hypothesise pattern and intervention]
-    HYP --> DES[Design variant within legal constraints]
-    DES --> REV[Legal review per country]
-    REV --> TEST[Test via A/B or multivariate]
-    TEST --> ANA[Analyse results by market segment]
-    ANA --> LEARN[Communicate findings to Santander teams]
-    LEARN --> OBS
-    CON[Multi-market constraint — DK, SE, FI, NO]
-    CON -.->|applies throughout| DES
-    CON -.-> REV
-    CON -.-> ANA
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 256" width="100%" style="min-width:540px;display:block;" role="img" aria-label="CRO experimentation cycle and constraints diagram">
+                <defs>
+                  <style>
+                    .c3dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .c3dt { stroke: var(--teal); stroke-width: 1.5; }
+                    .c3dg { stroke: var(--gold); stroke-width: 1.5; }
+                    .c3nt { fill: var(--teal-text); }
+                    .c3ng { fill: var(--gold); }
+                    .c3tt { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .c3ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c3al { stroke: var(--border-default); stroke-width: 1; fill: none; }
+                    .c3gl { stroke: var(--gold); stroke-width: 1.2; stroke-dasharray: 5 3; fill: none; opacity: 0.4; }
+                    .c3fh { fill: var(--border-default); }
+                    .c3ft { fill: var(--teal); }
+                    .c3mc { fill: var(--gold); fill-opacity: 0.05; stroke: var(--gold); stroke-width: 1.5; stroke-opacity: 0.3; }
+                  </style>
+                </defs>
+
+                <!-- Constraint bracket — dashed gold lines show constraint spans all stages -->
+                <!-- Horizontal below top row, vertical right column, horizontal along bottom row -->
+                <line class="c3gl" x1="177" y1="84" x2="711" y2="84"/>
+                <line class="c3gl" x1="711" y1="84"  x2="711" y2="210"/>
+                <line class="c3gl" x1="354" y1="210" x2="711" y2="210"/>
+
+                <!-- ── TOP ROW ──────────────────────────────────────── -->
+                <!-- OBS -->
+                <rect class="c3dn" x="38" y="24" width="139" height="57" rx="5"/>
+                <text class="c3tt" x="108" y="46">Observe</text>
+                <text class="c3ts" x="108" y="62">Analytics · Contentsquare</text>
+
+                <!-- HYP (teal — key insight node) -->
+                <rect class="c3dn c3dt" x="215" y="24" width="139" height="57" rx="5"/>
+                <text class="c3tt c3nt" x="285" y="46">Hypothesise</text>
+                <text class="c3ts" x="285" y="62">Behavioral pattern identified</text>
+
+                <!-- DES -->
+                <rect class="c3dn" x="393" y="24" width="139" height="57" rx="5"/>
+                <text class="c3tt" x="463" y="46">Design</text>
+                <text class="c3ts" x="463" y="62">Variant within limits</text>
+
+                <!-- REV (gold — regulatory bottleneck) -->
+                <rect class="c3dn c3dg" x="570" y="24" width="139" height="57" rx="5"/>
+                <text class="c3tt c3ng" x="640" y="46">Legal Review</text>
+                <text class="c3ts" x="640" y="62">DK · SE · FI · NO sign-offs</text>
+
+                <!-- Top row arrows → -->
+                <line class="c3al" x1="177" y1="52" x2="213" y2="52"/>
+                <polygon class="c3fh" points="215,52 208,48 208,56"/>
+                <line class="c3al" x1="354" y1="52" x2="391" y2="52"/>
+                <polygon class="c3fh" points="393,52 386,48 386,56"/>
+                <line class="c3al" x1="532" y1="52" x2="568" y2="52"/>
+                <polygon class="c3fh" points="570,52 563,48 563,56"/>
+
+                <!-- REV ↓ TEST -->
+                <line class="c3al" x1="640" y1="81" x2="640" y2="150"/>
+                <polygon class="c3fh" points="640,152 636,145 644,145"/>
+
+                <!-- ── BOTTOM ROW (right → left) ────────────────────── -->
+                <!-- TEST -->
+                <rect class="c3dn" x="570" y="152" width="139" height="57" rx="5"/>
+                <text class="c3tt" x="640" y="174">Test</text>
+                <text class="c3ts" x="640" y="190">A/B · Optimizely / VWO</text>
+
+                <!-- ANA -->
+                <rect class="c3dn" x="393" y="152" width="139" height="57" rx="5"/>
+                <text class="c3tt" x="463" y="174">Analyse</text>
+                <text class="c3ts" x="463" y="190">Statistical significance</text>
+
+                <!-- LEARN (teal — insight closes the loop) -->
+                <rect class="c3dn c3dt" x="215" y="152" width="139" height="57" rx="5"/>
+                <text class="c3tt c3nt" x="285" y="174">Learn &amp; Share</text>
+                <text class="c3ts" x="285" y="190">Hypothesis library updated</text>
+
+                <!-- MKTCON — multi-market constraint box -->
+                <rect class="c3mc" x="38" y="149" width="139" height="63" rx="5"/>
+                <text class="c3ts c3ng" x="108" y="166" style="font-size:8.5px;font-weight:700;letter-spacing:1px;">⚠ MULTI-MARKET</text>
+                <text class="c3ts" x="108" y="180">Same test · different rules</text>
+                <text class="c3ts" x="108" y="194">Cultural + traffic variance</text>
+
+                <!-- Bottom row arrows ← (pointing left) -->
+                <line class="c3al" x1="570" y1="180" x2="536" y2="180"/>
+                <polygon class="c3fh" points="532,180 539,176 539,184"/>
+                <line class="c3al" x1="393" y1="180" x2="359" y2="180"/>
+                <polygon class="c3fh" points="355,180 362,176 362,184"/>
+
+                <!-- LEARN → OBS loopback (left side L-path) -->
+                <path class="c3al" d="M 215,180 L 16,180 L 16,52 L 36,52"/>
+                <polygon class="c3fh" points="38,52 31,48 31,56"/>
+              </svg>
             </div>
-            <figcaption>A regulated multi-market environment adds constraints at every stage of the cycle — not just at execution. The discipline is the method.</figcaption>
+            <figcaption>A regulated multi-market environment applies constraints at every stage of the cycle — not just at execution. Legal sign-off is required across four countries before any test goes live. The discipline is the method.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
