@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -163,26 +163,89 @@
             </ul>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="Four-tool design operations framework">
+          <figure class="diagram-block reveal" aria-label="Four-tool standardization wheel">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    PRIN[Structural principle — what goes where, when, and why]
-    PRIN --> FG & JR & CF & PH
-    subgraph FG ["Figma — design truth"]
-        FG1[Live files and components] --> FG2[Design system and tokens] --> FG3[Handoff-ready specs]
-    end
-    subgraph JR ["Jira — task truth"]
-        JR1[Tickets linked to Figma] & JR2[Status, owner, sprint]
-    end
-    subgraph CF ["Confluence — decision truth"]
-        CF1[Design rationale and decisions] & CF2[Ways of working docs]
-    end
-    subgraph PH ["Phrase — copy truth"]
-        PH1[String management linked to components]
-    end
-    FG & JR & CF & PH --> OUT[System survives personnel change, new members, and low-maintenance periods]
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 474" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Four-tool design operations wheel diagram">
+                <defs>
+                  <style>
+                    .c8dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .c8tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .c8ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c8hl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
+                    .c8hub { fill: var(--bg-surface-2); stroke: var(--gold); stroke-width: 1.5; }
+                    .c8ht { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
+                    .c8hd { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c8sp { stroke: var(--gold); stroke-width: 1; opacity: 0.2; }
+                    .c8bl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1px; text-anchor: middle; }
+                  </style>
+                </defs>
+
+                <!-- Outer ring -->
+                <circle cx="380" cy="252" r="80" fill="none" stroke="var(--border-default)" stroke-width="1.5" opacity="0.4"/>
+
+                <!-- Quadrant arcs (stroke-width 18 = colored band on ring) -->
+                <!-- Top-right: Figma → Jira (red) -->
+                <path d="M 380,172 A 80,80 0 0,1 460,252" fill="none" stroke="#F43F5E" stroke-width="18" opacity="0.18"/>
+                <!-- Bottom-right: Jira → Confluence (blue) -->
+                <path d="M 460,252 A 80,80 0 0,1 380,332" fill="none" stroke="#3B82F6" stroke-width="18" opacity="0.18"/>
+                <!-- Bottom-left: Confluence → Phrase (teal) -->
+                <path d="M 380,332 A 80,80 0 0,1 300,252" fill="none" stroke="#4BBFB2" stroke-width="18" opacity="0.18"/>
+                <!-- Top-left: Phrase → Figma (purple) -->
+                <path d="M 300,252 A 80,80 0 0,1 380,172" fill="none" stroke="#A855F7" stroke-width="18" opacity="0.18"/>
+
+                <!-- Spoke lines (hub to tool cards) -->
+                <line class="c8sp" x1="350" y1="222" x2="216" y2="134"/>
+                <line class="c8sp" x1="410" y1="222" x2="544" y2="134"/>
+                <line class="c8sp" x1="410" y1="282" x2="544" y2="340"/>
+                <line class="c8sp" x1="350" y1="282" x2="216" y2="340"/>
+
+                <!-- Central Hub -->
+                <rect class="c8hub" x="350" y="222" width="60" height="60" rx="30"/>
+                <text class="c8ht" x="380" y="244">TRUTH</text>
+                <text class="c8ht" x="380" y="256">HUB</text>
+                <text class="c8hd" x="380" y="272">↻</text>
+
+                <!-- Badge labels (between hub and ring) -->
+                <text class="c8bl" x="380" y="180" fill="#F43F5E" opacity="0.8">01 / DESIGN TOKENS</text>
+                <text class="c8bl" x="454" y="258" fill="#3B82F6" opacity="0.8">02 /</text>
+                <text class="c8bl" x="454" y="268" fill="#3B82F6" opacity="0.8">SPEC</text>
+                <text class="c8bl" x="380" y="328" fill="#4BBFB2" opacity="0.8">03 / KNOWLEDGE</text>
+                <text class="c8bl" x="306" y="258" fill="#A855F7" opacity="0.8">04 /</text>
+                <text class="c8bl" x="306" y="268" fill="#A855F7" opacity="0.8">L10N</text>
+
+                <!-- ── TOOL CARDS ────────────────────────────────── -->
+                <!-- Figma (top-left, red) -->
+                <rect class="c8dn" x="16" y="24" width="200" height="110" rx="6" style="stroke:#F43F5E;stroke-opacity:0.3;stroke-width:1;"/>
+                <text class="c8tt" x="116" y="48" style="fill:#F43F5E;">01 / FIGMA</text>
+                <text class="c8ts" x="116" y="64">Component libraries,</text>
+                <text class="c8ts" x="116" y="78">design tokens &amp; UI kits.</text>
+                <text class="c8ts" x="116" y="93">Visual source of truth —</text>
+                <text class="c8ts" x="116" y="108">exports specs to engineers.</text>
+
+                <!-- Jira (top-right, blue) -->
+                <rect class="c8dn" x="544" y="24" width="200" height="110" rx="6" style="stroke:#3B82F6;stroke-opacity:0.3;stroke-width:1;"/>
+                <text class="c8tt" x="644" y="48" style="fill:#3B82F6;">02 / JIRA</text>
+                <text class="c8ts" x="644" y="64">Sprint mapping &amp;</text>
+                <text class="c8ts" x="644" y="78">status tracking. Links</text>
+                <text class="c8ts" x="644" y="93">design changes directly</text>
+                <text class="c8ts" x="644" y="108">to code deliverables.</text>
+
+                <!-- Confluence (bottom-right, teal) -->
+                <rect class="c8dn" x="544" y="340" width="200" height="110" rx="6" style="stroke:#4BBFB2;stroke-opacity:0.3;stroke-width:1;"/>
+                <text class="c8tt" x="644" y="364" style="fill:#4BBFB2;">03 / CONFLUENCE</text>
+                <text class="c8ts" x="644" y="380">WoW specs &amp; guidelines.</text>
+                <text class="c8ts" x="644" y="394">Translates tokens into</text>
+                <text class="c8ts" x="644" y="408">team-wide standards</text>
+                <text class="c8ts" x="644" y="422">and shared principles.</text>
+
+                <!-- Phrase (bottom-left, purple) -->
+                <rect class="c8dn" x="16" y="340" width="200" height="110" rx="6" style="stroke:#A855F7;stroke-opacity:0.3;stroke-width:1;"/>
+                <text class="c8tt" x="116" y="364" style="fill:#A855F7;">04 / PHRASE</text>
+                <text class="c8ts" x="116" y="380">Global copy &amp;</text>
+                <text class="c8ts" x="116" y="394">localisation dictionary.</text>
+                <text class="c8ts" x="116" y="408">Injects translations into</text>
+                <text class="c8ts" x="116" y="422">design and code.</text>
+              </svg>
             </div>
             <figcaption>One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation.</figcaption>
           </figure>

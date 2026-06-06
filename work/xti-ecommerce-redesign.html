@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -134,20 +134,92 @@
             <p>Information architecture testing was also part of the process: card sorting and tree testing exercises to validate the proposed category and navigation structure before committing it to high-fidelity design. This is worth doing for any catalogue-heavy e-commerce redesign — IA problems discovered in testing are much cheaper to fix than IA problems discovered in live user data.</p>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="Platform-constrained design process for XTI ecommerce">
+          <figure class="diagram-block reveal" aria-label="Magento constraints consolidation filter">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    R1[Hotjar — recordings and heatmaps] & R2[Funnel analytics] & R3[Competitive analysis] --> FRAME[Where is the experience failing?]
-    FRAME --> C1[Magento constraints mapped — components, URLs, filter logic]
-    C1 --> IA[Information architecture tested via card sorting and tree testing]
-    IA --> D1[Brand vs conversion resolved per section]
-    D1 --> D2[Product listing pages — filtration and sorting UX]
-    D2 --> D3[Product detail — imagery, size, purchase flow]
-    D3 --> D4[Checkout — friction audit and progressive disclosure]
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 322" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Magento constraints consolidation filter diagram">
+                <defs>
+                  <style>
+                    .c7dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .c7tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .c7ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c7ng { fill: var(--gold); }
+                    .c7nt { fill: var(--teal-text); font-weight: 600; }
+                    .c7al { stroke: var(--border-default); stroke-width: 1; opacity: 0.6; }
+                    .c7tl { stroke: var(--teal); stroke-width: 1.5; opacity: 0.5; }
+                    .c7gl { stroke: var(--gold); stroke-width: 1.5; opacity: 0.5; }
+                    .c7fh { fill: var(--border-default); }
+                    .c7ft { fill: var(--teal); }
+                    .c7fg { fill: var(--gold); }
+                    .c7out { fill: var(--gold); fill-opacity: 0.04; stroke: var(--gold); stroke-width: 1.5; }
+                    .c7core { fill: var(--teal); fill-opacity: 0.06; stroke: var(--teal); stroke-width: 2; }
+                    .c7cl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--teal-text); text-anchor: middle; }
+                    .c7ct { font-family: var(--font-body); font-size: 13px; font-weight: 600; fill: var(--text-primary); text-anchor: middle; }
+                    .c7cb { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--teal-text); text-anchor: start; }
+                  </style>
+                </defs>
+
+                <!-- ── INPUT NODES ─────────────────────────────── -->
+                <rect class="c7dn" x="16" y="30" width="180" height="58" rx="5"/>
+                <text class="c7tt" x="106" y="51">Behavioral Analytics</text>
+                <text class="c7ts" x="106" y="65">Hotjar scrollmaps &amp;</text>
+                <text class="c7ts" x="106" y="78">checkout drop-offs</text>
+
+                <rect class="c7dn" x="16" y="132" width="180" height="58" rx="5"/>
+                <text class="c7tt" x="106" y="153">UX Friction Audit</text>
+                <text class="c7ts" x="106" y="167">Expert heuristic review</text>
+                <text class="c7ts" x="106" y="180">of legacy funnel</text>
+
+                <rect class="c7dn" x="16" y="234" width="180" height="58" rx="5"/>
+                <text class="c7tt" x="106" y="255">Stakeholder Goals</text>
+                <text class="c7ts" x="106" y="269">Brand alignment &amp;</text>
+                <text class="c7ts" x="106" y="282">conversion targets</text>
+
+                <!-- ── MAGENTO CORE (central constraint) ───────── -->
+                <rect class="c7core" x="254" y="16" width="212" height="290" rx="8"/>
+                <text class="c7cl" x="360" y="43">TECHNICAL CONSTRAINT CORE</text>
+                <text class="c7ct" x="360" y="68">Magento 2 Core</text>
+                <line style="stroke:var(--teal);stroke-width:1;opacity:0.3;" x1="274" y1="80" x2="446" y2="80"/>
+                <text class="c7cb" x="278" y="98">· OOB checkout schema</text>
+                <text class="c7cb" x="278" y="114">· Native order &amp; inventory APIs</text>
+                <text class="c7cb" x="278" y="130">· Secure rigid template layout</text>
+                <text class="c7cb" x="278" y="146">· Performance-first coding rules</text>
+                <rect style="fill:var(--teal);fill-opacity:0.12;stroke:var(--teal);stroke-opacity:0.4;stroke-width:1;" x="282" y="264" width="156" height="24" rx="12"/>
+                <text class="c7cl" x="360" y="280">✓ FEASIBILITY FILTERED</text>
+
+                <!-- ── OUTPUT NODES (gold) ────────────────────── -->
+                <rect class="c7out" x="524" y="30" width="204" height="58" rx="5"/>
+                <text class="c7tt c7ng" x="626" y="51">Streamlined Checkout</text>
+                <text class="c7ts" x="626" y="65">5 complex steps</text>
+                <text class="c7ts" x="626" y="78">to 3 schema-compliant</text>
+
+                <rect class="c7out" x="524" y="132" width="204" height="58" rx="5"/>
+                <text class="c7tt c7ng" x="626" y="153">Responsive Forms</text>
+                <text class="c7ts" x="626" y="167">Autofill &amp; inline error</text>
+                <text class="c7ts" x="626" y="180">rules for zero friction</text>
+
+                <rect class="c7out" x="524" y="234" width="204" height="58" rx="5"/>
+                <text class="c7tt c7ng" x="626" y="255">Compliant UI Library</text>
+                <text class="c7ts" x="626" y="269">Validated visual system</text>
+                <text class="c7ts" x="626" y="282">aligned to sprint scope</text>
+
+                <!-- ── CONVERGING CONNECTIONS (inputs → core) ──── -->
+                <line class="c7tl" x1="196" y1="59" x2="252" y2="161"/>
+                <circle class="c7ft" cx="253" cy="162" r="3" opacity="0.6"/>
+                <line class="c7tl" x1="196" y1="161" x2="252" y2="161"/>
+                <polygon class="c7ft" points="254,161 247,157 247,165"/>
+                <line class="c7tl" x1="196" y1="263" x2="252" y2="161"/>
+                <circle class="c7ft" cx="253" cy="162" r="3" opacity="0.6"/>
+
+                <!-- ── DIVERGING CONNECTIONS (core → outputs) ──── -->
+                <line class="c7gl" x1="466" y1="161" x2="522" y2="59"/>
+                <circle class="c7fg" cx="523" cy="58" r="3" opacity="0.6"/>
+                <line class="c7gl" x1="466" y1="161" x2="522" y2="161"/>
+                <polygon class="c7fg" points="524,161 517,157 517,165"/>
+                <line class="c7gl" x1="466" y1="161" x2="522" y2="263"/>
+                <circle class="c7fg" cx="523" cy="264" r="3" opacity="0.6"/>
+              </svg>
             </div>
-            <figcaption>Constraints mapped first. The design brief became: what is the best possible UX within what can actually be built?</figcaption>
+            <figcaption>Constraints mapped first. Multiple research inputs are filtered through the platform constraint — the design brief became: what is the best possible UX within what can actually be built?</figcaption>
           </figure>
 
           <div class="cs-section reveal">

@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=11">
+  <link rel="stylesheet" href="/assets/css/main.css?v=12">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -145,23 +145,104 @@
             </div>
           </div>
 
-                    <figure class="diagram-block reveal" aria-label="Behavioral economics decision map for loyalty CRO">
+          <figure class="diagram-block reveal" aria-label="Self-reinforcing loyalty hook loop">
             <div class="diagram-wrap">
-              <pre class="mermaid">
-flowchart TD
-    GOAL[What loyalty behaviour are we changing?]
-    GOAL --> A[Increase visit frequency] & B[Drive tier progression] & C[Prevent disengagement] & D[Deepen engagement]
-    A --> F1[Habit formation and variable rewards]
-    B --> F2[Loss aversion and expiring-points framing]
-    C --> F3[Defaults and re-engagement triggers]
-    D --> F4[Completion mechanics and social proof]
-    F1 & F2 & F3 & F4 --> HYP[Structured hypothesis — specific and measurable]
-    HYP --> TEST[Test with low-traffic discipline]
-    TEST --> LEARN[Learn and update hypothesis library]
-    LEARN --> GOAL
-              </pre>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 288" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Self-reinforcing loyalty hook loop diagram">
+                <defs>
+                  <style>
+                    .c6dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .c6dt { stroke: var(--teal); stroke-width: 1.5; }
+                    .c6nt { fill: var(--teal-text); font-weight: 600; }
+                    .c6tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .c6ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c6hl { font-family: var(--font-body); font-size: 8.5px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); text-anchor: middle; }
+                    .c6al { stroke: var(--border-default); stroke-width: 1; }
+                    .c6ll { stroke: var(--teal); stroke-width: 1.2; opacity: 0.6; }
+                    .c6fh { fill: var(--border-default); }
+                    .c6ft { fill: var(--teal); }
+                  </style>
+                </defs>
+
+                <!-- Loop track ellipse -->
+                <ellipse cx="380" cy="148" rx="95" ry="80" fill="none" stroke="var(--teal)" stroke-opacity="0.18" stroke-width="1.5"/>
+
+                <!-- ── OUTER LEFT NODES ──────────────────────────── -->
+                <rect class="c6dn" x="20" y="80" width="148" height="54" rx="5"/>
+                <text class="c6tt" x="94" y="101">Business Observe</text>
+                <text class="c6ts" x="94" y="117">Identify loyalty drop-offs</text>
+
+                <rect class="c6dn" x="20" y="176" width="148" height="54" rx="5"/>
+                <text class="c6tt" x="94" y="197">Behavioral Hypothesis</text>
+                <text class="c6ts" x="94" y="213">Translate drop-off to trigger</text>
+
+                <!-- ── LOOP NODES (teal) ──────────────────────────── -->
+                <!-- Hook 1 — TRIGGER (top-left) -->
+                <rect class="c6dn c6dt" x="220" y="40" width="130" height="44" rx="5"/>
+                <text class="c6tt c6nt" x="285" y="57">01 / TRIGGER</text>
+                <text class="c6ts" x="285" y="72">Defaults &amp; friction ease</text>
+
+                <!-- Hook 2 — ACTION (top-right) -->
+                <rect class="c6dn c6dt" x="410" y="40" width="130" height="44" rx="5"/>
+                <text class="c6tt c6nt" x="475" y="57">02 / ACTION</text>
+                <text class="c6ts" x="475" y="72">Frictionless visit flow</text>
+
+                <!-- Hook 3 — REWARD (bottom-right) -->
+                <rect class="c6dn c6dt" x="410" y="212" width="130" height="44" rx="5"/>
+                <text class="c6tt c6nt" x="475" y="229">03 / REWARD</text>
+                <text class="c6ts" x="475" y="244">Variable points streaks</text>
+
+                <!-- Hook 4 — INVESTMENT (bottom-left) -->
+                <rect class="c6dn c6dt" x="220" y="212" width="130" height="44" rx="5"/>
+                <text class="c6tt c6nt" x="285" y="229">04 / INVESTMENT</text>
+                <text class="c6ts" x="285" y="244">Loss aversion status risk</text>
+
+                <!-- Hub label (center of loop) -->
+                <text class="c6hl" x="380" y="138">CONTINUOUS</text>
+                <text class="c6hl" x="380" y="152">LOYALTY CORE</text>
+                <text class="c6hl" x="380" y="166">HOOK LOOP</text>
+
+                <!-- ── OUTER RIGHT NODES ─────────────────────────── -->
+                <rect class="c6dn" x="592" y="80" width="148" height="54" rx="5"/>
+                <text class="c6tt" x="666" y="101">High-Significance Test</text>
+                <text class="c6ts" x="666" y="117">Discipline in low traffic</text>
+
+                <rect class="c6dn c6dt" x="592" y="176" width="148" height="54" rx="5"/>
+                <text class="c6tt c6nt" x="666" y="197">Knowledge Library</text>
+                <text class="c6ts" x="666" y="213">Loyalty pattern confirmed</text>
+
+                <!-- ── LOOP ARROWS (clockwise: T→A→R→I→T) ────────── -->
+                <!-- Hook1 → Hook2 (top, right) -->
+                <line class="c6ll" x1="350" y1="62" x2="408" y2="62"/>
+                <polygon class="c6ft" points="410,62 403,58 403,66"/>
+
+                <!-- Hook2 → Hook3 (right side, down) -->
+                <line class="c6ll" x1="475" y1="84" x2="475" y2="210"/>
+                <polygon class="c6ft" points="475,212 471,205 479,205"/>
+
+                <!-- Hook3 → Hook4 (bottom, left) -->
+                <line class="c6ll" x1="410" y1="234" x2="352" y2="234"/>
+                <polygon class="c6ft" points="350,234 357,230 357,238"/>
+
+                <!-- Hook4 → Hook1 (left side, up) -->
+                <line class="c6ll" x1="285" y1="212" x2="285" y2="86"/>
+                <polygon class="c6ft" points="285,84 281,91 289,91"/>
+
+                <!-- ── OUTER CONNECTIONS (dots) ──────────────────── -->
+                <!-- Obs → Hook1 -->
+                <line class="c6al" x1="168" y1="107" x2="218" y2="75"/>
+                <circle class="c6fh" cx="219" cy="74" r="3"/>
+                <!-- Hyp → Hook4 -->
+                <line class="c6al" x1="168" y1="203" x2="218" y2="238"/>
+                <circle class="c6fh" cx="219" cy="239" r="3"/>
+                <!-- Hook2 → Test -->
+                <line class="c6al" x1="540" y1="62" x2="590" y2="107"/>
+                <circle class="c6fh" cx="591" cy="108" r="3"/>
+                <!-- Hook3 → Learn -->
+                <line class="c6al" x1="540" y1="234" x2="590" y2="203"/>
+                <circle class="c6ft" cx="591" cy="202" r="3" opacity="0.7"/>
+              </svg>
             </div>
-            <figcaption>The behavioral lever depends on the loyalty goal. Picking the right framework is a design decision made before the test begins.</figcaption>
+            <figcaption>The behavioral lever depends on the loyalty goal. CRO tests optimise the continuous loop — trigger, action, reward, investment — rather than isolated touchpoints.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
