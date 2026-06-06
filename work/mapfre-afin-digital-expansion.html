@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -122,6 +122,20 @@
             <p>That tension — between simplicity and completeness — is the central design challenge in financial app UX. Simplifying too aggressively means hiding information that customers need to make informed decisions. Presenting everything means overwhelming customers who came to the app for a quick status check.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="AFIN progressive disclosure information architecture">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    L0[Layer 0 — Default: portfolio summary and primary CTA]
+    L0 --> L1a[Savings] & L1b[Investments] & L1c[Pension plans]
+    L1a & L1b & L1c --> L2[Layer 2 — Product detail on demand]
+    L2 --> L3[Layer 3 — Action: contribute, withdraw, reallocate]
+    RULE[Principle: complexity on demand, not by default]
+              </pre>
+            </div>
+            <figcaption>Progressive disclosure — not progressive complexity. Every feature is available. Not every feature needs to be prominent.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Approach — AFIN</span>
             <h2>Progressive disclosure, not progressive complexity</h2>
@@ -135,6 +149,23 @@
             <p>Alongside the AFIN app work, I contributed to Mapfre's digital platform scaling programme for Verti — their direct insurance brand operating in Italy, Germany, and Spain. Each market had an existing digital presence, but the platforms had evolved independently, creating inconsistencies in UX patterns, design system components, and conversion flows.</p>
             <p>The expansion work involved auditing the existing experiences across all three markets, identifying where divergence was intentional (regulatory or cultural) and where it was simply accidental drift, and establishing shared standards for the components and flows that should be consistent regardless of market.</p>
           </div>
+
+                    <figure class="diagram-block reveal" aria-label="Verti cross-market platform convergence">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart LR
+    subgraph BEFORE ["Three independent platforms"]
+        IT[Verti Italy] & DE[Verti Germany] & ES[Verti Spain]
+    end
+    BEFORE --> AUD[Audit divergence across UX patterns and flows]
+    AUD --> SYS[Shared design system and components]
+    SYS --> OPT[Aligned conversion flows]
+    SYS & OPT --> SHARED[Shared UX architecture]
+    SHARED --> LOC[Market layer — language, regulation, product]
+              </pre>
+            </div>
+            <figcaption>Three markets that evolved independently. The design work was convergence — shared structure, local surface.</figcaption>
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Learnings</span>
@@ -181,6 +212,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

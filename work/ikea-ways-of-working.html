@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -158,6 +158,30 @@
             </ul>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="Four-tool design operations framework">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    PRIN[Structural principle — what goes where, when, and why]
+    PRIN --> FG & JR & CF & PH
+    subgraph FG ["Figma — design truth"]
+        FG1[Live files and components] --> FG2[Design system and tokens] --> FG3[Handoff-ready specs]
+    end
+    subgraph JR ["Jira — task truth"]
+        JR1[Tickets linked to Figma] & JR2[Status, owner, sprint]
+    end
+    subgraph CF ["Confluence — decision truth"]
+        CF1[Design rationale and decisions] & CF2[Ways of working docs]
+    end
+    subgraph PH ["Phrase — copy truth"]
+        PH1[String management linked to components]
+    end
+    FG & JR & CF & PH --> OUT[System survives personnel change, new members, and low-maintenance periods]
+              </pre>
+            </div>
+            <figcaption>One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Outcome</span>
             <h2>Imperfect adoption. Structural bones held.</h2>
@@ -203,6 +227,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

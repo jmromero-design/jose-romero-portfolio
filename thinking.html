@@ -32,7 +32,7 @@
     href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap"
     rel="stylesheet">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 
 
@@ -121,6 +121,26 @@
           </div>
         </article>
 
+        <figure class="diagram-block article-diagram reveal" aria-label="Emotional vs positional empathy in design">
+          <div class="diagram-wrap">
+            <pre class="mermaid">
+flowchart LR
+    subgraph EMO ["Emotional empathy"]
+        E1[Feel what they feel]
+        E2[Useful in consumer research and usability testing]
+    end
+    subgraph POS ["Positional empathy — the design tool"]
+        P1[Map how they see]
+        P2[What are they optimising for?]
+        P3[What are they afraid of?]
+        P4[What needs to be true for them to move forward?]
+    end
+    POS --> OUT[Find the path — not by winning, but by understanding the terrain]
+            </pre>
+          </div>
+          <figcaption>Positional empathy is not compassion. It is a map. You do not feel your way to alignment — you think your way there.</figcaption>
+        </figure>
+
         <!-- Piece 2 -->
         <article id="behavioral-decisions" class="article-block reveal">
           <h2 class="article-title">Most design decisions are behavioral decisions. Treat them that way.</h2>
@@ -139,6 +159,23 @@
               an idealised version of it.</p>
           </div>
         </article>
+
+        <figure class="diagram-block article-diagram reveal" aria-label="The gap between user needs and user behavior">
+          <div class="diagram-wrap">
+            <pre class="mermaid">
+flowchart TD
+    DQ[Standard design question — what do users need?]
+    BQ[Behavioral question — what will users actually do?]
+    DQ -. not the same question .-> BQ
+    BQ --> M1[Information order shapes attention]
+    BQ --> M2[Gain vs loss framing shapes how choices feel]
+    BQ --> M3[Defaults shape behaviour without deciding]
+    BQ --> M4[Perceived effort determines whether action happens]
+    M1 & M2 & M3 & M4 --> OUT[These are the mechanisms by which design works or does not]
+            </pre>
+          </div>
+          <figcaption>What users need and what users do are not the same question. Good behavioral design answers both.</figcaption>
+        </figure>
 
         <!-- Piece 3 -->
         <article id="process" class="article-block reveal">
@@ -160,6 +197,25 @@
           </div>
         </article>
 
+        <figure class="diagram-block article-diagram reveal" aria-label="Person-dependent vs principle-first systems">
+          <div class="diagram-wrap">
+            <pre class="mermaid">
+flowchart TD
+    subgraph FRAGILE ["Person-dependent system"]
+        F1[Process lives in memory] --> F2[Transmitted informally] --> F3[Key person unavailable] --> F4[System collapses]
+    end
+    subgraph BUILD ["Building the alternative"]
+        B1[Map actual work and lost decisions] --> B2[Derive structural rules] --> B3[Design for imperfect adoption]
+    end
+    subgraph RESILIENT ["Principle-first system"]
+        R1[Survives personnel change] & R2[Survives new members] & R3[Survives low-maintenance periods]
+    end
+    FRAGILE --> BUILD --> RESILIENT
+            </pre>
+          </div>
+          <figcaption>Imperfect adoption of a well-structured system is the success condition — not perfect compliance. The goal is survival, not control.</figcaption>
+        </figure>
+
         <!-- Piece 4 -->
         <article id="ai-ratio" class="article-block reveal">
           <h2 class="article-title">AI changes the ratio of thinking to doing. That's not a small thing.</h2>
@@ -178,6 +234,22 @@
             <p>Those are facilitation problems. And facilitation, it turns out, is a design problem.</p>
           </div>
         </article>
+
+        <figure class="diagram-block article-diagram reveal" aria-label="How AI shifts the bottleneck from generation to sense-making">
+          <div class="diagram-wrap">
+            <pre class="mermaid">
+flowchart LR
+    subgraph BEFORE ["Before AI"]
+        BA1[Generate options] -->|bottleneck| BA2[Evaluate] --> BA3[Decide]
+    end
+    subgraph AFTER ["With AI"]
+        AA1[Generate fast] --> AA2[Make sense of options] -->|bottleneck shifts here| AA3[Decide]
+    end
+    AFTER --> DP[The design problem is human not technical — structure the process so output is useful, not just voluminous]
+            </pre>
+          </div>
+          <figcaption>AI does not remove the need for judgment. It moves it. The bottleneck shifts from generation to sense-making — and that is a design problem.</figcaption>
+        </figure>
 
         <div class="update-note reveal">
           Last updated June 2026. These positions will change. The work continues.
@@ -239,6 +311,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 
 </body>

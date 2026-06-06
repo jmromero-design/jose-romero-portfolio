@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -137,6 +137,26 @@
             <p>I was also responsible for communicating results clearly to Santander's teams across four markets — translating statistical results into actionable design direction and translating stakeholder feedback into testable hypotheses.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="CRO experimentation cycle under multi-market regulatory constraints">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    OBS[Observe analytics and session data] --> HYP[Hypothesise pattern and intervention]
+    HYP --> DES[Design variant within legal constraints]
+    DES --> REV[Legal review per country]
+    REV --> TEST[Test via A/B or multivariate]
+    TEST --> ANA[Analyse results by market segment]
+    ANA --> LEARN[Communicate findings to Santander teams]
+    LEARN --> OBS
+    CON[Multi-market constraint — DK, SE, FI, NO]
+    CON -.->|applies throughout| DES
+    CON -.-> REV
+    CON -.-> ANA
+              </pre>
+            </div>
+            <figcaption>A regulated multi-market environment adds constraints at every stage of the cycle — not just at execution. The discipline is the method.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Learnings</span>
             <h2>What multi-market CRO teaches you about design</h2>
@@ -182,6 +202,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

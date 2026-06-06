@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -135,6 +135,25 @@
             <p>From those sessions, we derived a shared model of how campaigns actually moved through the organisation: from idea to brief, brief to asset, asset to approval, approval to scheduling, scheduling to performance review. Each stage had different owners, different blockers, and different information needs.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="Zero-to-one product journey from blank brief to live platform">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    BRIEF[Zero-to-one brief — no existing system]
+    BRIEF --> D1[Director workshops at Melia HQ]
+    D1 --> D2[Surface what they think they need]
+    D2 --> D3[Extract the underlying problem]
+    D3 --> D4[Map campaign lifecycle end to end]
+    D4 --> DE1[UX architecture defined]
+    DE1 --> DE2[Interaction design and prototyping]
+    DE2 --> DE3[Design system and consistency]
+    DE3 <--> DE4[Ongoing Melia feedback — 3-year iteration cycle]
+    DE3 --> OUT[Live across all Melia markets]
+              </pre>
+            </div>
+            <figcaption>A discovery problem as much as a design problem. The brief was a blank page — requirements had to be generated, not just validated.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Design &amp; delivery</span>
             <h2>Three years from concept to live</h2>
@@ -187,6 +206,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -129,6 +129,22 @@
             <p>Information architecture testing was also part of the process: card sorting and tree testing exercises to validate the proposed category and navigation structure before committing it to high-fidelity design. This is worth doing for any catalogue-heavy e-commerce redesign — IA problems discovered in testing are much cheaper to fix than IA problems discovered in live user data.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="Platform-constrained design process for XTI ecommerce">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    R1[Hotjar — recordings and heatmaps] & R2[Funnel analytics] & R3[Competitive analysis] --> FRAME[Where is the experience failing?]
+    FRAME --> C1[Magento constraints mapped — components, URLs, filter logic]
+    C1 --> IA[Information architecture tested via card sorting and tree testing]
+    IA --> D1[Brand vs conversion resolved per section]
+    D1 --> D2[Product listing pages — filtration and sorting UX]
+    D2 --> D3[Product detail — imagery, size, purchase flow]
+    D3 --> D4[Checkout — friction audit and progressive disclosure]
+              </pre>
+            </div>
+            <figcaption>Constraints mapped first. The design brief became: what is the best possible UX within what can actually be built?</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Design</span>
             <h2>Balancing brand and conversion</h2>
@@ -181,6 +197,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

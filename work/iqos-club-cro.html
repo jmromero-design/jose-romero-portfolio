@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -140,6 +140,25 @@
             </div>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="Behavioral economics decision map for loyalty CRO">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    GOAL[What loyalty behaviour are we changing?]
+    GOAL --> A[Increase visit frequency] & B[Drive tier progression] & C[Prevent disengagement] & D[Deepen engagement]
+    A --> F1[Habit formation and variable rewards]
+    B --> F2[Loss aversion and expiring-points framing]
+    C --> F3[Defaults and re-engagement triggers]
+    D --> F4[Completion mechanics and social proof]
+    F1 & F2 & F3 & F4 --> HYP[Structured hypothesis — specific and measurable]
+    HYP --> TEST[Test with low-traffic discipline]
+    TEST --> LEARN[Learn and update hypothesis library]
+    LEARN --> GOAL
+              </pre>
+            </div>
+            <figcaption>The behavioral lever depends on the loyalty goal. Picking the right framework is a design decision made before the test begins.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Outcome</span>
             <h2>Ongoing programme with measurable engagement gains</h2>
@@ -184,6 +203,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

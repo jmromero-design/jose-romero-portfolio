@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -128,6 +128,33 @@
             <p>The additional complexity: we were building a new product inside a very large, brand-sensitive organisation, working with multiple stakeholders across product, service design, engineering, content, and the in-store IKEA network. Decisions had to be made at pace, but they had to hold up to scrutiny. The brief was never fully stable.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="Dual-sided marketplace trust architecture">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    subgraph HO ["Homeowner"]
+        H1[Discovery] --> H2[Browse 50+ categories] --> H3[View profiles and reviews] --> H4[Book and pay] --> H5[Rate and review]
+    end
+    subgraph PRO ["Professional"]
+        P1[Onboarding and vetting] --> P2[Profile setup] --> P3[Accept jobs] --> P4[Complete service] --> P5[Build review history]
+    end
+    subgraph TRUST ["Trust design layer"]
+        T1[Verified badge]
+        T2[Transparent pricing]
+        T3[In-app messaging]
+        T4[Two-sided reviews]
+        T5[IKEA brand guarantee]
+    end
+    T1 --> H3 & P2
+    T2 --> H2
+    T3 --> H4 & P3
+    T4 --> H5 & P5
+    T5 --> H1
+              </pre>
+            </div>
+            <figcaption>Both sides of the marketplace must be convinced simultaneously. The trust design layer is what makes that legible to each.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">My role</span>
             <h2>Embedded, end-to-end</h2>
@@ -213,6 +240,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

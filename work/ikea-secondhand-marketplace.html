@@ -28,7 +28,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/main.css?v=9">
+  <link rel="stylesheet" href="/assets/css/main.css?v=10">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
 </head>
 <body>
@@ -128,6 +128,24 @@
             <p>This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Italy. Localisation wasn't an afterthought — it was a structural constraint from the beginning of the expansion phase.</p>
           </div>
 
+                    <figure class="diagram-block reveal" aria-label="IKEA catalogue data backbone enabling multi-market expansion">
+            <div class="diagram-wrap">
+              <pre class="mermaid">
+flowchart TD
+    CAT[(IKEA Catalogue)]
+    CAT --> L1[Scan or search product]
+    L1 --> L2[Auto-fill specs and dimensions]
+    L2 --> L3[Seller adds photos and price]
+    L3 --> L4[Listing published]
+    CAT --> B1[Known product specifications]
+    L4 & B1 & B2[Seller rating] --> B3[Buyer confidence and purchase]
+    L4 --> M1[Spain pilot] --> M2[Four additional EU markets] --> M3[Full EU rollout committed]
+    M3 -.->|localisation layer| M4[Market-specific payment and regulation]
+              </pre>
+            </div>
+            <figcaption>The catalogue backbone removes the hardest part of listing creation. The same architecture enables expansion without rebuilding.</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">My role</span>
             <h2>Product design across the full lifecycle</h2>
@@ -185,6 +203,8 @@
     <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script src="/assets/js/diagram-init.js?v=1"></script>
   <script src="/assets/js/main.js?v=7" defer></script>
 </body>
 </html>

@@ -1693,7 +1693,54 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 /* ------------------------------------------------------------
-   26. CLIENT LOGOS STRIP
+   26. MERMAID DIAGRAMS
+   ------------------------------------------------------------ */
+.diagram-block {
+  margin: var(--sp-10) 0;
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--bg-surface-2);
+}
+
+.diagram-wrap {
+  padding: var(--sp-6);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.diagram-wrap .mermaid {
+  display: block;
+  min-width: 320px; /* prevent collapse before Mermaid renders */
+}
+
+.diagram-wrap svg {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+}
+
+.diagram-block figcaption {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  padding: var(--sp-3) var(--sp-6);
+  border-top: 1px solid var(--border-subtle);
+  font-style: italic;
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+
+/* Thinking page: diagrams sit outside the article-block indent */
+.article-diagram {
+  max-width: 720px;
+  margin: 0 auto var(--sp-12);
+}
+
+/* ------------------------------------------------------------
+   27. CLIENT LOGOS STRIP
    ------------------------------------------------------------ */
 .section--logos {
   border-top: 1px solid var(--border-subtle);
