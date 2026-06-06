@@ -1496,7 +1496,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 .work-card-img {
   width: 100%;
-  aspect-ratio: 16/9;
+  aspect-ratio: 5/2;
   background-color: var(--bg-surface);
   border-bottom: 1px solid var(--border-default);
   position: relative;
