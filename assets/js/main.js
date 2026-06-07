@@ -56,7 +56,29 @@
   const navLinks = document.querySelector('.nav-links');
 
   if (nav) {
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    let lastScrollY = 0;
+    const HIDE_AFTER = 80; // px from top before hide logic kicks in
+
+    const onScroll = () => {
+      const y = window.scrollY;
+
+      // Scrolled glass-deepen effect
+      nav.classList.toggle('scrolled', y > 20);
+
+      // Hide on scroll-down, reveal on scroll-up
+      // Never hide if mobile menu is open
+      const menuOpen = navLinks && navLinks.classList.contains('open');
+      if (!menuOpen) {
+        if (y > HIDE_AFTER && y > lastScrollY) {
+          nav.classList.add('nav--hidden');
+        } else {
+          nav.classList.remove('nav--hidden');
+        }
+      }
+
+      lastScrollY = y;
+    };
+
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }

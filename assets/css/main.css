@@ -355,6 +355,14 @@ strong { font-weight: 500; color: var(--text-primary); }
   gap: var(--sp-2);
   padding-inline: var(--gutter);
   /* No background or border — each island carries its own glass */
+  /* Slide transition for hide/reveal on scroll */
+  transform: translateY(0);
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hidden state: slides fully out of view upward */
+.nav--hidden {
+  transform: translateY(-110%);
 }
 
 /* Each nav element is a floating island / pill */
