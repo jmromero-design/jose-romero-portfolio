@@ -767,10 +767,10 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 .card-title {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: clamp(var(--text-2xl), 2.2vw, var(--text-3xl));
   font-weight: 400;
   color: var(--text-primary);
-  line-height: 1.2;
+  line-height: 1.15;
   margin-bottom: var(--sp-3);
 }
 
@@ -1570,11 +1570,11 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 .work-card-title {
   font-family: var(--font-display);
-  font-size: var(--text-xl);
+  font-size: clamp(var(--text-2xl), 2vw, var(--text-3xl));
   font-weight: 400;
   color: var(--text-primary);
   margin-bottom: var(--sp-2);
-  line-height: 1.25;
+  line-height: 1.15;
 }
 
 .work-card-desc {
