@@ -1590,6 +1590,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: var(--sp-4);
+  margin-bottom: var(--sp-12);
 }
 
 .short-card {
