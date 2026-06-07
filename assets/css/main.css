@@ -342,7 +342,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 /* ------------------------------------------------------------
-   7. NAVIGATION
+   7. NAVIGATION — Floating Islands
    ------------------------------------------------------------ */
 .nav {
   position: fixed;
@@ -352,36 +352,38 @@ strong { font-weight: 500; color: var(--text-primary); }
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--sp-2);
   padding-inline: var(--gutter);
-  border-bottom: 1px solid var(--border-subtle);
-  transition: border-color var(--ease-base);
+  /* No background or border — each island carries its own glass */
 }
 
-/* Glass effect on pseudo-element so backdrop-filter doesn't create a
-   containing block for position:fixed children (the mobile nav overlay) */
-.nav::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: -1;
+/* Each nav element is a floating island / pill */
+.nav-pill {
   background: color-mix(in srgb, var(--bg-base) 88%, transparent);
   backdrop-filter: blur(14px) saturate(1.4);
   -webkit-backdrop-filter: blur(14px) saturate(1.4);
-  transition: background var(--ease-base);
+  border: 1px solid var(--border-default);
+  border-radius: 40px;
+  transition: background var(--ease-fast), border-color var(--ease-fast);
 }
 
-.nav.scrolled { border-bottom-color: var(--border-default); }
-.nav.scrolled::before { background: color-mix(in srgb, var(--bg-base) 94%, transparent); }
+/* Islands deepen slightly on scroll */
+.nav.scrolled .nav-pill {
+  background: color-mix(in srgb, var(--bg-base) 94%, transparent);
+  border-color: var(--border-strong);
+}
 
-/* Wordmark — full name italic in Fraunces */
+/* Wordmark island */
 .nav-logo {
   font-family: var(--font-display);
   font-size: var(--text-xl);
   font-weight: 400;
   font-style: italic;
   color: var(--text-primary);
-  transition: color var(--ease-fast);
+  transition: color var(--ease-fast), background var(--ease-fast), border-color var(--ease-fast);
   letter-spacing: 0.01em;
+  padding: var(--sp-2) var(--sp-5);
+  line-height: 1;
 }
 
 .nav-logo .logo-surname {
@@ -390,10 +392,14 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 .nav-logo:hover { color: var(--gold); }
 
+/* Nav-links island — groups all menu items + Contact CTA */
 .nav-links {
   display: flex;
   align-items: center;
-  gap: var(--sp-8);
+  gap: var(--sp-6);
+  padding: var(--sp-2) var(--sp-4);
+  list-style: none;
+  margin: 0;
 }
 
 .nav-links a {
@@ -445,8 +451,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--gold-bright) !important;
 }
 
-/* Theme toggle button */
-/* Language toggle — sits between nav-links and theme-toggle */
+/* Language island */
 .lang-toggle {
   display: flex;
   align-items: center;
@@ -456,6 +461,8 @@ strong { font-weight: 500; color: var(--text-primary); }
   font-weight: 600;
   letter-spacing: 0.1em;
   flex-shrink: 0;
+  padding: var(--sp-2) var(--sp-4);
+  line-height: 1;
 }
 
 .lang-current {
@@ -475,15 +482,14 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 .lang-link:hover { color: var(--teal-text); }
 
+/* Theme toggle island — circular pill */
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 32px; height: 32px;
-  border-radius: var(--radius-sm);
+  width: 36px; height: 36px;
   color: var(--text-tertiary);
-  border: 1px solid var(--border-default);
-  transition: color var(--ease-fast), border-color var(--ease-fast), background var(--ease-fast);
+  transition: color var(--ease-fast), background var(--ease-fast), border-color var(--ease-fast);
   font-size: var(--text-base);
   flex-shrink: 0;
 }
@@ -494,12 +500,15 @@ strong { font-weight: 500; color: var(--text-primary); }
   background: var(--teal-tint);
 }
 
-/* Mobile toggle */
+/* Mobile hamburger — shown as island on mobile */
 .nav-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
-  padding: var(--sp-2);
+  padding: var(--sp-2) var(--sp-4);
+  align-items: center;
+  justify-content: center;
+  min-width: 44px; height: 36px;
 }
 
 .nav-toggle span {
@@ -516,10 +525,20 @@ strong { font-weight: 500; color: var(--text-primary); }
 @media (max-width: 768px) {
   .nav-toggle { display: flex; }
 
+  /* On mobile, lang-toggle and theme-toggle are hidden — hamburger takes over */
+  .lang-toggle, .theme-toggle { display: none; }
+
   .nav-links {
+    /* Reset island styles for the full-screen overlay */
+    background: var(--bg-base);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    /* Overlay behaviour */
     position: fixed;
     top: var(--nav-height); left: 0; right: 0; bottom: 0;
-    background: var(--bg-base);
     flex-direction: column;
     justify-content: center;
     gap: var(--sp-8);
@@ -551,7 +570,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .footer {
   padding-block: var(--sp-16) var(--sp-12);
   border-top: 1px solid var(--border-default);
-  margin-top: var(--sp-32);
+  margin-top: var(--sp-8);
 }
 
 .footer-inner {
