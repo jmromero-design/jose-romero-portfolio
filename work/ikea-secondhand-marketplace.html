@@ -133,145 +133,136 @@
             <p>This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Italy. Localisation wasn't an afterthought — it was a structural constraint from the beginning of the expansion phase.</p>
           </div>
 
-          <figure class="diagram-block reveal" aria-label="IKEA catalogue backbone and multi-market scale">
+          <figure class="diagram-block reveal" aria-label="IKEA Second-hand Marketplace three-layer system">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 530" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Catalogue backbone and multi-market scale diagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 520" width="100%" style="display:block;" role="img" aria-label="Three-layer diagram: Seller, IKEA Platform, and Buyer">
                 <defs>
                   <style>
-                    .c2dn  { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
-                    .c2dt  { stroke: var(--teal); stroke-width: 1.5; }
-                    .c2nl  { font-family: var(--font-body); font-size: 11px; font-weight: 300; fill: var(--text-secondary); text-anchor: middle; }
-                    .c2nt  { fill: var(--teal-text); font-weight: 500; }
-                    .c2nm  { font-size: 10px; }
-                    .c2sl  { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); }
-                    .c2sg  { fill: var(--gold); }
-                    .c2al  { stroke: var(--border-default); stroke-width: 1; }
-                    .c2tl  { stroke: var(--teal); stroke-width: 1; opacity: 0.6; fill: none; }
-                    .c2dl  { stroke: var(--teal); stroke-width: 1; opacity: 0.35; fill: none; }
-                    .c2gl  { stroke: var(--gold); stroke-width: 1.5; stroke-dasharray: 5 3; fill: none; }
-                    .c2fh  { fill: var(--border-default); }
-                    .c2ft  { fill: var(--teal); }
-                    .c2fg  { fill: var(--gold); }
-                    .c2sgf { fill: var(--bg-surface-2); fill-opacity: 0.25; stroke: var(--border-default); stroke-width: 1; }
-                    .c2sgg { fill: var(--gold); fill-opacity: 0.04; stroke: var(--gold); stroke-opacity: 0.2; stroke-width: 1; }
+                    .sm-panel  { fill: var(--bg-surface); stroke: var(--border-default); stroke-width: 1; }
+                    .sm-panelt { fill: color-mix(in srgb, var(--teal) 5%, var(--bg-surface)); stroke: var(--teal); stroke-width: 1.5; }
+                    .sm-ey     { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); }
+                    .sm-eyt    { fill: var(--teal-text); }
+                    .sm-body   { font-family: var(--font-body); font-size: 12px; font-weight: 400; fill: var(--text-secondary); }
+                    .sm-hbg    { fill: color-mix(in srgb, var(--teal) 10%, transparent); }
+                    .sm-ht     { font-family: var(--font-body); font-size: 12px; font-weight: 500; fill: var(--teal-text); }
+                    .sm-hsub   { font-family: var(--font-body); font-size: 10px; font-weight: 300; fill: var(--teal-text); opacity: 0.7; }
+                    .sm-dot    { fill: var(--text-tertiary); }
+                    .sm-dott   { fill: var(--teal); }
+                    .sm-catbg  { fill: color-mix(in srgb, var(--teal) 8%, var(--bg-surface-2)); stroke: var(--teal); stroke-width: 1; stroke-opacity: 0.6; }
+                    .sm-cath   { font-family: var(--font-body); font-size: 12.5px; font-weight: 500; fill: var(--teal-text); text-anchor: middle; }
+                    .sm-cats   { font-family: var(--font-body); font-size: 10px; font-weight: 400; fill: var(--text-tertiary); text-anchor: middle; }
+                    .sm-fhd    { font-family: var(--font-body); font-size: 11.5px; font-weight: 500; fill: var(--text-primary); }
+                    .sm-fbd    { font-family: var(--font-body); font-size: 10px; font-weight: 300; fill: var(--text-tertiary); }
+                    .sm-trust  { font-family: var(--font-body); font-size: 10px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .sm-div    { stroke: var(--border-subtle); stroke-width: 1; }
+                    .sm-al     { stroke: var(--border-strong); stroke-width: 1; fill: none; }
+                    .sm-at     { stroke: var(--teal); stroke-width: 1.2; fill: none; opacity: 0.85; }
+                    .sm-ah     { fill: var(--border-strong); }
+                    .sm-aht    { fill: var(--teal); opacity: 0.85; }
+                    .sm-cl     { font-family: var(--font-body); font-size: 9.5px; fill: var(--text-tertiary); }
+                    .sm-clt    { font-family: var(--font-body); font-size: 9.5px; fill: var(--teal-text); }
                   </style>
                 </defs>
 
-                <!-- Subgraph backgrounds -->
-                <rect class="c2sgf" x="32" y="95" width="203" height="304" rx="6"/>
-                <rect class="c2sgf" x="272" y="95" width="456" height="304" rx="6"/>
-                <rect class="c2sgg" x="32" y="424" width="697" height="95" rx="6"/>
+                <!-- ═══════════════════════════════
+                     SELLER PANEL
+                ═══════════════════════════════ -->
+                <rect class="sm-panel" x="20" y="16" width="320" height="112" rx="8"/>
 
-                <!-- Subgraph labels -->
-                <text class="c2sl" x="50" y="110">LISTING CREATION (SELLER)</text>
-                <text class="c2sl" x="290" y="110">TRUST SIGNALS (BUYER)</text>
-                <text class="c2sl c2sg" x="50" y="438">MULTI-MARKET EXPANSION</text>
+                <text class="sm-ey" x="36" y="34">SELLER</text>
 
-                <!-- CAT node — central data backbone -->
-                <rect class="c2dn c2dt" x="310" y="19" width="139" height="51" rx="5"/>
-                <text class="c2nl c2nt" x="380" y="37">IKEA Product Catalogue</text>
-                <text class="c2nl c2nt" x="380" y="52">(data backbone)</text>
+                <circle class="sm-dot" cx="38" cy="49" r="2.5"/>
+                <text class="sm-body" x="50" y="53">Find used IKEA product to sell</text>
 
-                <!-- ── SELLER FLOW (L nodes) ────────────────────────── -->
-                <rect class="c2dn" x="70" y="133" width="127" height="44" rx="5"/>
-                <text class="c2nl" x="134" y="148">Scan / Search</text>
-                <text class="c2nl" x="134" y="163">IKEA Product</text>
+                <!-- Teal highlight row — the catalogue magic -->
+                <rect class="sm-hbg" x="32" y="61" width="296" height="19" rx="3"/>
+                <circle class="sm-dott" cx="40" cy="71" r="2.5"/>
+                <text class="sm-ht" x="52" y="75">Listing auto-filled from catalogue</text>
+                <text class="sm-hsub" x="52" y="89">dimensions · materials · assembly instructions</text>
 
-                <rect class="c2dn" x="70" y="196" width="127" height="44" rx="5"/>
-                <text class="c2nl" x="134" y="211">Auto-Fill:</text>
-                <text class="c2nl" x="134" y="226">Dim · Mat · Assembly</text>
+                <circle class="sm-dot" cx="38" cy="103" r="2.5"/>
+                <text class="sm-body" x="50" y="107">Add photos, price &amp; condition · Publish</text>
 
-                <rect class="c2dn" x="70" y="260" width="127" height="44" rx="5"/>
-                <text class="c2nl" x="134" y="275">Seller Adds:</text>
-                <text class="c2nl" x="134" y="290">Photos · Price · Condition</text>
+                <!-- ═══════════════════════════════
+                     CONNECTOR 1: SELLER ↕ IKEA
+                ═══════════════════════════════ -->
 
-                <rect class="c2dn" x="70" y="323" width="127" height="44" rx="5"/>
-                <text class="c2nl" x="134" y="338">Listing Published</text>
-                <text class="c2nl" x="134" y="353">with Full Context</text>
+                <!-- Seller → Platform: creates listing (neutral, downward) -->
+                <line class="sm-al" x1="128" y1="130" x2="128" y2="176"/>
+                <polygon class="sm-ah" points="128,179 124,171 132,171"/>
+                <text class="sm-cl" x="120" y="155" text-anchor="end">Creates listing</text>
 
-                <!-- ── BUYER TRUST SIGNALS (B nodes, left col) ────────── -->
-                <rect class="c2dn" x="310" y="133" width="139" height="44" rx="5"/>
-                <text class="c2nl" x="380" y="148">Verified IKEA</text>
-                <text class="c2nl" x="380" y="163">Product Identity</text>
+                <!-- Platform → Seller: catalogue auto-fills (teal, upward) -->
+                <line class="sm-at" x1="232" y1="177" x2="232" y2="130"/>
+                <polygon class="sm-aht" points="232,128 228,135 236,135"/>
+                <text class="sm-clt" x="240" y="150" text-anchor="start">Catalogue</text>
+                <text class="sm-clt" x="240" y="163" text-anchor="start">auto-fills</text>
 
-                <rect class="c2dn" x="310" y="215" width="139" height="44" rx="5"/>
-                <text class="c2nl" x="380" y="230">Seller Rating</text>
-                <text class="c2nl" x="380" y="245">&amp; History</text>
+                <!-- ═══════════════════════════════
+                     IKEA PLATFORM PANEL
+                ═══════════════════════════════ -->
+                <rect class="sm-panelt" x="20" y="181" width="320" height="162" rx="8"/>
 
-                <rect class="c2dn" x="310" y="323" width="139" height="44" rx="5"/>
-                <text class="c2nl" x="380" y="338">Known Product</text>
-                <text class="c2nl" x="380" y="353">Specifications</text>
+                <text class="sm-ey sm-eyt" x="36" y="199">IKEA PLATFORM</text>
 
-                <!-- BUYER right col — purchase node -->
-                <rect class="c2dn" x="551" y="215" width="139" height="44" rx="5"/>
-                <text class="c2nl" x="621" y="230">Purchase &amp; Payment</text>
-                <text class="c2nl" x="621" y="245">In-Platform</text>
+                <!-- Catalogue node — the structural backbone -->
+                <rect class="sm-catbg" x="68" y="206" width="224" height="42" rx="6"/>
+                <text class="sm-cath" x="180" y="224">IKEA Product Catalogue</text>
+                <text class="sm-cats" x="180" y="240">data backbone</text>
 
-                <!-- ── MULTI-MARKET SCALE (M nodes) ───────────────────── -->
-                <rect class="c2dn" x="70"  y="448" width="114" height="38" rx="5"/>
-                <text class="c2nl c2nm" x="127" y="470">Spain (pilot)</text>
+                <!-- Divider -->
+                <line class="sm-div" x1="36" y1="258" x2="324" y2="258"/>
 
-                <rect class="c2dn" x="241" y="448" width="127" height="38" rx="5"/>
-                <text class="c2nl c2nm" x="304" y="470">+4 European Markets</text>
+                <!-- Left feature: Auto-fill -->
+                <text class="sm-fhd" x="36" y="276">Auto-fill</text>
+                <text class="sm-fbd" x="36" y="291">Dimensions · materials</text>
+                <text class="sm-fbd" x="36" y="304">Assembly instructions</text>
 
-                <rect class="c2dn" x="418" y="448" width="127" height="38" rx="5"/>
-                <text class="c2nl c2nm" x="481" y="461">Full EU Rollout</text>
-                <text class="c2nl c2nm" x="481" y="476">(Committed)</text>
+                <!-- Vertical divider -->
+                <line class="sm-div" x1="180" y1="262" x2="180" y2="318"/>
 
-                <rect class="c2dn" x="595" y="448" width="127" height="38" rx="5"/>
-                <text class="c2nl c2nm" x="658" y="461">Market-Specific:</text>
-                <text class="c2nl c2nm" x="658" y="476">pay · law · locale</text>
+                <!-- Right feature: Payment & protection -->
+                <text class="sm-fhd" x="192" y="276">In-platform payment</text>
+                <text class="sm-fbd" x="192" y="291">&amp; buyer protection</text>
 
-                <!-- ── CONNECTIONS ──────────────────────────────────────── -->
+                <!-- Divider + trust strip -->
+                <line class="sm-div" x1="36" y1="318" x2="324" y2="318"/>
+                <text class="sm-trust" x="180" y="333">Seller verification · ratings · trust history</text>
 
-                <!-- CAT → L1 diagonal (teal — catalogue feeds listing flow) -->
-                <line class="c2tl" x1="310" y1="70" x2="137" y2="133"/>
-                <circle class="c2ft" cx="134" cy="133" r="3" opacity="0.7"/>
+                <!-- ═══════════════════════════════
+                     CONNECTOR 2: IKEA ↕ BUYER
+                ═══════════════════════════════ -->
 
-                <!-- CAT → B2 vertical ↓ (teal — catalogue confirms product identity) -->
-                <line class="c2tl" x1="380" y1="70" x2="380" y2="131"/>
-                <polygon class="c2ft" points="380,133 376,126 384,126"/>
+                <!-- Platform → Buyer: verified identity + protection (teal, downward) -->
+                <line class="sm-at" x1="128" y1="345" x2="128" y2="393"/>
+                <polygon class="sm-aht" points="128,396 124,388 132,388"/>
+                <text class="sm-clt" x="120" y="362" text-anchor="end">Verified identity</text>
+                <text class="sm-clt" x="120" y="375" text-anchor="end">&amp; secure purchase</text>
 
-                <!-- Seller flow L1 → L2 → L3 → L4 ↓ -->
-                <line class="c2al" x1="134" y1="177" x2="134" y2="194"/>
-                <polygon class="c2fh" points="134,196 130,189 138,189"/>
-                <line class="c2al" x1="134" y1="240" x2="134" y2="258"/>
-                <polygon class="c2fh" points="134,260 130,253 138,253"/>
-                <line class="c2al" x1="134" y1="304" x2="134" y2="321"/>
-                <polygon class="c2fh" points="134,323 130,316 138,316"/>
+                <!-- Buyer → Platform: browse &amp; buy (neutral, upward) -->
+                <line class="sm-al" x1="232" y1="393" x2="232" y2="345"/>
+                <polygon class="sm-ah" points="232,343 228,350 236,350"/>
+                <text class="sm-cl" x="240" y="362" text-anchor="start">Browse</text>
+                <text class="sm-cl" x="240" y="375" text-anchor="start">&amp; purchase</text>
 
-                <!-- L4 → B1 (listing feeds known product specs trust signal) → -->
-                <line class="c2al" x1="197" y1="345" x2="308" y2="345"/>
-                <polygon class="c2fh" points="310,345 303,341 303,349"/>
+                <!-- ═══════════════════════════════
+                     BUYER PANEL
+                ═══════════════════════════════ -->
+                <rect class="sm-panel" x="20" y="398" width="320" height="95" rx="8"/>
 
-                <!-- Trust signals converge on Purchase node -->
-                <!-- B2 (Verified identity) → B4 diagonal ↘ (teal) -->
-                <line class="c2dl" x1="449" y1="155" x2="549" y2="215"/>
-                <circle class="c2ft" cx="551" cy="215" r="3" opacity="0.7"/>
-                <!-- B3 (Rating) → B4 horizontal → -->
-                <line class="c2al" x1="449" y1="237" x2="549" y2="237"/>
-                <polygon class="c2fh" points="551,237 544,233 544,241"/>
-                <!-- B1 (Specifications) → B4 diagonal ↗ -->
-                <line class="c2al" x1="449" y1="345" x2="549" y2="259"/>
-                <circle class="c2fh" cx="551" cy="259" r="3"/>
+                <text class="sm-ey" x="36" y="416">BUYER</text>
 
-                <!-- L4 → M1 (listing infrastructure enables market expansion) ↓ -->
-                <line class="c2al" x1="134" y1="367" x2="127" y2="446"/>
-                <polygon class="c2fh" points="127,448 123,441 131,441"/>
+                <circle class="sm-dot" cx="38" cy="431" r="2.5"/>
+                <text class="sm-body" x="50" y="435">Verified IKEA product identity</text>
 
-                <!-- Market expansion M1 → M2 → M3 → -->
-                <line class="c2al" x1="184" y1="467" x2="239" y2="467"/>
-                <polygon class="c2fh" points="241,467 234,463 234,471"/>
-                <line class="c2al" x1="368" y1="467" x2="416" y2="467"/>
-                <polygon class="c2fh" points="418,467 411,463 411,471"/>
+                <circle class="sm-dot" cx="38" cy="452" r="2.5"/>
+                <text class="sm-body" x="50" y="456">Known dimensions &amp; specifications</text>
 
-                <!-- M3 → M4 dashed gold (localisation layer) -->
-                <line class="c2gl" x1="545" y1="467" x2="593" y2="467"/>
-                <polygon class="c2fg" points="595,467 588,463 588,471"/>
-                <text class="c2sl c2sg" x="570" y="440" text-anchor="middle">Localisation Layer</text>
+                <circle class="sm-dot" cx="38" cy="473" r="2.5"/>
+                <text class="sm-body" x="50" y="477">Secure in-platform purchase</text>
               </svg>
             </div>
-            <figcaption>The IKEA product catalogue acts as a structured data backbone — removing listing friction for sellers while providing verified product identity for buyers. The same architecture enables seamless multi-market rollout.</figcaption>
+            <figcaption>IKEA's product catalogue acts as the structural backbone — removing listing friction for sellers while delivering verified product identity and secure payment to buyers.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
