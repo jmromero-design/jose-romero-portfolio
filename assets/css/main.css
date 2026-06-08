@@ -1449,10 +1449,56 @@ strong { font-weight: 500; color: var(--text-primary); }
   margin: 0;
 }
 
+/* Client list — editorial row layout */
+.clients-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clients-row {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--sp-10);
+  padding: var(--sp-6) 0;
+  border-top: 1px solid var(--border-subtle);
+  align-items: baseline;
+}
+
+.clients-row:last-child {
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.clients-era {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  line-height: 1.6;
+  padding-top: 1px;
+  flex-shrink: 0;
+}
+
+.clients-names {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.clients-names .client-sep {
+  color: var(--border-strong);
+  margin: 0 0.4em;
+  font-weight: 300;
+  user-select: none;
+}
+
 @media (max-width: 900px) {
   .about-intro-grid { grid-template-columns: 1fr; }
   .about-portrait { max-width: 320px; }
   .role-block { grid-template-columns: 1fr; gap: var(--sp-4); }
+  .clients-row { grid-template-columns: 1fr; gap: var(--sp-2); }
 }
 
 /* ------------------------------------------------------------
