@@ -359,13 +359,16 @@ strong { font-weight: 500; color: var(--text-primary); }
      Note: no explicit transform:translateY(0) here — leaving transform as
      'none' is critical so the nav does NOT become a containing block for its
      position:fixed children (the mobile overlay). The hidden state adds the
-     transform, but by then the overlay is always closed (JS guard). */
-  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+     transform, but by then the overlay is always closed (JS guard).
+     Reveal (scroll-up): springy ease-out expo at 500ms for a satisfying drop-in.
+     Hide (scroll-down): faster ease-in at 350ms so it gets out of the way quickly. */
+  transition: transform 500ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Hidden state: slides fully out of view upward */
+/* Hidden state: slides fully out of view upward, with a snappier ease-in */
 .nav--hidden {
   transform: translateY(-110%);
+  transition: transform 350ms cubic-bezier(0.4, 0, 1, 1);
 }
 
 /* Each nav element is a floating island / pill */
