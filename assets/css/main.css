@@ -1494,6 +1494,22 @@ strong { font-weight: 500; color: var(--text-primary); }
   user-select: none;
 }
 
+/* Remove redundant top border on first client row when it follows the arc strip */
+.clients-arc + .clients-list .clients-row:first-child {
+  border-top: none;
+}
+
+/* Sub-label sitting between the arc strip and the client list */
+.clients-sub-label {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-tertiary);
+  margin-top: var(--sp-10);
+  margin-bottom: 0;
+}
+
 /* Arc stat strip — three quiet numbers above the client list */
 .clients-arc {
   display: grid;
