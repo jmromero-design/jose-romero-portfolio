@@ -109,38 +109,125 @@
             <p>Los frameworks conductuales más relevantes para la fidelización son diferentes de los que dominan la optimización de conversión en e-commerce. La aversión a la pérdida sigue siendo aplicable — el encuadre del estado de nivel y los puntos que caducan es una palanca poderosa. Pero las mecánicas de formación de hábitos se vuelven más importantes: programas de recompensa variable, mecánicas de completado, visualización del progreso.</p>
             <p>Como project lead, era responsable de generar el pipeline de experimentos: identificar áreas de oportunidad a través de analytics y revisión heurística, estructurar hipótesis, priorizar en función del impacto potencial y el coste de implementación, y comunicar la dirección del programa al cliente. El trabajo de diseño incluía el diseño de variantes de experimentos, especificaciones de interacción y análisis de rendimiento.</p>
 
+            <p>El pipeline de experimentos se estructuraba en tres fases: generación de insights (analytics web, mapas de calor, revisión heurística y marcos de economía conductual), hipótesis y priorización (hipótesis estructuradas y ordenadas por impacto frente a coste de implementación), y experimentación rápida usando Visual Website Optimizer (VWO). VWO permitía tanto tests A/B como variantes de personalización sin dependencia pesada de desarrollo — una restricción operativa clave dado el modelo de recursos compartidos. La personalización complementaba el trabajo A/B: adaptar contenidos y mecánicas a segmentos de miembros, en lugar de imponer una experiencia única optimizada a una base de miembros heterogénea.</p>
+
             <div class="pull-quote">
               <p>"En un contexto de fidelización, la pregunta no es solo '¿van a convertir los usuarios?' — es '¿estamos construyendo un hábito, o solo capturando un momento?'"</p>
             </div>
           </div>
 
-          <figure class="diagram-block reveal" aria-label="Bucle de enganche de fidelización autorreforzante">
+          <figure class="diagram-block reveal" aria-label="Bucle de enganche de fidelización continuo — cuatro fases">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 288" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Self-reinforcing loyalty hook loop diagram">
-                <defs><style>.c6dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}.c6dt{stroke:var(--teal);stroke-width:1.5}.c6nt{fill:var(--teal-text);font-weight:600}.c6tt{font-family:var(--font-body);font-size:11px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}.c6ts{font-family:var(--font-body);font-size:9px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}.c6hl{font-family:var(--font-body);font-size:8.5px;font-weight:600;letter-spacing:1.5px;fill:var(--text-tertiary);text-anchor:middle}.c6al{stroke:var(--border-default);stroke-width:1}.c6ll{stroke:var(--teal);stroke-width:1.2;opacity:.6}.c6fh{fill:var(--border-default)}.c6ft{fill:var(--teal)}</style></defs>
-                <ellipse cx="380" cy="148" rx="95" ry="80" fill="none" stroke="var(--teal)" stroke-opacity="0.18" stroke-width="1.5"/>
-                <rect class="c6dn" x="20" y="80" width="148" height="54" rx="5"/><text class="c6tt" x="94" y="101">Observar el Negocio</text><text class="c6ts" x="94" y="117">Identificar abandonos de fidelización</text>
-                <rect class="c6dn" x="20" y="176" width="148" height="54" rx="5"/><text class="c6tt" x="94" y="197">Hipótesis Conductual</text><text class="c6ts" x="94" y="213">Traducir abandono en desencadenante</text>
-                <rect class="c6dn c6dt" x="220" y="40" width="130" height="44" rx="5"/><text class="c6tt c6nt" x="285" y="57">01 / DESENCADENANTE</text><text class="c6ts" x="285" y="72">Defaults y reducción de fricción</text>
-                <rect class="c6dn c6dt" x="410" y="40" width="130" height="44" rx="5"/><text class="c6tt c6nt" x="475" y="57">02 / ACCIÓN</text><text class="c6ts" x="475" y="72">Flujo de visita sin fricción</text>
-                <rect class="c6dn c6dt" x="410" y="212" width="130" height="44" rx="5"/><text class="c6tt c6nt" x="475" y="229">03 / RECOMPENSA</text><text class="c6ts" x="475" y="244">Rachas de puntos variables</text>
-                <rect class="c6dn c6dt" x="220" y="212" width="130" height="44" rx="5"/><text class="c6tt c6nt" x="285" y="229">04 / INVERSIÓN</text><text class="c6ts" x="285" y="244">Riesgo de estado por aversión a pérdida</text>
-                <text class="c6hl" x="380" y="138">BUCLE DE ENGANCHE</text>
-                <text class="c6hl" x="380" y="152">DE FIDELIZACIÓN</text>
-                <text class="c6hl" x="380" y="166">CONTINUO</text>
-                <rect class="c6dn" x="592" y="80" width="148" height="54" rx="5"/><text class="c6tt" x="666" y="101">Test de Alta Significación</text><text class="c6ts" x="666" y="117">Disciplina con poco tráfico</text>
-                <rect class="c6dn c6dt" x="592" y="176" width="148" height="54" rx="5"/><text class="c6tt c6nt" x="666" y="197">Librería de Conocimiento</text><text class="c6ts" x="666" y="213">Patrón de fidelización confirmado</text>
-                <line class="c6ll" x1="350" y1="62" x2="408" y2="62"/><polygon class="c6ft" points="410,62 403,58 403,66"/>
-                <line class="c6ll" x1="475" y1="84" x2="475" y2="210"/><polygon class="c6ft" points="475,212 471,205 479,205"/>
-                <line class="c6ll" x1="410" y1="234" x2="352" y2="234"/><polygon class="c6ft" points="350,234 357,230 357,238"/>
-                <line class="c6ll" x1="285" y1="212" x2="285" y2="86"/><polygon class="c6ft" points="285,84 281,91 289,91"/>
-                <line class="c6al" x1="168" y1="107" x2="218" y2="75"/><circle class="c6fh" cx="219" cy="74" r="3"/>
-                <line class="c6al" x1="168" y1="203" x2="218" y2="238"/><circle class="c6fh" cx="219" cy="239" r="3"/>
-                <line class="c6al" x1="540" y1="62" x2="590" y2="107"/><circle class="c6fh" cx="591" cy="108" r="3"/>
-                <line class="c6al" x1="540" y1="234" x2="590" y2="203"/><circle class="c6ft" cx="591" cy="202" r="3" opacity="0.7"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400" width="100%" style="display:block;" role="img" aria-label="Bucle de enganche continuo: Desencadenante, Acción, Recompensa, Inversión volviendo al inicio">
+                <defs><style>
+                  .iq-dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}
+                  .iq-hd{fill:var(--teal);fill-opacity:.06;stroke:var(--teal);stroke-width:1.5}
+                  .iq-ey{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle}
+                  .iq-tl{font-family:var(--font-body);font-size:13px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}
+                  .iq-sb{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .iq-ar{stroke:var(--border-default);stroke-width:1;fill:none}
+                  .iq-af{fill:var(--border-default)}
+                  .iq-lp{stroke:var(--teal);stroke-width:1.2;stroke-dasharray:4 3;fill:none;opacity:.6}
+                  .iq-lf{fill:var(--teal);opacity:.6}
+                </style></defs>
+
+                <!-- 01 TRIGGER -->
+                <rect class="iq-dn iq-hd" x="60" y="24" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="43">01 / TRIGGER</text>
+                <text class="iq-tl" x="180" y="59">Trigger</text>
+                <text class="iq-sb" x="180" y="75">Defaults &amp; friction ease</text>
+
+                <!-- Arrow 1→2 -->
+                <line class="iq-ar" x1="180" y1="88" x2="180" y2="114"/>
+                <polygon class="iq-af" points="180,120 176,114 184,114"/>
+
+                <!-- 02 ACTION -->
+                <rect class="iq-dn iq-hd" x="60" y="120" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="139">02 / ACTION</text>
+                <text class="iq-tl" x="180" y="155">Action</text>
+                <text class="iq-sb" x="180" y="171">Frictionless visit flow</text>
+
+                <!-- Arrow 2→3 -->
+                <line class="iq-ar" x1="180" y1="184" x2="180" y2="210"/>
+                <polygon class="iq-af" points="180,216 176,210 184,210"/>
+
+                <!-- 03 REWARD -->
+                <rect class="iq-dn iq-hd" x="60" y="216" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="235">03 / REWARD</text>
+                <text class="iq-tl" x="180" y="251">Reward</text>
+                <text class="iq-sb" x="180" y="267">Variable points streaks</text>
+
+                <!-- Arrow 3→4 -->
+                <line class="iq-ar" x1="180" y1="280" x2="180" y2="306"/>
+                <polygon class="iq-af" points="180,312 176,306 184,306"/>
+
+                <!-- 04 INVESTMENT -->
+                <rect class="iq-dn iq-hd" x="60" y="312" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="331">04 / INVESTMENT</text>
+                <text class="iq-tl" x="180" y="347">Investment</text>
+                <text class="iq-sb" x="180" y="363">Loss aversion · status risk</text>
+
+                <!-- Loop-back: INVESTMENT bottom → TRIGGER top (dashed teal, left side) -->
+                <path class="iq-lp" d="M 60,376 L 20,376 L 20,24 L 60,24"/>
+                <polygon class="iq-lf" points="60,24 53,20 53,28"/>
               </svg>
             </div>
-            <figcaption>La palanca conductual depende del objetivo de fidelización. Los tests de CRO optimizan el bucle continuo — desencadenante, acción, recompensa, inversión — en lugar de puntos de contacto aislados.</figcaption>
+            <figcaption>La palanca conductual depende del objetivo de fidelización. Los tests de CRO optimizan el bucle de enganche continuo — desencadenante, acción, recompensa, inversión — en lugar de puntos de contacto aislados.</figcaption>
+          </figure>
+
+          <figure class="diagram-block reveal" aria-label="Ciclo metodológico CRO de tres fases">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" style="display:block;" role="img" aria-label="Ciclo CRO de tres fases: Generación de Insights, Hipótesis y Priorización, Experimentación Rápida, llevando a la Librería de Conocimiento">
+                <defs><style>
+                  .cp-dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}
+                  .cp-hd{fill:var(--teal);fill-opacity:.06;stroke:var(--teal);stroke-width:1.5}
+                  .cp-gd{fill:var(--gold);fill-opacity:.06;stroke:var(--gold);stroke-width:1.5}
+                  .cp-ey{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle}
+                  .cp-tl{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}
+                  .cp-sb{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .cp-gt{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--gold);text-anchor:middle}
+                  .cp-gs{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .cp-ar{stroke:var(--border-default);stroke-width:1;fill:none}
+                  .cp-af{fill:var(--border-default)}
+                </style></defs>
+
+                <!-- PHASE 1: Insight Generation -->
+                <rect class="cp-dn cp-hd" x="40" y="24" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="43">FASE 1</text>
+                <text class="cp-tl" x="180" y="60">Generación de Insights</text>
+                <text class="cp-sb" x="180" y="76">Analytics · Heurística · Revisión Conductual</text>
+
+                <!-- Arrow 1→2 -->
+                <line class="cp-ar" x1="180" y1="96" x2="180" y2="114"/>
+                <polygon class="cp-af" points="180,120 176,114 184,114"/>
+
+                <!-- PHASE 2: Hypothesis & Prioritisation -->
+                <rect class="cp-dn" x="40" y="120" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="139">FASE 2</text>
+                <text class="cp-tl" x="180" y="156">Hipótesis &amp; Priorización</text>
+                <text class="cp-sb" x="180" y="172">Impacto vs. coste · hipótesis de calidad</text>
+
+                <!-- Arrow 2→3 -->
+                <line class="cp-ar" x1="180" y1="192" x2="180" y2="210"/>
+                <polygon class="cp-af" points="180,216 176,210 184,210"/>
+
+                <!-- PHASE 3: Rapid Experimentation -->
+                <rect class="cp-dn" x="40" y="216" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="235">FASE 3</text>
+                <text class="cp-tl" x="180" y="252">Experimentación Rápida</text>
+                <text class="cp-sb" x="180" y="268">Tests A/B con VWO · Personalización</text>
+
+                <!-- Arrow 3→Knowledge -->
+                <line class="cp-ar" x1="180" y1="288" x2="180" y2="298"/>
+                <polygon class="cp-af" points="180,304 176,298 184,298"/>
+
+                <!-- Knowledge Library (gold) -->
+                <rect class="cp-dn cp-gd" x="40" y="304" width="280" height="48" rx="5"/>
+                <text class="cp-gt" x="180" y="323">Librería de Conocimiento</text>
+                <text class="cp-gs" x="180" y="339">Patrones de fidelización confirmados · informa el siguiente ciclo</text>
+              </svg>
+            </div>
+            <figcaption>Los experimentos se ejecutan en un ciclo de tres fases. La calidad de los insights determina la calidad de las hipótesis; la calidad de las hipótesis determina cuánto aprendizaje puede extraerse con tráfico limitado.</figcaption>
           </figure>
 
           <div class="cs-section reveal">

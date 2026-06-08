@@ -140,109 +140,125 @@
             <p>The most relevant behavioral frameworks for loyalty are different from those that dominate conversion optimisation in e-commerce. Loss aversion still applies — the framing of tier status and expiring points is a powerful lever. But habit formation mechanics become more important: variable reward schedules, completion mechanics, progress visualisation.</p>
             <p>As project lead, I was responsible for generating the experiment pipeline: identifying opportunity areas through analytics and heuristic review, structuring hypotheses, prioritising based on potential impact and implementation cost, and communicating the programme's direction to the client. The design work included experiment variant design, interaction specifications, and performance analysis.</p>
 
+            <p>The experiment pipeline ran in three phases: insight generation (web analytics, heatmaps, heuristic review, and behavioral economics framing), hypothesis and prioritisation (structuring focused hypotheses ranked by impact versus implementation cost), and rapid experimentation using Visual Website Optimizer (VWO). VWO enabled both A/B tests and personalisation variants without heavy development overhead — a key constraint given the shared-resource model. Personalisation complemented A/B work: tailoring content and mechanics to member segments, rather than forcing a single optimised experience on a heterogeneous membership base.</p>
+
             <div class="pull-quote">
               <p>"In a loyalty context, the question isn't just 'will users convert?' — it's 'are we building a habit, or just catching a moment?'"</p>
             </div>
           </div>
 
-          <figure class="diagram-block reveal" aria-label="Self-reinforcing loyalty hook loop">
+          <figure class="diagram-block reveal" aria-label="Continuous loyalty hook loop — four phases">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 288" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Self-reinforcing loyalty hook loop diagram">
-                <defs>
-                  <style>
-                    .c6dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
-                    .c6dt { stroke: var(--teal); stroke-width: 1.5; }
-                    .c6nt { fill: var(--teal-text); font-weight: 600; }
-                    .c6tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                    .c6ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                    .c6hl { font-family: var(--font-body); font-size: 8.5px; font-weight: 600; letter-spacing: 1.5px; fill: var(--text-tertiary); text-anchor: middle; }
-                    .c6al { stroke: var(--border-default); stroke-width: 1; }
-                    .c6ll { stroke: var(--teal); stroke-width: 1.2; opacity: 0.6; }
-                    .c6fh { fill: var(--border-default); }
-                    .c6ft { fill: var(--teal); }
-                  </style>
-                </defs>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 400" width="100%" style="display:block;" role="img" aria-label="Continuous loyalty hook loop: Trigger, Action, Reward, Investment cycling back to Trigger">
+                <defs><style>
+                  .iq-dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}
+                  .iq-hd{fill:var(--teal);fill-opacity:.06;stroke:var(--teal);stroke-width:1.5}
+                  .iq-ey{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle}
+                  .iq-tl{font-family:var(--font-body);font-size:13px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}
+                  .iq-sb{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .iq-ar{stroke:var(--border-default);stroke-width:1;fill:none}
+                  .iq-af{fill:var(--border-default)}
+                  .iq-lp{stroke:var(--teal);stroke-width:1.2;stroke-dasharray:4 3;fill:none;opacity:.6}
+                  .iq-lf{fill:var(--teal);opacity:.6}
+                </style></defs>
 
-                <!-- Loop track ellipse -->
-                <ellipse cx="380" cy="148" rx="95" ry="80" fill="none" stroke="var(--teal)" stroke-opacity="0.18" stroke-width="1.5"/>
+                <!-- 01 TRIGGER -->
+                <rect class="iq-dn iq-hd" x="60" y="24" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="43">01 / TRIGGER</text>
+                <text class="iq-tl" x="180" y="59">Trigger</text>
+                <text class="iq-sb" x="180" y="75">Defaults &amp; friction ease</text>
 
-                <!-- ── OUTER LEFT NODES ──────────────────────────── -->
-                <rect class="c6dn" x="20" y="80" width="148" height="54" rx="5"/>
-                <text class="c6tt" x="94" y="101">Business Observe</text>
-                <text class="c6ts" x="94" y="117">Identify loyalty drop-offs</text>
+                <!-- Arrow 1→2 -->
+                <line class="iq-ar" x1="180" y1="88" x2="180" y2="114"/>
+                <polygon class="iq-af" points="180,120 176,114 184,114"/>
 
-                <rect class="c6dn" x="20" y="176" width="148" height="54" rx="5"/>
-                <text class="c6tt" x="94" y="197">Behavioral Hypothesis</text>
-                <text class="c6ts" x="94" y="213">Translate drop-off to trigger</text>
+                <!-- 02 ACTION -->
+                <rect class="iq-dn iq-hd" x="60" y="120" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="139">02 / ACTION</text>
+                <text class="iq-tl" x="180" y="155">Action</text>
+                <text class="iq-sb" x="180" y="171">Frictionless visit flow</text>
 
-                <!-- ── LOOP NODES (teal) ──────────────────────────── -->
-                <!-- Hook 1 — TRIGGER (top-left) -->
-                <rect class="c6dn c6dt" x="220" y="40" width="130" height="44" rx="5"/>
-                <text class="c6tt c6nt" x="285" y="57">01 / TRIGGER</text>
-                <text class="c6ts" x="285" y="72">Defaults &amp; friction ease</text>
+                <!-- Arrow 2→3 -->
+                <line class="iq-ar" x1="180" y1="184" x2="180" y2="210"/>
+                <polygon class="iq-af" points="180,216 176,210 184,210"/>
 
-                <!-- Hook 2 — ACTION (top-right) -->
-                <rect class="c6dn c6dt" x="410" y="40" width="130" height="44" rx="5"/>
-                <text class="c6tt c6nt" x="475" y="57">02 / ACTION</text>
-                <text class="c6ts" x="475" y="72">Frictionless visit flow</text>
+                <!-- 03 REWARD -->
+                <rect class="iq-dn iq-hd" x="60" y="216" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="235">03 / REWARD</text>
+                <text class="iq-tl" x="180" y="251">Reward</text>
+                <text class="iq-sb" x="180" y="267">Variable points streaks</text>
 
-                <!-- Hook 3 — REWARD (bottom-right) -->
-                <rect class="c6dn c6dt" x="410" y="212" width="130" height="44" rx="5"/>
-                <text class="c6tt c6nt" x="475" y="229">03 / REWARD</text>
-                <text class="c6ts" x="475" y="244">Variable points streaks</text>
+                <!-- Arrow 3→4 -->
+                <line class="iq-ar" x1="180" y1="280" x2="180" y2="306"/>
+                <polygon class="iq-af" points="180,312 176,306 184,306"/>
 
-                <!-- Hook 4 — INVESTMENT (bottom-left) -->
-                <rect class="c6dn c6dt" x="220" y="212" width="130" height="44" rx="5"/>
-                <text class="c6tt c6nt" x="285" y="229">04 / INVESTMENT</text>
-                <text class="c6ts" x="285" y="244">Loss aversion status risk</text>
+                <!-- 04 INVESTMENT -->
+                <rect class="iq-dn iq-hd" x="60" y="312" width="240" height="64" rx="5"/>
+                <text class="iq-ey" x="180" y="331">04 / INVESTMENT</text>
+                <text class="iq-tl" x="180" y="347">Investment</text>
+                <text class="iq-sb" x="180" y="363">Loss aversion · status risk</text>
 
-                <!-- Hub label (center of loop) -->
-                <text class="c6hl" x="380" y="138">CONTINUOUS</text>
-                <text class="c6hl" x="380" y="152">LOYALTY CORE</text>
-                <text class="c6hl" x="380" y="166">HOOK LOOP</text>
-
-                <!-- ── OUTER RIGHT NODES ─────────────────────────── -->
-                <rect class="c6dn" x="592" y="80" width="148" height="54" rx="5"/>
-                <text class="c6tt" x="666" y="101">High-Significance Test</text>
-                <text class="c6ts" x="666" y="117">Discipline in low traffic</text>
-
-                <rect class="c6dn c6dt" x="592" y="176" width="148" height="54" rx="5"/>
-                <text class="c6tt c6nt" x="666" y="197">Knowledge Library</text>
-                <text class="c6ts" x="666" y="213">Loyalty pattern confirmed</text>
-
-                <!-- ── LOOP ARROWS (clockwise: T→A→R→I→T) ────────── -->
-                <!-- Hook1 → Hook2 (top, right) -->
-                <line class="c6ll" x1="350" y1="62" x2="408" y2="62"/>
-                <polygon class="c6ft" points="410,62 403,58 403,66"/>
-
-                <!-- Hook2 → Hook3 (right side, down) -->
-                <line class="c6ll" x1="475" y1="84" x2="475" y2="210"/>
-                <polygon class="c6ft" points="475,212 471,205 479,205"/>
-
-                <!-- Hook3 → Hook4 (bottom, left) -->
-                <line class="c6ll" x1="410" y1="234" x2="352" y2="234"/>
-                <polygon class="c6ft" points="350,234 357,230 357,238"/>
-
-                <!-- Hook4 → Hook1 (left side, up) -->
-                <line class="c6ll" x1="285" y1="212" x2="285" y2="86"/>
-                <polygon class="c6ft" points="285,84 281,91 289,91"/>
-
-                <!-- ── OUTER CONNECTIONS (dots) ──────────────────── -->
-                <!-- Obs → Hook1 -->
-                <line class="c6al" x1="168" y1="107" x2="218" y2="75"/>
-                <circle class="c6fh" cx="219" cy="74" r="3"/>
-                <!-- Hyp → Hook4 -->
-                <line class="c6al" x1="168" y1="203" x2="218" y2="238"/>
-                <circle class="c6fh" cx="219" cy="239" r="3"/>
-                <!-- Hook2 → Test -->
-                <line class="c6al" x1="540" y1="62" x2="590" y2="107"/>
-                <circle class="c6fh" cx="591" cy="108" r="3"/>
-                <!-- Hook3 → Learn -->
-                <line class="c6al" x1="540" y1="234" x2="590" y2="203"/>
-                <circle class="c6ft" cx="591" cy="202" r="3" opacity="0.7"/>
+                <!-- Loop-back: INVESTMENT bottom → TRIGGER top (dashed teal, left side) -->
+                <path class="iq-lp" d="M 60,376 L 20,376 L 20,24 L 60,24"/>
+                <polygon class="iq-lf" points="60,24 53,20 53,28"/>
               </svg>
             </div>
-            <figcaption>The behavioral lever depends on the loyalty goal. CRO tests optimise the continuous loop — trigger, action, reward, investment — rather than isolated touchpoints.</figcaption>
+            <figcaption>The behavioral lever depends on the loyalty goal. CRO tests optimise the continuous hook loop — trigger, action, reward, investment — rather than isolated touchpoints.</figcaption>
+          </figure>
+
+          <figure class="diagram-block reveal" aria-label="Three-phase CRO methodology">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" style="display:block;" role="img" aria-label="Three-phase CRO cycle: Insight Generation, Hypothesis and Prioritisation, Rapid Experimentation, leading to Knowledge Library">
+                <defs><style>
+                  .cp-dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}
+                  .cp-hd{fill:var(--teal);fill-opacity:.06;stroke:var(--teal);stroke-width:1.5}
+                  .cp-gd{fill:var(--gold);fill-opacity:.06;stroke:var(--gold);stroke-width:1.5}
+                  .cp-ey{font-family:var(--font-body);font-size:9px;font-weight:700;letter-spacing:1.5px;fill:var(--teal-text);text-anchor:middle}
+                  .cp-tl{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}
+                  .cp-sb{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .cp-gt{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--gold);text-anchor:middle}
+                  .cp-gs{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}
+                  .cp-ar{stroke:var(--border-default);stroke-width:1;fill:none}
+                  .cp-af{fill:var(--border-default)}
+                </style></defs>
+
+                <!-- PHASE 1: Insight Generation -->
+                <rect class="cp-dn cp-hd" x="40" y="24" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="43">PHASE 1</text>
+                <text class="cp-tl" x="180" y="60">Insight Generation</text>
+                <text class="cp-sb" x="180" y="76">Analytics · Heuristics · Behavioral Review</text>
+
+                <!-- Arrow 1→2 -->
+                <line class="cp-ar" x1="180" y1="96" x2="180" y2="114"/>
+                <polygon class="cp-af" points="180,120 176,114 184,114"/>
+
+                <!-- PHASE 2: Hypothesis & Prioritisation -->
+                <rect class="cp-dn" x="40" y="120" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="139">PHASE 2</text>
+                <text class="cp-tl" x="180" y="156">Hypothesis &amp; Prioritisation</text>
+                <text class="cp-sb" x="180" y="172">Impact vs. cost · high-quality, fewer tests</text>
+
+                <!-- Arrow 2→3 -->
+                <line class="cp-ar" x1="180" y1="192" x2="180" y2="210"/>
+                <polygon class="cp-af" points="180,216 176,210 184,210"/>
+
+                <!-- PHASE 3: Rapid Experimentation -->
+                <rect class="cp-dn" x="40" y="216" width="280" height="72" rx="5"/>
+                <text class="cp-ey" x="180" y="235">PHASE 3</text>
+                <text class="cp-tl" x="180" y="252">Rapid Experimentation</text>
+                <text class="cp-sb" x="180" y="268">VWO A/B testing · Personalisation</text>
+
+                <!-- Arrow 3→Knowledge -->
+                <line class="cp-ar" x1="180" y1="288" x2="180" y2="298"/>
+                <polygon class="cp-af" points="180,304 176,298 184,298"/>
+
+                <!-- Knowledge Library (gold) -->
+                <rect class="cp-dn cp-gd" x="40" y="304" width="280" height="48" rx="5"/>
+                <text class="cp-gt" x="180" y="323">Knowledge Library</text>
+                <text class="cp-gs" x="180" y="339">Loyalty patterns confirmed · informs next cycle</text>
+              </svg>
+            </div>
+            <figcaption>Experiments run in a three-phase cycle. Insight quality feeds hypothesis quality; hypothesis quality determines how much learning can be extracted from limited traffic.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
