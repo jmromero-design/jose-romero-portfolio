@@ -29,7 +29,11 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=15">
-  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-ways-of-working/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-ways-of-working/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-ways-of-working/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
+  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-ways-of-working/">
+  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-ways-of-working/">
+  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-ways-of-working/">
+  <script src="/assets/js/lang-detect.js"></script>
 </head>
 <body>
 
@@ -43,7 +47,8 @@
       <li><a href="/thinking/">Thinking</a></li>
       <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
     </ul>
-    <div class="lang-toggle nav-pill" aria-label="Language / Idioma"><span class="lang-current" aria-current="true">EN</span><span class="lang-sep" aria-hidden="true">·</span><a href="/es/work/ikea-ways-of-working/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a></div>    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma"><span class="lang-current" aria-current="true">EN</span><span class="lang-sep" aria-hidden="true">·</span><a href="/es/work/ikea-ways-of-working/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a></div>
+    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
     <button class="nav-toggle nav-pill" aria-label="Toggle menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
@@ -119,16 +124,90 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
+          <!-- THE PROBLEM -->
           <div class="cs-section reveal">
             <span class="eyebrow">The problem</span>
-            <h2>No system, only memory</h2>
-            <p>When I joined the IKEA New Business Platform team, the working process existed — but only in people's heads. Files were spread across Figma, Confluence, and local drives with no consistent structure. The hierarchy of work — what belonged in Figma, what in Confluence, what in Jira — was unclear and inconsistently applied.</p>
-            <p>The process that existed depended on specific individuals to hold it in memory and transmit it informally. When those individuals weren't available, or when new team members joined, the system collapsed. Every onboarding was a fresh negotiation. Every handoff required someone to explain things that should have been documented.</p>
+            <h2>Eight failure modes, not one</h2>
+            <p>When I joined the team, the working process existed — but only in people's heads. Files were spread across Figma, Confluence, and local drives with no consistent structure. The hierarchy of work — what belonged in Figma, what in Confluence, what in Jira — was unclear and inconsistently applied.</p>
+            <p>What looked like a cultural problem was a structural one. A root cause audit surfaced eight distinct failure modes actively slowing the team down. They were not independent — each fed the others:</p>
           </div>
 
+          <!-- DIAGRAM 1: Root Causes -->
+          <figure class="diagram-block reveal" aria-label="Eight root causes of workflow breakdown">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="100%" role="img" aria-label="Eight interlocking root causes diagram">
+                <defs>
+                  <style>
+                    .rct { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .rcs { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                  </style>
+                </defs>
+                <!-- Card 1: Disorganized Figma Files — gold -->
+                <rect x="8" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#E8955A" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="8" width="3" height="80" rx="1.5" fill="#E8955A" opacity="0.65"/>
+                <text class="rct" x="18" y="27">Disorganized</text>
+                <text class="rct" x="18" y="39">Figma Files</text>
+                <text class="rcs" x="18" y="57">Wasted search time,</text>
+                <text class="rcs" x="18" y="68">risk of outdated designs</text>
+                <!-- Card 2: Delayed Translations — purple -->
+                <rect x="184" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="8" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct" x="194" y="27">Delayed</text>
+                <text class="rct" x="194" y="39">Translations</text>
+                <text class="rcs" x="194" y="57">Phrase updated too late,</text>
+                <text class="rcs" x="194" y="68">creating release bottlenecks</text>
+                <!-- Card 3: Inefficient Key Process — purple -->
+                <rect x="8" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct" x="18" y="115">Inefficient</text>
+                <text class="rct" x="18" y="127">Content Key Process</text>
+                <text class="rcs" x="18" y="145">Keys created late by eng,</text>
+                <text class="rcs" x="18" y="156">blocking parallel work</text>
+                <!-- Card 4: Untestable Translations — purple -->
+                <rect x="184" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct" x="194" y="115">Untestable</text>
+                <text class="rct" x="194" y="127">Translations</text>
+                <text class="rcs" x="194" y="145">QA unable to verify</text>
+                <text class="rcs" x="194" y="156">language before release</text>
+                <!-- Card 5: Disconnected Tools — blue -->
+                <rect x="8" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="184" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.65"/>
+                <text class="rct" x="18" y="203">Disconnected</text>
+                <text class="rct" x="18" y="215">Tools</text>
+                <text class="rcs" x="18" y="233">Fragmented workflow,</text>
+                <text class="rcs" x="18" y="244">reduced team efficiency</text>
+                <!-- Card 6: Insufficient Handoff — teal -->
+                <rect x="184" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="184" width="3" height="80" rx="1.5" fill="#4BBFB2" opacity="0.65"/>
+                <text class="rct" x="194" y="203">Insufficient</text>
+                <text class="rct" x="194" y="215">Handoff</text>
+                <text class="rcs" x="194" y="233">Dev misinterpretations</text>
+                <text class="rcs" x="194" y="244">and rework cycles</text>
+                <!-- Card 7: Unclear Naming — gold -->
+                <rect x="8" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#E8955A" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="272" width="3" height="80" rx="1.5" fill="#E8955A" opacity="0.65"/>
+                <text class="rct" x="18" y="291">Unclear Naming</text>
+                <text class="rct" x="18" y="303">Methodology</text>
+                <text class="rcs" x="18" y="321">Friction locating assets</text>
+                <text class="rcs" x="18" y="332">and information</text>
+                <!-- Card 8: Unclear Info Architecture — teal -->
+                <rect x="184" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="272" width="3" height="80" rx="1.5" fill="#4BBFB2" opacity="0.65"/>
+                <text class="rct" x="194" y="291">Unclear Info</text>
+                <text class="rct" x="194" y="303">Architecture</text>
+                <text class="rcs" x="194" y="321">Product structure hard</text>
+                <text class="rcs" x="194" y="332">to navigate or understand</text>
+              </svg>
+            </div>
+            <figcaption>Eight interlocking failure modes. The underlying pattern: information held informally, and no owner for the gaps between tools.</figcaption>
+          </figure>
+
+          <!-- APPROACH -->
           <div class="cs-section reveal">
             <span class="eyebrow">Approach</span>
             <h2>Principles first, tools second</h2>
+            <p>The first step was making the existing state legible. Mapping what was actually happening — not the ideal, not what people believed happened — revealed that the problems were structural, not behavioral. People weren't being careless; the system had no clear rules about who owned what at which stage.</p>
             <p>The instinct in these situations is to audit the tools and then write documentation for them. That's the wrong order. Documentation without a structural principle is just more noise.</p>
             <p>I started by mapping the actual work — the types of tasks the team performed, their interdependencies, the decisions that kept getting lost, the questions that kept being asked by new team members. From that map, I derived a set of structural rules: what type of information lives in each tool, when it moves between tools, who owns it at each stage.</p>
 
@@ -139,10 +218,11 @@
             <p>Once the principles were clear, the documentation wrote itself. Tools were assigned roles. Naming conventions followed from those roles. Onboarding followed from the naming conventions.</p>
           </div>
 
+          <!-- THE FRAMEWORK -->
           <div class="cs-section reveal">
             <span class="eyebrow">The framework</span>
             <h2>Four tools, one backbone</h2>
-            <p>The framework defines a clear hierarchy across the four primary tools the team uses:</p>
+            <p>The framework assigns a single, non-overlapping role to each of the four primary tools. The rule is simple enough to hold in memory without documentation:</p>
             <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--sp-4); margin-top: var(--sp-6);">
               <li style="padding: var(--sp-5); background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 2px solid var(--teal-dim); border-radius: 0 var(--radius-md) var(--radius-md) 0;">
                 <strong style="color: var(--teal); font-size: var(--text-sm);">Figma</strong>
@@ -163,98 +243,191 @@
             </ul>
           </div>
 
-          <figure class="diagram-block reveal" aria-label="Four-tool standardization wheel">
+          <!-- DIAGRAM 2: Tool Hierarchy (mobile-first vertical) -->
+          <figure class="diagram-block reveal" aria-label="Four-tool information hierarchy">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 474" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Four-tool design operations wheel diagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 376" width="100%" role="img" aria-label="Four-tool information hierarchy diagram with connecting spine">
                 <defs>
                   <style>
-                    .c8dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
-                    .c8tt { font-family: var(--font-body); font-size: 11px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                    .c8ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                    .c8hl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
-                    .c8hub { fill: var(--bg-surface-2); stroke: var(--gold); stroke-width: 1.5; }
-                    .c8ht { font-family: var(--font-body); font-size: 9px; font-weight: 600; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
-                    .c8hd { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                    .c8sp { stroke: var(--gold); stroke-width: 1; opacity: 0.2; }
-                    .c8bl { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 1px; text-anchor: middle; }
+                    .tw-hub { font-family: var(--font-body); font-size: 8px; font-weight: 700; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
+                    .tw-num { font-family: var(--font-body); font-size: 8.5px; font-weight: 600; letter-spacing: 1px; text-anchor: start; }
+                    .tw-role { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .tw-desc { font-family: var(--font-body); font-size: 8.5px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
                   </style>
                 </defs>
-
-                <!-- Outer ring -->
-                <circle cx="380" cy="252" r="80" fill="none" stroke="var(--border-default)" stroke-width="1.5" opacity="0.4"/>
-
-                <!-- Quadrant arcs (stroke-width 18 = colored band on ring) -->
-                <!-- Top-right: Figma → Jira (red) -->
-                <path d="M 380,172 A 80,80 0 0,1 460,252" fill="none" stroke="#F43F5E" stroke-width="18" opacity="0.18"/>
-                <!-- Bottom-right: Jira → Confluence (blue) -->
-                <path d="M 460,252 A 80,80 0 0,1 380,332" fill="none" stroke="#3B82F6" stroke-width="18" opacity="0.18"/>
-                <!-- Bottom-left: Confluence → Phrase (teal) -->
-                <path d="M 380,332 A 80,80 0 0,1 300,252" fill="none" stroke="#4BBFB2" stroke-width="18" opacity="0.18"/>
-                <!-- Top-left: Phrase → Figma (purple) -->
-                <path d="M 300,252 A 80,80 0 0,1 380,172" fill="none" stroke="#A855F7" stroke-width="18" opacity="0.18"/>
-
-                <!-- Spoke lines (hub to tool cards) -->
-                <line class="c8sp" x1="350" y1="222" x2="216" y2="134"/>
-                <line class="c8sp" x1="410" y1="222" x2="544" y2="134"/>
-                <line class="c8sp" x1="410" y1="282" x2="544" y2="340"/>
-                <line class="c8sp" x1="350" y1="282" x2="216" y2="340"/>
-
-                <!-- Central Hub -->
-                <rect class="c8hub" x="350" y="222" width="60" height="60" rx="30"/>
-                <text class="c8ht" x="380" y="244">TRUTH</text>
-                <text class="c8ht" x="380" y="256">HUB</text>
-                <text class="c8hd" x="380" y="272">↻</text>
-
-                <!-- Badge labels (between hub and ring) -->
-                <text class="c8bl" x="380" y="180" fill="#F43F5E" opacity="0.8">01 / DESIGN TOKENS</text>
-                <text class="c8bl" x="454" y="258" fill="#3B82F6" opacity="0.8">02 /</text>
-                <text class="c8bl" x="454" y="268" fill="#3B82F6" opacity="0.8">SPEC</text>
-                <text class="c8bl" x="380" y="328" fill="#4BBFB2" opacity="0.8">03 / KNOWLEDGE</text>
-                <text class="c8bl" x="306" y="258" fill="#A855F7" opacity="0.8">04 /</text>
-                <text class="c8bl" x="306" y="268" fill="#A855F7" opacity="0.8">L10N</text>
-
-                <!-- ── TOOL CARDS ────────────────────────────────── -->
-                <!-- Figma (top-left, red) -->
-                <rect class="c8dn" x="16" y="24" width="200" height="110" rx="6" style="stroke:#F43F5E;stroke-opacity:0.3;stroke-width:1;"/>
-                <text class="c8tt" x="116" y="48" style="fill:#F43F5E;">01 / FIGMA</text>
-                <text class="c8ts" x="116" y="64">Component libraries,</text>
-                <text class="c8ts" x="116" y="78">design tokens &amp; UI kits.</text>
-                <text class="c8ts" x="116" y="93">Visual source of truth —</text>
-                <text class="c8ts" x="116" y="108">exports specs to engineers.</text>
-
-                <!-- Jira (top-right, blue) -->
-                <rect class="c8dn" x="544" y="24" width="200" height="110" rx="6" style="stroke:#3B82F6;stroke-opacity:0.3;stroke-width:1;"/>
-                <text class="c8tt" x="644" y="48" style="fill:#3B82F6;">02 / JIRA</text>
-                <text class="c8ts" x="644" y="64">Sprint mapping &amp;</text>
-                <text class="c8ts" x="644" y="78">status tracking. Links</text>
-                <text class="c8ts" x="644" y="93">design changes directly</text>
-                <text class="c8ts" x="644" y="108">to code deliverables.</text>
-
-                <!-- Confluence (bottom-right, teal) -->
-                <rect class="c8dn" x="544" y="340" width="200" height="110" rx="6" style="stroke:#4BBFB2;stroke-opacity:0.3;stroke-width:1;"/>
-                <text class="c8tt" x="644" y="364" style="fill:#4BBFB2;">03 / CONFLUENCE</text>
-                <text class="c8ts" x="644" y="380">WoW specs &amp; guidelines.</text>
-                <text class="c8ts" x="644" y="394">Translates tokens into</text>
-                <text class="c8ts" x="644" y="408">team-wide standards</text>
-                <text class="c8ts" x="644" y="422">and shared principles.</text>
-
-                <!-- Phrase (bottom-left, purple) -->
-                <rect class="c8dn" x="16" y="340" width="200" height="110" rx="6" style="stroke:#A855F7;stroke-opacity:0.3;stroke-width:1;"/>
-                <text class="c8tt" x="116" y="364" style="fill:#A855F7;">04 / PHRASE</text>
-                <text class="c8ts" x="116" y="380">Global copy &amp;</text>
-                <text class="c8ts" x="116" y="394">localisation dictionary.</text>
-                <text class="c8ts" x="116" y="408">Injects translations into</text>
-                <text class="c8ts" x="116" y="422">design and code.</text>
+                <!-- Hub pill -->
+                <rect x="120" y="6" width="120" height="24" rx="12" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+                <text class="tw-hub" x="180" y="22">TRUTH HUB</text>
+                <!-- Spine -->
+                <line x1="20" y1="30" x2="20" y2="362" stroke="var(--gold)" stroke-width="1" opacity="0.18" stroke-dasharray="3 3"/>
+                <!-- FIGMA -->
+                <line x1="20" y1="78" x2="38" y2="78" stroke="#F43F5E" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="78" r="4.5" fill="var(--bg-surface)" stroke="#F43F5E" stroke-width="1.5"/>
+                <rect x="38" y="40" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#F43F5E" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="40" width="3" height="76" rx="1.5" fill="#F43F5E" opacity="0.6"/>
+                <text class="tw-num" x="49" y="59" fill="#F43F5E">01 / FIGMA</text>
+                <text class="tw-role" x="344" y="59" fill="#F43F5E">DESIGN TRUTH</text>
+                <text class="tw-desc" x="49" y="76">Component libraries, design tokens &amp; UI kits.</text>
+                <text class="tw-desc" x="49" y="89">Visual source of truth — specs exported to engineering.</text>
+                <!-- JIRA -->
+                <line x1="20" y1="162" x2="38" y2="162" stroke="#3B82F6" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="162" r="4.5" fill="var(--bg-surface)" stroke="#3B82F6" stroke-width="1.5"/>
+                <rect x="38" y="124" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="124" width="3" height="76" rx="1.5" fill="#3B82F6" opacity="0.6"/>
+                <text class="tw-num" x="49" y="143" fill="#3B82F6">02 / JIRA</text>
+                <text class="tw-role" x="344" y="143" fill="#3B82F6">PROGRESS TRUTH</text>
+                <text class="tw-desc" x="49" y="160">Sprint mapping &amp; status tracking. Tickets linked</text>
+                <text class="tw-desc" x="49" y="173">to design files. Not a design repository.</text>
+                <!-- CONFLUENCE -->
+                <line x1="20" y1="246" x2="38" y2="246" stroke="#4BBFB2" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="246" r="4.5" fill="var(--bg-surface)" stroke="#4BBFB2" stroke-width="1.5"/>
+                <rect x="38" y="208" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="208" width="3" height="76" rx="1.5" fill="#4BBFB2" opacity="0.6"/>
+                <text class="tw-num" x="49" y="227" fill="#4BBFB2">03 / CONFLUENCE</text>
+                <text class="tw-role" x="344" y="227" fill="#4BBFB2">CONTEXT TRUTH</text>
+                <text class="tw-desc" x="49" y="244">WoW specs &amp; decision rationale. Translates</text>
+                <text class="tw-desc" x="49" y="257">principles into shared standards and onboarding.</text>
+                <!-- PHRASE -->
+                <line x1="20" y1="330" x2="38" y2="330" stroke="#A855F7" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="330" r="4.5" fill="var(--bg-surface)" stroke="#A855F7" stroke-width="1.5"/>
+                <rect x="38" y="292" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="292" width="3" height="76" rx="1.5" fill="#A855F7" opacity="0.6"/>
+                <text class="tw-num" x="49" y="311" fill="#A855F7">04 / PHRASE</text>
+                <text class="tw-role" x="344" y="311" fill="#A855F7">COPY TRUTH</text>
+                <text class="tw-desc" x="49" y="328">Global copy &amp; localisation dictionary. Translations</text>
+                <text class="tw-desc" x="49" y="341">injected into design and code from one source.</text>
               </svg>
             </div>
             <figcaption>One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation.</figcaption>
           </figure>
 
+          <!-- FIVE-PHASE WORKFLOW -->
+          <div class="cs-section reveal">
+            <span class="eyebrow">The content workflow</span>
+            <h2>Five phases. Two owners.</h2>
+            <p>Alongside the tool framework, the team needed a clear workflow for how design work — particularly content and translations — moved through the production cycle. The existing process had no defined phases, no explicit ownership handoffs, and no point at which translations could be verified before they reached users.</p>
+            <p>The redesigned workflow is structured as five phases with explicit ownership. Phases one through three are designer-owned: content is defined, localisation keys are set up, and designs are handed off. Phases four and five are engineering-owned: implementation, integration, and QA happen here. The release is the output of a completed cycle, not a deadline that compresses earlier phases.</p>
+            <p>The critical structural change was in Phase Two. Content localisation keys — the strings that feed the translation system — had to be created during design, not during development. Moving key creation earlier made translations a parallel track from Phase Two onward, which meant they were ready when QA began rather than still in progress.</p>
+          </div>
+
+          <!-- DIAGRAM 3: Five-Phase Workflow -->
+          <figure class="diagram-block reveal" aria-label="Five-phase content and design workflow">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 532" width="100%" role="img" aria-label="Five-phase workflow with ownership and translation callouts">
+                <defs>
+                  <style>
+                    .ph-num { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--gold); text-anchor: middle; dominant-baseline: middle; }
+                    .ph-num-eng { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: #3B82F6; text-anchor: middle; dominant-baseline: middle; }
+                    .ph-title { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .ph-owner { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .ph-desc { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                    .ph-tag { font-family: var(--font-body); font-size: 7px; font-weight: 600; text-anchor: start; }
+                  </style>
+                </defs>
+
+                <!-- PHASE 1 -->
+                <circle cx="24" cy="40" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="40">1</text>
+                <rect x="48" y="0" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title" x="60" y="22">Design &amp; Content Initiation</text>
+                <text class="ph-owner" x="344" y="22" fill="var(--gold)">DESIGNER</text>
+                <text class="ph-desc" x="60" y="40">Define content strategy, structure screens and flows.</text>
+                <text class="ph-desc" x="60" y="52">Establish base design with content placeholders.</text>
+
+                <!-- Connector 1→2 -->
+                <line x1="24" y1="80" x2="24" y2="90" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,89 28,89 24,96" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- PHASE 2 (purple accent — translation starts) -->
+                <circle cx="24" cy="136" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="136">2</text>
+                <rect x="48" y="96" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.5"/>
+                <text class="ph-title" x="60" y="118">Content Keys Setup</text>
+                <text class="ph-owner" x="344" y="118" fill="var(--gold)">DESIGNER</text>
+                <text class="ph-desc" x="60" y="136">Create and assign localisation keys directly in design.</text>
+                <text class="ph-desc" x="60" y="148">Translation agency receives strings — parallel track begins.</text>
+                <rect x="60" y="158" width="120" height="12" rx="6" fill="#A855F7" opacity="0.12"/>
+                <text class="ph-tag" x="66" y="167" fill="#A855F7">← translation track begins here</text>
+
+                <!-- Connector 2→3 -->
+                <line x1="24" y1="176" x2="24" y2="186" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,185 28,185 24,192" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- PHASE 3 -->
+                <circle cx="24" cy="232" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="232">3</text>
+                <rect x="48" y="192" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title" x="60" y="214">Handoff &amp; Development</text>
+                <text class="ph-owner" x="344" y="214" fill="var(--gold)">DESIGNER → ENG</text>
+                <text class="ph-desc" x="60" y="232">Finalise specs, handoff notes, Figma annotations.</text>
+                <text class="ph-desc" x="60" y="244">Engineering begins implementation from handed-off designs.</text>
+
+                <!-- Connector 3→4 (ownership transition — slightly different style) -->
+                <line x1="24" y1="272" x2="24" y2="282" stroke="var(--border-strong)" stroke-width="1.5" opacity="0.5"/>
+                <polygon points="20,281 28,281 24,288" fill="var(--border-strong)" opacity="0.5"/>
+
+                <!-- PHASE 4 (engineering, blue accent + translation verified) -->
+                <circle cx="24" cy="328" r="16" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng" x="24" y="328">4</text>
+                <rect x="48" y="288" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="288" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.5"/>
+                <text class="ph-title" x="60" y="310">QA Integration</text>
+                <text class="ph-owner" x="344" y="310" fill="#3B82F6">ENGINEERING</text>
+                <text class="ph-desc" x="60" y="328">Feature tested in pre-production. Technical and functional</text>
+                <text class="ph-desc" x="60" y="340">review. Translation verification included for all markets.</text>
+                <rect x="60" y="350" width="110" height="12" rx="6" fill="#A855F7" opacity="0.12"/>
+                <text class="ph-tag" x="66" y="359" fill="#A855F7">✓ translations verified in QA</text>
+
+                <!-- Connector 4→5 -->
+                <line x1="24" y1="368" x2="24" y2="378" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,377 28,377 24,384" fill="#3B82F6" opacity="0.3"/>
+
+                <!-- PHASE 5 -->
+                <circle cx="24" cy="424" r="16" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng" x="24" y="424">5</text>
+                <rect x="48" y="384" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="384" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.5"/>
+                <text class="ph-title" x="60" y="406">Release QA</text>
+                <text class="ph-owner" x="344" y="406" fill="#3B82F6">ENGINEERING</text>
+                <text class="ph-desc" x="60" y="424">Final issue corrections. Internal QA pass complete.</text>
+                <text class="ph-desc" x="60" y="436">Market corrections validated before production push.</text>
+
+                <!-- Connector 5→Release -->
+                <line x1="24" y1="464" x2="24" y2="474" stroke="#4BBFB2" stroke-width="1" opacity="0.5"/>
+                <polygon points="20,473 28,473 24,480" fill="#4BBFB2" opacity="0.5"/>
+
+                <!-- RELEASE BADGE -->
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="#4BBFB2" opacity="0.06"/>
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="none" stroke="#4BBFB2" stroke-width="1.5" opacity="0.5"/>
+                <text x="200" y="499" font-family="var(--font-body)" font-size="10px" font-weight="600" fill="#4BBFB2" text-anchor="middle">Feature Production Release</text>
+                <text x="200" y="514" font-family="var(--font-body)" font-size="8px" font-weight="300" fill="var(--text-tertiary)" text-anchor="middle">Translations shipped, verified, ready for all markets</text>
+              </svg>
+            </div>
+            <figcaption>Five phases, two owners. The key structural change: translation keys set up in Phase 2 (design), not Phase 4 (engineering) — making them verifiable in QA for the first time.</figcaption>
+          </figure>
+
+          <!-- MAKING TRANSLATIONS TESTABLE -->
+          <div class="cs-section reveal">
+            <span class="eyebrow">Phrase optimization</span>
+            <h2>From untestable to verifiable</h2>
+            <p>The translation workflow was the most acute failure point. In the existing state, localisation keys were created late in the cycle — typically by engineering, not design — which compressed the translation window, forced localisation to happen in parallel with development rather than before it, and left QA with no mechanism to verify language quality before release. Translation errors were caught by end users, not by the team.</p>
+            <p>The redesigned workflow shifted both the ownership and timing of key creation. Designers create content keys during Phase Two — as part of the design process, before handoff. This turns translation into a parallel track that is ready when development completes. Quality assurance now includes a dedicated translation review step: language errors are catchable before they ship.</p>
+
+            <div class="pull-quote">
+              <p>"A problem you can't test before release is a problem you will definitely ship. Making translations testable wasn't a process preference — it was a quality guarantee."</p>
+            </div>
+
+            <p>The change also reduced the cognitive load on engineering. When keys arrive in development already created and named correctly, engineers aren't making content decisions under deadline. The system produces better work because each role is doing the work it's positioned to do.</p>
+          </div>
+
+          <!-- OUTCOME -->
           <div class="cs-section reveal">
             <span class="eyebrow">Outcome</span>
             <h2>Imperfect adoption. Structural bones held.</h2>
             <p>The framework was adopted — imperfectly. Some habits take time. Some team members adapted faster than others. There are corners of the process that are still negotiated informally.</p>
-            <p>But the structural bones held. New team members can now onboard without needing a personal guide through every tool. Handoffs have a consistent shape. When the process breaks down, it breaks down in identifiable ways that can be fixed by adjusting documentation, not by hunting through files.</p>
+            <p>But the structural bones held. New team members can now onboard without needing a personal guide through every tool. Handoffs have a consistent shape. When the process breaks down, it breaks down in identifiable ways — a naming convention ignored, a Confluence page not updated — that can be fixed by adjusting documentation, not by hunting through files or asking the right person.</p>
+            <p>The translation workflow change had the most immediate effect: QA could verify language quality before release for the first time. The feedback loop shortened from "a user reports a translation issue" to "QA catches it in pre-production."</p>
             <p>I've come to think that imperfect adoption of a well-structured system is the actual success condition — not perfect compliance. A process that survives is more valuable than a process that was theoretically perfect but required constant maintenance by a specific person to function.</p>
           </div>
 

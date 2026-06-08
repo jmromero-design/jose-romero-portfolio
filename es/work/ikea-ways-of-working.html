@@ -73,7 +73,7 @@
           <div class="cs-detail"><span class="cs-detail-label">Cliente</span><span class="cs-detail-value">IKEA / Ingka Group</span></div>
           <div class="cs-detail"><span class="cs-detail-label">Agencia</span><span class="cs-detail-value">Garaje de Ideas / Groupe EDG</span></div>
           <div class="cs-detail"><span class="cs-detail-label">Mi rol</span><span class="cs-detail-value">Design Operations Lead</span></div>
-          <div class="cs-detail"><span class="cs-detail-label">Período</span><span class="cs-detail-value">2023 — Presente</span></div>
+          <div class="cs-detail"><span class="cs-detail-label">Período</span><span class="cs-detail-value">2025 — Presente</span></div>
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Diseño de Procesos · Documentación · Arquitectura de Herramientas</span></div>
         </div>
 
@@ -88,16 +88,90 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
+          <!-- EL PROBLEMA -->
           <div class="cs-section reveal">
             <span class="eyebrow">El problema</span>
-            <h2>Sin sistema, solo memoria</h2>
-            <p>Cuando me uní al equipo de IKEA New Business Platform, el proceso de trabajo existía — pero solo en la cabeza de las personas. Los archivos estaban distribuidos por Figma, Confluence y unidades locales sin estructura consistente. La jerarquía del trabajo — qué iba en Figma, qué en Confluence, qué en Jira — era poco clara y se aplicaba de forma inconsistente.</p>
-            <p>El proceso que existía dependía de personas concretas para mantenerlo en la memoria y transmitirlo informalmente. Cuando esas personas no estaban disponibles, o cuando se unían nuevos miembros al equipo, el sistema se derrumbaba. Cada incorporación era una negociación nueva. Cada handoff requería que alguien explicara cosas que deberían haber estado documentadas.</p>
+            <h2>Ocho puntos de fallo, no uno</h2>
+            <p>Cuando me uní al equipo, el proceso de trabajo existía — pero solo en la cabeza de las personas. Los archivos estaban distribuidos por Figma, Confluence y unidades locales sin estructura consistente. La jerarquía del trabajo — qué iba en Figma, qué en Confluence, qué en Jira — era poco clara y se aplicaba de forma inconsistente.</p>
+            <p>Lo que parecía un problema cultural era en realidad estructural. Una auditoría de causas raíz detectó ocho puntos de fallo distintos que ralentizaban al equipo activamente. No eran independientes — cada uno alimentaba a los demás:</p>
           </div>
 
+          <!-- DIAGRAMA 1: Causas Raíz -->
+          <figure class="diagram-block reveal" aria-label="Ocho causas raíz del colapso del flujo de trabajo">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="100%" role="img" aria-label="Diagrama de ocho causas raíz interconectadas">
+                <defs>
+                  <style>
+                    .rct-es { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .rcs-es { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                  </style>
+                </defs>
+                <!-- Tarjeta 1: Archivos Figma Desorganizados — dorado -->
+                <rect x="8" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#E8955A" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="8" width="3" height="80" rx="1.5" fill="#E8955A" opacity="0.65"/>
+                <text class="rct-es" x="18" y="27">Archivos Figma</text>
+                <text class="rct-es" x="18" y="39">Desorganizados</text>
+                <text class="rcs-es" x="18" y="57">Tiempo perdido buscando,</text>
+                <text class="rcs-es" x="18" y="68">riesgo de diseños obsoletos</text>
+                <!-- Tarjeta 2: Traducciones Retrasadas — morado -->
+                <rect x="184" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="8" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct-es" x="194" y="27">Traducciones</text>
+                <text class="rct-es" x="194" y="39">Retrasadas</text>
+                <text class="rcs-es" x="194" y="57">Phrase actualizado tarde,</text>
+                <text class="rcs-es" x="194" y="68">cuellos de botella en releases</text>
+                <!-- Tarjeta 3: Proceso de Claves Ineficiente — morado -->
+                <rect x="8" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct-es" x="18" y="115">Proceso de Claves</text>
+                <text class="rct-es" x="18" y="127">Ineficiente</text>
+                <text class="rcs-es" x="18" y="145">Claves creadas tarde por ing.,</text>
+                <text class="rcs-es" x="18" y="156">bloquea trabajo paralelo</text>
+                <!-- Tarjeta 4: Traducciones No Verificables — morado -->
+                <rect x="184" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.65"/>
+                <text class="rct-es" x="194" y="115">Traducciones No</text>
+                <text class="rct-es" x="194" y="127">Verificables</text>
+                <text class="rcs-es" x="194" y="145">QA no puede verificar</text>
+                <text class="rcs-es" x="194" y="156">el idioma antes del release</text>
+                <!-- Tarjeta 5: Herramientas Desconectadas — azul -->
+                <rect x="8" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="184" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.65"/>
+                <text class="rct-es" x="18" y="203">Herramientas</text>
+                <text class="rct-es" x="18" y="215">Desconectadas</text>
+                <text class="rcs-es" x="18" y="233">Flujo fragmentado,</text>
+                <text class="rcs-es" x="18" y="244">eficiencia de equipo reducida</text>
+                <!-- Tarjeta 6: Handoff Insuficiente — verde azulado -->
+                <rect x="184" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="184" width="3" height="80" rx="1.5" fill="#4BBFB2" opacity="0.65"/>
+                <text class="rct-es" x="194" y="203">Handoff</text>
+                <text class="rct-es" x="194" y="215">Insuficiente</text>
+                <text class="rcs-es" x="194" y="233">Malinterpretaciones de dev</text>
+                <text class="rcs-es" x="194" y="244">y ciclos de revisión</text>
+                <!-- Tarjeta 7: Nomenclatura No Clara — dorado -->
+                <rect x="8" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#E8955A" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="272" width="3" height="80" rx="1.5" fill="#E8955A" opacity="0.65"/>
+                <text class="rct-es" x="18" y="291">Nomenclatura</text>
+                <text class="rct-es" x="18" y="303">No Clara</text>
+                <text class="rcs-es" x="18" y="321">Fricción encontrando</text>
+                <text class="rcs-es" x="18" y="332">assets e información</text>
+                <!-- Tarjeta 8: Arquitectura de Info No Clara — verde azulado -->
+                <rect x="184" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="272" width="3" height="80" rx="1.5" fill="#4BBFB2" opacity="0.65"/>
+                <text class="rct-es" x="194" y="291">Arquitectura de Info</text>
+                <text class="rct-es" x="194" y="303">No Clara</text>
+                <text class="rcs-es" x="194" y="321">Estructura de producto difícil</text>
+                <text class="rcs-es" x="194" y="332">de entender o navegar</text>
+              </svg>
+            </div>
+            <figcaption>Ocho puntos de fallo interconectados. El patrón subyacente: información retenida informalmente y ningún responsable de los huecos entre herramientas.</figcaption>
+          </figure>
+
+          <!-- ENFOQUE -->
           <div class="cs-section reveal">
             <span class="eyebrow">Enfoque</span>
             <h2>Principios primero, herramientas después</h2>
+            <p>El primer paso fue hacer legible el estado existente. Mapear lo que estaba ocurriendo realmente — no el ideal, no lo que la gente creía que pasaba — reveló que los problemas eran estructurales, no de comportamiento. Las personas no eran descuidadas; el sistema no tenía reglas claras sobre quién era responsable de qué en cada etapa.</p>
             <p>El instinto en estas situaciones es auditar las herramientas y luego escribir documentación para ellas. Ese es el orden equivocado. La documentación sin un principio estructural es solo más ruido.</p>
             <p>Empecé mapeando el trabajo real — los tipos de tareas que realizaba el equipo, sus interdependencias, las decisiones que seguían perdiéndose, las preguntas que los nuevos miembros seguían haciendo. A partir de ese mapa, derivé un conjunto de reglas estructurales: qué tipo de información vive en cada herramienta, cuándo se mueve entre herramientas, quién la tiene en cada etapa.</p>
 
@@ -108,10 +182,11 @@
             <p>Una vez que los principios fueron claros, la documentación se escribió sola. A las herramientas se les asignaron roles. Las convenciones de nomenclatura surgieron de esos roles. La incorporación de nuevos miembros surgió de las convenciones de nomenclatura.</p>
           </div>
 
+          <!-- EL FRAMEWORK -->
           <div class="cs-section reveal">
             <span class="eyebrow">El framework</span>
             <h2>Cuatro herramientas, una columna vertebral</h2>
-            <p>El framework define una jerarquía clara en las cuatro herramientas principales que usa el equipo:</p>
+            <p>El framework asigna un rol único y no solapado a cada una de las cuatro herramientas principales. La regla es lo suficientemente simple como para retenerla en la memoria sin documentación:</p>
             <ul style="list-style: none; display: flex; flex-direction: column; gap: var(--sp-4); margin-top: var(--sp-6);">
               <li style="padding: var(--sp-5); background: var(--bg-surface); border: 1px solid var(--border-subtle); border-left: 2px solid var(--teal-dim); border-radius: 0 var(--radius-md) var(--radius-md) 0;">
                 <strong style="color: var(--teal); font-size: var(--text-sm);">Figma</strong>
@@ -132,63 +207,191 @@
             </ul>
           </div>
 
-          <figure class="diagram-block reveal" aria-label="Rueda de estandarización de cuatro herramientas">
+          <!-- DIAGRAMA 2: Jerarquía de herramientas (vertical mobile-first) -->
+          <figure class="diagram-block reveal" aria-label="Jerarquía de información de las cuatro herramientas">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 474" width="100%" style="min-width:580px;display:block;" role="img" aria-label="Four-tool design operations wheel diagram">
-                <defs><style>.c8dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}.c8tt{font-family:var(--font-body);font-size:11px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}.c8ts{font-family:var(--font-body);font-size:9px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}.c8hl{font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:1.5px;fill:var(--gold);text-anchor:middle}.c8hub{fill:var(--bg-surface-2);stroke:var(--gold);stroke-width:1.5}.c8ht{font-family:var(--font-body);font-size:9px;font-weight:600;letter-spacing:1.5px;fill:var(--gold);text-anchor:middle}.c8hd{font-family:var(--font-body);font-size:9px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}.c8sp{stroke:var(--gold);stroke-width:1;opacity:.2}.c8bl{font-family:var(--font-body);font-size:8px;font-weight:600;letter-spacing:1px;text-anchor:middle}</style></defs>
-                <circle cx="380" cy="252" r="80" fill="none" stroke="var(--border-default)" stroke-width="1.5" opacity="0.4"/>
-                <path d="M 380,172 A 80,80 0 0,1 460,252" fill="none" stroke="#F43F5E" stroke-width="18" opacity="0.18"/>
-                <path d="M 460,252 A 80,80 0 0,1 380,332" fill="none" stroke="#3B82F6" stroke-width="18" opacity="0.18"/>
-                <path d="M 380,332 A 80,80 0 0,1 300,252" fill="none" stroke="#4BBFB2" stroke-width="18" opacity="0.18"/>
-                <path d="M 300,252 A 80,80 0 0,1 380,172" fill="none" stroke="#A855F7" stroke-width="18" opacity="0.18"/>
-                <line class="c8sp" x1="350" y1="222" x2="216" y2="134"/>
-                <line class="c8sp" x1="410" y1="222" x2="544" y2="134"/>
-                <line class="c8sp" x1="410" y1="282" x2="544" y2="340"/>
-                <line class="c8sp" x1="350" y1="282" x2="216" y2="340"/>
-                <rect class="c8hub" x="350" y="222" width="60" height="60" rx="30"/>
-                <text class="c8ht" x="380" y="244">VERDAD</text>
-                <text class="c8ht" x="380" y="256">HUB</text>
-                <text class="c8hd" x="380" y="272">↻</text>
-                <text class="c8bl" x="380" y="180" fill="#F43F5E" opacity="0.8">01 / TOKENS DE DISEÑO</text>
-                <text class="c8bl" x="454" y="258" fill="#3B82F6" opacity="0.8">02 /</text>
-                <text class="c8bl" x="454" y="268" fill="#3B82F6" opacity="0.8">SPEC</text>
-                <text class="c8bl" x="380" y="328" fill="#4BBFB2" opacity="0.8">03 / CONOCIMIENTO</text>
-                <text class="c8bl" x="306" y="258" fill="#A855F7" opacity="0.8">04 /</text>
-                <text class="c8bl" x="306" y="268" fill="#A855F7" opacity="0.8">L10N</text>
-                <rect class="c8dn" x="16" y="24" width="200" height="110" rx="6" style="stroke:#F43F5E;stroke-opacity:.3;stroke-width:1;"/>
-                <text class="c8tt" x="116" y="48" style="fill:#F43F5E;">01 / FIGMA</text>
-                <text class="c8ts" x="116" y="64">Librerías de componentes,</text>
-                <text class="c8ts" x="116" y="78">tokens de diseño &amp; UI kits.</text>
-                <text class="c8ts" x="116" y="93">Fuente visual de verdad —</text>
-                <text class="c8ts" x="116" y="108">exporta specs a ingenieros.</text>
-                <rect class="c8dn" x="544" y="24" width="200" height="110" rx="6" style="stroke:#3B82F6;stroke-opacity:.3;stroke-width:1;"/>
-                <text class="c8tt" x="644" y="48" style="fill:#3B82F6;">02 / JIRA</text>
-                <text class="c8ts" x="644" y="64">Mapeo de sprints &amp;</text>
-                <text class="c8ts" x="644" y="78">seguimiento de estado. Vincula</text>
-                <text class="c8ts" x="644" y="93">cambios de diseño directamente</text>
-                <text class="c8ts" x="644" y="108">a entregables de código.</text>
-                <rect class="c8dn" x="544" y="340" width="200" height="110" rx="6" style="stroke:#4BBFB2;stroke-opacity:.3;stroke-width:1;"/>
-                <text class="c8tt" x="644" y="364" style="fill:#4BBFB2;">03 / CONFLUENCE</text>
-                <text class="c8ts" x="644" y="380">Specs &amp; guías WoW.</text>
-                <text class="c8ts" x="644" y="394">Traduce tokens en</text>
-                <text class="c8ts" x="644" y="408">estándares de equipo</text>
-                <text class="c8ts" x="644" y="422">y principios compartidos.</text>
-                <rect class="c8dn" x="16" y="340" width="200" height="110" rx="6" style="stroke:#A855F7;stroke-opacity:.3;stroke-width:1;"/>
-                <text class="c8tt" x="116" y="364" style="fill:#A855F7;">04 / PHRASE</text>
-                <text class="c8ts" x="116" y="380">Copia global &amp;</text>
-                <text class="c8ts" x="116" y="394">diccionario de localización.</text>
-                <text class="c8ts" x="116" y="408">Inyecta traducciones en</text>
-                <text class="c8ts" x="116" y="422">diseño y código.</text>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 376" width="100%" role="img" aria-label="Diagrama vertical de jerarquía de herramientas con columna vertebral">
+                <defs>
+                  <style>
+                    .tw-hub-es { font-family: var(--font-body); font-size: 8px; font-weight: 700; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
+                    .tw-num-es { font-family: var(--font-body); font-size: 8.5px; font-weight: 600; letter-spacing: 1px; text-anchor: start; }
+                    .tw-role-es { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .tw-desc-es { font-family: var(--font-body); font-size: 8.5px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                  </style>
+                </defs>
+                <!-- Hub pill -->
+                <rect x="105" y="6" width="150" height="24" rx="12" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+                <text class="tw-hub-es" x="180" y="22">HUB DE VERDAD</text>
+                <!-- Columna vertebral -->
+                <line x1="20" y1="30" x2="20" y2="362" stroke="var(--gold)" stroke-width="1" opacity="0.18" stroke-dasharray="3 3"/>
+                <!-- FIGMA -->
+                <line x1="20" y1="78" x2="38" y2="78" stroke="#F43F5E" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="78" r="4.5" fill="var(--bg-surface)" stroke="#F43F5E" stroke-width="1.5"/>
+                <rect x="38" y="40" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#F43F5E" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="40" width="3" height="76" rx="1.5" fill="#F43F5E" opacity="0.6"/>
+                <text class="tw-num-es" x="49" y="59" fill="#F43F5E">01 / FIGMA</text>
+                <text class="tw-role-es" x="344" y="59" fill="#F43F5E">VERDAD DE DISEÑO</text>
+                <text class="tw-desc-es" x="49" y="76">Librerías, tokens de diseño &amp; UI kits.</text>
+                <text class="tw-desc-es" x="49" y="89">Fuente visual de verdad — specs exportadas a ingeniería.</text>
+                <!-- JIRA -->
+                <line x1="20" y1="162" x2="38" y2="162" stroke="#3B82F6" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="162" r="4.5" fill="var(--bg-surface)" stroke="#3B82F6" stroke-width="1.5"/>
+                <rect x="38" y="124" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="124" width="3" height="76" rx="1.5" fill="#3B82F6" opacity="0.6"/>
+                <text class="tw-num-es" x="49" y="143" fill="#3B82F6">02 / JIRA</text>
+                <text class="tw-role-es" x="344" y="143" fill="#3B82F6">VERDAD DE PROGRESO</text>
+                <text class="tw-desc-es" x="49" y="160">Mapeo de sprints &amp; seguimiento de estado. Tickets</text>
+                <text class="tw-desc-es" x="49" y="173">vinculados a diseño. No es un repositorio de diseño.</text>
+                <!-- CONFLUENCE -->
+                <line x1="20" y1="246" x2="38" y2="246" stroke="#4BBFB2" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="246" r="4.5" fill="var(--bg-surface)" stroke="#4BBFB2" stroke-width="1.5"/>
+                <rect x="38" y="208" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#4BBFB2" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="208" width="3" height="76" rx="1.5" fill="#4BBFB2" opacity="0.6"/>
+                <text class="tw-num-es" x="49" y="227" fill="#4BBFB2">03 / CONFLUENCE</text>
+                <text class="tw-role-es" x="344" y="227" fill="#4BBFB2">VERDAD DE CONTEXTO</text>
+                <text class="tw-desc-es" x="49" y="244">Specs WoW &amp; rationale de decisiones. Traduce</text>
+                <text class="tw-desc-es" x="49" y="257">principios en estándares compartidos y onboarding.</text>
+                <!-- PHRASE -->
+                <line x1="20" y1="330" x2="38" y2="330" stroke="#A855F7" stroke-width="1" opacity="0.4"/>
+                <circle cx="20" cy="330" r="4.5" fill="var(--bg-surface)" stroke="#A855F7" stroke-width="1.5"/>
+                <rect x="38" y="292" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.25" stroke-width="1"/>
+                <rect x="38" y="292" width="3" height="76" rx="1.5" fill="#A855F7" opacity="0.6"/>
+                <text class="tw-num-es" x="49" y="311" fill="#A855F7">04 / PHRASE</text>
+                <text class="tw-role-es" x="344" y="311" fill="#A855F7">VERDAD DE COPIA</text>
+                <text class="tw-desc-es" x="49" y="328">Copia global &amp; diccionario de localización. Traducciones</text>
+                <text class="tw-desc-es" x="49" y="341">inyectadas en diseño y código desde una única fuente.</text>
               </svg>
             </div>
             <figcaption>Una regla: cada herramienta tiene un trabajo. El sistema se mantiene porque el principio es lo suficientemente simple como para recordarlo sin la documentación.</figcaption>
           </figure>
 
+          <!-- EL FLUJO DE CONTENIDO -->
+          <div class="cs-section reveal">
+            <span class="eyebrow">El flujo de contenido</span>
+            <h2>Cinco fases. Dos responsables.</h2>
+            <p>Junto al framework de herramientas, el equipo necesitaba un flujo claro para cómo el trabajo de diseño — especialmente el contenido y las traducciones — avanzaba por el ciclo de producción. El proceso existente no tenía fases definidas, ni transferencias de responsabilidad explícitas, ni ningún punto en el que las traducciones pudieran verificarse antes de llegar a los usuarios.</p>
+            <p>El flujo rediseñado se estructura en cinco fases con responsabilidades explícitas. Las fases uno a tres son responsabilidad del diseñador: se define el contenido, se configuran las claves de localización y se realiza el handoff. Las fases cuatro y cinco son responsabilidad de ingeniería: implementación, integración y QA ocurren aquí. El release es el resultado de un ciclo completo, no un deadline que comprime las fases anteriores.</p>
+            <p>El cambio estructural crítico estuvo en la Fase Dos. Las claves de localización — las cadenas que alimentan el sistema de traducción — tenían que crearse durante el diseño, no durante el desarrollo. Adelantar la creación de claves convirtió las traducciones en un track paralelo desde la Fase Dos, lo que significaba que estaban listas cuando comenzaba el QA.</p>
+          </div>
+
+          <!-- DIAGRAMA 3: Flujo de Cinco Fases -->
+          <figure class="diagram-block reveal" aria-label="Flujo de trabajo de cinco fases para contenido y diseño">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 532" width="100%" role="img" aria-label="Flujo de cinco fases con responsabilidades y callouts de traducción">
+                <defs>
+                  <style>
+                    .ph-num-es { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--gold); text-anchor: middle; dominant-baseline: middle; }
+                    .ph-num-eng-es { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: #3B82F6; text-anchor: middle; dominant-baseline: middle; }
+                    .ph-title-es { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .ph-owner-es { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .ph-desc-es { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                    .ph-tag-es { font-family: var(--font-body); font-size: 7px; font-weight: 600; text-anchor: start; }
+                  </style>
+                </defs>
+
+                <!-- FASE 1 -->
+                <circle cx="24" cy="40" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-es" x="24" y="40">1</text>
+                <rect x="48" y="0" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title-es" x="60" y="22">Inicio de Diseño y Contenido</text>
+                <text class="ph-owner-es" x="344" y="22" fill="var(--gold)">DISEÑADOR</text>
+                <text class="ph-desc-es" x="60" y="40">Definir estrategia de contenido, estructurar pantallas y flujos.</text>
+                <text class="ph-desc-es" x="60" y="52">Establecer diseño base con placeholders de contenido.</text>
+
+                <!-- Conector 1→2 -->
+                <line x1="24" y1="80" x2="24" y2="90" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,89 28,89 24,96" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- FASE 2 (acento morado — comienza track de traducción) -->
+                <circle cx="24" cy="136" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-es" x="24" y="136">2</text>
+                <rect x="48" y="96" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#A855F7" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="96" width="3" height="80" rx="1.5" fill="#A855F7" opacity="0.5"/>
+                <text class="ph-title-es" x="60" y="118">Configuración de Claves</text>
+                <text class="ph-owner-es" x="344" y="118" fill="var(--gold)">DISEÑADOR</text>
+                <text class="ph-desc-es" x="60" y="136">Crear y asignar claves de localización directamente en diseño.</text>
+                <text class="ph-desc-es" x="60" y="148">La agencia de traducción recibe las cadenas — comienza el track.</text>
+                <rect x="60" y="158" width="138" height="12" rx="6" fill="#A855F7" opacity="0.12"/>
+                <text class="ph-tag-es" x="66" y="167" fill="#A855F7">← el track de traducción comienza aquí</text>
+
+                <!-- Conector 2→3 -->
+                <line x1="24" y1="176" x2="24" y2="186" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,185 28,185 24,192" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- FASE 3 -->
+                <circle cx="24" cy="232" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-es" x="24" y="232">3</text>
+                <rect x="48" y="192" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title-es" x="60" y="214">Handoff y Desarrollo</text>
+                <text class="ph-owner-es" x="344" y="214" fill="var(--gold)">DISEÑADOR → ING.</text>
+                <text class="ph-desc-es" x="60" y="232">Finalizar specs, notas de handoff, anotaciones en Figma.</text>
+                <text class="ph-desc-es" x="60" y="244">Ingeniería comienza implementación desde los diseños entregados.</text>
+
+                <!-- Conector 3→4 (transición de responsabilidad) -->
+                <line x1="24" y1="272" x2="24" y2="282" stroke="var(--border-strong)" stroke-width="1.5" opacity="0.5"/>
+                <polygon points="20,281 28,281 24,288" fill="var(--border-strong)" opacity="0.5"/>
+
+                <!-- FASE 4 (ingeniería, acento azul + traducciones verificadas) -->
+                <circle cx="24" cy="328" r="16" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng-es" x="24" y="328">4</text>
+                <rect x="48" y="288" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="288" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.5"/>
+                <text class="ph-title-es" x="60" y="310">Integración QA</text>
+                <text class="ph-owner-es" x="344" y="310" fill="#3B82F6">INGENIERÍA</text>
+                <text class="ph-desc-es" x="60" y="328">Feature probada en pre-producción. Revisión técnica y funcional.</text>
+                <text class="ph-desc-es" x="60" y="340">Verificación de traducciones incluida para todos los mercados.</text>
+                <rect x="60" y="350" width="118" height="12" rx="6" fill="#A855F7" opacity="0.12"/>
+                <text class="ph-tag-es" x="66" y="359" fill="#A855F7">✓ traducciones verificadas en QA</text>
+
+                <!-- Conector 4→5 -->
+                <line x1="24" y1="368" x2="24" y2="378" stroke="#3B82F6" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,377 28,377 24,384" fill="#3B82F6" opacity="0.3"/>
+
+                <!-- FASE 5 -->
+                <circle cx="24" cy="424" r="16" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng-es" x="24" y="424">5</text>
+                <rect x="48" y="384" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="#3B82F6" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="384" width="3" height="80" rx="1.5" fill="#3B82F6" opacity="0.5"/>
+                <text class="ph-title-es" x="60" y="406">QA de Release</text>
+                <text class="ph-owner-es" x="344" y="406" fill="#3B82F6">INGENIERÍA</text>
+                <text class="ph-desc-es" x="60" y="424">Correcciones finales. Paso de QA interno completado.</text>
+                <text class="ph-desc-es" x="60" y="436">Correcciones de mercado validadas antes del push a producción.</text>
+
+                <!-- Conector 5→Release -->
+                <line x1="24" y1="464" x2="24" y2="474" stroke="#4BBFB2" stroke-width="1" opacity="0.5"/>
+                <polygon points="20,473 28,473 24,480" fill="#4BBFB2" opacity="0.5"/>
+
+                <!-- BADGE DE RELEASE -->
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="#4BBFB2" opacity="0.06"/>
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="none" stroke="#4BBFB2" stroke-width="1.5" opacity="0.5"/>
+                <text x="200" y="499" font-family="var(--font-body)" font-size="10px" font-weight="600" fill="#4BBFB2" text-anchor="middle">Release de Producción</text>
+                <text x="200" y="514" font-family="var(--font-body)" font-size="8px" font-weight="300" fill="var(--text-tertiary)" text-anchor="middle">Traducciones publicadas, verificadas y listas para todos los mercados</text>
+              </svg>
+            </div>
+            <figcaption>Cinco fases, dos responsables. El cambio estructural clave: claves de traducción configuradas en la Fase 2 (diseño), no en la Fase 4 (ingeniería) — lo que las hace verificables en QA por primera vez.</figcaption>
+          </figure>
+
+          <!-- OPTIMIZACIÓN DE PHRASE -->
+          <div class="cs-section reveal">
+            <span class="eyebrow">Optimización de Phrase</span>
+            <h2>De no verificable a comprobable</h2>
+            <p>El flujo de traducción era el punto de fallo más agudo. En el estado existente, las claves de localización se creaban tarde en el ciclo — típicamente por ingeniería, no por diseño — lo que comprimía la ventana de traducción, forzaba que la localización ocurriera en paralelo con el desarrollo en lugar de antes, y dejaba al QA sin ningún mecanismo para verificar la calidad del idioma antes del release. Los errores de traducción los encontraban los usuarios finales, no el equipo.</p>
+            <p>El flujo rediseñado trasladó tanto la responsabilidad como el momento de creación de las claves. Los diseñadores crean las claves de contenido durante la Fase Dos — como parte del proceso de diseño, antes del handoff. Esto convierte la traducción en un track paralelo que está listo cuando finaliza el desarrollo. El control de calidad ahora incluye un paso dedicado a la revisión de traducciones: los errores de idioma son detectables antes de que lleguen a los usuarios.</p>
+
+            <div class="pull-quote">
+              <p>"Un problema que no puedes probar antes del release es un problema que inevitablemente publicarás. Hacer las traducciones verificables no era una preferencia de proceso — era una garantía de calidad."</p>
+            </div>
+
+            <p>El cambio también redujo la carga cognitiva de ingeniería. Cuando las claves llegan al desarrollo ya creadas y nombradas correctamente, los ingenieros no toman decisiones de contenido bajo presión de plazo. El sistema produce mejor trabajo porque cada rol hace el trabajo para el que está posicionado.</p>
+          </div>
+
+          <!-- RESULTADO -->
           <div class="cs-section reveal">
             <span class="eyebrow">Resultado</span>
             <h2>Adopción imperfecta. La estructura se mantuvo.</h2>
             <p>El framework se adoptó — de forma imperfecta. Algunos hábitos llevan tiempo. Algunos miembros del equipo se adaptaron más rápido que otros. Hay rincones del proceso que todavía se negocian informalmente.</p>
-            <p>Pero la estructura se mantuvo. Los nuevos miembros del equipo pueden ahora incorporarse sin necesitar un guía personal por cada herramienta. Los handoffs tienen una forma consistente. Cuando el proceso se rompe, se rompe de maneras identificables que pueden arreglarse ajustando la documentación, no rebuscando en archivos.</p>
+            <p>Pero la estructura se mantuvo. Los nuevos miembros del equipo pueden ahora incorporarse sin necesitar un guía personal por cada herramienta. Los handoffs tienen una forma consistente. Cuando el proceso se rompe, se rompe de maneras identificables — una convención de nomenclatura ignorada, una página de Confluence sin actualizar — que pueden arreglarse ajustando la documentación, no rebuscando en archivos o preguntando a la persona adecuada.</p>
+            <p>El cambio en el flujo de traducción tuvo el efecto más inmediato: el QA pudo verificar la calidad del idioma antes del release por primera vez. El ciclo de retroalimentación pasó de "un usuario reporta un error de traducción" a "el QA lo detecta en pre-producción".</p>
             <p>He llegado a pensar que la adopción imperfecta de un sistema bien estructurado es la condición de éxito real — no el cumplimiento perfecto. Un proceso que sobrevive es más valioso que un proceso que era teóricamente perfecto pero requería el mantenimiento constante de una persona específica para funcionar.</p>
           </div>
 
