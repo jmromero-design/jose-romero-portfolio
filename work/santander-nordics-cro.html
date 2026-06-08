@@ -140,101 +140,86 @@
             <p>Every experiment began with a structured hypothesis: a specific behaviour we observed or predicted, a proposed intervention, a measurable outcome, and a defined significance threshold. This discipline keeps experimentation honest — and in a regulated environment, it also provides the paper trail required for stakeholder sign-off.</p>
             <p>The design work covered the full funnel: landing pages, product comparison pages, application forms, confirmation flows, and re-engagement touchpoints. Application forms — the highest-stakes, highest-drop-off stage — were a consistent focus. The behavioral economics principles most relevant here: reducing perceived effort, managing anxiety around sensitive financial information, using progress indicators and milestone framing to maintain commitment.</p>
             <p>I was also responsible for communicating results clearly to Santander's teams across four markets — translating statistical results into actionable design direction and translating stakeholder feedback into testable hypotheses.</p>
+            <p>The work was structured around a three-pillar approach: deep analytics and session data to surface friction, heuristic and behavioral economics evaluation to understand why that friction exists, and disciplined hypothesis development to prioritise interventions by potential impact. The team operated on a structured sprint cadence with a dedicated Kanban board tracking each experiment from backlog through to live. Beyond designing variants, I maintained QA oversight on test implementations — validating that live variants matched approved specifications before results were collected. In a regulated environment where a misconfigured test produces misleading data, implementation fidelity is as much a design responsibility as the variant itself.</p>
           </div>
 
           <figure class="diagram-block reveal" aria-label="CRO experimentation cycle under multi-market regulatory constraints">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 256" width="100%" style="min-width:540px;display:block;" role="img" aria-label="CRO experimentation cycle and constraints diagram">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" width="100%" style="display:block;" role="img" aria-label="CRO experimentation cycle diagram">
                 <defs>
                   <style>
-                    .c3dn { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
-                    .c3dt { stroke: var(--teal); stroke-width: 1.5; }
-                    .c3dg { stroke: var(--gold); stroke-width: 1.5; }
-                    .c3nt { fill: var(--teal-text); }
-                    .c3ng { fill: var(--gold); }
-                    .c3tt { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                    .c3ts { font-family: var(--font-body); font-size: 9px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                    .c3al { stroke: var(--border-default); stroke-width: 1; fill: none; }
-                    .c3gl { stroke: var(--gold); stroke-width: 1.2; stroke-dasharray: 5 3; fill: none; opacity: 0.4; }
-                    .c3fh { fill: var(--border-default); }
-                    .c3ft { fill: var(--teal); }
-                    .c3mc { fill: var(--gold); fill-opacity: 0.05; stroke: var(--gold); stroke-width: 1.5; stroke-opacity: 0.3; }
+                    .sn-box { fill: var(--bg-surface-2); stroke: var(--border-default); stroke-width: 1; }
+                    .sn-tl { stroke: var(--teal); stroke-width: 1.5; }
+                    .sn-gd { stroke: var(--gold); stroke-width: 1.5; }
+                    .sn-nt { fill: var(--teal-text); }
+                    .sn-ng { fill: var(--gold); }
+                    .sn-tt { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                    .sn-ts { font-family: var(--font-body); font-size: 10px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    .sn-ar { stroke: var(--border-default); stroke-width: 1; fill: none; }
+                    .sn-ah { fill: var(--border-default); }
+                    .sn-lp { stroke: var(--border-subtle); stroke-width: 1; stroke-dasharray: 4 3; fill: none; }
                   </style>
                 </defs>
 
-                <!-- Constraint bracket — dashed gold lines show constraint spans all stages -->
-                <!-- Horizontal below top row, vertical right column, horizontal along bottom row -->
-                <line class="c3gl" x1="177" y1="84" x2="711" y2="84"/>
-                <line class="c3gl" x1="711" y1="84"  x2="711" y2="210"/>
-                <line class="c3gl" x1="354" y1="210" x2="711" y2="210"/>
+                <!-- 1. Observe -->
+                <rect class="sn-box" x="40" y="20" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="39">Observe</text>
+                <text class="sn-ts" x="180" y="55">Analytics · Contentsquare</text>
 
-                <!-- ── TOP ROW ──────────────────────────────────────── -->
-                <!-- OBS -->
-                <rect class="c3dn" x="38" y="24" width="139" height="57" rx="5"/>
-                <text class="c3tt" x="108" y="46">Observe</text>
-                <text class="c3ts" x="108" y="62">Analytics · Contentsquare</text>
+                <line class="sn-ar" x1="180" y1="64" x2="180" y2="76"/>
+                <polygon class="sn-ah" points="180,80 176,73 184,73"/>
 
-                <!-- HYP (teal — key insight node) -->
-                <rect class="c3dn c3dt" x="215" y="24" width="139" height="57" rx="5"/>
-                <text class="c3tt c3nt" x="285" y="46">Hypothesise</text>
-                <text class="c3ts" x="285" y="62">Behavioral pattern identified</text>
+                <!-- 2. Hypothesise (teal) -->
+                <rect class="sn-box sn-tl" x="40" y="80" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-nt" x="180" y="99">Hypothesise</text>
+                <text class="sn-ts" x="180" y="115">Behavioral pattern identified</text>
 
-                <!-- DES -->
-                <rect class="c3dn" x="393" y="24" width="139" height="57" rx="5"/>
-                <text class="c3tt" x="463" y="46">Design</text>
-                <text class="c3ts" x="463" y="62">Variant within limits</text>
+                <line class="sn-ar" x1="180" y1="124" x2="180" y2="136"/>
+                <polygon class="sn-ah" points="180,140 176,133 184,133"/>
 
-                <!-- REV (gold — regulatory bottleneck) -->
-                <rect class="c3dn c3dg" x="570" y="24" width="139" height="57" rx="5"/>
-                <text class="c3tt c3ng" x="640" y="46">Legal Review</text>
-                <text class="c3ts" x="640" y="62">DK · SE · FI · NO sign-offs</text>
+                <!-- 3. Design -->
+                <rect class="sn-box" x="40" y="140" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="159">Design</text>
+                <text class="sn-ts" x="180" y="175">Variant within constraints</text>
 
-                <!-- Top row arrows → -->
-                <line class="c3al" x1="177" y1="52" x2="213" y2="52"/>
-                <polygon class="c3fh" points="215,52 208,48 208,56"/>
-                <line class="c3al" x1="354" y1="52" x2="391" y2="52"/>
-                <polygon class="c3fh" points="393,52 386,48 386,56"/>
-                <line class="c3al" x1="532" y1="52" x2="568" y2="52"/>
-                <polygon class="c3fh" points="570,52 563,48 563,56"/>
+                <line class="sn-ar" x1="180" y1="184" x2="180" y2="196"/>
+                <polygon class="sn-ah" points="180,200 176,193 184,193"/>
 
-                <!-- REV ↓ TEST -->
-                <line class="c3al" x1="640" y1="81" x2="640" y2="150"/>
-                <polygon class="c3fh" points="640,152 636,145 644,145"/>
+                <!-- 4. Legal Review (gold — regulatory bottleneck) -->
+                <rect class="sn-box sn-gd" x="40" y="200" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-ng" x="180" y="219">Legal Review</text>
+                <text class="sn-ts" x="180" y="235">DK · SE · FI · NO sign-offs</text>
 
-                <!-- ── BOTTOM ROW (right → left) ────────────────────── -->
-                <!-- TEST -->
-                <rect class="c3dn" x="570" y="152" width="139" height="57" rx="5"/>
-                <text class="c3tt" x="640" y="174">Test</text>
-                <text class="c3ts" x="640" y="190">A/B · Optimizely / VWO</text>
+                <line class="sn-ar" x1="180" y1="244" x2="180" y2="256"/>
+                <polygon class="sn-ah" points="180,260 176,253 184,253"/>
 
-                <!-- ANA -->
-                <rect class="c3dn" x="393" y="152" width="139" height="57" rx="5"/>
-                <text class="c3tt" x="463" y="174">Analyse</text>
-                <text class="c3ts" x="463" y="190">Statistical significance</text>
+                <!-- 5. Test -->
+                <rect class="sn-box" x="40" y="260" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="279">Test</text>
+                <text class="sn-ts" x="180" y="295">A/B · Optimizely / VWO</text>
 
-                <!-- LEARN (teal — insight closes the loop) -->
-                <rect class="c3dn c3dt" x="215" y="152" width="139" height="57" rx="5"/>
-                <text class="c3tt c3nt" x="285" y="174">Learn &amp; Share</text>
-                <text class="c3ts" x="285" y="190">Hypothesis library updated</text>
+                <line class="sn-ar" x1="180" y1="304" x2="180" y2="316"/>
+                <polygon class="sn-ah" points="180,320 176,313 184,313"/>
 
-                <!-- MKTCON — multi-market constraint box -->
-                <rect class="c3mc" x="38" y="149" width="139" height="63" rx="5"/>
-                <text class="c3ts c3ng" x="108" y="166" style="font-size:8.5px;font-weight:700;letter-spacing:1px;">⚠ MULTI-MARKET</text>
-                <text class="c3ts" x="108" y="180">Same test · different rules</text>
-                <text class="c3ts" x="108" y="194">Cultural + traffic variance</text>
+                <!-- 6. Analyse -->
+                <rect class="sn-box" x="40" y="320" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="339">Analyse</text>
+                <text class="sn-ts" x="180" y="355">Statistical significance</text>
 
-                <!-- Bottom row arrows ← (pointing left) -->
-                <line class="c3al" x1="570" y1="180" x2="536" y2="180"/>
-                <polygon class="c3fh" points="532,180 539,176 539,184"/>
-                <line class="c3al" x1="393" y1="180" x2="359" y2="180"/>
-                <polygon class="c3fh" points="355,180 362,176 362,184"/>
+                <line class="sn-ar" x1="180" y1="364" x2="180" y2="376"/>
+                <polygon class="sn-ah" points="180,380 176,373 184,373"/>
 
-                <!-- LEARN → OBS loopback (left side L-path) -->
-                <path class="c3al" d="M 215,180 L 16,180 L 16,52 L 36,52"/>
-                <polygon class="c3fh" points="38,52 31,48 31,56"/>
+                <!-- 7. Learn & Share (teal — closes the loop) -->
+                <rect class="sn-box sn-tl" x="40" y="380" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-nt" x="180" y="399">Learn &amp; Share</text>
+                <text class="sn-ts" x="180" y="415">Hypothesis library updated</text>
+
+                <!-- Loop back: Learn → Observe (dashed, left side) -->
+                <path class="sn-lp" d="M 40,402 L 20,402 L 20,42 L 40,42"/>
+                <polygon class="sn-ah" points="40,42 33,38 33,46"/>
               </svg>
             </div>
-            <figcaption>A regulated multi-market environment applies constraints at every stage of the cycle — not just at execution. Legal sign-off is required across four countries before any test goes live. The discipline is the method.</figcaption>
+            <figcaption>Each experiment moves through the same seven-stage cycle. Legal Review is the regulatory gate — sign-off is required across all four Nordic markets before any variant goes live. The loop closes at Learn: every result, including failures, updates the hypothesis library and informs the next sprint.</figcaption>
           </figure>
 
           <div class="cs-section reveal">

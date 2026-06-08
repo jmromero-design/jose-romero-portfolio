@@ -109,36 +109,44 @@
             <p>Cada experimento comenzaba con una hipótesis estructurada: un comportamiento específico que observamos o predijimos, una intervención propuesta, un resultado medible y un umbral de significación definido. Esta disciplina mantiene la experimentación honesta — y en un entorno regulado, también proporciona el rastro documental requerido para la aprobación de stakeholders.</p>
             <p>El trabajo de diseño cubría el funnel completo: páginas de destino, páginas de comparación de productos, formularios de solicitud, flujos de confirmación y puntos de contacto de re-enganche. Los formularios de solicitud — la etapa de mayor riesgo y mayor abandono — fueron un foco constante. Los principios de economía conductual más relevantes aquí: reducir el esfuerzo percibido, gestionar la ansiedad alrededor de información financiera sensible, usar indicadores de progreso y encuadre de hitos para mantener el compromiso.</p>
             <p>También fui responsable de comunicar los resultados con claridad a los equipos de Santander en cuatro mercados — traduciendo resultados estadísticos en dirección de diseño accionable y traduciendo los comentarios de los stakeholders en hipótesis testables.</p>
+            <p>El trabajo se estructuraba en torno a un enfoque de tres pilares: análisis de datos y sesiones para detectar fricción, evaluación heurística y de economía conductual para entender por qué existe esa fricción, y desarrollo disciplinado de hipótesis para priorizar intervenciones por impacto potencial. El equipo trabajaba con una cadencia de sprints estructurada y un tablero Kanban dedicado que seguía cada experimento desde el backlog hasta la puesta en marcha. Más allá del diseño de variantes, mantuve la supervisión de QA en las implementaciones — validando que las variantes en producción coincidían con las especificaciones aprobadas antes de recoger resultados. En un entorno regulado donde un test mal configurado produce datos engañosos, la fidelidad de implementación es una responsabilidad de diseño tanto como la variante en sí.</p>
           </div>
 
           <figure class="diagram-block reveal" aria-label="Ciclo de experimentación CRO bajo restricciones regulatorias multipaís">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 256" width="100%" style="min-width:540px;display:block;" role="img" aria-label="CRO experimentation cycle and constraints diagram">
-                <defs><style>.c3dn{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}.c3dt{stroke:var(--teal);stroke-width:1.5}.c3dg{stroke:var(--gold);stroke-width:1.5}.c3nt{fill:var(--teal-text)}.c3ng{fill:var(--gold)}.c3tt{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}.c3ts{font-family:var(--font-body);font-size:9px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}.c3al{stroke:var(--border-default);stroke-width:1;fill:none}.c3gl{stroke:var(--gold);stroke-width:1.2;stroke-dasharray:5 3;fill:none;opacity:.4}.c3fh{fill:var(--border-default)}.c3ft{fill:var(--teal)}.c3mc{fill:var(--gold);fill-opacity:.05;stroke:var(--gold);stroke-width:1.5;stroke-opacity:.3}</style></defs>
-                <line class="c3gl" x1="177" y1="84" x2="711" y2="84"/>
-                <line class="c3gl" x1="711" y1="84" x2="711" y2="210"/>
-                <line class="c3gl" x1="354" y1="210" x2="711" y2="210"/>
-                <rect class="c3dn" x="38" y="24" width="139" height="57" rx="5"/><text class="c3tt" x="108" y="46">Observar</text><text class="c3ts" x="108" y="62">Analytics · Contentsquare</text>
-                <rect class="c3dn c3dt" x="215" y="24" width="139" height="57" rx="5"/><text class="c3tt c3nt" x="285" y="46">Hipotetizar</text><text class="c3ts" x="285" y="62">Patrón conductual identificado</text>
-                <rect class="c3dn" x="393" y="24" width="139" height="57" rx="5"/><text class="c3tt" x="463" y="46">Diseñar</text><text class="c3ts" x="463" y="62">Variante dentro de límites</text>
-                <rect class="c3dn c3dg" x="570" y="24" width="139" height="57" rx="5"/><text class="c3tt c3ng" x="640" y="46">Revisión Legal</text><text class="c3ts" x="640" y="62">DK · SE · FI · NO sign-offs</text>
-                <line class="c3al" x1="177" y1="52" x2="213" y2="52"/><polygon class="c3fh" points="215,52 208,48 208,56"/>
-                <line class="c3al" x1="354" y1="52" x2="391" y2="52"/><polygon class="c3fh" points="393,52 386,48 386,56"/>
-                <line class="c3al" x1="532" y1="52" x2="568" y2="52"/><polygon class="c3fh" points="570,52 563,48 563,56"/>
-                <line class="c3al" x1="640" y1="81" x2="640" y2="150"/><polygon class="c3fh" points="640,152 636,145 644,145"/>
-                <rect class="c3dn" x="570" y="152" width="139" height="57" rx="5"/><text class="c3tt" x="640" y="174">Testar</text><text class="c3ts" x="640" y="190">A/B · Optimizely / VWO</text>
-                <rect class="c3dn" x="393" y="152" width="139" height="57" rx="5"/><text class="c3tt" x="463" y="174">Analizar</text><text class="c3ts" x="463" y="190">Significación estadística</text>
-                <rect class="c3dn c3dt" x="215" y="152" width="139" height="57" rx="5"/><text class="c3tt c3nt" x="285" y="174">Aprender &amp; Compartir</text><text class="c3ts" x="285" y="190">Biblioteca de hipótesis actualizada</text>
-                <rect class="c3mc" x="38" y="149" width="139" height="63" rx="5"/>
-                <text class="c3ts c3ng" x="108" y="166" style="font-size:8.5px;font-weight:700;letter-spacing:1px;">⚠ MULTIPAÍS</text>
-                <text class="c3ts" x="108" y="180">Misma prueba · reglas distintas</text>
-                <text class="c3ts" x="108" y="194">Varianza cultural + tráfico</text>
-                <line class="c3al" x1="570" y1="180" x2="536" y2="180"/><polygon class="c3fh" points="532,180 539,176 539,184"/>
-                <line class="c3al" x1="393" y1="180" x2="359" y2="180"/><polygon class="c3fh" points="355,180 362,176 362,184"/>
-                <path class="c3al" d="M 215,180 L 16,180 L 16,52 L 36,52"/><polygon class="c3fh" points="38,52 31,48 31,56"/>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 440" width="100%" style="display:block;" role="img" aria-label="Diagrama del ciclo de experimentación CRO">
+                <defs><style>.sn-box{fill:var(--bg-surface-2);stroke:var(--border-default);stroke-width:1}.sn-tl{stroke:var(--teal);stroke-width:1.5}.sn-gd{stroke:var(--gold);stroke-width:1.5}.sn-nt{fill:var(--teal-text)}.sn-ng{fill:var(--gold)}.sn-tt{font-family:var(--font-body);font-size:12px;font-weight:600;fill:var(--text-secondary);text-anchor:middle}.sn-ts{font-family:var(--font-body);font-size:10px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle}.sn-ar{stroke:var(--border-default);stroke-width:1;fill:none}.sn-ah{fill:var(--border-default)}.sn-lp{stroke:var(--border-subtle);stroke-width:1;stroke-dasharray:4 3;fill:none}</style></defs>
+                <rect class="sn-box" x="40" y="20" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="39">Observar</text>
+                <text class="sn-ts" x="180" y="55">Analytics · Contentsquare</text>
+                <line class="sn-ar" x1="180" y1="64" x2="180" y2="76"/><polygon class="sn-ah" points="180,80 176,73 184,73"/>
+                <rect class="sn-box sn-tl" x="40" y="80" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-nt" x="180" y="99">Hipotetizar</text>
+                <text class="sn-ts" x="180" y="115">Patrón conductual identificado</text>
+                <line class="sn-ar" x1="180" y1="124" x2="180" y2="136"/><polygon class="sn-ah" points="180,140 176,133 184,133"/>
+                <rect class="sn-box" x="40" y="140" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="159">Diseñar</text>
+                <text class="sn-ts" x="180" y="175">Variante dentro de los límites</text>
+                <line class="sn-ar" x1="180" y1="184" x2="180" y2="196"/><polygon class="sn-ah" points="180,200 176,193 184,193"/>
+                <rect class="sn-box sn-gd" x="40" y="200" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-ng" x="180" y="219">Revisión Legal</text>
+                <text class="sn-ts" x="180" y="235">DK · SE · FI · NO sign-offs</text>
+                <line class="sn-ar" x1="180" y1="244" x2="180" y2="256"/><polygon class="sn-ah" points="180,260 176,253 184,253"/>
+                <rect class="sn-box" x="40" y="260" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="279">Testar</text>
+                <text class="sn-ts" x="180" y="295">A/B · Optimizely / VWO</text>
+                <line class="sn-ar" x1="180" y1="304" x2="180" y2="316"/><polygon class="sn-ah" points="180,320 176,313 184,313"/>
+                <rect class="sn-box" x="40" y="320" width="280" height="44" rx="5"/>
+                <text class="sn-tt" x="180" y="339">Analizar</text>
+                <text class="sn-ts" x="180" y="355">Significación estadística</text>
+                <line class="sn-ar" x1="180" y1="364" x2="180" y2="376"/><polygon class="sn-ah" points="180,380 176,373 184,373"/>
+                <rect class="sn-box sn-tl" x="40" y="380" width="280" height="44" rx="5"/>
+                <text class="sn-tt sn-nt" x="180" y="399">Aprender y Compartir</text>
+                <text class="sn-ts" x="180" y="415">Biblioteca de hipótesis actualizada</text>
+                <path class="sn-lp" d="M 40,402 L 20,402 L 20,42 L 40,42"/><polygon class="sn-ah" points="40,42 33,38 33,46"/>
               </svg>
             </div>
-            <figcaption>Un entorno regulado y multipaís aplica restricciones en cada etapa del ciclo — no solo en la ejecución. La aprobación legal es necesaria en cuatro países antes de que cualquier test salga en vivo. La disciplina es el método.</figcaption>
+            <figcaption>Cada experimento recorre el mismo ciclo de siete etapas. La Revisión Legal es la barrera regulatoria — se requiere aprobación en los cuatro mercados nórdicos antes de que cualquier variante salga en vivo. El ciclo se cierra en Aprender: cada resultado, incluidos los negativos, actualiza la biblioteca de hipótesis e informa el siguiente sprint.</figcaption>
           </figure>
 
           <div class="cs-section reveal">
