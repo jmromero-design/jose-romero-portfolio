@@ -2,7 +2,7 @@
 
 Jose Romero is a senior product designer based in Zaragoza, Spain, with 12 years
 of professional experience across digital product design, conversion rate
-optimisation (CRO), behavioral economics, and design operations.
+optimisation (CRO), behavioural economics, and design operations.
 He works in English and Spanish at professional level (C1 English).
 
 ## Current role
@@ -13,24 +13,79 @@ within IKEA's New Business Platform team in Spain. Working on:
   Live in seven Spanish cities as of 2026.
 - IKEA Second-hand Marketplace: peer-to-peer resale of IKEA products,
   now live in five European countries, scaling across Europe.
+- IKEA Ways of Working System: cross-tool design operations framework spanning
+  Figma, Jira, Confluence, and Phrase. Built from first principles to replace
+  informal, person-dependent process with documented, teachable structure.
+  Includes a five-phase content workflow with explicit ownership handoffs and
+  a Phrase localisation optimization that made translations verifiable in QA
+  for the first time.
 
-## Previous experience
-- Senior UX/CRO Designer at Flat 101 (2021–2023): 4–8 concurrent enterprise
-  accounts including Santander Nordics, Meliá Hotels International (3-year
-  platform build), Mapfre (AFIN app + international expansion), Mutua Madrileña
-  (+41% leads), AXA Spain (+18% insurance contracts), IQOS Club Spain, XTI Store,
-  Affinity Petcare, Bankinter, Subaru Spain.
-- Design Director / Founder, independent studio, Havana Cuba (2013–2019).
+## Previous experience — Flat 101 / Groupe EDG (2021–2023)
+Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
+- Santander Nordics — CRO Programme: lead UX/CRO designer across Denmark,
+  Sweden, Finland, and Norway. Multi-market, legally constrained A/B testing.
+- Meliá Hotels International — Campaign Management Platform: 3-year engagement,
+  zero-to-one internal tool, live across all Meliá markets globally.
+- Mapfre — AFIN Financial App: self-service financial app covering investments,
+  savings, and pension plans. Progressive disclosure information architecture
+  and a Financial Advisor feature built around user trust and autonomy.
+- Mapfre — Digital Expansion: lead designer on Verti platform redesign
+  (Italy, Germany, Spain), Insurance Offices & Agents Directory for Latin America,
+  and international CRO across Mapfre brands.
+- IQOS Club Spain — CRO Programme: project lead, ongoing optimisation of the
+  Philip Morris loyalty portal using behavioural economics frameworks.
+- XTI Store — E-commerce Redesign: full redesign of a national fashion retailer's
+  digital storefront within Magento platform constraints; informed by Hotjar
+  session data and competitive analysis.
+- Mutua Madrileña — CRO: +41% increase in qualified leads.
+- AXA Spain — CRO Programme: +18% increase in insurance contracts.
+- Additional accounts: Bankinter, Subaru Spain, Affinity Petcare.
+
+## Earlier experience
+- Design Director / Founder, independent studio, Havana Cuba (2013–2019):
+  120+ projects across identity, print, video, digital, and campaigns.
 - UI Design Professor, ISDi / Universidad de La Habana (2018–2021).
 
 ## Key capabilities
-Product design, UX research, CRO strategy, A/B testing (Optimizely, AB Tasty,
-VWO, ContentSquare), behavioral economics applied to design, design systems,
-design operations, AI-assisted workflow design, Shape Up methodology facilitation,
-enterprise stakeholder management.
+Product design, UX research, information architecture, CRO strategy,
+A/B testing (Optimizely, AB Tasty, VWO, ContentSquare, Hotjar),
+behavioural economics applied to design, design systems, design operations,
+AI-assisted workflow design, process architecture, Shape Up methodology
+facilitation, enterprise stakeholder management, multi-market localisation,
+bilingual design documentation (EN/ES).
 
-## Portfolio
-Full portfolio and case studies: joseromerodesign.com
+## Portfolio — full case studies
+Site: joseromerodesign.com
+
+Featured case studies (9):
+01. IKEA Home Services — product design, marketplace, mobile
+    /work/ikea-home-services/
+02. IKEA Second-hand Marketplace — product design, circular commerce, multi-market
+    /work/ikea-secondhand-marketplace/
+03. Santander Nordics — CRO Programme — banking, multi-market, legally constrained testing
+    /work/santander-nordics-cro/
+04. Meliá Hotels — Campaign Management Platform — zero-to-one, hospitality, web application
+    /work/melia-hotels-campaign-platform/
+05. Mapfre — AFIN Financial App — FinTech, mobile, progressive disclosure IA
+    /work/mapfre-afin-digital-expansion/
+06. Mapfre — Digital Expansion — Verti redesign, Latin America, design system, CRO
+    /work/mapfre-digital-expansion/
+07. IQOS Club Spain — CRO Programme — loyalty, behavioural economics, low-traffic testing
+    /work/iqos-club-cro/
+08. XTI Store — E-commerce Redesign — fashion, Magento constraints, behavioural data
+    /work/xti-ecommerce-redesign/
+09. IKEA — Ways of Working System — design operations, process design, Phrase localisation
+    /work/ikea-ways-of-working/
+
+Shorter engagements listed on /work/:
+- Mutua Madrileña — CRO (+41% leads)
+- AXA Spain — CRO (+18% insurance contracts)
+- Bankinter
+- Subaru Spain
+- Affinity Petcare
+- NimbusPC
+- MD Staff Solutions
+- MEKCO Group Aviation
 
 ## Contact
 LinkedIn: linkedin.com/in/joseromerodesign
