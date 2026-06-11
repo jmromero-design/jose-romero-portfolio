@@ -19,6 +19,13 @@ within IKEA's New Business Platform team in Spain. Working on:
   Includes a five-phase content workflow with explicit ownership handoffs and
   a Phrase localisation optimization that made translations verifiable in QA
   for the first time.
+- AI Workflow Design Framework: multi-agent process architecture for AI-augmented
+  product design. Three-tier agent hierarchy (Orchestrator / Phase Agents / Task
+  Agents), five-phase workflow built on Shape Up, structured human checkpoint
+  gates, and context management protocols. Treats AI as a process layer to be
+  architected rather than a tool to be added. Applied to Shape Up facilitation
+  and multi-agent feature shaping. Framework is tool-agnostic and now shared
+  through an active AI literacy programme for senior design professionals.
 
 ## Previous experience — Flat 101 / Groupe EDG (2021–2023)
 Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
@@ -57,7 +64,7 @@ bilingual design documentation (EN/ES).
 ## Portfolio — full case studies
 Site: joseromerodesign.com
 
-Featured case studies (9):
+Featured case studies (10):
 01. IKEA Home Services — product design, marketplace, mobile
     /work/ikea-home-services/
 02. IKEA Second-hand Marketplace — product design, circular commerce, multi-market
@@ -76,6 +83,8 @@ Featured case studies (9):
     /work/xti-ecommerce-redesign/
 09. IKEA — Ways of Working System — design operations, process design, Phrase localisation
     /work/ikea-ways-of-working/
+10. AI Workflow Design Framework — multi-agent orchestration, process architecture, facilitation
+    /work/ai-workflow-framework/
 
 Shorter engagements listed on /work/:
 - Mutua Madrileña — CRO (+41% leads)
