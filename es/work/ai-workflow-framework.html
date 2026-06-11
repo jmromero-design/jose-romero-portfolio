@@ -75,11 +75,11 @@
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
-          La mayoría de los equipos añaden herramientas de IA a un proceso existente. Este proyecto planteó una pregunta diferente: ¿cómo se ve arquitectar la IA en un flujo de trabajo de diseño desde cero — con checkpoints explícitos, roles de agentes definidos y una capa de decisión humana que controle realmente el resultado?
+          La mayoría de los equipos añaden herramientas de IA a un proceso existente. Este proyecto — una iniciativa exploratoria interna dentro del equipo de diseño de experiencia digital de IKEA — planteó una pregunta diferente: ¿cómo se ve arquitectar la IA en un flujo de trabajo de diseño desde cero, con checkpoints explícitos, roles de agentes definidos y una capa de decisión humana que controle realmente el resultado?
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--gold">Empresa Global de Retail · Activo</span>
+          <span class="tag tag--gold">IKEA · Activo</span>
           <span class="tag tag--teal">Garaje de Ideas</span>
           <span class="tag">Diseño de Flujos IA</span>
         </div>
@@ -93,7 +93,7 @@
         <div class="cs-details-bar reveal">
           <div class="cs-detail">
             <span class="cs-detail-label">Cliente</span>
-            <span class="cs-detail-value">Empresa Global de Retail</span>
+            <span class="cs-detail-value">IKEA / Ingka Group</span>
           </div>
           <div class="cs-detail">
             <span class="cs-detail-label">Agencia</span>
@@ -324,7 +324,8 @@
                 <text class="ph-gate2" x="302" y="398">actualizado</text>
 
                 <rect x="8" y="420" width="344" height="32" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-                <text class="ph-sub2" x="180" y="440" text-anchor="middle">Las puertas son paradas obligatorias, no formalidades. El flujo no avanza sin la firma humana.</text>
+                <text class="ph-sub2" x="180" y="432" style="text-anchor: middle">Las puertas son paradas obligatorias, no formalidades.</text>
+                <text class="ph-sub2" x="180" y="446" style="text-anchor: middle">El flujo no avanza sin la firma humana.</text>
               </svg>
             </div>
             <figcaption>Flujo de trabajo de cinco fases con puertas de checkpoint humanas. Cada puerta requiere una decisión humana nombrada — no un reconocimiento. La IA avanza solo tras la firma humana.</figcaption>
@@ -348,7 +349,7 @@
           <!-- DIAGRAMA 3: Calibración de confianza -->
           <figure class="diagram-block reveal" aria-label="Diagrama del espectro de calibración de confianza">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="100%" role="img" aria-label="Tres niveles de calibración de confianza en outputs de IA">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" role="img" aria-label="Tres niveles de calibración de confianza en outputs de IA">
                 <defs>
                   <style>
                     .tc-label2 { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
@@ -376,15 +377,15 @@
                 <text class="tc-sub2" x="18" y="206">Afirmaciones cuantitativas de cualquier tipo</text>
                 <text class="tc-sub2" x="18" y="218">Output con alta confianza — la fluidez no es señal de corrección</text>
 
-                <rect x="8" y="236" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
-                <rect x="8" y="236" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
-                <text class="tc-tag2" x="18" y="256" fill="var(--text-tertiary)">Validar externamente</text>
-                <text class="tc-label2" x="18" y="274">No usar sin validación externa</text>
-                <text class="tc-sub2" x="18" y="290">Cualquier output que referencia hechos, datos o precedentes externos</text>
-                <text class="tc-sub2" x="18" y="302">Predicciones sobre comportamiento del usuario</text>
-                <text class="tc-sub2" x="18" y="314">Análisis competitivo o de mercado</text>
+                <rect x="8" y="276" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
+                <rect x="8" y="276" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
+                <text class="tc-tag2" x="18" y="296" fill="var(--text-tertiary)">Validar externamente</text>
+                <text class="tc-label2" x="18" y="314">No usar sin validación externa</text>
+                <text class="tc-sub2" x="18" y="330">Cualquier output que referencia hechos, datos o precedentes externos</text>
+                <text class="tc-sub2" x="18" y="342">Predicciones sobre comportamiento del usuario</text>
+                <text class="tc-sub2" x="18" y="354">Análisis competitivo o de mercado</text>
 
-                <rect x="8" y="326" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
+                <rect x="8" y="366" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
               </svg>
             </div>
             <figcaption>Niveles de calibración de confianza. La confianza calibrada — saber qué revisar, qué escrutar y qué validar externamente — es una habilidad que se desarrolla con la práctica y debe hacerse explícita en todo el equipo.</figcaption>

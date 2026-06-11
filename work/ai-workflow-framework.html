@@ -75,11 +75,11 @@
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
-          Most teams add AI tools to an existing process. This project asked a different question: what does it look like to architect AI into a design workflow from first principles — with explicit checkpoints, structured agent roles, and a human decision layer that genuinely controls the output?
+          Most teams add AI tools to an existing process. This project — an internal exploratory initiative within IKEA's digital experience design team — asked a different question: what does it look like to architect AI into a design workflow from first principles, with explicit checkpoints, structured agent roles, and a human decision layer that genuinely controls the output?
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--gold">Global Retail Enterprise · Current</span>
+          <span class="tag tag--gold">IKEA · Current</span>
           <span class="tag tag--teal">Garaje de Ideas</span>
           <span class="tag">AI Workflow Design</span>
         </div>
@@ -93,7 +93,7 @@
         <div class="cs-details-bar reveal">
           <div class="cs-detail">
             <span class="cs-detail-label">Client</span>
-            <span class="cs-detail-value">Global Retail Enterprise</span>
+            <span class="cs-detail-value">IKEA / Ingka Group</span>
           </div>
           <div class="cs-detail">
             <span class="cs-detail-label">Agency</span>
@@ -346,7 +346,8 @@
 
                 <!-- Footer -->
                 <rect x="8" y="420" width="344" height="32" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-                <text class="ph-sub" x="180" y="440" text-anchor="middle">Gates are hard stops, not formalities. The workflow does not advance without human sign-off.</text>
+                <text class="ph-sub" x="180" y="432" style="text-anchor: middle">Gates are hard stops, not formalities.</text>
+                <text class="ph-sub" x="180" y="446" style="text-anchor: middle">The workflow does not advance without human sign-off.</text>
               </svg>
             </div>
             <figcaption>Five-phase workflow with human gate checkpoints. Each gate requires a named human decision — not an acknowledgement. AI advances only after human sign-off.</figcaption>
@@ -370,7 +371,7 @@
           <!-- DIAGRAM 3: Trust calibration -->
           <figure class="diagram-block reveal" aria-label="Trust calibration spectrum diagram">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 340" width="100%" role="img" aria-label="Three tiers of AI output trust calibration">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" role="img" aria-label="Three tiers of AI output trust calibration">
                 <defs>
                   <style>
                     .tc-label { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
@@ -390,27 +391,29 @@
                 <text class="tc-sub" x="18" y="98">Identification of gaps in provided inputs</text>
 
                 <!-- Scrutinise carefully tier -->
-                <rect x="8" y="116" width="344" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="8" y="116" width="344" height="148" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
                 <rect x="8" y="116" width="344" height="3" rx="1.5" fill="var(--gold)" opacity="0.6"/>
                 <text class="tc-tag" x="18" y="136" fill="var(--gold)">Scrutinise carefully</text>
                 <text class="tc-label" x="18" y="154">Outputs requiring deeper human review</text>
-                <text class="tc-sub" x="18" y="170">User needs synthesised from indirect inputs or training data</text>
-                <text class="tc-sub" x="18" y="182">Risk and constraint identification — surfaces known patterns, not actual risks</text>
-                <text class="tc-sub" x="18" y="194">Recommendations that conveniently align with apparent project direction</text>
-                <text class="tc-sub" x="18" y="206">Quantitative claims of any kind</text>
-                <text class="tc-sub" x="18" y="218">High-confidence output — fluency is not a signal of correctness</text>
+                <text class="tc-sub" x="18" y="170">User needs synthesised from indirect inputs</text>
+                <text class="tc-sub" x="18" y="182">or training data</text>
+                <text class="tc-sub" x="18" y="196">Risk identification — surfaces known patterns,</text>
+                <text class="tc-sub" x="18" y="208">not necessarily actual present risks</text>
+                <text class="tc-sub" x="18" y="222">Recommendations aligning with apparent project direction</text>
+                <text class="tc-sub" x="18" y="234">Quantitative claims of any kind</text>
+                <text class="tc-sub" x="18" y="248">High-confidence output — fluency ≠ correctness</text>
 
                 <!-- Do not trust tier -->
-                <rect x="8" y="236" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
-                <rect x="8" y="236" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
-                <text class="tc-tag" x="18" y="256" fill="var(--text-tertiary)">Validate externally</text>
-                <text class="tc-label" x="18" y="274">Do not use without external validation</text>
-                <text class="tc-sub" x="18" y="290">Any output referencing external facts, data, or precedents</text>
-                <text class="tc-sub" x="18" y="302">Predictions about user behaviour</text>
-                <text class="tc-sub" x="18" y="314">Competitive or market analysis</text>
+                <rect x="8" y="276" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
+                <rect x="8" y="276" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
+                <text class="tc-tag" x="18" y="296" fill="var(--text-tertiary)">Validate externally</text>
+                <text class="tc-label" x="18" y="314">Do not use without external validation</text>
+                <text class="tc-sub" x="18" y="330">Any output referencing external facts, data, or precedents</text>
+                <text class="tc-sub" x="18" y="342">Predictions about user behaviour</text>
+                <text class="tc-sub" x="18" y="354">Competitive or market analysis</text>
 
                 <!-- Footer note -->
-                <rect x="8" y="326" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
+                <rect x="8" y="366" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
               </svg>
             </div>
             <figcaption>Trust calibration tiers. Calibrated trust — knowing what to review versus scrutinise versus validate externally — is a skill that develops with practice and should be made explicit across the team.</figcaption>
