@@ -231,7 +231,7 @@
      ---------------------------------------------------------- */
   (function loadIcons() {
     const script = document.createElement('script');
-    script.src = 'https://unpkg.com/lucide@0.474.0/dist/umd/lucide.min.js';
+    script.src = '/assets/js/lucide.min.js';
     script.defer = true;
     script.onload = function () {
       if (!window.lucide) return;
