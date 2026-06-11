@@ -349,7 +349,7 @@
           <!-- DIAGRAMA 3: Calibración de confianza -->
           <figure class="diagram-block reveal" aria-label="Diagrama del espectro de calibración de confianza">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" role="img" aria-label="Tres niveles de calibración de confianza en outputs de IA">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 404" width="100%" role="img" aria-label="Tres niveles de calibración de confianza en outputs de IA">
                 <defs>
                   <style>
                     .tc-label2 { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
@@ -358,7 +358,7 @@
                   </style>
                 </defs>
 
-                <rect x="8" y="8" width="344" height="96" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="8" y="8" width="344" height="112" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
                 <rect x="8" y="8" width="344" height="3" rx="1.5" fill="var(--teal)" opacity="0.6"/>
                 <text class="tc-tag2" x="18" y="28" fill="var(--teal-text)">Revisar con eficiencia</text>
                 <text class="tc-label2" x="18" y="46">Tipos de output de alta confianza</text>
@@ -367,25 +367,27 @@
                 <text class="tc-sub2" x="18" y="86">Formato y presentación de decisiones confirmadas por humanos</text>
                 <text class="tc-sub2" x="18" y="98">Identificación de lagunas en las entradas proporcionadas</text>
 
-                <rect x="8" y="116" width="344" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
-                <rect x="8" y="116" width="344" height="3" rx="1.5" fill="var(--gold)" opacity="0.6"/>
-                <text class="tc-tag2" x="18" y="136" fill="var(--gold)">Escrutar con cuidado</text>
-                <text class="tc-label2" x="18" y="154">Outputs que requieren revisión humana profunda</text>
-                <text class="tc-sub2" x="18" y="170">Necesidades de usuario sintetizadas a partir de entradas indirectas o datos de entrenamiento</text>
-                <text class="tc-sub2" x="18" y="182">Identificación de riesgos y restricciones — detecta patrones conocidos, no riesgos reales</text>
-                <text class="tc-sub2" x="18" y="194">Recomendaciones que coinciden convenientemente con la dirección aparente del proyecto</text>
-                <text class="tc-sub2" x="18" y="206">Afirmaciones cuantitativas de cualquier tipo</text>
-                <text class="tc-sub2" x="18" y="218">Output con alta confianza — la fluidez no es señal de corrección</text>
+                <rect x="8" y="132" width="344" height="148" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="8" y="132" width="344" height="3" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="tc-tag2" x="18" y="152" fill="var(--gold)">Escrutar con cuidado</text>
+                <text class="tc-label2" x="18" y="170">Outputs que requieren revisión humana profunda</text>
+                <text class="tc-sub2" x="18" y="186">Necesidades de usuario sintetizadas de entradas</text>
+                <text class="tc-sub2" x="18" y="198">indirectas o datos de entrenamiento</text>
+                <text class="tc-sub2" x="18" y="212">Identificación de riesgos — detecta patrones conocidos,</text>
+                <text class="tc-sub2" x="18" y="224">no necesariamente los riesgos realmente presentes</text>
+                <text class="tc-sub2" x="18" y="238">Recomendaciones convenientes con la dirección del proyecto</text>
+                <text class="tc-sub2" x="18" y="250">Afirmaciones cuantitativas de cualquier tipo</text>
+                <text class="tc-sub2" x="18" y="264">Output de alta confianza — fluidez ≠ corrección</text>
 
-                <rect x="8" y="276" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
-                <rect x="8" y="276" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
-                <text class="tc-tag2" x="18" y="296" fill="var(--text-tertiary)">Validar externamente</text>
-                <text class="tc-label2" x="18" y="314">No usar sin validación externa</text>
-                <text class="tc-sub2" x="18" y="330">Cualquier output que referencia hechos, datos o precedentes externos</text>
-                <text class="tc-sub2" x="18" y="342">Predicciones sobre comportamiento del usuario</text>
-                <text class="tc-sub2" x="18" y="354">Análisis competitivo o de mercado</text>
+                <rect x="8" y="292" width="344" height="96" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
+                <rect x="8" y="292" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
+                <text class="tc-tag2" x="18" y="312" fill="var(--text-tertiary)">Validar externamente</text>
+                <text class="tc-label2" x="18" y="330">No usar sin validación externa</text>
+                <text class="tc-sub2" x="18" y="346">Cualquier output que referencia hechos, datos o precedentes externos</text>
+                <text class="tc-sub2" x="18" y="358">Predicciones sobre comportamiento del usuario</text>
+                <text class="tc-sub2" x="18" y="370">Análisis competitivo o de mercado</text>
 
-                <rect x="8" y="366" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
+                <rect x="8" y="400" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
               </svg>
             </div>
             <figcaption>Niveles de calibración de confianza. La confianza calibrada — saber qué revisar, qué escrutar y qué validar externamente — es una habilidad que se desarrolla con la práctica y debe hacerse explícita en todo el equipo.</figcaption>

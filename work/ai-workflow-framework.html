@@ -371,7 +371,7 @@
           <!-- DIAGRAM 3: Trust calibration -->
           <figure class="diagram-block reveal" aria-label="Trust calibration spectrum diagram">
             <div class="diagram-wrap">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" role="img" aria-label="Three tiers of AI output trust calibration">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 404" width="100%" role="img" aria-label="Three tiers of AI output trust calibration">
                 <defs>
                   <style>
                     .tc-label { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
@@ -381,7 +381,7 @@
                 </defs>
 
                 <!-- High confidence tier -->
-                <rect x="8" y="8" width="344" height="96" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="8" y="8" width="344" height="112" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
                 <rect x="8" y="8" width="344" height="3" rx="1.5" fill="var(--teal)" opacity="0.6"/>
                 <text class="tc-tag" x="18" y="28" fill="var(--teal-text)">Review efficiently</text>
                 <text class="tc-label" x="18" y="46">High-confidence output types</text>
@@ -391,29 +391,28 @@
                 <text class="tc-sub" x="18" y="98">Identification of gaps in provided inputs</text>
 
                 <!-- Scrutinise carefully tier -->
-                <rect x="8" y="116" width="344" height="148" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
-                <rect x="8" y="116" width="344" height="3" rx="1.5" fill="var(--gold)" opacity="0.6"/>
-                <text class="tc-tag" x="18" y="136" fill="var(--gold)">Scrutinise carefully</text>
-                <text class="tc-label" x="18" y="154">Outputs requiring deeper human review</text>
-                <text class="tc-sub" x="18" y="170">User needs synthesised from indirect inputs</text>
-                <text class="tc-sub" x="18" y="182">or training data</text>
-                <text class="tc-sub" x="18" y="196">Risk identification — surfaces known patterns,</text>
-                <text class="tc-sub" x="18" y="208">not necessarily actual present risks</text>
-                <text class="tc-sub" x="18" y="222">Recommendations aligning with apparent project direction</text>
-                <text class="tc-sub" x="18" y="234">Quantitative claims of any kind</text>
-                <text class="tc-sub" x="18" y="248">High-confidence output — fluency ≠ correctness</text>
+                <rect x="8" y="132" width="344" height="148" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="8" y="132" width="344" height="3" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="tc-tag" x="18" y="152" fill="var(--gold)">Scrutinise carefully</text>
+                <text class="tc-label" x="18" y="170">Outputs requiring deeper human review</text>
+                <text class="tc-sub" x="18" y="186">User needs synthesised from indirect inputs</text>
+                <text class="tc-sub" x="18" y="198">or training data</text>
+                <text class="tc-sub" x="18" y="212">Risk identification — surfaces known patterns,</text>
+                <text class="tc-sub" x="18" y="224">not necessarily actual present risks</text>
+                <text class="tc-sub" x="18" y="238">Recommendations aligning with apparent project direction</text>
+                <text class="tc-sub" x="18" y="250">Quantitative claims of any kind</text>
+                <text class="tc-sub" x="18" y="264">High-confidence output — fluency ≠ correctness</text>
 
                 <!-- Do not trust tier -->
-                <rect x="8" y="276" width="344" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
-                <rect x="8" y="276" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
-                <text class="tc-tag" x="18" y="296" fill="var(--text-tertiary)">Validate externally</text>
-                <text class="tc-label" x="18" y="314">Do not use without external validation</text>
-                <text class="tc-sub" x="18" y="330">Any output referencing external facts, data, or precedents</text>
-                <text class="tc-sub" x="18" y="342">Predictions about user behaviour</text>
-                <text class="tc-sub" x="18" y="354">Competitive or market analysis</text>
+                <rect x="8" y="292" width="344" height="96" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-opacity="0.8" stroke-width="1"/>
+                <rect x="8" y="292" width="344" height="3" rx="1.5" fill="var(--text-tertiary)" opacity="0.4"/>
+                <text class="tc-tag" x="18" y="312" fill="var(--text-tertiary)">Validate externally</text>
+                <text class="tc-label" x="18" y="330">Do not use without external validation</text>
+                <text class="tc-sub" x="18" y="346">Any output referencing external facts, data, or precedents</text>
+                <text class="tc-sub" x="18" y="358">Predictions about user behaviour</text>
+                <text class="tc-sub" x="18" y="370">Competitive or market analysis</text>
 
-                <!-- Footer note -->
-                <rect x="8" y="366" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
+                <rect x="8" y="400" width="344" height="1" rx="0.5" fill="var(--border-default)" opacity="0.5"/>
               </svg>
             </div>
             <figcaption>Trust calibration tiers. Calibrated trust — knowing what to review versus scrutinise versus validate externally — is a skill that develops with practice and should be made explicit across the team.</figcaption>
