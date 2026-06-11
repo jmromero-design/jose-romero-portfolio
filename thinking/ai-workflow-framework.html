@@ -198,6 +198,7 @@
         overflow-y: auto;
         background: var(--bg-surface);
         z-index: 10;
+        padding-right: var(--sp-4);
       }
     }
 
@@ -217,7 +218,7 @@
       margin: 0;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 8px;
     }
 
     .fwa-toc-list a {
@@ -229,7 +230,7 @@
       display: flex;
       align-items: flex-start;
       gap: var(--sp-2);
-      padding-block: 5px;
+      padding-block: 8px;
       line-height: 1.35;
       transition: color 0.15s;
       border-left: 2px solid transparent;
@@ -454,11 +455,6 @@
     }
 
     @media (min-width: 1100px) {
-      .fwa-pull {
-        max-width: calc(var(--fwa-body) + 160px);
-      }
-    }
-
     .fwa-pull p {
       font-family: var(--font-display);
       font-size: clamp(1.1rem, 2vw, 1.45rem);
@@ -570,6 +566,22 @@
       color: var(--gold);
     }
 
+    /* ── Closing conclusion statement ───────────── */
+    .fwa-conclusion {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.4;
+      max-width: var(--fwa-body);
+      letter-spacing: -0.02em;
+      padding-top: var(--sp-10);
+      padding-bottom: var(--sp-6);
+      border-top: 2px solid var(--gold);
+      margin-bottom: var(--sp-2);
+    }
+
     /* ── Section with clearfix ───────────────── */
     .fwa-section::after {
       content: '';
@@ -630,6 +642,14 @@
     .fwa-cta-ghost:hover {
       background: var(--bg-hover);
       color: var(--text-primary);
+    }
+
+    /* ── Article reveal override ─────────────────── */
+    /* Disable JS scroll-reveal inside article: content must never hide on fast scroll */
+    .fwa .reveal {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
     }
   </style>
 </head>
@@ -979,7 +999,7 @@
 
           <p class="fwa-intro">The framework is an attempt to make human judgment more effective, not to replace it. The AI layer exists to serve the process. The process exists to serve the design. The design exists to serve the people who use it.</p>
 
-          <p class="fwa-p">That chain of accountability is the point of all of this. Not the agents, not the workflow, not the tooling. The chain.</p>
+          <p class="fwa-conclusion">That chain of accountability is the point of all of this. Not the agents, not the workflow, not the tooling. The chain.</p>
 
           <div class="fwa-cta-row">
             <a href="/work/ai-workflow-framework/" class="fwa-cta">
