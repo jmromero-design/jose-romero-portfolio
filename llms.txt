@@ -86,6 +86,13 @@ Featured case studies (10):
 10. AI Workflow Design Framework — multi-agent orchestration, process architecture, facilitation
     /work/ai-workflow-framework/
 
+Long-form thinking pieces:
+- Designing with AI — A Framework for Human-Led, Agent-Assisted Product Design
+  Full framework article: 3-tier agent architecture, 5-phase workflow, checkpoints, drift, facilitation
+  /thinking/ai-workflow-framework/
+- Empathy as a strategic tool, Behavioral decisions, Process that survives people, AI and the ratio of thinking
+  /thinking/
+
 Shorter engagements listed on /work/:
 - Mutua Madrileña — CRO (+41% leads)
 - AXA Spain — CRO (+18% insurance contracts)
