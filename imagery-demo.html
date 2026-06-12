@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imagery treatments — internal demo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/main.css?v=16">
+  <style>
+    body { padding: var(--sp-10) 0; }
+    .demo-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: var(--sp-3);
+    }
+    .demo-note { color: var(--text-tertiary); font-size: var(--text-sm); max-width: 60ch; margin-bottom: var(--sp-8); }
+    section { margin-bottom: var(--sp-20); }
+
+    /* ── Shared: minimal device frame (no realistic bezel) ── */
+    .shot-phone {
+      width: 250px;
+      border: 1px solid var(--border-strong);
+      border-radius: 28px;
+      padding: 9px;
+      background: var(--bg-surface);
+      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
+      flex-shrink: 0;
+    }
+    .shot-phone svg, .shot-phone img { display: block; width: 100%; border-radius: 20px; }
+    .shot-browser {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-surface);
+      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
+    }
+    .shot-browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border-default);
+    }
+    .shot-browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .shot-browser-url {
+      margin-left: var(--sp-3);
+      font-size: 11px; color: var(--text-tertiary);
+      border: 1px solid var(--border-default);
+      border-radius: 99px; padding: 2px 12px;
+    }
+    .shot-browser svg, .shot-browser img { display: block; width: 100%; }
+
+    /* ── Treatment 1: editorial pair on cover-language card ── */
+    .media-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      padding: var(--sp-12) var(--sp-10);
+      display: flex;
+      justify-content: center;
+      gap: var(--sp-8);
+    }
+    .media-card::before {
+      content: '';
+      position: absolute;
+      width: 206px; height: 206px;
+      border-radius: 50%;
+      background: var(--bg-surface-2);
+      left: -60px; bottom: -70px;
+      box-shadow:
+        0 0 0 85px  color-mix(in srgb, var(--teal) 20%, var(--bg-surface-2)),
+        0 0 0 188px color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)),
+        0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));
+      pointer-events: none;
+      opacity: 0.65;
+    }
+    .media-card .shot-phone { position: relative; }
+    .media-card .shot-phone:nth-child(3) { margin-top: var(--sp-12); }
+    .media-caption {
+      margin-top: var(--sp-4);
+      display: flex; gap: var(--sp-3); align-items: baseline;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+    }
+    .media-caption b { color: var(--text-primary); font-weight: 500; }
+
+    /* ── Treatment 2: full-bleed strip ── */
+    .media-strip {
+      border-block: 1px solid var(--border-default);
+      background: color-mix(in srgb, var(--gold) 4%, var(--bg-surface-2));
+      padding-block: var(--sp-12);
+      overflow: hidden;
+    }
+    .media-strip-inner {
+      display: flex; gap: var(--sp-8); justify-content: center; align-items: flex-start;
+    }
+    .media-strip .shot-phone:nth-child(2) { margin-top: var(--sp-10); }
+    .media-strip .shot-phone:nth-child(3) { margin-top: var(--sp-4); }
+
+    /* ── Treatment 3: annotated single ── */
+    .media-annotated {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: var(--sp-10);
+      align-items: center;
+      max-width: 720px;
+    }
+    .media-annot-note {
+      border-left: 2px solid var(--teal-text);
+      padding-left: var(--sp-5);
+    }
+    .media-annot-note .eyebrow-sm {
+      font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-text); display: block; margin-bottom: var(--sp-2);
+    }
+    .media-annot-note p { font-size: var(--text-sm); color: var(--text-secondary); max-width: 36ch; }
+  </style>
+</head>
+<body>
+  <main class="container">
+    <h1 style="margin-bottom: var(--sp-2);">Imagery treatments</h1>
+    <p class="demo-note">Internal demo — four ways to integrate product screenshots into the editorial system. Placeholder UI drawn as SVG; real screenshots drop into the same frames.</p>
+
+    <!-- T1 -->
+    <section>
+      <div class="demo-label">Treatment 1 — Editorial pair · cover language</div>
+      <p class="demo-note">Two staggered screens on a card that reuses the concentric-circle cover visual. Reads as a designed object, not a pasted screenshot. Best as the primary visual near the top of a case study.</p>
+      <figure style="margin: 0;">
+        <div class="media-card">
+          <div class="shot-phone">
+            <svg viewBox="0 0 232 480" xmlns="http://www.w3.org/2000/svg">
+              <rect width="232" height="480" rx="0" fill="#1E1E1C"/>
+              <rect x="16" y="22" width="90" height="10" rx="5" fill="#E8E4DC"/>
+              <rect x="16" y="44" width="140" height="7" rx="3.5" fill="#6B6862"/>
+              <rect x="16" y="70" width="200" height="92" rx="10" fill="#262623"/>
+              <rect x="28" y="84" width="70" height="8" rx="4" fill="#C9A26A"/>
+              <rect x="28" y="102" width="120" height="6" rx="3" fill="#55524C"/>
+              <rect x="28" y="116" width="100" height="6" rx="3" fill="#55524C"/>
+              <rect x="16" y="174" width="200" height="92" rx="10" fill="#262623"/>
+              <rect x="28" y="188" width="84" height="8" rx="4" fill="#7FB8AE"/>
+              <rect x="28" y="206" width="120" height="6" rx="3" fill="#55524C"/>
+              <rect x="28" y="220" width="90" height="6" rx="3" fill="#55524C"/>
+              <rect x="16" y="278" width="200" height="92" rx="10" fill="#262623"/>
+              <rect x="28" y="292" width="60" height="8" rx="4" fill="#E8E4DC"/>
+              <rect x="28" y="310" width="110" height="6" rx="3" fill="#55524C"/>
+              <rect x="16" y="404" width="200" height="40" rx="20" fill="#C9A26A"/>
+              <rect x="76" y="420" width="80" height="8" rx="4" fill="#161614"/>
+            </svg>
+          </div>
+          <div class="shot-phone">
+            <svg viewBox="0 0 232 480" xmlns="http://www.w3.org/2000/svg">
+              <rect width="232" height="480" fill="#1E1E1C"/>
+              <rect x="16" y="22" width="120" height="10" rx="5" fill="#E8E4DC"/>
+              <rect x="16" y="48" width="200" height="150" rx="10" fill="#262623"/>
+              <circle cx="56" cy="100" r="22" fill="#2E4A46"/>
+              <rect x="92" y="84" width="80" height="8" rx="4" fill="#E8E4DC"/>
+              <rect x="92" y="102" width="100" height="6" rx="3" fill="#55524C"/>
+              <rect x="28" y="146" width="176" height="34" rx="17" fill="#33332F"/>
+              <rect x="16" y="214" width="96" height="96" rx="10" fill="#262623"/>
+              <rect x="120" y="214" width="96" height="96" rx="10" fill="#262623"/>
+              <rect x="28" y="282" width="60" height="6" rx="3" fill="#7FB8AE"/>
+              <rect x="132" y="282" width="60" height="6" rx="3" fill="#C9A26A"/>
+              <rect x="16" y="326" width="200" height="60" rx="10" fill="#262623"/>
+              <rect x="16" y="404" width="200" height="40" rx="20" fill="#33332F"/>
+            </svg>
+          </div>
+        </div>
+        <figcaption class="media-caption"><b>Service request flow</b> — entry point and provider matching, as shipped in the Spanish market.</figcaption>
+      </figure>
+    </section>
+
+    <!-- T2 -->
+    <section>
+      <div class="demo-label">Treatment 2 — Full-bleed strip</div>
+      <p class="demo-note">Edge-to-edge band, same language as the article's full-bleed stripe. Phones staggered at different heights for rhythm. Good as a mid-scroll pacing break inside long case studies.</p>
+      <div class="media-strip">
+        <div class="media-strip-inner">
+          <div class="shot-phone" style="width: 200px;">
+            <svg viewBox="0 0 232 400" xmlns="http://www.w3.org/2000/svg"><rect width="232" height="400" fill="#1E1E1C"/><rect x="16" y="22" width="90" height="10" rx="5" fill="#E8E4DC"/><rect x="16" y="48" width="200" height="110" rx="10" fill="#262623"/><rect x="16" y="170" width="200" height="110" rx="10" fill="#262623"/><rect x="28" y="186" width="70" height="8" rx="4" fill="#C9A26A"/><rect x="16" y="296" width="200" height="40" rx="20" fill="#C9A26A"/></svg>
+          </div>
+          <div class="shot-phone" style="width: 200px;">
+            <svg viewBox="0 0 232 400" xmlns="http://www.w3.org/2000/svg"><rect width="232" height="400" fill="#1E1E1C"/><rect x="16" y="22" width="120" height="10" rx="5" fill="#E8E4DC"/><circle cx="116" cy="120" r="48" fill="#2E4A46"/><rect x="56" y="190" width="120" height="8" rx="4" fill="#E8E4DC"/><rect x="40" y="210" width="152" height="6" rx="3" fill="#55524C"/><rect x="16" y="250" width="200" height="40" rx="20" fill="#33332F"/></svg>
+          </div>
+          <div class="shot-phone" style="width: 200px;">
+            <svg viewBox="0 0 232 400" xmlns="http://www.w3.org/2000/svg"><rect width="232" height="400" fill="#1E1E1C"/><rect x="16" y="22" width="80" height="10" rx="5" fill="#E8E4DC"/><rect x="16" y="48" width="96" height="96" rx="10" fill="#262623"/><rect x="120" y="48" width="96" height="96" rx="10" fill="#262623"/><rect x="16" y="152" width="96" height="96" rx="10" fill="#262623"/><rect x="120" y="152" width="96" height="96" rx="10" fill="#262623"/><rect x="16" y="264" width="200" height="6" rx="3" fill="#7FB8AE"/></svg>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- T3 -->
+    <section>
+      <div class="demo-label">Treatment 3 — Annotated single</div>
+      <p class="demo-note">One screen + one margin note in the article's sidenote language. Use when the screenshot exists to prove a specific decision, not to decorate.</p>
+      <div class="media-annotated">
+        <div class="shot-phone">
+          <svg viewBox="0 0 232 480" xmlns="http://www.w3.org/2000/svg">
+            <rect width="232" height="480" fill="#1E1E1C"/>
+            <rect x="16" y="22" width="110" height="10" rx="5" fill="#E8E4DC"/>
+            <rect x="16" y="48" width="200" height="64" rx="10" fill="#262623"/>
+            <rect x="16" y="120" width="200" height="64" rx="10" fill="#2E4A46"/>
+            <rect x="28" y="136" width="84" height="8" rx="4" fill="#9FD4CA"/>
+            <rect x="28" y="154" width="130" height="6" rx="3" fill="#55524C"/>
+            <rect x="16" y="192" width="200" height="64" rx="10" fill="#262623"/>
+            <rect x="16" y="264" width="200" height="64" rx="10" fill="#262623"/>
+            <rect x="16" y="404" width="200" height="40" rx="20" fill="#C9A26A"/>
+          </svg>
+        </div>
+        <div class="media-annot-note">
+          <span class="eyebrow-sm">Design decision</span>
+          <p>Progressive disclosure keeps the first decision binary. The highlighted tier is the default — chosen by 72% of users in testing — so the screen carries one choice, not four.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- T4 -->
+    <section>
+      <div class="demo-label">Treatment 4 — Browser frame · desktop products</div>
+      <p class="demo-note">For Meliá, Santander, and other web work: minimal browser chrome, no fake OS window. Sits directly in the reading column.</p>
+      <figure style="margin: 0; max-width: 760px;">
+        <div class="shot-browser">
+          <div class="shot-browser-bar"><i></i><i></i><i></i><span class="shot-browser-url">platform.internal — campaign overview</span></div>
+          <svg viewBox="0 0 760 380" xmlns="http://www.w3.org/2000/svg">
+            <rect width="760" height="380" fill="#1E1E1C"/>
+            <rect x="0" y="0" width="180" height="380" fill="#1A1A18"/>
+            <rect x="20" y="24" width="100" height="10" rx="5" fill="#E8E4DC"/>
+            <rect x="20" y="60" width="140" height="8" rx="4" fill="#55524C"/>
+            <rect x="20" y="84" width="140" height="8" rx="4" fill="#C9A26A"/>
+            <rect x="20" y="108" width="140" height="8" rx="4" fill="#55524C"/>
+            <rect x="210" y="28" width="180" height="12" rx="6" fill="#E8E4DC"/>
+            <rect x="210" y="64" width="160" height="100" rx="10" fill="#262623"/>
+            <rect x="386" y="64" width="160" height="100" rx="10" fill="#262623"/>
+            <rect x="562" y="64" width="160" height="100" rx="10" fill="#262623"/>
+            <rect x="226" y="80" width="60" height="8" rx="4" fill="#7FB8AE"/>
+            <rect x="226" y="120" width="90" height="16" rx="4" fill="#E8E4DC"/>
+            <rect x="210" y="190" width="512" height="160" rx="10" fill="#262623"/>
+            <polyline points="230,320 300,280 370,300 440,240 510,260 580,220 650,235 700,210" fill="none" stroke="#C9A26A" stroke-width="2"/>
+          </svg>
+        </div>
+        <figcaption class="media-caption"><b>Campaign overview</b> — the consolidated dashboard that replaced four spreadsheets.</figcaption>
+      </figure>
+    </section>
+  </main>
+</body>
+</html>
