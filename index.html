@@ -185,6 +185,45 @@
       .about-teaser-visual { aspect-ratio: 16/7; max-height: 300px; }
       .cta-section { flex-direction: column; align-items: flex-start; }
     }
+  
+    /* ── Testimonials ── */
+    .testimonial-grid {
+      display: grid;
+      gap: var(--sp-8);
+      margin-block: var(--sp-8) var(--sp-10);
+    }
+    @media (min-width: 800px) {
+      .testimonial-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-12); }
+      .testimonial-grid > figure:nth-child(2) { margin-top: var(--sp-10); }
+    }
+    .testimonial-stack {
+      display: grid;
+      gap: var(--sp-6);
+      margin-top: var(--sp-7);
+    }
+    .testimonial {
+      margin: 0;
+      border-left: 2px solid var(--gold);
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-6);
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .testimonial-attr {
+      margin-top: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: var(--text-sm);
+    }
+    .testimonial-name { color: var(--text-primary); font-weight: 500; }
+    .testimonial-role { color: var(--text-tertiary); }
+    .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
   </style>
 </head>
 <body>
@@ -734,6 +773,45 @@
           </p>
           <a href="/thinking/" class="btn btn-ghost">
             Read my approach <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════════════ -->
+    <section class="section--sm" aria-label="Testimonials" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" style="margin-bottom: var(--sp-2); display: flex;">Word of mouth</span>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "If there's chaos, he can bring order to it. His exceptional ability to lead and organise a design process impressed me from day one — if he's part of it, quality and efficiency are guaranteed."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Isabel Vidal</span>
+              <span class="testimonial-role">Product Designer · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "Jose stands out from the average UX profile. Beyond his eye for detail in the design itself, he brings the layer of strategy and fluent client communication that is so in demand — and so scarce."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Emilio Bordona</span>
+              <span class="testimonial-role">Project Manager · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="reveal">
+          <a href="https://www.linkedin.com/in/joseromerodesign/details/recommendations/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            More on LinkedIn <span class="arrow">→</span>
           </a>
         </div>
       </div>

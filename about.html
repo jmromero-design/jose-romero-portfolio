@@ -82,6 +82,45 @@
       object-position: center bottom;
       display: block;
     }
+  
+    /* ── Testimonials ── */
+    .testimonial-grid {
+      display: grid;
+      gap: var(--sp-8);
+      margin-block: var(--sp-8) var(--sp-10);
+    }
+    @media (min-width: 800px) {
+      .testimonial-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-12); }
+      .testimonial-grid > figure:nth-child(2) { margin-top: var(--sp-10); }
+    }
+    .testimonial-stack {
+      display: grid;
+      gap: var(--sp-6);
+      margin-top: var(--sp-7);
+    }
+    .testimonial {
+      margin: 0;
+      border-left: 2px solid var(--gold);
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-6);
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .testimonial-attr {
+      margin-top: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: var(--text-sm);
+    }
+    .testimonial-name { color: var(--text-primary); font-weight: 500; }
+    .testimonial-role { color: var(--text-tertiary); }
+    .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
   </style>
 </head>
 
@@ -386,6 +425,26 @@
                 scale was different from anything I've done since, but the operational principles were the same. It
                 gave me a foundation in structured thinking and commercial reality that preceded any formal training in
                 design methodology.</p>
+              <div class="testimonial-stack">
+                <figure class="testimonial reveal">
+                  <blockquote class="testimonial-quote">
+                    "I had the privilege of reporting directly to him — his capacity to inspire and guide our team was evident in our project successes. His acumen in UX/UI elevated our products, combining functionality with aesthetics seamlessly."
+                  </blockquote>
+                  <figcaption class="testimonial-attr">
+                    <span class="testimonial-name">Erick Hernández Pino</span>
+                    <span class="testimonial-role">Product Designer · Factor Común</span>
+                  </figcaption>
+                </figure>
+                <figure class="testimonial reveal">
+                  <blockquote class="testimonial-quote">
+                    "A great communicator and a flexible professional, capable of moving comfortably from one area of knowledge to another. His capacity to work with and lead teams made my experience working with him gratifying."
+                  </blockquote>
+                  <figcaption class="testimonial-attr">
+                    <span class="testimonial-name">Luis E. Lázaro García</span>
+                    <span class="testimonial-role">Architect &amp; Interior Designer · Factor Común</span>
+                  </figcaption>
+                </figure>
+              </div>
             </div>
           </article>
 
