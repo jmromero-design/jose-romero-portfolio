@@ -30,6 +30,104 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=16">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/mapfre-afin-digital-expansion/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; padding: 18px 36px;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 14%; bottom: -90px;
+      box-shadow:
+        0 0 0 95px  color-mix(in srgb, var(--teal) 18%, var(--bg-surface-2)),
+        0 0 0 210px color-mix(in srgb, var(--teal)  8%, var(--bg-surface-2)),
+        0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-browser {
+      border: 1px solid var(--border-strong); border-radius: var(--radius-lg);
+      overflow: hidden; background: var(--bg-surface);
+      box-shadow: 0 20px 64px -20px rgba(0,0,0,0.7);
+      flex: 1; max-width: 500px; align-self: center; position: relative; z-index: 1;
+    }
+    .comp-browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 10px 14px; border-bottom: 1px solid var(--border-default);
+    }
+    .comp-browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .comp-browser-url {
+      margin-left: var(--sp-3); font-size: 11px; color: var(--text-tertiary);
+      border: 1px solid var(--border-default); border-radius: 99px; padding: 2px 12px;
+    }
+    .comp-browser-screen { overflow: hidden; }
+    .comp-browser-screen img { display: block; width: 100%; }
+    .comp-phones { display: flex; gap: 14px; align-items: flex-start; flex-shrink: 0; position: relative; z-index: 1; }
+    .comp-phone {
+      width: 148px; border: 1px solid var(--border-strong); border-radius: 24px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6); flex-shrink: 0;
+    }
+    .comp-phone img { display: block; width: 100%; border-radius: 19px; }
+    .comp-phone:nth-child(2) { margin-top: 40px; }
+    .shot-phone {
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+    }
+    .shot-phone img { display: block; width: 100%; border-radius: 21px; }
+    .media-card {
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      padding: var(--sp-10) var(--sp-8) var(--sp-12);
+      display: flex; justify-content: center; align-items: flex-start;
+      gap: var(--sp-4); margin-block: var(--sp-10) var(--sp-3);
+    }
+    .media-card::before {
+      content: ''; position: absolute; width: 206px; height: 206px;
+      border-radius: 50%; background: var(--bg-surface-2); left: -60px; bottom: -70px;
+      box-shadow:
+        0 0 0 85px  color-mix(in srgb, var(--teal) 20%, var(--bg-surface-2)),
+        0 0 0 188px color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)),
+        0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));
+      pointer-events: none; opacity: 0.65;
+    }
+    .media-card .shot-phone { width: 172px; position: relative; }
+    .media-card .shot-phone:nth-child(1) { margin-top: var(--sp-8); }
+    .media-card .shot-phone:nth-child(2) { margin-top: 0; }
+    .media-card .shot-phone:nth-child(3) { margin-top: var(--sp-14); }
+    .media-caption {
+      display: flex; gap: var(--sp-3); align-items: baseline;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+      margin-bottom: var(--sp-10);
+    }
+    .media-caption b { color: var(--text-primary); font-weight: 500; }
+    .media-annotated {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: var(--sp-10); align-items: center;
+      max-width: 640px; margin-block: var(--sp-10) var(--sp-3);
+    }
+    .media-annot-note { border-left: 2px solid var(--teal-text); padding-left: var(--sp-5); }
+    .media-annot-note .eyebrow-sm {
+      font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-text); display: block; margin-bottom: var(--sp-2);
+    }
+    .media-annot-note p { font-size: var(--text-sm); color: var(--text-secondary); max-width: 36ch; }
+    @media (max-width: 640px) {
+      .cover-comp { padding: 14px 16px; gap: 10px; }
+      .comp-phone { width: 100px; border-radius: 18px; padding: 4px; }
+      .comp-phone img { border-radius: 14px; }
+      .media-card { gap: var(--sp-3); padding: var(--sp-8) var(--sp-5) var(--sp-10); }
+      .media-card .shot-phone { width: 130px; }
+      .media-annotated { grid-template-columns: 1fr; }
+      .media-annotated .shot-phone { width: 180px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -110,12 +208,18 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-mapfre" style="position: absolute; inset: 0;" role="img" aria-label="Mapfre AFIN Digital Expansion — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          <div class="cover-comp" role="img" aria-label="Mapfre AFIN financial app — future simulation dashboard on desktop, with mobile views of the advisory entry point and signed proposal confirmation">
+            <div class="comp-browser">
+              <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">afin.mapfre.es — simulación a futuro</span></div>
+              <div class="comp-browser-screen">
+                <img src="/assets/images/work/mapfre-afin-digital-expansion/afin-d-simulation.webp" width="523" height="508" alt="" loading="eager">
               </div>
-              <span class="cover-number" aria-hidden="true">05</span>
             </div>
+            <div class="comp-phones">
+              <div class="comp-phone"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="eager"></div>
+              <div class="comp-phone"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-signed.webp" alt="" loading="eager"></div>
+            </div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -317,6 +421,25 @@
               </svg>
             </div>
             <figcaption>The advisory flow is designed around trust at every step. Data collection is transparent and purposeful. Recommendations are shown with visible reasoning. User autonomy is preserved throughout — the system advises, it does not decide.</figcaption>
+          </figure>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="media-card">
+              <div class="shot-phone"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="Advisory entry — prerequisites explained plainly before the user commits to the flow" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="Investment proposal — risk selector, tabbed portfolio view, and fund breakdown in a single screen" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-signed.webp" alt="Signed confirmation — clean success state with proposal download and clear next steps" loading="lazy"></div>
+            </div>
+            <figcaption class="media-caption"><b>Advisory flow — mobile</b> — entry point, investment proposal with risk controls, and signed confirmation. Three steps from a single user journey.</figcaption>
+          </figure>
+
+          <figure class="reveal media-annotated" style="margin: 0;">
+            <div class="shot-phone" style="width: 172px;">
+              <img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-exit-modal.webp" alt="Exit modal — a destructive-action warning that intercepts abandonment with an assisted help offer" loading="lazy">
+            </div>
+            <div class="media-annot-note">
+              <span class="eyebrow-sm">Design decision</span>
+              <p>When a user tries to leave the advisory flow mid-process, the exit modal intercepts with a callback offer — "We'll call you." Abandonment becomes a route into assisted help rather than a lost session. A small decision with measurable retention implications.</p>
+            </div>
           </figure>
 
           <div class="cs-section reveal">
