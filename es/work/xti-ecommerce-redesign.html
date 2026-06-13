@@ -20,52 +20,88 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=16">
   <style>
-    .shot-phone {
-      width: 180px;
-      border: 1px solid var(--border-strong);
-      border-radius: 28px;
-      padding: 8px;
+    /* ── Cover composition ── */
+    .cover-comp {
+      position: absolute; inset: 0;
       background: var(--bg-surface);
-      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
-      flex-shrink: 0;
-      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      padding: 20px 40px;
     }
-    .shot-phone img { display: block; width: 100%; border-radius: 20px; }
-    .shot-browser {
+    .cover-comp::before {
+      content: '';
+      position: absolute;
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: var(--bg-surface-2);
+      right: 14%; bottom: -90px;
+      box-shadow:
+        0 0 0 95px  color-mix(in srgb, var(--teal) 18%, var(--bg-surface-2)),
+        0 0 0 210px color-mix(in srgb, var(--teal)  8%, var(--bg-surface-2)),
+        0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-browser {
       border: 1px solid var(--border-strong);
       border-radius: var(--radius-lg);
       overflow: hidden;
       background: var(--bg-surface);
-      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
+      box-shadow: 0 20px 64px -20px rgba(0,0,0,0.7);
       flex: 1;
-      min-width: 240px;
-      max-width: 520px;
+      max-width: 600px;
+      align-self: stretch;
+      position: relative; z-index: 1;
     }
-    .shot-browser-bar {
+    .comp-browser-bar {
       display: flex; align-items: center; gap: 6px;
       padding: 9px 12px;
       border-bottom: 1px solid var(--border-default);
     }
-    .shot-browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: block; }
-    .shot-browser-url {
-      margin-left: var(--sp-2);
-      font-size: 10px; color: var(--text-tertiary);
+    .comp-browser-bar i { width: 8px; height: 8px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .comp-browser-url {
+      margin-left: 8px; font-size: 10px; color: var(--text-tertiary);
       border: 1px solid var(--border-default);
       border-radius: 99px; padding: 2px 10px;
     }
-    .shot-browser-content { overflow: hidden; max-height: 360px; }
-    .shot-browser-content img { display: block; width: 100%; }
+    .comp-browser-screen { overflow: hidden; height: calc(100% - 36px); }
+    .comp-browser-screen img { display: block; width: 100%; }
+    .comp-phones {
+      display: flex; gap: 12px; align-items: flex-start;
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .comp-phone {
+      width: 120px;
+      border: 1px solid var(--border-strong);
+      border-radius: 22px; padding: 6px;
+      background: var(--bg-surface);
+      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
+      flex-shrink: 0;
+    }
+    .comp-phone img { display: block; width: 100%; border-radius: 16px; }
+    .comp-phone:nth-child(2) { margin-top: 36px; }
+
+    /* ── Body cards — 3-phone trio ── */
+    .shot-phone {
+      border: 1px solid var(--border-strong);
+      border-radius: 26px; padding: 7px;
+      background: var(--bg-surface);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55);
+      flex-shrink: 0;
+    }
+    .shot-phone img { display: block; width: 100%; border-radius: 19px; }
     .media-card {
-      position: relative;
-      overflow: hidden;
+      position: relative; overflow: hidden;
       border: 1px solid var(--border-default);
       border-radius: var(--radius-lg);
       background: var(--bg-surface);
-      padding: var(--sp-10);
+      padding: var(--sp-10) var(--sp-10) var(--sp-12);
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: var(--sp-8);
+      gap: var(--sp-5);
       margin-block: var(--sp-10) var(--sp-3);
     }
     .media-card::before {
@@ -79,20 +115,25 @@
         0 0 0 85px  color-mix(in srgb, var(--teal) 20%, var(--bg-surface-2)),
         0 0 0 188px color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)),
         0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));
-      pointer-events: none;
-      opacity: 0.65;
+      pointer-events: none; opacity: 0.65;
     }
-    .media-card .shot-phone { margin-top: var(--sp-10); }
+    .media-card .shot-phone { width: 155px; position: relative; }
+    .media-card .shot-phone:nth-child(1) { margin-top: var(--sp-8); }
+    .media-card .shot-phone:nth-child(2) { margin-top: 0; }
+    .media-card .shot-phone:nth-child(3) { margin-top: var(--sp-14); }
     .media-caption {
       display: flex; gap: var(--sp-3); align-items: baseline;
       font-size: var(--text-sm); color: var(--text-tertiary);
       margin-bottom: var(--sp-10);
     }
     .media-caption b { color: var(--text-primary); font-weight: 500; }
-    @media (max-width: 600px) {
-      .media-card { flex-direction: column; align-items: center; }
-      .media-card .shot-phone { margin-top: 0; width: 200px; }
-      .shot-browser { max-width: 100%; }
+
+    @media (max-width: 640px) {
+      .cover-comp { padding: 14px 16px; gap: 10px; }
+      .comp-phone { width: 88px; border-radius: 16px; padding: 5px; }
+      .comp-phone img { border-radius: 11px; }
+      .media-card { gap: var(--sp-3); padding: var(--sp-8) var(--sp-6) var(--sp-10); }
+      .media-card .shot-phone { width: 120px; }
     }
   </style>
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
@@ -155,12 +196,32 @@
         </div>
 
         <div class="cs-cover reveal">
-          <img
-            src="/assets/images/work/xti-ecommerce-redesign/home-cover.webp"
-            alt="Rediseño de la homepage de XTI Store — hero editorial con campaña de primavera y navegación principal"
-            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; display:block;"
-            loading="eager"
-          >
+          <div class="cover-comp" role="img" aria-label="Rediseño XTI Store — página de listado en escritorio, con vistas móviles del listado y detalle de producto">
+            <div class="comp-browser">
+              <div class="comp-browser-bar">
+                <i></i><i></i><i></i>
+                <span class="comp-browser-url">xtistore.com/calzado-mujer</span>
+              </div>
+              <div class="comp-browser-screen">
+                <img
+                  src="/assets/images/work/xti-ecommerce-redesign/plp-cover.webp"
+                  srcset="/assets/images/work/xti-ecommerce-redesign/plp-cover.webp 900w,
+                          /assets/images/work/xti-ecommerce-redesign/plp-cover@2x.webp 1376w"
+                  sizes="(max-width: 640px) 55vw, 520px"
+                  alt=""
+                  loading="eager"
+                >
+              </div>
+            </div>
+            <div class="comp-phones">
+              <div class="comp-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" alt="" loading="eager">
+              </div>
+              <div class="comp-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" alt="" loading="eager">
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -181,34 +242,17 @@
 
           <figure class="reveal" style="margin: 0;">
             <div class="media-card">
-              <div class="shot-browser">
-                <div class="shot-browser-bar">
-                  <i></i><i></i><i></i>
-                  <span class="shot-browser-url">xtistore.com/calzado-mujer</span>
-                </div>
-                <div class="shot-browser-content">
-                  <img
-                    src="/assets/images/work/xti-ecommerce-redesign/plp-desktop.webp"
-                    srcset="/assets/images/work/xti-ecommerce-redesign/plp-desktop.webp 900w,
-                            /assets/images/work/xti-ecommerce-redesign/plp-desktop@2x.webp 1800w"
-                    sizes="(max-width: 600px) calc(100vw - 3rem), 460px"
-                    alt="Página de listado de productos XTI — hero editorial de categoría, panel de filtros y grid de producto"
-                    loading="lazy"
-                  >
-                </div>
+              <div class="shot-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" alt="Listado de producto — sobre el pliegue: hero editorial de categoría y controles de ordenación" loading="lazy">
               </div>
               <div class="shot-phone">
-                <img
-                  src="/assets/images/work/xti-ecommerce-redesign/plp-mobile.webp"
-                  srcset="/assets/images/work/xti-ecommerce-redesign/plp-mobile.webp 385w,
-                          /assets/images/work/xti-ecommerce-redesign/plp-mobile@2x.webp 750w"
-                  sizes="180px"
-                  alt="Página de listado de productos XTI — vista móvil"
-                  loading="lazy"
-                >
+                <img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s2.webp" alt="Listado de producto — mitad de scroll: chips de filtro y grid de producto" loading="lazy">
+              </div>
+              <div class="shot-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s3.webp" alt="Listado de producto — scroll inferior: inserción editorial de marca a mitad de página" loading="lazy">
               </div>
             </div>
-            <figcaption class="media-caption"><b>Página de listado de productos</b> — estructura de navegación testada con IA, hero editorial de categoría y grid de producto con inserción editorial a mitad de scroll.</figcaption>
+            <figcaption class="media-caption"><b>Listado de producto — scroll móvil</b> — hero de categoría, chips de filtro y densidad de grid, inserción editorial a mitad de página. Tres pantallas de un solo scroll.</figcaption>
           </figure>
 
           <figure class="diagram-block reveal" aria-label="Entradas de investigación filtradas por restricciones Magento hacia resultados de diseño">
@@ -281,34 +325,17 @@
 
           <figure class="reveal" style="margin: 0;">
             <div class="media-card">
-              <div class="shot-browser">
-                <div class="shot-browser-bar">
-                  <i></i><i></i><i></i>
-                  <span class="shot-browser-url">xtistore.com/product</span>
-                </div>
-                <div class="shot-browser-content">
-                  <img
-                    src="/assets/images/work/xti-ecommerce-redesign/pdp-desktop.webp"
-                    srcset="/assets/images/work/xti-ecommerce-redesign/pdp-desktop.webp 900w,
-                            /assets/images/work/xti-ecommerce-redesign/pdp-desktop@2x.webp 1800w"
-                    sizes="(max-width: 600px) calc(100vw - 3rem), 460px"
-                    alt="Página de detalle de producto XTI — imágenes de producto, selector de talla, señales de confianza y añadir al carrito"
-                    loading="lazy"
-                  >
-                </div>
+              <div class="shot-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" alt="Detalle de producto — sobre el pliegue: imagen de producto, precio y carrito sticky" loading="lazy">
               </div>
               <div class="shot-phone">
-                <img
-                  src="/assets/images/work/xti-ecommerce-redesign/pdp-mobile.webp"
-                  srcset="/assets/images/work/xti-ecommerce-redesign/pdp-mobile.webp 375w,
-                          /assets/images/work/xti-ecommerce-redesign/pdp-mobile@2x.webp 750w"
-                  sizes="180px"
-                  alt="Página de detalle de producto XTI — vista móvil"
-                  loading="lazy"
-                >
+                <img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s2.webp" alt="Detalle de producto — mitad de scroll: selector de talla, colores y acordeones" loading="lazy">
+              </div>
+              <div class="shot-phone">
+                <img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s3.webp" alt="Detalle de producto — scroll inferior: carrusel de productos similares y valoraciones" loading="lazy">
               </div>
             </div>
-            <figcaption class="media-caption"><b>Página de detalle de producto</b> — selección de talla, añadir al carrito, señales de confianza y sección de valoraciones. El paso crítico para la conversión en el funnel.</figcaption>
+            <figcaption class="media-caption"><b>Detalle de producto — scroll móvil</b> — hero de producto y carrito, selección de talla y color, productos similares y valoraciones. El punto de mayor abandono en el funnel.</figcaption>
           </figure>
 
           <figure class="diagram-block reveal" aria-label="Funnel de moda e-commerce — foco principal del rediseño">
