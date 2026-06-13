@@ -19,6 +19,82 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=16">
+  <style>
+    .shot-phone {
+      width: 180px;
+      border: 1px solid var(--border-strong);
+      border-radius: 28px;
+      padding: 8px;
+      background: var(--bg-surface);
+      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
+      flex-shrink: 0;
+      position: relative;
+    }
+    .shot-phone img { display: block; width: 100%; border-radius: 20px; }
+    .shot-browser {
+      border: 1px solid var(--border-strong);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--bg-surface);
+      box-shadow: 0 24px 60px -28px rgba(0,0,0,0.55);
+      flex: 1;
+      min-width: 240px;
+      max-width: 520px;
+    }
+    .shot-browser-bar {
+      display: flex; align-items: center; gap: 6px;
+      padding: 9px 12px;
+      border-bottom: 1px solid var(--border-default);
+    }
+    .shot-browser-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--border-strong); display: block; }
+    .shot-browser-url {
+      margin-left: var(--sp-2);
+      font-size: 10px; color: var(--text-tertiary);
+      border: 1px solid var(--border-default);
+      border-radius: 99px; padding: 2px 10px;
+    }
+    .shot-browser-content { overflow: hidden; max-height: 360px; }
+    .shot-browser-content img { display: block; width: 100%; }
+    .media-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      background: var(--bg-surface);
+      padding: var(--sp-10);
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: var(--sp-8);
+      margin-block: var(--sp-10) var(--sp-3);
+    }
+    .media-card::before {
+      content: '';
+      position: absolute;
+      width: 206px; height: 206px;
+      border-radius: 50%;
+      background: var(--bg-surface-2);
+      left: -60px; bottom: -70px;
+      box-shadow:
+        0 0 0 85px  color-mix(in srgb, var(--teal) 20%, var(--bg-surface-2)),
+        0 0 0 188px color-mix(in srgb, var(--teal) 10%, var(--bg-surface-2)),
+        0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));
+      pointer-events: none;
+      opacity: 0.65;
+    }
+    .media-card .shot-phone { margin-top: var(--sp-10); }
+    .media-caption {
+      display: flex; gap: var(--sp-3); align-items: baseline;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+      margin-bottom: var(--sp-10);
+    }
+    .media-caption b { color: var(--text-primary); font-weight: 500; }
+    @media (max-width: 600px) {
+      .media-card { flex-direction: column; align-items: center; }
+      .media-card .shot-phone { margin-top: 0; width: 200px; }
+      .shot-browser { max-width: 100%; }
+    }
+  </style>
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
   <script src="/assets/js/lang-detect.js"></script>
 </head>
@@ -79,12 +155,12 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-xti" style="position: absolute; inset: 0;" role="img" aria-label="XTI E-commerce Redesign — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-            </div>
-            <span class="cover-number" aria-hidden="true">07</span>
-          </div>
+          <img
+            src="/assets/images/work/xti-ecommerce-redesign/home-cover.webp"
+            alt="Rediseño de la homepage de XTI Store — hero editorial con campaña de primavera y navegación principal"
+            style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:top center; display:block;"
+            loading="eager"
+          >
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -102,6 +178,38 @@
             <p>La fase de discovery utilizó grabaciones de sesiones Hotjar, mapas de calor y análisis de funnel del sitio existente — junto a un análisis competitivo estructurado estudiando cómo los líderes de la categoría de moda como Zara y Adidas gestionan la navegación, el filtrado y la presentación de producto. El objetivo era entender dónde la experiencia existente de XTI estaba perdiendo usuarios y por qué, antes de proponer cambios.</p>
             <p>El testing de arquitectura de información también fue parte del proceso: ejercicios de card sorting y tree testing realizados en Optimal Workshop para validar la estructura de categorías y navegación propuesta antes de comprometerse con el diseño de alta fidelidad. Los problemas de IA descubiertos en testing son mucho más baratos de resolver que los problemas de IA descubiertos en datos de usuarios reales — especialmente en una migración a Magento donde los cambios estructurales post-lanzamiento tienen un coste de desarrollo significativo.</p>
           </div>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="media-card">
+              <div class="shot-browser">
+                <div class="shot-browser-bar">
+                  <i></i><i></i><i></i>
+                  <span class="shot-browser-url">xtistore.com/calzado-mujer</span>
+                </div>
+                <div class="shot-browser-content">
+                  <img
+                    src="/assets/images/work/xti-ecommerce-redesign/plp-desktop.webp"
+                    srcset="/assets/images/work/xti-ecommerce-redesign/plp-desktop.webp 900w,
+                            /assets/images/work/xti-ecommerce-redesign/plp-desktop@2x.webp 1800w"
+                    sizes="(max-width: 600px) calc(100vw - 3rem), 460px"
+                    alt="Página de listado de productos XTI — hero editorial de categoría, panel de filtros y grid de producto"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+              <div class="shot-phone">
+                <img
+                  src="/assets/images/work/xti-ecommerce-redesign/plp-mobile.webp"
+                  srcset="/assets/images/work/xti-ecommerce-redesign/plp-mobile.webp 385w,
+                          /assets/images/work/xti-ecommerce-redesign/plp-mobile@2x.webp 750w"
+                  sizes="180px"
+                  alt="Página de listado de productos XTI — vista móvil"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+            <figcaption class="media-caption"><b>Página de listado de productos</b> — estructura de navegación testada con IA, hero editorial de categoría y grid de producto con inserción editorial a mitad de scroll.</figcaption>
+          </figure>
 
           <figure class="diagram-block reveal" aria-label="Entradas de investigación filtradas por restricciones Magento hacia resultados de diseño">
             <div class="diagram-wrap">
@@ -170,6 +278,38 @@
             <p>Para XTI, las decisiones de diseño se centraron en la página de listado de productos y la página de detalle de producto — las dos etapas de mayor tráfico y mayor abandono en cualquier funnel de moda. El UX de filtrado y ordenación, la presentación de imágenes de producto, la selección de talla y la interacción de añadir al carrito se rediseñaron con los datos de conversión como medida de éxito principal.</p>
             <p>La dirección creativa tomó referencias del editorial de moda — layouts limpios, espacio blanco generoso, jerarquía liderada por la tipografía y fotografía de producto con espacio para respirar. Ese registro era alcanzable dentro de las restricciones de Magento porque se basa en la contención más que en la complejidad técnica. La colaboración con desarrollo se integró desde el inicio: involucrar al equipo técnico desde el principio significó entender qué funcionaría dentro del modelo de plantillas de Magento y evitar patrones que requerirían desarrollo personalizado costoso.</p>
           </div>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="media-card">
+              <div class="shot-browser">
+                <div class="shot-browser-bar">
+                  <i></i><i></i><i></i>
+                  <span class="shot-browser-url">xtistore.com/product</span>
+                </div>
+                <div class="shot-browser-content">
+                  <img
+                    src="/assets/images/work/xti-ecommerce-redesign/pdp-desktop.webp"
+                    srcset="/assets/images/work/xti-ecommerce-redesign/pdp-desktop.webp 900w,
+                            /assets/images/work/xti-ecommerce-redesign/pdp-desktop@2x.webp 1800w"
+                    sizes="(max-width: 600px) calc(100vw - 3rem), 460px"
+                    alt="Página de detalle de producto XTI — imágenes de producto, selector de talla, señales de confianza y añadir al carrito"
+                    loading="lazy"
+                  >
+                </div>
+              </div>
+              <div class="shot-phone">
+                <img
+                  src="/assets/images/work/xti-ecommerce-redesign/pdp-mobile.webp"
+                  srcset="/assets/images/work/xti-ecommerce-redesign/pdp-mobile.webp 375w,
+                          /assets/images/work/xti-ecommerce-redesign/pdp-mobile@2x.webp 750w"
+                  sizes="180px"
+                  alt="Página de detalle de producto XTI — vista móvil"
+                  loading="lazy"
+                >
+              </div>
+            </div>
+            <figcaption class="media-caption"><b>Página de detalle de producto</b> — selección de talla, añadir al carrito, señales de confianza y sección de valoraciones. El paso crítico para la conversión en el funnel.</figcaption>
+          </figure>
 
           <figure class="diagram-block reveal" aria-label="Funnel de moda e-commerce — foco principal del rediseño">
             <div class="diagram-wrap">
