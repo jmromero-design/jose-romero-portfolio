@@ -40,8 +40,8 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      padding: 20px 40px;
+      gap: 24px;
+      padding: 18px 36px;
     }
     .cover-comp::before {
       content: '';
@@ -63,8 +63,8 @@
       background: var(--bg-surface);
       box-shadow: 0 20px 64px -20px rgba(0,0,0,0.7);
       flex: 1;
-      max-width: 600px;
-      align-self: stretch;
+      max-width: 680px;
+      align-self: center;   /* size by content, not card height */
       position: relative; z-index: 1;
     }
     .comp-browser-bar {
@@ -78,42 +78,42 @@
       border: 1px solid var(--border-default);
       border-radius: 99px; padding: 2px 10px;
     }
-    .comp-browser-screen { overflow: hidden; height: calc(100% - 36px); }
+    .comp-browser-screen { overflow: hidden; } /* no height cap — image shows in full */
     .comp-browser-screen img { display: block; width: 100%; }
     .comp-phones {
-      display: flex; gap: 12px; align-items: flex-start;
+      display: flex; gap: 14px; align-items: flex-start;
       flex-shrink: 0; position: relative; z-index: 1;
     }
     .comp-phone {
-      width: 120px;
+      width: 148px;
       border: 1px solid var(--border-strong);
-      border-radius: 22px; padding: 6px;
+      border-radius: 24px; padding: 5px;
       background: var(--bg-surface);
       box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
       flex-shrink: 0;
     }
-    .comp-phone img { display: block; width: 100%; border-radius: 16px; }
-    .comp-phone:nth-child(2) { margin-top: 36px; }
+    .comp-phone img { display: block; width: 100%; border-radius: 19px; }
+    .comp-phone:nth-child(2) { margin-top: 40px; }
 
     /* ── Body cards — 3-phone trio ── */
     .shot-phone {
       border: 1px solid var(--border-strong);
-      border-radius: 26px; padding: 7px;
+      border-radius: 26px; padding: 5px;
       background: var(--bg-surface);
       box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55);
       flex-shrink: 0;
     }
-    .shot-phone img { display: block; width: 100%; border-radius: 19px; }
+    .shot-phone img { display: block; width: 100%; border-radius: 21px; }
     .media-card {
       position: relative; overflow: hidden;
       border: 1px solid var(--border-default);
       border-radius: var(--radius-lg);
       background: var(--bg-surface);
-      padding: var(--sp-10) var(--sp-10) var(--sp-12);
+      padding: var(--sp-10) var(--sp-8) var(--sp-12);
       display: flex;
       justify-content: center;
       align-items: flex-start;
-      gap: var(--sp-5);
+      gap: var(--sp-4);
       margin-block: var(--sp-10) var(--sp-3);
     }
     .media-card::before {
@@ -129,7 +129,7 @@
         0 0 0 290px color-mix(in srgb, var(--teal)  5%, var(--bg-surface));
       pointer-events: none; opacity: 0.65;
     }
-    .media-card .shot-phone { width: 155px; position: relative; }
+    .media-card .shot-phone { width: 172px; position: relative; }
     .media-card .shot-phone:nth-child(1) { margin-top: var(--sp-8); }
     .media-card .shot-phone:nth-child(2) { margin-top: 0; }
     .media-card .shot-phone:nth-child(3) { margin-top: var(--sp-14); }
@@ -142,10 +142,10 @@
 
     @media (max-width: 640px) {
       .cover-comp { padding: 14px 16px; gap: 10px; }
-      .comp-phone { width: 88px; border-radius: 16px; padding: 5px; }
-      .comp-phone img { border-radius: 11px; }
-      .media-card { gap: var(--sp-3); padding: var(--sp-8) var(--sp-6) var(--sp-10); }
-      .media-card .shot-phone { width: 120px; }
+      .comp-phone { width: 100px; border-radius: 18px; padding: 4px; }
+      .comp-phone img { border-radius: 14px; }
+      .media-card { gap: var(--sp-3); padding: var(--sp-8) var(--sp-5) var(--sp-10); }
+      .media-card .shot-phone { width: 130px; }
     }
   </style>
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/xti-ecommerce-redesign/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
