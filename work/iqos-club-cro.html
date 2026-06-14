@@ -30,6 +30,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/main.css?v=16">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/iqos-club-cro/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/iqos-club-cro/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/iqos-club-cro/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    .comp-browser{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface);box-shadow:0 20px 64px -20px rgba(0,0,0,.7);position:relative;z-index:1}
+    .comp-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border-default)}
+    .comp-browser-bar i{width:9px;height:9px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-browser-url{margin-left:var(--sp-3);font-size:11px;color:var(--text-tertiary);border:1px solid var(--border-default);border-radius:99px;padding:2px 12px}
+    .comp-browser-screen{overflow:hidden}
+    .comp-browser-screen img{display:block;width:100%;height:auto}
+    .cover-ab{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px}
+    .cover-ab::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:var(--bg-surface-2);right:8%;bottom:-90px;box-shadow:0 0 0 90px color-mix(in srgb,var(--teal) 16%,var(--bg-surface-2)),0 0 0 200px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 330px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .cover-ab-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+    .cover-ab-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);text-align:center}
+    .cover-ab-col .comp-browser{flex:none;width:100%;box-shadow:0 16px 48px -16px rgba(0,0,0,.6)}
+    .media-ab-card{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+    .media-ab-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .media-ab-col{display:flex;flex-direction:column;gap:var(--sp-3);position:relative;z-index:1}
+    .media-ab-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);text-align:center}
+    .media-ab-col .comp-browser{flex:none;width:100%;max-width:100%;box-shadow:0 8px 32px -8px rgba(0,0,0,.5)}
+    .media-product-card{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-product-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .media-product-card img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:800px}
+    .media-caption{display:flex;gap:var(--sp-3);align-items:baseline;font-size:var(--text-sm);color:var(--text-tertiary);margin-bottom:var(--sp-10)}
+    .media-caption b{color:var(--text-primary);font-weight:500}
+    @media(max-width:640px){
+      .cover-ab{padding:14px 16px;gap:8px}
+      .cover-ab-col:last-child{display:none}
+      .media-ab-card{grid-template-columns:1fr;padding:var(--sp-6) var(--sp-4)}
+      .media-product-card{padding:var(--sp-6) var(--sp-4)}
+    }
+  </style>
 </head>
 <body>
 
@@ -110,12 +139,26 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-iqos" style="position: absolute; inset: 0;" role="img" aria-label="IQOS Club CRO — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="cover-ab" role="img" aria-label="IQOS Club homepage A/B test — Control versus Variant 6 with full-bleed referral photo">
+            <div class="cover-ab-col">
+              <span class="cover-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="IQOS Club homepage — control version" width="960" height="540" loading="eager">
+                </div>
               </div>
-              <span class="cover-number" aria-hidden="true">06</span>
             </div>
+            <div class="cover-ab-col">
+              <span class="cover-ab-label">Variant 6</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="IQOS Club homepage — Variant 6 with full-bleed referral photo" width="960" height="540" loading="eager">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -146,6 +189,28 @@
               <p>"In a loyalty context, the question isn't just 'will users convert?' — it's 'are we building a habit, or just catching a moment?'"</p>
             </div>
           </div>
+
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="IQOS Club homepage — control version" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Variant 6</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="IQOS Club homepage — Variant 6 with full-bleed referral photo" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Homepage — Referral programme entry point.</b> V6 replaced the default hero with a full-bleed lifestyle photo tied to the active referral campaign, making the referral CTA the primary visual focus. Hypothesis: a contextually relevant, campaign-led hero outperforms the default brand hero at driving referral programme engagement.</p>
 
           <figure class="diagram-block reveal" aria-label="Continuous loyalty hook loop — four phases">
             <div class="diagram-wrap">
@@ -206,6 +271,28 @@
             <figcaption>The behavioral lever depends on the loyalty goal. CRO tests optimise the continuous hook loop — trigger, action, reward, investment — rather than isolated touchpoints.</figcaption>
           </figure>
 
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es — Recomienda</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/rec-control-desktop.webp" alt="Recomienda control — cluttered layout with 1,000 points reward" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Variant 1</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es — Recomienda</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/rec-v1-desktop.webp" alt="Recomienda V1 — cleaner layout with 500 points reward prominently framed" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Recomienda — Reward framing test.</b> The control offered 1,000 points buried in a cluttered layout. V1 reduced the reward to 500 points but redesigned the page with cleaner hierarchy and a more prominent CTA — testing whether a better-framed lower reward could outperform a higher reward presented poorly.</p>
+
           <figure class="diagram-block reveal" aria-label="Three-phase CRO methodology">
             <div class="diagram-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" style="display:block;" role="img" aria-label="Three-phase CRO cycle: Insight Generation, Hypothesis and Prioritisation, Rapid Experimentation, leading to Knowledge Library">
@@ -261,12 +348,46 @@
             <figcaption>Experiments run in a three-phase cycle. Insight quality feeds hypothesis quality; hypothesis quality determines how much learning can be extracted from limited traffic.</figcaption>
           </figure>
 
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Case 1 — 2,500+ pts</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/pers-case1-desktop.webp" alt="Personalisation Case 1 — high-balance members see Canjear puntos primary CTA" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Case 5 — &lt;500 pts</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/pers-case5-desktop.webp" alt="Personalisation Case 5 — low-balance members see earn-oriented CTAs with teal notification bar" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Personalisation — Segment-led homepage CTA.</b> Members with 2,500+ points see a "Canjear puntos" primary CTA — the natural next step for a high-balance member. Members below 500 points see earn-oriented CTAs with a teal notification bar surfacing relevant actions. Same hero; different primary intent.</p>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Outcome</span>
             <h2>Ongoing programme with measurable engagement gains</h2>
             <p>The IQOS Club engagement improved across the programme period. Specific figures are subject to client confidentiality and have not been published. The programme ran continuously throughout the Flat 101 engagement.</p>
             <p>The more durable outcome for me was methodological: running CRO at low traffic volumes sharpens your thinking about what makes a good hypothesis and what constitutes meaningful evidence. The discipline of making high-quality decisions with limited data is transferable to almost any design context.</p>
           </div>
+
+          <div class="cs-section reveal">
+            <span class="eyebrow">Scope evolution</span>
+            <h2>CRO tooling as a campaign delivery channel</h2>
+            <p>As the programme matured, something useful happened: the client began recognising VWO not just as a testing tool, but as a fast deployment channel for time-sensitive campaign assets. Because VWO variants could go live without a development sprint, it became the preferred path for promotional modals, campaign banners, and temporary content tied to specific launches.</p>
+            <p>This was a natural evolution. The same infrastructure that let us test UX hypotheses could push a promotional overlay to logged-in members within hours of a product launch — without touching the underlying platform. Promotional modals for device releases and loyalty campaigns became a recurring deliverable alongside the A/B pipeline.</p>
+          </div>
+
+          <div class="media-product-card reveal">
+            <img src="/assets/images/work/iqos-club-cro/popup-desktop.webp" alt="MacBook Air showing IQOS ILUMA Stardrift promotional modal on the IQOS Club portal" width="1280" height="735" loading="lazy">
+          </div>
+          <p class="media-caption reveal"><b>Promotional modal — IQOS ILUMA Stardrift launch.</b> One of several campaign modals deployed via VWO during the programme. Triggered on login for targeted member segments, timed to product availability windows. Designed, built, and deployed without a development sprint.</p>
 
         </div>
 

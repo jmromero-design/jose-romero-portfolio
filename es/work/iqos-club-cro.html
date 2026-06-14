@@ -21,6 +21,35 @@
   <link rel="stylesheet" href="/assets/css/main.css?v=16">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
   <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    .comp-browser{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface);box-shadow:0 20px 64px -20px rgba(0,0,0,.7);position:relative;z-index:1}
+    .comp-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border-default)}
+    .comp-browser-bar i{width:9px;height:9px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-browser-url{margin-left:var(--sp-3);font-size:11px;color:var(--text-tertiary);border:1px solid var(--border-default);border-radius:99px;padding:2px 12px}
+    .comp-browser-screen{overflow:hidden}
+    .comp-browser-screen img{display:block;width:100%;height:auto}
+    .cover-ab{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px}
+    .cover-ab::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:var(--bg-surface-2);right:8%;bottom:-90px;box-shadow:0 0 0 90px color-mix(in srgb,var(--teal) 16%,var(--bg-surface-2)),0 0 0 200px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 330px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .cover-ab-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
+    .cover-ab-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);text-align:center}
+    .cover-ab-col .comp-browser{flex:none;width:100%;box-shadow:0 16px 48px -16px rgba(0,0,0,.6)}
+    .media-ab-card{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-4)}
+    .media-ab-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .media-ab-col{display:flex;flex-direction:column;gap:var(--sp-3);position:relative;z-index:1}
+    .media-ab-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);text-align:center}
+    .media-ab-col .comp-browser{flex:none;width:100%;max-width:100%;box-shadow:0 8px 32px -8px rgba(0,0,0,.5)}
+    .media-product-card{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-product-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .media-product-card img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:800px}
+    .media-caption{display:flex;gap:var(--sp-3);align-items:baseline;font-size:var(--text-sm);color:var(--text-tertiary);margin-bottom:var(--sp-10)}
+    .media-caption b{color:var(--text-primary);font-weight:500}
+    @media(max-width:640px){
+      .cover-ab{padding:14px 16px;gap:8px}
+      .cover-ab-col:last-child{display:none}
+      .media-ab-card{grid-template-columns:1fr;padding:var(--sp-6) var(--sp-4)}
+      .media-product-card{padding:var(--sp-6) var(--sp-4)}
+    }
+  </style>
 </head>
 <body>
 
@@ -79,11 +108,25 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-iqos" style="position: absolute; inset: 0;" role="img" aria-label="IQOS Club CRO — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          <div class="cover-ab" role="img" aria-label="Test A/B de la homepage de IQOS Club — Control versus Variante 6 con foto de referral a pantalla completa">
+            <div class="cover-ab-col">
+              <span class="cover-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="Homepage IQOS Club — versión control" width="960" height="540" loading="eager">
+                </div>
+              </div>
             </div>
-            <span class="cover-number" aria-hidden="true">06</span>
+            <div class="cover-ab-col">
+              <span class="cover-ab-label">Variante 6</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="Homepage IQOS Club — Variante 6 con foto de referral a pantalla completa" width="960" height="540" loading="eager">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -115,6 +158,28 @@
               <p>"En un contexto de fidelización, la pregunta no es solo '¿van a convertir los usuarios?' — es '¿estamos construyendo un hábito, o solo capturando un momento?'"</p>
             </div>
           </div>
+
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="Homepage IQOS Club — versión control" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Variante 6</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="Homepage IQOS Club — Variante 6 con foto de referral a pantalla completa" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Homepage — Punto de entrada al programa de referidos.</b> V6 sustituyó el hero por defecto con una foto lifestyle a pantalla completa vinculada a la campaña de referidos activa, convirtiendo el CTA de referidos en el foco visual principal. Hipótesis: un hero contextualmente relevante orientado a campaña supera al hero de marca por defecto en la captación de participación en el programa de referidos.</p>
 
           <figure class="diagram-block reveal" aria-label="Bucle de enganche de fidelización continuo — cuatro fases">
             <div class="diagram-wrap">
@@ -175,6 +240,28 @@
             <figcaption>La palanca conductual depende del objetivo de fidelización. Los tests de CRO optimizan el bucle de enganche continuo — desencadenante, acción, recompensa, inversión — en lugar de puntos de contacto aislados.</figcaption>
           </figure>
 
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Control</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es — Recomienda</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/rec-control-desktop.webp" alt="Recomienda control — layout recargado con recompensa de 1.000 puntos" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Variante 1</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es — Recomienda</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/rec-v1-desktop.webp" alt="Recomienda V1 — layout más limpio con recompensa de 500 puntos bien enmarcada" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Recomienda — Test de encuadre de recompensa.</b> El control ofrecía 1.000 puntos enterrados en un layout recargado. V1 redujo la recompensa a 500 puntos pero rediseñó la página con jerarquía más clara y un CTA más prominente — probando si una recompensa menor mejor presentada podía superar a una recompensa mayor presentada de forma deficiente.</p>
+
           <figure class="diagram-block reveal" aria-label="Ciclo metodológico CRO de tres fases">
             <div class="diagram-wrap">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 368" width="100%" style="display:block;" role="img" aria-label="Ciclo CRO de tres fases: Generación de Insights, Hipótesis y Priorización, Experimentación Rápida, llevando a la Librería de Conocimiento">
@@ -230,12 +317,46 @@
             <figcaption>Los experimentos se ejecutan en un ciclo de tres fases. La calidad de los insights determina la calidad de las hipótesis; la calidad de las hipótesis determina cuánto aprendizaje puede extraerse con tráfico limitado.</figcaption>
           </figure>
 
+          <div class="media-ab-card reveal">
+            <div class="media-ab-col">
+              <span class="media-ab-label">Caso 1 — 2.500+ pts</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/pers-case1-desktop.webp" alt="Personalización Caso 1 — miembros con saldo alto ven CTA principal Canjear puntos" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+            <div class="media-ab-col">
+              <span class="media-ab-label">Caso 5 — &lt;500 pts</span>
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">iqosclub.es</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/iqos-club-cro/pers-case5-desktop.webp" alt="Personalización Caso 5 — miembros con saldo bajo ven CTAs orientados a ganar puntos con barra de notificación teal" width="960" height="540" loading="lazy">
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Personalización — CTA de homepage por segmento.</b> Los miembros con más de 2.500 puntos ven un CTA principal de "Canjear puntos" — el siguiente paso natural para un miembro activo con saldo alto. Los miembros por debajo de 500 puntos ven CTAs orientados a ganar puntos con una barra de notificación teal que muestra acciones relevantes. Mismo hero; intención principal diferente.</p>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Resultado</span>
             <h2>Programa continuo con mejoras de engagement medibles</h2>
             <p>El engagement de IQOS Club mejoró durante el período del programa. Las cifras específicas están sujetas a confidencialidad del cliente y no se han publicado. El programa se ejecutó de forma continua durante todo el encargo de Flat 101.</p>
             <p>El resultado más duradero para mí fue metodológico: ejecutar CRO con volúmenes de tráfico bajos agudiza tu pensamiento sobre qué hace buena a una hipótesis y qué constituye evidencia significativa. La disciplina de tomar decisiones de alta calidad con datos limitados es transferible a casi cualquier contexto de diseño.</p>
           </div>
+
+          <div class="cs-section reveal">
+            <span class="eyebrow">Evolución del alcance</span>
+            <h2>Las herramientas de CRO como canal de entrega de campañas</h2>
+            <p>A medida que el programa maduraba, ocurrió algo útil: el cliente comenzó a reconocer VWO no solo como herramienta de testing, sino como un canal de despliegue rápido para activos de campaña con plazos ajustados. Como las variantes de VWO podían publicarse sin necesitar un sprint de desarrollo, se convirtió en la vía preferida para modales promocionales, banners de campaña y contenido temporal vinculado a lanzamientos concretos.</p>
+            <p>Fue una evolución natural. La misma infraestructura que nos permitía testear hipótesis de UX podía publicar un overlay promocional para miembros logueados en cuestión de horas tras el lanzamiento de un producto — sin tocar la plataforma subyacente. Los modales promocionales para lanzamientos de dispositivos y campañas de fidelización se convirtieron en un entregable recurrente junto al pipeline de A/B.</p>
+          </div>
+
+          <div class="media-product-card reveal">
+            <img src="/assets/images/work/iqos-club-cro/popup-desktop.webp" alt="MacBook Air mostrando el modal promocional de IQOS ILUMA Stardrift en el portal IQOS Club" width="1280" height="735" loading="lazy">
+          </div>
+          <p class="media-caption reveal"><b>Modal promocional — Lanzamiento IQOS ILUMA Stardrift.</b> Uno de varios modales de campaña desplegados vía VWO durante el programa. Activado al inicio de sesión para segmentos de miembros específicos, sincronizado con las ventanas de disponibilidad del producto. Diseñado, construido y desplegado sin necesitar un sprint de desarrollo.</p>
 
         </div>
       </div>
