@@ -36,6 +36,26 @@
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-digital-expansion/">
   <!-- Language detection -->
   <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    .cover-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:24px;padding:18px 36px}
+    .cover-comp::before{content:'';position:absolute;width:240px;height:240px;border-radius:50%;background:var(--bg-surface-2);right:14%;bottom:-90px;box-shadow:0 0 0 95px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 210px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 340px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .comp-browser{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface);box-shadow:0 20px 64px -20px rgba(0,0,0,0.7);flex:1;max-width:500px;align-self:center;position:relative;z-index:1}
+    .comp-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border-default)}
+    .comp-browser-bar i{width:9px;height:9px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-browser-url{margin-left:var(--sp-3);font-size:11px;color:var(--text-tertiary);border:1px solid var(--border-default);border-radius:99px;padding:2px 12px}
+    .comp-browser-screen{overflow:hidden}
+    .comp-browser-screen img{display:block;width:100%}
+    .comp-phones{display:flex;gap:14px;align-items:flex-start;flex-shrink:0;position:relative;z-index:1}
+    .comp-phone{width:148px;border:1px solid var(--border-strong);border-radius:24px;padding:5px;background:var(--bg-surface);box-shadow:0 16px 48px -16px rgba(0,0,0,0.6);flex-shrink:0}
+    .comp-phone img{display:block;width:100%;border-radius:19px}
+    .comp-phone:nth-child(2){margin-top:40px}
+    .media-browser-card{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6) 0;margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-browser-card::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 18%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .media-browser-card .comp-browser{max-width:100%;flex:none;width:100%;align-self:flex-end;position:relative;z-index:1;box-shadow:0 -4px 20px -4px rgba(0,0,0,0.3),0 20px 60px -20px rgba(0,0,0,0.6)}
+    .media-caption{display:flex;gap:var(--sp-3);align-items:baseline;font-size:var(--text-sm);color:var(--text-tertiary);margin-bottom:var(--sp-10)}
+    .media-caption b{color:var(--text-primary);font-weight:500}
+    @media(max-width:640px){.cover-comp{padding:14px 16px;gap:10px}.comp-phone{width:100px;border-radius:18px;padding:4px}.comp-phone img{border-radius:14px}.media-browser-card{padding:var(--sp-6) var(--sp-4) 0}}
+  </style>
 </head>
 <body>
 
@@ -117,11 +137,24 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-mapfre" style="position: absolute; inset: 0;" role="img" aria-label="Mapfre Digital Expansion — project cover">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <div class="cover-comp" role="img" aria-label="Verti Italy homepage and Mapfre Offices finder — two of the three core programmes in this engagement">
+            <div class="comp-browser">
+              <div class="comp-browser-bar">
+                <i></i><i></i><i></i>
+                <span class="comp-browser-url">verti.it</span>
+              </div>
+              <div class="comp-browser-screen">
+                <img src="/assets/images/work/mapfre-digital-expansion/verti-home-desktop.webp" alt="Verti Italy homepage — insurance quote widget and hero" width="1440" height="860" loading="eager">
+              </div>
             </div>
-            <span class="cover-number" aria-hidden="true">05</span>
+            <div class="comp-phones">
+              <div class="comp-phone">
+                <img src="/assets/images/work/mapfre-digital-expansion/verti-home-mobile.webp" alt="Verti mobile — insurance quote entry" width="375" height="812" loading="eager">
+              </div>
+              <div class="comp-phone">
+                <img src="/assets/images/work/mapfre-digital-expansion/offices-mobile.webp" alt="Mapfre offices — São Paulo results" width="375" height="812" loading="lazy">
+              </div>
+            </div>
           </div>
         </div>
 
@@ -217,12 +250,38 @@
             <p>The shared design system became the operational foundation: components, interaction patterns, and conversion flows consistent across markets, defined once and adapted at the surface layer. For a brand like Verti — which has its own strong visual identity within the Mapfre family — this required careful work at the boundary between the Mapfre corporate system and Verti's own aesthetic. The goal was not uniformity; it was coherence without flattening the brand.</p>
           </div>
 
+          <div class="media-browser-card reveal">
+            <div class="comp-browser">
+              <div class="comp-browser-bar">
+                <i></i><i></i><i></i>
+                <span class="comp-browser-url">preventivo.verti.it — La tua polizza auto</span>
+              </div>
+              <div class="comp-browser-screen">
+                <img src="/assets/images/work/mapfre-digital-expansion/verti-funnel-desktop.webp" alt="Verti self-service insurance funnel — policy data entry form" width="1440" height="860" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Verti Italia — Self-service funnel.</b> The first step of the prospecting flow, redesigned as part of the Verti platform convergence — policy type, vehicle details, and CTA in a single, uncluttered entry point.</p>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Offices &amp; Agents Directory</span>
             <h2>A public-facing feature for international markets</h2>
             <p>Alongside the Verti platform work, I designed a public-facing product feature for Mapfre Internacional: an Insurance Offices &amp; Agents Directory enabling users to find nearby Mapfre offices and registered insurance agents. The feature comprised three interconnected components: an interactive map, a filterable directory listing, and individual profile pages per office and per agent.</p>
             <p>Initial deployment covered Brazil, Peru, and Nicaragua, with a structured rollout to additional markets underway at the point of handover. Multi-market deployment required careful consideration of localisation beyond language: address format conventions, map provider integration per territory, regulatory requirements for displaying licensed agent information in each country, and country-specific page structures for local compliance.</p>
           </div>
+
+          <div class="media-browser-card reveal">
+            <div class="comp-browser">
+              <div class="comp-browser-bar">
+                <i></i><i></i><i></i>
+                <span class="comp-browser-url">mapfre.com.br — Oficinas Referenciadas</span>
+              </div>
+              <div class="comp-browser-screen">
+                <img src="/assets/images/work/mapfre-digital-expansion/offices-desktop.webp" alt="Mapfre Brasil — Offices & Agents Directory with São Paulo map and office listings" width="1440" height="860" loading="lazy">
+              </div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Insurance Offices Directory — Brazil.</b> Interactive map with clustered markers across São Paulo. Filterable directory, office listings, and individual agent profile pages — deployed across Brazil, Peru, and Nicaragua.</p>
 
           <figure class="diagram-block reveal" aria-label="Mapfre Internacional — multi-workstream engagement scope">
             <div class="diagram-wrap">
