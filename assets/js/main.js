@@ -1,9 +1,25 @@
 /* ============================================================
-   JOSE ROMERO DESIGN — MAIN SCRIPT v2.0
+   JOSE ROMERO DESIGN — MAIN SCRIPT v2.1
    ============================================================ */
 
 (function () {
   'use strict';
+
+  /* ----------------------------------------------------------
+     INLINE SVG ICONS (replaces Lucide dependency)
+     ---------------------------------------------------------- */
+  const SVG_NS = 'http://www.w3.org/2000/svg';
+  const ICON_PATHS = {
+    sun:           '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
+    moon:          '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
+    'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+    'chevron-right':'<path d="m9 18 6-6-6-6"/>',
+    'external-link':'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
+  };
+
+  function icon(name, cls) {
+    return `<svg xmlns="${SVG_NS}" class="${cls || 'icon'}" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">${ICON_PATHS[name]}</svg>`;
+  }
 
   /* ----------------------------------------------------------
      1. THEME — dark/light toggle with localStorage persistence
@@ -24,12 +40,10 @@
     const isDark = html.getAttribute('data-theme') !== 'light' &&
       !(window.matchMedia('(prefers-color-scheme: light)').matches && !html.getAttribute('data-theme'));
     toggles.forEach(t => {
-      const iconName = isDark ? 'sun' : 'moon';
       const label = isDark ? 'Switch to light mode' : 'Switch to dark mode';
-      t.innerHTML = `<i data-lucide="${iconName}" class="icon"></i>`;
+      t.innerHTML = icon(isDark ? 'sun' : 'moon');
       t.title = label;
       t.setAttribute('aria-label', label);
-      if (window.lucide) lucide.createIcons({ nodes: [t] });
     });
   }
 
@@ -227,47 +241,34 @@
   });
 
   /* ----------------------------------------------------------
-     9. LUCIDE ICONS — load and auto-replace arrow/chevron patterns
+     9. INLINE ICONS — replace arrow/chevron/external patterns
      ---------------------------------------------------------- */
-  (function loadIcons() {
-    const script = document.createElement('script');
-    script.src = '/assets/js/lucide.min.js';
-    script.defer = true;
-    script.onload = function () {
-      if (!window.lucide) return;
+  (function applyIcons() {
+    // Replace .arrow text spans with arrow-right icon
+    document.querySelectorAll('.arrow').forEach(el => {
+      el.innerHTML = icon('arrow-right');
+    });
 
-      // Replace .arrow text spans with arrow-right icon
-      document.querySelectorAll('.arrow').forEach(el => {
-        el.innerHTML = '<i data-lucide="arrow-right" class="icon"></i>';
-      });
+    // Replace card-footer inline arrow spans
+    document.querySelectorAll('.card-footer span').forEach(el => {
+      if (el.textContent.trim() === '→') {
+        el.innerHTML = icon('arrow-right');
+      }
+    });
 
-      // Replace card-footer inline arrow spans
-      document.querySelectorAll('.card-footer span').forEach(el => {
-        if (el.textContent.trim() === '→') {
-          el.innerHTML = '<i data-lucide="arrow-right" class="icon"></i>';
-        }
-      });
+    // Replace breadcrumb → separators with chevron-right
+    document.querySelectorAll('.breadcrumb span').forEach(el => {
+      if (el.textContent.trim() === '→') {
+        el.innerHTML = icon('chevron-right', 'icon icon--xs');
+      }
+    });
 
-      // Replace breadcrumb → separators with chevron-right
-      document.querySelectorAll('.breadcrumb span').forEach(el => {
-        if (el.textContent.trim() === '→') {
-          el.innerHTML = '<i data-lucide="chevron-right" class="icon icon--xs"></i>';
-        }
-      });
-
-      // Add external-link icon to all external links (footer, nav, etc.)
-      document.querySelectorAll('a[target="_blank"]').forEach(el => {
-        if (!el.querySelector('[data-lucide]') && !el.querySelector('img')) {
-          el.insertAdjacentHTML('beforeend', '<i data-lucide="external-link" class="icon icon--xs" style="margin-left:0.25em;opacity:0.7;"></i>');
-        }
-      });
-
-      lucide.createIcons();
-
-      // Re-render theme toggle now that Lucide is available
-      updateToggleIcon();
-    };
-    document.head.appendChild(script);
+    // Add external-link icon to all external links
+    document.querySelectorAll('a[target="_blank"]').forEach(el => {
+      if (!el.querySelector('svg') && !el.querySelector('img')) {
+        el.insertAdjacentHTML('beforeend', `<span style="margin-left:0.25em;opacity:0.7;">${icon('external-link', 'icon icon--xs')}</span>`);
+      }
+    });
   })();
 
 })();
