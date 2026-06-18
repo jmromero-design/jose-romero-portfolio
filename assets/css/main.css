@@ -49,7 +49,7 @@
   /* Text */
   --text-primary:     #F2EEE6;
   --text-secondary:   #D4CFC6;
-  --text-tertiary:    #5C5955;
+  --text-tertiary:    #84817D;
   --text-inverse:     #090908;
 
   /* Gold — amber, interactive elements only */
@@ -131,7 +131,7 @@
 
   --text-primary:     #1A1917;
   --text-secondary:   #2E2B28;
-  --text-tertiary:    #8A8680;
+  --text-tertiary:    #6B6864;
   --text-inverse:     #F7F4EF;
 
   /* Gold — darker for contrast on light backgrounds */
@@ -162,7 +162,7 @@
     --border-strong:    #B0ABA2;
     --text-primary:     #1A1917;
     --text-secondary:   #2E2B28;
-    --text-tertiary:    #8A8680;
+    --text-tertiary:    #6B6864;
     --text-inverse:     #F7F4EF;
     --gold:             #B85520;
     --gold-bright:      #D06030;
@@ -1656,6 +1656,25 @@ strong { font-weight: 500; color: var(--text-primary); }
 /* ------------------------------------------------------------
    22. ACCESSIBILITY
    ------------------------------------------------------------ */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-4);
+  z-index: 9999;
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--teal);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.1s;
+}
+.skip-nav:focus {
+  top: var(--sp-4);
+}
+
 :focus-visible {
   outline: 2px solid var(--teal);
   outline-offset: 3px;
