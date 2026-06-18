@@ -974,7 +974,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .mini-list {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: var(--sp-4);
 }
 
 .mini-row {
