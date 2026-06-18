@@ -50,7 +50,7 @@ Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
 
 ## Earlier experience
 - Design Director / Founder, independent studio, Havana Cuba (2013–2019):
-  120+ projects across identity, print, video, digital, and campaigns.
+  120+ projects across branding, print, video, digital, and campaigns.
 - UI Design Professor, ISDi / Universidad de La Habana (2018–2021).
 
 ## Key capabilities
@@ -62,38 +62,25 @@ facilitation, enterprise stakeholder management, multi-market localisation,
 bilingual design documentation (EN/ES).
 
 ## Portfolio — full case studies
-Site: joseromerodesign.com
+Site: [joseromerodesign.com](https://joseromerodesign.com/)
 
 Featured case studies (10):
-01. IKEA Home Services — product design, marketplace, mobile
-    /work/ikea-home-services/
-02. IKEA Second-hand Marketplace — product design, circular commerce, multi-market
-    /work/ikea-secondhand-marketplace/
-03. Santander Nordics — CRO Programme — banking, multi-market, legally constrained testing
-    /work/santander-nordics-cro/
-04. Meliá Hotels — Campaign Management Platform — zero-to-one, hospitality, web application
-    /work/melia-hotels-campaign-platform/
-05. Mapfre — AFIN Financial App — FinTech, mobile, progressive disclosure IA
-    /work/mapfre-afin-digital-expansion/
-06. Mapfre — Digital Expansion — Verti redesign, Latin America, design system, CRO
-    /work/mapfre-digital-expansion/
-07. IQOS Club Spain — CRO Programme — loyalty, behavioural economics, low-traffic testing
-    /work/iqos-club-cro/
-08. XTI Store — E-commerce Redesign — fashion, Magento constraints, behavioural data
-    /work/xti-ecommerce-redesign/
-09. IKEA — Ways of Working System — design operations, process design, Phrase localisation
-    /work/ikea-ways-of-working/
-10. AI Workflow Design Framework — multi-agent orchestration, process architecture, facilitation
-    /work/ai-workflow-framework/
+01. [IKEA Home Services](https://joseromerodesign.com/work/ikea-home-services/) — product design, marketplace, mobile
+02. [IKEA Second-hand Marketplace](https://joseromerodesign.com/work/ikea-secondhand-marketplace/) — product design, circular commerce, multi-market
+03. [Santander Nordics — CRO Programme](https://joseromerodesign.com/work/santander-nordics-cro/) — banking, multi-market, legally constrained testing
+04. [Meliá Hotels — Campaign Management Platform](https://joseromerodesign.com/work/melia-hotels-campaign-platform/) — zero-to-one, hospitality, web application
+05. [Mapfre — AFIN Financial App](https://joseromerodesign.com/work/mapfre-afin-digital-expansion/) — FinTech, mobile, progressive disclosure IA
+06. [Mapfre — Digital Expansion](https://joseromerodesign.com/work/mapfre-digital-expansion/) — Verti redesign, Latin America, design system, CRO
+07. [IQOS Club Spain — CRO Programme](https://joseromerodesign.com/work/iqos-club-cro/) — loyalty, behavioural economics, low-traffic testing
+08. [XTI Store — E-commerce Redesign](https://joseromerodesign.com/work/xti-ecommerce-redesign/) — fashion, Magento constraints, behavioural data
+09. [IKEA — Ways of Working System](https://joseromerodesign.com/work/ikea-ways-of-working/) — design operations, process design, Phrase localisation
+10. [AI Workflow Design Framework](https://joseromerodesign.com/work/ai-workflow-framework/) — multi-agent orchestration, process architecture, facilitation
 
 Long-form thinking pieces:
-- Designing with AI — A Framework for Human-Led, Agent-Assisted Product Design
-  Full framework article: 3-tier agent architecture, 5-phase workflow, checkpoints, drift, facilitation
-  /thinking/ai-workflow-framework/
-- Empathy as a strategic tool, Behavioral decisions, Process that survives people, AI and the ratio of thinking
-  /thinking/
+- [Designing with AI — A Framework for Human-Led, Agent-Assisted Product Design](https://joseromerodesign.com/thinking/ai-workflow-framework/) — full framework article: 3-tier agent architecture, 5-phase workflow, checkpoints, drift, facilitation
+- [Thinking](https://joseromerodesign.com/thinking/) — empathy as a strategic tool, behavioural decisions, process that survives people, AI and the ratio of thinking
 
-Shorter engagements listed on /work/:
+Shorter engagements listed on [/work/](https://joseromerodesign.com/work/):
 - Mutua Madrileña — CRO (+41% leads)
 - AXA Spain — CRO (+18% insurance contracts)
 - Bankinter
@@ -103,6 +90,10 @@ Shorter engagements listed on /work/:
 - MD Staff Solutions
 - MEKCO Group Aviation
 
+## Other pages
+- [About](https://joseromerodesign.com/about/) — background, approach, CV download
+- [Work index](https://joseromerodesign.com/work/) — all case studies
+
 ## Contact
-LinkedIn: linkedin.com/in/joseromerodesign
+LinkedIn: [linkedin.com/in/joseromerodesign](https://www.linkedin.com/in/joseromerodesign)
 Email: joseromero.next@gmail.com
