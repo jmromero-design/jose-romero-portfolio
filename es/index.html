@@ -208,10 +208,6 @@
 
     <section class="section--logos" aria-label="Clientes">
       <div class="container">
-        <div class="logos-header">
-          <p class="logos-context">Una selección de clientes con los que he trabajado directamente o a través de agencias.<br>La mayoría de los proyectos están bajo NDA — <strong>la metodología y las decisiones siempre puedo compartirlas.</strong></p>
-          <span class="logos-count"><em>35+</em> clientes</span>
-        </div>
         <div class="logos-track">
           <img src="/assets/images/ikea-logo.svg" alt="IKEA" class="client-logo">
           <img src="/assets/images/santander-logo.svg" alt="Santander" class="client-logo">
@@ -219,6 +215,10 @@
           <img src="/assets/images/mapfre-logo.svg" alt="Mapfre" class="client-logo">
           <img src="/assets/images/iqos-logo.svg" alt="IQOS" class="client-logo">
           <img src="/assets/images/axa-logo.svg" alt="AXA" class="client-logo">
+        </div>
+        <div class="logos-header">
+          <p class="logos-context">Una selección de clientes con los que he trabajado directamente o a través de agencias.<br>La mayoría de los proyectos están bajo NDA — <strong>la metodología y las decisiones siempre puedo compartirlas.</strong></p>
+          <span class="logos-count"><em>35+</em> clientes</span>
         </div>
       </div>
     </section>
@@ -332,37 +332,53 @@
             <h3 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300;">Otros proyectos seleccionados</h3>
             <span style="font-size: var(--text-sm); color: var(--text-secondary);">Proyectos adicionales en Flat 101</span>
           </div>
-          <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--sp-6);">
-            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <div style="display: flex; gap: var(--sp-2);"><span class="tag">Seguros</span><span class="tag">CRO</span></div>
-              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Mutua Madrileña</h4>
-              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Programa de optimización y rediseño en curso.</p>
-              <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+41% incremento de leads</div>
+          <div class="mini-list">
+
+            <div class="mini-row">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Mutua Madrileña</span>
+                <div class="mini-row-tags"><span class="tag">Seguros</span><span class="tag">CRO</span></div>
+              </div>
+              <p class="mini-row-desc">Programa de optimización y rediseño en curso.</p>
+              <span class="mini-row-metric">+41% incremento de leads</span>
             </div>
-            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <div style="display: flex; gap: var(--sp-2);"><span class="tag">Seguros</span><span class="tag">CRO</span></div>
-              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">AXA España</h4>
-              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Estrategia de conversión en múltiples líneas de producto.</p>
-              <div style="font-size: var(--text-xs); color: var(--teal); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">+18% contratos de seguros</div>
+
+            <div class="mini-row">
+              <div class="mini-row-head">
+                <span class="mini-row-name">AXA España</span>
+                <div class="mini-row-tags"><span class="tag">Seguros</span><span class="tag">CRO</span></div>
+              </div>
+              <p class="mini-row-desc">Estrategia de conversión en múltiples líneas de producto.</p>
+              <span class="mini-row-metric">+18% contratos de seguros</span>
             </div>
-            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <div style="display: flex; gap: var(--sp-2);"><span class="tag">Banca</span><span class="tag">Auditoría</span></div>
-              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Bankinter</h4>
-              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Auditoría completa de experiencia y conversión.</p>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Resultados bajo NDA</div>
+
+            <div class="mini-row">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Bankinter</span>
+                <div class="mini-row-tags"><span class="tag">Banca</span><span class="tag">Auditoría</span></div>
+              </div>
+              <p class="mini-row-desc">Auditoría completa de experiencia y conversión.</p>
+              <span class="mini-row-metric mini-row-metric--nda">Resultados bajo NDA</span>
             </div>
-            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <div style="display: flex; gap: var(--sp-2);"><span class="tag">Automoción</span><span class="tag">Auditoría</span></div>
-              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Subaru España</h4>
-              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Análisis conductual y estructural del sitio.</p>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Resultados bajo NDA</div>
+
+            <div class="mini-row">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Subaru España</span>
+                <div class="mini-row-tags"><span class="tag">Automoción</span><span class="tag">Auditoría</span></div>
+              </div>
+              <p class="mini-row-desc">Análisis conductual y estructural del sitio.</p>
+              <span class="mini-row-metric mini-row-metric--nda">Resultados bajo NDA</span>
             </div>
-            <div style="background: var(--bg-surface); padding: var(--sp-6); border-radius: var(--radius-md); border: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <div style="display: flex; gap: var(--sp-2);"><span class="tag">Mascotas</span><span class="tag">CRO</span></div>
-              <h4 style="font-size: var(--text-lg); margin: 0; line-height: 1.4;">Affinity Petcare</h4>
-              <p style="color: var(--text-secondary); margin: 0; flex: 1;">Programa de optimización de conversión e-commerce en curso.</p>
-              <div style="font-size: var(--text-xs); color: var(--text-tertiary); font-weight: 500; margin-top: auto; padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Resultados bajo NDA</div>
+
+            <div class="mini-row">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Affinity Petcare</span>
+                <div class="mini-row-tags"><span class="tag">Mascotas</span><span class="tag">CRO</span></div>
+              </div>
+              <p class="mini-row-desc">Programa de optimización de conversión e-commerce en curso.</p>
+              <span class="mini-row-metric mini-row-metric--nda">Resultados bajo NDA</span>
             </div>
+
           </div>
           <p style="font-size: var(--text-xs); color: var(--text-tertiary); margin-top: var(--sp-8); text-align: right;">
             Datos publicados por Flat 101. Mi rol fue como parte del equipo de proyecto.
@@ -370,7 +386,7 @@
         </div>
 
         <div class="reveal" style="margin-top: var(--sp-10); text-align: center;">
-          <a href="/es/work/" class="btn btn-ghost">
+          <a href="/es/work/" class="btn btn-primary">
             Ver índice completo de trabajo <span class="arrow">→</span>
           </a>
         </div>
