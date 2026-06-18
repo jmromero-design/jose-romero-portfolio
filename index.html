@@ -339,39 +339,40 @@
           <p>Three featured case studies — different brands, different problem types, different scales. Full work index below.</p>
         </div>
 
-        <!-- Featured projects grid — editorial 1+2 layout -->
-        <div class="grid-featured">
+        <!-- Featured work — hero row + pair -->
 
-          <!-- IKEA Home Services — main (large, left) -->
-          <article class="card card--main card--image-led reveal">
-            <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
-              <div class="card-image">
-                <div class="cover-placeholder" role="img" aria-label="IKEA Home Services project cover">
-                  <div class="cover-visual">
-                    <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                  </div>
+        <!-- IKEA Home Services — full-width hero row: content left, image right -->
+        <article class="card card--hero-row card--image-led reveal">
+          <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
+            <div class="card-body">
+              <div class="card-top">
+                <span class="card-number">01</span>
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Marketplace</span>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="card-top">
-                  <span class="card-number">01</span>
-                  <div class="card-tags">
-                    <span class="tag tag--gold">IKEA · Current</span>
-                    <span class="tag">Product Design</span>
-                    <span class="tag">Marketplace</span>
-                  </div>
-                </div>
-                <h3 class="card-title">IKEA Home Services</h3>
-                <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
-                <div class="card-footer">
-                  <span class="card-client">Garaje de Ideas × IKEA</span>
-                  <span class="arrow">→</span>
+              <h3 class="card-title">IKEA Home Services</h3>
+              <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
+              <div class="card-footer">
+                <span class="card-client">Garaje de Ideas × IKEA</span>
+                <span class="arrow">→</span>
+              </div>
+            </div>
+            <div class="card-image">
+              <div class="cover-placeholder" role="img" aria-label="IKEA Home Services project cover">
+                <div class="cover-visual">
+                  <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 </div>
               </div>
-            </a>
-          </article>
+            </div>
+          </a>
+        </article>
 
-          <!-- Meliá Hotels — side top -->
+        <!-- Meliá + Santander — two equal columns -->
+        <div class="grid-featured-pair">
+
           <article class="card card--image-led reveal">
             <a href="/work/melia-hotels-campaign-platform/" aria-label="View Meliá Hotels case study" style="display:contents;">
               <div class="card-image">
@@ -400,7 +401,6 @@
             </a>
           </article>
 
-          <!-- Santander Nordics — side bottom -->
           <article class="card card--image-led reveal">
             <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
               <div class="card-image">
@@ -551,29 +551,36 @@
          THINKING TEASER
     ══════════════════════════════════════════ -->
     <section class="section" aria-labelledby="thinking-heading" style="border-top: 1px solid var(--border-default);">
-      <div class="container container--narrow">
-        <div class="reveal">
-          <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Thinking</span>
-        </div>
-        <blockquote class="thinking-quote reveal">
-          "Most design decisions are behavioral decisions.<br>Treat them that way."
-        </blockquote>
-        <div class="thinking-topics reveal">
-          <span class="thinking-topic">Empathy as a strategic tool</span>
-          <span class="thinking-topic">Behavioral economics in design</span>
-          <span class="thinking-topic">Systems that survive people</span>
-          <span class="thinking-topic">Designing with AI</span>
-        </div>
-        <div class="reveal">
-          <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
-            How I approach<br><em class="accent-italic">the work.</em>
-          </h2>
-          <p style="margin-bottom: var(--sp-8); max-width: 52ch;">
-            A few core ideas I keep coming back to — drawn from 12 years of project work across enterprise digital products, CRO, and team leadership. Not a blog. Just positions.
-          </p>
-          <a href="/thinking/" class="btn btn-ghost">
-            Read my approach <span class="arrow">→</span>
-          </a>
+      <div class="container">
+        <div class="thinking-home-grid">
+
+          <!-- Left column — heading, description, CTA -->
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Thinking</span>
+            <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
+              How I approach<br><em class="accent-italic">the work.</em>
+            </h2>
+            <p style="margin-bottom: var(--sp-8); max-width: 46ch;">
+              A few core ideas I keep coming back to — drawn from 12 years of project work across enterprise digital products, CRO, and team leadership. Not a blog. Just positions.
+            </p>
+            <a href="/thinking/" class="btn btn-ghost">
+              Read my approach <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Right column — quote + topics -->
+          <div class="reveal">
+            <blockquote class="thinking-quote">
+              "Most design decisions are behavioral decisions.<br>Treat them that way."
+            </blockquote>
+            <div class="thinking-topics">
+              <span class="thinking-topic">Empathy as a strategic tool</span>
+              <span class="thinking-topic">Behavioral economics in design</span>
+              <span class="thinking-topic">Systems that survive people</span>
+              <span class="thinking-topic">Designing with AI</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

@@ -235,39 +235,40 @@
           <p>Tres casos de estudio destacados — distintas marcas, distintos tipos de problema, distintas escalas. El índice completo de trabajo, más abajo.</p>
         </div>
 
-        <!-- Grid de proyectos destacados — diseño editorial 1+2 -->
-        <div class="grid-featured">
+        <!-- Trabajo destacado — fila principal + par -->
 
-          <!-- IKEA Home Services — principal (grande, izquierda) -->
-          <article class="card card--main card--image-led reveal">
-            <a href="/es/work/ikea-home-services/" aria-label="Ver caso de estudio IKEA Home Services" style="display:contents;">
-              <div class="card-image">
-                <div class="cover-placeholder" role="img" aria-label="Portada del proyecto IKEA Home Services">
-                  <div class="cover-visual">
-                    <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-                  </div>
+        <!-- IKEA Home Services — fila a todo el ancho: contenido izquierda, imagen derecha -->
+        <article class="card card--hero-row card--image-led reveal">
+          <a href="/es/work/ikea-home-services/" aria-label="Ver caso de estudio IKEA Home Services" style="display:contents;">
+            <div class="card-body">
+              <div class="card-top">
+                <span class="card-number">01</span>
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Actual</span>
+                  <span class="tag">Diseño de Producto</span>
+                  <span class="tag">Marketplace</span>
                 </div>
               </div>
-              <div class="card-body">
-                <div class="card-top">
-                  <span class="card-number">01</span>
-                  <div class="card-tags">
-                    <span class="tag tag--gold">IKEA · Actual</span>
-                    <span class="tag">Diseño de Producto</span>
-                    <span class="tag">Marketplace</span>
-                  </div>
-                </div>
-                <h3 class="card-title">IKEA Home Services</h3>
-                <p class="card-summary">Marketplace P2P que conecta a propietarios con profesionales locales verificados en más de 50 categorías. Lanzado en Madrid en 2024, activo en siete ciudades españolas. Más de 500.000 descargas, 4.9/5 de satisfacción.</p>
-                <div class="card-footer">
-                  <span class="card-client">Garaje de Ideas × IKEA</span>
-                  <span class="arrow">→</span>
+              <h3 class="card-title">IKEA Home Services</h3>
+              <p class="card-summary">Marketplace P2P que conecta a propietarios con profesionales locales verificados en más de 50 categorías. Lanzado en Madrid en 2024, activo en siete ciudades españolas. Más de 500.000 descargas, 4.9/5 de satisfacción.</p>
+              <div class="card-footer">
+                <span class="card-client">Garaje de Ideas × IKEA</span>
+                <span class="arrow">→</span>
+              </div>
+            </div>
+            <div class="card-image">
+              <div class="cover-placeholder" role="img" aria-label="Portada del proyecto IKEA Home Services">
+                <div class="cover-visual">
+                  <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
                 </div>
               </div>
-            </a>
-          </article>
+            </div>
+          </a>
+        </article>
 
-          <!-- Meliá Hotels — lateral superior -->
+        <!-- Meliá + Santander — dos columnas iguales -->
+        <div class="grid-featured-pair">
+
           <article class="card card--image-led reveal">
             <a href="/es/work/melia-hotels-campaign-platform/" aria-label="Ver caso de estudio Meliá Hotels" style="display:contents;">
               <div class="card-image">
@@ -296,7 +297,6 @@
             </a>
           </article>
 
-          <!-- Santander Nordics — lateral inferior -->
           <article class="card card--image-led reveal">
             <a href="/es/work/santander-nordics-cro/" aria-label="Ver caso de estudio Santander Nordics CRO" style="display:contents;">
               <div class="card-image">
@@ -412,29 +412,36 @@
     </section>
 
     <section class="section" aria-labelledby="thinking-heading" style="border-top: 1px solid var(--border-default);">
-      <div class="container container--narrow">
-        <div class="reveal">
-          <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Reflexiones</span>
-        </div>
-        <blockquote class="thinking-quote reveal">
-          "La mayoría de las decisiones de diseño son decisiones de comportamiento.<br>Trátalas como tal."
-        </blockquote>
-        <div class="thinking-topics reveal">
-          <span class="thinking-topic">La empatía como herramienta estratégica</span>
-          <span class="thinking-topic">Economía conductual en el diseño</span>
-          <span class="thinking-topic">Sistemas que sobreviven a las personas</span>
-          <span class="thinking-topic">Diseñar con IA</span>
-        </div>
-        <div class="reveal">
-          <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
-            Cómo enfoco<br><em class="accent-italic">el trabajo.</em>
-          </h2>
-          <p style="margin-bottom: var(--sp-8); max-width: 52ch;">
-            Algunas ideas fundamentales a las que sigo volviendo — extraídas de 12 años de trabajo en productos digitales empresariales, CRO y liderazgo de equipos. No es un blog. Solo posiciones.
-          </p>
-          <a href="/es/thinking/" class="btn btn-ghost">
-            Leer mi enfoque <span class="arrow">→</span>
-          </a>
+      <div class="container">
+        <div class="thinking-home-grid">
+
+          <!-- Columna izquierda — título, descripción, CTA -->
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Reflexiones</span>
+            <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
+              Cómo enfoco<br><em class="accent-italic">el trabajo.</em>
+            </h2>
+            <p style="margin-bottom: var(--sp-8); max-width: 46ch;">
+              Algunas ideas fundamentales a las que sigo volviendo — extraídas de 12 años de trabajo en productos digitales empresariales, CRO y liderazgo de equipos. No es un blog. Solo posiciones.
+            </p>
+            <a href="/es/thinking/" class="btn btn-ghost">
+              Leer mi enfoque <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <!-- Columna derecha — cita + temas -->
+          <div class="reveal">
+            <blockquote class="thinking-quote">
+              "La mayoría de las decisiones de diseño son decisiones de comportamiento.<br>Trátalas como tal."
+            </blockquote>
+            <div class="thinking-topics">
+              <span class="thinking-topic">La empatía como herramienta estratégica</span>
+              <span class="thinking-topic">Economía conductual en el diseño</span>
+              <span class="thinking-topic">Sistemas que sobreviven a las personas</span>
+              <span class="thinking-topic">Diseñar con IA</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
