@@ -884,6 +884,38 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 /* ------------------------------------------------------------
+   10b. FEATURED EDITORIAL GRID (homepage 1+2 layout)
+   ------------------------------------------------------------ */
+.grid-featured {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--sp-6);
+}
+
+.card--main {
+  grid-row: 1 / 3;
+}
+
+.card--image-led .card-image {
+  border-top: none;
+  border-bottom: 1px solid var(--border-default);
+}
+
+.card--main .card-image {
+  aspect-ratio: 3/2;
+}
+
+@media (max-width: 900px) {
+  .grid-featured {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .card--main { grid-row: auto; }
+  .card--main .card-image { aspect-ratio: 16/9; }
+}
+
+/* ------------------------------------------------------------
    11. PROJECT COVER PLACEHOLDERS
    Concentric-circle system — measurements from Pencil spec (576×324 canvas)
    ------------------------------------------------------------ */
