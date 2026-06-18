@@ -24,29 +24,37 @@
       position: absolute; inset: 0;
       background: var(--bg-surface);
       overflow: hidden;
-      display: flex; align-items: center; justify-content: center;
-      gap: 22px; padding: 18px 36px;
     }
     .cover-comp::before {
       content: '';
-      position: absolute; width: 240px; height: 240px;
+      position: absolute; width: 260px; height: 260px;
       border-radius: 50%; background: var(--bg-surface-2);
-      right: 13%; bottom: -90px;
+      left: 50%; transform: translateX(-50%); bottom: -150px;
       box-shadow:
         0 0 0 95px  color-mix(in srgb, var(--teal) 18%, var(--bg-surface-2)),
         0 0 0 210px color-mix(in srgb, var(--teal)  8%, var(--bg-surface-2)),
         0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
       pointer-events: none;
     }
+    /* C2 — large upright hero phone flanked by two; all bleed past the bottom */
     .comp-phone {
-      width: 150px; border: 1px solid var(--border-strong); border-radius: 24px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
-      flex-shrink: 0; position: relative; z-index: 1;
+      position: absolute;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 6px; background: var(--bg-surface);
+      box-shadow: 0 28px 64px -22px rgba(0,0,0,0.72);
     }
-    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
-    .comp-phone:nth-child(1) { margin-top: 56px; }
-    .comp-phone:nth-child(3) { margin-top: 56px; }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+    .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
+    .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
+    .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
+
+    @media (max-width: 640px) {
+      .comp-phone--left   { width: 30%; left: 6%;  top: 30%; }
+      .comp-phone--center { width: 36%; left: 32%; top: 16%; }
+      .comp-phone--right  { width: 30%; right: 6%; top: 30%; }
+      .comp-phone { border-radius: 18px; padding: 4px; }
+      .comp-phone img { border-radius: 14px; }
+    }
 
     /* Phone gallery rows in the body */
     .shot-row {
@@ -82,10 +90,6 @@
     .media-annot-note p { font-size: var(--text-sm); color: var(--text-secondary); max-width: 38ch; margin: 0; }
 
     @media (max-width: 640px) {
-      .cover-comp { gap: 12px; padding: 14px 16px; }
-      .comp-phone { width: 104px; border-radius: 18px; padding: 4px; }
-      .comp-phone img { border-radius: 14px; }
-      .comp-phone:nth-child(1), .comp-phone:nth-child(3) { margin-top: 32px; }
       .shot-phone { width: 150px; }
       .media-annotated { grid-template-columns: 1fr; }
       .media-annotated .shot-phone { width: 180px; justify-self: center; }
@@ -150,9 +154,9 @@
 
         <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="App de IKEA Home Services — pantalla de inicio, categorías de servicio y página de detalle de servicio">
-            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
-            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
-            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--right"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
           </div>
         </div>
 
