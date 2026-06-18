@@ -2,8 +2,27 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.joseromerodesign.com" }],
+      "destination": "https://joseromerodesign.com/:path*",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "page_id" }],
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/",
+      "has": [{ "type": "query", "key": "p" }],
+      "destination": "/",
+      "permanent": true
+    },
     { "source": "/applied-cro-in-the-financial-sector-case-study", "destination": "/work/santander-nordics-cro/", "permanent": true },
     { "source": "/fashion-ecommerce-design-website", "destination": "/work/xti-ecommerce-redesign/", "permanent": true },
+    { "source": "/fashion-ecommerce-design-website/feed", "destination": "/work/xti-ecommerce-redesign/", "permanent": true },
     { "source": "/iqos-club-cro-success-case-study", "destination": "/work/iqos-club-cro/", "permanent": true },
     { "source": "/improving-the-digital-experience-for-a-financial-app", "destination": "/work/mapfre-afin-digital-expansion/", "permanent": true },
     { "source": "/marketing-campaign-management-platform", "destination": "/work/melia-hotels-campaign-platform/", "permanent": true },
@@ -11,7 +30,10 @@
     { "source": "/sports-betting-web-application", "destination": "/work/", "permanent": true },
     { "source": "/delivery-service-website-design", "destination": "/work/", "permanent": true },
     { "source": "/creative-agency-portfolio-website", "destination": "/work/", "permanent": true },
-    { "source": "/topics/projects", "destination": "/work/", "permanent": true }
+    { "source": "/topics/projects", "destination": "/work/", "permanent": true },
+    { "source": "/topics/projects/feed", "destination": "/work/", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/about/", "permanent": true },
+    { "source": "/cookie-policy-eu", "destination": "/", "permanent": true }
   ],
   "headers": [
     {
