@@ -2,24 +2,6 @@
   "cleanUrls": true,
   "trailingSlash": true,
   "redirects": [
-    {
-      "source": "/:path*",
-      "has": [{ "type": "host", "value": "www.joseromerodesign.com" }],
-      "destination": "https://joseromerodesign.com/:path*",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "page_id" }],
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/",
-      "has": [{ "type": "query", "key": "p" }],
-      "destination": "/",
-      "permanent": true
-    },
     { "source": "/applied-cro-in-the-financial-sector-case-study", "destination": "/work/santander-nordics-cro/", "permanent": true },
     { "source": "/fashion-ecommerce-design-website", "destination": "/work/xti-ecommerce-redesign/", "permanent": true },
     { "source": "/fashion-ecommerce-design-website/feed", "destination": "/work/xti-ecommerce-redesign/", "permanent": true },
