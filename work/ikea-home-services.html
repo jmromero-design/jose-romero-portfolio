@@ -27,6 +27,79 @@
   </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-home-services/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-home-services/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-home-services/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    /* Cover — phone trio on the teal motif */
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      gap: 22px; padding: 18px 36px;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 13%; bottom: -90px;
+      box-shadow:
+        0 0 0 95px  color-mix(in srgb, var(--teal) 18%, var(--bg-surface-2)),
+        0 0 0 210px color-mix(in srgb, var(--teal)  8%, var(--bg-surface-2)),
+        0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      width: 150px; border: 1px solid var(--border-strong); border-radius: 24px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
+    .comp-phone:nth-child(1) { margin-top: 56px; }
+    .comp-phone:nth-child(3) { margin-top: 56px; }
+
+    /* Phone gallery rows in the body */
+    .shot-row {
+      display: flex; gap: var(--sp-6); justify-content: center;
+      flex-wrap: wrap; margin-block: var(--sp-10) var(--sp-3);
+    }
+    .shot-phone {
+      width: 188px;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+    }
+    .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
+    .shot-caption {
+      display: flex; gap: var(--sp-3); align-items: baseline;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+      margin: 0 auto var(--sp-10); max-width: 640px;
+    }
+    .shot-caption b { color: var(--text-primary); font-weight: 500; }
+
+    /* Annotated single-phone feature */
+    .media-annotated {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: var(--sp-10); align-items: center;
+      max-width: 640px; margin: var(--sp-10) auto var(--sp-3);
+    }
+    .media-annotated .shot-phone { width: 200px; }
+    .media-annot-note { border-left: 2px solid var(--teal-text); padding-left: var(--sp-5); }
+    .media-annot-note .eyebrow-sm {
+      font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-text); display: block; margin-bottom: var(--sp-2);
+    }
+    .media-annot-note p { font-size: var(--text-sm); color: var(--text-secondary); max-width: 38ch; margin: 0; }
+
+    @media (max-width: 640px) {
+      .cover-comp { gap: 12px; padding: 14px 16px; }
+      .comp-phone { width: 104px; border-radius: 18px; padding: 4px; }
+      .comp-phone img { border-radius: 14px; }
+      .comp-phone:nth-child(1), .comp-phone:nth-child(3) { margin-top: 32px; }
+      .shot-phone { width: 150px; }
+      .media-annotated { grid-template-columns: 1fr; }
+      .media-annotated .shot-phone { width: 180px; justify-self: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -107,12 +180,11 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-ikea-home" style="position: absolute; inset: 0;" role="img" aria-label="IKEA Home Services — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-              </div>
-              <span class="cover-number" aria-hidden="true">01</span>
-            </div>
+          <div class="cover-comp" role="img" aria-label="IKEA Home Services app — home screen, service categories, and a service detail page">
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -216,12 +288,28 @@
             <figcaption>Both sides of the marketplace must be convinced simultaneously — IKEA's platform acts as the trust layer that makes quality, pricing, and safety legible to both homeowners and professionals.</figcaption>
           </figure>
 
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-hemmi.webp" alt="Hemmi, the in-app AI assistant, interpreting a homeowner's described need to route the right service" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-pro-signup.webp" alt="Professional sign-up form — the supply-side onboarding flow for verified service providers" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>Two sides, one platform.</b> AI-assisted matching turns a homeowner's natural-language request into a structured job (left), while a verified onboarding flow brings professionals onto the supply side (right).</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">The challenge</span>
             <h2>Trust, consistency, and speed</h2>
             <p>Marketplace products live or die on trust. Homeowners need to trust the professionals they're letting into their homes. Professionals need to trust that the platform is worth their time. And IKEA needs the product to feel like IKEA — considered, reliable, without friction.</p>
             <p>The additional complexity: we were building a new product inside a very large, brand-sensitive organisation, working with multiple stakeholders across product, service design, engineering, content, and the in-store IKEA network. Decisions had to be made at pace, but they had to hold up to scrutiny. The brief was never fully stable.</p>
           </div>
+
+          <figure class="reveal media-annotated">
+            <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-about-commitment.webp" alt="A screen explaining IKEA's quality commitment behind every professional on the platform" loading="lazy"></div>
+            <div class="media-annot-note">
+              <span class="eyebrow-sm">Trust, made explicit</span>
+              <p>Rather than leaving credibility implicit, IKEA's commitment is stated plainly at the point of decision — verified professionals, backed by the brand, with recourse if something goes wrong.</p>
+            </div>
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">My role</span>
@@ -291,6 +379,24 @@
             <p>The design process was iterative by necessity. A marketplace has two distinct user types — homeowners and service professionals — each with different mental models and success criteria. We mapped flows for both sides separately before working on the points of intersection: booking, confirmation, dispute resolution, and review mechanics.</p>
             <p>Accessibility was treated as a requirement from day one, not an audit at the end. The product had to meet IKEA's own accessibility standards alongside WCAG AA, across iOS and Android.</p>
           </div>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-search.webp" alt="Search screen — finding a service by describing the need" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-services-category.webp" alt="Services within a category — browsing options before choosing" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-about-pro.webp" alt="Professional profile — reviews, verification, and service detail before booking" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>Discovery.</b> Search by need, browse the services within a category, and review a verified professional's profile — the homeowner builds confidence before committing to anything.</figcaption>
+          </figure>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-family-login.webp" alt="IKEA Family sign-in presented as the first step of a service request" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-loading.webp" alt="A considered loading state shown while the request is being processed" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-confirmation.webp" alt="Confirmation modal — clear expectations set the moment a booking is made" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>The booking moment.</b> IKEA Family sign-in as step one ties the request to the wider ecosystem, a considered loading state keeps the user oriented, and a confirmation that sets expectations clearly closes the loop.</figcaption>
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Outcomes</span>

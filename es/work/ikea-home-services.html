@@ -18,6 +18,79 @@
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
   <link rel="icon" href="/assets/images/logo.svg" type="image/svg+xml">
   <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    /* Cover — phone trio on the teal motif */
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      gap: 22px; padding: 18px 36px;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 13%; bottom: -90px;
+      box-shadow:
+        0 0 0 95px  color-mix(in srgb, var(--teal) 18%, var(--bg-surface-2)),
+        0 0 0 210px color-mix(in srgb, var(--teal)  8%, var(--bg-surface-2)),
+        0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      width: 150px; border: 1px solid var(--border-strong); border-radius: 24px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
+      flex-shrink: 0; position: relative; z-index: 1;
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
+    .comp-phone:nth-child(1) { margin-top: 56px; }
+    .comp-phone:nth-child(3) { margin-top: 56px; }
+
+    /* Phone gallery rows in the body */
+    .shot-row {
+      display: flex; gap: var(--sp-6); justify-content: center;
+      flex-wrap: wrap; margin-block: var(--sp-10) var(--sp-3);
+    }
+    .shot-phone {
+      width: 188px;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+    }
+    .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
+    .shot-caption {
+      display: flex; gap: var(--sp-3); align-items: baseline;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+      margin: 0 auto var(--sp-10); max-width: 640px;
+    }
+    .shot-caption b { color: var(--text-primary); font-weight: 500; }
+
+    /* Annotated single-phone feature */
+    .media-annotated {
+      display: grid; grid-template-columns: auto 1fr;
+      gap: var(--sp-10); align-items: center;
+      max-width: 640px; margin: var(--sp-10) auto var(--sp-3);
+    }
+    .media-annotated .shot-phone { width: 200px; }
+    .media-annot-note { border-left: 2px solid var(--teal-text); padding-left: var(--sp-5); }
+    .media-annot-note .eyebrow-sm {
+      font-size: var(--text-xs); letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--teal-text); display: block; margin-bottom: var(--sp-2);
+    }
+    .media-annot-note p { font-size: var(--text-sm); color: var(--text-secondary); max-width: 38ch; margin: 0; }
+
+    @media (max-width: 640px) {
+      .cover-comp { gap: 12px; padding: 14px 16px; }
+      .comp-phone { width: 104px; border-radius: 18px; padding: 4px; }
+      .comp-phone img { border-radius: 14px; }
+      .comp-phone:nth-child(1), .comp-phone:nth-child(3) { margin-top: 32px; }
+      .shot-phone { width: 150px; }
+      .media-annotated { grid-template-columns: 1fr; }
+      .media-annotated .shot-phone { width: 180px; justify-self: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -76,11 +149,10 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-ikea-home" style="position: absolute; inset: 0;" role="img" aria-label="IKEA Home Services — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <span class="cover-number" aria-hidden="true">01</span>
+          <div class="cover-comp" role="img" aria-label="App de IKEA Home Services — pantalla de inicio, categorías de servicio y página de detalle de servicio">
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
+            <div class="comp-phone"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
           </div>
         </div>
 
@@ -185,12 +257,28 @@
             <figcaption>Ambos lados del marketplace deben convencerse simultáneamente — la plataforma IKEA actúa como capa de confianza que hace legibles la calidad, el precio y la seguridad para propietarios y profesionales.</figcaption>
           </figure>
 
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-hemmi.webp" alt="Hemmi, el asistente de IA integrado, interpretando la necesidad descrita por el propietario para asignar el servicio adecuado" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-pro-signup.webp" alt="Formulario de alta de profesionales — el flujo de onboarding del lado de la oferta para proveedores verificados" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>Dos lados, una plataforma.</b> La asignación con IA convierte la petición en lenguaje natural del propietario en un trabajo estructurado (izquierda), mientras que un flujo de alta verificado incorpora a los profesionales del lado de la oferta (derecha).</figcaption>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">El reto</span>
             <h2>Confianza, consistencia y velocidad</h2>
             <p>Los productos de marketplace viven o mueren por la confianza. Los propietarios necesitan confiar en los profesionales a los que dejan entrar en sus casas. Los profesionales necesitan confiar en que la plataforma vale su tiempo. E IKEA necesita que el producto se sienta como IKEA — cuidado, fiable y sin fricción.</p>
             <p>La complejidad adicional: estábamos construyendo un producto nuevo dentro de una organización muy grande y con alta sensibilidad de marca, trabajando con múltiples stakeholders de producto, service design, ingeniería, contenido y la red de tiendas IKEA. Las decisiones tenían que tomarse rápido, pero tenían que aguantar el escrutinio. El briefing nunca estuvo del todo estable.</p>
           </div>
+
+          <figure class="reveal media-annotated">
+            <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-about-commitment.webp" alt="Una pantalla que explica el compromiso de calidad de IKEA detrás de cada profesional de la plataforma" loading="lazy"></div>
+            <div class="media-annot-note">
+              <span class="eyebrow-sm">Confianza, explícita</span>
+              <p>En lugar de dejar la credibilidad implícita, el compromiso de IKEA se expresa con claridad en el momento de la decisión — profesionales verificados, respaldados por la marca, con garantías si algo sale mal.</p>
+            </div>
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Mi rol</span>
@@ -260,6 +348,24 @@
             <p>El proceso de diseño fue iterativo por necesidad. Un marketplace tiene dos tipos de usuarios distintos — propietarios y profesionales — cada uno con modelos mentales y criterios de éxito diferentes. Mapeamos los flujos de ambos lados por separado antes de trabajar en los puntos de intersección: reserva, confirmación, resolución de disputas y mecánicas de reseña.</p>
             <p>La accesibilidad se trató como un requisito desde el primer día, no como una auditoría al final. El producto tenía que cumplir los propios estándares de accesibilidad de IKEA junto con WCAG AA, tanto en iOS como en Android.</p>
           </div>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-search.webp" alt="Pantalla de búsqueda — encontrar un servicio describiendo la necesidad" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-services-category.webp" alt="Servicios dentro de una categoría — explorar opciones antes de elegir" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-about-pro.webp" alt="Perfil del profesional — reseñas, verificación y detalle del servicio antes de reservar" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>Descubrimiento.</b> Busca por necesidad, explora los servicios dentro de una categoría y revisa el perfil de un profesional verificado — el propietario gana confianza antes de comprometerse a nada.</figcaption>
+          </figure>
+
+          <figure class="reveal" style="margin: 0;">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-family-login.webp" alt="Acceso IKEA Family presentado como primer paso de una solicitud de servicio" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-loading.webp" alt="Un estado de carga cuidado mientras se procesa la solicitud" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-home-services/hs-confirmation.webp" alt="Modal de confirmación — expectativas claras en el momento de hacer una reserva" loading="lazy"></div>
+            </div>
+            <figcaption class="shot-caption"><b>El momento de la reserva.</b> El acceso IKEA Family como primer paso vincula la solicitud al ecosistema, un estado de carga cuidado mantiene orientado al usuario, y una confirmación que fija expectativas con claridad cierra el círculo.</figcaption>
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Resultados</span>
