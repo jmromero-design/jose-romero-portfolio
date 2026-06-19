@@ -47,7 +47,7 @@
       padding-bottom: clamp(var(--sp-10), 5vw, var(--sp-16));
     }
     .thinking-lead {
-      margin-top: clamp(var(--sp-10), 5vw, var(--sp-14));
+      margin-top: clamp(var(--sp-10), 5vw, var(--sp-12));
       max-width: 56ch;
       border-left: 2px solid var(--gold);
       padding-left: clamp(var(--sp-5), 3vw, var(--sp-8));
@@ -91,7 +91,8 @@
       position: relative;
       background: var(--bg-surface-2);
       border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
+      border-bottom: none;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
       overflow: visible;
       padding-right: 46%;
       margin-bottom: clamp(80px, 10vw, 120px);
@@ -100,7 +101,7 @@
       /* wrapper is just for semantic grouping; layout handled by parent + absolute diagram */
     }
     .thinking-featured-text {
-      padding: clamp(var(--sp-12), 6vw, var(--sp-16)) clamp(var(--sp-10), 5vw, var(--sp-14));
+      padding: clamp(var(--sp-12), 6vw, var(--sp-16)) clamp(var(--sp-10), 5vw, var(--sp-12));
     }
     .thinking-featured-label {
       display: flex;
@@ -129,11 +130,11 @@
       border-top: 1px solid var(--border-default);
     }
 
-    /* Diagram column — absolutely positioned so it overflows below the card */
+    /* Diagram column — bottom-anchored so it grows from within the card and bleeds below */
     .thinking-featured-diagram {
       position: absolute;
       right: clamp(var(--sp-8), 4vw, var(--sp-10));
-      top: clamp(var(--sp-10), 5vw, var(--sp-12));
+      bottom: calc(-1 * clamp(40px, 4vw, 56px));
       width: 36%;
     }
     .thinking-featured-diagram-inner {
@@ -143,7 +144,7 @@
       border-bottom: none;
       border-radius: var(--radius-md) var(--radius-md) 0 0;
       overflow: hidden;
-      max-height: clamp(260px, 26vw, 340px);
+      max-height: clamp(300px, 28vw, 380px);
       padding: 0 var(--sp-5);
       box-shadow:
         0 8px 20px -4px rgba(0,0,0,0.18),
