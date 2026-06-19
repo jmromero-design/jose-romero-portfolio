@@ -135,6 +135,16 @@
     .testimonial-name { color: var(--text-primary); font-weight: 500; }
     .testimonial-role { color: var(--text-tertiary); }
     .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
+    /* AFIN pair card phone composition */
+    .afin-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+    }
+    .afin-phone img { display: block; width: 100%; height: auto; border-radius: 17px; }
+    .afin-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
   </style>
 </head>
 <body>
@@ -270,27 +280,24 @@
         <div class="grid-featured-pair">
 
           <article class="card card--image-led reveal">
-            <a href="/es/work/melia-hotels-campaign-platform/" aria-label="Ver caso de estudio Meliá Hotels" style="display:contents;">
-              <div class="card-image">
-                <div class="cover-placeholder" role="img" aria-label="Portada del proyecto Meliá Hotels">
-                  <div class="cover-visual">
-                    <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 0-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></svg>
-                  </div>
-                </div>
+            <a href="/es/work/mapfre-afin-digital-expansion/" aria-label="Ver caso de estudio Mapfre AFIN App Financiera" style="display:contents;">
+              <div class="card-image card-image--phones">
+                <div class="afin-phone afin-phone--back"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" width="361" height="749" alt="" loading="lazy" decoding="async"></div>
+                <div class="afin-phone afin-phone--front"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" width="361" height="750" alt="Pantalla de propuesta financiera de la app AFIN de Mapfre" loading="lazy" decoding="async"></div>
               </div>
               <div class="card-body">
                 <div class="card-top">
-                  <span class="card-number">04</span>
+                  <span class="card-number">05</span>
                   <div class="card-tags">
-                    <span class="tag tag--teal">Flat 101 · 3 años</span>
+                    <span class="tag tag--teal">Flat 101</span>
                     <span class="tag">Diseño de Producto</span>
-                    <span class="tag">Hostelería</span>
+                    <span class="tag">FinTech</span>
                   </div>
                 </div>
-                <h3 class="card-title">Meliá Hotels — Plataforma de Gestión de Campañas</h3>
-                <p class="card-summary">Conceptualicé, diseñé y optimicé una plataforma interna de gestión de campañas desde cero para la sede internacional de Meliá — desde talleres con directivos hasta una herramienta en producción que gestiona campañas en todos los países.</p>
+                <h3 class="card-title">Mapfre — App Financiera AFIN</h3>
+                <p class="card-summary">App de autoservicio financiero para una de las aseguradoras más grandes de España — arquitectura de información con progressive disclosure y un asesor financiero diseñado sobre la confianza y la transparencia de datos.</p>
                 <div class="card-footer">
-                  <span class="card-client">Flat 101 × Meliá Hotels International</span>
+                  <span class="card-client">Flat 101 × Mapfre España</span>
                   <span class="arrow">→</span>
                 </div>
               </div>
@@ -359,15 +366,6 @@
                 <div class="mini-row-tags"><span class="tag tag--teal">Framework</span><span class="tag">Arquitectura de Proceso</span></div>
               </div>
               <p class="mini-row-desc">Una arquitectura de proceso multiagente para diseño de producto liderado por humanos y asistido por IA.</p>
-              <span class="mini-row-cta">Ver caso <span class="arrow">→</span></span>
-            </a>
-
-            <a class="mini-row" href="/es/work/mapfre-afin-digital-expansion/">
-              <div class="mini-row-head">
-                <span class="mini-row-name">Mapfre — App Financiera AFIN</span>
-                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">FinTech</span></div>
-              </div>
-              <p class="mini-row-desc">App de autoservicio financiero — IA con progressive disclosure y un asesor basado en la confianza.</p>
               <span class="mini-row-cta">Ver caso <span class="arrow">→</span></span>
             </a>
 
