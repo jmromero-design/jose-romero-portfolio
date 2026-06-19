@@ -632,7 +632,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .footer {
   padding-block: var(--sp-16) var(--sp-12);
   border-top: 1px solid var(--border-default);
-  margin-top: var(--sp-8);
+  margin-top: 0;
 }
 
 .footer-inner {
@@ -2052,6 +2052,8 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* CTA section (work.html, about.html, thinking.html) */
 .cta-section {
+  position: relative;
+  z-index: 1;
   background: var(--bg-base);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
@@ -2088,7 +2090,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .cs-cta {
   position: relative;
   overflow: hidden;
-  background: var(--bg-surface);
+  background: var(--bg-surface-2);
   border-top: 1px solid var(--border-default);
 }
 
