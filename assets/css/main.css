@@ -2052,7 +2052,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* CTA section (work.html, about.html, thinking.html) */
 .cta-section {
-  background: var(--bg-surface);
+  background: var(--bg-base);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
   padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));

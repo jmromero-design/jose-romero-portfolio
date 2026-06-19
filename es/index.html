@@ -81,7 +81,7 @@
       letter-spacing: 0.06em;
     }
     .cta-section {
-      background: var(--bg-surface);
+      background: var(--bg-base);
       border: 1px solid var(--border-default);
       border-radius: var(--radius-lg);
       padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));
@@ -526,7 +526,13 @@
       </div>
     </section>
 
-    <section class="section--sm" aria-labelledby="cta-heading">
+    <section class="section--sm" aria-labelledby="cta-heading" style="position: relative; overflow: hidden;">
+      <div class="cs-cta-orb" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
       <div class="container">
         <div class="cta-section reveal">
           <div>
