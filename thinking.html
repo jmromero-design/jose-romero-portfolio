@@ -189,7 +189,7 @@
     .thinking-ideas {
       display: flex;
       flex-direction: column;
-      gap: clamp(120px, 14vw, 160px);
+      gap: 24px;
       margin-bottom: clamp(80px, 10vw, 120px);
     }
 
@@ -293,41 +293,21 @@
     }
     .idea-card:hover .idea-card-cta { gap: var(--sp-3); }
 
-    /* Diagram — absolutely positioned at right, overflows below */
+    /* Diagram — flush against card's right/top, clipped by card boundary */
     .idea-card-diagram {
       position: absolute;
-      right: clamp(var(--sp-6), 3.5vw, var(--sp-8));
-      top: clamp(var(--sp-8), 4vw, var(--sp-10));
-      width: 36%;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40%;
     }
     .idea-card-diagram-inner {
+      height: 100%;
       background: var(--bg-surface-2);
-      border: 1px solid var(--border-default);
-      border-bottom: none;
-      border-radius: var(--radius-md) var(--radius-md) 0 0;
+      border-left: 1px solid var(--border-default);
+      border-radius: 0 var(--radius-lg) 0 0;
       overflow: hidden;
-      max-height: clamp(180px, 20vw, 240px);
       padding: 0 var(--sp-5);
-      box-shadow:
-        0 8px 24px -4px rgba(0,0,0,0.22),
-        0 20px 48px -8px rgba(0,0,0,0.18);
-      transition: box-shadow 0.35s ease, transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1);
-    }
-    [data-theme="light"] .idea-card-diagram-inner {
-      box-shadow:
-        0 4px 14px -4px rgba(0,0,0,0.1),
-        0 12px 30px -8px rgba(0,0,0,0.08);
-    }
-    .idea-card:hover .idea-card-diagram-inner {
-      transform: translateY(-4px);
-      box-shadow:
-        0 12px 32px -4px rgba(0,0,0,0.3),
-        0 28px 64px -8px rgba(0,0,0,0.22);
-    }
-    [data-theme="light"] .idea-card:hover .idea-card-diagram-inner {
-      box-shadow:
-        0 6px 18px -4px rgba(0,0,0,0.13),
-        0 16px 40px -8px rgba(0,0,0,0.1);
     }
     .idea-card-diagram-inner svg {
       width: 100%;
