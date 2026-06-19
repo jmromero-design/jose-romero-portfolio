@@ -1448,7 +1448,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* Next project link */
 .next-project {
-  margin-top: var(--sp-24);
+  margin-top: 0;
   padding: var(--sp-10) var(--sp-8);
   border: 1px solid var(--border-default);
   border-radius: var(--radius-lg);
@@ -2082,6 +2082,58 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 @media (max-width: 860px) {
   .cta-section { flex-direction: column; align-items: flex-start; }
+}
+
+/* Case-study CTA — full-bleed section with concentric-circles orb */
+.cs-cta {
+  position: relative;
+  overflow: hidden;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-default);
+}
+
+.cs-cta-orb {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%) translateX(10%);
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: var(--bg-surface-2);
+  box-shadow:
+    0 0 0 80px  color-mix(in srgb, var(--teal) 10%, var(--bg-surface)),
+    0 0 0 180px color-mix(in srgb, var(--teal)  5%, var(--bg-surface)),
+    0 0 0 320px color-mix(in srgb, var(--teal)  2%, var(--bg-surface));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cs-cta-orb svg {
+  color: var(--teal-text);
+  opacity: 0.35;
+}
+
+.cs-cta-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 52ch;
+  display: flex;
+  flex-direction: column;
+}
+
+.cs-cta-inner h2 {
+  font-size: clamp(var(--text-xl), 3.5vw, var(--text-3xl));
+  max-width: 24ch;
+  margin-top: var(--sp-4);
+}
+
+.cs-cta-inner h2 em {
+  font-style: italic;
+  color: var(--gold);
 }
 
 /* Work card footer — mirrors .card-footer */
