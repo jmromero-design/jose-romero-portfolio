@@ -21,6 +21,68 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    /* Cover — composición de 3 teléfonos */
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface); overflow: hidden;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 10%; bottom: -90px;
+      box-shadow:
+        0 0 0 90px  color-mix(in srgb, var(--teal) 14%, var(--bg-surface-2)),
+        0 0 0 200px color-mix(in srgb, var(--teal)  7%, var(--bg-surface-2)),
+        0 0 0 330px color-mix(in srgb, var(--teal)  3%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      position: absolute;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 6px; background: var(--bg-surface);
+      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+    .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
+    .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
+    .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
+    /* Body — tarjetas A/B */
+    .sn-ab-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      padding: var(--sp-6) var(--sp-6) var(--sp-5);
+      margin-block: var(--sp-10) var(--sp-3);
+      position: relative; overflow: hidden;
+    }
+    .sn-ab-card::before {
+      content: ''; position: absolute;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: var(--bg-surface-2); right: -40px; bottom: -70px;
+      box-shadow:
+        0 0 0 70px  color-mix(in srgb, var(--teal) 12%, var(--bg-surface-2)),
+        0 0 0 160px color-mix(in srgb, var(--teal)  5%, var(--bg-surface-2));
+      pointer-events: none;
+    }
+    .sn-ab-col { display: flex; flex-direction: column; gap: var(--sp-3); position: relative; z-index: 1; }
+    .sn-ab-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--text-tertiary); text-align: center;
+    }
+    .sn-ab-label--variant { color: var(--teal-text); }
+    .sn-phone {
+      border: 1px solid var(--border-strong); border-radius: 24px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 12px 40px -12px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+    .sn-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
+    @media (max-width: 600px) { .sn-ab-card { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -80,12 +142,18 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-santander" style="position: absolute; inset: 0;" role="img" aria-label="Santander Nordics CRO — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <div class="cover-comp" role="img" aria-label="Santander Nordics CRO — pantallas del funnel de solicitud y experimentos de seguro">
+            <div class="comp-phone comp-phone--left">
+              <img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1400" alt="" loading="eager" decoding="async">
             </div>
-            <span class="cover-number" aria-hidden="true">03</span>
+            <div class="comp-phone comp-phone--center">
+              <img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1400" alt="Funnel de solicitud de préstamo al consumo — paso 2" loading="eager" decoding="async">
+            </div>
+            <div class="comp-phone comp-phone--right">
+              <img src="/assets/images/work/santander-nordics-cro/sn-nudge-original.webp" width="620" height="1322" alt="" loading="eager" decoding="async">
+            </div>
           </div>
+          <span class="cover-number" aria-hidden="true">03</span>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -112,6 +180,19 @@
             <p>También fui responsable de comunicar los resultados con claridad a los equipos de Santander en cuatro mercados — traduciendo resultados estadísticos en dirección de diseño accionable y traduciendo los comentarios de los stakeholders en hipótesis testables.</p>
             <p>El trabajo se estructuraba en torno a un enfoque de tres pilares: análisis de datos y sesiones para detectar fricción, evaluación heurística y de economía conductual para entender por qué existe esa fricción, y desarrollo disciplinado de hipótesis para priorizar intervenciones por impacto potencial. El equipo trabajaba con una cadencia de sprints estructurada y un tablero Kanban dedicado que seguía cada experimento desde el backlog hasta la puesta en marcha. Más allá del diseño de variantes, mantuve la supervisión de QA en las implementaciones — validando que las variantes en producción coincidían con las especificaciones aprobadas antes de recoger resultados. En un entorno regulado donde un test mal configurado produce datos engañosos, la fidelidad de implementación es una responsabilidad de diseño tanto como la variante en sí.</p>
           </div>
+
+          <!-- A/B: Funnel de solicitud — paso 2 -->
+          <div class="sn-ab-card reveal" aria-label="Funnel de solicitud — paso 2: control vs variante">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1400" alt="Funnel paso 2 — versión control" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variante A</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1400" alt="Funnel paso 2 — variante: agrupación de campos reestructurada e indicador de progreso" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Funnel de préstamo al consumo · Paso 2</b> — Agrupación de campos reestructurada e indicador de progreso para reducir el esfuerzo percibido en el punto de mayor abandono del funnel de solicitud.</p>
 
           <figure class="diagram-block reveal" aria-label="Ciclo de experimentación CRO bajo restricciones regulatorias multipaís">
             <div class="diagram-wrap">
@@ -149,6 +230,32 @@
             </div>
             <figcaption>Cada experimento recorre el mismo ciclo de siete etapas. La Revisión Legal es la barrera regulatoria — se requiere aprobación en los cuatro mercados nórdicos antes de que cualquier variante salga en vivo. El ciclo se cierra en Aprender: cada resultado, incluidos los negativos, actualiza la biblioteca de hipótesis e informa el siguiente sprint.</figcaption>
           </figure>
+
+          <!-- A/B: Página de información de seguro -->
+          <div class="sn-ab-card reveal" aria-label="Página de información de seguro — control vs variante OP2">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1400" alt="Página de información de seguro — control" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variante OP2</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-insurance-variant.webp" width="620" height="1400" alt="Página de información de seguro — variante OP2: señales de confianza reordenadas y presentación de precio simplificada" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Página de información de seguro</b> — Señales de confianza reordenadas y presentación de precio simplificada. El contenido regulado requirió aprobación legal en los cuatro mercados antes de que la variante pudiera salir en vivo.</p>
+
+          <!-- A/B: Nudge de seguro -->
+          <div class="sn-ab-card reveal" aria-label="Nudge de seguro — control vs variante">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-nudge-original.webp" width="620" height="1322" alt="Nudge de seguro — control" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variante</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-nudge-variant.webp" width="620" height="1322" alt="Nudge de seguro — variante: nudge conductual aplicado en el punto de decisión" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Nudge de seguro adicional</b> — Nudge conductual aplicado en el punto de decisión del seguro dentro del funnel de préstamo. El timing y el encuadre se derivaron de heurísticas de reducción de ansiedad y compromiso.</p>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Aprendizajes</span>

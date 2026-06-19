@@ -30,6 +30,68 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/santander-nordics-cro/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/santander-nordics-cro/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/santander-nordics-cro/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    /* Cover — 3-phone bleed composition */
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface); overflow: hidden;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 10%; bottom: -90px;
+      box-shadow:
+        0 0 0 90px  color-mix(in srgb, var(--teal) 14%, var(--bg-surface-2)),
+        0 0 0 200px color-mix(in srgb, var(--teal)  7%, var(--bg-surface-2)),
+        0 0 0 330px color-mix(in srgb, var(--teal)  3%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      position: absolute;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 6px; background: var(--bg-surface);
+      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+    .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
+    .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
+    .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
+    /* Body — A/B experiment cards */
+    .sn-ab-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: var(--sp-5);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      padding: var(--sp-6) var(--sp-6) var(--sp-5);
+      margin-block: var(--sp-10) var(--sp-3);
+      position: relative; overflow: hidden;
+    }
+    .sn-ab-card::before {
+      content: ''; position: absolute;
+      width: 180px; height: 180px; border-radius: 50%;
+      background: var(--bg-surface-2); right: -40px; bottom: -70px;
+      box-shadow:
+        0 0 0 70px  color-mix(in srgb, var(--teal) 12%, var(--bg-surface-2)),
+        0 0 0 160px color-mix(in srgb, var(--teal)  5%, var(--bg-surface-2));
+      pointer-events: none;
+    }
+    .sn-ab-col { display: flex; flex-direction: column; gap: var(--sp-3); position: relative; z-index: 1; }
+    .sn-ab-label {
+      font-family: var(--font-body); font-size: 10px; font-weight: 700;
+      letter-spacing: 1.2px; text-transform: uppercase;
+      color: var(--text-tertiary); text-align: center;
+    }
+    .sn-ab-label--variant { color: var(--teal-text); }
+    .sn-phone {
+      border: 1px solid var(--border-strong); border-radius: 24px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 12px 40px -12px rgba(0,0,0,0.5);
+      overflow: hidden;
+    }
+    .sn-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
+    @media (max-width: 600px) { .sn-ab-card { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 
@@ -111,12 +173,18 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-santander" style="position: absolute; inset: 0;" role="img" aria-label="Santander Nordics CRO — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
-              </div>
-              <span class="cover-number" aria-hidden="true">03</span>
+          <div class="cover-comp" role="img" aria-label="Santander Nordics CRO — mobile funnel and insurance experiment screens">
+            <div class="comp-phone comp-phone--left">
+              <img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1400" alt="" loading="eager" decoding="async">
             </div>
+            <div class="comp-phone comp-phone--center">
+              <img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1400" alt="Santander consumer loan application funnel — step 2" loading="eager" decoding="async">
+            </div>
+            <div class="comp-phone comp-phone--right">
+              <img src="/assets/images/work/santander-nordics-cro/sn-nudge-original.webp" width="620" height="1322" alt="" loading="eager" decoding="async">
+            </div>
+          </div>
+          <span class="cover-number" aria-hidden="true">03</span>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -143,6 +211,19 @@
             <p>I was also responsible for communicating results clearly to Santander's teams across four markets — translating statistical results into actionable design direction and translating stakeholder feedback into testable hypotheses.</p>
             <p>The work was structured around a three-pillar approach: deep analytics and session data to surface friction, heuristic and behavioral economics evaluation to understand why that friction exists, and disciplined hypothesis development to prioritise interventions by potential impact. The team operated on a structured sprint cadence with a dedicated Kanban board tracking each experiment from backlog through to live. Beyond designing variants, I maintained QA oversight on test implementations — validating that live variants matched approved specifications before results were collected. In a regulated environment where a misconfigured test produces misleading data, implementation fidelity is as much a design responsibility as the variant itself.</p>
           </div>
+
+          <!-- A/B: Application funnel — step 2 -->
+          <div class="sn-ab-card reveal" aria-label="Application funnel — step 2: control vs variant">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1400" alt="Funnel step 2 — control version" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variant A</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1400" alt="Funnel step 2 — variant: restructured field order and progress framing" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Consumer loan funnel · Step 2</b> — Restructured field grouping and progress framing to reduce perceived effort at the highest drop-off point in the application flow.</p>
 
           <figure class="diagram-block reveal" aria-label="CRO experimentation cycle under multi-market regulatory constraints">
             <div class="diagram-wrap">
@@ -222,6 +303,32 @@
             </div>
             <figcaption>Each experiment moves through the same seven-stage cycle. Legal Review is the regulatory gate — sign-off is required across all four Nordic markets before any variant goes live. The loop closes at Learn: every result, including failures, updates the hypothesis library and informs the next sprint.</figcaption>
           </figure>
+
+          <!-- A/B: Insurance info page -->
+          <div class="sn-ab-card reveal" aria-label="Insurance info page — control vs variant OP2">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1400" alt="Insurance info page — control" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variant OP2</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-insurance-variant.webp" width="620" height="1400" alt="Insurance info page — variant OP2: reordered trust signals and simplified pricing presentation" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Insurance info page</b> — Reordered trust signals and simplified pricing presentation. Regulated content constraints required legal sign-off across all four markets before the variant could go live.</p>
+
+          <!-- A/B: Insurance nudge -->
+          <div class="sn-ab-card reveal" aria-label="Insurance nudge — control vs variant">
+            <div class="sn-ab-col">
+              <span class="sn-ab-label">Control</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-nudge-original.webp" width="620" height="1322" alt="Insurance nudge — control" loading="lazy" decoding="async"></div>
+            </div>
+            <div class="sn-ab-col">
+              <span class="sn-ab-label sn-ab-label--variant">Variant</span>
+              <div class="sn-phone"><img src="/assets/images/work/santander-nordics-cro/sn-nudge-variant.webp" width="620" height="1322" alt="Insurance nudge — variant: behavioral nudge applied at decision point" loading="lazy" decoding="async"></div>
+            </div>
+          </div>
+          <p class="media-caption reveal"><b>Insurance add-on nudge</b> — Behavioral nudge applied at the insurance decision point in the loan funnel. Timing and framing derived from anxiety-reduction and commitment heuristics.</p>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Learnings</span>

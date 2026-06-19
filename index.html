@@ -224,6 +224,19 @@
     .testimonial-name { color: var(--text-primary); font-weight: 500; }
     .testimonial-role { color: var(--text-tertiary); }
     .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
+    /* Santander pair card phone composition */
+    .sn-card-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+    }
+    .sn-card-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
+    .sn-card-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .sn-card-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .sn-card-phone--back  { transform: translateY(-6px); }
+    .card:hover .sn-card-phone--front { transform: translateY(-11px); }
     /* AFIN pair card phone composition */
     .afin-phone {
       position: absolute; width: 40%;
@@ -413,12 +426,9 @@
 
           <article class="card card--image-led reveal">
             <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
-              <div class="card-image">
-                <div class="cover-placeholder" role="img" aria-label="Santander Nordics CRO project cover">
-                  <div class="cover-visual">
-                    <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
-                  </div>
-                </div>
+              <div class="card-image card-image--phones">
+                <div class="sn-card-phone sn-card-phone--back"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1400" alt="" loading="lazy" decoding="async"></div>
+                <div class="sn-card-phone sn-card-phone--front"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1400" alt="Santander consumer loan funnel — A/B variant screens" loading="lazy" decoding="async"></div>
               </div>
               <div class="card-body">
                 <div class="card-top">
