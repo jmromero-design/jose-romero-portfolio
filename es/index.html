@@ -141,10 +141,13 @@
       border: 1px solid var(--border-strong); border-radius: 22px;
       padding: 4px; background: var(--bg-surface);
       box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
     }
-    .afin-phone img { display: block; width: 100%; height: auto; border-radius: 17px; }
+    .afin-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
     .afin-phone--back  { left: 10%; top: 12%; z-index: 1; }
     .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .afin-phone--back  { transform: translateY(-6px); }
+    .card:hover .afin-phone--front { transform: translateY(-11px); }
   </style>
 </head>
 <body>

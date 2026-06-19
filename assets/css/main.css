@@ -909,7 +909,25 @@ strong { font-weight: 500; color: var(--text-primary); }
 
 /* Hero-row phone composition — real screens, oversized so they bleed past
    the panel for a bold app-showcase effect (overlapping upright duo). */
-.card-image--phones { background: var(--bg-surface-2); }
+.card-image--phones {
+  background: var(--bg-surface-2);
+  position: relative;
+}
+/* Concentric teal rings — depth layer behind phones */
+.card-image--phones::before {
+  content: '';
+  position: absolute;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: var(--bg-surface);
+  right: 6%; bottom: -60px;
+  box-shadow:
+    0 0 0 70px  color-mix(in srgb, var(--teal) 13%, var(--bg-surface-2)),
+    0 0 0 150px color-mix(in srgb, var(--teal)  6%, var(--bg-surface-2)),
+    0 0 0 250px color-mix(in srgb, var(--teal)  3%, var(--bg-surface));
+  pointer-events: none;
+  z-index: 0;
+}
 .hs-phone {
   position: absolute;
   width: 45%;
@@ -918,16 +936,21 @@ strong { font-weight: 500; color: var(--text-primary); }
   padding: 5px;
   background: var(--bg-surface);
   box-shadow: 0 24px 56px -20px rgba(0,0,0,0.7);
+  transition: transform var(--ease-slow), box-shadow var(--ease-slow);
 }
+/* Cancel the default img-only scale — animate the whole frame instead */
 .card-image--phones .hs-phone img {
   display: block;
   width: 100%;
   height: auto;
   border-radius: 17px;
-  transform: none;
+  transform: none !important;
 }
 .hs-phone--back  { left: 8%;  top: 19%; z-index: 1; }
 .hs-phone--front { left: 41%; top: 31%; z-index: 2; }
+/* Parallax lift on hover — front phone rises more than back for depth */
+.card:hover .hs-phone--back  { transform: translateY(-6px); }
+.card:hover .hs-phone--front { transform: translateY(-11px); }
 
 /* Pair below — two equal columns, cards in default image-led form */
 .grid-featured-pair {
