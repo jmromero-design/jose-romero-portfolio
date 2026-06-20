@@ -57,7 +57,7 @@
   </script>
 
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
-  <link rel="preload" href="/assets/images/portrait.webp" as="image" fetchpriority="high">
+  <link rel="preload" href="/assets/images/portrait-standing.webp" as="image" fetchpriority="high">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -72,18 +72,26 @@
   <script src="/assets/js/lang-detect.js"></script>
 
   <style>
-    .portrait-frame { position: relative; overflow: hidden; }
+    .portrait-frame {
+      position: relative;
+      overflow: hidden;
+      height: calc(100svh - var(--nav-height) - var(--sp-10));
+    }
     .portrait-img {
       width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center bottom;
       display: block;
-      transition: opacity 0.45s ease;
     }
-    .portrait-img--alt { position: absolute; inset: 0; opacity: 0; }
-    .portrait-frame:hover .portrait-img:not(.portrait-img--alt) { opacity: 0; }
-    .portrait-frame:hover .portrait-img--alt { opacity: 1; }
+    .about-portrait {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--sp-6));
+    }
+    @media (max-width: 720px) {
+      .about-portrait { position: static; }
+      .portrait-frame { height: auto; }
+    }
   
     /* ── Testimonials ── */
     .testimonial-grid {
@@ -165,10 +173,8 @@
           <!-- Left Column: Portrait -->
           <div class="about-portrait hero-animate">
             <div class="portrait-frame">
-              <img src="/assets/images/portrait.webp" alt="Jose Romero, Senior Product Designer" class="portrait-img"
-                width="1200" height="1400" loading="eager" decoding="async" fetchpriority="high">
-              <img src="/assets/images/portrait-standing.webp" alt="" class="portrait-img portrait-img--alt"
-                width="778" height="1064" loading="lazy" decoding="async" aria-hidden="true">
+              <img src="/assets/images/portrait-standing.webp" alt="Jose Romero, Senior Product Designer" class="portrait-img"
+                width="778" height="1064" loading="eager" decoding="async" fetchpriority="high">
             </div>
             <div class="portrait-caption">Jose Romero · Zaragoza, Spain</div>
           </div>
