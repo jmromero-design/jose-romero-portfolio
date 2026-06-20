@@ -117,7 +117,7 @@
       letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--bg-base);
-      background: var(--gold);
+      background: var(--teal);
       padding: 2px 8px;
       border-radius: 3px;
     }
@@ -125,6 +125,7 @@
       font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
       margin-bottom: var(--sp-6);
     }
+    .thinking-featured-text .article-title em { color: var(--gold); font-style: italic; }
     .thinking-featured-cta {
       margin-top: var(--sp-8);
       padding-top: var(--sp-6);
@@ -617,12 +618,6 @@
           12 years of project work across enterprise digital products, CRO, and team leadership.
         </p>
 
-        <!-- Lead teaser -->
-        <div class="thinking-lead hero-animate">
-          <span class="thinking-lead-tag">Featured · AI &amp; Design Practice</span>
-          <blockquote class="thinking-lead-quote">Designing with AI demands process design first. <em>Tool choice second.</em></blockquote>
-          <a href="/thinking/ai-workflow-framework/" class="thinking-lead-link">Read the framework <span class="arrow">→</span></a>
-        </div>
 
       </div>
     </section>
@@ -643,7 +638,7 @@
                 <span class="featured-badge">Featured</span>
                 <span class="essay-tag">AI · Process Design · 18 min read</span>
               </div>
-              <h2 class="article-title">Designing with AI demands process design first. Tool choice second.</h2>
+              <h2 class="article-title">Designing with AI demands process design first. <em>Tool choice second.</em></h2>
               <div class="article-body">
                 <p>A full framework for human-led, agent-assisted product design — on three-tier agent architecture,
                   genuine checkpoints, the drift problem, facilitation under AI augmentation, and what this shift
