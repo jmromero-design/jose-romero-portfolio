@@ -30,6 +30,57 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/">  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-secondhand-marketplace/">  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    /* Cover */
+    .cover-comp {
+      position: absolute; inset: 0;
+      background: var(--bg-surface); overflow: hidden;
+    }
+    .cover-comp::before {
+      content: '';
+      position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 10%; bottom: -90px;
+      box-shadow:
+        0 0 0 90px  color-mix(in srgb, var(--teal) 14%, var(--bg-surface-2)),
+        0 0 0 200px color-mix(in srgb, var(--teal)  7%, var(--bg-surface-2)),
+        0 0 0 330px color-mix(in srgb, var(--teal)  3%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      position: absolute;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 6px; background: var(--bg-surface);
+      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+    .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
+    .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
+    .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
+    /* Body screens */
+    .shot-row {
+      display: flex; gap: var(--sp-6); justify-content: center;
+      flex-wrap: wrap; margin-block: var(--sp-10) var(--sp-3);
+    }
+    .shot-phone {
+      width: 188px;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 5px; background: var(--bg-surface);
+      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+    }
+    .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
+    /* Desktop sell modal */
+    .sh-desktop-card {
+      margin-block: var(--sp-10) var(--sp-3);
+      border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 16px 48px -12px rgba(0,0,0,0.45);
+    }
+    .sh-desktop-card img { display: block; width: 100%; height: auto; }
+    @media (max-width: 640px) {
+      .shot-phone { width: 150px; }
+    }
+  </style>
 </head>
 <body>
 
@@ -110,12 +161,11 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-ikea-second" style="position: absolute; inset: 0;" role="img" aria-label="IKEA Second-hand Marketplace — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-              </div>
-              <span class="cover-number" aria-hidden="true">02</span>
-            </div>
+          <div class="cover-comp" role="img" aria-label="IKEA Second-hand Marketplace — browse, product detail, and checkout screens">
+            <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--right"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-explore.webp" width="620" height="1338" alt="" loading="eager"></div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
@@ -342,6 +392,14 @@
             <figcaption>From two pilot cities in 2024 to five markets in early 2026 — each expansion phase stress-tested localisation assumptions before the next rollout.</figcaption>
           </figure>
 
+          <figure class="reveal" style="margin: 0;" aria-label="Browse, cart, and checkout screens">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-explore.webp" width="620" height="1338" alt="Explore products — browse second-hand IKEA listings by category on mobile" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-cart.webp" width="620" height="1336" alt="Cart and payment — checkout flow for buying a second-hand IKEA item" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-payment-data.webp" width="620" height="1343" alt="Payment data entry — secure checkout with localised payment methods" loading="lazy"></div>
+            </div>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">My role</span>
             <h2>Product design across the full lifecycle</h2>
@@ -355,6 +413,10 @@
             <p>Working on two marketplace products simultaneously has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture — these were developed with cross-product consistency in mind.</p>
             <p>The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.</p>
           </div>
+
+          <figure class="sh-desktop-card reveal" aria-label="Sell item modal — initial step of the listing creation flow">
+            <img src="/assets/images/work/ikea-secondhand-marketplace/sh-sell-modal.webp" width="1200" height="678" alt="Sell item modal — the first step of creating a listing, where the seller selects the item from the IKEA catalogue" loading="lazy">
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Status</span>
