@@ -71,7 +71,11 @@
   <script src="/assets/js/lang-detect.js"></script>
 
   <style>
-    .portrait-img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; display: block; }
+    .portrait-frame { position: relative; overflow: hidden; }
+    .portrait-img { width: 100%; height: 100%; object-fit: contain; object-position: center bottom; display: block; transition: opacity 0.45s ease; }
+    .portrait-img--alt { position: absolute; inset: 0; opacity: 0; }
+    .portrait-frame:hover .portrait-img:not(.portrait-img--alt) { opacity: 0; }
+    .portrait-frame:hover .portrait-img--alt { opacity: 1; }
   
     /* ── Testimonials ── */
     .testimonial-grid {
@@ -148,6 +152,8 @@
             <div class="portrait-frame">
               <img src="/assets/images/portrait.webp" alt="Jose Romero, Senior Product Designer" class="portrait-img"
                 width="1200" height="1400" loading="eager" decoding="async" fetchpriority="high">
+              <img src="/assets/images/portrait-standing.webp" alt="" class="portrait-img portrait-img--alt"
+                width="778" height="1064" loading="lazy" decoding="async" aria-hidden="true">
             </div>
             <div class="portrait-caption">Jose Romero · Zaragoza, España</div>
           </div>
