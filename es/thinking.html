@@ -22,8 +22,6 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/thinking/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/">
 
-  <!-- Fonts -->
-
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -34,13 +32,13 @@
   <script src="/assets/js/lang-detect.js"></script>
 
   <style>
-    /* Compact hero so the lead position + contents sit above the fold */
+    /* ── Hero ── */
     .thinking-hero {
       padding-top: calc(var(--nav-height) + clamp(var(--sp-10), 5vw, var(--sp-16)));
       padding-bottom: clamp(var(--sp-10), 5vw, var(--sp-16));
     }
     .thinking-lead {
-      margin-top: clamp(var(--sp-10), 5vw, var(--sp-14));
+      margin-top: clamp(var(--sp-10), 5vw, var(--sp-12));
       max-width: 56ch;
       border-left: 2px solid var(--gold);
       padding-left: clamp(var(--sp-5), 3vw, var(--sp-8));
@@ -78,6 +76,485 @@
     .thinking-lead-link .arrow { transition: transform var(--ease-base); }
     .thinking-lead-link:hover { color: var(--gold-bright); }
     .thinking-lead-link:hover .arrow { transform: translateX(4px); }
+
+    /* ── Featured hero ── */
+    .thinking-featured {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: clamp(80px, 10vw, 120px);
+    }
+    .thinking-featured-inner {
+      display: flex;
+      align-items: center;
+      gap: clamp(var(--sp-8), 4vw, var(--sp-10));
+    }
+    .thinking-featured-text {
+      flex: 1;
+      min-width: 0;
+      padding: clamp(var(--sp-10), 5vw, var(--sp-12)) clamp(var(--sp-8), 4vw, var(--sp-10));
+    }
+    .thinking-featured-label {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+    .featured-badge {
+      font-family: var(--font-body);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--bg-base);
+      background: var(--teal);
+      padding: 2px 8px;
+      border-radius: 3px;
+    }
+    .thinking-featured-text .article-title {
+      font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl));
+      margin-bottom: var(--sp-6);
+    }
+    .thinking-featured-text .article-title em { color: var(--gold); font-style: italic; }
+    .thinking-featured-cta {
+      margin-top: var(--sp-8);
+      padding-top: var(--sp-6);
+      border-top: 1px solid var(--border-default);
+    }
+
+    /* Diagram column */
+    .thinking-featured-diagram {
+      flex-shrink: 0;
+      width: clamp(260px, 38%, 460px);
+      padding: clamp(var(--sp-8), 4vw, var(--sp-10)) clamp(var(--sp-8), 4vw, var(--sp-10)) clamp(var(--sp-8), 4vw, var(--sp-10)) 0;
+    }
+    .thinking-featured-diagram-inner {
+      width: 100%;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      padding: var(--sp-5);
+      box-shadow:
+        0 8px 20px -4px rgba(0,0,0,0.18),
+        0 24px 56px -12px rgba(0,0,0,0.32);
+      transition: box-shadow var(--ease-slow), transform var(--ease-slow);
+    }
+    [data-theme="light"] .thinking-featured-diagram-inner {
+      box-shadow:
+        0 4px 12px -2px rgba(0,0,0,0.08),
+        0 16px 40px -8px rgba(0,0,0,0.14);
+    }
+    .thinking-featured:hover .thinking-featured-diagram-inner {
+      transform: translateY(-4px);
+      box-shadow:
+        0 12px 28px -4px rgba(0,0,0,0.22),
+        0 32px 72px -12px rgba(0,0,0,0.38);
+    }
+    [data-theme="light"] .thinking-featured:hover .thinking-featured-diagram-inner {
+      box-shadow:
+        0 6px 18px -2px rgba(0,0,0,0.1),
+        0 20px 48px -8px rgba(0,0,0,0.16);
+    }
+    .thinking-featured-diagram-inner svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── More label ── */
+    .thinking-more-label {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-6);
+    }
+    .thinking-more-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border-default);
+    }
+
+    /* ── Idea cards — full-width rows ── */
+    .thinking-ideas {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      margin-bottom: clamp(80px, 10vw, 120px);
+    }
+
+    /* Card — button reset + row layout */
+    .idea-card {
+      -webkit-appearance: none;
+      appearance: none;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-bottom: none;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      padding: clamp(var(--sp-8), 4vw, var(--sp-10));
+      padding-right: 44%;
+      padding-bottom: clamp(var(--sp-8), 4vw, var(--sp-10));
+      text-align: left;
+      cursor: pointer;
+      color: inherit;
+      font: inherit;
+      display: block;
+      position: relative;
+      overflow: visible;
+      width: 100%;
+      box-sizing: border-box;
+      outline: none;
+      transition:
+        transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1),
+        box-shadow 0.35s ease,
+        border-color 0.2s ease;
+    }
+
+    /* Stacked paper layer 1 */
+    .idea-card::before {
+      content: '';
+      position: absolute;
+      top: 5px; left: -5px; right: -5px; bottom: -5px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-bottom: none;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      z-index: -1;
+      opacity: 0.65;
+      transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.2s ease;
+    }
+
+    /* Stacked paper layer 2 */
+    .idea-card::after {
+      content: '';
+      position: absolute;
+      top: 10px; left: -10px; right: -10px; bottom: -10px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-bottom: none;
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      z-index: -2;
+      opacity: 0.35;
+      transition: transform 0.35s cubic-bezier(0.34, 1.2, 0.64, 1), opacity 0.2s ease;
+    }
+
+    .idea-card:hover,
+    .idea-card:focus-visible {
+      transform: translateY(-5px);
+      border-color: var(--border-strong);
+    }
+
+    .idea-card:hover::before {
+      transform: translateY(3px);
+    }
+    .idea-card:hover::after {
+      transform: translateY(6px);
+    }
+
+    .idea-card:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 4px;
+    }
+
+    /* Card text content */
+    .idea-card-meta {
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-5);
+    }
+    .idea-card-title {
+      font-family: var(--font-display);
+      font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+      font-weight: 300;
+      line-height: 1.25;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-5);
+      max-width: 44ch;
+    }
+    .idea-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--teal-text);
+      transition: gap 0.2s ease;
+    }
+    .idea-card:hover .idea-card-cta { gap: var(--sp-3); }
+
+    /* Diagram — flush against card's right/top, clipped by card boundary */
+    .idea-card-diagram {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 40%;
+    }
+    .idea-card-diagram-inner {
+      height: 100%;
+      background: var(--bg-surface-2);
+      border-left: 1px solid var(--border-default);
+      border-radius: 0 var(--radius-lg) 0 0;
+      overflow: hidden;
+      padding: 0 var(--sp-5);
+    }
+    .idea-card-diagram-inner svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── Essay Modal System ── */
+    .essay-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: var(--sp-6);
+    }
+    .essay-modal.is-open { pointer-events: all; }
+
+    .essay-modal-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .essay-modal.is-open .essay-modal-backdrop { opacity: 1; }
+
+    /* Stack container */
+    .essay-modal-stack {
+      position: relative;
+      width: min(720px, 100%);
+      max-height: calc(100vh - var(--sp-12));
+      transform: translateY(24px) scale(0.96);
+      opacity: 0;
+      transition: transform 0.45s cubic-bezier(0.25, 0, 0, 1), opacity 0.3s ease;
+    }
+    .essay-modal.is-open .essay-modal-stack {
+      transform: translateY(0) scale(1);
+      opacity: 1;
+    }
+
+    /* Decorative papers behind (desktop only) */
+    .essay-modal-paper {
+      position: absolute;
+      inset: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      pointer-events: none;
+    }
+    .essay-modal-paper--2 {
+      transform: translate(-6px, 7px) rotate(-1.2deg);
+      z-index: 0;
+      opacity: 0.6;
+      transition: transform 0.35s cubic-bezier(0.25, 0, 0, 1);
+    }
+    .essay-modal-paper--3 {
+      transform: translate(-12px, 14px) rotate(-2.4deg);
+      z-index: -1;
+      opacity: 0.35;
+      transition: transform 0.45s cubic-bezier(0.25, 0, 0, 1);
+    }
+    /* Subtle paper shuffle on navigation */
+    .essay-modal-stack.navigating .essay-modal-paper--2 {
+      transform: translate(-3px, 4px) rotate(-0.6deg);
+    }
+    .essay-modal-stack.navigating .essay-modal-paper--3 {
+      transform: translate(-6px, 8px) rotate(-1.2deg);
+    }
+
+    /* Main sheet */
+    .essay-modal-sheet {
+      position: relative;
+      z-index: 1;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      max-height: calc(100vh - var(--sp-12));
+    }
+
+    .essay-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-4) var(--sp-5);
+      border-bottom: 1px solid var(--border-default);
+      flex-shrink: 0;
+    }
+
+    .essay-modal-nav {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    .essay-modal-prev,
+    .essay-modal-next {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: var(--sp-2) var(--sp-4);
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: var(--text-sm);
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      transition: background var(--ease-fast), border-color var(--ease-fast), color var(--ease-fast);
+    }
+    .essay-modal-prev:hover,
+    .essay-modal-next:hover {
+      background: var(--bg-surface-2);
+      border-color: var(--border-strong);
+      color: var(--text-primary);
+    }
+    .essay-modal-prev:disabled,
+    .essay-modal-next:disabled {
+      opacity: 0.3;
+      cursor: default;
+    }
+
+    .essay-modal-counter {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      font-family: var(--font-body);
+      min-width: 36px;
+      text-align: center;
+    }
+
+    .essay-modal-close {
+      -webkit-appearance: none;
+      appearance: none;
+      background: transparent;
+      border: 1px solid transparent;
+      border-radius: var(--radius-sm);
+      padding: var(--sp-2) var(--sp-3);
+      cursor: pointer;
+      color: var(--text-secondary);
+      font-size: 20px;
+      line-height: 1;
+      font-family: var(--font-body);
+      transition: background var(--ease-fast), border-color var(--ease-fast);
+    }
+    .essay-modal-close:hover {
+      background: var(--bg-surface-2);
+      border-color: var(--border-default);
+    }
+
+    /* Modal body scroll area */
+    .essay-modal-body {
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      flex: 1;
+    }
+
+    /* Slide animation wrapper */
+    .essay-modal-content {
+      padding: clamp(var(--sp-8), 4vw, var(--sp-10)) clamp(var(--sp-6), 3vw, var(--sp-10));
+      transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    .essay-modal-content.exit-left {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+    .essay-modal-content.exit-right {
+      opacity: 0;
+      transform: translateX(48px);
+    }
+    .essay-modal-content.enter-left {
+      opacity: 0;
+      transform: translateX(-48px);
+    }
+    .essay-modal-content.enter-right {
+      opacity: 0;
+      transform: translateX(48px);
+    }
+
+    .essay-modal-content .essay-modal-meta {
+      display: flex;
+      align-items: baseline;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+    .essay-modal-content .article-title {
+      font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+      margin-bottom: var(--sp-6);
+    }
+    .essay-modal-content .diagram-block {
+      margin-top: var(--sp-8);
+    }
+
+    /* Mobile: bottom sheet */
+    @media (max-width: 640px) {
+      .essay-modal {
+        align-items: flex-end;
+        padding: 0;
+      }
+      .essay-modal-stack {
+        width: 100%;
+        max-height: 92svh;
+        transform: translateY(100%);
+        opacity: 1;
+        transition: transform 0.45s cubic-bezier(0.25, 0, 0, 1);
+      }
+      .essay-modal.is-open .essay-modal-stack {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .essay-modal-paper { display: none; }
+      .essay-modal-sheet {
+        border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+        max-height: 92svh;
+      }
+      .essay-modal-content {
+        padding: var(--sp-5) var(--sp-3);
+      }
+      .essay-modal-content .diagram-block {
+        margin-top: var(--sp-4);
+      }
+      .essay-modal-content .diagram-wrap {
+        padding: var(--sp-2);
+      }
+    }
+
+    /* ── Responsive layout ── */
+    @media (max-width: 720px) {
+      .idea-card {
+        padding-right: clamp(var(--sp-8), 4vw, var(--sp-10));
+      }
+      .idea-card-diagram {
+        display: none;
+      }
+      .thinking-ideas {
+        gap: clamp(var(--sp-6), 4vw, var(--sp-8));
+      }
+    }
+    @media (max-width: 600px) {
+      .thinking-featured-inner {
+        flex-direction: column;
+      }
+      .thinking-featured-diagram {
+        display: none;
+      }
+    }
   </style>
 
 </head>
@@ -125,380 +602,378 @@
           Esto no es un blog. Son posiciones — cosas sobre las que he pensado lo suficiente como para ponerlas en palabras, extraídas de 12 años de trabajo en productos digitales empresariales, CRO y liderazgo de equipos.
         </p>
 
-        <!-- Teaser inicial — sube la primera posición por encima del pliegue -->
-        <div class="thinking-lead hero-animate">
-          <span class="thinking-lead-tag">01 · Empatía Posicional</span>
-          <blockquote class="thinking-lead-quote">El tipo de empatía más útil no es el emocional. <em>Es el posicional.</em></blockquote>
-          <a href="#empathy" class="thinking-lead-link">Empezar a leer <span class="arrow">→</span></a>
-        </div>
-
       </div>
     </section>
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
 
-        <div class="toc-wrap reveal">
-          <p class="toc-label">Contenido</p>
-          <nav class="article-toc" aria-label="Ir al artículo">
-            <a href="#empathy">La empatía como herramienta estratégica</a>
-            <a href="#behavioral-decisions">Decisiones de comportamiento</a>
-            <a href="#process">El proceso que sobrevive a las personas</a>
-            <a href="#ai-ratio">La IA y la proporción de pensamiento</a>
-            <a href="/es/thinking/ai-workflow-framework/">Diseñar con IA — framework completo ↗</a>
-          </nav>
-        </div>
+        <!-- ── Featured hero ── -->
+        <div class="thinking-featured reveal">
+          <div class="thinking-featured-inner">
 
-        <!-- Ensayo 1 -->
-        <div class="essay-unit">
-
-        <div class="essay-meta">
-          <span class="essay-number" aria-hidden="true">01</span>
-          <span class="essay-tag">Empatía Posicional</span>
-        </div>
-
-        <article id="empathy" class="article-block reveal">
-          <h2 class="article-title">En entornos profesionales complejos, el tipo de empatía más útil no es el emocional. Es el posicional.</h2>
-          <div class="article-body">
-            <p>Hay una versión de la empatía que es emocional — te pones en el lugar de alguien y sientes lo que podría sentir. Eso tiene un valor real: es la base de la conexión personal y de la confianza profunda con los usuarios. Pero en el trabajo de diseño, especialmente dentro de grandes organizaciones, lo que resulta más útil en el día a día es un tipo diferente: la capacidad de mapear cómo otra persona entiende la situación, qué está optimizando, qué le preocupa y qué necesita que sea verdad para poder avanzar.</p>
-            <p>A esto lo llamo empatía posicional. No es un sustituto de la compasión — es un instrumento complementario, optimizado para un contexto diferente. Y resulta ser una de las habilidades más útiles en la práctica del diseño empresarial, porque la mayoría de los problemas difíciles en estos entornos no son visuales ni técnicos. Son políticos y cognitivos. Las personas no están alineadas. No comparten el mismo modelo mental del problema. Tienen incentivos que no son visibles en el briefing.</p>
-            <p>Si puedes mapear ese paisaje con precisión — sin perder tu propia perspectiva — puedes encontrar el camino a través de él. No ganando el argumento, sino entendiendo el terreno lo suficientemente bien como para dejar de discutir sobre las cosas equivocadas.</p>
-          </div>
-        </article>
-
-        <figure class="diagram-block article-diagram reveal" aria-label="Empatía emocional vs posicional en el diseño">
-          <div class="diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="100%" role="img" aria-label="Two modes of empathy: emotional resonance and positional mapping">
-              <defs>
-                <style>
-                  .e1l { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
-                  .e1t { font-family: var(--font-display); font-size: 13px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
-                  .e1s { font-family: var(--font-body); font-size: 8.5px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
-                  .e1c { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                </style>
-              </defs>
-              <!-- CARD 1: Emotional Empathy -->
-              <rect x="8" y="8" width="344" height="174" rx="6" fill="var(--bg-surface-2)" stroke="#E28B72" stroke-opacity="0.3" stroke-width="1"/>
-              <text class="e1l" x="180" y="28" fill="#E28B72">EMOTIONAL · COMPASSION-LED</text>
-              <text class="e1t" x="180" y="50">Emotional Empathy</text>
-              <ellipse cx="62" cy="118" rx="46" ry="36" fill="none" stroke="#E28B72" stroke-width="0.8" opacity="0.10"/>
-              <ellipse cx="62" cy="118" rx="32" ry="25" fill="none" stroke="#E28B72" stroke-width="0.8" opacity="0.20"/>
-              <ellipse cx="62" cy="118" rx="18" ry="14" fill="none" stroke="#E28B72" stroke-width="1" opacity="0.35"/>
-              <circle cx="62" cy="118" r="7" fill="#E28B72" opacity="0.50"/>
-              <text style="font-family:var(--font-body);font-size:6.5px;font-weight:600;fill:#E28B72;text-anchor:middle;" x="62" y="160">SHARED FEELING</text>
-              <text class="e1s" x="118" y="68">Feeling what others feel.</text>
-              <text class="e1s" x="118" y="83">The foundation of personal connection</text>
-              <text class="e1s" x="118" y="97">and deep user trust.</text>
-              <line x1="118" y1="108" x2="340" y2="108" stroke="var(--border-default)" stroke-width="0.5" opacity="0.4"/>
-              <text class="e1s" x="118" y="122">Harder to sustain across large teams</text>
-              <text class="e1s" x="118" y="136">where incentives conflict and</text>
-              <text class="e1s" x="118" y="150">mental models diverge.</text>
-              <text class="e1s" x="118" y="167" style="fill:#E28B72;font-weight:600;">Personal context · Deep relationships</text>
-              <!-- DIVIDER -->
-              <text class="e1c" x="180" y="199">&#8595;  not a replacement — a complement  &#8595;</text>
-              <!-- CARD 2: Positional Empathy -->
-              <rect x="8" y="210" width="344" height="192" rx="6" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
-              <rect x="8" y="210" width="3" height="192" rx="1.5" fill="var(--teal)" opacity="0.6"/>
-              <text class="e1l" x="180" y="232" fill="var(--teal-text)">POSITIONAL · ACCURACY-LED</text>
-              <text class="e1t" x="180" y="254">Positional Empathy</text>
-              <line x1="30" y1="338" x2="96" y2="338" stroke="var(--border-strong)" stroke-width="0.8" opacity="0.5"/>
-              <line x1="30" y1="338" x2="30" y2="276" stroke="var(--border-strong)" stroke-width="0.8" opacity="0.5"/>
-              <circle cx="44" cy="328" r="3.5" fill="var(--teal)" opacity="0.65"/>
-              <line x1="44" y1="328" x2="60" y2="310" stroke="var(--teal)" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.5"/>
-              <circle cx="60" cy="310" r="3.5" fill="var(--teal)" opacity="0.65"/>
-              <line x1="60" y1="310" x2="78" y2="291" stroke="var(--teal)" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.5"/>
-              <circle cx="78" cy="291" r="3.5" fill="var(--teal)" opacity="0.65"/>
-              <circle cx="78" cy="291" r="9" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.35"/>
-              <text style="font-family:var(--font-body);font-size:6.5px;font-weight:600;fill:var(--teal-text);text-anchor:middle;" x="60" y="354">ALIGNMENT PATH</text>
-              <text class="e1s" x="118" y="274">Mapping what others see,</text>
-              <text class="e1s" x="118" y="289">optimise for, and fear.</text>
-              <line x1="118" y1="300" x2="340" y2="300" stroke="var(--border-default)" stroke-width="0.5" opacity="0.4"/>
-              <text class="e1s" x="118" y="314">Designed for professional complexity —</text>
-              <text class="e1s" x="118" y="328">navigating environments where</text>
-              <text class="e1s" x="118" y="342">incentives diverge and alignment</text>
-              <text class="e1s" x="118" y="356">requires navigation, not feeling.</text>
-              <text class="e1s" x="118" y="376" style="fill:var(--teal-text);font-weight:600;">Professional context · Org navigation</text>
-              <!-- FOOTER -->
-              <text class="e1c" x="180" y="413">Both modes matter. Context determines which one leads.</text>
-            </svg>
-          </div>
-          <figcaption>La empatía posicional no es un sustituto de la compasión — es una herramienta complementaria para la complejidad profesional. No llegas a la alineación con los stakeholders sintiéndola; llegas pensándola.</figcaption>
-        </figure>
-
-        </div><!-- /ensayo 1 -->
-
-        <!-- Ensayo 2 -->
-        <div class="essay-unit">
-
-        <div class="essay-meta">
-          <span class="essay-number" aria-hidden="true">02</span>
-          <span class="essay-tag">Economía Conductual</span>
-        </div>
-
-        <article id="behavioral-decisions" class="article-block reveal">
-          <h2 class="article-title">La mayoría de las decisiones de diseño son decisiones de comportamiento. Trátalas como tal.</h2>
-          <div class="article-body">
-            <p>El proceso de diseño estándar pregunta: ¿qué necesitan los usuarios? Es una buena pregunta. Pero la pregunta desde la economía conductual es diferente: dado cómo funciona realmente la cognición humana — con sus atajos, sesgos y dependencia del contexto — ¿qué hace probable que la gente haga esta interfaz?</p>
-            <p>No son la misma pregunta.</p>
-            <p>Pasé años trabajando en optimización de conversión en plataformas de banca, seguros, fidelización y e-commerce. Lo que ese trabajo te enseña — si estás prestando atención — es que las pequeñas decisiones de diseño tienen efectos desproporcionados en el comportamiento. El orden de la información en una página. El encuadre de una elección como ganancia o pérdida. La presencia o ausencia de un valor por defecto. No son detalles. Son el mecanismo por el cual el diseño funciona o no.</p>
-            <p>Esto no significa manipular a las personas. Significa entender cómo se toman realmente las decisiones — bajo presión de tiempo, con información incompleta, moldeadas por el contexto — y diseñar para esa realidad en lugar de una versión idealizada de ella.</p>
-          </div>
-        </article>
-
-        <figure class="diagram-block article-diagram reveal" aria-label="Arquitectura de elección estándar vs conductual">
-          <div class="diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 502" width="100%" role="img" aria-label="Standard vs behavioral design approach: inquiry methods, psychological levers, and outcomes">
-              <defs>
-                <style>
-                  .e2sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
-                  .e2t  { font-family: var(--font-display); font-size: 12px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
-                  .e2h  { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                  .e2s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                </style>
-              </defs>
-              <!-- STAGE 01: INQUIRY -->
-              <text class="e2sl" x="180" y="16" fill="var(--text-tertiary)">01 / INQUIRY</text>
-              <rect x="8" y="24" width="164" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e2sl" x="90" y="42" fill="var(--text-tertiary)">STANDARD</text>
-              <text class="e2t" x="90" y="62">Stated</text>
-              <text class="e2t" x="90" y="78">Preferences</text>
-              <text class="e2s" x="90" y="96" style="fill:var(--gold);font-weight:500;">"What do users need?"</text>
-              <text class="e2s" x="90" y="111">Intent–action gap applies</text>
-              <text class="e2s" x="90" y="124" style="fill:var(--gold);">&#8595; Less predictive</text>
-              <rect x="180" y="24" width="172" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.5" stroke-width="1"/>
-              <rect x="180" y="24" width="3" height="108" rx="1.5" fill="var(--teal)" opacity="0.6"/>
-              <text class="e2sl" x="267" y="42" fill="var(--teal-text)">BEHAVIORAL</text>
-              <text class="e2t" x="267" y="62">Revealed</text>
-              <text class="e2t" x="267" y="78">Preferences</text>
-              <text class="e2s" x="267" y="96" style="fill:var(--teal-text);font-weight:500;">"What will users do?"</text>
-              <text class="e2s" x="267" y="111">Observed choices &amp; A/B data</text>
-              <text class="e2s" x="267" y="124" style="fill:var(--teal-text);">&#8595; More predictive</text>
-              <!-- STAGE 02: LEVERS -->
-              <text class="e2sl" x="180" y="148" fill="var(--text-tertiary)">02 / PSYCHOLOGICAL LEVERS</text>
-              <rect x="8" y="158" width="164" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e2h" x="90" y="176">01 / Framing</text>
-              <text class="e2s" x="90" y="192">Structures choices to highlight</text>
-              <text class="e2s" x="90" y="206">salience. Guides decisions</text>
-              <text class="e2s" x="90" y="220">without restricting them.</text>
-              <rect x="180" y="158" width="172" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.5" stroke-width="1"/>
-              <text class="e2h" x="267" y="176" style="fill:var(--teal-text);">02 / Defaults</text>
-              <text class="e2s" x="267" y="192">Pre-selected paths of least</text>
-              <text class="e2s" x="267" y="206">resistance. Highest conversion</text>
-              <text class="e2s" x="267" y="220">leverage of the four.</text>
-              <rect x="8" y="242" width="164" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e2h" x="90" y="260">03 / Effort</text>
-              <text class="e2s" x="90" y="276">Minimise friction for desired</text>
-              <text class="e2s" x="90" y="290">actions. Add friction to slow</text>
-              <text class="e2s" x="90" y="304">errors and exits.</text>
-              <rect x="180" y="242" width="172" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e2h" x="267" y="260">04 / Context</text>
-              <text class="e2s" x="267" y="276">Environmental prompts timed</text>
-              <text class="e2s" x="267" y="290">to peak motivation states</text>
-              <text class="e2s" x="267" y="304">and user readiness.</text>
-              <!-- STAGE 03: OUTCOMES -->
-              <text class="e2sl" x="180" y="330" fill="var(--text-tertiary)">03 / OUTCOMES</text>
-              <rect x="8" y="340" width="344" height="52" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e2sl" x="180" y="358" fill="var(--text-tertiary)">UNOPTIMIZED</text>
-              <text class="e2t" x="180" y="376">Stated Intent Interface</text>
-              <text class="e2s" x="180" y="390">High friction · Low conversion · Assumes rational actors</text>
-              <rect x="8" y="400" width="344" height="94" rx="5" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
-              <text class="e2sl" x="180" y="418" fill="var(--teal-text)">OPTIMIZED</text>
-              <text class="e2t" x="180" y="438">Action-Aligned Design</text>
-              <text class="e2s" x="180" y="456">Choice architecture tailored to cognitive heuristics</text>
-              <text class="e2s" x="180" y="470" style="fill:var(--teal-text);">· Minimal cognitive friction · High default compliance</text>
-              <text class="e2s" x="180" y="484" style="fill:var(--teal-text);">· Symmetrical choice loops</text>
-            </svg>
-          </div>
-          <figcaption>Lo que los usuarios necesitan y lo que los usuarios hacen no son la misma pregunta. El enfoque conductual funciona modificando la arquitectura de elección a través de palancas psicológicas — no recopilando más preferencias declaradas.</figcaption>
-        </figure>
-
-        </div><!-- /ensayo 2 -->
-
-        <!-- Ensayo 3 -->
-        <div class="essay-unit">
-
-        <div class="essay-meta">
-          <span class="essay-number" aria-hidden="true">03</span>
-          <span class="essay-tag">Sistemas Resilientes</span>
-        </div>
-
-        <article id="process" class="article-block reveal">
-          <h2 class="article-title">El mejor proceso es el que no depende de ninguna persona para ser recordado.</h2>
-          <div class="article-body">
-            <p>Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de trabajo compartido. Los archivos existían en todas partes. La jerarquía del trabajo — qué iba en Figma, qué en Confluence, qué en Jira — era poco clara y se aplicaba de forma inconsistente. El proceso que existía dependía de personas concretas para mantenerlo en la memoria y transmitirlo informalmente. Cuando esas personas no estaban disponibles, el sistema se derrumbaba.</p>
-            <p>Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabajo real que hacía el equipo: los tipos de tareas, sus interdependencias, las decisiones que se perdían continuamente. A partir de ahí, derivé un conjunto de reglas estructurales — qué va dónde, cuándo y por qué — que podían documentarse, enseñarse y modificarse sin que yo tuviera que estar presente.</p>
-            <p>Se adoptó de forma imperfecta. La estructura se mantuvo. He llegado a pensar que la adopción imperfecta de un sistema bien estructurado es en realidad la condición de éxito — no el cumplimiento perfecto. El objetivo era un proceso que pudiera sobrevivir a mi marcha, sobrevivir a nuevos miembros del equipo y sobrevivir a los momentos en los que nadie tiene tiempo de mantenerlo con cuidado. Lo hace.</p>
-          </div>
-        </article>
-
-        <figure class="diagram-block article-diagram reveal" aria-label="Consolidación de resiliencia en forma de reloj de arena">
-          <div class="diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 432" width="100%" role="img" aria-label="Person-dependent process vs principle-first resilient process">
-              <defs>
-                <style>
-                  .e3sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
-                  .e3h  { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                  .e3s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                  .e3t  { font-family: var(--font-display); font-size: 12px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
-                </style>
-              </defs>
-              <!-- FRAGILE -->
-              <text class="e3sl" x="180" y="16" fill="#5C5955">FRAGILE — PERSON-DEPENDENT</text>
-              <rect x="8" y="24" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e3h" x="90" y="40">Memory Dependent</text>
-              <text class="e3s" x="90" y="55">Process lives only in people's heads</text>
-              <rect x="180" y="24" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e3h" x="266" y="40">Informal Transmit</text>
-              <text class="e3s" x="266" y="55">Passed verbally, undocumented</text>
-              <rect x="8" y="76" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e3h" x="90" y="92">Person Unavailable</text>
-              <text class="e3s" x="90" y="107">Process holder shifts or leaves</text>
-              <rect x="180" y="76" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e3h" x="266" y="92">Operational Collapse</text>
-              <text class="e3s" x="266" y="107">Workflow degrades or vanishes</text>
-              <!-- Arrow to core -->
-              <line x1="180" y1="124" x2="180" y2="140" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
-              <polygon points="180,142 176,136 184,136" fill="var(--gold)" opacity="0.6"/>
-              <!-- CONSOLIDATION CORE -->
-              <rect x="8" y="150" width="344" height="76" rx="6" fill="var(--gold)" fill-opacity="0.06" stroke="var(--gold)" stroke-width="1.5"/>
-              <text class="e3sl" x="180" y="168" fill="var(--gold)">CONSOLIDATION CORE</text>
-              <text class="e3h" x="180" y="187" style="fill:var(--gold);">Map task types. Derive rules.</text>
-              <text class="e3s" x="180" y="203">Embed structure in tools. Document for imperfect adoption.</text>
-              <text class="e3s" x="180" y="216">Design so the process survives without you.</text>
-              <!-- Arrow to resilient -->
-              <line x1="180" y1="230" x2="180" y2="246" stroke="var(--teal)" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
-              <polygon points="180,248 176,242 184,242" fill="var(--teal)" opacity="0.6"/>
-              <!-- RESILIENT -->
-              <text class="e3sl" x="180" y="260" fill="var(--teal-text)">RESILIENT — PRINCIPLE-FIRST</text>
-              <rect x="8" y="268" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
-              <text class="e3h" x="90" y="284" style="fill:var(--teal-text);">Survives Personnel</text>
-              <text class="e3s" x="90" y="299">New members onboard without a guide</text>
-              <rect x="180" y="268" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
-              <text class="e3h" x="266" y="284" style="fill:var(--teal-text);">Teachable</text>
-              <text class="e3s" x="266" y="299">Documented, not person-dependent</text>
-              <rect x="8" y="320" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
-              <text class="e3h" x="90" y="336" style="fill:var(--teal-text);">Low Maintenance</text>
-              <text class="e3s" x="90" y="351">Holds even when no one tends it</text>
-              <rect x="180" y="320" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
-              <text class="e3h" x="266" y="336" style="fill:var(--teal-text);">Structural Bones</text>
-              <text class="e3s" x="266" y="351">Fails visibly, not silently</text>
-              <!-- INSIGHT CARD -->
-              <rect x="8" y="374" width="344" height="50" rx="6" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
-              <text class="e3t" x="180" y="394">Imperfect adoption of a well-structured</text>
-              <text class="e3t" x="180" y="414">system is the success condition.</text>
-            </svg>
-          </div>
-          <figcaption>La adopción imperfecta de un sistema bien estructurado es la condición de éxito — no el cumplimiento perfecto. El objetivo es la supervivencia, no el control.</figcaption>
-        </figure>
-
-        </div><!-- /ensayo 3 -->
-
-        <!-- Ensayo 4 -->
-        <div class="essay-unit">
-
-        <div class="essay-meta">
-          <span class="essay-number" aria-hidden="true">04</span>
-          <span class="essay-tag">IA y Práctica de Diseño</span>
-        </div>
-
-        <article id="ai-ratio" class="article-block reveal">
-          <h2 class="article-title">La IA cambia la proporción entre pensar y hacer. Eso no es poca cosa.</h2>
-          <div class="article-body">
-            <p>Lo que he estado explorando durante el último año es qué ocurre cuando introduces la IA en un proceso de diseño que ya era complejo — concretamente, la metodología Shape Up que usa mi equipo en IKEA. Shape Up pide a las personas que mantengan mucho contexto, tomen decisiones de juicio con información incompleta y avancen rápidamente en decisiones de diseño que tienen consecuencias importantes más adelante.</p>
-            <p>La IA puede procesar y producir información más rápido de lo que cualquier equipo puede absorberla. Lo que significa que el cuello de botella cambia. Ya no se trata de generar opciones — se trata de darles sentido. De tener suficiente contexto compartido para evaluar lo que la IA ha producido y decidir qué hacer con ello.</p>
-            <p>El problema de diseño interesante aquí es humano, no técnico. ¿Cómo estructuras un proceso asistido por IA para que el resultado sea realmente útil — no solo voluminoso? ¿Cómo incorporas los puntos de control correctos, el nivel adecuado de juicio humano en los momentos oportunos? ¿Cómo evitas que una sala llena de personas se ahogue en texto generado por IA y pierda el hilo de la decisión real?</p>
-            <p>Esos son problemas de facilitación. Y la facilitación, resulta, es un problema de diseño.</p>
-          </div>
-        </article>
-
-        <figure class="diagram-block article-diagram reveal" aria-label="Desplazamiento del cuello de botella de la IA de la generación al sentido">
-          <div class="diagram-wrap">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 412" width="100%" role="img" aria-label="AI shifts the bottleneck from generation to sense-making; facilitation as design">
-              <defs>
-                <style>
-                  .e4sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
-                  .e4h  { font-family: var(--font-body); font-size: 9px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
-                  .e4s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
-                  .e4t  { font-family: var(--font-display); font-size: 14px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
-                </style>
-              </defs>
-              <!-- BEFORE AI -->
-              <text class="e4sl" x="180" y="16" fill="#5C5955">BEFORE AI — GENERATIVE BOTTLENECK</text>
-              <rect x="8" y="24" width="109" height="72" rx="5" fill="var(--gold)" fill-opacity="0.05" stroke="var(--gold)" stroke-width="1.5"/>
-              <text class="e4h" x="62" y="42" style="fill:var(--gold);">GENERATE</text>
-              <text class="e4s" x="62" y="56">Slow, handcrafted</text>
-              <text class="e4s" x="62" y="69">options</text>
-              <text class="e4sl" x="62" y="84" fill="var(--gold)">&#8592; BOTTLENECK</text>
-              <line x1="117" y1="60" x2="123" y2="60" stroke="var(--border-default)" stroke-width="1"/>
-              <polygon points="125,60 119,56 119,64" fill="var(--border-default)"/>
-              <rect x="125" y="24" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e4h" x="179" y="42">EVALUATE</text>
-              <text class="e4s" x="179" y="56">Fast — few</text>
-              <text class="e4s" x="179" y="69">options to weigh</text>
-              <line x1="234" y1="60" x2="240" y2="60" stroke="var(--border-default)" stroke-width="1"/>
-              <polygon points="242,60 236,56 236,64" fill="var(--border-default)"/>
-              <rect x="242" y="24" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e4h" x="297" y="42">DECIDE</text>
-              <text class="e4s" x="297" y="56">Clear,</text>
-              <text class="e4s" x="297" y="69">unobstructed</text>
-              <!-- BOTTLENECK SHIFT -->
-              <text class="e4sl" x="180" y="108" fill="var(--gold)">BOTTLENECK SHIFTS WITH AI</text>
-              <line x1="180" y1="112" x2="180" y2="126" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
-              <polygon points="180,128 176,122 184,122" fill="var(--gold)" opacity="0.7"/>
-              <!-- WITH AI -->
-              <text class="e4sl" x="180" y="140" fill="var(--teal-text)">WITH AI — SENSE-MAKING BOTTLENECK</text>
-              <rect x="8" y="148" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e4h" x="62" y="166">GENERATE</text>
-              <text class="e4s" x="62" y="180">Instant volume,</text>
-              <text class="e4s" x="62" y="193">no friction</text>
-              <line x1="117" y1="184" x2="123" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
-              <polygon points="125,184 119,180 119,188" fill="var(--teal)" opacity="0.6"/>
-              <rect x="125" y="148" width="109" height="72" rx="5" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
-              <text class="e4h" x="179" y="166" style="fill:var(--teal-text);">SENSE-MAKE</text>
-              <text class="e4s" x="179" y="180">High noise,</text>
-              <text class="e4s" x="179" y="193">slow synthesis</text>
-              <text class="e4sl" x="179" y="208" fill="var(--teal-text)">&#8592; BOTTLENECK</text>
-              <line x1="234" y1="184" x2="240" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
-              <polygon points="242,184 236,180 236,188" fill="var(--teal)" opacity="0.6"/>
-              <rect x="242" y="148" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
-              <text class="e4h" x="297" y="166">DECIDE</text>
-              <text class="e4s" x="297" y="180">Hard — output</text>
-              <text class="e4s" x="297" y="193">overload</text>
-              <!-- HUMAN ROLE CARD -->
-              <rect x="8" y="236" width="344" height="168" rx="6" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
-              <text class="e4sl" x="180" y="254" fill="var(--teal-text)">HUMAN DESIGN ROLE</text>
-              <text class="e4t" x="180" y="276">Facilitation as Design</text>
-              <text class="e4s" x="180" y="298">Structure the process so output is useful,</text>
-              <text class="e4s" x="180" y="312">not just voluminous.</text>
-              <line x1="40" y1="322" x2="320" y2="322" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
-              <text class="e4s" x="180" y="336">Build human judgment checkpoints</text>
-              <text class="e4s" x="180" y="350">at the right moments.</text>
-              <line x1="40" y1="360" x2="320" y2="360" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
-              <text class="e4s" x="180" y="374">Prevent the room from drowning in AI output</text>
-              <text class="e4s" x="180" y="388" style="fill:var(--teal-text);font-weight:600;">and losing the actual decision thread.</text>
-            </svg>
-          </div>
-          <figcaption>La IA no elimina la necesidad de juicio. Lo desplaza. El cuello de botella pasa de la generación a la interpretación — y estructurar ese proceso es un problema de diseño.</figcaption>
-        </figure>
-
-        </div><!-- /ensayo 4 -->
-
-        <!-- Artículo largo destacado -->
-        <div class="essay-unit reveal">
-          <div class="essay-meta">
-            <span class="essay-number" aria-hidden="true">05</span>
-            <span class="essay-tag">IA · Diseño de Procesos · 18 min</span>
-          </div>
-          <article id="ai-framework" class="article-block" style="padding-top: var(--sp-5);">
-            <h2 class="article-title">Diseñar con IA exige diseñar el proceso primero. La elección de herramienta, después.</h2>
-            <div class="article-body">
-              <p>Un framework completo para el diseño de producto liderado por humanos y asistido por agentes — sobre arquitectura de agentes en tres niveles, checkpoints genuinos, el problema del drift, facilitación bajo la integración de IA y lo que este cambio exige realmente a los diseñadores senior. Construido desde trabajo real dentro del equipo de diseño de IKEA.</p>
+            <!-- Text column -->
+            <div class="thinking-featured-text">
+              <div class="thinking-featured-label">
+                <span class="featured-badge">Destacado</span>
+                <span class="essay-tag">IA · Diseño de Procesos · 18 min</span>
+              </div>
+              <h2 class="article-title">Diseñar con IA exige diseñar el proceso primero. <em>La elección de herramienta, después.</em></h2>
+              <div class="article-body">
+                <p>Un framework completo para el diseño de producto liderado por humanos y asistido por agentes — sobre arquitectura de agentes en tres niveles, checkpoints genuinos, el problema del drift, facilitación bajo la integración de IA y lo que este cambio exige realmente a los diseñadores senior. Construido desde trabajo real dentro del equipo de diseño de IKEA.</p>
+              </div>
+              <div class="thinking-featured-cta">
+                <a href="/es/thinking/ai-workflow-framework/" class="btn btn-ghost" style="display: inline-flex;">
+                  Leer el framework <span class="arrow">→</span>
+                </a>
+              </div>
             </div>
-            <a href="/es/thinking/ai-workflow-framework/" class="btn btn-ghost" style="margin-top: var(--sp-6); display: inline-flex;">
-              Leer el framework <span class="arrow">→</span>
-            </a>
-          </article>
+
+            <!-- Diagram column -->
+            <div class="thinking-featured-diagram" aria-hidden="true">
+              <div class="thinking-featured-diagram-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 412" width="100%" role="img" aria-hidden="true">
+                  <defs>
+                    <style>
+                      .e4sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
+                      .e4h  { font-family: var(--font-body); font-size: 9px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                      .e4s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                      .e4t  { font-family: var(--font-display); font-size: 14px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                    </style>
+                  </defs>
+                  <text class="e4sl" x="180" y="16" fill="#5C5955">BEFORE AI — GENERATIVE BOTTLENECK</text>
+                  <rect x="8" y="24" width="109" height="72" rx="5" fill="var(--gold)" fill-opacity="0.05" stroke="var(--gold)" stroke-width="1.5"/>
+                  <text class="e4h" x="62" y="42" style="fill:var(--gold);">GENERATE</text>
+                  <text class="e4s" x="62" y="56">Slow, handcrafted</text>
+                  <text class="e4s" x="62" y="69">options</text>
+                  <text class="e4sl" x="62" y="84" fill="var(--gold)">← BOTTLENECK</text>
+                  <line x1="117" y1="60" x2="123" y2="60" stroke="var(--border-default)" stroke-width="1"/>
+                  <polygon points="125,60 119,56 119,64" fill="var(--border-default)"/>
+                  <rect x="125" y="24" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e4h" x="179" y="42">EVALUATE</text>
+                  <text class="e4s" x="179" y="56">Fast — few</text>
+                  <text class="e4s" x="179" y="69">options to weigh</text>
+                  <line x1="234" y1="60" x2="240" y2="60" stroke="var(--border-default)" stroke-width="1"/>
+                  <polygon points="242,60 236,56 236,64" fill="var(--border-default)"/>
+                  <rect x="242" y="24" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e4h" x="297" y="42">DECIDE</text>
+                  <text class="e4s" x="297" y="56">Clear,</text>
+                  <text class="e4s" x="297" y="69">unobstructed</text>
+                  <text class="e4sl" x="180" y="108" fill="var(--gold)">BOTTLENECK SHIFTS WITH AI</text>
+                  <line x1="180" y1="112" x2="180" y2="126" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
+                  <polygon points="180,128 176,122 184,122" fill="var(--gold)" opacity="0.7"/>
+                  <text class="e4sl" x="180" y="140" fill="var(--teal-text)">WITH AI — SENSE-MAKING BOTTLENECK</text>
+                  <rect x="8" y="148" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e4h" x="62" y="166">GENERATE</text>
+                  <text class="e4s" x="62" y="180">Instant volume,</text>
+                  <text class="e4s" x="62" y="193">no friction</text>
+                  <line x1="117" y1="184" x2="123" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
+                  <polygon points="125,184 119,180 119,188" fill="var(--teal)" opacity="0.6"/>
+                  <rect x="125" y="148" width="109" height="72" rx="5" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text class="e4h" x="179" y="166" style="fill:var(--teal-text);">SENSE-MAKE</text>
+                  <text class="e4s" x="179" y="180">High noise,</text>
+                  <text class="e4s" x="179" y="193">slow synthesis</text>
+                  <text class="e4sl" x="179" y="208" fill="var(--teal-text)">← BOTTLENECK</text>
+                  <line x1="234" y1="184" x2="240" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
+                  <polygon points="242,184 236,180 236,188" fill="var(--teal)" opacity="0.6"/>
+                  <rect x="242" y="148" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e4h" x="297" y="166">DECIDE</text>
+                  <text class="e4s" x="297" y="180">Hard — output</text>
+                  <text class="e4s" x="297" y="193">overload</text>
+                  <rect x="8" y="236" width="344" height="168" rx="6" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text class="e4sl" x="180" y="254" fill="var(--teal-text)">HUMAN DESIGN ROLE</text>
+                  <text class="e4t" x="180" y="276">Facilitation as Design</text>
+                  <text class="e4s" x="180" y="298">Structure the process so output is useful,</text>
+                  <text class="e4s" x="180" y="312">not just voluminous.</text>
+                  <line x1="40" y1="322" x2="320" y2="322" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
+                  <text class="e4s" x="180" y="336">Build human judgment checkpoints</text>
+                  <text class="e4s" x="180" y="350">at the right moments.</text>
+                  <line x1="40" y1="360" x2="320" y2="360" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
+                  <text class="e4s" x="180" y="374">Prevent the room from drowning in AI output</text>
+                  <text class="e4s" x="180" y="388" style="fill:var(--teal-text);font-weight:600;">and losing the actual decision thread.</text>
+                </svg>
+              </div>
+            </div>
+
+          </div>
+        </div><!-- /thinking-featured -->
+
+        <!-- ── More positions label ── -->
+        <div class="thinking-more-label reveal">
+          <span class="eyebrow">Más posiciones</span>
         </div>
+
+        <!-- ── Idea cards row (01–04) ── -->
+        <div class="thinking-ideas">
+
+          <!-- Card 01 -->
+          <button class="idea-card reveal" data-essay="0" type="button" aria-haspopup="dialog"
+            aria-label="Leer: Empatía Posicional">
+            <div class="idea-card-meta">
+              <span class="essay-number" aria-hidden="true">01</span>
+              <span class="essay-tag">Empatía Posicional</span>
+            </div>
+            <h3 class="idea-card-title">El tipo de empatía más útil no es el emocional. Es el posicional.</h3>
+            <span class="idea-card-cta">Leer <span class="arrow">→</span></span>
+            <div class="idea-card-diagram" aria-hidden="true">
+              <div class="idea-card-diagram-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420" width="100%" role="img" aria-hidden="true">
+                  <defs>
+                    <style>
+                      .e1l { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.2px; text-anchor: middle; }
+                      .e1t { font-family: var(--font-display); font-size: 13px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                      .e1s { font-family: var(--font-body); font-size: 8.5px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                      .e1c { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    </style>
+                  </defs>
+                  <rect x="8" y="8" width="344" height="174" rx="6" fill="var(--bg-surface-2)" stroke="#E28B72" stroke-opacity="0.3" stroke-width="1"/>
+                  <text class="e1l" x="180" y="28" fill="#E28B72">EMOTIONAL · COMPASSION-LED</text>
+                  <text class="e1t" x="180" y="50">Emotional Empathy</text>
+                  <ellipse cx="62" cy="118" rx="46" ry="36" fill="none" stroke="#E28B72" stroke-width="0.8" opacity="0.10"/>
+                  <ellipse cx="62" cy="118" rx="32" ry="25" fill="none" stroke="#E28B72" stroke-width="0.8" opacity="0.20"/>
+                  <ellipse cx="62" cy="118" rx="18" ry="14" fill="none" stroke="#E28B72" stroke-width="1" opacity="0.35"/>
+                  <circle cx="62" cy="118" r="7" fill="#E28B72" opacity="0.50"/>
+                  <text style="font-family:var(--font-body);font-size:6.5px;font-weight:600;fill:#E28B72;text-anchor:middle;" x="62" y="160">SHARED FEELING</text>
+                  <text class="e1s" x="118" y="68">Feeling what others feel.</text>
+                  <text class="e1s" x="118" y="83">The foundation of personal connection</text>
+                  <text class="e1s" x="118" y="97">and deep user trust.</text>
+                  <line x1="118" y1="108" x2="340" y2="108" stroke="var(--border-default)" stroke-width="0.5" opacity="0.4"/>
+                  <text class="e1s" x="118" y="122">Harder to sustain across large teams</text>
+                  <text class="e1s" x="118" y="136">where incentives conflict and</text>
+                  <text class="e1s" x="118" y="150">mental models diverge.</text>
+                  <text class="e1s" x="118" y="167" style="fill:#E28B72;font-weight:600;">Personal context · Deep relationships</text>
+                  <text class="e1c" x="180" y="199">↓  not a replacement — a complement  ↓</text>
+                  <rect x="8" y="210" width="344" height="192" rx="6" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                  <rect x="8" y="210" width="3" height="192" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                  <text class="e1l" x="180" y="232" fill="var(--teal-text)">POSITIONAL · ACCURACY-LED</text>
+                  <text class="e1t" x="180" y="254">Positional Empathy</text>
+                  <line x1="30" y1="338" x2="96" y2="338" stroke="var(--border-strong)" stroke-width="0.8" opacity="0.5"/>
+                  <line x1="30" y1="338" x2="30" y2="276" stroke="var(--border-strong)" stroke-width="0.8" opacity="0.5"/>
+                  <circle cx="44" cy="328" r="3.5" fill="var(--teal)" opacity="0.65"/>
+                  <line x1="44" y1="328" x2="60" y2="310" stroke="var(--teal)" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.5"/>
+                  <circle cx="60" cy="310" r="3.5" fill="var(--teal)" opacity="0.65"/>
+                  <line x1="60" y1="310" x2="78" y2="291" stroke="var(--teal)" stroke-width="0.7" stroke-dasharray="2 2" opacity="0.5"/>
+                  <circle cx="78" cy="291" r="3.5" fill="var(--teal)" opacity="0.65"/>
+                  <circle cx="78" cy="291" r="9" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.35"/>
+                  <text style="font-family:var(--font-body);font-size:6.5px;font-weight:600;fill:var(--teal-text);text-anchor:middle;" x="60" y="354">ALIGNMENT PATH</text>
+                  <text class="e1s" x="118" y="274">Mapping what others see,</text>
+                  <text class="e1s" x="118" y="289">optimise for, and fear.</text>
+                  <line x1="118" y1="300" x2="340" y2="300" stroke="var(--border-default)" stroke-width="0.5" opacity="0.4"/>
+                  <text class="e1s" x="118" y="314">Designed for professional complexity —</text>
+                  <text class="e1s" x="118" y="328">navigating environments where</text>
+                  <text class="e1s" x="118" y="342">incentives diverge and alignment</text>
+                  <text class="e1s" x="118" y="356">requires navigation, not feeling.</text>
+                  <text class="e1s" x="118" y="376" style="fill:var(--teal-text);font-weight:600;">Professional context · Org navigation</text>
+                  <text class="e1c" x="180" y="413">Both modes matter. Context determines which one leads.</text>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Card 02 -->
+          <button class="idea-card reveal" data-essay="1" type="button" aria-haspopup="dialog"
+            aria-label="Leer: Economía Conductual">
+            <div class="idea-card-meta">
+              <span class="essay-number" aria-hidden="true">02</span>
+              <span class="essay-tag">Economía Conductual</span>
+            </div>
+            <h3 class="idea-card-title">La mayoría de las decisiones de diseño son decisiones de comportamiento. Trátalas como tal.</h3>
+            <span class="idea-card-cta">Leer <span class="arrow">→</span></span>
+            <div class="idea-card-diagram" aria-hidden="true">
+              <div class="idea-card-diagram-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 502" width="100%" role="img" aria-hidden="true">
+                  <defs>
+                    <style>
+                      .e2sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
+                      .e2t  { font-family: var(--font-display); font-size: 12px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                      .e2h  { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                      .e2s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                    </style>
+                  </defs>
+                  <text class="e2sl" x="180" y="16" fill="var(--text-tertiary)">01 / INQUIRY</text>
+                  <rect x="8" y="24" width="164" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e2sl" x="90" y="42" fill="var(--text-tertiary)">STANDARD</text>
+                  <text class="e2t" x="90" y="62">Stated</text>
+                  <text class="e2t" x="90" y="78">Preferences</text>
+                  <text class="e2s" x="90" y="96" style="fill:var(--gold);font-weight:500;">"What do users need?"</text>
+                  <text class="e2s" x="90" y="111">Intent–action gap applies</text>
+                  <text class="e2s" x="90" y="124" style="fill:var(--gold);">↓ Less predictive</text>
+                  <rect x="180" y="24" width="172" height="108" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.5" stroke-width="1"/>
+                  <rect x="180" y="24" width="3" height="108" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                  <text class="e2sl" x="267" y="42" fill="var(--teal-text)">BEHAVIORAL</text>
+                  <text class="e2t" x="267" y="62">Revealed</text>
+                  <text class="e2t" x="267" y="78">Preferences</text>
+                  <text class="e2s" x="267" y="96" style="fill:var(--teal-text);font-weight:500;">"What will users do?"</text>
+                  <text class="e2s" x="267" y="111">Observed choices &amp; A/B data</text>
+                  <text class="e2s" x="267" y="124" style="fill:var(--teal-text);">↓ More predictive</text>
+                  <text class="e2sl" x="180" y="148" fill="var(--text-tertiary)">02 / PSYCHOLOGICAL LEVERS</text>
+                  <rect x="8" y="158" width="164" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e2h" x="90" y="176">01 / Framing</text>
+                  <text class="e2s" x="90" y="192">Structures choices to highlight</text>
+                  <text class="e2s" x="90" y="206">salience. Guides decisions</text>
+                  <text class="e2s" x="90" y="220">without restricting them.</text>
+                  <rect x="180" y="158" width="172" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.5" stroke-width="1"/>
+                  <text class="e2h" x="267" y="176" style="fill:var(--teal-text);">02 / Defaults</text>
+                  <text class="e2s" x="267" y="192">Pre-selected paths of least</text>
+                  <text class="e2s" x="267" y="206">resistance. Highest conversion</text>
+                  <text class="e2s" x="267" y="220">leverage of the four.</text>
+                  <rect x="8" y="242" width="164" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e2h" x="90" y="260">03 / Effort</text>
+                  <text class="e2s" x="90" y="276">Minimise friction for desired</text>
+                  <text class="e2s" x="90" y="290">actions. Add friction to slow</text>
+                  <text class="e2s" x="90" y="304">errors and exits.</text>
+                  <rect x="180" y="242" width="172" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e2h" x="267" y="260">04 / Context</text>
+                  <text class="e2s" x="267" y="276">Environmental prompts timed</text>
+                  <text class="e2s" x="267" y="290">to peak motivation states</text>
+                  <text class="e2s" x="267" y="304">and user readiness.</text>
+                  <text class="e2sl" x="180" y="330" fill="var(--text-tertiary)">03 / OUTCOMES</text>
+                  <rect x="8" y="340" width="344" height="52" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e2sl" x="180" y="358" fill="var(--text-tertiary)">UNOPTIMIZED</text>
+                  <text class="e2t" x="180" y="376">Stated Intent Interface</text>
+                  <text class="e2s" x="180" y="390">High friction · Low conversion · Assumes rational actors</text>
+                  <rect x="8" y="400" width="344" height="94" rx="5" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text class="e2sl" x="180" y="418" fill="var(--teal-text)">OPTIMIZED</text>
+                  <text class="e2t" x="180" y="438">Action-Aligned Design</text>
+                  <text class="e2s" x="180" y="456">Choice architecture tailored to cognitive heuristics</text>
+                  <text class="e2s" x="180" y="470" style="fill:var(--teal-text);">· Minimal cognitive friction · High default compliance</text>
+                  <text class="e2s" x="180" y="484" style="fill:var(--teal-text);">· Symmetrical choice loops</text>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Card 03 -->
+          <button class="idea-card reveal" data-essay="2" type="button" aria-haspopup="dialog"
+            aria-label="Leer: Sistemas Resilientes">
+            <div class="idea-card-meta">
+              <span class="essay-number" aria-hidden="true">03</span>
+              <span class="essay-tag">Sistemas Resilientes</span>
+            </div>
+            <h3 class="idea-card-title">El mejor proceso es el que no depende de ninguna persona para ser recordado.</h3>
+            <span class="idea-card-cta">Leer <span class="arrow">→</span></span>
+            <div class="idea-card-diagram" aria-hidden="true">
+              <div class="idea-card-diagram-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 432" width="100%" role="img" aria-hidden="true">
+                  <defs>
+                    <style>
+                      .e3sl { font-family: var(--font-body); font-size: 7.5px; font-weight: 700; letter-spacing: 1.5px; text-anchor: middle; }
+                      .e3h  { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: middle; }
+                      .e3s  { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: middle; }
+                      .e3t  { font-family: var(--font-display); font-size: 12px; font-weight: 300; fill: var(--text-primary); text-anchor: middle; }
+                    </style>
+                  </defs>
+                  <text class="e3sl" x="180" y="16" fill="#5C5955">FRAGILE — PERSON-DEPENDENT</text>
+                  <rect x="8" y="24" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e3h" x="90" y="40">Memory Dependent</text>
+                  <text class="e3s" x="90" y="55">Process lives only in people's heads</text>
+                  <rect x="180" y="24" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e3h" x="266" y="40">Informal Transmit</text>
+                  <text class="e3s" x="266" y="55">Passed verbally, undocumented</text>
+                  <rect x="8" y="76" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e3h" x="90" y="92">Person Unavailable</text>
+                  <text class="e3s" x="90" y="107">Process holder shifts or leaves</text>
+                  <rect x="180" y="76" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text class="e3h" x="266" y="92">Operational Collapse</text>
+                  <text class="e3s" x="266" y="107">Workflow degrades or vanishes</text>
+                  <line x1="180" y1="124" x2="180" y2="140" stroke="var(--gold)" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                  <polygon points="180,142 176,136 184,136" fill="var(--gold)" opacity="0.6"/>
+                  <rect x="8" y="150" width="344" height="76" rx="6" fill="var(--gold)" fill-opacity="0.06" stroke="var(--gold)" stroke-width="1.5"/>
+                  <text class="e3sl" x="180" y="168" fill="var(--gold)">CONSOLIDATION CORE</text>
+                  <text class="e3h" x="180" y="187" style="fill:var(--gold);">Map task types. Derive rules.</text>
+                  <text class="e3s" x="180" y="203">Embed structure in tools. Document for imperfect adoption.</text>
+                  <text class="e3s" x="180" y="216">Design so the process survives without you.</text>
+                  <line x1="180" y1="230" x2="180" y2="246" stroke="var(--teal)" stroke-width="1" stroke-dasharray="3 2" opacity="0.6"/>
+                  <polygon points="180,248 176,242 184,242" fill="var(--teal)" opacity="0.6"/>
+                  <text class="e3sl" x="180" y="260" fill="var(--teal-text)">RESILIENT — PRINCIPLE-FIRST</text>
+                  <rect x="8" y="268" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                  <text class="e3h" x="90" y="284" style="fill:var(--teal-text);">Survives Personnel</text>
+                  <text class="e3s" x="90" y="299">New members onboard without a guide</text>
+                  <rect x="180" y="268" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                  <text class="e3h" x="266" y="284" style="fill:var(--teal-text);">Teachable</text>
+                  <text class="e3s" x="266" y="299">Documented, not person-dependent</text>
+                  <rect x="8" y="320" width="164" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                  <text class="e3h" x="90" y="336" style="fill:var(--teal-text);">Low Maintenance</text>
+                  <text class="e3s" x="90" y="351">Holds even when no one tends it</text>
+                  <rect x="180" y="320" width="172" height="44" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                  <text class="e3h" x="266" y="336" style="fill:var(--teal-text);">Structural Bones</text>
+                  <text class="e3s" x="266" y="351">Fails visibly, not silently</text>
+                  <rect x="8" y="374" width="344" height="50" rx="6" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text class="e3t" x="180" y="394">Imperfect adoption of a well-structured</text>
+                  <text class="e3t" x="180" y="414">system is the success condition.</text>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+          <!-- Card 04 -->
+          <button class="idea-card reveal" data-essay="3" type="button" aria-haspopup="dialog"
+            aria-label="Leer: La IA y la proporción de pensamiento">
+            <div class="idea-card-meta">
+              <span class="essay-number" aria-hidden="true">04</span>
+              <span class="essay-tag">IA &amp; Práctica de Diseño</span>
+            </div>
+            <h3 class="idea-card-title">La IA cambia la proporción entre pensar y hacer. Eso no es poca cosa.</h3>
+            <span class="idea-card-cta">Leer <span class="arrow">→</span></span>
+            <div class="idea-card-diagram" aria-hidden="true">
+              <div class="idea-card-diagram-inner">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 412" width="100%" role="img" aria-hidden="true">
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;" x="180" y="16" fill="#5C5955">BEFORE AI — GENERATIVE BOTTLENECK</text>
+                  <rect x="8" y="24" width="109" height="72" rx="5" fill="var(--gold)" fill-opacity="0.05" stroke="var(--gold)" stroke-width="1.5"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--gold);text-anchor:middle;" x="62" y="42">GENERATE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="62" y="56">Slow, handcrafted</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="62" y="69">options</text>
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;fill:var(--gold);" x="62" y="84">← BOTTLENECK</text>
+                  <line x1="117" y1="60" x2="123" y2="60" stroke="var(--border-default)" stroke-width="1"/>
+                  <polygon points="125,60 119,56 119,64" fill="var(--border-default)"/>
+                  <rect x="125" y="24" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--text-secondary);text-anchor:middle;" x="179" y="42">EVALUATE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="179" y="56">Fast — few</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="179" y="69">options to weigh</text>
+                  <line x1="234" y1="60" x2="240" y2="60" stroke="var(--border-default)" stroke-width="1"/>
+                  <polygon points="242,60 236,56 236,64" fill="var(--border-default)"/>
+                  <rect x="242" y="24" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--text-secondary);text-anchor:middle;" x="297" y="42">DECIDE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="297" y="56">Clear,</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="297" y="69">unobstructed</text>
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;fill:var(--gold);" x="180" y="108">BOTTLENECK SHIFTS WITH AI</text>
+                  <line x1="180" y1="112" x2="180" y2="126" stroke="var(--gold)" stroke-width="1.5" stroke-dasharray="4 3" opacity="0.7"/>
+                  <polygon points="180,128 176,122 184,122" fill="var(--gold)" opacity="0.7"/>
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;fill:var(--teal-text);" x="180" y="140">WITH AI — SENSE-MAKING BOTTLENECK</text>
+                  <rect x="8" y="148" width="109" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--text-secondary);text-anchor:middle;" x="62" y="166">GENERATE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="62" y="180">Instant volume,</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="62" y="193">no friction</text>
+                  <line x1="117" y1="184" x2="123" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
+                  <polygon points="125,184 119,180 119,188" fill="var(--teal)" opacity="0.6"/>
+                  <rect x="125" y="148" width="109" height="72" rx="5" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--teal-text);text-anchor:middle;" x="179" y="166">SENSE-MAKE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="179" y="180">High noise,</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="179" y="193">slow synthesis</text>
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;fill:var(--teal-text);" x="179" y="208">← BOTTLENECK</text>
+                  <line x1="234" y1="184" x2="240" y2="184" stroke="var(--teal)" stroke-width="1" opacity="0.6"/>
+                  <polygon points="242,184 236,180 236,188" fill="var(--teal)" opacity="0.6"/>
+                  <rect x="242" y="148" width="110" height="72" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                  <text style="font-family:var(--font-body);font-size:9px;font-weight:600;fill:var(--text-secondary);text-anchor:middle;" x="297" y="166">DECIDE</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="297" y="180">Hard — output</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="297" y="193">overload</text>
+                  <rect x="8" y="236" width="344" height="168" rx="6" fill="var(--teal)" fill-opacity="0.05" stroke="var(--teal)" stroke-width="1.5"/>
+                  <text style="font-family:var(--font-body);font-size:7.5px;font-weight:700;letter-spacing:1.2px;text-anchor:middle;fill:var(--teal-text);" x="180" y="254">HUMAN DESIGN ROLE</text>
+                  <text style="font-family:var(--font-display);font-size:14px;font-weight:300;fill:var(--text-primary);text-anchor:middle;" x="180" y="276">Facilitation as Design</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="180" y="298">Structure the process so output is useful,</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="180" y="312">not just voluminous.</text>
+                  <line x1="40" y1="322" x2="320" y2="322" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="180" y="336">Build human judgment checkpoints</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="180" y="350">at the right moments.</text>
+                  <line x1="40" y1="360" x2="320" y2="360" stroke="var(--teal)" stroke-width="0.5" opacity="0.3"/>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:300;fill:var(--text-tertiary);text-anchor:middle;" x="180" y="374">Prevent the room from drowning in AI output</text>
+                  <text style="font-family:var(--font-body);font-size:8px;font-weight:600;fill:var(--teal-text);text-anchor:middle;" x="180" y="388">and losing the actual decision thread.</text>
+                </svg>
+              </div>
+            </div>
+          </button>
+
+        </div><!-- /thinking-ideas -->
 
         <div class="update-note reveal">
           Última actualización: junio de 2026. Estas posiciones cambiarán. El trabajo continúa.
@@ -507,6 +982,33 @@
       </div>
     </section>
 
+    <!-- ESSAY MODAL SYSTEM -->
+    <div class="essay-modal" id="essay-modal" role="dialog" aria-modal="true"
+      aria-labelledby="essay-modal-title" aria-hidden="true">
+
+      <div class="essay-modal-backdrop" id="essay-modal-backdrop"></div>
+
+      <div class="essay-modal-stack" id="essay-modal-stack">
+        <div class="essay-modal-paper essay-modal-paper--3" aria-hidden="true"></div>
+        <div class="essay-modal-paper essay-modal-paper--2" aria-hidden="true"></div>
+
+        <div class="essay-modal-sheet">
+          <div class="essay-modal-header">
+            <nav class="essay-modal-nav" aria-label="Navegar entre reflexiones">
+              <button class="essay-modal-prev" id="essay-modal-prev" aria-label="Reflexión anterior">← Ant.</button>
+              <span class="essay-modal-counter" id="essay-modal-counter" aria-live="polite">1 / 4</span>
+              <button class="essay-modal-next" id="essay-modal-next" aria-label="Reflexión siguiente">Sig. →</button>
+            </nav>
+            <button class="essay-modal-close" id="essay-modal-close" aria-label="Cerrar reflexión">✕</button>
+          </div>
+          <div class="essay-modal-body" id="essay-modal-body" role="document">
+            <!-- Content injected by JS -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CLOSING CTA -->
     <section class="section--sm cs-cta" aria-labelledby="cta-heading">
       <div class="cs-cta-orb" aria-hidden="true">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -560,6 +1062,206 @@
   </footer>
 
   <script src="/assets/js/main.js?v=10" defer></script>
+
+  <!-- ESSAY MODAL LOGIC -->
+  <script>
+  (function () {
+    const ESSAYS = [
+      {
+        number: '01',
+        tag: 'Empatía Posicional',
+        title: 'En entornos profesionales complejos, el tipo de empatía más útil no es el emocional. Es el posicional.',
+        body: `
+          <p>Hay una versión de la empatía que es emocional — te pones en el lugar de alguien y sientes lo que podría sentir. Eso tiene un valor real: es la base de la conexión personal y de la confianza profunda con los usuarios. Pero en el trabajo de diseño, especialmente dentro de grandes organizaciones, lo que resulta más útil en el día a día es un tipo diferente: la capacidad de mapear cómo otra persona entiende la situación, qué está optimizando, qué le preocupa y qué necesita que sea verdad para poder avanzar.</p>
+          <p>A esto lo llamo empatía posicional. No es un sustituto de la compasión — es un instrumento complementario, optimizado para un contexto diferente. Y resulta ser una de las habilidades más útiles en la práctica del diseño empresarial, porque la mayoría de los problemas difíciles en estos entornos no son visuales ni técnicos. Son políticos y cognitivos. Las personas no están alineadas. No comparten el mismo modelo mental del problema. Tienen incentivos que no son visibles en el briefing.</p>
+          <p>Si puedes mapear ese paisaje con precisión — sin perder tu propia perspectiva — puedes encontrar el camino a través de él. No ganando el argumento, sino entendiendo el terreno lo suficientemente bien como para dejar de discutir sobre las cosas equivocadas.</p>`,
+        caption: 'La empatía posicional no es un sustituto de la compasión — es una herramienta complementaria para la complejidad profesional. No llegas a la alineación con los stakeholders sintiéndola; llegas pensándola.'
+      },
+      {
+        number: '02',
+        tag: 'Economía Conductual',
+        title: 'La mayoría de las decisiones de diseño son decisiones de comportamiento. Trátalas como tal.',
+        body: `
+          <p>El proceso de diseño estándar pregunta: ¿qué necesitan los usuarios? Es una buena pregunta. Pero la pregunta desde la economía conductual es diferente: dado cómo funciona realmente la cognición humana — con sus atajos, sesgos y dependencia del contexto — ¿qué hace probable que la gente haga esta interfaz?</p>
+          <p>No son la misma pregunta.</p>
+          <p>Pasé años trabajando en optimización de conversión en plataformas de banca, seguros, fidelización y e-commerce. Lo que ese trabajo te enseña — si estás prestando atención — es que las pequeñas decisiones de diseño tienen efectos desproporcionados en el comportamiento. El orden de la información en una página. El encuadre de una elección como ganancia o pérdida. La presencia o ausencia de un valor por defecto. No son detalles. Son el mecanismo por el cual el diseño funciona o no.</p>
+          <p>Esto no significa manipular a las personas. Significa entender cómo se toman realmente las decisiones — bajo presión de tiempo, con información incompleta, moldeadas por el contexto — y diseñar para esa realidad en lugar de una versión idealizada de ella.</p>`,
+        caption: 'Lo que los usuarios necesitan y lo que los usuarios hacen no son la misma pregunta. El enfoque conductual funciona modificando la arquitectura de elección a través de palancas psicológicas — no recopilando más preferencias declaradas.'
+      },
+      {
+        number: '03',
+        tag: 'Sistemas Resilientes',
+        title: 'El mejor proceso es el que no depende de ninguna persona para ser recordado.',
+        body: `
+          <p>Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de trabajo compartido. Los archivos existían en todas partes. La jerarquía del trabajo — qué iba en Figma, qué en Confluence, qué en Jira — era poco clara y se aplicaba de forma inconsistente. El proceso que existía dependía de personas concretas para mantenerlo en la memoria y transmitirlo informalmente. Cuando esas personas no estaban disponibles, el sistema se derrumbaba.</p>
+          <p>Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabajo real que hacía el equipo: los tipos de tareas, sus interdependencias, las decisiones que se perdían continuamente. A partir de ahí, derivé un conjunto de reglas estructurales — qué va dónde, cuándo y por qué — que podían documentarse, enseñarse y modificarse sin que yo tuviera que estar presente.</p>
+          <p>Se adoptó de forma imperfecta. La estructura se mantuvo. He llegado a pensar que la adopción imperfecta de un sistema bien estructurado es en realidad la condición de éxito — no el cumplimiento perfecto. El objetivo era un proceso que pudiera sobrevivir a mi marcha, sobrevivir a nuevos miembros del equipo y sobrevivir a los momentos en los que nadie tiene tiempo de mantenerlo con cuidado. Lo hace.</p>`,
+        caption: 'La adopción imperfecta de un sistema bien estructurado es la condición de éxito — no el cumplimiento perfecto. El objetivo es la supervivencia, no el control.'
+      },
+      {
+        number: '04',
+        tag: 'IA & Práctica de Diseño',
+        title: 'La IA cambia la proporción entre pensar y hacer. Eso no es poca cosa.',
+        body: `
+          <p>Lo que he estado explorando durante el último año es qué ocurre cuando introduces la IA en un proceso de diseño que ya era complejo — concretamente, la metodología Shape Up que usa mi equipo en IKEA. Shape Up pide a las personas que mantengan mucho contexto, tomen decisiones de juicio con información incompleta y avancen rápidamente en decisiones de diseño que tienen consecuencias importantes más adelante.</p>
+          <p>La IA puede procesar y producir información más rápido de lo que cualquier equipo puede absorberla. Lo que significa que el cuello de botella cambia. Ya no se trata de generar opciones — se trata de darles sentido. De tener suficiente contexto compartido para evaluar lo que la IA ha producido y decidir qué hacer con ello.</p>
+          <p>El problema de diseño interesante aquí es humano, no técnico. ¿Cómo estructuras un proceso asistido por IA para que el resultado sea realmente útil — no solo voluminoso? ¿Cómo incorporas los puntos de control correctos, el nivel adecuado de juicio humano en los momentos oportunos? ¿Cómo evitas que una sala llena de personas se ahogue en texto generado por IA y pierda el hilo de la decisión real?</p>
+          <p>Esos son problemas de facilitación. Y la facilitación, resulta, es un problema de diseño.</p>`,
+        caption: 'La IA no elimina la necesidad de juicio. Lo desplaza. El cuello de botella pasa de la generación a la interpretación — y estructurar ese proceso es un problema de diseño.',
+        link: { href: '/es/thinking/ai-workflow-framework/', label: 'Leer el framework completo' }
+      }
+    ];
+
+    let current = 0;
+    let isAnimating = false;
+    let openerEl = null;
+
+    const modal    = document.getElementById('essay-modal');
+    const stack    = document.getElementById('essay-modal-stack');
+    const backdrop = document.getElementById('essay-modal-backdrop');
+    const body     = document.getElementById('essay-modal-body');
+    const counter  = document.getElementById('essay-modal-counter');
+    const prevBtn  = document.getElementById('essay-modal-prev');
+    const nextBtn  = document.getElementById('essay-modal-next');
+    const closeBtn = document.getElementById('essay-modal-close');
+
+    function getDiagramHTML(idx) {
+      const cards = document.querySelectorAll('.idea-card');
+      const card = cards[idx];
+      if (!card) return '';
+      const src = card.querySelector('.idea-card-diagram-inner');
+      if (!src) return '';
+      const clone = src.cloneNode(true);
+      clone.style.maxHeight = 'none';
+      clone.style.overflow = 'visible';
+      clone.style.padding = '0';
+      clone.style.border = '1px solid var(--border-default)';
+      clone.style.borderRadius = 'var(--radius-sm)';
+      return clone.outerHTML;
+    }
+
+    function renderEssay(idx) {
+      const e = ESSAYS[idx];
+      counter.textContent = (idx + 1) + ' / ' + ESSAYS.length;
+      prevBtn.disabled = idx === 0;
+      nextBtn.disabled = idx === ESSAYS.length - 1;
+
+      const linkHTML = e.link
+        ? `<div style="margin-top:var(--sp-8);padding-top:var(--sp-6);border-top:1px solid var(--border-default);">
+             <a href="${e.link.href}" class="btn btn-ghost" style="display:inline-flex;">
+               ${e.link.label} <span class="arrow">→</span>
+             </a>
+           </div>`
+        : '';
+
+      body.innerHTML = `
+        <div class="essay-modal-content">
+          <div class="essay-modal-meta">
+            <span class="essay-number" aria-hidden="true">${e.number}</span>
+            <span class="essay-tag">${e.tag}</span>
+          </div>
+          <h2 id="essay-modal-title" class="article-title">${e.title}</h2>
+          <div class="article-body">${e.body}</div>
+          <figure class="diagram-block article-diagram" aria-label="${e.tag} — diagrama">
+            <div class="diagram-wrap">${getDiagramHTML(idx)}</div>
+            <figcaption>${e.caption}</figcaption>
+          </figure>
+          ${linkHTML}
+        </div>`;
+    }
+
+    function openModal(idx, triggerEl) {
+      current = idx;
+      openerEl = triggerEl || null;
+      renderEssay(idx);
+      modal.removeAttribute('aria-hidden');
+      modal.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      setTimeout(() => closeBtn.focus(), 450);
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (openerEl) openerEl.focus();
+    }
+
+    function navigate(direction) {
+      if (isAnimating) return;
+      const next = current + direction;
+      if (next < 0 || next >= ESSAYS.length) return;
+      isAnimating = true;
+
+      stack.classList.add('navigating');
+      setTimeout(() => stack.classList.remove('navigating'), 350);
+
+      const content = body.querySelector('.essay-modal-content');
+      if (!content) { isAnimating = false; return; }
+
+      const outClass = direction > 0 ? 'exit-left' : 'exit-right';
+      const inClass  = direction > 0 ? 'enter-right' : 'enter-left';
+
+      content.classList.add(outClass);
+
+      setTimeout(() => {
+        current = next;
+        renderEssay(current);
+        body.scrollTop = 0;
+        const newContent = body.querySelector('.essay-modal-content');
+        if (newContent) {
+          newContent.classList.add(inClass);
+          requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+              newContent.classList.remove(inClass);
+              isAnimating = false;
+            });
+          });
+        } else {
+          isAnimating = false;
+        }
+      }, 210);
+    }
+
+    document.querySelectorAll('.idea-card').forEach(function (card) {
+      card.addEventListener('click', function () {
+        openModal(parseInt(card.dataset.essay, 10), card);
+      });
+    });
+
+    backdrop.addEventListener('click', closeModal);
+    closeBtn.addEventListener('click', closeModal);
+    prevBtn.addEventListener('click', function () { navigate(-1); });
+    nextBtn.addEventListener('click', function () { navigate(1); });
+
+    document.addEventListener('keydown', function (e) {
+      if (!modal.classList.contains('is-open')) return;
+      if (e.key === 'Escape')      { closeModal(); }
+      if (e.key === 'ArrowLeft')   { navigate(-1); }
+      if (e.key === 'ArrowRight')  { navigate(1); }
+    });
+
+    let touchStartY = 0;
+    let touchStartX = 0;
+    const sheet = modal.querySelector('.essay-modal-sheet');
+
+    sheet.addEventListener('touchstart', function (e) {
+      touchStartY = e.touches[0].clientY;
+      touchStartX = e.touches[0].clientX;
+    }, { passive: true });
+
+    sheet.addEventListener('touchend', function (e) {
+      const dy = e.changedTouches[0].clientY - touchStartY;
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dy) > Math.abs(dx)) {
+        if (dy > 80 && body.scrollTop < 10) closeModal();
+      } else {
+        if (dx < -60) navigate(1);
+        if (dx > 60)  navigate(-1);
+      }
+    }, { passive: true });
+  })();
+  </script>
 
 </body>
 
