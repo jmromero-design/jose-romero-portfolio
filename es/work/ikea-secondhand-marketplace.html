@@ -20,6 +20,35 @@
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <style>
+    .cover-comp { position: absolute; inset: 0; background: var(--bg-surface); overflow: hidden; }
+    .cover-comp::before {
+      content: ''; position: absolute; width: 240px; height: 240px;
+      border-radius: 50%; background: var(--bg-surface-2);
+      right: 10%; bottom: -90px;
+      box-shadow:
+        0 0 0 90px  color-mix(in srgb, var(--teal) 14%, var(--bg-surface-2)),
+        0 0 0 200px color-mix(in srgb, var(--teal)  7%, var(--bg-surface-2)),
+        0 0 0 330px color-mix(in srgb, var(--teal)  3%, var(--bg-surface));
+      pointer-events: none;
+    }
+    .comp-phone {
+      position: absolute;
+      border: 1px solid var(--border-strong); border-radius: 26px;
+      padding: 6px; background: var(--bg-surface);
+      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+    }
+    .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
+    .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
+    .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
+    .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
+    .shot-row { display: flex; gap: var(--sp-6); justify-content: center; flex-wrap: wrap; margin-block: var(--sp-10) var(--sp-3); }
+    .shot-phone { width: 188px; border: 1px solid var(--border-strong); border-radius: 26px; padding: 5px; background: var(--bg-surface); box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0; }
+    .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
+    .sh-desktop-card { margin-block: var(--sp-10) var(--sp-3); border: 1px solid var(--border-default); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 16px 48px -12px rgba(0,0,0,0.45); }
+    .sh-desktop-card img { display: block; width: 100%; height: auto; }
+    @media (max-width: 640px) { .shot-phone { width: 150px; } }
+  </style>
   <script src="/assets/js/lang-detect.js"></script>
 </head>
 <body>
@@ -79,11 +108,10 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-ikea-second" style="position: absolute; inset: 0;" role="img" aria-label="IKEA Second-hand Marketplace — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
-            </div>
-            <span class="cover-number" aria-hidden="true">02</span>
+          <div class="cover-comp" role="img" aria-label="IKEA Second-hand Marketplace — pantallas de exploración, detalle de producto y checkout">
+            <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="eager"></div>
+            <div class="comp-phone comp-phone--right"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-explore.webp" width="620" height="1338" alt="" loading="eager"></div>
           </div>
         </div>
 
@@ -263,6 +291,14 @@
             <figcaption>De dos ciudades piloto en 2024 a cinco mercados en los primeros meses de 2026 — cada fase de expansión validó las suposiciones de localización antes del siguiente despliegue.</figcaption>
           </figure>
 
+          <figure class="reveal" style="margin: 0;" aria-label="Pantallas de exploración, carrito y checkout">
+            <div class="shot-row">
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-explore.webp" width="620" height="1338" alt="Explorar productos — navegar por anuncios de segunda mano de IKEA por categoría en móvil" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-cart.webp" width="620" height="1336" alt="Carrito y pago — flujo de checkout para comprar un artículo IKEA de segunda mano" loading="lazy"></div>
+              <div class="shot-phone"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-payment-data.webp" width="620" height="1343" alt="Introducción de datos de pago — checkout seguro con métodos de pago localizados" loading="lazy"></div>
+            </div>
+          </figure>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Mi rol</span>
             <h2>Diseño de producto a lo largo del ciclo de vida completo</h2>
@@ -276,6 +312,10 @@
             <p>Trabajar en dos productos de marketplace simultáneamente tiene un efecto secundario útil: los patrones que funcionan en uno tienden a informar al otro, y la deuda de diseño en uno se hace visible más rápido cuando mantienes la consistencia entre ambos. El flujo de creación de anuncios, los mensajes de confianza y seguridad, la arquitectura de reseñas — todos se desarrollaron pensando en la consistencia entre productos.</p>
             <p>La integración del catálogo IKEA requirió una estrecha colaboración con ingeniería para definir el contrato de datos entre el catálogo y la UI. ¿Qué campos estaban siempre disponibles? ¿Cuáles eran opcionales o con datos inconsistentes? Las respuestas dieron forma a la jerarquía de información de cada página de anuncio.</p>
           </div>
+
+          <figure class="sh-desktop-card reveal" aria-label="Modal de venta — paso inicial del flujo de creación de anuncio">
+            <img src="/assets/images/work/ikea-secondhand-marketplace/sh-sell-modal.webp" width="1200" height="678" alt="Modal de venta — el primer paso para crear un anuncio, donde el vendedor selecciona el artículo del catálogo de IKEA" loading="lazy">
+          </figure>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Estado</span>
