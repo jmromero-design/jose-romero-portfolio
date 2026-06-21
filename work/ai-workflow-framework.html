@@ -38,9 +38,10 @@
     .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
     .comp-board-screen{overflow:hidden}
     .comp-board-screen img{display:block;width:100%;height:auto}
-    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);margin-inline:0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
     .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 2%,var(--bg-surface));pointer-events:none}
     .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    .media-artifact figcaption{width:100%;max-width:860px;font-size:0.8125rem;color:var(--text-tertiary);line-height:1.6;position:relative;z-index:1}
     @media(max-width:640px){.cover-ai-comp{padding:14px 16px;gap:8px}.cover-ai-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -256,9 +257,10 @@
             <figcaption>Three-tier agent hierarchy. Each tier has defined scope and escalation paths — the Orchestrator coordinates but does not decide; humans hold final authority at every phase gate.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="Multi-agent orchestration board — three-tier hierarchy from Orchestrator through Phase Agents to Task Agents; Shaping Session Brief as input, Pitch-Ready Docs as output; Human Decision Layer above all tiers with gate rules" width="2038" height="1578" loading="lazy">
-          </div>
+            <figcaption>Orchestration working artifact — the board version adds operational detail the diagram above abstracts: I/O nodes (Shaping Session Brief → Pitch-Ready Docs), the Human Decision Layer above all tiers with explicit gate conditions, and the rule that no tier self-approves.</figcaption>
+          </figure>
 
           <!-- APPLIED -->
           <div class="cs-section reveal">
@@ -385,9 +387,10 @@
             <figcaption>Five-phase workflow with human gate checkpoints. Each gate requires a named human decision — not an acknowledgement. AI advances only after human sign-off.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="Five-phase AI workflow board — phase rows for Discovery, Shaping, Betting, Building and Retrospective; columns for AI contribution, human gate checkpoint and output artifact; teal for AI-supported phases, gold for human-led phases" width="2188" height="1752" loading="lazy">
-          </div>
+            <figcaption>Five-phase workflow artifact — the team-facing reference. Each row shows AI contribution detail, a named human gate condition, and the output artifact per phase. Teal = AI-supported; gold = human-led. Gates are hard stops, not formalities.</figcaption>
+          </figure>
 
           <!-- WHAT THIS REQUIRES -->
           <div class="cs-section reveal">
@@ -454,9 +457,10 @@
             <figcaption>Trust calibration tiers. Calibrated trust — knowing what to review versus scrutinise versus validate externally — is a skill that develops with practice and should be made explicit across the team.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact3-trust-calibration.webp" alt="AI output trust calibration framework — three tiers: High Confidence (review efficiently), Scrutinise Carefully (deep human review required), Validate Externally (independent verification only); example output types and rationale for each tier" width="1734" height="1840" loading="lazy">
-          </div>
+            <figcaption>Trust calibration artifact — active reference for evaluating AI output: High Confidence (review efficiently), Scrutinise Carefully (deep human review), Validate Externally (independent source required). The key rule: AI fluency is a trigger for more scrutiny, not less.</figcaption>
+          </figure>
 
           <!-- OUTCOME -->
           <div class="cs-section reveal">

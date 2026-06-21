@@ -47,9 +47,10 @@
     .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
     .comp-board-screen{overflow:hidden}
     .comp-board-screen img{display:block;width:100%;height:auto}
-    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);margin-inline:0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
     .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--gold) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--gold) 2%,var(--bg-surface));pointer-events:none}
     .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    .media-artifact figcaption{width:100%;max-width:860px;font-size:0.8125rem;color:var(--text-tertiary);line-height:1.6;position:relative;z-index:1}
     @media(max-width:640px){.cover-wow-comp{padding:14px 16px;gap:8px}.cover-wow-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -299,9 +300,10 @@
             <figcaption>Una regla: cada herramienta tiene un trabajo. El sistema se mantiene porque el principio es lo suficientemente simple como para recordarlo sin la documentación.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="Arquitectura del sistema WoW — roles de cada herramienta (Figma, Jira, Confluence, Phrase); estructura de archivos Figma con cinco productos; jerarquía de librerías Skapa con extensión a Home Improver Library; flujo de contenido en cinco fases" width="2488" height="1770" loading="lazy">
-          </div>
+            <figcaption>Artefacto de referencia operativa — la arquitectura completa del sistema WoW tal como se distribuyó al equipo. Cubre asignación de roles de herramientas, estructura de proyectos en Figma, jerarquía de librerías Skapa y el flujo de contenido en cinco fases en una única superficie de referencia.</figcaption>
+          </figure>
 
           <!-- EL FLUJO DE CONTENIDO -->
           <div class="cs-section reveal">
@@ -409,9 +411,10 @@
             <figcaption>Cinco fases, dos responsables. El cambio estructural clave: claves de traducción configuradas en la Fase 2 (diseño), no en la Fase 4 (ingeniería) — lo que las hace verificables en QA por primera vez.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ikea-ways-of-working/artifact2-feature-design-workflow.webp" alt="Flujo de trabajo de diseño de features — ciclo de vida de ramas en seis pasos desde el archivo principal hasta la eliminación de la rama; convención de nombres de ramas; tabla de protocolo de handoff con columnas de lógica, claves de contenido, accesibilidad y comportamientos; regla de integración con Jira" width="2358" height="1742" loading="lazy">
-          </div>
+            <figcaption>Artefacto de flujo a nivel de rama — cómo el proceso de cinco fases se traduce al trabajo diario en Figma: ciclo de vida de ramas desde su creación hasta su eliminación, convenciones de nombres, protocolo de handoff y reglas de integración con Jira en una vista operativa.</figcaption>
+          </figure>
 
           <!-- MARCO DE TRABAJO EN FIGMA -->
           <div class="cs-section reveal">
@@ -421,9 +424,10 @@
             <p>El sistema de diseño Skapa de IKEA proporciona una base sólida de iconos, fundamentos y componentes. Pero un equipo de producto que construye features para la Home App encontrará inevitablemente escenarios que Skapa no cubre. Sin una regla, esos huecos se rellenan de forma inconsistente — cada diseñador tomando una decisión diferente, sin trazabilidad ni revisión. El framework Skapa-First hace explícita la regla: consultar Skapa primero, adaptar si es necesario, y proponer nuevos componentes solo cuando ninguna solución existente sea viable — con justificación escrita y revisión de gobernanza antes de que cualquier componente entre en producción.</p>
           </div>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="Framework de decisión de componentes Skapa-First — diamante de decisión que pregunta si existe una coincidencia directa en Skapa; tres rutas de evaluación: SÍ usar directamente, QUIZÁS adaptar o proponer variante, NO justificar y seguir gobernanza; Home Improver Library como capa de extensión" width="2470" height="1860" loading="lazy">
-          </div>
+            <figcaption>Artefacto de gobernanza de componentes — el framework de decisión Skapa-First tal como se distribuye a los diseñadores. Tres rutas de evaluación: SÍ (usar directamente), QUIZÁS (adaptar como variante), NO (justificar y someter a revisión de gobernanza antes de producción).</figcaption>
+          </figure>
 
           <!-- OPTIMIZACIÓN DE PHRASE -->
           <div class="cs-section reveal">

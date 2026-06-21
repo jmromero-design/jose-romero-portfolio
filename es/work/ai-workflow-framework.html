@@ -38,9 +38,10 @@
     .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
     .comp-board-screen{overflow:hidden}
     .comp-board-screen img{display:block;width:100%;height:auto}
-    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);margin-inline:0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
     .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 2%,var(--bg-surface));pointer-events:none}
     .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    .media-artifact figcaption{width:100%;max-width:860px;font-size:0.8125rem;color:var(--text-tertiary);line-height:1.6;position:relative;z-index:1}
     @media(max-width:640px){.cover-ai-comp{padding:14px 16px;gap:8px}.cover-ai-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
@@ -249,9 +250,10 @@
             <figcaption>Jerarquía de agentes de tres niveles. Cada nivel tiene alcance definido y rutas de escalado — el Orquestador coordina pero no decide; los humanos tienen autoridad final en cada puerta de fase.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="Diagrama de orquestación multi-agente — jerarquía de tres niveles desde el Orquestador hasta los Agentes de Fase y los Agentes de Tarea; Brief de sesión de shaping como entrada, documentación pitch-ready como salida; capa de decisión humana sobre todos los niveles" width="2038" height="1578" loading="lazy">
-          </div>
+            <figcaption>Artefacto de orquestación — la versión en board añade detalle operativo que el diagrama superior abstrae: nodos de entrada/salida (Brief de shaping → Docs pitch-ready), la capa de decisión humana sobre todos los niveles con condiciones de puerta explícitas, y la regla de que ningún nivel se autoaprueba.</figcaption>
+          </figure>
 
           <!-- APLICADO -->
           <div class="cs-section reveal">
@@ -363,9 +365,10 @@
             <figcaption>Flujo de trabajo de cinco fases con puertas de checkpoint humanas. Cada puerta requiere una decisión humana nombrada — no un reconocimiento. La IA avanza solo tras la firma humana.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="Flujo de trabajo IA de cinco fases — filas de fase para Discovery, Shaping, Betting, Building y Retrospective; columnas para contribución de IA, puerta de control humana y artefacto de salida; teal para fases soportadas por IA, dorado para fases lideradas por humanos" width="2188" height="1752" loading="lazy">
-          </div>
+            <figcaption>Artefacto del flujo de cinco fases — la referencia para el equipo. Cada fila muestra el detalle de contribución de IA, la condición nombrada de la puerta humana y el artefacto de salida por fase. Teal = asistida por IA; dorado = liderada por humanos. Las puertas son paradas obligatorias, no formalidades.</figcaption>
+          </figure>
 
           <!-- QUÉ REQUIERE -->
           <div class="cs-section reveal">
@@ -429,9 +432,10 @@
             <figcaption>Niveles de calibración de confianza. La confianza calibrada — saber qué revisar, qué escrutar y qué validar externamente — es una habilidad que se desarrolla con la práctica y debe hacerse explícita en todo el equipo.</figcaption>
           </figure>
 
-          <div class="media-artifact reveal">
+          <figure class="media-artifact reveal">
             <img src="/assets/images/work/ai-workflow-framework/artifact3-trust-calibration.webp" alt="Framework de calibración de confianza en outputs de IA — tres niveles: Alta Confianza (revisar eficientemente), Escrutar Cuidadosamente (revisión humana profunda requerida), Validar Externamente (solo verificación independiente); tipos de output de ejemplo y justificación por nivel" width="1734" height="1840" loading="lazy">
-          </div>
+            <figcaption>Artefacto de calibración de confianza — referencia activa para evaluar outputs de IA: Alta Confianza (revisar con eficiencia), Escrutar Cuidadosamente (revisión humana profunda), Validar Externamente (fuente independiente requerida). La regla clave: la fluidez de la IA es un activador para mayor escrutinio, no para menos.</figcaption>
+          </figure>
 
           <!-- RESULTADO -->
           <div class="cs-section reveal">
