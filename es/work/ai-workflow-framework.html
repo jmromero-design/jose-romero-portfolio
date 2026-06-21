@@ -26,6 +26,23 @@
   }
   </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
+  <style>
+    .cover-ai-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
+    .cover-ai-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .cover-ai-col{position:relative;z-index:1}
+    .cover-ai-col.primary{flex:4}
+    .cover-ai-col.secondary{flex:5}
+    .comp-board{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 64px -20px rgba(0,0,0,.7)}
+    .comp-board-bar{background:#1a1a1a;padding:7px 12px;display:flex;align-items:center;gap:7px}
+    .comp-board-bar i{width:8px;height:8px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .comp-board-screen{overflow:hidden}
+    .comp-board-screen img{display:block;width:100%;height:auto}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 2%,var(--bg-surface));pointer-events:none}
+    .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    @media(max-width:640px){.cover-ai-comp{padding:14px 16px;gap:8px}.cover-ai-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
+  </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -117,15 +134,23 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder" style="position: absolute; inset: 0;" role="img" aria-label="Framework de Diseño de Flujos IA — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true">
-                <circle cx="12" cy="5" r="2"/><circle cx="5" cy="19" r="2"/><circle cx="19" cy="19" r="2"/>
-                <line x1="12" y1="7" x2="5" y2="17"/><line x1="12" y1="7" x2="19" y2="17"/>
-                <line x1="5" y1="19" x2="19" y2="19"/>
-              </svg>
+          <div class="cover-ai-comp" role="img" aria-label="Framework de Flujos IA — orquestación multi-agente y flujo de trabajo de cinco fases con puertas humanas">
+            <div class="cover-ai-col primary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">Orquestación Multi-Agente</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="" width="2038" height="1578" loading="eager">
+                </div>
+              </div>
             </div>
-            <span class="cover-number" aria-hidden="true">09</span>
+            <div class="cover-ai-col secondary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">Flujo de 5 Fases + Puertas Humanas</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="" width="2188" height="1752" loading="eager">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -223,6 +248,10 @@
             </div>
             <figcaption>Jerarquía de agentes de tres niveles. Cada nivel tiene alcance definido y rutas de escalado — el Orquestador coordina pero no decide; los humanos tienen autoridad final en cada puerta de fase.</figcaption>
           </figure>
+
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="Diagrama de orquestación multi-agente — jerarquía de tres niveles desde el Orquestador hasta los Agentes de Fase y los Agentes de Tarea; Brief de sesión de shaping como entrada, documentación pitch-ready como salida; capa de decisión humana sobre todos los niveles" width="2038" height="1578" loading="lazy">
+          </div>
 
           <!-- APLICADO -->
           <div class="cs-section reveal">
@@ -334,6 +363,10 @@
             <figcaption>Flujo de trabajo de cinco fases con puertas de checkpoint humanas. Cada puerta requiere una decisión humana nombrada — no un reconocimiento. La IA avanza solo tras la firma humana.</figcaption>
           </figure>
 
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="Flujo de trabajo IA de cinco fases — filas de fase para Discovery, Shaping, Betting, Building y Retrospective; columnas para contribución de IA, puerta de control humana y artefacto de salida; teal para fases soportadas por IA, dorado para fases lideradas por humanos" width="2188" height="1752" loading="lazy">
+          </div>
+
           <!-- QUÉ REQUIERE -->
           <div class="cs-section reveal">
             <span class="eyebrow">Qué requiere</span>
@@ -395,6 +428,10 @@
             </div>
             <figcaption>Niveles de calibración de confianza. La confianza calibrada — saber qué revisar, qué escrutar y qué validar externamente — es una habilidad que se desarrolla con la práctica y debe hacerse explícita en todo el equipo.</figcaption>
           </figure>
+
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ai-workflow-framework/artifact3-trust-calibration.webp" alt="Framework de calibración de confianza en outputs de IA — tres niveles: Alta Confianza (revisar eficientemente), Escrutar Cuidadosamente (revisión humana profunda requerida), Validar Externamente (solo verificación independiente); tipos de output de ejemplo y justificación por nivel" width="1734" height="1840" loading="lazy">
+          </div>
 
           <!-- RESULTADO -->
           <div class="cs-section reveal">
