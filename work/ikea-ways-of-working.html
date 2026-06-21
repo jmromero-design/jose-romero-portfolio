@@ -26,6 +26,12 @@
   }
   </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
+  <style>
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--gold) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--gold) 2%,var(--bg-surface));pointer-events:none}
+    .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    @media(max-width:640px){.media-artifact{padding:var(--sp-6) var(--sp-4)}}
+  </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -287,6 +293,10 @@
             <figcaption>One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation.</figcaption>
           </figure>
 
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="WoW system architecture board — tool roles for Figma, Jira, Confluence and Phrase; Figma file structure with five product files; Skapa library hierarchy extending to Home Improver Library; five-phase content workflow" width="2488" height="1770" loading="lazy">
+          </div>
+
           <!-- FIVE-PHASE WORKFLOW -->
           <div class="cs-section reveal">
             <span class="eyebrow">The content workflow</span>
@@ -392,6 +402,22 @@
             </div>
             <figcaption>Five phases, two owners. The key structural change: translation keys set up in Phase 2 (design), not Phase 4 (engineering) — making them verifiable in QA for the first time.</figcaption>
           </figure>
+
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact2-feature-design-workflow.webp" alt="Feature design workflow board — six-step branching lifecycle from main file to branch deletion; branch naming convention; handoff protocol table with logic, content keys, accessibility and behaviour columns; Jira integration rule" width="2358" height="1742" loading="lazy">
+          </div>
+
+          <!-- FIGMA FRAMEWORK -->
+          <div class="cs-section reveal">
+            <span class="eyebrow">Figma framework</span>
+            <h2>Component decisions, not component chaos.</h2>
+            <p>File structure and naming conventions solve the organisation problem. Component governance solves a different one: when to use what already exists, when to adapt it, and when to propose something new.</p>
+            <p>IKEA's Skapa design system provides a solid foundation of icons, foundations, and components. But a product team building features for the Home App will eventually encounter scenarios Skapa doesn't cover. Without a rule, those gaps get filled inconsistently — every designer making a different call, with no trail and no review. The Skapa-First decision framework makes the rule explicit: check Skapa first, adapt if needed, and only propose new components when no existing solution is feasible — with written justification and a governance review before anything enters production.</p>
+          </div>
+
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="Skapa-First component decision framework — decision diamond asking if there is a direct match in Skapa; three evaluation paths: YES use directly, MAYBE adapt or propose variant, NO justify and follow governance; Home Improver Library as the extension layer" width="2470" height="1860" loading="lazy">
+          </div>
 
           <!-- MAKING TRANSLATIONS TESTABLE -->
           <div class="cs-section reveal">
