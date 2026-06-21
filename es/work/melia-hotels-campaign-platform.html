@@ -7,7 +7,7 @@
   <meta name="description" content="Diseñé una plataforma interna de gestión de campañas de marketing desde cero para Meliá Hotels International — de cero a producción en menos de un año, refinada durante tres. Desde talleres con directivos hasta una herramienta activa en todos los mercados.">
   <link rel="canonical" href="https://joseromerodesign.com/es/work/melia-hotels-campaign-platform/">
   <meta property="og:title" content="Meliá Hotels — Plataforma de Gestión de Campañas — Jose Romero">
-  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-melia-hotels-campaign-platform.webp">
   <meta property="og:url" content="https://joseromerodesign.com/es/work/melia-hotels-campaign-platform/">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Jose Romero">
@@ -17,7 +17,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Meliá Hotels — Plataforma de Gestión de Campañas — Jose Romero">
   <meta name="twitter:description" content="Diseñé una plataforma interna de gestión de campañas de marketing desde cero para Meliá Hotels International — de cero a producción en menos de un año, activa en todos sus mercados.">
-  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-melia-hotels-campaign-platform.webp">
 
   <!-- Schema.org CreativeWork -->
   <script type="application/ld+json">
@@ -40,6 +40,25 @@
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <script src="/assets/js/lang-detect.js"></script>
+  <style>
+    .cover-melia-plat{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
+    .cover-melia-plat::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
+    .cover-melia-col{position:relative;z-index:1}
+    .cover-melia-col.primary{flex:5}
+    .cover-melia-col.secondary{flex:4}
+    .comp-browser{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;background:var(--bg-surface);box-shadow:0 20px 64px -20px rgba(0,0,0,.7)}
+    .comp-browser-bar{display:flex;align-items:center;gap:6px;padding:10px 14px;border-bottom:1px solid var(--border-default)}
+    .comp-browser-bar i{width:9px;height:9px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-browser-url{margin-left:var(--sp-3);font-size:11px;color:var(--text-tertiary);border:1px solid var(--border-default);border-radius:99px;padding:2px 12px}
+    .comp-browser-screen{overflow:hidden}
+    .comp-browser-screen img{display:block;width:100%;height:auto}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
+    .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--teal) 15%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--teal) 6%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--teal) 3%,var(--bg-surface));pointer-events:none}
+    .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    .media-caption{display:flex;gap:var(--sp-3);align-items:baseline;font-size:var(--text-sm);color:var(--text-tertiary);margin-bottom:var(--sp-10)}
+    .media-caption b{color:var(--text-primary);font-weight:500}
+    @media(max-width:640px){.cover-melia-plat{padding:14px 16px;gap:8px}.cover-melia-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
+  </style>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
@@ -101,11 +120,23 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-melia" style="position: absolute; inset: 0;" role="img" aria-label="Meliá Hotels Campaign Platform — portada del proyecto">
-            <div class="cover-visual">
-              <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 0-2 2h-2"/></svg>
+          <div class="cover-melia-plat" role="img" aria-label="Campaign Hub — pantalla de presupuesto de plan de medios y vista general de módulos">
+            <div class="cover-melia-col primary">
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">Campaign Hub — Development / Media Plan</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/melia-hotels-campaign-platform/artifact5-budget.webp" alt="" width="1348" height="1081" loading="eager">
+                </div>
+              </div>
             </div>
-            <span class="cover-number" aria-hidden="true">04</span>
+            <div class="cover-melia-col secondary">
+              <div class="comp-browser">
+                <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">Campaign Hub — Development overview</span></div>
+                <div class="comp-browser-screen">
+                  <img src="/assets/images/work/melia-hotels-campaign-platform/artifact1-overview.webp" alt="" width="1540" height="1059" loading="eager">
+                </div>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -162,6 +193,11 @@
             <figcaption>Del descubrimiento a producción en menos de doce meses — luego dos años más de refinamiento, con la plataforma continuando su evolución tras el fin del encargo. El briefing era una página en blanco; el requisito era que nos sobreviviera.</figcaption>
           </figure>
 
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/melia-hotels-campaign-platform/artifact3-gantt.webp" alt="Framework de tiempos mínimos — tiempo de antelación requerido por fase y módulo de desarrollo, relativo a la fecha de lanzamiento" width="1160" height="955" loading="lazy">
+          </div>
+          <p class="media-caption"><b>Framework de tiempos mínimos.</b> Un artefacto estratégico que construí desde cero a partir del conocimiento profundo del proceso de campaña — mapeando el tiempo de antelación mínimo necesario por fase y módulo de desarrollo. Se convirtió en la columna vertebral arquitectónica contra la que se validaba cada configuración de campaña.</p>
+
           <div class="cs-section reveal">
             <span class="eyebrow">Diseño &amp; entrega</span>
             <h2>En producción en un año — refinada durante tres</h2>
@@ -169,6 +205,11 @@
             <p>La plataforma evolucionó significativamente desde su diseño inicial. Las primeras pruebas revelaron dos grupos con necesidades fundamentalmente distintas: creadores de campañas que necesitaban un flujo rápido y ágil, y gestores de marketing que necesitaban visibilidad y control. Esto llevó a añadir flujos de aprobación, una vista de línea de tiempo de campañas y dashboards de reporting — nada de esto estaba en el briefing original; todo surgió directamente del comportamiento real de los usuarios. La interfaz evolucionó de un modelo de gestión de contenidos hacia una estructura workflow-first: organizada alrededor de estados de campaña, acciones de handoff y vistas por rol adaptadas a cada equipo.</p>
             <p>Trabajar con un equipo de ingeniería rotativo a lo largo del encargo también me enseñó mucho sobre el handoff de diseño a desarrollo. La consistencia en el nombrado de componentes, la documentación de estados de interacción y la especificación explícita de casos extremos — el trabajo poco glamuroso de los sistemas de diseño — fueron cada vez más importantes a medida que el equipo cambiaba y el conocimiento institucional tenía que vivir en la documentación, no en la cabeza de las personas. El encargo concluyó con un traspaso estructurado: documentación, sesiones de formación para el equipo de Meliá y un modelo de acceso por rol que garantizó que cada tipo de usuario tuviera las herramientas y la interfaz que necesitaba para gestionar y hacer evolucionar la plataforma de forma autónoma.</p>
           </div>
+
+          <div class="media-artifact reveal">
+            <img src="/assets/images/work/melia-hotels-campaign-platform/artifact6-permissions.webp" alt="Matriz de permisos de usuario — lógica de acceso por rol en 8 roles y 15 secciones de la plataforma" width="1620" height="845" loading="lazy">
+          </div>
+          <p class="media-caption"><b>Matriz de permisos de usuario.</b> Uno de los dos documentos de referencia que diseñé para especificar la lógica de acceso en 8 roles y 15 secciones de la plataforma — usado directamente por los ingenieros como fuente de verdad para la configuración de permisos en backend y el renderizado condicional en frontend.</p>
 
           <div class="cs-section reveal">
             <span class="eyebrow">Resultado</span>
