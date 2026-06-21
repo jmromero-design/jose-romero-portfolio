@@ -27,10 +27,21 @@
   </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=17">
   <style>
+    .cover-wow-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
+    .cover-wow-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--gold) 4%,var(--bg-surface));pointer-events:none}
+    .cover-wow-col{position:relative;z-index:1}
+    .cover-wow-col.primary{flex:5}
+    .cover-wow-col.secondary{flex:4}
+    .comp-board{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 64px -20px rgba(0,0,0,.7)}
+    .comp-board-bar{background:#1a1a1a;padding:7px 12px;display:flex;align-items:center;gap:7px}
+    .comp-board-bar i{width:8px;height:8px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .comp-board-screen{overflow:hidden}
+    .comp-board-screen img{display:block;width:100%;height:auto}
     .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);display:flex;justify-content:center}
     .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--gold) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--gold) 2%,var(--bg-surface));pointer-events:none}
     .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
-    @media(max-width:640px){.media-artifact{padding:var(--sp-6) var(--sp-4)}}
+    @media(max-width:640px){.cover-wow-comp{padding:14px 16px;gap:8px}.cover-wow-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
   </style>
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -124,12 +135,24 @@
         </div>
 
         <div class="cs-cover reveal">
-          <div class="cover-placeholder cover-wow" style="position: absolute; inset: 0;" role="img" aria-label="IKEA Ways of Working System — project cover">
-              <div class="cover-visual">
-                <svg class="cover-icon" viewBox="0 0 24 24" aria-hidden="true"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M18 9a9 9 0 0 1-9 9"/></svg>
+          <div class="cover-wow-comp" role="img" aria-label="IKEA Ways of Working — system architecture board and Skapa-First component decision framework">
+            <div class="cover-wow-col primary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">WoW System Architecture</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="" width="2488" height="1770" loading="eager">
+                </div>
               </div>
-              <span class="cover-number" aria-hidden="true">08</span>
             </div>
+            <div class="cover-wow-col secondary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">Skapa-First Decision Framework</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="" width="2470" height="1860" loading="eager">
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="container--narrow" style="margin: 0 auto;">
