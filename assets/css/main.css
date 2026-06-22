@@ -2385,10 +2385,10 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--teal-text);
 }
 
-/* Grid: each logo min 130px wide — wraps naturally, never squishes */
+/* Grid: each logo min 160px wide — wraps naturally, never squishes */
 .logos-track {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
   gap: clamp(var(--sp-4), 3vw, var(--sp-8)) clamp(var(--sp-6), 4vw, var(--sp-10));
   align-items: center;
 }
@@ -2396,7 +2396,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .client-logo {
   width: 100%;
   height: auto;
-  max-height: 48px;
+  max-height: 60px;
   object-fit: contain;
   object-position: center;
   display: block;
