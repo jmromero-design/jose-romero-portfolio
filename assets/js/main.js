@@ -162,7 +162,26 @@
   }
 
   /* ----------------------------------------------------------
-     5. STAT COUNTER ANIMATION
+     5. CTA ORB ENTRY ANIMATION
+     ---------------------------------------------------------- */
+  document.querySelectorAll('.cs-cta-orb').forEach(orb => {
+    if (!('IntersectionObserver' in window)) {
+      orb.classList.add('visible');
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.disconnect();
+        }
+      });
+    }, { threshold: 0.15 });
+    obs.observe(orb);
+  });
+
+  /* ----------------------------------------------------------
+     6. STAT COUNTER ANIMATION
      ---------------------------------------------------------- */
   const statValues = document.querySelectorAll('.stat-value[data-count]');
 

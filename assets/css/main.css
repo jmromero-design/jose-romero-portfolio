@@ -1836,6 +1836,46 @@ strong { font-weight: 500; color: var(--text-primary); }
 .hero-animate:nth-child(5) { animation-delay: 0.64s; }
 
 /* ------------------------------------------------------------
+   20b. ILLUSTRATION ENTRY ANIMATIONS
+   ------------------------------------------------------------ */
+
+/* Hero illustration — fades + slides in from right, after hero text */
+@keyframes illustrationReveal {
+  from { opacity: 0; transform: translateX(28px) scale(0.98); }
+  to   { opacity: 1; transform: translateX(0)    scale(1);    }
+}
+
+.hero-illustration {
+  animation: illustrationReveal 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.55s both;
+}
+
+/* CTA orb — slides in from right when section scrolls into view.
+   Overrides the resting transform defined in section 26 (cs-cta).
+   JS adds .visible via IntersectionObserver. */
+.cs-cta-orb {
+  opacity: 0;
+  transform: translateY(-50%) translateX(30%);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cs-cta-orb.visible {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10%);
+}
+
+/* Reduced motion: cancel all movement, keep instant opacity reveal */
+@media (prefers-reduced-motion: reduce) {
+  .hero-illustration {
+    animation: none;
+  }
+  .cs-cta-orb {
+    transform: translateY(-50%) translateX(10%);
+    transition: opacity 0.3s ease;
+  }
+}
+
+/* ------------------------------------------------------------
    21. RESPONSIVE
    ------------------------------------------------------------ */
 @media (max-width: 1024px) {
