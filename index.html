@@ -252,32 +252,22 @@
     .card:hover .afin-phone--back  { transform: translateY(-6px); }
     .card:hover .afin-phone--front { transform: translateY(-11px); }
 
-    /* ── Hero split layout: text left / illustration right ── */
-    .hero-layout {
-      display: flex;
-      align-items: stretch;
-      width: 100%;
-    }
-    .hero-text {
-      flex: 1;
-      min-width: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+    /* ── Hero illustration — absolute overlay, right-anchored ── */
     .hero-illustration {
-      flex: 0 0 clamp(300px, 42vw, 460px);
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      position: absolute;
+      right: -30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: clamp(580px, 68vw, 880px);
       pointer-events: none;
+      z-index: 0;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
+      mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
     }
     .hero-illustration img {
       width: 100%;
       height: auto;
       display: block;
-      max-height: 540px;
-      object-fit: contain;
     }
     [data-theme="light"] .hero-illustration { display: none; }
     @media (max-width: 860px) { .hero-illustration { display: none; } }
@@ -317,7 +307,7 @@
     <!-- ══════════════════════════════════════════
          HERO & STATS (Unified)
     ══════════════════════════════════════════ -->
-    <section class="home-hero section--hero" aria-label="Introduction" style="position: relative; display: flex; flex-direction: column; border-bottom: 1px solid var(--border-default); padding-bottom: 0;">
+    <section class="home-hero section--hero" aria-label="Introduction" style="position: relative; overflow: hidden; display: flex; flex-direction: column; border-bottom: 1px solid var(--border-default); padding-bottom: 0;">
       
       <!-- Subtle Teal Grid Background -->
       <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none;
@@ -329,46 +319,42 @@
                   opacity: 0.6;">
       </div>
 
-      <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
-        <div class="hero-layout">
+      <div class="hero-illustration" aria-hidden="true">
+        <img src="/assets/images/hero-complexity-map.svg" alt="" width="400" height="460" loading="eager" decoding="async">
+      </div>
 
-          <div class="hero-text">
-            <div class="hero-animate">
-              <span class="eyebrow">Senior Product Designer · Zaragoza, Spain</span>
-            </div>
+      <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center; position: relative; z-index: 1;">
 
-            <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
-              Design that works<br>
-              <em class="accent-italic">inside complexity.</em>
-            </h1>
-
-            <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
-              I'm Jose Romero. I've spent 12 years designing digital products
-              for companies where the work is hard, the teams are large,
-              and the decisions carry real weight.
-            </p>
-            <p class="hero-sub hero-animate" style="max-width: 60ch;">
-              Currently embedded at IKEA, working on two of their new
-              business platforms across Europe. Previously at Flat 101, leading
-              CRO and UX for clients including Santander, Meliá Hotels,
-              Mapfre, IQOS, and Mutua Madrileña.
-            </p>
-
-            <div class="hero-actions hero-animate">
-              <a href="/work/" class="btn btn-primary">
-                See my work <span class="arrow">→</span>
-              </a>
-              <a href="/thinking/" class="btn btn-ghost">
-                Read my approach <span class="arrow">→</span>
-              </a>
-            </div>
-          </div>
-
-          <div class="hero-illustration" aria-hidden="true">
-            <img src="/assets/images/hero-complexity-map.svg" alt="" width="400" height="460" loading="eager" decoding="async">
-          </div>
-
+        <div class="hero-animate">
+          <span class="eyebrow">Senior Product Designer · Zaragoza, Spain</span>
         </div>
+
+        <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
+          Design that works<br>
+          <em class="accent-italic">inside complexity.</em>
+        </h1>
+
+        <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
+          I'm Jose Romero. I've spent 12 years designing digital products
+          for companies where the work is hard, the teams are large,
+          and the decisions carry real weight.
+        </p>
+        <p class="hero-sub hero-animate" style="max-width: 60ch;">
+          Currently embedded at IKEA, working on two of their new
+          business platforms across Europe. Previously at Flat 101, leading
+          CRO and UX for clients including Santander, Meliá Hotels,
+          Mapfre, IQOS, and Mutua Madrileña.
+        </p>
+
+        <div class="hero-actions hero-animate">
+          <a href="/work/" class="btn btn-primary">
+            See my work <span class="arrow">→</span>
+          </a>
+          <a href="/thinking/" class="btn btn-ghost">
+            Read my approach <span class="arrow">→</span>
+          </a>
+        </div>
+
       </div>
     </section>
 
