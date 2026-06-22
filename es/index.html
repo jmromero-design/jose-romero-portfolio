@@ -184,6 +184,36 @@
     .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
     .card:hover .afin-phone--back  { transform: translateY(-6px); }
     .card:hover .afin-phone--front { transform: translateY(-11px); }
+
+    /* ── Hero split layout: text left / illustration right ── */
+    .hero-layout {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-illustration {
+      flex: 0 0 clamp(300px, 42vw, 460px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 540px;
+      object-fit: contain;
+    }
+    [data-theme="light"] .hero-illustration { display: none; }
+    @media (max-width: 860px) { .hero-illustration { display: none; } }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -225,37 +255,45 @@
                   opacity: 0.6;"></div>
 
       <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="hero-layout">
 
-        <div class="hero-animate">
-          <span class="eyebrow">Senior Product Designer · Zaragoza, España</span>
+          <div class="hero-text">
+            <div class="hero-animate">
+              <span class="eyebrow">Senior Product Designer · Zaragoza, España</span>
+            </div>
+
+            <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
+              Diseño que funciona<br>
+              <em class="accent-italic">dentro de la complejidad.</em>
+            </h1>
+
+            <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
+              Soy Jose Romero. Llevo 12 años diseñando productos digitales
+              para empresas en las que el trabajo es difícil, los equipos son grandes
+              y las decisiones tienen peso real.
+            </p>
+            <p class="hero-sub hero-animate" style="max-width: 60ch;">
+              Actualmente integrado en IKEA, trabajando en dos de sus nuevas
+              plataformas de negocio en Europa. Antes en Flat 101, liderando
+              CRO y UX para clientes como Santander, Meliá Hotels,
+              Mapfre, IQOS y Mutua Madrileña.
+            </p>
+
+            <div class="hero-actions hero-animate">
+              <a href="/es/work/" class="btn btn-primary">
+                Ver mi trabajo <span class="arrow">→</span>
+              </a>
+              <a href="/es/thinking/" class="btn btn-ghost">
+                Leer mi enfoque <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-illustration" aria-hidden="true">
+            <img src="/assets/images/hero-complexity-map.svg" alt="" width="400" height="460" loading="eager" decoding="async">
+          </div>
+
         </div>
-
-        <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
-          Diseño que funciona<br>
-          <em class="accent-italic">dentro de la complejidad.</em>
-        </h1>
-
-        <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
-          Soy Jose Romero. Llevo 12 años diseñando productos digitales
-          para empresas en las que el trabajo es difícil, los equipos son grandes
-          y las decisiones tienen peso real.
-        </p>
-        <p class="hero-sub hero-animate" style="max-width: 60ch;">
-          Actualmente integrado en IKEA, trabajando en dos de sus nuevas
-          plataformas de negocio en Europa. Antes en Flat 101, liderando
-          CRO y UX para clientes como Santander, Meliá Hotels,
-          Mapfre, IQOS y Mutua Madrileña.
-        </p>
-
-        <div class="hero-actions hero-animate">
-          <a href="/es/work/" class="btn btn-primary">
-            Ver mi trabajo <span class="arrow">→</span>
-          </a>
-          <a href="/es/thinking/" class="btn btn-ghost">
-            Leer mi enfoque <span class="arrow">→</span>
-          </a>
-        </div>
-
       </div>
 
     </section>

@@ -251,6 +251,36 @@
     .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
     .card:hover .afin-phone--back  { transform: translateY(-6px); }
     .card:hover .afin-phone--front { transform: translateY(-11px); }
+
+    /* ── Hero split layout: text left / illustration right ── */
+    .hero-layout {
+      display: flex;
+      align-items: stretch;
+      width: 100%;
+    }
+    .hero-text {
+      flex: 1;
+      min-width: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .hero-illustration {
+      flex: 0 0 clamp(300px, 42vw, 460px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+    .hero-illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
+      max-height: 540px;
+      object-fit: contain;
+    }
+    [data-theme="light"] .hero-illustration { display: none; }
+    @media (max-width: 860px) { .hero-illustration { display: none; } }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
@@ -300,37 +330,45 @@
       </div>
 
       <div class="container" style="flex: 1; display: flex; flex-direction: column; justify-content: center;">
+        <div class="hero-layout">
 
-        <div class="hero-animate">
-          <span class="eyebrow">Senior Product Designer · Zaragoza, Spain</span>
+          <div class="hero-text">
+            <div class="hero-animate">
+              <span class="eyebrow">Senior Product Designer · Zaragoza, Spain</span>
+            </div>
+
+            <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
+              Design that works<br>
+              <em class="accent-italic">inside complexity.</em>
+            </h1>
+
+            <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
+              I'm Jose Romero. I've spent 12 years designing digital products
+              for companies where the work is hard, the teams are large,
+              and the decisions carry real weight.
+            </p>
+            <p class="hero-sub hero-animate" style="max-width: 60ch;">
+              Currently embedded at IKEA, working on two of their new
+              business platforms across Europe. Previously at Flat 101, leading
+              CRO and UX for clients including Santander, Meliá Hotels,
+              Mapfre, IQOS, and Mutua Madrileña.
+            </p>
+
+            <div class="hero-actions hero-animate">
+              <a href="/work/" class="btn btn-primary">
+                See my work <span class="arrow">→</span>
+              </a>
+              <a href="/thinking/" class="btn btn-ghost">
+                Read my approach <span class="arrow">→</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-illustration" aria-hidden="true">
+            <img src="/assets/images/hero-complexity-map.svg" alt="" width="400" height="460" loading="eager" decoding="async">
+          </div>
+
         </div>
-
-        <h1 class="hero-headline hero-animate" style="margin-bottom: var(--sp-6);">
-          Design that works<br>
-          <em class="accent-italic">inside complexity.</em>
-        </h1>
-
-        <p class="hero-sub hero-animate" style="max-width: 60ch; margin-bottom: var(--sp-2);">
-          I'm Jose Romero. I've spent 12 years designing digital products
-          for companies where the work is hard, the teams are large,
-          and the decisions carry real weight.
-        </p>
-        <p class="hero-sub hero-animate" style="max-width: 60ch;">
-          Currently embedded at IKEA, working on two of their new
-          business platforms across Europe. Previously at Flat 101, leading
-          CRO and UX for clients including Santander, Meliá Hotels,
-          Mapfre, IQOS, and Mutua Madrileña.
-        </p>
-
-        <div class="hero-actions hero-animate">
-          <a href="/work/" class="btn btn-primary">
-            See my work <span class="arrow">→</span>
-          </a>
-          <a href="/thinking/" class="btn btn-ghost">
-            Read my approach <span class="arrow">→</span>
-          </a>
-        </div>
-
       </div>
     </section>
 
