@@ -209,12 +209,12 @@
     }
     @media (max-width: 860px) { .hero-illustration { display: none; } }
 
-    /* ── Hero text column — left-aligned, clear of the illustration ── */
+    /* ── Hero text column — offset from left, wide enough for 2-line headline ── */
     .home-hero > .container {
-      margin-left: 0;
+      margin-left: clamp(1.5rem, 7vw, 6rem);
       margin-right: 0;
-      max-width: clamp(520px, 44vw, 660px);
-      padding-left: clamp(1.5rem, 4vw, 3rem);
+      max-width: clamp(640px, 56vw, 820px);
+      padding-left: clamp(1rem, 1.5vw, 2rem);
       padding-right: 0;
     }
     @media (max-width: 860px) {
