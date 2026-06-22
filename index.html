@@ -256,8 +256,8 @@
     .hero-illustration {
       position: absolute;
       right: -30px;
-      top: 50%;
-      transform: translateY(-50%);
+      top: 0;
+      bottom: 0;
       width: clamp(580px, 68vw, 880px);
       pointer-events: none;
       z-index: 0;
@@ -266,10 +266,14 @@
     }
     .hero-illustration img {
       width: 100%;
-      height: auto;
+      height: 100%;
       display: block;
+      object-fit: cover;
+      object-position: center;
     }
-    [data-theme="light"] .hero-illustration { display: none; }
+    [data-theme="light"] .hero-illustration {
+      filter: invert(1) hue-rotate(160deg) saturate(0.8);
+    }
     @media (max-width: 860px) { .hero-illustration { display: none; } }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
