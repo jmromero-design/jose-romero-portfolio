@@ -100,6 +100,11 @@
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      if (!expanded && nav) {
+        // Clear nav--hidden before opening: a translated nav becomes the
+        // containing block for position:fixed children, collapsing the overlay.
+        nav.classList.remove('nav--hidden');
+      }
       navToggle.setAttribute('aria-expanded', String(!expanded));
       navLinks.classList.toggle('open');
       document.body.style.overflow = expanded ? '' : 'hidden';
