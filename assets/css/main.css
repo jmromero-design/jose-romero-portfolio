@@ -1839,10 +1839,10 @@ strong { font-weight: 500; color: var(--text-primary); }
    20b. ILLUSTRATION ENTRY ANIMATIONS
    ------------------------------------------------------------ */
 
-/* Hero illustration — fades + slides in from right, after hero text */
+/* Hero illustration — fades in from center, after hero text */
 @keyframes illustrationReveal {
-  from { opacity: 0; transform: translateX(28px) scale(0.98); }
-  to   { opacity: 1; transform: translateX(0)    scale(1);    }
+  from { opacity: 0; transform: scale(0.96); }
+  to   { opacity: 1; transform: scale(1);    }
 }
 
 .hero-illustration {
@@ -2130,8 +2130,8 @@ strong { font-weight: 500; color: var(--text-primary); }
 .cs-cta {
   position: relative;
   overflow: hidden;
-  background: var(--bg-surface-2);
-  border-top: 1px solid var(--border-default);
+  background: var(--bg-surface);
+  border-top: 1px solid var(--border-subtle);
 }
 
 .cs-cta-orb {
