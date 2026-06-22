@@ -44,8 +44,18 @@
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
   <style>
-    .work-card-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform 0.35s ease}
-    .work-card:hover .work-card-img img{transform:scale(1.03)}
+    .wc-phone{position:absolute;border:1px solid var(--border-strong);border-radius:22px;padding:4px;background:var(--bg-surface);box-shadow:0 16px 44px -16px rgba(0,0,0,.7);transition:transform var(--ease-slow),box-shadow var(--ease-slow);width:38%}
+    .wc-phone img{display:block;width:100%;height:auto;border-radius:17px;transform:none !important}
+    .wc-phone--back{left:10%;top:12%;z-index:1}
+    .wc-phone--front{left:46%;top:28%;z-index:2}
+    .work-card:hover .wc-phone--back{transform:translateY(-6px)}
+    .work-card:hover .wc-phone--front{transform:translateY(-11px)}
+    .wc-desktop{position:absolute;border:1px solid var(--border-strong);border-radius:8px;padding:3px;background:var(--bg-surface);box-shadow:0 12px 40px -12px rgba(0,0,0,.65);transition:transform var(--ease-slow),box-shadow var(--ease-slow);width:62%}
+    .wc-desktop img{display:block;width:100%;height:auto;border-radius:5px;transform:none !important}
+    .wc-desktop--back{left:2%;top:8%;z-index:1}
+    .wc-desktop--front{left:34%;top:18%;z-index:2}
+    .work-card:hover .wc-desktop--back{transform:translateY(-6px)}
+    .work-card:hover .wc-desktop--front{transform:translateY(-11px)}
   </style>
 </head>
 
@@ -150,7 +160,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-ikea-home-services.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="lazy"></div>
+              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -169,7 +180,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-ikea-secondhand-marketplace.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="lazy"></div>
+              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -188,7 +200,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-santander-nordics-cro.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1718" alt="" loading="lazy"></div>
+              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1711" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -207,7 +220,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-melia-hotels-campaign-platform.webp" alt="" width="1200" height="630" loading="lazy">
+              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact5-budget.webp" width="1348" height="1081" alt="" loading="lazy"></div>
+              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact1-overview.webp" width="1540" height="1059" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -226,7 +240,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-mapfre-afin.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" width="361" height="749" alt="" loading="lazy"></div>
+              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" width="361" height="750" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -245,7 +260,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-mapfre-digital-expansion.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/mapfre-digital-expansion/verti-home-desktop.webp" width="1440" height="860" alt="" loading="lazy"></div>
+              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/mapfre-digital-expansion/offices-desktop.webp" width="1440" height="860" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -264,7 +280,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-iqos-club-cro.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" width="960" height="540" alt="" loading="lazy"></div>
+              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" width="960" height="540" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -283,7 +300,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-xti-ecommerce.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" width="385" height="812" alt="" loading="lazy"></div>
+              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" width="375" height="812" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -302,7 +320,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-ikea-ways-of-working.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" width="2488" height="1770" alt="" loading="lazy"></div>
+              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" width="2470" height="1860" alt="" loading="lazy"></div>
             </div>
           </a>
 
@@ -321,7 +340,8 @@
               </div>
             </div>
             <div class="work-card-img" aria-hidden="true">
-              <img src="/assets/images/og-ai-workflow-framework.webp" alt="" width="2400" height="1260" loading="lazy">
+              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" width="2038" height="1578" alt="" loading="lazy"></div>
+              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" width="2188" height="1752" alt="" loading="lazy"></div>
             </div>
           </a>
 
