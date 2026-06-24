@@ -1692,6 +1692,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   line-height: 1.6;
   padding-top: 1px;
   flex-shrink: 0;
+  min-width: 0; /* prevent grid item from expanding beyond column track */
 }
 
 .clients-names {
@@ -1699,6 +1700,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--text-secondary);
   line-height: 1.9;
   margin: 0;
+  min-width: 0; /* prevent long name chains from expanding the grid column */
 }
 
 .clients-names .client-sep {
