@@ -1894,11 +1894,10 @@ strong { font-weight: 500; color: var(--text-primary); }
   .work-list-item { grid-template-columns: 1fr; }
   .wli-arrow { display: none; }
 
-  /* Nav logo: cap width so "Jose Romero" wraps to two lines consistently,
-     preventing single-line overflow when the display font is loaded */
+  /* Nav logo: scale down proportionally so "Jose Romero" stays single-line */
   .nav-logo {
-    max-width: 120px;
-    padding: var(--sp-2) var(--sp-4);
+    font-size: var(--text-base);
+    padding: var(--sp-2) var(--sp-3);
   }
 
   /* Eyebrow tags: reduce letter-spacing so long tag strings don't wrap mid-phrase */
