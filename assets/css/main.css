@@ -1902,6 +1902,10 @@ strong { font-weight: 500; color: var(--text-primary); }
 
   /* Eyebrow tags: reduce letter-spacing so long tag strings don't wrap mid-phrase */
   .eyebrow { letter-spacing: 0.08em; }
+
+  /* h1 accent lines: hide hard <br> so the italic em flows inline at narrow widths.
+     Without this, text before the <br> wraps and leaves an orphaned word on its own line. */
+  h1 br { display: none; }
 }
 
 @media (max-width: 480px) {
