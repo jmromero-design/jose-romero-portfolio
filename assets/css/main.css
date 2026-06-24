@@ -1700,7 +1700,8 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--text-secondary);
   line-height: 1.9;
   margin: 0;
-  min-width: 0; /* prevent long name chains from expanding the grid column */
+  min-width: 0;        /* prevent long name chains from expanding the grid column */
+  overflow-wrap: break-word; /* force wrap when · separators don't provide break points */
 }
 
 .clients-names .client-sep {
