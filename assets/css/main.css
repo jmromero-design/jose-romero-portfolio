@@ -253,7 +253,7 @@ h5, h6 {
   color: var(--text-primary);
 }
 
-h1 { font-size: clamp(var(--text-4xl), 7vw, var(--text-6xl)); }
+h1 { font-size: clamp(2.25rem, 7vw, var(--text-6xl)); }
 h2 { font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); }
 h3 { font-size: clamp(var(--text-2xl), 3.5vw, var(--text-4xl)); }
 h4 { font-size: var(--text-2xl); }
@@ -1890,6 +1890,16 @@ strong { font-weight: 500; color: var(--text-primary); }
   .hero-headline { font-size: clamp(2.75rem, 11vw, 4rem); }
   .work-list-item { grid-template-columns: 1fr; }
   .wli-arrow { display: none; }
+
+  /* Nav logo: cap width so "Jose Romero" wraps to two lines consistently,
+     preventing single-line overflow when the display font is loaded */
+  .nav-logo {
+    max-width: 120px;
+    padding: var(--sp-2) var(--sp-4);
+  }
+
+  /* Eyebrow tags: reduce letter-spacing so long tag strings don't wrap mid-phrase */
+  .eyebrow { letter-spacing: 0.08em; }
 }
 
 @media (max-width: 480px) {
@@ -2470,6 +2480,12 @@ strong { font-weight: 500; color: var(--text-primary); }
 
   .logos-count {
     font-size: var(--text-xl);
+  }
+
+  /* Force 2-column grid — minmax(160px) can't fit 2 cols in 335px content area */
+  .logos-track {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--sp-6) var(--sp-4);
   }
 }
 
