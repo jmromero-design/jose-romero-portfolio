@@ -1,0 +1,1058 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jose Romero — Senior Product Designer</title>
+  <meta name="description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA. Working from Zaragoza, Spain.">
+  <link rel="canonical" href="https://joseromerodesign.com/">
+  <meta property="og:title" content="Jose Romero — Senior Product Designer">
+  <meta property="og:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA.">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:url" content="https://joseromerodesign.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Jose Romero — Senior Product Designer">
+  <meta name="twitter:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy.">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/">
+  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
+  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
+  <link rel="stylesheet" href="/assets/css/main.css?v=17">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+
+    /* ═══════════════════════════════════════
+       V3 HERO — MAP AS THESIS
+    ════════════════════════════════════════ */
+
+    @keyframes v3Appear  { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes v3PopIn   { from { opacity: 0; transform: scale(0.86); } to { opacity: 1; transform: scale(1); } }
+    @keyframes v3DrawArc { from { stroke-dashoffset: 260; } to { stroke-dashoffset: 0; } }
+
+    .v3-hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-top: calc(var(--nav-height) + var(--sp-6));
+      padding-bottom: var(--sp-8);
+      padding-inline: var(--gutter);
+      gap: var(--sp-5);
+      border-bottom: 1px solid var(--border-default);
+      overflow: hidden;
+    }
+
+    /* Map container — maintains 400:460 aspect ratio, constrained to viewport */
+    .v3-map-wrap {
+      position: relative;
+      width: min(500px, calc(100vw - 2 * var(--gutter)));
+      aspect-ratio: 400 / 460;
+      max-height: calc(78svh - var(--nav-height));
+      flex-shrink: 0;
+    }
+
+    .v3-geo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+    }
+
+    /* ── Animation phases ── */
+
+    .v3-ph1 { opacity: 0; animation: v3Appear 0.9s ease-out 0.15s both; }
+    .v3-ph2 { opacity: 0; animation: v3Appear 0.7s ease-out 0.45s both; }
+    .v3-ph3 { opacity: 0; animation: v3Appear 0.6s ease-out 0.65s both; }
+
+    /* Arcs: drawn individually with staggered delays */
+    .v3-arc {
+      fill: none;
+      stroke: #3A8A8A;
+      stroke-opacity: 0.4;
+      stroke-width: 2;
+      stroke-dasharray: 260;
+      stroke-dashoffset: 260;
+      animation: v3DrawArc 0.65s ease-out both;
+      transition: stroke 0.25s ease, stroke-opacity 0.25s ease, stroke-width 0.25s ease;
+    }
+    .v3-arc-business     { animation-delay: 0.7s;  }
+    .v3-arc-users        { animation-delay: 0.82s; }
+    .v3-arc-technology   { animation-delay: 0.94s; }
+    .v3-arc-organisation { animation-delay: 1.06s; }
+
+    .v3-ph5  { opacity: 0; animation: v3PopIn  0.5s ease-out 1.2s  both; }
+    .v3-ph6  { opacity: 0; animation: v3Appear 0.5s ease-out 1.45s both; }
+
+    .v3-text-outer,
+    .v3-text-qnode,
+    .v3-text-arc {
+      opacity: 0;
+      animation: v3Appear 0.7s ease-out 1.75s both;
+      transition: fill 0.25s ease;
+    }
+
+    /* Center overlay (HTML) — fades in after SVG text */
+    .v3-center-overlay {
+      position: absolute;
+      left: 50%;
+      top: 50.2%;
+      transform: translate(-50%, -50%);
+      width: 26%;
+      min-width: 80px;
+      pointer-events: none;
+      opacity: 0;
+      animation: v3Appear 0.65s ease-out 2.05s both;
+    }
+
+    .v3-ident {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-6);
+      width: min(500px, calc(100vw - 2 * var(--gutter)));
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: v3Appear 0.7s ease-out 2.4s both;
+    }
+
+    .v3-ident-name {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      letter-spacing: 0.03em;
+    }
+    .v3-ident-name strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    /* ── Center overlay: default + hover states ── */
+
+    .v3-c {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1px;
+      transition: opacity 0.28s ease;
+      text-align: center;
+    }
+
+    .v3-c-default { opacity: 1; }
+    .v3-c-hover   { opacity: 0; }
+
+    .v3-c-design {
+      font-family: var(--font-body);
+      font-size: clamp(0.42rem, 1.8vw, 0.68rem);
+      color: #C17F3A;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      line-height: 1.3;
+    }
+    .v3-c-generates {
+      font-family: var(--font-body);
+      font-size: clamp(0.32rem, 1.3vw, 0.52rem);
+      color: #9E8F78;
+      letter-spacing: 0.1em;
+      line-height: 1.3;
+    }
+    .v3-c-clarity {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(0.58rem, 2.6vw, 0.95rem);
+      color: var(--text-primary);
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+
+    .v3-c-domain {
+      font-family: var(--font-body);
+      font-size: clamp(0.42rem, 1.8vw, 0.68rem);
+      color: var(--teal-text);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      line-height: 1.3;
+    }
+    .v3-c-desc {
+      font-family: var(--font-body);
+      font-size: clamp(0.3rem, 1.2vw, 0.48rem);
+      color: var(--text-tertiary);
+      letter-spacing: 0.04em;
+      line-height: 1.55;
+      margin-top: 2px;
+    }
+
+    /* ── Hover zones (transparent HTML buttons) ── */
+
+    .v3-zone {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      border-radius: 50%;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 20;
+      width: 15%;
+      aspect-ratio: 1;
+      transition: outline 0.15s;
+    }
+    .v3-zone:focus-visible {
+      outline: 2px solid var(--teal);
+      outline-offset: 3px;
+    }
+
+    /* Positioning: % = SVG coord / viewBox dimension */
+    .v3-zone-business     { left: 27%;   top: 30.87%; }  /* 108/400, 142/460 */
+    .v3-zone-users        { left: 73%;   top: 30.87%; }  /* 292/400, 142/460 */
+    .v3-zone-technology   { left: 27%;   top: 70.87%; }  /* 108/400, 326/460 */
+    .v3-zone-organisation { left: 73%;   top: 70.87%; }  /* 292/400, 326/460 */
+
+    /* ── Hover effects via :has() ── */
+
+    /* Arc highlights */
+    .v3-map-wrap:has(.v3-zone-business:is(:hover,:focus-visible)) .v3-arc-business {
+      stroke: #66D4C8; stroke-opacity: 0.9; stroke-width: 2.5;
+    }
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-arc-users {
+      stroke: #66D4C8; stroke-opacity: 0.9; stroke-width: 2.5;
+    }
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-arc-technology {
+      stroke: #66D4C8; stroke-opacity: 0.9; stroke-width: 2.5;
+    }
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-arc-organisation {
+      stroke: #66D4C8; stroke-opacity: 0.9; stroke-width: 2.5;
+    }
+
+    /* Quadrant label highlights */
+    .v3-map-wrap:has(.v3-zone-business:is(:hover,:focus-visible)) .v3-qlabel-business { fill: #66D4C8; }
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-qlabel-users { fill: #66D4C8; }
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-qlabel-technology { fill: #66D4C8; }
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-qlabel-organisation { fill: #66D4C8; }
+
+    /* Outer ring nodes that belong to each quadrant */
+    .v3-map-wrap:has(.v3-zone-business:is(:hover,:focus-visible)) .v3-outer-strategy { fill: #5A9090; }
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-outer-research,
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-outer-journeys,
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-outer-stakeholders { fill: #5A9090; }
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-outer-systems,
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-outer-data { fill: #5A9090; }
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-outer-process,
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-outer-teams { fill: #5A9090; }
+
+    /* Arc label highlights */
+    .v3-map-wrap:has(.v3-zone-business:is(:hover,:focus-visible)) .v3-al-viability { fill: #9FEFEF; }
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-al-desirability { fill: #9FEFEF; }
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-al-feasibility { fill: #9FEFEF; }
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-al-scalability { fill: #9FEFEF; }
+
+    /* Center text swap */
+    .v3-map-wrap:has(.v3-zone:is(:hover,:focus-visible)) .v3-c-default { opacity: 0; }
+    .v3-map-wrap:has(.v3-zone-business:is(:hover,:focus-visible)) .v3-c-hover-business { opacity: 1; }
+    .v3-map-wrap:has(.v3-zone-users:is(:hover,:focus-visible)) .v3-c-hover-users { opacity: 1; }
+    .v3-map-wrap:has(.v3-zone-technology:is(:hover,:focus-visible)) .v3-c-hover-technology { opacity: 1; }
+    .v3-map-wrap:has(.v3-zone-organisation:is(:hover,:focus-visible)) .v3-c-hover-organisation { opacity: 1; }
+
+    /* ── Reduced motion ── */
+    @media (prefers-reduced-motion: reduce) {
+      .v3-ph1, .v3-ph2, .v3-ph3, .v3-ph5, .v3-ph6,
+      .v3-text-outer, .v3-text-qnode, .v3-text-arc,
+      .v3-center-overlay, .v3-ident, .v3-arc {
+        animation-duration: 0.01ms !important;
+        animation-delay: 0ms !important;
+      }
+    }
+
+    /* ── Mobile ── */
+    @media (max-width: 480px) {
+      .v3-zone { width: 22%; }
+      .v3-ident { flex-direction: column; align-items: flex-start; gap: var(--sp-4); }
+    }
+
+
+    /* ═══════════════════════════════════════
+       BELOW-FOLD PAGE-SPECIFIC STYLES
+       (copied from index.html, home-hero styles removed)
+    ════════════════════════════════════════ */
+
+    .about-teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--sp-12), 6vw, var(--sp-24));
+      align-items: center;
+    }
+    .about-teaser-visual {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface-2);
+      background-image:
+        linear-gradient(var(--teal-tint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
+      background-size: 32px 32px;
+      border: 1px solid var(--border-default);
+    }
+    .about-teaser-portrait {
+      width: 100%; height: 100%;
+      object-fit: contain; object-position: center bottom;
+      display: block; position: relative; z-index: 1;
+    }
+
+    .thinking-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.45;
+      border-left: 2px solid var(--gold);
+      padding-left: var(--sp-6);
+      margin-bottom: var(--sp-8);
+    }
+    .thinking-topics {
+      display: flex; flex-wrap: wrap;
+      gap: var(--sp-3); margin-bottom: var(--sp-8);
+    }
+    .thinking-topic {
+      font-size: var(--text-xs);
+      color: var(--teal);
+      border: 1px solid var(--teal-tint-strong);
+      background: var(--teal-tint);
+      border-radius: 2px;
+      padding: var(--sp-2) var(--sp-3);
+      letter-spacing: 0.06em;
+    }
+
+    .cta-section {
+      background: var(--bg-base);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+    }
+    .cta-section h2 {
+      font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+      max-width: 18ch;
+    }
+    .cta-section h2 em { font-style: italic; color: var(--gold); }
+    .cta-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; flex-shrink: 0; }
+
+    .testimonial-grid {
+      display: grid;
+      gap: var(--sp-8);
+      margin-block: var(--sp-8) var(--sp-10);
+    }
+    @media (min-width: 800px) {
+      .testimonial-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-12); }
+      .testimonial-grid > figure:nth-child(2) { margin-top: var(--sp-10); }
+    }
+    .testimonial {
+      margin: 0;
+      border-left: 2px solid var(--gold);
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-6);
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic; font-weight: 300;
+      font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+      line-height: 1.65; color: var(--text-primary);
+    }
+    .testimonial-attr {
+      margin-top: var(--sp-5);
+      display: flex; flex-direction: column; gap: 2px;
+      font-size: var(--text-sm);
+    }
+    .testimonial-name { color: var(--text-primary); font-weight: 500; }
+    .testimonial-role { color: var(--text-tertiary); }
+    .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
+
+    .sn-card-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+    }
+    .sn-card-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
+    .sn-card-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .sn-card-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .sn-card-phone--back  { transform: translateY(-6px); }
+    .card:hover .sn-card-phone--front { transform: translateY(-11px); }
+
+    .afin-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+    }
+    .afin-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
+    .afin-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .afin-phone--back  { transform: translateY(-6px); }
+    .card:hover .afin-phone--front { transform: translateY(-11px); }
+
+    @media (max-width: 860px) {
+      .about-teaser-grid { grid-template-columns: 1fr; }
+      .about-teaser-visual { aspect-ratio: 16/7; max-height: 300px; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo nav-pill" aria-label="Jose Romero — Home">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/thinking/">Thinking</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      <span class="lang-current" aria-current="true">EN</span>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <a href="/es/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a>
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <button class="nav-toggle nav-pill" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ══════════════════════════════════════════
+         HERO — THE MAP IS THE THESIS
+    ══════════════════════════════════════════ -->
+    <section class="v3-hero" aria-label="Introduction" id="home">
+
+      <div class="v3-map-wrap">
+
+        <!-- Inline SVG: geometry + labels, no center text (replaced by HTML overlay) -->
+        <svg class="v3-geo" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg"
+             role="img" aria-label="Design complexity diagram — design generates clarity at the intersection of Business, Users, Technology, and Organisation">
+
+          <g clip-path="url(#v3clip)">
+
+            <!-- Phase 1: Background quadrant circles + inner glow -->
+            <g class="v3-ph1">
+              <path d="M142 284C220.424 284 284 220.424 284 142C284 63.5756 220.424 0 142 0C63.5756 0 0 63.5756 0 142C0 220.424 63.5756 284 142 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
+              <path d="M258 284C336.424 284 400 220.424 400 142C400 63.5756 336.424 0 258 0C179.576 0 116 63.5756 116 142C116 220.424 179.576 284 258 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
+              <path d="M142 460C220.424 460 284 396.424 284 318C284 239.576 220.424 176 142 176C63.5756 176 0 239.576 0 318C0 396.424 63.5756 460 142 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
+              <path d="M258 460C336.424 460 400 396.424 400 318C400 239.576 336.424 176 258 176C179.576 176 116 239.576 116 318C116 396.424 179.576 460 258 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
+              <!-- Inner glow -->
+              <path d="M200 370C277.32 370 340 307.32 340 230C340 152.68 277.32 90 200 90C122.68 90 60 152.68 60 230C60 307.32 122.68 370 200 370Z" fill="url(#v3glow)"/>
+            </g>
+
+            <!-- Phase 2: Dashed rings + cross lines -->
+            <g class="v3-ph2">
+              <path opacity="0.4" d="M200 302C239.764 302 272 269.764 272 230C272 190.235 239.764 158 200 158C160.235 158 128 190.235 128 230C128 269.764 160.235 302 200 302Z" stroke="#C17F3A" stroke-width="0.7" stroke-dasharray="3 8"/>
+              <path opacity="0.3" d="M200 326C253.019 326 296 283.019 296 230C296 176.981 253.019 134 200 134C146.981 134 104 176.981 104 230C104 283.019 146.981 326 200 326Z" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 9"/>
+              <path opacity="0.5" d="M200 378C281.738 378 348 311.738 348 230C348 148.262 281.738 82 200 82C118.262 82 52 148.262 52 230C52 311.738 118.262 378 200 378Z" stroke="#3A8A8A" stroke-width="0.4" stroke-dasharray="2 11"/>
+              <path opacity="0.1" d="M108 326H292" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 6"/>
+              <path opacity="0.1" d="M108 142H292" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 6"/>
+              <path opacity="0.1" d="M108 142V326" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 6"/>
+              <path opacity="0.1" d="M292 142V326" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 6"/>
+            </g>
+
+            <!-- Arcs: each drawn individually (stroke-dashoffset animation) -->
+            <path class="v3-arc v3-arc-business"     d="M108 142C161.333 153.478 192 182.812 200 230"/>
+            <path class="v3-arc v3-arc-users"        d="M292 142C282.667 181.536 252 210.87 200 230"/>
+            <path class="v3-arc v3-arc-technology"   d="M108 326C117.333 284.261 148 252.261 200 230"/>
+            <path class="v3-arc v3-arc-organisation" d="M292 326C240 319.043 209.333 287.043 200 230"/>
+
+            <!-- Phase 3: Connector lines to outer nodes -->
+            <g class="v3-ph3">
+              <path opacity="0.22" d="M68 100L104 136" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M150 74L116 132" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M252 74L284 132" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M332 100L296 136" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M68 368L104 332" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M150 394L116 334" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M332 368L296 332" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.22" d="M252 394L284 334" stroke="#3A8A8A" stroke-width="0.5"/>
+              <path opacity="0.13" d="M40 90L104 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M74 34L104 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M172 44L116 132" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M40 156L104 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M184 54L116 132" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M228 44L284 132" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M326 34L296 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M366 98L296 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M358 154L296 136" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M216 54L284 132" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M40 378L104 332" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M74 434L104 332" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M172 424L116 334" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M22 312L104 332" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M108 450L116 334" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M360 378L296 332" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M326 434L296 334" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.13" d="M228 424L284 334" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M378 312L296 332" stroke="#3A8A8A" stroke-width="0.4"/>
+              <path opacity="0.1"  d="M292 450L284 334" stroke="#3A8A8A" stroke-width="0.4"/>
+            </g>
+
+            <!-- Phase 5: Satellite dots, outer node circles, quadrant node circles -->
+            <g class="v3-ph5">
+              <!-- Satellite dots -->
+              <path d="M40 94.5C42.4853 94.5 44.5 92.4853 44.5 90C44.5 87.5147 42.4853 85.5 40 85.5C37.5147 85.5 35.5 87.5147 35.5 90C35.5 92.4853 37.5147 94.5 40 94.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M40 91.3002C40.718 91.3002 41.3 90.7182 41.3 90.0002C41.3 89.2822 40.718 88.7002 40 88.7002C39.282 88.7002 38.7 89.2822 38.7 90.0002C38.7 90.7182 39.282 91.3002 40 91.3002Z" fill="#3A8A8A"/>
+              <path d="M74 39.5C77.0376 39.5 79.5 37.0376 79.5 34C79.5 30.9624 77.0376 28.5 74 28.5C70.9624 28.5 68.5 30.9624 68.5 34C68.5 37.0376 70.9624 39.5 74 39.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M74 35.5999C74.8837 35.5999 75.6 34.8836 75.6 33.9999C75.6 33.1162 74.8837 32.3999 74 32.3999C73.1164 32.3999 72.4 33.1162 72.4 33.9999C72.4 34.8836 73.1164 35.5999 74 35.5999Z" fill="#3A8A8A"/>
+              <path d="M172 48C174.209 48 176 46.2091 176 44C176 41.7909 174.209 40 172 40C169.791 40 168 41.7909 168 44C168 46.2091 169.791 48 172 48Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.4" d="M172 45.1998C172.663 45.1998 173.2 44.6625 173.2 43.9998C173.2 43.3371 172.663 42.7998 172 42.7998C171.337 42.7998 170.8 43.3371 170.8 43.9998C170.8 44.6625 171.337 45.1998 172 45.1998Z" fill="#3A8A8A"/>
+              <path d="M40 159C41.6569 159 43 157.657 43 156C43 154.343 41.6569 153 40 153C38.3431 153 37 154.343 37 156C37 157.657 38.3431 159 40 159Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M40 156.9C40.497 156.9 40.9 156.497 40.9 156C40.9 155.503 40.497 155.1 40 155.1C39.5029 155.1 39.1 155.503 39.1 156C39.1 156.497 39.5029 156.9 40 156.9Z" fill="#3A8A8A"/>
+              <path d="M184 57C185.657 57 187 55.6569 187 54C187 52.3431 185.657 51 184 51C182.343 51 181 52.3431 181 54C181 55.6569 182.343 57 184 57Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M184 54.9001C184.497 54.9001 184.9 54.4972 184.9 54.0001C184.9 53.503 184.497 53.1001 184 53.1001C183.503 53.1001 183.1 53.503 183.1 54.0001C183.1 54.4972 183.503 54.9001 184 54.9001Z" fill="#3A8A8A"/>
+              <path d="M228 48.5C230.485 48.5 232.5 46.4853 232.5 44C232.5 41.5147 230.485 39.5 228 39.5C225.515 39.5 223.5 41.5147 223.5 44C223.5 46.4853 225.515 48.5 228 48.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M228 45.3002C228.718 45.3002 229.3 44.7182 229.3 44.0002C229.3 43.2822 228.718 42.7002 228 42.7002C227.282 42.7002 226.7 43.2822 226.7 44.0002C226.7 44.7182 227.282 45.3002 228 45.3002Z" fill="#3A8A8A"/>
+              <path d="M326 39.5C329.038 39.5 331.5 37.0376 331.5 34C331.5 30.9624 329.038 28.5 326 28.5C322.962 28.5 320.5 30.9624 320.5 34C320.5 37.0376 322.962 39.5 326 39.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M326 35.5999C326.884 35.5999 327.6 34.8836 327.6 33.9999C327.6 33.1162 326.884 32.3999 326 32.3999C325.116 32.3999 324.4 33.1162 324.4 33.9999C324.4 34.8836 325.116 35.5999 326 35.5999Z" fill="#3A8A8A"/>
+              <path d="M366 102C368.209 102 370 100.209 370 98C370 95.7909 368.209 94 366 94C363.791 94 362 95.7909 362 98C362 100.209 363.791 102 366 102Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.4" d="M366 99.1998C366.663 99.1998 367.2 98.6625 367.2 97.9998C367.2 97.3371 366.663 96.7998 366 96.7998C365.337 96.7998 364.8 97.3371 364.8 97.9998C364.8 98.6625 365.337 99.1998 366 99.1998Z" fill="#3A8A8A"/>
+              <path d="M358 157C359.657 157 361 155.657 361 154C361 152.343 359.657 151 358 151C356.343 151 355 152.343 355 154C355 155.657 356.343 157 358 157Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M358 154.9C358.497 154.9 358.9 154.497 358.9 154C358.9 153.503 358.497 153.1 358 153.1C357.503 153.1 357.1 153.503 357.1 154C357.1 154.497 357.503 154.9 358 154.9Z" fill="#3A8A8A"/>
+              <path d="M216 57C217.657 57 219 55.6569 219 54C219 52.3431 217.657 51 216 51C214.343 51 213 52.3431 213 54C213 55.6569 214.343 57 216 57Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M216 54.9001C216.497 54.9001 216.9 54.4972 216.9 54.0001C216.9 53.503 216.497 53.1001 216 53.1001C215.503 53.1001 215.1 53.503 215.1 54.0001C215.1 54.4972 215.503 54.9001 216 54.9001Z" fill="#3A8A8A"/>
+              <!-- Bottom satellite dots -->
+              <path d="M40 382.5C42.4853 382.5 44.5 380.485 44.5 378C44.5 375.515 42.4853 373.5 40 373.5C37.5147 373.5 35.5 375.515 35.5 378C35.5 380.485 37.5147 382.5 40 382.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M40 379.3C40.718 379.3 41.3 378.718 41.3 378C41.3 377.282 40.718 376.7 40 376.7C39.282 376.7 38.7 377.282 38.7 378C38.7 378.718 39.282 379.3 40 379.3Z" fill="#3A8A8A"/>
+              <path d="M74 439.5C77.0376 439.5 79.5 437.038 79.5 434C79.5 430.962 77.0376 428.5 74 428.5C70.9624 428.5 68.5 430.962 68.5 434C68.5 437.038 70.9624 439.5 74 439.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M74 435.6C74.8837 435.6 75.6 434.884 75.6 434C75.6 433.116 74.8837 432.4 74 432.4C73.1164 432.4 72.4 433.116 72.4 434C72.4 434.884 73.1164 435.6 74 435.6Z" fill="#3A8A8A"/>
+              <path d="M172 428C174.209 428 176 426.209 176 424C176 421.791 174.209 420 172 420C169.791 420 168 421.791 168 424C168 426.209 169.791 428 172 428Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.4" d="M172 425.2C172.663 425.2 173.2 424.663 173.2 424C173.2 423.337 172.663 422.8 172 422.8C171.337 422.8 170.8 423.337 170.8 424C170.8 424.663 171.337 425.2 172 425.2Z" fill="#3A8A8A"/>
+              <path d="M22 315C23.6569 315 25 313.657 25 312C25 310.343 23.6569 309 22 309C20.3431 309 19 310.343 19 312C19 313.657 20.3431 315 22 315Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M22 312.9C22.497 312.9 22.9 312.497 22.9 312C22.9 311.503 22.497 311.1 22 311.1C21.5029 311.1 21.1 311.503 21.1 312C21.1 312.497 21.5029 312.9 22 312.9Z" fill="#3A8A8A"/>
+              <path d="M108 453C109.657 453 111 451.657 111 450C111 448.343 109.657 447 108 447C106.343 447 105 448.343 105 450C105 451.657 106.343 453 108 453Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M108 450.9C108.497 450.9 108.9 450.497 108.9 450C108.9 449.503 108.497 449.1 108 449.1C107.503 449.1 107.1 449.503 107.1 450C107.1 450.497 107.503 450.9 108 450.9Z" fill="#3A8A8A"/>
+              <path d="M360 382.5C362.485 382.5 364.5 380.485 364.5 378C364.5 375.515 362.485 373.5 360 373.5C357.515 373.5 355.5 375.515 355.5 378C355.5 380.485 357.515 382.5 360 382.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M360 379.3C360.718 379.3 361.3 378.718 361.3 378C361.3 377.282 360.718 376.7 360 376.7C359.282 376.7 358.7 377.282 358.7 378C358.7 378.718 359.282 379.3 360 379.3Z" fill="#3A8A8A"/>
+              <path d="M326 439.5C329.038 439.5 331.5 437.038 331.5 434C331.5 430.962 329.038 428.5 326 428.5C322.962 428.5 320.5 430.962 320.5 434C320.5 437.038 322.962 439.5 326 439.5Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.45" d="M326 435.6C326.884 435.6 327.6 434.884 327.6 434C327.6 433.116 326.884 432.4 326 432.4C325.116 432.4 324.4 433.116 324.4 434C324.4 434.884 325.116 435.6 326 435.6Z" fill="#3A8A8A"/>
+              <path d="M228 428C230.209 428 232 426.209 232 424C232 421.791 230.209 420 228 420C225.791 420 224 421.791 224 424C224 426.209 225.791 428 228 428Z" fill="#1C2424" stroke="#28343A" stroke-width="0.7"/>
+              <path opacity="0.4" d="M228 425.2C228.663 425.2 229.2 424.663 229.2 424C229.2 423.337 228.663 422.8 228 422.8C227.337 422.8 226.8 423.337 226.8 424C226.8 424.663 227.337 425.2 228 425.2Z" fill="#3A8A8A"/>
+              <path d="M378 315C379.657 315 381 313.657 381 312C381 310.343 379.657 309 378 309C376.343 309 375 310.343 375 312C375 313.657 376.343 315 378 315Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M378 312.9C378.497 312.9 378.9 312.497 378.9 312C378.9 311.503 378.497 311.1 378 311.1C377.503 311.1 377.1 311.503 377.1 312C377.1 312.497 377.503 312.9 378 312.9Z" fill="#3A8A8A"/>
+              <path d="M292 453C293.657 453 295 451.657 295 450C295 448.343 293.657 447 292 447C290.343 447 289 448.343 289 450C289 451.657 290.343 453 292 453Z" fill="#1C2424" stroke="#28343A" stroke-width="0.6"/>
+              <path opacity="0.35" d="M292 450.9C292.497 450.9 292.9 450.497 292.9 450C292.9 449.503 292.497 449.1 292 449.1C291.503 449.1 291.1 449.503 291.1 450C291.1 450.497 291.503 450.9 292 450.9Z" fill="#3A8A8A"/>
+              <!-- Outer node circles (8 larger dots) -->
+              <path d="M68 110C73.5228 110 78 105.523 78 100C78 94.4772 73.5228 90 68 90C62.4772 90 58 94.4772 58 100C58 105.523 62.4772 110 68 110Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M68 102.5C69.3807 102.5 70.5 101.381 70.5 100C70.5 98.6193 69.3807 97.5 68 97.5C66.6193 97.5 65.5 98.6193 65.5 100C65.5 101.381 66.6193 102.5 68 102.5Z" fill="#3A8A8A"/>
+              <path d="M150 84C155.523 84 160 79.5228 160 74C160 68.4772 155.523 64 150 64C144.477 64 140 68.4772 140 74C140 79.5228 144.477 84 150 84Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M150 76.5C151.381 76.5 152.5 75.3807 152.5 74C152.5 72.6193 151.381 71.5 150 71.5C148.619 71.5 147.5 72.6193 147.5 74C147.5 75.3807 148.619 76.5 150 76.5Z" fill="#3A8A8A"/>
+              <path d="M252 84C257.523 84 262 79.5228 262 74C262 68.4772 257.523 64 252 64C246.477 64 242 68.4772 242 74C242 79.5228 246.477 84 252 84Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M252 76.5C253.381 76.5 254.5 75.3807 254.5 74C254.5 72.6193 253.381 71.5 252 71.5C250.619 71.5 249.5 72.6193 249.5 74C249.5 75.3807 250.619 76.5 252 76.5Z" fill="#3A8A8A"/>
+              <path d="M332 110C337.523 110 342 105.523 342 100C342 94.4772 337.523 90 332 90C326.477 90 322 94.4772 322 100C322 105.523 326.477 110 332 110Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M332 102.5C333.381 102.5 334.5 101.381 334.5 100C334.5 98.6193 333.381 97.5 332 97.5C330.619 97.5 329.5 98.6193 329.5 100C329.5 101.381 330.619 102.5 332 102.5Z" fill="#3A8A8A"/>
+              <path d="M68 378C73.5228 378 78 373.523 78 368C78 362.477 73.5228 358 68 358C62.4772 358 58 362.477 58 368C58 373.523 62.4772 378 68 378Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M68 370.5C69.3807 370.5 70.5 369.381 70.5 368C70.5 366.619 69.3807 365.5 68 365.5C66.6193 365.5 65.5 366.619 65.5 368C65.5 369.381 66.6193 370.5 68 370.5Z" fill="#3A8A8A"/>
+              <path d="M150 404C155.523 404 160 399.523 160 394C160 388.477 155.523 384 150 384C144.477 384 140 388.477 140 394C140 399.523 144.477 404 150 404Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M150 396.5C151.381 396.5 152.5 395.381 152.5 394C152.5 392.619 151.381 391.5 150 391.5C148.619 391.5 147.5 392.619 147.5 394C147.5 395.381 148.619 396.5 150 396.5Z" fill="#3A8A8A"/>
+              <path d="M332 378C337.523 378 342 373.523 342 368C342 362.477 337.523 358 332 358C326.477 358 322 362.477 322 368C322 373.523 326.477 378 332 378Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M332 370.5C333.381 370.5 334.5 369.381 334.5 368C334.5 366.619 333.381 365.5 332 365.5C330.619 365.5 329.5 366.619 329.5 368C329.5 369.381 330.619 370.5 332 370.5Z" fill="#3A8A8A"/>
+              <path d="M252 404C257.523 404 262 399.523 262 394C262 388.477 257.523 384 252 384C246.477 384 242 388.477 242 394C242 399.523 246.477 404 252 404Z" fill="#1C2424" stroke="#2A3838" stroke-width="0.8"/>
+              <path opacity="0.6" d="M252 396.5C253.381 396.5 254.5 395.381 254.5 394C254.5 392.619 253.381 391.5 252 391.5C250.619 391.5 249.5 392.619 249.5 394C249.5 395.381 250.619 396.5 252 396.5Z" fill="#3A8A8A"/>
+              <!-- Quadrant node circles -->
+              <path d="M108 166C121.255 166 132 155.255 132 142C132 128.745 121.255 118 108 118C94.7452 118 84 128.745 84 142C84 155.255 94.7452 166 108 166Z" fill="#1C2424" stroke="#2C4040"/>
+              <path opacity="0.78" d="M108 148C111.314 148 114 145.314 114 142C114 138.686 111.314 136 108 136C104.686 136 102 138.686 102 142C102 145.314 104.686 148 108 148Z" fill="#3A8A8A"/>
+              <path d="M292 166C305.255 166 316 155.255 316 142C316 128.745 305.255 118 292 118C278.745 118 268 128.745 268 142C268 155.255 278.745 166 292 166Z" fill="#1C2424" stroke="#2C4040"/>
+              <path opacity="0.78" d="M292 148C295.314 148 298 145.314 298 142C298 138.686 295.314 136 292 136C288.686 136 286 138.686 286 142C286 145.314 288.686 148 292 148Z" fill="#3A8A8A"/>
+              <path d="M108 350C121.255 350 132 339.255 132 326C132 312.745 121.255 302 108 302C94.7452 302 84 312.745 84 326C84 339.255 94.7452 350 108 350Z" fill="#1C2424" stroke="#2C4040"/>
+              <path opacity="0.78" d="M108 332C111.314 332 114 329.314 114 326C114 322.686 111.314 320 108 320C104.686 320 102 322.686 102 326C102 329.314 104.686 332 108 332Z" fill="#3A8A8A"/>
+              <path d="M292 350C305.255 350 316 339.255 316 326C316 312.745 305.255 302 292 302C278.745 302 268 312.745 268 326C268 339.255 278.745 350 292 350Z" fill="#1C2424" stroke="#2C4040"/>
+              <path opacity="0.78" d="M292 332C295.314 332 298 329.314 298 326C298 322.686 295.314 320 292 320C288.686 320 286 322.686 286 326C286 329.314 288.686 332 292 332Z" fill="#3A8A8A"/>
+            </g>
+
+            <!-- Phase 6: Inner rings + center node circles -->
+            <g class="v3-ph6">
+              <path opacity="0.28" d="M200 281C228.167 281 251 258.167 251 230C251 201.833 228.167 179 200 179C171.833 179 149 201.833 149 230C149 258.167 171.833 281 200 281Z" stroke="#C17F3A" stroke-dasharray="4 7"/>
+              <path opacity="0.18" d="M200 273C223.748 273 243 253.748 243 230C243 206.252 223.748 187 200 187C176.252 187 157 206.252 157 230C157 253.748 176.252 273 200 273Z" stroke="#C17F3A" stroke-width="0.6" stroke-dasharray="2 5"/>
+              <path d="M200 266C219.882 266 236 249.882 236 230C236 210.118 219.882 194 200 194C180.118 194 164 210.118 164 230C164 249.882 180.118 266 200 266Z" fill="#1A1714" stroke="#C17F3A" stroke-width="1.6"/>
+              <path d="M200 252C212.15 252 222 242.15 222 230C222 217.85 212.15 208 200 208C187.85 208 178 217.85 178 230C178 242.15 187.85 252 200 252Z" fill="#C17F3A" fill-opacity="0.07"/>
+            </g>
+
+            <!-- Edge fade gradient (first pass) -->
+            <path d="M400 0H0V460H400V0Z" fill="url(#v3fade)"/>
+
+            <!-- Text labels — all phase 7 -->
+            <g>
+              <!-- Outer ring labels -->
+              <text class="v3-text-outer v3-outer-strategy"     x="68"  y="116" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Strategy</text>
+              <text class="v3-text-outer v3-outer-research"     x="150" y="90"  fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Research</text>
+              <text class="v3-text-outer v3-outer-journeys"     x="252" y="93"  fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Journeys</text>
+              <text class="v3-text-outer v3-outer-stakeholders" x="332" y="115" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Stakeholders</text>
+              <text class="v3-text-outer v3-outer-systems"      x="68"  y="384" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Systems</text>
+              <text class="v3-text-outer v3-outer-data"         x="150" y="413" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Data</text>
+              <text class="v3-text-outer v3-outer-process"      x="332" y="387" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Process</text>
+              <text class="v3-text-outer v3-outer-teams"        x="228" y="409" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Teams</text>
+
+              <!-- Quadrant node labels -->
+              <text class="v3-text-qnode v3-qlabel-business"     x="108" y="178" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Business</text>
+              <text class="v3-text-qnode v3-qlabel-users"        x="292" y="173" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Users</text>
+              <text class="v3-text-qnode v3-qlabel-technology"   x="108" y="358" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Technology</text>
+              <text class="v3-text-qnode v3-qlabel-organisation" x="292" y="360" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="middle" letter-spacing="0.04em">Organisation</text>
+
+              <!-- Arc labels -->
+              <text class="v3-text-arc v3-al-viability"    x="167" y="166" fill="#89E3E3" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="start" letter-spacing="0.04em">Viability</text>
+              <text class="v3-text-arc v3-al-desirability" x="257" y="196" fill="#89E3E3" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="start" letter-spacing="0.04em">Desirability</text>
+              <text class="v3-text-arc v3-al-feasibility"  x="97"  y="274" fill="#89E3E3" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="start" letter-spacing="0.04em">Feasibility</text>
+              <text class="v3-text-arc v3-al-scalability"  x="216" y="297" fill="#89E3E3" font-size="8" font-family="ui-sans-serif,system-ui,sans-serif" text-anchor="start" letter-spacing="0.04em">Scalability</text>
+            </g>
+
+            <!-- Edge fade gradient (second pass — stronger at extreme edges) -->
+            <path d="M400 0H0V460H400V0Z" fill="url(#v3fade)"/>
+
+          </g>
+
+          <defs>
+            <radialGradient id="v3fade" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 230) scale(200 230)">
+              <stop offset="0.456467" stop-color="#090908" stop-opacity="0"/>
+              <stop offset="1" stop-color="#090908" stop-opacity="1"/>
+            </radialGradient>
+            <radialGradient id="v3glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 230) scale(140)">
+              <stop stop-color="#C17F3A" stop-opacity="0.28"/>
+              <stop offset="0.5" stop-color="#C17F3A" stop-opacity="0.07"/>
+              <stop offset="1" stop-color="#C17F3A" stop-opacity="0"/>
+            </radialGradient>
+            <clipPath id="v3clip">
+              <rect width="400" height="460" fill="white"/>
+            </clipPath>
+          </defs>
+        </svg>
+
+        <!-- Transparent HTML hover zones over quadrant nodes -->
+        <button class="v3-zone v3-zone-business"
+                title="Business — platforms, services, financial products"
+                aria-label="Business domain"></button>
+        <button class="v3-zone v3-zone-users"
+                title="Users — CRO, research, behavioral economics"
+                aria-label="Users domain"></button>
+        <button class="v3-zone v3-zone-technology"
+                title="Technology — design systems, constraints, engineering"
+                aria-label="Technology domain"></button>
+        <button class="v3-zone v3-zone-organisation"
+                title="Organisation — stakeholders, process, design ops"
+                aria-label="Organisation domain"></button>
+
+        <!-- Center text HTML overlay (replaces SVG center text) -->
+        <div class="v3-center-overlay" role="status" aria-live="polite">
+          <div class="v3-c v3-c-default" aria-hidden="false">
+            <span class="v3-c-design">Design</span>
+            <span class="v3-c-generates">generates</span>
+            <em class="v3-c-clarity">Clarity</em>
+          </div>
+          <div class="v3-c v3-c-hover v3-c-hover-business" aria-hidden="true">
+            <span class="v3-c-domain">Business</span>
+            <span class="v3-c-desc">Platforms · services<br>financial products</span>
+          </div>
+          <div class="v3-c v3-c-hover v3-c-hover-users" aria-hidden="true">
+            <span class="v3-c-domain">Users</span>
+            <span class="v3-c-desc">CRO · research<br>behavioral economics</span>
+          </div>
+          <div class="v3-c v3-c-hover v3-c-hover-technology" aria-hidden="true">
+            <span class="v3-c-domain">Technology</span>
+            <span class="v3-c-desc">Design systems<br>constraints · engineering</span>
+          </div>
+          <div class="v3-c v3-c-hover v3-c-hover-organisation" aria-hidden="true">
+            <span class="v3-c-domain">Organisation</span>
+            <span class="v3-c-desc">Stakeholders · process<br>design ops</span>
+          </div>
+        </div>
+
+      </div><!-- /v3-map-wrap -->
+
+      <!-- Identity row — appears last, below the map -->
+      <div class="v3-ident">
+        <p class="v3-ident-name">
+          <strong>Jose Romero</strong> — Senior Product Designer · Zaragoza, Spain
+        </p>
+        <a href="#main-work" class="btn btn-primary">
+          See the work <span class="arrow">→</span>
+        </a>
+      </div>
+
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CLIENT LOGOS
+    ══════════════════════════════════════════ -->
+    <section class="section--logos" aria-label="Clients">
+      <div class="container">
+        <div class="logos-track">
+          <img src="/assets/images/ikea-logo.svg" alt="IKEA" class="client-logo">
+          <img src="/assets/images/santander-logo.svg" alt="Santander" class="client-logo">
+          <img src="/assets/images/melia-logo.svg" alt="Meliá Hotels" class="client-logo">
+          <img src="/assets/images/mapfre-logo.svg" alt="Mapfre" class="client-logo">
+          <img src="/assets/images/iqos-logo.svg" alt="IQOS" class="client-logo">
+        </div>
+        <div class="logos-header">
+          <p class="logos-context">A selection of clients worked with directly or through agency partnerships.<br>Most engagements covered by NDA — <strong>methodology and decisions are always mine to share.</strong></p>
+          <span class="logos-count"><em>35+</em> clients</span>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         SELECTED WORK
+    ══════════════════════════════════════════ -->
+    <section class="section" id="main-work" aria-labelledby="work-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2 id="work-heading">
+            Projects across<br>
+            <em class="accent-italic">complexity and craft.</em>
+          </h2>
+          <p>Three featured case studies — different brands, different problem types, different scales. Full work index below.</p>
+        </div>
+
+        <article class="card card--hero-row card--image-led reveal">
+          <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Marketplace</span>
+                </div>
+              </div>
+              <h3 class="card-title">IKEA Home Services</h3>
+              <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
+              <div class="card-footer">
+                <span class="card-client">Garaje de Ideas × IKEA</span>
+                <span class="arrow">→</span>
+              </div>
+            </div>
+            <div class="card-image card-image--phones">
+              <div class="hs-phone hs-phone--back"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="lazy" decoding="async"></div>
+              <div class="hs-phone hs-phone--front"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="IKEA Home Services app home screen" loading="lazy" decoding="async"></div>
+            </div>
+          </a>
+        </article>
+
+        <div class="grid-featured-pair">
+
+          <article class="card card--image-led reveal">
+            <a href="/work/mapfre-afin-digital-expansion/" aria-label="View Mapfre AFIN Financial App case study" style="display:contents;">
+              <div class="card-image card-image--phones">
+                <div class="afin-phone afin-phone--back"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" width="361" height="749" alt="" loading="lazy" decoding="async"></div>
+                <div class="afin-phone afin-phone--front"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" width="361" height="750" alt="Mapfre AFIN financial proposal screen" loading="lazy" decoding="async"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-top">
+                  <div class="card-tags">
+                    <span class="tag tag--teal">Flat 101</span>
+                    <span class="tag">Product Design</span>
+                    <span class="tag">FinTech</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Mapfre — AFIN Financial App</h3>
+                <p class="card-summary">Self-service financial management app for one of Spain's largest insurers — progressive-disclosure IA and a Financial Advisor feature built around user trust and transparent data collection.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Mapfre España</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="card card--image-led reveal">
+            <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
+              <div class="card-image card-image--phones">
+                <div class="sn-card-phone sn-card-phone--back"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1718" alt="" loading="lazy" decoding="async"></div>
+                <div class="sn-card-phone sn-card-phone--front"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1711" alt="Santander consumer loan funnel — A/B variant screens" loading="lazy" decoding="async"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-top">
+                  <div class="card-tags">
+                    <span class="tag tag--teal">Flat 101</span>
+                    <span class="tag">CRO</span>
+                    <span class="tag">Banking</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Santander Nordics — CRO Programme</h3>
+                <p class="card-summary">Lead UX/CRO designer across consumer loan, credit card, deposit, and insurance funnels in Denmark, Sweden, Finland, and Norway. Data-driven experimentation in a regulated, multi-market environment.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Santander</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <div class="reveal" style="margin-top: var(--sp-16);">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--sp-4); margin-bottom: var(--sp-6);">
+            <h3 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300;">More case studies</h3>
+            <span style="font-size: var(--text-sm); color: var(--text-secondary);">Across products, CRO, and design operations</span>
+          </div>
+          <div class="mini-list">
+            <a class="mini-row" href="/work/ikea-secondhand-marketplace/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IKEA Second-hand Marketplace</span>
+                <div class="mini-row-tags"><span class="tag tag--gold">IKEA · Current</span><span class="tag">Circular Commerce</span></div>
+              </div>
+              <p class="mini-row-desc">Peer-to-peer resale of IKEA products, now live in five European countries.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+            <a class="mini-row" href="/work/ikea-ways-of-working/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IKEA — Ways of Working System</span>
+                <div class="mini-row-tags"><span class="tag tag--gold">IKEA · Current</span><span class="tag">Design Ops</span></div>
+              </div>
+              <p class="mini-row-desc">A cross-tool design-operations framework spanning Figma, Jira, Confluence and Phrase.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+            <a class="mini-row" href="/work/ai-workflow-framework/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">AI Workflow Design Framework</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Framework</span><span class="tag">Process Architecture</span></div>
+              </div>
+              <p class="mini-row-desc">A multi-agent process architecture for human-led, AI-assisted product design.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+            <a class="mini-row" href="/work/mapfre-digital-expansion/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Mapfre — Digital Expansion</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">Multi-market</span></div>
+              </div>
+              <p class="mini-row-desc">Verti platform redesign, a Latin America agents directory, and international CRO.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+            <a class="mini-row" href="/work/iqos-club-cro/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IQOS Club Spain — CRO Programme</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">Behavioral Economics</span></div>
+              </div>
+              <p class="mini-row-desc">Loyalty-portal optimisation under low traffic, driven by behavioural economics.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+            <a class="mini-row" href="/work/xti-ecommerce-redesign/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">XTI Store — E-commerce Redesign</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">E-commerce</span></div>
+              </div>
+              <p class="mini-row-desc">Fashion storefront redesign within Magento constraints, led by behavioural data.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--sp-10); text-align: center;">
+          <a href="/work/" class="btn btn-primary">
+            View full work index <span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         ABOUT TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="about-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="about-teaser-grid">
+
+          <div class="about-teaser-visual reveal">
+            <img src="/assets/images/portrait.webp"
+                 alt="Jose Romero, Senior Product Designer"
+                 class="about-teaser-portrait"
+                 width="1200" height="1400"
+                 loading="lazy" decoding="async">
+          </div>
+
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">About</span>
+            <h2 id="about-heading" style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); margin-bottom: var(--sp-6);">
+              Twelve years.<br>
+              <em class="accent-italic">One consistent way of working.</em>
+            </h2>
+            <p class="body-lg" style="margin-bottom: var(--sp-4);">
+              I've been doing this since I was 21 — first running a small design studio in Havana, then building a career across Spain's largest enterprise accounts, and now embedded inside one of Europe's most recognised brands.
+            </p>
+            <p style="margin-bottom: var(--sp-8);">
+              What's stayed constant across all of it: I work best when the environment is complex, the brief is incomplete, and the answer isn't obvious yet. I work in English and Spanish at professional level and operate comfortably across both.
+            </p>
+            <a href="/about/" class="btn btn-primary">
+              More about me <span class="arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         THINKING TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="thinking-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="thinking-home-grid">
+
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Thinking</span>
+            <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
+              How I approach<br><em class="accent-italic">the work.</em>
+            </h2>
+            <p style="margin-bottom: var(--sp-8); max-width: 46ch;">
+              A few core ideas I keep coming back to — drawn from 12 years of project work across enterprise digital products, CRO, and team leadership. Not a blog. Just positions.
+            </p>
+            <a href="/thinking/" class="btn btn-ghost">
+              Read my approach <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="reveal">
+            <blockquote class="thinking-quote">
+              "Most design decisions are behavioral decisions.<br>Treat them that way."
+            </blockquote>
+            <div class="thinking-topics">
+              <span class="thinking-topic">Empathy as a strategic tool</span>
+              <span class="thinking-topic">Behavioral economics in design</span>
+              <span class="thinking-topic">Systems that survive people</span>
+              <span class="thinking-topic">Designing with AI</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════════════ -->
+    <section class="section--sm" aria-label="Testimonials" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" style="margin-bottom: var(--sp-2); display: flex;">Word of mouth</span>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "If there's chaos, he can bring order to it. His exceptional ability to lead and organise a design process impressed me from day one — if he's part of it, quality and efficiency are guaranteed."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Isabel Vidal</span>
+              <span class="testimonial-role">Product Designer · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "Jose stands out from the average UX profile. Beyond his eye for detail in the design itself, he brings the layer of strategy and fluent client communication that is so in demand — and so scarce."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Emilio Bordona</span>
+              <span class="testimonial-role">Project Manager · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="reveal">
+          <a href="https://www.linkedin.com/in/joseromerodesign/details/recommendations/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            More on LinkedIn <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ══════════════════════════════════════════
+         CLOSING CTA
+    ══════════════════════════════════════════ -->
+    <section class="section--sm cs-cta" aria-labelledby="cta-heading">
+      <div class="cs-cta-orb" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="cta-section reveal">
+          <div>
+            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Available</span>
+            <h2 id="cta-heading">
+              Your hardest problem<br>
+              <em class="accent-italic">is a good place to start.</em>
+            </h2>
+            <p style="margin-top: var(--sp-5); max-width: 44ch; color: var(--text-secondary);">
+              Open to senior product design roles and selective consulting engagements — in English or Spanish.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="https://www.linkedin.com/in/joseromerodesign/"
+               target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+              Connect on LinkedIn <span class="arrow">→</span>
+            </a>
+            <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+              Send an email <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Jose <span>Romero</span></p>
+        <p class="footer-sub">Senior Product Designer</p>
+        <p class="footer-sub">Working from Zaragoza, Spain</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
+        <a href="/assets/cv/jose-romero-cv-en.pdf" download>Download CV</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
+  </footer>
+
+  <script src="/assets/js/main.js?v=10" defer></script>
+
+</body>
+</html>

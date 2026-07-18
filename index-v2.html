@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jose Romero — Senior Product Designer (v2 experiment)</title>
+  <meta name="description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioral strategy. Currently embedded at IKEA. Working from Zaragoza, Spain.">
+  <link rel="canonical" href="https://joseromerodesign.com/">
+
+  <!-- Fonts -->
+  <link rel="stylesheet" href="/assets/css/main.css?v=17">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ─────────────────────────────────────────────
+       V2 HERO — The Map Annotates Itself
+       Direction C: map right-anchored in a defined
+       frame, text column left as annotation
+    ───────────────────────────────────────────── */
+
+    .v2-hero {
+      display: grid;
+      grid-template-columns: 42fr 58fr;
+      min-height: 100vh;
+      border-bottom: 1px solid var(--border-default);
+      position: relative;
+    }
+
+    /* Left: annotation column */
+    .v2-hero-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: var(--sp-6);
+      padding: calc(var(--nav-height) + var(--sp-16)) clamp(1.5rem, 4vw, var(--sp-16)) var(--sp-16) clamp(1.5rem, 7vw, 6rem);
+      position: relative;
+      z-index: 1;
+    }
+
+    .v2-eyebrow {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .v2-eyebrow-role { color: var(--teal); }
+
+    .v2-eyebrow-location {
+      color: var(--text-tertiary);
+      font-weight: 400;
+      letter-spacing: 0.1em;
+    }
+
+    .v2-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.75rem, 3vw, 2.625rem);
+      font-weight: 300;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text-primary);
+      margin: 0;
+    }
+
+    .v2-headline em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .v2-sub {
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      line-height: 1.75;
+      max-width: 46ch;
+      margin: 0;
+    }
+
+    .v2-actions {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+      margin-top: var(--sp-2);
+    }
+
+    /* Right: map column — document panel */
+    .v2-hero-map {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--sp-4);
+      padding: calc(var(--nav-height) + var(--sp-8)) var(--sp-10) var(--sp-8);
+      margin: 0;
+      border-left: 1px solid var(--border-subtle);
+      /* Teal grid background: frames the map as a pinned document */
+      background-image:
+        linear-gradient(var(--teal-tint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
+      background-size: 40px 40px;
+    }
+
+    .v2-hero-map img {
+      display: block;
+      width: 100%;
+      max-width: 460px;
+      height: auto;
+    }
+
+    .v2-map-caption {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.07em;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    /* Mobile: stack, crop map to show center rings */
+    @media (max-width: 860px) {
+      .v2-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+
+      .v2-hero-text {
+        padding: var(--sp-10) var(--gutter) var(--sp-10);
+        order: 2;
+      }
+
+      .v2-hero-map {
+        order: 1;
+        border-left: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding: 0;
+        height: 240px;
+        overflow: hidden;
+        align-items: flex-start;
+        justify-content: flex-start;
+      }
+
+      .v2-hero-map img {
+        width: 130%;
+        max-width: none;
+        margin-left: -15%;
+        margin-top: -130px;
+      }
+
+      .v2-map-caption {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .v2-hero-map {
+        height: 210px;
+      }
+      .v2-hero-map img {
+        width: 145%;
+        margin-left: -22%;
+        margin-top: -140px;
+      }
+    }
+
+    /* ─────────────────────────────────────────────
+       Below-fold sections — identical to index.html
+    ───────────────────────────────────────────── */
+
+    /* About teaser two-col */
+    .about-teaser-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(var(--sp-12), 6vw, var(--sp-24));
+      align-items: center;
+    }
+
+    .about-teaser-visual {
+      position: relative;
+      aspect-ratio: 4/5;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-color: var(--bg-surface-2);
+      background-image:
+        linear-gradient(var(--teal-tint) 1px, transparent 1px),
+        linear-gradient(90deg, var(--teal-tint) 1px, transparent 1px);
+      background-size: 32px 32px;
+      border: 1px solid var(--border-default);
+    }
+
+    .about-teaser-portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center bottom;
+      display: block;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Thinking teaser quote styling */
+    .thinking-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+      font-weight: 300;
+      color: var(--text-primary);
+      line-height: 1.45;
+      border-left: 2px solid var(--gold);
+      padding-left: var(--sp-6);
+      margin-bottom: var(--sp-8);
+    }
+
+    .thinking-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+
+    .thinking-topic {
+      font-size: var(--text-xs);
+      color: var(--teal);
+      border: 1px solid var(--teal-tint-strong);
+      background: var(--teal-tint);
+      border-radius: 2px;
+      padding: var(--sp-2) var(--sp-3);
+      letter-spacing: 0.06em;
+    }
+
+    /* Short engagement list */
+    .short-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      margin-top: var(--sp-6);
+    }
+
+    .short-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--sp-3) var(--sp-4);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      background: var(--bg-surface);
+      transition: border-color var(--ease-fast);
+    }
+
+    .short-item:hover { border-color: var(--border-default); }
+
+    .short-item-name {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+    }
+
+    .short-item-meta {
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+    }
+
+    /* CTA section */
+    .cta-section {
+      background: var(--bg-base);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: clamp(var(--sp-10), 5vw, var(--sp-16)) clamp(var(--sp-8), 4vw, var(--sp-16));
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-8);
+      flex-wrap: wrap;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+      max-width: 18ch;
+    }
+
+    .cta-section h2 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: var(--sp-4);
+      flex-wrap: wrap;
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 860px) {
+      .about-teaser-grid { grid-template-columns: 1fr; }
+      .about-teaser-visual { aspect-ratio: 16/7; max-height: 300px; }
+      .cta-section { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Testimonials */
+    .testimonial-grid {
+      display: grid;
+      gap: var(--sp-8);
+      margin-block: var(--sp-8) var(--sp-10);
+    }
+    @media (min-width: 800px) {
+      .testimonial-grid { grid-template-columns: 1fr 1fr; gap: var(--sp-12); }
+      .testimonial-grid > figure:nth-child(2) { margin-top: var(--sp-10); }
+    }
+    .testimonial {
+      margin: 0;
+      border-left: 2px solid var(--gold);
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-6);
+    }
+    .testimonial-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 300;
+      font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
+      line-height: 1.65;
+      color: var(--text-primary);
+    }
+    .testimonial-attr {
+      margin-top: var(--sp-5);
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: var(--text-sm);
+    }
+    .testimonial-name { color: var(--text-primary); font-weight: 500; }
+    .testimonial-role { color: var(--text-tertiary); }
+    .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
+
+    /* Card phone compositions */
+    .sn-card-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+    }
+    .sn-card-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
+    .sn-card-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .sn-card-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .sn-card-phone--back  { transform: translateY(-6px); }
+    .card:hover .sn-card-phone--front { transform: translateY(-11px); }
+
+    .afin-phone {
+      position: absolute; width: 40%;
+      border: 1px solid var(--border-strong); border-radius: 22px;
+      padding: 4px; background: var(--bg-surface);
+      box-shadow: 0 16px 44px -16px rgba(0,0,0,0.7);
+      transition: transform var(--ease-slow), box-shadow var(--ease-slow);
+    }
+    .afin-phone img { display: block; width: 100%; height: auto; border-radius: 17px; transform: none !important; }
+    .afin-phone--back  { left: 10%; top: 12%; z-index: 1; }
+    .afin-phone--front { left: 46%; top: 28%; z-index: 2; }
+    .card:hover .afin-phone--back  { transform: translateY(-6px); }
+    .card:hover .afin-phone--front { transform: translateY(-11px); }
+  </style>
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo nav-pill" aria-label="Jose Romero — Home">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/thinking/">Thinking</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      <span class="lang-current" aria-current="true">EN</span>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <a href="/es/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a>
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <button class="nav-toggle nav-pill" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <!-- ══════════════════════════════════════════
+         HERO — V2: The Map Annotates Itself
+    ══════════════════════════════════════════ -->
+    <section class="v2-hero" aria-label="Introduction">
+
+      <!-- Left: annotation -->
+      <div class="v2-hero-text">
+        <div class="v2-eyebrow hero-animate">
+          <span class="v2-eyebrow-role">Senior Product Designer</span>
+          <span class="v2-eyebrow-location">Zaragoza, Spain</span>
+        </div>
+
+        <h1 class="v2-headline hero-animate">
+          Design that works<br>
+          <em>inside complexity.</em>
+        </h1>
+
+        <p class="v2-sub hero-animate">
+          I'm Jose Romero. Twelve years designing digital products
+          for companies where the work is hard, the teams are large,
+          and the decisions carry real weight.
+        </p>
+        <p class="v2-sub hero-animate">
+          Currently embedded at IKEA, working on two new business platforms
+          across Europe. Previously at Flat 101, leading CRO and UX for
+          Santander, Meliá, Mapfre, and IQOS.
+        </p>
+
+        <div class="v2-actions hero-animate">
+          <a href="/work/" class="btn btn-primary">
+            See my work <span class="arrow">→</span>
+          </a>
+          <a href="/thinking/" class="btn btn-ghost">
+            Read my approach <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right: map document -->
+      <figure class="v2-hero-map hero-animate" aria-label="Design complexity diagram">
+        <img src="/assets/images/hero-complexity-map-en.svg"
+             alt="A diagram showing how design generates clarity at the intersection of business, users, technology, and organisation"
+             width="400" height="460"
+             loading="eager" decoding="async">
+        <figcaption class="v2-map-caption">How design relates to everything else</figcaption>
+      </figure>
+
+    </section>
+
+
+
+    <!-- ══════════════════════════════════════════
+         CLIENT LOGOS
+    ══════════════════════════════════════════ -->
+    <section class="section--logos" aria-label="Clients">
+      <div class="container">
+        <div class="logos-track">
+          <img src="/assets/images/ikea-logo.svg" alt="IKEA" class="client-logo">
+          <img src="/assets/images/santander-logo.svg" alt="Santander" class="client-logo">
+          <img src="/assets/images/melia-logo.svg" alt="Meliá Hotels" class="client-logo">
+          <img src="/assets/images/mapfre-logo.svg" alt="Mapfre" class="client-logo">
+          <img src="/assets/images/iqos-logo.svg" alt="IQOS" class="client-logo">
+        </div>
+        <div class="logos-header">
+          <p class="logos-context">A selection of clients worked with directly or through agency partnerships.<br>Most engagements covered by NDA — <strong>methodology and decisions are always mine to share.</strong></p>
+          <span class="logos-count"><em>35+</em> clients</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         SELECTED WORK
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="work-heading">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="eyebrow">Selected work</span>
+          <h2 id="work-heading">
+            Projects across<br>
+            <em class="accent-italic">complexity and craft.</em>
+          </h2>
+          <p>Three featured case studies — different brands, different problem types, different scales. Full work index below.</p>
+        </div>
+
+        <!-- IKEA Home Services — full-width hero row -->
+        <article class="card card--hero-row card--image-led reveal">
+          <a href="/work/ikea-home-services/" aria-label="View IKEA Home Services case study" style="display:contents;">
+            <div class="card-body">
+              <div class="card-top">
+                <div class="card-tags">
+                  <span class="tag tag--gold">IKEA · Current</span>
+                  <span class="tag">Product Design</span>
+                  <span class="tag">Marketplace</span>
+                </div>
+              </div>
+              <h3 class="card-title">IKEA Home Services</h3>
+              <p class="card-summary">Peer-to-peer marketplace connecting homeowners with verified local professionals across 50+ service categories. Launched Madrid 2024, now live across seven Spanish cities. 500,000+ downloads, 4.9/5 satisfaction.</p>
+              <div class="card-footer">
+                <span class="card-client">Garaje de Ideas × IKEA</span>
+                <span class="arrow">→</span>
+              </div>
+            </div>
+            <div class="card-image card-image--phones">
+              <div class="hs-phone hs-phone--back"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="lazy" decoding="async"></div>
+              <div class="hs-phone hs-phone--front"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="IKEA Home Services app home screen" loading="lazy" decoding="async"></div>
+            </div>
+          </a>
+        </article>
+
+        <!-- Meliá + Santander — two equal columns -->
+        <div class="grid-featured-pair">
+
+          <article class="card card--image-led reveal">
+            <a href="/work/mapfre-afin-digital-expansion/" aria-label="View Mapfre AFIN Financial App case study" style="display:contents;">
+              <div class="card-image card-image--phones">
+                <div class="afin-phone afin-phone--back"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" width="361" height="749" alt="" loading="lazy" decoding="async"></div>
+                <div class="afin-phone afin-phone--front"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" width="361" height="750" alt="Mapfre AFIN financial proposal screen" loading="lazy" decoding="async"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-top">
+                  <div class="card-tags">
+                    <span class="tag tag--teal">Flat 101</span>
+                    <span class="tag">Product Design</span>
+                    <span class="tag">FinTech</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Mapfre — AFIN Financial App</h3>
+                <p class="card-summary">Self-service financial management app for one of Spain's largest insurers — progressive-disclosure IA and a Financial Advisor feature built around user trust and transparent data collection.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Mapfre España</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+          <article class="card card--image-led reveal">
+            <a href="/work/santander-nordics-cro/" aria-label="View Santander Nordics CRO case study" style="display:contents;">
+              <div class="card-image card-image--phones">
+                <div class="sn-card-phone sn-card-phone--back"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1718" alt="" loading="lazy" decoding="async"></div>
+                <div class="sn-card-phone sn-card-phone--front"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1711" alt="Santander consumer loan funnel — A/B variant screens" loading="lazy" decoding="async"></div>
+              </div>
+              <div class="card-body">
+                <div class="card-top">
+                  <div class="card-tags">
+                    <span class="tag tag--teal">Flat 101</span>
+                    <span class="tag">CRO</span>
+                    <span class="tag">Banking</span>
+                  </div>
+                </div>
+                <h3 class="card-title">Santander Nordics — CRO Programme</h3>
+                <p class="card-summary">Lead UX/CRO designer across consumer loan, credit card, deposit, and insurance funnels in Denmark, Sweden, Finland, and Norway. Data-driven experimentation in a regulated, multi-market environment.</p>
+                <div class="card-footer">
+                  <span class="card-client">Flat 101 × Santander</span>
+                  <span class="arrow">→</span>
+                </div>
+              </div>
+            </a>
+          </article>
+
+        </div>
+
+        <!-- More case studies -->
+        <div class="reveal" style="margin-top: var(--sp-16);">
+          <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--border-subtle); padding-bottom: var(--sp-4); margin-bottom: var(--sp-6);">
+            <h3 style="font-family: var(--font-display); font-size: var(--text-xl); font-weight: 300;">More case studies</h3>
+            <span style="font-size: var(--text-sm); color: var(--text-secondary);">Across products, CRO, and design operations</span>
+          </div>
+
+          <div class="mini-list">
+
+            <a class="mini-row" href="/work/ikea-secondhand-marketplace/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IKEA Second-hand Marketplace</span>
+                <div class="mini-row-tags"><span class="tag tag--gold">IKEA · Current</span><span class="tag">Circular Commerce</span></div>
+              </div>
+              <p class="mini-row-desc">Peer-to-peer resale of IKEA products, now live in five European countries.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+            <a class="mini-row" href="/work/ikea-ways-of-working/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IKEA — Ways of Working System</span>
+                <div class="mini-row-tags"><span class="tag tag--gold">IKEA · Current</span><span class="tag">Design Ops</span></div>
+              </div>
+              <p class="mini-row-desc">A cross-tool design-operations framework spanning Figma, Jira, Confluence and Phrase.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+            <a class="mini-row" href="/work/ai-workflow-framework/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">AI Workflow Design Framework</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Framework</span><span class="tag">Process Architecture</span></div>
+              </div>
+              <p class="mini-row-desc">A multi-agent process architecture for human-led, AI-assisted product design.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+            <a class="mini-row" href="/work/mapfre-digital-expansion/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">Mapfre — Digital Expansion</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">Multi-market</span></div>
+              </div>
+              <p class="mini-row-desc">Verti platform redesign, a Latin America agents directory, and international CRO.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+            <a class="mini-row" href="/work/iqos-club-cro/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">IQOS Club Spain — CRO Programme</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">Behavioral Economics</span></div>
+              </div>
+              <p class="mini-row-desc">Loyalty-portal optimisation under low traffic, driven by behavioural economics.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+            <a class="mini-row" href="/work/xti-ecommerce-redesign/">
+              <div class="mini-row-head">
+                <span class="mini-row-name">XTI Store — E-commerce Redesign</span>
+                <div class="mini-row-tags"><span class="tag tag--teal">Flat 101</span><span class="tag">E-commerce</span></div>
+              </div>
+              <p class="mini-row-desc">Fashion storefront redesign within Magento constraints, led by behavioural data.</p>
+              <span class="mini-row-cta">View case study <span class="arrow">→</span></span>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="reveal" style="margin-top: var(--sp-10); text-align: center;">
+          <a href="/work/" class="btn btn-primary">
+            View full work index <span class="arrow">→</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ABOUT TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="about-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="about-teaser-grid">
+
+          <div class="about-teaser-visual reveal">
+            <img src="/assets/images/portrait.webp"
+                 alt="Jose Romero, Senior Product Designer"
+                 class="about-teaser-portrait"
+                 width="1200" height="1400"
+                 loading="lazy"
+                 decoding="async">
+          </div>
+
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">About</span>
+            <h2 id="about-heading" style="font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl)); margin-bottom: var(--sp-6);">
+              Twelve years.<br>
+              <em class="accent-italic">One consistent way of working.</em>
+            </h2>
+            <p class="body-lg" style="margin-bottom: var(--sp-4);">
+              I've been doing this since I was 21 — first running a small design studio in Havana, then building a career across Spain's largest enterprise accounts, and now embedded inside one of Europe's most recognised brands.
+            </p>
+            <p style="margin-bottom: var(--sp-8);">
+              What's stayed constant across all of it: I work best when the environment is complex, the brief is incomplete, and the answer isn't obvious yet. I work in English and Spanish at professional level and operate comfortably across both.
+            </p>
+            <a href="/about/" class="btn btn-primary">
+              More about me <span class="arrow">→</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         THINKING TEASER
+    ══════════════════════════════════════════ -->
+    <section class="section" aria-labelledby="thinking-heading" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="thinking-home-grid">
+
+          <div class="reveal">
+            <span class="eyebrow" style="margin-bottom: var(--sp-6); display: flex;">Thinking</span>
+            <h2 id="thinking-heading" style="font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl)); margin-bottom: var(--sp-5);">
+              How I approach<br><em class="accent-italic">the work.</em>
+            </h2>
+            <p style="margin-bottom: var(--sp-8); max-width: 46ch;">
+              A few core ideas I keep coming back to — drawn from 12 years of project work across enterprise digital products, CRO, and team leadership. Not a blog. Just positions.
+            </p>
+            <a href="/thinking/" class="btn btn-ghost">
+              Read my approach <span class="arrow">→</span>
+            </a>
+          </div>
+
+          <div class="reveal">
+            <blockquote class="thinking-quote">
+              "Most design decisions are behavioral decisions.<br>Treat them that way."
+            </blockquote>
+            <div class="thinking-topics">
+              <span class="thinking-topic">Empathy as a strategic tool</span>
+              <span class="thinking-topic">Behavioral economics in design</span>
+              <span class="thinking-topic">Systems that survive people</span>
+              <span class="thinking-topic">Designing with AI</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         TESTIMONIALS
+    ══════════════════════════════════════════ -->
+    <section class="section--sm" aria-label="Testimonials" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <div class="reveal">
+          <span class="eyebrow" style="margin-bottom: var(--sp-2); display: flex;">Word of mouth</span>
+        </div>
+        <div class="testimonial-grid">
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "If there's chaos, he can bring order to it. His exceptional ability to lead and organise a design process impressed me from day one — if he's part of it, quality and efficiency are guaranteed."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Isabel Vidal</span>
+              <span class="testimonial-role">Product Designer · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+          <figure class="testimonial reveal">
+            <blockquote class="testimonial-quote">
+              "Jose stands out from the average UX profile. Beyond his eye for detail in the design itself, he brings the layer of strategy and fluent client communication that is so in demand — and so scarce."
+            </blockquote>
+            <figcaption class="testimonial-attr">
+              <span class="testimonial-name">Emilio Bordona</span>
+              <span class="testimonial-role">Project Manager · Flat 101</span>
+              <span class="testimonial-note">Translated from Spanish</span>
+            </figcaption>
+          </figure>
+        </div>
+        <div class="reveal">
+          <a href="https://www.linkedin.com/in/joseromerodesign/details/recommendations/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-ghost">
+            More on LinkedIn <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         CLOSING CTA
+    ══════════════════════════════════════════ -->
+    <section class="section--sm cs-cta" aria-labelledby="cta-heading">
+      <div class="cs-cta-orb" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="48" height="48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+      </div>
+      <div class="container">
+        <div class="cta-section reveal">
+          <div>
+            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Available</span>
+            <h2 id="cta-heading">
+              Your hardest problem<br>
+              <em class="accent-italic">is a good place to start.</em>
+            </h2>
+            <p style="margin-top: var(--sp-5); max-width: 44ch; color: var(--text-secondary);">
+              Open to senior product design roles and selective consulting engagements — in English or Spanish.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="https://www.linkedin.com/in/joseromerodesign/"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="btn btn-primary">
+              Connect on LinkedIn <span class="arrow">→</span>
+            </a>
+            <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+              Send an email <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer-inner">
+      <div>
+        <p class="footer-name">Jose <span>Romero</span></p>
+        <p class="footer-sub">Senior Product Designer</p>
+        <p class="footer-sub">Working from Zaragoza, Spain</p>
+      </div>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
+        <a href="/assets/cv/jose-romero-cv-en.pdf" download>Download CV</a>
+      </nav>
+    </div>
+    <p class="footer-copy">© 2026 Jose Romero. All rights reserved.</p>
+  </footer>
+
+  <script src="/assets/js/main.js?v=10" defer></script>
+
+</body>
+</html>
