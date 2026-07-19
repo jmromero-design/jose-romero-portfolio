@@ -682,6 +682,28 @@
       transition: opacity 0.3s ease;
     }
     .v4-pos-companion.has-active .v4-pos-companion-empty { opacity: 0; }
+
+    /* Placeholder graphic — same ambient constellation vocabulary as the
+       hero, sized to the companion's own stable frame, so it never reads
+       as an empty box before a position is opened. */
+    .v4-pos-companion-placeholder {
+      position: absolute;
+      inset: var(--sp-6);
+      opacity: 0.5;
+      transition: opacity 0.3s ease;
+    }
+    .v4-pos-companion.has-active .v4-pos-companion-placeholder { opacity: 0; }
+    .v4-pos-companion-placeholder svg { width: 100%; height: 100%; display: block; }
+    .v4-pos-companion-placeholder .v4-hg-pulse {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: v4HgPulse 5s ease-in-out infinite;
+    }
+    .v4-pos-companion-placeholder .v4-hg-pulse--gold { animation-delay: 1.4s; }
+    @media (prefers-reduced-motion: reduce) {
+      .v4-pos-companion-placeholder .v4-hg-pulse { animation: none; }
+    }
+
     .v4-pos-companion-diagram {
       position: absolute;
       inset: var(--sp-6);
@@ -700,13 +722,14 @@
       .v4-pos-diagram-inline { display: flex; }
     }
 
+    /* No top border here — the last position's own border-bottom already
+       closes the list; a second line right beneath it (and right where the
+       sticky companion's bottom edge lands) was pure redundancy. */
     .v4-positions-note {
       margin-top: clamp(var(--sp-10), 6vh, var(--sp-14));
       text-align: center;
       font-size: var(--text-base);
       color: var(--text-tertiary);
-      border-top: 1px solid var(--border-subtle);
-      padding-top: var(--sp-8);
     }
 
 
@@ -1378,6 +1401,43 @@
 
         <!-- Sticky diagram companion — desktop -->
         <div class="v4-pos-companion v4-r" style="--d: 0.2s;" id="pos-companion" aria-hidden="true">
+          <div class="v4-pos-companion-placeholder" aria-hidden="true">
+            <svg viewBox="0 0 360 502" xmlns="http://www.w3.org/2000/svg">
+              <g fill="none" stroke="var(--border-strong)" stroke-width="1" opacity="0.6">
+                <line x1="180" y1="60" x2="90" y2="130"/>
+                <line x1="180" y1="60" x2="270" y2="140"/>
+                <line x1="90" y1="130" x2="180" y2="210"/>
+                <line x1="270" y1="140" x2="180" y2="210"/>
+                <line x1="180" y1="210" x2="100" y2="280"/>
+                <line x1="180" y1="210" x2="260" y2="300"/>
+                <line x1="100" y1="280" x2="180" y2="360"/>
+                <line x1="260" y1="300" x2="180" y2="360"/>
+                <line x1="180" y1="360" x2="130" y2="430"/>
+                <line x1="180" y1="360" x2="230" y2="440"/>
+              </g>
+              <line x1="180" y1="210" x2="230" y2="440" stroke="var(--teal)" stroke-width="1" stroke-dasharray="2 4" opacity="0.4"/>
+
+              <g fill="var(--text-tertiary)" opacity="0.55">
+                <circle cx="180" cy="60" r="5"/>
+                <circle cx="90" cy="130" r="4"/>
+                <circle cx="270" cy="140" r="4.5"/>
+                <circle cx="100" cy="280" r="4"/>
+                <circle cx="260" cy="300" r="4.5"/>
+                <circle cx="180" cy="360" r="5"/>
+                <circle cx="130" cy="430" r="4"/>
+              </g>
+
+              <!-- Teal accent node -->
+              <circle class="v4-hg-pulse" cx="180" cy="210" r="7" fill="var(--teal)" opacity="0.7"/>
+              <circle cx="180" cy="210" r="16" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
+              <circle cx="180" cy="210" r="26" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.15"/>
+
+              <!-- Gold accent node -->
+              <circle class="v4-hg-pulse v4-hg-pulse--gold" cx="230" cy="440" r="8" fill="var(--gold)" opacity="0.7"/>
+              <circle cx="230" cy="440" r="18" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+              <circle cx="230" cy="440" r="29" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.15"/>
+            </svg>
+          </div>
           <span class="v4-pos-companion-empty">Open a position to see how it maps.</span>
         </div>
 
