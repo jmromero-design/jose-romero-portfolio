@@ -40,7 +40,7 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=17">
+  <link rel="stylesheet" href="/assets/css/main.css?v=18">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -1352,7 +1352,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=10" defer></script>
+  <script src="/assets/js/main.js?v=11" defer></script>
 
   <script>
     // v4 interaction layer — reveals, cursor glow, work previews, magnetic CTAs.
@@ -1411,17 +1411,7 @@
         ptx = e.clientX + 32; pty = e.clientY - 60;
       }, { passive: true });
 
-      /* Magnetic CTAs */
-      const magnets = Array.from(document.querySelectorAll('.v4-magnet'));
-      magnets.forEach((m) => {
-        m.addEventListener('pointermove', (e) => {
-          const r = m.getBoundingClientRect();
-          const dx = e.clientX - (r.left + r.width / 2);
-          const dy = e.clientY - (r.top + r.height / 2);
-          m.style.transform = 'translate(' + dx * 0.22 + 'px,' + dy * 0.22 + 'px)';
-        });
-        m.addEventListener('pointerleave', () => { m.style.transform = ''; });
-      });
+      /* Magnetic CTAs now handled globally by main.js (.v4-magnet) */
 
       /* One rAF loop drives both lerped followers */
       function tick() {

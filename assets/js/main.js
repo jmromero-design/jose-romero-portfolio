@@ -295,4 +295,24 @@
     });
   })();
 
+  /* ----------------------------------------------------------
+     10. MAGNETIC CTA BUTTONS — subtle pointer-follow, reserved for
+     the closing CTA's primary actions (.v4-magnet wrapper)
+     ---------------------------------------------------------- */
+  const magnetEls = document.querySelectorAll('.v4-magnet');
+  const canMagnet = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+    && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (magnetEls.length && canMagnet) {
+    magnetEls.forEach(m => {
+      m.addEventListener('pointermove', e => {
+        const r = m.getBoundingClientRect();
+        const dx = e.clientX - (r.left + r.width / 2);
+        const dy = e.clientY - (r.top + r.height / 2);
+        m.style.transform = `translate(${dx * 0.22}px, ${dy * 0.22}px)`;
+      });
+      m.addEventListener('pointerleave', () => { m.style.transform = ''; });
+    });
+  }
+
 })();

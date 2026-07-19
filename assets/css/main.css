@@ -2431,9 +2431,114 @@ strong { font-weight: 500; color: var(--text-primary); }
 }
 
 /* ------------------------------------------------------------
+   28. GLOBAL CTA + FOOTER (V4 editorial) — used on every page
+   ------------------------------------------------------------ */
+.v4-bleed { padding-inline: var(--gutter); }
+
+.v4-cta {
+  min-height: 92svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+/* soft teal grid — ties the close back to the site's visual system */
+.v4-cta-grid {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--teal-tint-strong) 1px, transparent 1px),
+    linear-gradient(90deg, var(--teal-tint-strong) 1px, transparent 1px);
+  background-size: 40px 40px;
+  -webkit-mask-image: radial-gradient(ellipse 90% 75% at 50% 100%, black 12%, transparent 78%);
+  mask-image: radial-gradient(ellipse 90% 75% at 50% 100%, black 12%, transparent 78%);
+  opacity: 0.8;
+}
+.v4-cta > *:not(.v4-cta-grid) { position: relative; z-index: 1; }
+
+.v4-cta .eyebrow { margin-bottom: var(--sp-8); }
+.v4-cta h2 {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-size: clamp(2.4rem, 7vw, 6.5rem);
+  line-height: 1.08;
+  margin-bottom: var(--sp-8);
+  text-wrap: balance;
+}
+.v4-cta h2 em { font-style: italic; color: var(--gold); }
+.v4-cta > p {
+  color: var(--text-secondary);
+  max-width: 44ch;
+  margin-bottom: var(--sp-12);
+}
+.v4-cta-actions {
+  display: flex;
+  gap: var(--sp-5);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.v4-magnet { display: inline-block; transition: transform 0.2s ease-out; will-change: transform; }
+
+.v4-footer {
+  border-top: 1px solid var(--border-default);
+  padding: clamp(var(--sp-16), 10vh, var(--sp-24)) var(--gutter) var(--sp-8);
+}
+.v4-footer-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-10);
+  flex-wrap: wrap;
+  margin-bottom: clamp(var(--sp-12), 8vh, var(--sp-16));
+}
+.v4-footer-word {
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(2.6rem, 6vw, 5rem);
+  line-height: 1;
+  color: var(--text-primary);
+}
+.v4-footer-word em { font-style: italic; color: var(--gold); }
+.v4-footer-nav {
+  display: flex;
+  gap: clamp(var(--sp-5), 3vw, var(--sp-10));
+  flex-wrap: wrap;
+}
+.v4-footer-nav a {
+  font-size: var(--text-sm);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  transition: color var(--ease-base);
+}
+.v4-footer-nav a:hover { color: var(--gold); }
+.v4-footer-meta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+  border-top: 1px solid var(--border-default);
+  padding-top: var(--sp-6);
+  font-size: var(--text-xs);
+  color: var(--text-tertiary);
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 768px) {
+  .v4-footer-top { align-items: flex-start; flex-direction: column; }
+}
+
+/* ------------------------------------------------------------
    27. PRINT
    ------------------------------------------------------------ */
 @media print {
-  .nav, .footer, .hero-scroll, .theme-toggle { display: none; }
+  .nav, .footer, .v4-footer, .hero-scroll, .theme-toggle { display: none; }
   body { background: white; color: black; }
 }
