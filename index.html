@@ -497,28 +497,59 @@
     }
     .v4-preview-group.is-active { opacity: 1; }
 
-    .v4-preview-group img {
+    /* Glass phone frames — the bezel itself is frosted glass, blurring
+       whichever frame sits behind it, rather than a flat bordered card.
+       Sized larger than the screenshot it holds so the glass ring reads
+       clearly; the screenshot itself stays the same visual size as before. */
+    .v4-frame {
       position: absolute;
-      width: 52%;
-      border-radius: 14px;
-      border: 1px solid var(--border-strong);
-      background: var(--bg-surface);
-      box-shadow: 0 28px 70px -18px rgba(0, 0, 0, 0.8);
-      transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+      box-sizing: border-box;
+      width: 60%;
+      padding: 4%;
+      border-radius: 22px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04)),
+        color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      backdrop-filter: blur(20px) saturate(1.8);
+      -webkit-backdrop-filter: blur(20px) saturate(1.8);
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 70px -18px rgba(0, 0, 0, 0.8);
     }
-    /* two overlapping frames, tilted apart — reads curated, not pasted */
-    .v4-preview-group .pv-a {
+    [data-theme="light"] .v4-frame {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)),
+        color-mix(in srgb, var(--bg-surface) 30%, transparent);
+      border-color: rgba(255, 255, 255, 0.75);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 28px 70px -18px rgba(0, 0, 0, 0.25);
+    }
+    .v4-frame img {
+      display: block;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* Two overlapping frames, tilted apart — reads curated, not pasted.
+       Each replays its settle-in on every hover (JS restarts the
+       animation), starting from a neutral vertical stack and easing
+       into the final tilt. */
+    .v4-frame.pv-a {
       left: 2%; top: 6%;
-      transform: rotate(-7deg);
       z-index: 1;
+      animation: v4FrameSettleA 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-    .v4-preview-group .pv-b {
+    .v4-frame.pv-b {
       right: 2%; top: 0;
-      transform: rotate(5deg) translateY(10%);
       z-index: 2;
+      animation: v4FrameSettleB 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
-    .v4-preview.is-on .pv-a { transform: rotate(-8.5deg) translateY(-2%); }
-    .v4-preview.is-on .pv-b { transform: rotate(6.5deg) translateY(8%); }
+    @keyframes v4FrameSettleA {
+      0% { transform: translate(24%, 4%) rotate(0deg) scale(0.92); opacity: 0.7; }
+      100% { transform: rotate(-7deg); opacity: 1; }
+    }
+    @keyframes v4FrameSettleB {
+      0% { transform: translate(-16%, 4%) rotate(0deg) scale(0.92); opacity: 0.7; }
+      100% { transform: rotate(5deg) translateY(10%); opacity: 1; }
+    }
 
     /* Inline thumbs — touch / no-hover devices only */
     .v4-row-thumbs { display: none; }
@@ -1128,16 +1159,16 @@
       <!-- Floating cursor preview — overlapping compositions per project -->
       <div class="v4-preview" aria-hidden="true">
         <div class="v4-preview-group" data-project="hs">
-          <img class="pv-a" src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async">
-          <img class="pv-b" src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async"></div>
         </div>
         <div class="v4-preview-group" data-project="afin">
-          <img class="pv-a" src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async">
-          <img class="pv-b" src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async"></div>
         </div>
         <div class="v4-preview-group" data-project="sn">
-          <img class="pv-a" src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async">
-          <img class="pv-b" src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async"></div>
         </div>
       </div>
 
@@ -1331,9 +1362,23 @@
       document.querySelectorAll('.v4-row[data-project]').forEach((row) => {
         row.addEventListener('pointerenter', () => {
           const key = row.getAttribute('data-project');
-          groups.forEach((g) => g.classList.toggle('is-active', g.getAttribute('data-project') === key));
+          let activeGroup = null;
+          groups.forEach((g) => {
+            const isMatch = g.getAttribute('data-project') === key;
+            g.classList.toggle('is-active', isMatch);
+            if (isMatch) activeGroup = g;
+          });
           preview.classList.add('is-on');
           if (!pOn) { px = ptx; py = pty; pOn = true; }
+          // Replay the settle-in animation every time, even re-hovering
+          // the same row — restart by clearing then re-arming the style.
+          if (activeGroup) {
+            activeGroup.querySelectorAll('.v4-frame').forEach((f) => {
+              f.style.animation = 'none';
+              void f.offsetWidth;
+              f.style.animation = '';
+            });
+          }
         });
         row.addEventListener('pointerleave', () => preview.classList.remove('is-on'));
       });
