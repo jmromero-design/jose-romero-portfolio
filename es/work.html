@@ -30,7 +30,7 @@
 
   <!-- Fonts -->
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=20">
+  <link rel="stylesheet" href="/assets/css/main.css?v=24">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -41,22 +41,6 @@
 
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
-  <style>
-    .work-card-img{background:var(--bg-surface-2)}
-    .work-card-img::before{content:'';position:absolute;width:180px;height:180px;border-radius:50%;background:var(--bg-surface);right:6%;bottom:-60px;box-shadow:0 0 0 70px color-mix(in srgb,var(--teal) 13%,var(--bg-surface-2)),0 0 0 150px color-mix(in srgb,var(--teal) 6%,var(--bg-surface-2)),0 0 0 250px color-mix(in srgb,var(--teal) 3%,var(--bg-surface));pointer-events:none;z-index:0}
-    .wc-phone{position:absolute;border:1px solid var(--border-strong);border-radius:22px;padding:4px;background:var(--bg-surface);box-shadow:0 16px 44px -16px rgba(0,0,0,.7);transition:transform var(--ease-slow),box-shadow var(--ease-slow);width:38%}
-    .wc-phone img{display:block;width:100%;height:auto;border-radius:17px;transform:none !important}
-    .wc-phone--back{left:10%;top:12%;z-index:1}
-    .wc-phone--front{left:46%;top:28%;z-index:2}
-    .work-card:hover .wc-phone--back{transform:translateY(-6px)}
-    .work-card:hover .wc-phone--front{transform:translateY(-11px)}
-    .wc-desktop{position:absolute;border:1px solid var(--border-strong);border-radius:8px;padding:3px;background:var(--bg-surface);box-shadow:0 12px 40px -12px rgba(0,0,0,.65);transition:transform var(--ease-slow),box-shadow var(--ease-slow);width:62%}
-    .wc-desktop img{display:block;width:100%;height:auto;border-radius:5px;transform:none !important}
-    .wc-desktop--back{left:2%;top:8%;z-index:1}
-    .wc-desktop--front{left:34%;top:18%;z-index:2}
-    .work-card:hover .wc-desktop--back{transform:translateY(-6px)}
-    .work-card:hover .wc-desktop--front{transform:translateY(-11px)}
-  </style>
 </head>
 
 <body>
@@ -99,7 +83,7 @@
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 60ch;">
-          Ocho casos de estudio. Cada uno cubre un tipo diferente de problema — producto construido desde cero, programas de conversión que duraron años, sistemas de diseño para equipos distribuidos. Algunos detalles omitidos por NDA; la metodología y las decisiones siempre puedo compartirlas.
+          Diez casos de estudio. Cada uno cubre un tipo diferente de problema — producto construido desde cero, programas de conversión que duraron años, sistemas de diseño para equipos distribuidos. Algunos detalles omitidos por NDA; la metodología y las decisiones siempre puedo compartirlas.
         </p>
 
       </div>
@@ -121,225 +105,231 @@
       </div>
     </section>
 
-    <section class="section" style="padding-top: clamp(var(--sp-10), 5vw, var(--sp-16));" aria-labelledby="featured-work-heading">
+    <section class="v4-work v4-bleed" aria-labelledby="featured-work-heading">
+
+      <div class="v4-work-head reveal">
+        <h2 id="featured-work-heading">Diez casos de estudio, <em>una página.</em></h2>
+        <p>Pasa el cursor sobre una fila para previsualizar.</p>
+      </div>
+
+      <div class="v4-index">
+
+        <a class="v4-row reveal" href="/es/work/ikea-home-services/" data-project="hs">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Garaje de Ideas × IKEA</span>
+            <h3 class="v4-row-title">IKEA Home Services</h3>
+            <p class="v4-row-desc">Marketplace P2P de mejoras del hogar, lanzado en España en 2024. Más de 500.000 descargas · 21.000 solicitudes de servicio · 4.9/5 de satisfacción.</p>
+          </div>
+          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Diseño de Producto · Marketplace · Móvil</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/ikea-secondhand-marketplace/" data-project="sh">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Garaje de Ideas × IKEA</span>
+            <h3 class="v4-row-title">IKEA Second-hand Marketplace</h3>
+            <p class="v4-row-desc">Plataforma de reventa IKEA P2P, activa en cinco países europeos.</p>
+          </div>
+          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Diseño de Producto · Marketplace · Comercio Circular</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/santander-nordics-cro/" data-project="sn">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × Santander</span>
+            <h3 class="v4-row-title">Santander Nordics — Programa CRO</h3>
+            <p class="v4-row-desc">Diseñador líder UX/CRO en cuatro mercados nórdicos a lo largo del proyecto en Flat 101.</p>
+          </div>
+          <span class="v4-row-tags">CRO · Banca · Multipaís</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/melia-hotels-campaign-platform/" data-project="melia">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact1-overview.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact5-budget.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × Meliá Hotels International</span>
+            <h3 class="v4-row-title">Meliá Hotels International — Plataforma de Campañas</h3>
+            <p class="v4-row-desc">Proyecto de 3 años. Plataforma construida desde cero, activa en todos los mercados de Meliá.</p>
+          </div>
+          <span class="v4-row-tags">Diseño de Producto · Aplicación Web · Hostelería</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/mapfre-afin-digital-expansion/" data-project="afin">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × Mapfre España</span>
+            <h3 class="v4-row-title">Mapfre — App AFIN</h3>
+            <p class="v4-row-desc">App financiera de autoservicio — arquitectura IA de divulgación progresiva y funcionalidad de Asesor Financiero basada en la confianza del usuario.</p>
+          </div>
+          <span class="v4-row-tags">Diseño de Producto · Móvil y Web · FinTech</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/mapfre-digital-expansion/" data-project="mde">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/mapfre-digital-expansion/verti-home-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/mapfre-digital-expansion/offices-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × Mapfre Internacional</span>
+            <h3 class="v4-row-title">Mapfre — Expansión Digital</h3>
+            <p class="v4-row-desc">Diseño líder en el rediseño de Verti, Directorio de Oficinas y Agentes (Latinoamérica) y CRO internacional.</p>
+          </div>
+          <span class="v4-row-tags">Diseño de Plataforma · Multipaís · Sistema de Diseño</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/iqos-club-cro/" data-project="iqos">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × Philip Morris</span>
+            <h3 class="v4-row-title">IQOS Club España — Programa CRO</h3>
+            <p class="v4-row-desc">Project lead, optimización continua del portal de fidelización de Philip Morris.</p>
+          </div>
+          <span class="v4-row-tags">CRO · Fidelización · Economía Conductual</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/xti-ecommerce-redesign/" data-project="xti">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame"><img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Flat 101 × XTI Store</span>
+            <h3 class="v4-row-title">XTI Store — Rediseño E-commerce</h3>
+            <p class="v4-row-desc">Rediseño completo dentro de las restricciones de la plataforma Magento.</p>
+          </div>
+          <span class="v4-row-tags">E-commerce · Diseño UI · Moda</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/ikea-ways-of-working/" data-project="wow">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Garaje de Ideas × IKEA</span>
+            <h3 class="v4-row-title">IKEA — Sistema de Formas de Trabajar</h3>
+            <p class="v4-row-desc">Arquitectura de flujo de trabajo cross-tool construida desde los principios.</p>
+          </div>
+          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Operaciones de Diseño · Sistemas · Facilitación</span>
+          <span class="arrow">→</span>
+        </a>
+
+        <a class="v4-row reveal" href="/es/work/ai-workflow-framework/" data-project="ai">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame v4-frame--wide"><img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">Garaje de Ideas × IKEA</span>
+            <h3 class="v4-row-title">Framework de Diseño de Flujos IA</h3>
+            <p class="v4-row-desc">Arquitectura de proceso multi-agente — diseñando la IA en el flujo de trabajo, no solo usándola.</p>
+          </div>
+          <span class="v4-row-tags">Diseño de Flujos IA · Arquitectura de Procesos · Facilitación</span>
+          <span class="arrow">→</span>
+        </a>
+
+      </div>
+
+      <!-- Vista previa flotante — composiciones superpuestas por proyecto -->
+      <div class="v4-preview" aria-hidden="true">
+        <div class="v4-preview-group" data-project="hs">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="sh">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="sn">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="melia">
+          <div class="v4-frame v4-frame--wide pv-a"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact5-budget.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame v4-frame--wide pv-b"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact1-overview.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="afin">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="mde">
+          <div class="v4-frame v4-frame--wide pv-a"><img src="/assets/images/work/mapfre-digital-expansion/verti-home-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame v4-frame--wide pv-b"><img src="/assets/images/work/mapfre-digital-expansion/offices-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="iqos">
+          <div class="v4-frame v4-frame--wide pv-a"><img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame v4-frame--wide pv-b"><img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="xti">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="wow">
+          <div class="v4-frame v4-frame--wide pv-a"><img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame v4-frame--wide pv-b"><img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+        <div class="v4-preview-group" data-project="ai">
+          <div class="v4-frame v4-frame--wide pv-a"><img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame v4-frame--wide pv-b"><img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" alt="" loading="lazy" decoding="async"></div>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="section" aria-label="Más proyectos">
       <div class="container">
 
-        <div class="section-header reveal" style="margin-bottom: var(--sp-8);">
-          <span class="eyebrow">Trabajo seleccionado</span>
-          <h2 id="featured-work-heading">Casos de estudio destacados</h2>
-        </div>
-
-        <div class="work-grid">
-
-          <a href="/es/work/ikea-home-services/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Producto · Marketplace · Móvil</div>
-              </div>
-              <h3 class="work-card-title">IKEA Home Services</h3>
-              <p class="work-card-desc">Marketplace P2P de mejoras del hogar, lanzado en España en 2024. Más de 500.000 descargas · 21.000 solicitudes de servicio · 4.9/5 de satisfacción</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Garaje de Ideas × IKEA</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="lazy"></div>
-              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/ikea-secondhand-marketplace/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Producto · Marketplace · Comercio Circular</div>
-              </div>
-              <h3 class="work-card-title">IKEA Second-hand Marketplace</h3>
-              <p class="work-card-desc">Plataforma de reventa IKEA P2P, activa en cinco países europeos.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Garaje de Ideas × IKEA</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="lazy"></div>
-              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/santander-nordics-cro/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">CRO · Banca · Multipaís</div>
-              </div>
-              <h3 class="work-card-title">Santander Nordics — Programa CRO</h3>
-              <p class="work-card-desc">Diseñador líder UX/CRO en cuatro mercados nórdicos a lo largo del proyecto en Flat 101.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × Santander</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" width="620" height="1718" alt="" loading="lazy"></div>
-              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" width="620" height="1711" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/melia-hotels-campaign-platform/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Producto · Aplicación Web · Hostelería</div>
-              </div>
-              <h3 class="work-card-title">Meliá Hotels International — Plataforma de Campañas</h3>
-              <p class="work-card-desc">Proyecto de 3 años. Plataforma construida desde cero, activa en todos los mercados de Meliá.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × Meliá Hotels International</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact5-budget.webp" width="1348" height="1081" alt="" loading="lazy"></div>
-              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/melia-hotels-campaign-platform/artifact1-overview.webp" width="1540" height="1059" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/mapfre-afin-digital-expansion/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Producto · Móvil y Web · FinTech</div>
-              </div>
-              <h3 class="work-card-title">Mapfre — App AFIN</h3>
-              <p class="work-card-desc">App financiera de autoservicio — arquitectura IA de divulgación progresiva y funcionalidad de Asesor Financiero basada en la confianza del usuario.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × Mapfre España</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" width="361" height="749" alt="" loading="lazy"></div>
-              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" width="361" height="750" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/mapfre-digital-expansion/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Plataforma · Multipaís · Sistema de Diseño</div>
-              </div>
-              <h3 class="work-card-title">Mapfre — Expansión Digital</h3>
-              <p class="work-card-desc">Diseño líder en el rediseño de Verti, Directorio de Oficinas y Agentes (Latinoamérica) y CRO internacional.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × Mapfre Internacional</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/mapfre-digital-expansion/verti-home-desktop.webp" width="1440" height="860" alt="" loading="lazy"></div>
-              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/mapfre-digital-expansion/offices-desktop.webp" width="1440" height="860" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/iqos-club-cro/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">CRO · Fidelización · Economía Conductual</div>
-              </div>
-              <h3 class="work-card-title">IQOS Club España — Programa CRO</h3>
-              <p class="work-card-desc">Project lead, optimización continua del portal de fidelización de Philip Morris.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × Philip Morris</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/iqos-club-cro/hp-control-desktop.webp" width="960" height="540" alt="" loading="lazy"></div>
-              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/iqos-club-cro/hp-v6-desktop.webp" width="960" height="540" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/xti-ecommerce-redesign/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">E-commerce · Diseño UI · Moda</div>
-              </div>
-              <h3 class="work-card-title">XTI Store — Rediseño E-commerce</h3>
-              <p class="work-card-desc">Rediseño completo dentro de las restricciones de la plataforma Magento.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Flat 101 × XTI Store</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-phone wc-phone--back"><img src="/assets/images/work/xti-ecommerce-redesign/plp-m-s1.webp" width="385" height="812" alt="" loading="lazy"></div>
-              <div class="wc-phone wc-phone--front"><img src="/assets/images/work/xti-ecommerce-redesign/pdp-m-s1.webp" width="375" height="812" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <a href="/es/work/ikea-ways-of-working/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Operaciones de Diseño · Sistemas · Facilitación</div>
-              </div>
-              <h3 class="work-card-title">IKEA — Sistema de Formas de Trabajar</h3>
-              <p class="work-card-desc">Arquitectura de flujo de trabajo cross-tool construida desde los principios.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Garaje de Ideas × IKEA</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" width="2488" height="1770" alt="" loading="lazy"></div>
-              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" width="2470" height="1860" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-          <!-- Proyecto 9 -->
-          <a href="/es/work/ai-workflow-framework/" class="work-card reveal">
-            <div class="work-card-content">
-              <div class="card-top">
-                <div class="work-card-tags">Diseño de Flujos IA · Arquitectura de Procesos · Facilitación</div>
-              </div>
-              <h3 class="work-card-title">Framework de Diseño de Flujos IA</h3>
-              <p class="work-card-desc">Arquitectura de proceso multi-agente — diseñando la IA en el flujo de trabajo, no solo usándola.</p>
-              <div class="work-card-footer">
-                <span class="work-card-client">Garaje de Ideas × IKEA</span>
-                <span class="arrow">→</span>
-              </div>
-            </div>
-            <div class="work-card-img" aria-hidden="true">
-              <div class="wc-desktop wc-desktop--back"><img src="/assets/images/work/ai-workflow-framework/artifact1-multi-agent-orchestration.webp" width="2038" height="1578" alt="" loading="lazy"></div>
-              <div class="wc-desktop wc-desktop--front"><img src="/assets/images/work/ai-workflow-framework/artifact2-five-phase-workflow.webp" width="2188" height="1752" alt="" loading="lazy"></div>
-            </div>
-          </a>
-
-        </div>
-
-        <div class="section-header reveal"
-          style="margin-bottom: var(--sp-8); border-top: 1px solid var(--border-default); padding-top: var(--sp-12);">
+        <div class="section-header reveal" style="margin-bottom: var(--sp-8); padding-top: var(--sp-4);">
           <span class="eyebrow">También destacado</span>
           <h2>Proyectos más breves</h2>
         </div>
 
-        <div class="short-engagements-grid reveal">
-          <div class="short-card">
-            <h3 class="short-card-title">Mutua Madrileña — CRO</h3>
-            <p class="short-card-desc">Parte del programa: +41% incremento de leads (publicado por Flat 101)</p>
+        <div class="v4-mini-list reveal">
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">Mutua Madrileña — CRO</h3>
+            <p class="v4-mini-desc">Parte del programa: +41% incremento de leads (publicado por Flat 101)</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">AXA España — Programa CRO</h3>
-            <p class="short-card-desc">Parte del programa: +18% contratos de seguros (publicado por Flat 101)</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">AXA España — Programa CRO</h3>
+            <p class="v4-mini-desc">Parte del programa: +18% contratos de seguros (publicado por Flat 101)</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">Bankinter</h3>
-            <p class="short-card-desc">CRO y Auditoría de Experiencia</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">Bankinter</h3>
+            <p class="v4-mini-desc">CRO y Auditoría de Experiencia</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">Subaru España</h3>
-            <p class="short-card-desc">CRO, Auditoría de Experiencia y Comportamiento</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">Subaru España</h3>
+            <p class="v4-mini-desc">CRO, Auditoría de Experiencia y Comportamiento</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">Affinity Petcare</h3>
-            <p class="short-card-desc">Programa de CRO continuado</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">Affinity Petcare</h3>
+            <p class="v4-mini-desc">Programa de CRO continuado</p>
           </div>
         </div>
 
@@ -349,18 +339,18 @@
           <h2>Proyectos web independientes</h2>
         </div>
 
-        <div class="short-engagements-grid reveal">
-          <div class="short-card">
-            <h3 class="short-card-title">NimbusPC</h3>
-            <p class="short-card-desc">Marca, AI, diseño UI, desarrollo en Webflow con CMS relacional y hero 3D interactivo (Spline). Servicios IT B2B en Miami. Entrega completa en solitario en dos semanas.</p>
+        <div class="v4-mini-list reveal">
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">NimbusPC</h3>
+            <p class="v4-mini-desc">Marca, AI, diseño UI, desarrollo en Webflow con CMS relacional y hero 3D interactivo (Spline). Servicios IT B2B en Miami. Entrega completa en solitario en dos semanas.</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">MD Staff Solutions</h3>
-            <p class="short-card-desc">Web corporativa para empresa de personal sanitario y cumplimiento AHCA en Florida. Audiencia B2B regulada — dirección de marca, diseño UI y desarrollo en Webflow con confianza y credibilidad como palancas de conversión principales.</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">MD Staff Solutions</h3>
+            <p class="v4-mini-desc">Web corporativa para empresa de personal sanitario y cumplimiento AHCA en Florida. Audiencia B2B regulada — dirección de marca, diseño UI y desarrollo en Webflow con confianza y credibilidad como palancas de conversión principales.</p>
           </div>
-          <div class="short-card">
-            <h3 class="short-card-title">MEKCO Group Aviation</h3>
-            <p class="short-card-desc">Empresa de MRO aeronáutico certificada FAA y EASA con cuatro divisiones de servicio especializadas. Arquitectura de marca, diseño de información multisección y desarrollo en Webflow — equilibrando la profundidad divisional con la coherencia de grupo.</p>
+          <div class="v4-mini-row">
+            <h3 class="v4-mini-title">MEKCO Group Aviation</h3>
+            <p class="v4-mini-desc">Empresa de MRO aeronáutico certificada FAA y EASA con cuatro divisiones de servicio especializadas. Arquitectura de marca, diseño de información multisección y desarrollo en Webflow — equilibrando la profundidad divisional con la coherencia de grupo.</p>
           </div>
         </div>
 
@@ -413,7 +403,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=12" defer></script>
+  <script src="/assets/js/main.js?v=15" defer></script>
 
 </body>
 

@@ -20,7 +20,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=20">
+  <link rel="stylesheet" href="/assets/css/main.css?v=24">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -360,218 +360,9 @@
     }
 
 
-    /* ═══ 4. WORK INDEX — the signature ═══ */
+    /* ═══ 4. WORK INDEX — now global in main.css (used on index.html and work.html) ═══ */
 
-    .v4-work {
-      padding-block: clamp(var(--sp-24), 14vh, var(--sp-40)) clamp(var(--sp-20), 10vh, var(--sp-32));
-      border-bottom: 1px solid var(--border-default);
-    }
 
-    .v4-work-head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: var(--sp-8);
-      flex-wrap: wrap;
-      margin-bottom: clamp(var(--sp-12), 6vh, var(--sp-20));
-    }
-    .v4-work-head h2 {
-      font-size: clamp(var(--text-3xl), 5.5vw, var(--text-5xl));
-      font-weight: 300;
-    }
-    .v4-work-head h2 em { font-style: italic; color: var(--gold); }
-    .v4-work-head p {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      max-width: 34ch;
-      text-align: right;
-    }
-
-    .v4-index { border-top: 1px solid var(--border-default); }
-
-    .v4-row {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) auto auto;
-      align-items: center;
-      gap: var(--sp-6);
-      padding-block: clamp(var(--sp-6), 3.4vh, var(--sp-10));
-      border-bottom: 1px solid var(--border-default);
-      text-decoration: none;
-      position: relative;
-      transition: padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .v4-row:hover, .v4-row:focus-visible { padding-left: clamp(var(--sp-4), 2vw, var(--sp-8)); }
-    .v4-row:focus-visible { outline: 2px solid var(--teal); outline-offset: -2px; }
-
-    /* hairline that brightens gold on hover */
-    .v4-row::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -1px;
-      height: 1px;
-      width: 100%;
-      background: var(--gold);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .v4-row:hover::after { transform: scaleX(1); }
-
-    .v4-row-main { min-width: 0; }
-    .v4-row-client {
-      display: block;
-      font-size: var(--text-xs);
-      color: var(--teal-text);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: var(--sp-2);
-    }
-    .v4-row-title {
-      font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(1.6rem, 4.2vw, 3.4rem);
-      line-height: 1.08;
-      color: var(--text-primary);
-      transition: color var(--ease-base);
-      text-wrap: balance;
-    }
-    .v4-row:hover .v4-row-title { color: var(--gold); }
-    .v4-row-desc {
-      margin-top: var(--sp-3);
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      max-width: 52ch;
-      line-height: 1.6;
-    }
-
-    .v4-row-tags {
-      font-size: var(--text-xs);
-      color: var(--text-tertiary);
-      letter-spacing: 0.06em;
-      text-align: right;
-      white-space: nowrap;
-    }
-    .v4-row-tags .v4-tag-current { color: var(--gold); }
-
-    .v4-row .arrow {
-      color: var(--text-tertiary);
-      transform: translateX(-8px);
-      opacity: 0;
-      transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s ease, color 0.3s ease;
-    }
-    .v4-row:hover .arrow { transform: translateX(0); opacity: 1; color: var(--gold); }
-
-    /* Compact rows for the secondary set */
-    .v4-row--compact { padding-block: clamp(var(--sp-5), 2.4vh, var(--sp-8)); }
-    .v4-row--compact .v4-row-title { font-size: clamp(1.15rem, 2.4vw, 1.7rem); font-family: var(--font-body); font-weight: 400; }
-    .v4-row--compact:hover .v4-row-title { color: var(--gold); }
-    .v4-row--compact .v4-row-desc { display: none; }
-
-    .v4-index-label {
-      padding-block: var(--sp-8) var(--sp-4);
-      font-size: var(--text-xs);
-      color: var(--text-tertiary);
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    /* Floating cursor preview — a small curated composition, not a screen */
-    .v4-preview {
-      position: fixed;
-      left: 0; top: 0;
-      width: clamp(300px, 30vw, 440px);
-      aspect-ratio: 5 / 4;
-      pointer-events: none;
-      z-index: 50;
-      opacity: 0;
-      transform: scale(0.9);
-      transition: opacity 0.35s ease, transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .v4-preview.is-on { opacity: 1; transform: scale(1); }
-
-    .v4-preview-group {
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.25s ease;
-    }
-    .v4-preview-group.is-active { opacity: 1; }
-
-    /* Glass phone frames — the bezel itself is frosted glass, blurring
-       whichever frame sits behind it, rather than a flat bordered card.
-       Sized larger than the screenshot it holds so the glass ring reads
-       clearly; the screenshot itself stays the same visual size as before. */
-    .v4-frame {
-      position: absolute;
-      box-sizing: border-box;
-      width: 60%;
-      padding: 4%;
-      border-radius: 22px;
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.04)),
-        color-mix(in srgb, var(--bg-surface) 35%, transparent);
-      backdrop-filter: blur(20px) saturate(1.8);
-      -webkit-backdrop-filter: blur(20px) saturate(1.8);
-      border: 1px solid rgba(255, 255, 255, 0.32);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 70px -18px rgba(0, 0, 0, 0.8);
-    }
-    [data-theme="light"] .v4-frame {
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)),
-        color-mix(in srgb, var(--bg-surface) 30%, transparent);
-      border-color: rgba(255, 255, 255, 0.75);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 28px 70px -18px rgba(0, 0, 0, 0.25);
-    }
-    .v4-frame img {
-      display: block;
-      width: 100%;
-      border-radius: 12px;
-    }
-
-    /* Two overlapping frames, tilted apart — reads curated, not pasted.
-       Each replays its settle-in on every hover (JS restarts the
-       animation), starting from a neutral vertical stack and easing
-       into the final tilt. */
-    .v4-frame.pv-a {
-      left: 2%; top: 6%;
-      z-index: 1;
-      animation: v4FrameSettleA 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-    .v4-frame.pv-b {
-      right: 2%; top: 0;
-      z-index: 2;
-      animation: v4FrameSettleB 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-    }
-    @keyframes v4FrameSettleA {
-      0% { transform: translate(24%, 4%) rotate(0deg) scale(0.92); opacity: 0.7; }
-      100% { transform: rotate(-7deg); opacity: 1; }
-    }
-    @keyframes v4FrameSettleB {
-      0% { transform: translate(-16%, 4%) rotate(0deg) scale(0.92); opacity: 0.7; }
-      100% { transform: rotate(5deg) translateY(10%); opacity: 1; }
-    }
-
-    /* Inline thumbs — touch / no-hover devices only */
-    .v4-row-thumbs { display: none; }
-    @media (hover: none) {
-      .v4-preview { display: none; }
-      .v4-row { grid-template-columns: minmax(0, 1fr) auto; }
-      .v4-row .arrow { opacity: 1; transform: none; }
-      .v4-row-tags { display: none; }
-      .v4-row-thumbs {
-        display: flex;
-        gap: var(--sp-3);
-        margin-bottom: var(--sp-5);
-      }
-      .v4-row-thumbs img {
-        width: calc(50% - var(--sp-3) / 2);
-        border-radius: var(--radius-md);
-        border: 1px solid var(--border-default);
-      }
-      .v4-row-thumbs img:nth-child(2) { transform: translateY(var(--sp-3)); }
-    }
-
-    .v4-work-cta { margin-top: var(--sp-12); text-align: center; }
 
 
     /* ═══ 5. ABOUT — the path, treated editorially ═══ */
@@ -1066,8 +857,8 @@
         <a class="v4-row v4-r" href="/work/ikea-home-services/" data-project="hs">
           <div class="v4-row-main">
             <div class="v4-row-thumbs" aria-hidden="true">
-              <img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async">
-              <img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async">
+              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" loading="lazy" decoding="async"></div>
             </div>
             <span class="v4-row-client">Garaje de Ideas × IKEA</span>
             <h3 class="v4-row-title">IKEA Home Services</h3>
@@ -1080,8 +871,8 @@
         <a class="v4-row v4-r" href="/work/mapfre-afin-digital-expansion/" data-project="afin">
           <div class="v4-row-main">
             <div class="v4-row-thumbs" aria-hidden="true">
-              <img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async">
-              <img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async">
+              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" loading="lazy" decoding="async"></div>
             </div>
             <span class="v4-row-client">Flat 101 × Mapfre España</span>
             <h3 class="v4-row-title">Mapfre — AFIN Financial App</h3>
@@ -1094,8 +885,8 @@
         <a class="v4-row v4-r" href="/work/santander-nordics-cro/" data-project="sn">
           <div class="v4-row-main">
             <div class="v4-row-thumbs" aria-hidden="true">
-              <img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async">
-              <img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async">
+              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" loading="lazy" decoding="async"></div>
             </div>
             <span class="v4-row-client">Flat 101 × Santander</span>
             <h3 class="v4-row-title">Santander Nordics — CRO Programme</h3>
@@ -1327,7 +1118,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=12" defer></script>
+  <script src="/assets/js/main.js?v=15" defer></script>
 
   <script>
     // v4 interaction layer — reveals, cursor glow, work previews, magnetic CTAs.
@@ -1354,46 +1145,13 @@
         if (!glowOn) { glowOn = true; glow.classList.add('is-on'); gx = tx; gy = ty; }
       }, { passive: true });
 
-      /* Work index preview — composition follows cursor with spring lag */
-      const preview = document.querySelector('.v4-preview');
-      const groups = preview ? Array.from(preview.querySelectorAll('.v4-preview-group')) : [];
-      let px = 0, py = 0, ptx = 0, pty = 0, pOn = false;
+      /* Work index preview + magnetic CTAs now handled globally by main.js
+         (.v4-preview/.v4-row[data-project] and .v4-magnet) */
 
-      document.querySelectorAll('.v4-row[data-project]').forEach((row) => {
-        row.addEventListener('pointerenter', () => {
-          const key = row.getAttribute('data-project');
-          let activeGroup = null;
-          groups.forEach((g) => {
-            const isMatch = g.getAttribute('data-project') === key;
-            g.classList.toggle('is-active', isMatch);
-            if (isMatch) activeGroup = g;
-          });
-          preview.classList.add('is-on');
-          if (!pOn) { px = ptx; py = pty; pOn = true; }
-          // Replay the settle-in animation every time, even re-hovering
-          // the same row — restart by clearing then re-arming the style.
-          if (activeGroup) {
-            activeGroup.querySelectorAll('.v4-frame').forEach((f) => {
-              f.style.animation = 'none';
-              void f.offsetWidth;
-              f.style.animation = '';
-            });
-          }
-        });
-        row.addEventListener('pointerleave', () => preview.classList.remove('is-on'));
-      });
-      window.addEventListener('pointermove', (e) => {
-        ptx = e.clientX + 32; pty = e.clientY - 60;
-      }, { passive: true });
-
-      /* Magnetic CTAs now handled globally by main.js (.v4-magnet) */
-
-      /* One rAF loop drives both lerped followers */
+      /* rAF loop drives the lerped glow follower */
       function tick() {
         gx += (tx - gx) * 0.08; gy += (ty - gy) * 0.08;
         glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px)';
-        px += (ptx - px) * 0.14; py += (pty - py) * 0.14;
-        if (preview) preview.style.left = px + 'px', preview.style.top = py + 'px';
         requestAnimationFrame(tick);
       }
       requestAnimationFrame(tick);

@@ -367,4 +367,65 @@
     update();
   })();
 
+  /* ----------------------------------------------------------
+     12. WORK INDEX HOVER PREVIEW — cursor-following glass-frame
+     composition, shared by the homepage's work teaser and the full
+     work index. Gated behind pointer + reduced-motion checks.
+     ---------------------------------------------------------- */
+  (function workIndexPreview() {
+    const preview = document.querySelector('.v4-preview');
+    const rows = document.querySelectorAll('.v4-row[data-project]');
+    if (!preview || !rows.length) return;
+
+    const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches
+      && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!canHover) return;
+
+    const groups = Array.from(preview.querySelectorAll('.v4-preview-group'));
+    let px = 0, py = 0, ptx = 0, pty = 0, pOn = false;
+
+    rows.forEach(row => {
+      row.addEventListener('pointerenter', () => {
+        const key = row.getAttribute('data-project');
+        let activeGroup = null;
+        groups.forEach(g => {
+          const isMatch = g.getAttribute('data-project') === key;
+          g.classList.toggle('is-active', isMatch);
+          if (isMatch) activeGroup = g;
+        });
+        preview.classList.add('is-on');
+        if (!pOn) { px = ptx; py = pty; pOn = true; }
+        // Replay the settle-in animation every time, even re-hovering
+        // the same row — restart by clearing then re-arming the style.
+        if (activeGroup) {
+          activeGroup.querySelectorAll('.v4-frame').forEach(f => {
+            f.style.animation = 'none';
+            void f.offsetWidth;
+            f.style.animation = '';
+          });
+        }
+      });
+      row.addEventListener('pointerleave', () => preview.classList.remove('is-on'));
+    });
+
+    window.addEventListener('pointermove', e => {
+      ptx = e.clientX + 32; pty = e.clientY - 60;
+    }, { passive: true });
+
+    function tick() {
+      px += (ptx - px) * 0.14; py += (pty - py) * 0.14;
+      // Clamp to the viewport — the wide (landscape) preview box can reach
+      // ~720px, easily wider than the cursor-following offset leaves room
+      // for on common laptop widths, or when hovering rows near the edge.
+      const margin = 16;
+      const rect = preview.getBoundingClientRect();
+      const maxX = Math.max(margin, window.innerWidth - rect.width - margin);
+      const maxY = Math.max(margin, window.innerHeight - rect.height - margin);
+      preview.style.left = Math.min(Math.max(px, margin), maxX) + 'px';
+      preview.style.top = Math.min(Math.max(py, margin), maxY) + 'px';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
 })();
