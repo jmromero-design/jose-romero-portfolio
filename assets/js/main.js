@@ -315,4 +315,56 @@
     });
   }
 
+  /* ----------------------------------------------------------
+     11. CASE STUDY SECTION NAV — active-section highlight + reading
+     progress, shared by every case study page. Drives three things
+     from one continuous scroll fraction through the .cs-section run:
+     the sticky nav's fill line, its active list item, and the mobile
+     fallback's fixed progress line.
+     ---------------------------------------------------------- */
+  (function caseStudyNav() {
+    const sections = Array.from(document.querySelectorAll('.cs-section[id]'));
+    const navLinks = Array.from(document.querySelectorAll('.cs-nav-link'));
+    const navFill = document.querySelector('.cs-nav-fill');
+    const progressFill = document.querySelector('.cs-progress-fill');
+    if (!sections.length || (!navFill && !progressFill)) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.getElementById(link.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - (72 + 24);
+        window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+      });
+    });
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const first = sections[0];
+      const last = sections[sections.length - 1];
+      const start = first.offsetTop;
+      const end = last.offsetTop + last.offsetHeight;
+      const readingLine = window.scrollY + window.innerHeight * 0.4;
+      const fraction = Math.min(1, Math.max(0, (readingLine - start) / (end - start)));
+
+      if (navFill) navFill.style.height = `${fraction * 100}%`;
+      if (progressFill) progressFill.style.width = `${fraction * 100}%`;
+
+      let activeIndex = 0;
+      sections.forEach((sec, i) => { if (readingLine >= sec.offsetTop) activeIndex = i; });
+      navLinks.forEach((link, i) => {
+        link.parentElement.classList.toggle('is-active', i === activeIndex);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
+  })();
+
 })();

@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-secondhand-marketplace/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -53,16 +53,44 @@
     }
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 60px -20px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
     .comp-phone--center { width: 27%; left: 36.5%; top: 13%; z-index: 3; }
     .comp-phone--right  { width: 23%; right: 16.5%; top: 27%; z-index: 1; }
     .shot-row { display: flex; gap: var(--sp-6); justify-content: center; flex-wrap: wrap; margin-block: var(--sp-10) var(--sp-3); }
-    .shot-phone { width: 188px; border: 1px solid var(--border-strong); border-radius: 26px; padding: 5px; background: var(--bg-surface); box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0; }
+    .shot-phone {
+      width: 188px;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
+    }
     .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
     .sh-desktop-card { margin-block: var(--sp-10) var(--sp-3); border: 1px solid var(--border-default); border-radius: var(--radius-lg); overflow: hidden; box-shadow: 0 16px 48px -12px rgba(0,0,0,0.45); }
     .sh-desktop-card img { display: block; width: 100%; height: auto; }
@@ -102,9 +130,9 @@
         <div class="hero-animate">
           <span class="eyebrow">Diseño de Producto · Marketplace · Comercio Circular</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Reventa IKEA-nativa,<br>
-          <em class="accent-italic">a escala europea.</em>
+        <h1 class="cs-hero-title" aria-label="Reventa IKEA-nativa, a escala europea.">
+          <span class="v4-mask"><span class="v4-line">Reventa IKEA-nativa,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">a escala europea.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Un marketplace P2P para comprar y vender productos IKEA de segunda mano — con el catálogo propio de IKEA como columna vertebral estructural de los anuncios. Pilotado en España y ahora activo en cinco países europeos.
@@ -112,11 +140,13 @@
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
           <span class="tag tag--gold">IKEA · Actual</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
-          <span class="tag">2025 — Presente</span>
           <span class="tag">Comercio Circular</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -129,7 +159,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Diseño de Producto · Cross-funcional · Multipaís</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="IKEA Second-hand Marketplace — pantallas de exploración, detalle de producto y checkout">
             <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="eager"></div>
             <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="eager"></div>
@@ -139,7 +173,7 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="contexto">
             <span class="eyebrow">Contexto</span>
             <h2>Comercio circular construido sobre el catálogo de IKEA</h2>
             <p>Los compromisos de sostenibilidad de IKEA requieren más que reciclar materiales — requieren repensar la vida útil del producto. Un marketplace de segunda mano resuelve ese problema comercialmente: mantiene los productos IKEA en circulación, crea valor para los vendedores y reduce la barrera de entrada para compradores sensibles al precio.</p>
@@ -238,7 +272,7 @@
             <figcaption>El catálogo de productos IKEA actúa como columna vertebral estructural — eliminando la fricción del anuncio para el vendedor y proporcionando identidad de producto verificada y pago seguro al comprador.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-reto">
             <span class="eyebrow">El reto</span>
             <h2>Escalar un piloto a múltiples mercados</h2>
             <p>El producto se lanzó como piloto en Madrid y Oslo en agosto de 2024, funcionando en paralelo con IKEA Home Services en el mismo equipo. A medida que los pilotos demostraron su valor, la presión cambió: de hacer que el producto funcionase en un mercado a hacerlo funcionar en cinco — con diferentes sistemas de pago, diferentes leyes de protección al consumidor y diferentes grados de madurez del mercado de segunda mano.</p>
@@ -321,14 +355,14 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="mi-rol">
             <span class="eyebrow">Mi rol</span>
             <h2>Diseño de producto a lo largo del ciclo de vida completo</h2>
             <p>Contribuyo al Second-hand Marketplace junto a mi trabajo en IKEA Home Services — ambos productos operan dentro del mismo equipo de IKEA New Business Platform. Mi rol abarca diseño de producto, colaboración cross-funcional y contribución al framework compartido de operaciones de diseño que da soporte a ambos productos.</p>
             <p>A medida que la plataforma ha madurado y escalado, la naturaleza del trabajo ha pasado de definir nuevos flujos a refinar y extender un sistema que necesita mantenerse coherente entre mercados y cambios de equipo.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="enfoque">
             <span class="eyebrow">Enfoque</span>
             <h2>Modular por diseño</h2>
             <p>Trabajar en dos productos de marketplace simultáneamente tiene un efecto secundario útil: los patrones que funcionan en uno tienden a informar al otro, y la deuda de diseño en uno se hace visible más rápido cuando mantienes la consistencia entre ambos. El flujo de creación de anuncios, los mensajes de confianza y seguridad, la arquitectura de reseñas — todos se desarrollaron pensando en la consistencia entre productos.</p>
@@ -339,11 +373,29 @@
             <img src="/assets/images/work/ikea-secondhand-marketplace/sh-sell-modal.webp" width="1200" height="678" alt="Modal de venta — el primer paso para crear un anuncio, donde el vendedor selecciona el artículo del catálogo de IKEA" loading="lazy">
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="estado">
             <span class="eyebrow">Estado</span>
             <h2>Activo en cinco mercados, escalando más</h2>
             <p>La plataforma se lanzó como piloto en Madrid y Oslo en agosto de 2024. A lo largo de 2025 se expandió a España, Noruega, Portugal y Polonia. Suecia se incorporó en enero de 2026, completando los cinco mercados actuales. Ingka Group ha comprometido la expansión a toda la UE, con un objetivo de aproximadamente 170.000 anuncios en 2026. Los datos comerciales específicos de rendimiento no se han publicado en este momento.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#contexto"><span class="cs-nav-num">01</span>Contexto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-reto"><span class="cs-nav-num">02</span>El reto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#mi-rol"><span class="cs-nav-num">03</span>Mi rol</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#enfoque"><span class="cs-nav-num">04</span>Enfoque</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#estado"><span class="cs-nav-num">05</span>Estado</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -407,6 +459,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

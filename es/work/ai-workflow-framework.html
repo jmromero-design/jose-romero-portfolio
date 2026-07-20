@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/es/work/ai-workflow-framework/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     .cover-ai-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
     .cover-ai-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
@@ -90,9 +90,9 @@
           <span class="eyebrow">Diseño de Flujos IA · Arquitectura de Procesos · Facilitación</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Diseñar la capa de IA,<br>
-          <em class="accent-italic">no solo usarla.</em>
+        <h1 class="cs-hero-title" aria-label="Diseñar la capa de IA, no solo usarla.">
+          <span class="v4-mask"><span class="v4-line">Diseñar la capa de IA,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">no solo usarla.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -103,11 +103,13 @@
           <span class="tag tag--gold">IKEA · Actual</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
           <span class="tag">Diseño de Flujos IA</span>
-          <span class="tag">2025 — Presente</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -135,7 +137,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-ai-comp" role="img" aria-label="Framework de Flujos IA — orquestación multi-agente y flujo de trabajo de cinco fases con puertas humanas">
             <div class="cover-ai-col primary">
               <div class="comp-board">
@@ -159,7 +165,7 @@
         <div class="container--narrow" style="margin: 0 auto;">
 
           <!-- EL PROBLEMA -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-problema">
             <span class="eyebrow">El problema</span>
             <h2>La pregunta equivocada estaba en todas partes</h2>
             <p>La pregunta dominante en los equipos de diseño que exploraban la IA era "¿qué herramienta deberíamos usar?". La respuesta casi siempre era una recomendación de producto — un asistente específico, un plugin específico, una integración específica. Los equipos lo adoptaban, lo usaban unas semanas y descubrían que los resultados eran inconsistentes, el proceso era más oscuro que antes y nadie podía explicar por qué un output era bueno o malo.</p>
@@ -167,7 +173,7 @@
           </div>
 
           <!-- EL INSIGHT -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-insight">
             <span class="eyebrow">El insight</span>
             <h2>La IA es una capa de proceso, no una funcionalidad</h2>
             <p>El cambio de perspectiva que hizo posible este proyecto: tratar la IA igual que cualquier otro problema de sistemas de diseño. Define las entradas. Define las salidas. Define los traspasos. Define quién decide qué y cuándo.</p>
@@ -175,7 +181,7 @@
           </div>
 
           <!-- EL FRAMEWORK -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-framework">
             <span class="eyebrow">El framework</span>
             <h2>Tres niveles. Cinco fases. Puertas humanas en cada etapa.</h2>
             <p>El framework organiza el trabajo de diseño asistido por IA en una jerarquía de agentes de tres niveles que opera a través de cinco fases definidas. Cada nivel tiene un alcance explícito, entradas y salidas definidas, y rutas de escalado claras hacia los responsables de decisiones humanos.</p>
@@ -257,7 +263,7 @@
           </figure>
 
           <!-- APLICADO -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="aplicado">
             <span class="eyebrow">Aplicado</span>
             <h2>Dos líneas de trabajo, la misma estructura</h2>
             <p>El framework no se construyó en abstracto. Emergió de dos líneas de trabajo paralelas dentro de un equipo de diseño empresarial, ambas expusieron el mismo problema subyacente: la IA sin proceso produce trabajo que nadie puede asumir como propio.</p>
@@ -372,7 +378,7 @@
           </figure>
 
           <!-- QUÉ REQUIERE -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="que-requiere">
             <span class="eyebrow">Qué requiere</span>
             <h2>La IA sube el listón del juicio humano — no lo baja</h2>
             <p>El malentendido más común sobre los flujos de trabajo asistidos por IA es que simplifican el rol del diseñador. No lo hacen. El rol pasa de producir a dirigir, evaluar e integrar. Ese cambio requiere habilidades que no forman parte del perfil tradicional del diseñador:</p>
@@ -439,7 +445,7 @@
           </figure>
 
           <!-- RESULTADO -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="resultado">
             <span class="eyebrow">Resultado</span>
             <h2>Un framework que separa el proceso de las herramientas</h2>
             <p>El resultado más duradero de este trabajo es una arquitectura de proceso independiente de cualquier herramienta o plataforma de IA específica. Como el framework define fases, roles de agentes, checkpoints y protocolos de gestión de contexto a nivel de proceso — no de implementación — sobrevive a migraciones de herramientas, cambios de plataforma y rotación de equipos.</p>
@@ -455,6 +461,25 @@
               Leer el framework completo — 18 min <span style="font-family: var(--font-display);">→</span>
             </a>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-problema"><span class="cs-nav-num">01</span>El problema</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-insight"><span class="cs-nav-num">02</span>El insight</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-framework"><span class="cs-nav-num">03</span>El framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#aplicado"><span class="cs-nav-num">04</span>Aplicado</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#que-requiere"><span class="cs-nav-num">05</span>Qué requiere</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#resultado"><span class="cs-nav-num">06</span>Resultado</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -518,7 +543,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11"></script>
+  <script src="/assets/js/main.js?v=12"></script>
 
 </body>
 </html>

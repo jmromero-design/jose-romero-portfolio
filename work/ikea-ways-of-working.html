@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/ikea-ways-of-working/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     .cover-wow-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
     .cover-wow-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--gold) 4%,var(--bg-surface));pointer-events:none}
@@ -90,9 +90,9 @@
           <span class="eyebrow">Design Operations · Systems · Facilitation</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          A process designed to<br>
-          <em class="accent-italic">survive people.</em>
+        <h1 class="cs-hero-title" aria-label="A process designed to survive people.">
+          <span class="v4-mask"><span class="v4-line">A process designed to</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">survive people.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -103,11 +103,13 @@
           <span class="tag tag--gold">IKEA · Current</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
           <span class="tag">Design Operations</span>
-          <span class="tag">2025 — Present</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -135,7 +137,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-wow-comp" role="img" aria-label="IKEA Ways of Working — system architecture board and Skapa-First component decision framework">
             <div class="cover-wow-col primary">
               <div class="comp-board">
@@ -159,7 +165,7 @@
         <div class="container--narrow" style="margin: 0 auto;">
 
           <!-- THE PROBLEM -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-problem">
             <span class="eyebrow">The problem</span>
             <h2>Eight failure modes, not one</h2>
             <p>When I joined the team, the working process existed — but only in people's heads. Files were spread across Figma, Confluence, and local drives with no consistent structure. The hierarchy of work — what belonged in Figma, what in Confluence, what in Jira — was unclear and inconsistently applied.</p>
@@ -238,7 +244,7 @@
           </figure>
 
           <!-- APPROACH -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Principles first, tools second</h2>
             <p>The first step was making the existing state legible. Mapping what was actually happening — not the ideal, not what people believed happened — revealed that the problems were structural, not behavioral. People weren't being careless; the system had no clear rules about who owned what at which stage.</p>
@@ -253,7 +259,7 @@
           </div>
 
           <!-- THE FRAMEWORK -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-framework">
             <span class="eyebrow">The framework</span>
             <h2>Four tools, one backbone</h2>
             <p>The framework assigns a single, non-overlapping role to each of the four primary tools. The rule is simple enough to hold in memory without documentation:</p>
@@ -323,7 +329,7 @@
           </figure>
 
           <!-- FIVE-PHASE WORKFLOW -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-content-workflow">
             <span class="eyebrow">The content workflow</span>
             <h2>Five phases. Two owners.</h2>
             <p>Alongside the tool framework, the team needed a clear workflow for how design work — particularly content and translations — moved through the production cycle. The existing process had no defined phases, no explicit ownership handoffs, and no point at which translations could be verified before they reached users.</p>
@@ -434,7 +440,7 @@
           </figure>
 
           <!-- FIGMA FRAMEWORK -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="figma-framework">
             <span class="eyebrow">Figma framework</span>
             <h2>Component decisions, not component chaos.</h2>
             <p>File structure and naming conventions solve the organisation problem. Component governance solves a different one: when to use what already exists, when to adapt it, and when to propose something new.</p>
@@ -447,7 +453,7 @@
           </figure>
 
           <!-- MAKING TRANSLATIONS TESTABLE -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="phrase-optimization">
             <span class="eyebrow">Phrase optimization</span>
             <h2>From untestable to verifiable</h2>
             <p>The translation workflow was the most acute failure point. In the existing state, localisation keys were created late in the cycle — typically by engineering, not design — which compressed the translation window, forced localisation to happen in parallel with development rather than before it, and left QA with no mechanism to verify language quality before release. Translation errors were caught by end users, not by the team.</p>
@@ -461,7 +467,7 @@
           </div>
 
           <!-- AI WORKFLOW DESIGN -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="ai-workflow-design">
             <span class="eyebrow">AI workflow design</span>
             <h2>When the process is solid, you can design what comes next.</h2>
             <p>Fixing the structural failures was necessary. But it also opened a different question: now that handoffs and ownership were explicit and documented, which parts of the design workflow could be fundamentally restructured — not just improved — using AI?</p>
@@ -485,7 +491,7 @@
           </div>
 
           <!-- OUTCOME -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="outcome">
             <span class="eyebrow">Outcome</span>
             <h2>Imperfect adoption. Structural bones held.</h2>
             <p>The framework was adopted — imperfectly. Some habits take time. Some team members adapted faster than others. There are corners of the process that are still negotiated informally.</p>
@@ -493,6 +499,27 @@
             <p>The translation workflow change had the most immediate effect: QA could verify language quality before release for the first time. The feedback loop shortened from "a user reports a translation issue" to "QA catches it in pre-production."</p>
             <p>I've come to think that imperfect adoption of a well-structured system is the actual success condition — not perfect compliance. A process that survives is more valuable than a process that was theoretically perfect but required constant maintenance by a specific person to function.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-problem"><span class="cs-nav-num">01</span>The problem</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">02</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-framework"><span class="cs-nav-num">03</span>The framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-content-workflow"><span class="cs-nav-num">04</span>The content workflow</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#figma-framework"><span class="cs-nav-num">05</span>Figma framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#phrase-optimization"><span class="cs-nav-num">06</span>Phrase optimization</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#ai-workflow-design"><span class="cs-nav-num">07</span>AI workflow design</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcome"><span class="cs-nav-num">08</span>Outcome</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -557,6 +584,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

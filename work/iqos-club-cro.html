@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/iqos-club-cro/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -96,9 +96,9 @@
           <span class="eyebrow">CRO · Loyalty · Behavioral Economics</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Optimising loyalty under<br>
-          <em class="accent-italic">tight constraints.</em>
+        <h1 class="cs-hero-title" aria-label="Optimising loyalty under tight constraints.">
+          <span class="v4-mask"><span class="v4-line">Optimising loyalty under</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">tight constraints.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -106,14 +106,15 @@
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">CRO</span>
           <span class="tag">Behavioral Economics</span>
-          <span class="tag">2022 — 2025</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -141,7 +142,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-ab" role="img" aria-label="IQOS Club homepage A/B test — Control versus Variant 6 with full-bleed referral photo">
             <div class="cover-ab-col">
               <span class="cover-ab-label">Control</span>
@@ -166,21 +171,21 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>A loyalty programme with a specific kind of complexity</h2>
             <p>IQOS Club is Philip Morris International's loyalty programme for IQOS users in Spain — a members' portal where users track rewards, access exclusive content, manage their devices, and engage with the brand between purchases. The programme sits in a category — tobacco alternatives — with significant marketing restrictions, which shapes what's possible in digital promotion.</p>
             <p>The CRO challenge here isn't primarily about acquisition. It's about engagement and retention: encouraging existing members to use the platform more actively, progress through loyalty tiers, and remain connected to the brand over time. The levers are different from a transactional funnel.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-challenge">
             <span class="eyebrow">The challenge</span>
             <h2>Low traffic, high standards</h2>
             <p>Loyalty portals are structurally harder to optimise than transactional funnels. Traffic volumes are lower — because you're targeting only existing members, not the broader market. This means experiments take longer to reach statistical significance, and the risk of acting on false positives is higher.</p>
             <p>In this environment, good CRO practice requires more discipline, not less. The hypothesis quality has to be higher because you can run fewer experiments. The design decisions have to be better informed because you have less data to course-correct with.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Behavioral economics in a loyalty context</h2>
             <p>The most relevant behavioral frameworks for loyalty are different from those that dominate conversion optimisation in e-commerce. Loss aversion still applies — the framing of tier status and expiring points is a powerful lever. But habit formation mechanics become more important: variable reward schedules, completion mechanics, progress visualisation.</p>
@@ -373,14 +378,14 @@
           </div>
           <p class="media-caption reveal"><b>Personalisation — Segment-led homepage CTA.</b> Members with 2,500+ points see a "Canjear puntos" primary CTA — the natural next step for a high-balance member. Members below 500 points see earn-oriented CTAs with a teal notification bar surfacing relevant actions. Same hero; different primary intent.</p>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="outcome">
             <span class="eyebrow">Outcome</span>
             <h2>Ongoing programme with measurable engagement gains</h2>
             <p>The IQOS Club engagement improved across the programme period. Specific figures are subject to client confidentiality and have not been published. The programme ran continuously throughout the Flat 101 engagement.</p>
             <p>The more durable outcome for me was methodological: running CRO at low traffic volumes sharpens your thinking about what makes a good hypothesis and what constitutes meaningful evidence. The discipline of making high-quality decisions with limited data is transferable to almost any design context.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="scope-evolution">
             <span class="eyebrow">Scope evolution</span>
             <h2>CRO tooling as a campaign delivery channel</h2>
             <p>As the programme matured, something useful happened: the client began recognising VWO not just as a testing tool, but as a fast deployment channel for time-sensitive campaign assets. Because VWO variants could go live without a development sprint, it became the preferred path for promotional modals, campaign banners, and temporary content tied to specific launches.</p>
@@ -391,6 +396,24 @@
             <img src="/assets/images/work/iqos-club-cro/popup-desktop.webp" alt="MacBook Air showing IQOS ILUMA Stardrift promotional modal on the IQOS Club portal" width="1280" height="735" loading="lazy">
           </div>
           <p class="media-caption reveal"><b>Promotional modal — IQOS ILUMA Stardrift launch.</b> One of several campaign modals deployed via VWO during the programme. Triggered on login for targeted member segments, timed to product availability windows. Designed, built, and deployed without a development sprint.</p>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-challenge"><span class="cs-nav-num">02</span>The challenge</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">03</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcome"><span class="cs-nav-num">04</span>Outcome</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#scope-evolution"><span class="cs-nav-num">05</span>Scope evolution</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -455,6 +478,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

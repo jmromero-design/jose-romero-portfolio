@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/xti-ecommerce-redesign/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     /* ── Cover composition ── */
     .cover-comp {
@@ -90,22 +90,42 @@
     }
     .comp-phone {
       width: 148px;
-      border: 1px solid var(--border-strong);
-      border-radius: 24px; padding: 5px;
-      background: var(--bg-surface);
-      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 16px 48px -16px rgba(0, 0, 0, 0.6);
       flex-shrink: 0;
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 48px -16px rgba(0, 0, 0, 0.2);
     }
     .comp-phone img { display: block; width: 100%; border-radius: 19px; }
     .comp-phone:nth-child(2) { margin-top: 40px; }
 
     /* ── Body cards — 3-phone trio ── */
     .shot-phone {
-      border: 1px solid var(--border-strong);
-      border-radius: 26px; padding: 5px;
-      background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55);
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
       flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; border-radius: 21px; }
     .media-card {
@@ -190,21 +210,22 @@
         <div class="hero-animate">
           <span class="eyebrow">E-commerce · Diseño UI · Moda</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Ambición de marca dentro de<br>
-          <em class="accent-italic">las restricciones de plataforma.</em>
+        <h1 class="cs-hero-title" aria-label="Ambición de marca dentro de las restricciones de plataforma.">
+          <span class="v4-mask"><span class="v4-line">Ambición de marca dentro de</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">las restricciones de plataforma.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Rediseño completo de la plataforma e-commerce de moda de XTI — equilibrando la ambición de marca con las restricciones reales de una migración a Magento, informado por análisis competitivo, testing de arquitectura de información y datos de comportamiento de Hotjar.
         </p>
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">E-commerce</span>
           <span class="tag">Moda</span>
-          <span class="tag">2022 — 2025</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -217,7 +238,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Rediseño E-commerce · IA · Diseño UI</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="Rediseño XTI Store — página de listado en escritorio, con vistas móviles del listado y detalle de producto">
             <div class="comp-browser">
               <div class="comp-browser-bar">
@@ -248,14 +273,14 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="contexto">
             <span class="eyebrow">Contexto</span>
             <h2>Un retailer de moda nacional migrando de plataforma</h2>
             <p>XTI es una marca española de calzado y moda con presencia retail nacional y una operación digital directa al consumidor significativa. El rediseño se planificó para coincidir con una migración de plataforma a Magento — lo que significaba que el trabajo de diseño tenía que operar dentro de las restricciones de lo que Magento podía entregar, no sobre un lienzo técnico ideal.</p>
             <p>Este es un reto común y subestimado en el diseño e-commerce: la plataforma sobre la que estás construyendo no es neutra. Su modelo de componentes, su estructura de URL, su lógica de filtrado — todo esto da forma a lo que es posible en el UX antes de que se tome una sola decisión de diseño. Entender esas restricciones desde el principio es esencial para entregar algo que realmente pueda construirse.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="investigacion-discovery">
             <span class="eyebrow">Investigación &amp; discovery</span>
             <h2>Datos de comportamiento primero</h2>
             <p>La fase de discovery utilizó grabaciones de sesiones Hotjar, mapas de calor y análisis de funnel del sitio existente — junto a un análisis competitivo estructurado estudiando cómo los líderes de la categoría de moda como Zara y Adidas gestionan la navegación, el filtrado y la presentación de producto. El objetivo era entender dónde la experiencia existente de XTI estaba perdiendo usuarios y por qué, antes de proponer cambios.</p>
@@ -337,7 +362,7 @@
             <figcaption>Restricciones mapeadas primero. Las entradas de investigación se filtran a través de la restricción de plataforma — el briefing de diseño pasa a ser: ¿cuál es el mejor UX posible dentro de lo que realmente puede construirse?</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="diseno">
             <span class="eyebrow">Diseño</span>
             <h2>Equilibrando marca y conversión</h2>
             <p>El diseño e-commerce de moda implica una tensión que no existe del mismo modo en otros sectores: la marca quiere presencia editorial, impacto visual y una sensación de aspiración. El argumento de conversión defiende la claridad, imágenes de producto prominentes y caminos de compra sin fricción. Las mejores experiencias de moda e-commerce sostienen ambos — pero requiere decisiones deliberadas sobre dónde la expresión de marca se gana su espacio y dónde cede a la función.</p>
@@ -422,13 +447,30 @@
             <figcaption>El rediseño concentró el esfuerzo en las etapas de mayor abandono — listado y detalle de producto. La expresión de marca tiene su espacio en la parte superior del funnel; las mecánicas de conversión toman el control desde el listado hacia abajo.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="aprendizajes">
             <span class="eyebrow">Aprendizajes</span>
             <h2>Las restricciones de plataforma son un briefing de diseño, no un obstáculo</h2>
             <p>La experiencia de diseñar dentro de una restricción específica de plataforma — conocer qué es posible y qué no antes de empezar — es valiosa de una manera que no es obvia hasta que lo has hecho. Elimina una gran categoría de trabajo de diseño desperdiciado: la solución elegante que no puede construirse, el patrón de interacción que la plataforma no soporta.</p>
             <p>También agudiza el problema creativo. La pregunta pasa de "¿cuál es el UX ideal para esto?" a "¿cuál es el mejor UX posible dentro de estas restricciones?" — que es, en la mayoría de los contextos del mundo real, la pregunta más útil a la que responder.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Los datos de rendimiento específicos de este encargo están sujetos a NDA.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#contexto"><span class="cs-nav-num">01</span>Contexto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#investigacion-discovery"><span class="cs-nav-num">02</span>Investigación &amp; discovery</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#diseno"><span class="cs-nav-num">03</span>Diseño</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#aprendizajes"><span class="cs-nav-num">04</span>Aprendizajes</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -492,6 +534,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

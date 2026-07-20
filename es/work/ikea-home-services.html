@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-home-services/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-home-services/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-home-services/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -58,12 +58,25 @@
         0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
       pointer-events: none;
     }
-    /* C2 — large upright hero phone flanked by two; all bleed past the bottom */
+    /* C2 — large upright hero phone flanked by two; all bleed past the bottom.
+       Glass bezel — same material as the homepage's hover-preview frames —
+       so the frame blurs the teal glow behind it instead of sitting flat. */
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 28px 64px -22px rgba(0,0,0,0.72);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 28px 64px -22px rgba(0, 0, 0, 0.72);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 28px 64px -22px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
@@ -85,9 +98,21 @@
     }
     .shot-phone {
       width: 188px;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
     .shot-caption {
@@ -150,9 +175,9 @@
         <div class="hero-animate">
           <span class="eyebrow">Diseño de Producto · Marketplace · Móvil</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Marketplace P2P de mejoras<br>
-          <em class="accent-italic">del hogar.</em>
+        <h1 class="cs-hero-title" aria-label="Marketplace P2P de mejoras del hogar.">
+          <span class="v4-mask"><span class="v4-line">Marketplace P2P de mejoras</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">del hogar.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Conectando a propietarios con profesionales locales verificados en más de 50 categorías de mejoras del hogar — diseñado desde el concepto hasta un producto en producción activo en siete regiones españolas.
@@ -160,11 +185,13 @@
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
           <span class="tag tag--gold">IKEA · Actual</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
-          <span class="tag">2025 — Presente</span>
           <span class="tag">Marketplace</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -177,7 +204,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Diseño de Producto · Investigación UX · Móvil · Accesibilidad</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="App de IKEA Home Services — pantalla de inicio, categorías de servicio y página de detalle de servicio">
             <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
             <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
@@ -187,7 +218,7 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="contexto">
             <span class="eyebrow">Contexto</span>
             <h2>Expandiendo IKEA más allá del mueble</h2>
             <p>La plataforma New Business de IKEA es una unidad de startup interna dentro de Ingka Group, encargada de expandir la marca hacia mercados adyacentes en Europa. La ambición era clara: si acabas de comprar un armario flatpack, probablemente necesitas a alguien que te ayude a montarlo. E IKEA quería ser quien te conectara con esa persona.</p>
@@ -222,6 +253,28 @@
                     .hs-aht    { fill: var(--teal); opacity: 0.85; }
                     .hs-cl     { font-family: var(--font-body); font-size: 9.5px; fill: var(--text-tertiary); }
                     .hs-clt    { font-family: var(--font-body); font-size: 9.5px; fill: var(--teal-text); }
+
+                    /* Flow lines draw themselves in once the diagram scrolls
+                       into view — the connectors are the one place motion
+                       actually means something here (a request traveling
+                       between homeowner, platform, and professional), so
+                       only these draw; the static panels just fade with the
+                       figure as before. */
+                    .hs-flowline { stroke-dasharray: 50; stroke-dashoffset: 50; }
+                    .hs-flowhead { opacity: 0; }
+                    .diagram-block.visible .hs-flowline {
+                      animation: hsDrawLine 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                      animation-delay: 0.5s;
+                    }
+                    .diagram-block.visible .hs-flowhead {
+                      animation: hsDrawHead 0.25s ease forwards;
+                      animation-delay: 1.3s;
+                    }
+                    @keyframes hsDrawLine { to { stroke-dashoffset: 0; } }
+                    @keyframes hsDrawHead { to { opacity: 1; } }
+                    @media (prefers-reduced-motion: reduce) {
+                      .hs-flowline, .hs-flowhead { animation: none; stroke-dashoffset: 0; opacity: 1; }
+                    }
                   </style>
                 </defs>
 
@@ -238,11 +291,11 @@
                 <text class="hs-body" x="50" y="107">Reserva, paga y evalúa en la plataforma</text>
 
                 <!-- CONNECTOR 1 -->
-                <line class="hs-al" x1="128" y1="130" x2="128" y2="176"/>
-                <polygon class="hs-ah" points="128,179 124,171 132,171"/>
+                <line class="hs-al hs-flowline" x1="128" y1="130" x2="128" y2="176"/>
+                <polygon class="hs-ah hs-flowhead" points="128,179 124,171 132,171"/>
                 <text class="hs-cl" x="120" y="155" text-anchor="end">Solicita servicio</text>
-                <line class="hs-at" x1="232" y1="177" x2="232" y2="130"/>
-                <polygon class="hs-aht" points="232,128 228,135 236,135"/>
+                <line class="hs-at hs-flowline" x1="232" y1="177" x2="232" y2="130"/>
+                <polygon class="hs-aht hs-flowhead" points="232,128 228,135 236,135"/>
                 <text class="hs-clt" x="240" y="150" text-anchor="start">Asigna</text>
                 <text class="hs-clt" x="240" y="163" text-anchor="start">profesional</text>
 
@@ -263,12 +316,12 @@
                 <text class="hs-trust" x="180" y="333">Confianza IKEA · reseñas verificadas · precios transparentes</text>
 
                 <!-- CONNECTOR 2 -->
-                <line class="hs-at" x1="128" y1="345" x2="128" y2="393"/>
-                <polygon class="hs-aht" points="128,396 124,388 132,388"/>
+                <line class="hs-at hs-flowline" x1="128" y1="345" x2="128" y2="393"/>
+                <polygon class="hs-aht hs-flowhead" points="128,396 124,388 132,388"/>
                 <text class="hs-clt" x="120" y="362" text-anchor="end">Señales de confianza</text>
                 <text class="hs-clt" x="120" y="375" text-anchor="end">y reserva segura</text>
-                <line class="hs-al" x1="232" y1="393" x2="232" y2="345"/>
-                <polygon class="hs-ah" points="232,343 228,350 236,350"/>
+                <line class="hs-al hs-flowline" x1="232" y1="393" x2="232" y2="345"/>
+                <polygon class="hs-ah hs-flowhead" points="232,343 228,350 236,350"/>
                 <text class="hs-cl" x="240" y="362" text-anchor="start">Acepta</text>
                 <text class="hs-cl" x="240" y="375" text-anchor="start">y entrega</text>
 
@@ -294,7 +347,7 @@
             <figcaption class="shot-caption"><b>Dos lados, una plataforma.</b> La asignación con IA convierte la petición en lenguaje natural del propietario en un trabajo estructurado (izquierda), mientras que un flujo de alta verificado incorpora a los profesionales del lado de la oferta (derecha).</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-reto">
             <span class="eyebrow">El reto</span>
             <h2>Confianza, consistencia y velocidad</h2>
             <p>Los productos de marketplace viven o mueren por la confianza. Los propietarios necesitan confiar en los profesionales a los que dejan entrar en sus casas. Los profesionales necesitan confiar en que la plataforma vale su tiempo. E IKEA necesita que el producto se sienta como IKEA — cuidado, fiable y sin fricción.</p>
@@ -309,7 +362,7 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="mi-rol">
             <span class="eyebrow">Mi rol</span>
             <h2>Integrado, de extremo a extremo</h2>
             <p>Trabajo como Senior Product Designer integrado a tiempo completo en el equipo de IKEA New Business Platform. Eso significa que no consulto desde fuera — estoy dentro del equipo de producto, junto a product owners, service designers, ingenieros, content designers y business developers.</p>
@@ -370,7 +423,7 @@
             <figcaption>El diseño integrado significa estar presente en cada etapa — desde sesiones de investigación en tiendas IKEA hasta decisiones de producto en las revisiones de sprint.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="enfoque">
             <span class="eyebrow">Enfoque</span>
             <h2>Investigación primero, iteración siempre</h2>
             <p>Realizamos sesiones de investigación con usuarios dentro de tiendas IKEA — reclutando participantes in situ y probando flujos en contexto, con la app funcionando en dispositivos reales. Esto nos dio señal más rápida que las pruebas remotas y fue consistente con el canal de descubrimiento natural del producto.</p>
@@ -396,7 +449,7 @@
             <figcaption class="shot-caption"><b>El momento de la reserva.</b> El acceso IKEA Family como primer paso vincula la solicitud al ecosistema, un estado de carga cuidado mantiene orientado al usuario, y una confirmación que fija expectativas con claridad cierra el círculo.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="resultados">
             <span class="eyebrow">Resultados</span>
             <h2>Adopción sólida desde el lanzamiento</h2>
             <div class="stats-grid reveal" style="margin: var(--sp-8) 0;">
@@ -408,12 +461,31 @@
             <p>Estas son cifras publicadas por Ingka Group. El producto se lanzó en Madrid en septiembre de 2024 y desde entonces se ha expandido a siete regiones españolas a mayo de 2026, con crecimiento continuo en curso.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="aprendizajes">
             <span class="eyebrow">Aprendizajes</span>
             <h2>Lo que enseña construir dentro de una gran marca</h2>
             <p>Trabajar integrado en el equipo de IKEA ha reforzado algo en lo que he llegado a creer: el trabajo de diseño rara vez es la parte más difícil. La parte más difícil es mantener una dirección de diseño coherente mientras las prioridades de los stakeholders cambian, el roadmap evoluciona y los miembros del equipo rotan. La respuesta no es luchar contra la inestabilidad — es construir sistemas que la absorban.</p>
             <p>La experiencia también afiló mi pensamiento sobre lo que realmente requiere la "confianza del usuario" en un marketplace: no es solo el pulido visual o un onboarding fluido. Es el resultado acumulado de decenas de pequeñas decisiones — cómo presentas las credenciales de un profesional, cómo gestionas una reserva que sale mal, cómo redactas la solicitud de reseña. Todas son decisiones de diseño, las traten como tales o no.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#contexto"><span class="cs-nav-num">01</span>Contexto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-reto"><span class="cs-nav-num">02</span>El reto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#mi-rol"><span class="cs-nav-num">03</span>Mi rol</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#enfoque"><span class="cs-nav-num">04</span>Enfoque</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#resultados"><span class="cs-nav-num">05</span>Resultados</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#aprendizajes"><span class="cs-nav-num">06</span>Aprendizajes</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -477,6 +549,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

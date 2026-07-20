@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/mapfre-afin-digital-expansion/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -68,16 +68,41 @@
     .comp-browser-screen img { display: block; width: 100%; }
     .comp-phones { display: flex; gap: 14px; align-items: flex-start; flex-shrink: 0; position: relative; z-index: 1; }
     .comp-phone {
-      width: 148px; border: 1px solid var(--border-strong); border-radius: 24px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6); flex-shrink: 0;
+      width: 148px;
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 16px 48px -16px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 48px -16px rgba(0, 0, 0, 0.2);
     }
     .comp-phone img { display: block; width: 100%; border-radius: 19px; }
     .comp-phone:nth-child(2) { margin-top: 40px; }
     .shot-phone {
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; border-radius: 21px; }
     .media-card {
@@ -165,9 +190,9 @@
           <span class="eyebrow">Product Design · FinTech · Mobile &amp; Web</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Self-service finance,<br>
-          <em class="accent-italic">designed for trust.</em>
+        <h1 class="cs-hero-title" aria-label="Self-service finance, designed for trust.">
+          <span class="v4-mask"><span class="v4-line">Self-service finance,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">designed for trust.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -175,7 +200,6 @@
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">Mobile &amp; Web</span>
           <span class="tag">FinTech</span>
           <span class="tag">2022 — 2023</span>
@@ -183,6 +207,9 @@
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -210,7 +237,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="Mapfre AFIN financial app — future simulation dashboard on desktop, with mobile views of the advisory entry point and signed proposal confirmation">
             <div class="comp-browser">
               <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">afin.mapfre.es — simulación a futuro</span></div>
@@ -227,14 +258,14 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>A self-service financial app at a complex intersection</h2>
             <p>AFIN is Mapfre's self-service financial app for individual customers — covering savings products, investment portfolios, and pension plans. The product sits at an intersection that's rare in financial services: it needs to feel simple enough for customers who aren't financially sophisticated, while being trustworthy enough for customers making long-term financial decisions.</p>
             <p>That tension — between simplicity and completeness — is the central design challenge in financial app UX. Simplifying too aggressively hides information customers need. Presenting everything overwhelms the customer who came for a quick status check. The design work was the navigation of that tension at every level of the product.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-challenge">
             <span class="eyebrow">The challenge</span>
             <h2>Adding a Financial Advisor — without breaking trust</h2>
             <p>The primary objective of the engagement was introducing a Financial Advisor feature: a personalised guidance system generating product recommendations based on each user's risk profile and financial goals. Meaningful new capability — and a correspondingly complex design problem.</p>
@@ -309,7 +340,7 @@
             <figcaption>Four layers, three product types. The default view loads fast with what most users need most of the time. Every additional layer — detail, then action — is one deliberate tap deeper. Complexity on demand, not by default.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Progressive disclosure, not progressive complexity</h2>
             <p>The engagement opened with a discovery phase: customer journey mapping across multiple user entry points to understand how different users moved through the app — what they came for, where they dropped off, and where the information architecture was creating unnecessary friction. That research shaped the layered model the redesign was built around.</p>
@@ -367,7 +398,7 @@
             <figcaption>Four layers, three product types. The default view loads what most users need most of the time. Each additional layer — detail, then action — is one deliberate tap deeper. Complexity on demand, not by default.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-financial-advisor">
             <span class="eyebrow">The Financial Advisor</span>
             <h2>Personalised guidance, with visible reasoning</h2>
             <p>The advisory feature required designing a data collection flow that users would willingly complete. Asking someone about their financial risk tolerance and long-term goals is sensitive — the design had to communicate clearly why the information was being collected and how it would be used, without burying that context in legal language. Each question was framed in plain terms with transparent purpose.</p>
@@ -445,20 +476,39 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="design-operations">
             <span class="eyebrow">Design operations</span>
             <h2>Migration, coordination, and handoff</h2>
             <p>The engagement included a significant design operations challenge from the outset: the app had an extensive screen library and complete design system built in Sketch, requiring full migration to Figma while active feature development continued in parallel. I planned and led that migration — defining the structure, phases, and effort estimates — ensuring no disruption to ongoing product work throughout.</p>
             <p>Coordination with Capgemini, the development partner, was a constant throughout: disciplined handoff and regular multi-team alignment were essential across design, client, and engineering teams operating under different organisational structures. The multi-device scope — desktop, tablet, and mobile — added a further layer of specification and handoff complexity to every delivery.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="learnings">
             <span class="eyebrow">Learnings</span>
             <h2>What financial UX teaches you about trust</h2>
             <p>Financial products make the stakes of UX decisions visible in a way that consumer apps often don't. A confusing navigation pattern on a streaming service costs a user a few seconds. A confusing navigation pattern on an investment account can contribute to a decision made without sufficient information — with real financial consequences.</p>
             <p>That reality focuses design decisions. It also requires a working relationship with compliance and legal that's genuine, not adversarial. The best financial UX I've seen comes from teams where design and legal have learned to speak each other's language — where legal understands why a particular piece of required disclosure doesn't have to be placed in the most disruptive position on the page, and design understands why the disclosure can't be eliminated.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Specific performance data for this engagement is subject to NDA.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-challenge"><span class="cs-nav-num">02</span>The challenge</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">03</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-financial-advisor"><span class="cs-nav-num">04</span>The Financial Advisor</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#design-operations"><span class="cs-nav-num">05</span>Design operations</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#learnings"><span class="cs-nav-num">06</span>Learnings</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -523,6 +573,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

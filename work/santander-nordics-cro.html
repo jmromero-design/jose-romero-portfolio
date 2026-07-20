@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/santander-nordics-cro/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,9 +49,20 @@
     }
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 60px -20px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
@@ -129,9 +140,9 @@
           <span class="eyebrow">CRO · Banking · Multi-market</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Data-driven optimisation<br>
-          <em class="accent-italic">across four markets.</em>
+        <h1 class="cs-hero-title" aria-label="Data-driven optimisation across four markets.">
+          <span class="v4-mask"><span class="v4-line">Data-driven optimisation</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">across four markets.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -139,14 +150,15 @@
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">CRO</span>
           <span class="tag">Banking</span>
-          <span class="tag">2022 — 2025</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -174,7 +186,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="Santander Nordics CRO — mobile funnel and insurance experiment screens">
             <div class="comp-phone comp-phone--left">
               <img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1533" alt="" loading="eager" decoding="async">
@@ -191,21 +207,21 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>CRO inside a regulated banking environment</h2>
             <p>Santander Consumer Finance operates consumer lending across multiple European markets. In the Nordics — Denmark, Sweden, Finland, and Norway — they offer consumer loans, credit cards, deposit products, and car financing through dedicated digital funnels, each localised to its market.</p>
             <p>The CRO programme at Flat 101 was an ongoing retainer engagement: continuous hypothesis generation, experiment design, test execution, and results analysis. My role was lead UX/CRO designer — responsible for the design side of the experimentation process, working alongside analysts, developers, and Santander's in-market digital teams.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-challenge">
             <span class="eyebrow">The challenge</span>
             <h2>Precision in a constrained environment</h2>
             <p>Banking is one of the most regulated digital environments you can work in. Every change to a funnel page goes through legal review. Certain UI patterns — urgency messaging, social proof, framing — require explicit sign-off. The scope for experimentation is narrower than in e-commerce, and the cost of a false result is higher.</p>
             <p>Multi-market also means multi-constraint. What's legally permissible in Denmark may be restricted in Norway. What resonates with Swedish users may not land the same way in Finland. Localisation isn't just language — it's regulatory, cultural, and contextual.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Hypothesis-first, data-rigorous</h2>
             <p>Every experiment began with a structured hypothesis: a specific behaviour we observed or predicted, a proposed intervention, a measurable outcome, and a defined significance threshold. This discipline keeps experimentation honest — and in a regulated environment, it also provides the paper trail required for stakeholder sign-off.</p>
@@ -332,13 +348,30 @@
           </div>
           <p class="media-caption reveal"><b>Insurance add-on nudge</b> — Behavioral nudge applied at the insurance decision point in the loan funnel. Timing and framing derived from anxiety-reduction and commitment heuristics.</p>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="learnings">
             <span class="eyebrow">Learnings</span>
             <h2>What multi-market CRO teaches you about design</h2>
             <p>Working across four markets simultaneously sharpens your understanding of what's universal and what's contextual in design. Some friction points appear consistently regardless of market: long form fields without inline validation, ambiguous progress indicators, unclear error messages. Others are deeply market-specific.</p>
             <p>CRO work also teaches you to hold your aesthetic preferences loosely. The question isn't whether a design looks good — it's whether it performs. Sometimes those are aligned. Often they're not, and the data is the authority, not intuition.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Specific performance data for this engagement is subject to NDA and has not been published by the client.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-challenge"><span class="cs-nav-num">02</span>The challenge</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">03</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#learnings"><span class="cs-nav-num">04</span>Learnings</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -403,6 +436,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

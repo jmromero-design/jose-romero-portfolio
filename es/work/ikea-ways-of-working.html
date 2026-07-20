@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/ikea-ways-of-working/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/ikea-ways-of-working/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-ways-of-working/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     .cover-wow-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
     .cover-wow-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--gold) 4%,var(--bg-surface));pointer-events:none}
@@ -91,9 +91,9 @@
         <div class="hero-animate">
           <span class="eyebrow">Operaciones de Diseño · Sistemas · Facilitación</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Un proceso diseñado para<br>
-          <em class="accent-italic">sobrevivir a las personas.</em>
+        <h1 class="cs-hero-title" aria-label="Un proceso diseñado para sobrevivir a las personas.">
+          <span class="v4-mask"><span class="v4-line">Un proceso diseñado para</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">sobrevivir a las personas.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de trabajo compartido. Lo construí — un framework cross-tool abarcando Figma, Jira, Confluence y Phrase — desde los principios.
@@ -102,10 +102,12 @@
           <span class="tag tag--gold">IKEA · Actual</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
           <span class="tag">Operaciones de Diseño</span>
-          <span class="tag">2025 — Presente</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -118,7 +120,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Diseño de Procesos · Documentación · Arquitectura de Herramientas · Diseño de Flujos IA · Facilitación</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-wow-comp" role="img" aria-label="IKEA Ways of Working — arquitectura del sistema y framework de decisión Skapa-First">
             <div class="cover-wow-col primary">
               <div class="comp-board">
@@ -142,7 +148,7 @@
         <div class="container--narrow" style="margin: 0 auto;">
 
           <!-- EL PROBLEMA -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-problema">
             <span class="eyebrow">El problema</span>
             <h2>Ocho puntos de fallo, no uno</h2>
             <p>Cuando me uní al equipo, el proceso de trabajo existía — pero solo en la cabeza de las personas. Los archivos estaban distribuidos por Figma, Confluence y unidades locales sin estructura consistente. La jerarquía del trabajo — qué iba en Figma, qué en Confluence, qué en Jira — era poco clara y se aplicaba de forma inconsistente.</p>
@@ -221,7 +227,7 @@
           </figure>
 
           <!-- ENFOQUE -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="enfoque">
             <span class="eyebrow">Enfoque</span>
             <h2>Principios primero, herramientas después</h2>
             <p>El primer paso fue hacer legible el estado existente. Mapear lo que estaba ocurriendo realmente — no el ideal, no lo que la gente creía que pasaba — reveló que los problemas eran estructurales, no de comportamiento. Las personas no eran descuidadas; el sistema no tenía reglas claras sobre quién era responsable de qué en cada etapa.</p>
@@ -236,7 +242,7 @@
           </div>
 
           <!-- EL FRAMEWORK -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-framework">
             <span class="eyebrow">El framework</span>
             <h2>Cuatro herramientas, una columna vertebral</h2>
             <p>El framework asigna un rol único y no solapado a cada una de las cuatro herramientas principales. La regla es lo suficientemente simple como para retenerla en la memoria sin documentación:</p>
@@ -306,7 +312,7 @@
           </figure>
 
           <!-- EL FLUJO DE CONTENIDO -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-flujo-de-contenido">
             <span class="eyebrow">El flujo de contenido</span>
             <h2>Cinco fases. Dos responsables.</h2>
             <p>Junto al framework de herramientas, el equipo necesitaba un flujo claro para cómo el trabajo de diseño — especialmente el contenido y las traducciones — avanzaba por el ciclo de producción. El proceso existente no tenía fases definidas, ni transferencias de responsabilidad explícitas, ni ningún punto en el que las traducciones pudieran verificarse antes de llegar a los usuarios.</p>
@@ -417,7 +423,7 @@
           </figure>
 
           <!-- MARCO DE TRABAJO EN FIGMA -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="marco-de-trabajo-en-figma">
             <span class="eyebrow">Marco de trabajo en Figma</span>
             <h2>Decisiones de componentes, no caos de componentes.</h2>
             <p>La estructura de archivos y las convenciones de nombres resuelven el problema de organización. La gobernanza de componentes resuelve otro distinto: cuándo usar lo que ya existe, cuándo adaptarlo y cuándo proponer algo nuevo.</p>
@@ -430,7 +436,7 @@
           </figure>
 
           <!-- OPTIMIZACIÓN DE PHRASE -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="optimizacion-de-phrase">
             <span class="eyebrow">Optimización de Phrase</span>
             <h2>De no verificable a comprobable</h2>
             <p>El flujo de traducción era el punto de fallo más agudo. En el estado existente, las claves de localización se creaban tarde en el ciclo — típicamente por ingeniería, no por diseño — lo que comprimía la ventana de traducción, forzaba que la localización ocurriera en paralelo con el desarrollo en lugar de antes, y dejaba al QA sin ningún mecanismo para verificar la calidad del idioma antes del release. Los errores de traducción los encontraban los usuarios finales, no el equipo.</p>
@@ -444,7 +450,7 @@
           </div>
 
           <!-- DISEÑO DE FLUJOS IA -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="diseno-de-flujos-ia">
             <span class="eyebrow">Diseño de flujos IA</span>
             <h2>Cuando el proceso es sólido, puedes diseñar lo que viene después.</h2>
             <p>Resolver los fallos estructurales era necesario. Pero también abrió una pregunta diferente: ahora que los handoffs y la responsabilidad eran explícitos y estaban documentados, ¿qué partes del flujo de diseño podían reestructurarse de forma fundamental — no solo mejorarse — usando IA?</p>
@@ -468,7 +474,7 @@
           </div>
 
           <!-- RESULTADO -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="resultado">
             <span class="eyebrow">Resultado</span>
             <h2>Adopción imperfecta. La estructura se mantuvo.</h2>
             <p>El framework se adoptó — de forma imperfecta. Algunos hábitos llevan tiempo. Algunos miembros del equipo se adaptaron más rápido que otros. Hay rincones del proceso que todavía se negocian informalmente.</p>
@@ -476,6 +482,27 @@
             <p>El cambio en el flujo de traducción tuvo el efecto más inmediato: el QA pudo verificar la calidad del idioma antes del release por primera vez. El ciclo de retroalimentación pasó de "un usuario reporta un error de traducción" a "el QA lo detecta en pre-producción".</p>
             <p>He llegado a pensar que la adopción imperfecta de un sistema bien estructurado es la condición de éxito real — no el cumplimiento perfecto. Un proceso que sobrevive es más valioso que un proceso que era teóricamente perfecto pero requería el mantenimiento constante de una persona específica para funcionar.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-problema"><span class="cs-nav-num">01</span>El problema</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#enfoque"><span class="cs-nav-num">02</span>Enfoque</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-framework"><span class="cs-nav-num">03</span>El framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-flujo-de-contenido"><span class="cs-nav-num">04</span>El flujo de contenido</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#marco-de-trabajo-en-figma"><span class="cs-nav-num">05</span>Marco de trabajo en Figma</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#optimizacion-de-phrase"><span class="cs-nav-num">06</span>Optimización de Phrase</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#diseno-de-flujos-ia"><span class="cs-nav-num">07</span>Diseño de flujos IA</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#resultado"><span class="cs-nav-num">08</span>Resultado</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -539,6 +566,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

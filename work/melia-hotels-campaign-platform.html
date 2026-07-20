@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/melia-hotels-campaign-platform/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -86,9 +86,9 @@
           <span class="eyebrow">Product Design · Web Application · Hospitality</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          A platform built from zero,<br>
-          <em class="accent-italic">live in twelve months.</em>
+        <h1 class="cs-hero-title" aria-label="A platform built from zero, live in twelve months.">
+          <span class="v4-mask"><span class="v4-line">A platform built from zero,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">live in twelve months.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -96,14 +96,15 @@
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">Product Design</span>
           <span class="tag">Hospitality</span>
-          <span class="tag">2022 — 2025</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -131,7 +132,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-melia-plat" role="img" aria-label="Campaign Hub — media plan budget screen and module overview">
             <div class="cover-melia-col primary">
               <div class="comp-browser">
@@ -154,14 +159,14 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>A large hospitality group with a coordination problem</h2>
             <p>Meliá Hotels International is one of Europe's largest hotel groups, with properties across more than 40 countries and a complex international marketing structure. Managing campaign activity across brands, markets, and departments relied on a combination of email threads, spreadsheets, and manual coordination — a system that worked until the volume of concurrent campaigns made it fragile.</p>
             <p>The brief was to design an internal platform that gave Meliá's marketing teams a single place to create, review, approve, schedule, and track campaigns across their global portfolio. This was a zero-to-one product problem: nothing existed, and the requirements had to be discovered, not specified.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="discovery">
             <span class="eyebrow">Discovery</span>
             <h2>Director-level workshops, across departments</h2>
             <p>The engagement began with a structured discovery phase: multi-hour workshops with senior directors from multiple international departments at Meliá's headquarters. These weren't standard stakeholder interviews — they were working sessions designed to surface the mental models and workflow assumptions of people who had been managing campaigns manually for years.</p>
@@ -243,7 +248,7 @@
           </div>
           <p class="media-caption"><b>Minimum times framework.</b> A strategic artefact I built from scratch based on deep knowledge of the campaign process — mapping the minimum lead time required per phase and development module. This became the architectural backbone every campaign setup was validated against.</p>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="design-delivery">
             <span class="eyebrow">Design &amp; delivery</span>
             <h2>Live in a year — refined over three</h2>
             <p>The platform went from first workshop to live in under twelve months — a timeline that required moving fast from discovery through architecture to a functioning product. The engagement then ran for a further two years of ongoing refinement and improvement, with the platform continuing to evolve even after my involvement ended. My role throughout was lead product designer — responsible for the UX architecture, interaction design, design system consistency, and the ongoing working relationship with Meliá's internal teams.</p>
@@ -256,12 +261,29 @@
           </div>
           <p class="media-caption"><b>User permissions matrix.</b> One of two reference documents I designed to specify access logic across 8 roles and 15 platform sections — used directly by engineers as the source of truth for backend permission configuration and frontend conditional rendering.</p>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="outcome">
             <span class="eyebrow">Outcome</span>
             <h2>Live across all Meliá markets</h2>
             <p>The platform launched and is in active use across Meliá's international operations, managing live campaigns across all of the group's markets. It replaced the fragmented spreadsheet-and-email system that preceded it.</p>
             <p>Specific performance metrics for this engagement are commercially sensitive. What I can say: a product that started as a blank brief, discovered through workshops, launched in under a year, and refined across three — is being used, at scale, by the teams it was designed for. That's the outcome.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#discovery"><span class="cs-nav-num">02</span>Discovery</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#design-delivery"><span class="cs-nav-num">03</span>Design &amp; delivery</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcome"><span class="cs-nav-num">04</span>Outcome</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -326,6 +348,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

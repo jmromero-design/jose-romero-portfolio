@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/mapfre-afin-digital-expansion/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -78,16 +78,41 @@
     .comp-browser-screen img { display: block; width: 100%; }
     .comp-phones { display: flex; gap: 14px; align-items: flex-start; flex-shrink: 0; position: relative; z-index: 1; }
     .comp-phone {
-      width: 148px; border: 1px solid var(--border-strong); border-radius: 24px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6); flex-shrink: 0;
+      width: 148px;
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 16px 48px -16px rgba(0, 0, 0, 0.6);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 48px -16px rgba(0, 0, 0, 0.2);
     }
     .comp-phone img { display: block; width: 100%; border-radius: 19px; }
     .comp-phone:nth-child(2) { margin-top: 40px; }
     .shot-phone {
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; border-radius: 21px; }
     .media-card {
@@ -171,21 +196,23 @@
         <div class="hero-animate">
           <span class="eyebrow">Diseño de Producto · FinTech · Móvil y Web</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Finanzas de autoservicio,<br>
-          <em class="accent-italic">diseñadas para la confianza.</em>
+        <h1 class="cs-hero-title" aria-label="Finanzas de autoservicio, diseñadas para la confianza.">
+          <span class="v4-mask"><span class="v4-line">Finanzas de autoservicio,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">diseñadas para la confianza.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Diseñador UX líder para AFIN — la app de gestión financiera de autoservicio de Mapfre, que cubre inversiones, ahorros y planes de pensiones — desde la arquitectura de información de divulgación progresiva hasta una nueva funcionalidad de Asesor Financiero construida sobre orientación personalizada, recolección transparente de datos y autonomía del usuario.
         </p>
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">Móvil y Web</span>
           <span class="tag">FinTech</span>
           <span class="tag">2022 — 2023</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -198,7 +225,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Alcance</span><span class="cs-detail-value">Diseño de Producto · Móvil y Web · FinTech</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="App financiera AFIN de Mapfre — simulación a futuro de inversión en escritorio, con vistas móviles del inicio del asesoramiento y la propuesta firmada">
             <div class="comp-browser">
               <div class="comp-browser-bar"><i></i><i></i><i></i><span class="comp-browser-url">afin.mapfre.es — simulación a futuro</span></div>
@@ -215,21 +246,21 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="contexto">
             <span class="eyebrow">Contexto</span>
             <h2>Una app financiera de autoservicio en una intersección compleja</h2>
             <p>AFIN es la app de autoservicio financiero de Mapfre para clientes individuales — que cubre productos de ahorro, carteras de inversión y planes de pensiones. El producto se sitúa en una intersección poco habitual en los servicios financieros: necesita sentirse lo suficientemente simple para clientes que no son expertos financieros, mientras es lo suficientemente confiable para clientes que toman decisiones financieras a largo plazo.</p>
             <p>Esa tensión — entre simplicidad y completitud — es el reto de diseño central en el UX de apps financieras. Simplificar demasiado agresivamente oculta información que los clientes necesitan. Presentar todo abruma al cliente que vino para una consulta rápida. El trabajo de diseño fue la navegación de esa tensión en cada nivel del producto.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-reto">
             <span class="eyebrow">El reto</span>
             <h2>Añadir un Asesor Financiero — sin romper la confianza</h2>
             <p>El objetivo principal del encargo fue introducir una funcionalidad de Asesor Financiero: un sistema de orientación personalizada que generara recomendaciones de productos basadas en el perfil de riesgo y los objetivos financieros de cada usuario. Una capacidad significativamente nueva — y un problema de diseño correspondientemente complejo.</p>
             <p>Tres tensiones configuraron el trabajo. Primera: integrar una nueva funcionalidad importante en la arquitectura existente sin disrumpir la coherencia de una app que ya tenía su propio modelo de información. Segunda: diseñar una recolección de datos en la que los usuarios confiaran realmente — preguntar sobre situación financiera, apetito de riesgo y objetivos a largo plazo requiere un nivel de transparencia que la mayoría de las apps financieras no alcanzan. Tercera: equilibrar la orientación automatizada con la autonomía del usuario — un motor de recomendaciones que parece una herramienta de ventas destruye la confianza más rápido que no tener ninguna recomendación. Cada producto sugerido necesitaba mostrar su razonamiento.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="enfoque">
             <span class="eyebrow">Enfoque</span>
             <h2>Divulgación progresiva, no complejidad progresiva</h2>
             <p>El encargo comenzó con una fase de descubrimiento: mapeo del viaje del cliente a través de múltiples puntos de entrada para entender cómo distintos tipos de usuarios navegaban la app — qué buscaban, dónde abandonaban y dónde la arquitectura de información estaba generando fricción innecesaria. Esa investigación configuró el modelo por capas sobre el que se construyó el rediseño.</p>
@@ -271,7 +302,7 @@
             <figcaption>Cuatro capas, tres tipos de producto. La vista por defecto carga lo que la mayoría necesita la mayor parte del tiempo. Cada capa adicional — detalle, luego acción — requiere un toque deliberado más. Complejidad bajo demanda, no por defecto.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-asesor-financiero">
             <span class="eyebrow">El Asesor Financiero</span>
             <h2>Orientación personalizada, con razonamiento visible</h2>
             <p>La funcionalidad requería diseñar un flujo de recolección de datos que los usuarios estuvieran dispuestos a completar. Preguntar a alguien sobre su tolerancia al riesgo financiero y sus objetivos a largo plazo es delicado — el diseño tenía que comunicar con claridad por qué se recopilaba la información y cómo se utilizaría, sin enterrar ese contexto en lenguaje legal. Cada pregunta se planteó en términos simples con un propósito transparente.</p>
@@ -327,20 +358,39 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="operaciones-de-diseno">
             <span class="eyebrow">Operaciones de diseño</span>
             <h2>Migración, coordinación y entrega</h2>
             <p>El encargo incluyó también un reto importante de operaciones de diseño desde el inicio: la app contaba con una extensa biblioteca de pantallas y un sistema de diseño completo construido en Sketch, que requería una migración completa a Figma mientras el desarrollo de funcionalidades continuaba en paralelo. Planifiqué y lideré esa migración — definiendo la estructura, las fases y los estimados de esfuerzo — garantizando la continuidad del trabajo de producto durante todo el proceso.</p>
             <p>La coordinación con Capgemini, el partner de desarrollo, fue una constante durante todo el encargo: procesos de handoff disciplinados y alineación regular entre equipos eran esenciales en un entorno donde diseño, cliente e ingeniería operaban bajo estructuras organizativas distintas. El alcance multidispositivo — escritorio, tablet y móvil — añadió una capa adicional de complejidad en las especificaciones y el proceso de entrega.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="aprendizajes">
             <span class="eyebrow">Aprendizajes</span>
             <h2>Lo que el UX financiero enseña sobre la confianza</h2>
             <p>Los productos financieros hacen visibles las apuestas de las decisiones de UX de un modo que las apps de consumo a menudo no hacen. Un patrón de navegación confuso en un servicio de streaming le cuesta al usuario unos segundos. Un patrón de navegación confuso en una cuenta de inversión puede contribuir a una decisión tomada sin información suficiente — con consecuencias financieras reales.</p>
             <p>Esa realidad enfoca las decisiones de diseño. También requiere una relación de trabajo con compliance y legal que sea genuina, no adversarial. El mejor UX financiero que he visto viene de equipos donde diseño y legal han aprendido a hablar el mismo idioma — donde legal entiende por qué una pieza de información requerida no tiene que estar en la posición más disruptiva de la página, y diseño entiende por qué la información no se puede eliminar.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Los datos de rendimiento específicos de este encargo están sujetos a NDA.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#contexto"><span class="cs-nav-num">01</span>Contexto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-reto"><span class="cs-nav-num">02</span>El reto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#enfoque"><span class="cs-nav-num">03</span>Enfoque</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-asesor-financiero"><span class="cs-nav-num">04</span>El Asesor Financiero</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#operaciones-de-diseno"><span class="cs-nav-num">05</span>Operaciones de diseño</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#aprendizajes"><span class="cs-nav-num">06</span>Aprendizajes</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -404,6 +454,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

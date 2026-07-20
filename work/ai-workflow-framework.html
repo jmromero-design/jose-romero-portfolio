@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/ai-workflow-framework/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     .cover-ai-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
     .cover-ai-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
@@ -90,9 +90,9 @@
           <span class="eyebrow">AI Workflow Design · Process Architecture · Facilitation</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Designing the AI layer,<br>
-          <em class="accent-italic">not just using it.</em>
+        <h1 class="cs-hero-title" aria-label="Designing the AI layer, not just using it.">
+          <span class="v4-mask"><span class="v4-line">Designing the AI layer,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">not just using it.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -103,11 +103,13 @@
           <span class="tag tag--gold">IKEA · Current</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
           <span class="tag">AI Workflow Design</span>
-          <span class="tag">2025 — Present</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -135,7 +137,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-ai-comp" role="img" aria-label="AI Workflow Design Framework — five-phase workflow table and multi-agent orchestration diagram">
             <div class="cover-ai-col primary">
               <div class="comp-board">
@@ -159,7 +165,7 @@
         <div class="container--narrow" style="margin: 0 auto;">
 
           <!-- THE PROBLEM -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-problem">
             <span class="eyebrow">The problem</span>
             <h2>The wrong question was everywhere</h2>
             <p>The dominant question in design teams exploring AI was "which tool should we use?" The answer was almost always a product recommendation — a specific assistant, a specific plugin, a specific integration. Teams would adopt it, use it for a few weeks, and find that the outputs were inconsistent, the process was murkier than before, and nobody could explain why a particular output was good or bad.</p>
@@ -167,7 +173,7 @@
           </div>
 
           <!-- THE INSIGHT -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-insight">
             <span class="eyebrow">The insight</span>
             <h2>AI is a process layer, not a feature</h2>
             <p>The reframe that made this project possible: treat AI the same way you'd treat any other design systems problem. Define the inputs. Define the outputs. Define the handoffs. Define who decides what and when.</p>
@@ -175,7 +181,7 @@
           </div>
 
           <!-- THE FRAMEWORK -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-framework">
             <span class="eyebrow">The framework</span>
             <h2>Three tiers. Five phases. Human gates throughout.</h2>
             <p>The framework organises AI-assisted design work into a three-tier agent hierarchy operating across five defined phases. Each tier has explicit scope, defined inputs and outputs, and clear escalation paths to human decision-makers.</p>
@@ -264,7 +270,7 @@
           </figure>
 
           <!-- APPLIED -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="applied">
             <span class="eyebrow">Applied</span>
             <h2>Two threads from the same structure</h2>
             <p>The framework wasn't built in the abstract. It emerged from two parallel workstreams inside an enterprise design team, both of which exposed the same underlying problem: AI without process produces work nobody can own.</p>
@@ -394,7 +400,7 @@
           </figure>
 
           <!-- WHAT THIS REQUIRES -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="what-this-requires">
             <span class="eyebrow">What this requires</span>
             <h2>AI raises the bar for human judgment — it doesn't lower it</h2>
             <p>The most common misconception about AI-augmented workflows is that they simplify the designer's role. They don't. The role shifts from producing to directing, evaluating, and integrating. That shift requires skills that aren't traditionally part of design education:</p>
@@ -464,7 +470,7 @@
           </figure>
 
           <!-- OUTCOME -->
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="outcome">
             <span class="eyebrow">Outcome</span>
             <h2>A framework that separates process from tooling</h2>
             <p>The most durable result of this work is a process architecture that is independent of any specific AI tool or platform. Because the framework defines phases, agent roles, checkpoints, and context management protocols at the process level — not the implementation level — it survives tool migrations, platform changes, and team turnover.</p>
@@ -480,6 +486,25 @@
               Read the full framework — 18 min <span style="font-family: var(--font-display);">→</span>
             </a>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-problem"><span class="cs-nav-num">01</span>The problem</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-insight"><span class="cs-nav-num">02</span>The insight</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-framework"><span class="cs-nav-num">03</span>The framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#applied"><span class="cs-nav-num">04</span>Applied</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#what-this-requires"><span class="cs-nav-num">05</span>What this requires</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcome"><span class="cs-nav-num">06</span>Outcome</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -543,7 +568,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11"></script>
+  <script src="/assets/js/main.js?v=12"></script>
 
 </body>
 </html>

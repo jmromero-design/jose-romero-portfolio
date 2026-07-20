@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/ikea-secondhand-marketplace/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -49,9 +49,20 @@
     }
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 60px -20px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
@@ -64,9 +75,21 @@
     }
     .shot-phone {
       width: 188px;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
     /* Desktop sell modal */
@@ -118,9 +141,9 @@
           <span class="eyebrow">Product Design · Marketplace · Circular Commerce</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          IKEA&#8209;native resale,<br>
-          <em class="accent-italic">at European scale.</em>
+        <h1 class="cs-hero-title" aria-label="IKEA-native resale, at European scale.">
+          <span class="v4-mask"><span class="v4-line">IKEA&#8209;native resale,</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">at European scale.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -130,12 +153,14 @@
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
           <span class="tag tag--gold">IKEA · Current</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
-          <span class="tag">2025 — Present</span>
           <span class="tag">Circular Commerce</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -163,7 +188,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="IKEA Second-hand Marketplace — browse, product detail, and checkout screens">
             <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-product-page.webp" width="620" height="1345" alt="" loading="eager"></div>
             <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-secondhand-marketplace/sh-homepage.webp" width="620" height="1338" alt="" loading="eager"></div>
@@ -173,7 +202,7 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>Circular commerce built on IKEA's own catalogue</h2>
             <p>IKEA's sustainability commitments require more than recycling materials — they require rethinking the lifetime of the product. A second-hand marketplace solves that problem commercially: it keeps IKEA products in circulation, creates value for sellers, and lowers the barrier to buying IKEA for price-conscious buyers.</p>
@@ -312,7 +341,7 @@
             <figcaption>IKEA's product catalogue acts as the structural backbone — removing listing friction for sellers while delivering verified product identity and secure payment to buyers.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="the-challenge">
             <span class="eyebrow">The challenge</span>
             <h2>Scaling a pilot across markets</h2>
             <p>The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services on the same team. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five — with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.</p>
@@ -403,14 +432,14 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="my-role">
             <span class="eyebrow">My role</span>
             <h2>Product design across the full lifecycle</h2>
             <p>I contribute to the Second-hand Marketplace alongside my work on IKEA Home Services — both products operate within the same IKEA New Business Platform team. My role spans product design, cross-functional collaboration, and contribution to the shared design operations framework that supports both products.</p>
             <p>As the platform has matured and scaled, the nature of the work has shifted from defining new flows to refining and extending a system that needs to remain coherent across markets and team changes.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Modular by design</h2>
             <p>Working on two marketplace products simultaneously has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture — these were developed with cross-product consistency in mind.</p>
@@ -421,11 +450,29 @@
             <img src="/assets/images/work/ikea-secondhand-marketplace/sh-sell-modal.webp" width="1200" height="678" alt="Sell item modal — the first step of creating a listing, where the seller selects the item from the IKEA catalogue" loading="lazy">
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="status">
             <span class="eyebrow">Status</span>
             <h2>Live in five markets, scaling further</h2>
             <p>The platform launched as a pilot in Madrid and Oslo in August 2024. Through 2025 it expanded to Spain, Norway, Portugal, and Poland. Sweden joined in January 2026, bringing the total to five active markets. Ingka Group has committed to continuing EU-wide expansion, with a target of approximately 170,000 listings in 2026. Specific commercial performance figures are not published publicly at this time.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-challenge"><span class="cs-nav-num">02</span>The challenge</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#my-role"><span class="cs-nav-num">03</span>My role</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">04</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#status"><span class="cs-nav-num">05</span>Status</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -490,6 +537,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

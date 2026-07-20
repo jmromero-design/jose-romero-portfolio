@@ -34,7 +34,7 @@
   <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/work/santander-nordics-cro/">
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/work/santander-nordics-cro/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/santander-nordics-cro/">
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -59,9 +59,20 @@
     }
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 24px 60px -20px rgba(0,0,0,0.7);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 24px 60px -20px rgba(0, 0, 0, 0.7);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 60px -20px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
@@ -135,21 +146,22 @@
         <div class="hero-animate">
           <span class="eyebrow">CRO · Banca · Multipaís</span>
         </div>
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Optimización basada en datos<br>
-          <em class="accent-italic">en cuatro mercados.</em>
+        <h1 class="cs-hero-title" aria-label="Optimización basada en datos en cuatro mercados.">
+          <span class="v4-mask"><span class="v4-line">Optimización basada en datos</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">en cuatro mercados.</span></span>
         </h1>
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
           Diseñador líder UX/CRO en un programa continuo de optimización de conversión en funnels de préstamos personales, tarjetas de crédito, depósitos y préstamos de coche en Dinamarca, Suecia, Finlandia y Noruega.
         </p>
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">CRO</span>
           <span class="tag">Banca</span>
-          <span class="tag">2022 — 2025</span>
         </div>
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -162,7 +174,11 @@
           <div class="cs-detail"><span class="cs-detail-label">Mercados</span><span class="cs-detail-value">Dinamarca · Suecia · Finlandia · Noruega</span></div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="Santander Nordics CRO — pantallas del funnel de solicitud y experimentos de seguro">
             <div class="comp-phone comp-phone--left">
               <img src="/assets/images/work/santander-nordics-cro/sn-insurance-original.webp" width="620" height="1533" alt="" loading="eager" decoding="async">
@@ -179,21 +195,21 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="contexto">
             <span class="eyebrow">Contexto</span>
             <h2>CRO dentro de un entorno bancario regulado</h2>
             <p>Santander Consumer Finance opera préstamos al consumo en múltiples mercados europeos. En los países nórdicos — Dinamarca, Suecia, Finlandia y Noruega — ofrecen préstamos personales, tarjetas de crédito, depósitos y financiación de coches a través de funnels digitales dedicados, cada uno localizado para su mercado.</p>
             <p>El programa de CRO en Flat 101 era un encargo de retención continuado: generación continua de hipótesis, diseño de experimentos, ejecución de tests y análisis de resultados. Mi rol era diseñador líder UX/CRO — responsable del lado de diseño del proceso de experimentación, trabajando junto a analistas, desarrolladores y los equipos digitales de Santander en cada mercado.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="el-reto">
             <span class="eyebrow">El reto</span>
             <h2>Precisión en un entorno con restricciones</h2>
             <p>La banca es uno de los entornos digitales más regulados en los que se puede trabajar. Cualquier cambio en una página de funnel pasa por revisión legal. Ciertos patrones de UI — mensajes de urgencia, prueba social, encuadre — requieren aprobación explícita. El margen para experimentar es más estrecho que en e-commerce, y el coste de un resultado falso es mayor.</p>
             <p>Multipaís también significa múltiples restricciones. Lo que es legalmente permisible en Dinamarca puede estar restringido en Noruega. Lo que resuena con usuarios suecos puede no aterrizar igual en Finlandia. La localización no es solo idioma — es regulatoria, cultural y contextual.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="enfoque">
             <span class="eyebrow">Enfoque</span>
             <h2>Hipótesis primero, datos rigurosos</h2>
             <p>Cada experimento comenzaba con una hipótesis estructurada: un comportamiento específico que observamos o predijimos, una intervención propuesta, un resultado medible y un umbral de significación definido. Esta disciplina mantiene la experimentación honesta — y en un entorno regulado, también proporciona el rastro documental requerido para la aprobación de stakeholders.</p>
@@ -278,13 +294,30 @@
           </div>
           <p class="media-caption reveal"><b>Nudge de seguro adicional</b> — Nudge conductual aplicado en el punto de decisión del seguro dentro del funnel de préstamo. El timing y el encuadre se derivaron de heurísticas de reducción de ansiedad y compromiso.</p>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="aprendizajes">
             <span class="eyebrow">Aprendizajes</span>
             <h2>Lo que el CRO multipaís enseña sobre diseño</h2>
             <p>Trabajar en cuatro mercados simultáneamente agudiza tu comprensión de qué es universal y qué es contextual en el diseño. Algunos puntos de fricción aparecen de forma consistente independientemente del mercado: campos de formulario largos sin validación en línea, indicadores de progreso ambiguos, mensajes de error poco claros. Otros son profundamente específicos del mercado.</p>
             <p>El trabajo de CRO también enseña a sostener las preferencias estéticas con suavidad. La pregunta no es si un diseño tiene buen aspecto — es si funciona. A veces coinciden. A menudo no, y los datos son la autoridad, no la intuición.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Los datos de rendimiento específicos de este encargo están sujetos a NDA y no han sido publicados por el cliente.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#contexto"><span class="cs-nav-num">01</span>Contexto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#el-reto"><span class="cs-nav-num">02</span>El reto</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#enfoque"><span class="cs-nav-num">03</span>Enfoque</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#aprendizajes"><span class="cs-nav-num">04</span>Aprendizajes</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
       </div>
@@ -348,6 +381,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

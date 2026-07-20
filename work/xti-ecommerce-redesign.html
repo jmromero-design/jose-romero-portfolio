@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/xti-ecommerce-redesign/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <style>
     /* XTI case study — image treatments */
 
@@ -83,22 +83,42 @@
     }
     .comp-phone {
       width: 148px;
-      border: 1px solid var(--border-strong);
-      border-radius: 24px; padding: 5px;
-      background: var(--bg-surface);
-      box-shadow: 0 16px 48px -16px rgba(0,0,0,0.6);
+      border-radius: 24px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 16px 48px -16px rgba(0, 0, 0, 0.6);
       flex-shrink: 0;
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 48px -16px rgba(0, 0, 0, 0.2);
     }
     .comp-phone img { display: block; width: 100%; border-radius: 19px; }
     .comp-phone:nth-child(2) { margin-top: 40px; }
 
     /* ── Body cards — 3-phone trio ── */
     .shot-phone {
-      border: 1px solid var(--border-strong);
-      border-radius: 26px; padding: 5px;
-      background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55);
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
       flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; border-radius: 21px; }
     .media-card {
@@ -186,9 +206,9 @@
           <span class="eyebrow">E-commerce · UI Design · Fashion</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Brand ambition within<br>
-          <em class="accent-italic">platform constraints.</em>
+        <h1 class="cs-hero-title" aria-label="Brand ambition within platform constraints.">
+          <span class="v4-mask"><span class="v4-line">Brand ambition within</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">platform constraints.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -196,14 +216,15 @@
         </p>
 
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
-          <span class="tag tag--teal">Flat 101</span>
           <span class="tag">E-commerce</span>
           <span class="tag">Fashion</span>
-          <span class="tag">2022 — 2025</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -231,7 +252,11 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
           <div class="cover-comp" role="img" aria-label="XTI Store redesign — product listing page on desktop, with mobile views of the listing and product detail pages">
             <div class="comp-browser">
               <div class="comp-browser-bar">
@@ -270,14 +295,14 @@
 
         <div class="container--narrow" style="margin: 0 auto;">
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="context">
             <span class="eyebrow">Context</span>
             <h2>A national fashion retailer migrating platforms</h2>
             <p>XTI is a Spanish footwear and fashion brand with a national retail presence and a significant direct-to-consumer digital operation. The redesign was scoped to coincide with a platform migration to Magento — which meant the design work had to operate within the constraints of what Magento could deliver, not an ideal technical canvas.</p>
             <p>This is a common and underappreciated challenge in e-commerce design: the platform you're building on is not neutral. Its component model, its URL structure, its filtering logic — these shape what's possible in the UX before a single design decision is made. Understanding those constraints upfront is essential to delivering something that can actually be built.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="research-discovery">
             <span class="eyebrow">Research &amp; discovery</span>
             <h2>Behavioral data first</h2>
             <p>The discovery phase used Hotjar session recordings, heatmaps, and funnel analytics from the existing site — alongside a structured competitive analysis studying how fashion category leaders like Zara and Adidas handled navigation, filtering, and product presentation. The goal was to understand where XTI's existing experience was losing users and why, before proposing any changes.</p>
@@ -371,7 +396,7 @@
             <figcaption>Constraints mapped first. Research inputs are filtered through the platform constraint — the design brief becomes: what is the best possible UX within what can actually be built?</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="design">
             <span class="eyebrow">Design</span>
             <h2>Balancing brand and conversion</h2>
             <p>Fashion e-commerce design involves a tension that doesn't exist in the same way in other sectors: the brand wants editorial presence, visual impact, and a sense of aspiration. The conversion case argues for clarity, prominent product imagery, and frictionless purchase paths. The best fashion e-commerce experiences hold both — but it requires deliberate choices about where brand expression earns its space and where it defers to function.</p>
@@ -468,13 +493,30 @@
             <figcaption>The redesign concentrated effort on the highest drop-off stages — product listing and product detail. Brand expression earns its space at the top of the funnel; conversion mechanics take over from the listing page down.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="learnings">
             <span class="eyebrow">Learnings</span>
             <h2>Platform constraints are a design brief, not an obstacle</h2>
             <p>The experience of designing within a specific platform constraint — knowing what's possible and what isn't before starting — is valuable in a way that isn't obvious until you've done it. It eliminates a large category of wasted design work: the elegant solution that can't be built, the interaction pattern that the platform doesn't support.</p>
             <p>It also sharpens the creative problem. The question shifts from "what's the ideal UX for this?" to "what's the best possible UX within these constraints?" — which is, in most real-world contexts, the more useful question to be answering.</p>
             <p style="color: var(--text-secondary); margin-top: var(--sp-6); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle);">Specific performance data for this engagement is subject to NDA.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#research-discovery"><span class="cs-nav-num">02</span>Research &amp; discovery</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#design"><span class="cs-nav-num">03</span>Design</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#learnings"><span class="cs-nav-num">04</span>Learnings</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -539,6 +581,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>

@@ -25,7 +25,7 @@
     "url": "https://joseromerodesign.com/work/ikea-home-services/"
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=18">
+  <link rel="stylesheet" href="/assets/css/main.css?v=20">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -48,12 +48,25 @@
         0 0 0 340px color-mix(in srgb, var(--teal)  4%, var(--bg-surface));
       pointer-events: none;
     }
-    /* C2 — large upright hero phone flanked by two; all bleed past the bottom */
+    /* C2 — large upright hero phone flanked by two; all bleed past the bottom.
+       Glass bezel — same material as the homepage's hover-preview frames —
+       so the frame blurs the teal glow behind it instead of sitting flat. */
     .comp-phone {
       position: absolute;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 6px; background: var(--bg-surface);
-      box-shadow: 0 28px 64px -22px rgba(0,0,0,0.72);
+      border-radius: 26px;
+      padding: 8px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 28px 64px -22px rgba(0, 0, 0, 0.72);
+    }
+    [data-theme="light"] .comp-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 28px 64px -22px rgba(0, 0, 0, 0.25);
     }
     .comp-phone img { display: block; width: 100%; height: auto; border-radius: 20px; }
     .comp-phone--left   { width: 23%; left: 16.5%; top: 27%; z-index: 1; }
@@ -75,9 +88,21 @@
     }
     .shot-phone {
       width: 188px;
-      border: 1px solid var(--border-strong); border-radius: 26px;
-      padding: 5px; background: var(--bg-surface);
-      box-shadow: 0 20px 50px -20px rgba(0,0,0,0.55); flex-shrink: 0;
+      border-radius: 26px;
+      padding: 7px;
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.16), rgba(255, 255, 255, 0.03)),
+        color-mix(in srgb, var(--bg-surface) 40%, transparent);
+      backdrop-filter: blur(16px) saturate(1.7);
+      -webkit-backdrop-filter: blur(16px) saturate(1.7);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 20px 50px -20px rgba(0, 0, 0, 0.55);
+      flex-shrink: 0;
+    }
+    [data-theme="light"] .shot-phone {
+      background: color-mix(in srgb, var(--bg-surface) 35%, transparent);
+      border-color: rgba(255, 255, 255, 0.7);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 20px 50px -20px rgba(0, 0, 0, 0.2);
     }
     .shot-phone img { display: block; width: 100%; height: auto; border-radius: 21px; }
     .shot-caption {
@@ -144,9 +169,9 @@
           <span class="eyebrow">Product Design · Marketplace · Mobile</span>
         </div>
 
-        <h1 class="hero-animate" style="margin-top: var(--sp-4); margin-bottom: var(--sp-6);">
-          Peer-to-peer home improvement<br>
-          <em class="accent-italic">marketplace.</em>
+        <h1 class="cs-hero-title" aria-label="Peer-to-peer home improvement marketplace.">
+          <span class="v4-mask"><span class="v4-line">Peer-to-peer home improvement</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">marketplace.</span></span>
         </h1>
 
         <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
@@ -156,12 +181,13 @@
         <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
           <span class="tag tag--gold">IKEA · Current</span>
           <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
-          <span class="tag">2025 — Present</span>
           <span class="tag">Marketplace</span>
         </div>
 
       </div>
     </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
 
     <section class="section" style="padding-top: 0;">
       <div class="container">
@@ -189,19 +215,23 @@
           </div>
         </div>
 
-        <div class="cs-cover reveal">
-          <div class="cover-comp" role="img" aria-label="IKEA Home Services app — home screen, service categories, and a service detail page">
-            <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
-            <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
-            <div class="comp-phone comp-phone--right"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
-          </div>
-        </div>
+        <div class="cs-body-grid">
 
-        <div class="container--narrow" style="margin: 0 auto;">
+          <div class="cs-body-main">
 
-          <div class="cs-section reveal">
-            <span class="eyebrow">Context</span>
-            <h2>Extending IKEA beyond furniture</h2>
+            <div class="cs-cover reveal">
+              <div class="cover-comp" role="img" aria-label="IKEA Home Services app — home screen, service categories, and a service detail page">
+                <div class="comp-phone comp-phone--left"><img src="/assets/images/work/ikea-home-services/hs-categories.webp" width="620" height="1348" alt="" loading="eager"></div>
+                <div class="comp-phone comp-phone--center"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" width="620" height="1348" alt="" loading="eager"></div>
+                <div class="comp-phone comp-phone--right"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" width="620" height="1348" alt="" loading="eager"></div>
+              </div>
+            </div>
+
+            <div class="container--narrow" style="margin: 0 auto;">
+
+              <div class="cs-section reveal" id="context">
+                <span class="eyebrow">Context</span>
+                <h2>Extending IKEA beyond furniture</h2>
             <p>IKEA's New Business Platform is an internal startup unit within Ingka Group, tasked with expanding the brand into adjacent markets across Europe. The ambition was clear: if you've just bought a flat-pack wardrobe, you probably need someone to help you put it up. And IKEA wanted to be the one to connect you.</p>
             <p>IKEA Home Services is the result — a peer-to-peer marketplace connecting homeowners with vetted, reviewed professionals across more than 50 home improvement and assembly categories. It launched in Madrid in September 2024, reached Barcelona a year later, and expanded to seven Spanish regions by May 2026 — including renovation services added in March 2026.</p>
           </div>
@@ -234,6 +264,28 @@
                     .hs-aht    { fill: var(--teal); opacity: 0.85; }
                     .hs-cl     { font-family: var(--font-body); font-size: 9.5px; fill: var(--text-tertiary); }
                     .hs-clt    { font-family: var(--font-body); font-size: 9.5px; fill: var(--teal-text); }
+
+                    /* Flow lines draw themselves in once the diagram scrolls
+                       into view — the connectors are the one place motion
+                       actually means something here (a request traveling
+                       between homeowner, platform, and professional), so
+                       only these draw; the static panels just fade with the
+                       figure as before. */
+                    .hs-flowline { stroke-dasharray: 50; stroke-dashoffset: 50; }
+                    .hs-flowhead { opacity: 0; }
+                    .diagram-block.visible .hs-flowline {
+                      animation: hsDrawLine 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+                      animation-delay: 0.5s;
+                    }
+                    .diagram-block.visible .hs-flowhead {
+                      animation: hsDrawHead 0.25s ease forwards;
+                      animation-delay: 1.3s;
+                    }
+                    @keyframes hsDrawLine { to { stroke-dashoffset: 0; } }
+                    @keyframes hsDrawHead { to { opacity: 1; } }
+                    @media (prefers-reduced-motion: reduce) {
+                      .hs-flowline, .hs-flowhead { animation: none; stroke-dashoffset: 0; opacity: 1; }
+                    }
                   </style>
                 </defs>
 
@@ -250,11 +302,11 @@
                 <text class="hs-body" x="50" y="107">Book, pay and review on-platform</text>
 
                 <!-- CONNECTOR 1 -->
-                <line class="hs-al" x1="128" y1="130" x2="128" y2="176"/>
-                <polygon class="hs-ah" points="128,179 124,171 132,171"/>
+                <line class="hs-al hs-flowline" x1="128" y1="130" x2="128" y2="176"/>
+                <polygon class="hs-ah hs-flowhead" points="128,179 124,171 132,171"/>
                 <text class="hs-cl" x="120" y="155" text-anchor="end">Requests service</text>
-                <line class="hs-at" x1="232" y1="177" x2="232" y2="130"/>
-                <polygon class="hs-aht" points="232,128 228,135 236,135"/>
+                <line class="hs-at hs-flowline" x1="232" y1="177" x2="232" y2="130"/>
+                <polygon class="hs-aht hs-flowhead" points="232,128 228,135 236,135"/>
                 <text class="hs-clt" x="240" y="150" text-anchor="start">Matches</text>
                 <text class="hs-clt" x="240" y="163" text-anchor="start">professional</text>
 
@@ -275,12 +327,12 @@
                 <text class="hs-trust" x="180" y="333">IKEA brand trust · verified reviews · transparent pricing</text>
 
                 <!-- CONNECTOR 2 -->
-                <line class="hs-at" x1="128" y1="345" x2="128" y2="393"/>
-                <polygon class="hs-aht" points="128,396 124,388 132,388"/>
+                <line class="hs-at hs-flowline" x1="128" y1="345" x2="128" y2="393"/>
+                <polygon class="hs-aht hs-flowhead" points="128,396 124,388 132,388"/>
                 <text class="hs-clt" x="120" y="362" text-anchor="end">Trust signals</text>
                 <text class="hs-clt" x="120" y="375" text-anchor="end">&amp; secure booking</text>
-                <line class="hs-al" x1="232" y1="393" x2="232" y2="345"/>
-                <polygon class="hs-ah" points="232,343 228,350 236,350"/>
+                <line class="hs-al hs-flowline" x1="232" y1="393" x2="232" y2="345"/>
+                <polygon class="hs-ah hs-flowhead" points="232,343 228,350 236,350"/>
                 <text class="hs-cl" x="240" y="362" text-anchor="start">Accepts</text>
                 <text class="hs-cl" x="240" y="375" text-anchor="start">&amp; delivers</text>
 
@@ -306,7 +358,7 @@
             <figcaption class="shot-caption"><b>Two sides, one platform.</b> AI-assisted matching turns a homeowner's natural-language request into a structured job (left), while a verified onboarding flow brings professionals onto the supply side (right).</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="challenge">
             <span class="eyebrow">The challenge</span>
             <h2>Trust, consistency, and speed</h2>
             <p>Marketplace products live or die on trust. Homeowners need to trust the professionals they're letting into their homes. Professionals need to trust that the platform is worth their time. And IKEA needs the product to feel like IKEA — considered, reliable, without friction.</p>
@@ -321,7 +373,7 @@
             </div>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="role">
             <span class="eyebrow">My role</span>
             <h2>Embedded, end-to-end</h2>
             <p>I work as a Senior Product Designer embedded full-time within the IKEA New Business Platform team. That means I'm not consulting from the outside — I'm inside the product team, alongside product owners, service designers, engineers, content designers, and business developers.</p>
@@ -382,7 +434,7 @@
             <figcaption>Embedded design means being present at every stage — from research sessions inside IKEA stores to product decisions in sprint reviews.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="approach">
             <span class="eyebrow">Approach</span>
             <h2>Research first, iteration always</h2>
             <p>We ran user research sessions inside IKEA stores — recruiting participants on-site and testing flows in context, with the app running on real devices. This gave us faster signal than remote testing and was consistent with the product's natural discovery channel.</p>
@@ -408,7 +460,7 @@
             <figcaption class="shot-caption"><b>The booking moment.</b> IKEA Family sign-in as step one ties the request to the wider ecosystem, a considered loading state keeps the user oriented, and a confirmation that sets expectations clearly closes the loop.</figcaption>
           </figure>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="outcomes">
             <span class="eyebrow">Outcomes</span>
             <h2>Strong adoption from launch</h2>
 
@@ -434,12 +486,31 @@
             <p>These are published figures from Ingka Group. The product launched in Madrid in September 2024 and has since expanded to seven Spanish regions as of May 2026, with continued growth in progress.</p>
           </div>
 
-          <div class="cs-section reveal">
+          <div class="cs-section reveal" id="learnings">
             <span class="eyebrow">Learnings</span>
             <h2>What building inside a large brand teaches you</h2>
             <p>Working embedded within IKEA's team has reinforced something I've come to believe: the design work is rarely the hardest part. The hardest part is maintaining a coherent design direction while stakeholder priorities shift, the roadmap changes, and team members rotate. The answer isn't to fight the instability — it's to build systems that absorb it.</p>
             <p>The experience also sharpened my thinking on what "user trust" actually requires in a marketplace: it's not just visual polish or smooth onboarding. It's the cumulative result of dozens of small decisions — how you present professional credentials, how you handle a booking that goes wrong, how you phrase a review prompt. These are all design decisions, whether or not they're treated as such.</p>
           </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#context"><span class="cs-nav-num">01</span>Context</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#challenge"><span class="cs-nav-num">02</span>The challenge</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#role"><span class="cs-nav-num">03</span>My role</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">04</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcomes"><span class="cs-nav-num">05</span>Outcomes</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#learnings"><span class="cs-nav-num">06</span>Learnings</a></li>
+              </ol>
+            </div>
+          </nav>
 
         </div>
 
@@ -504,6 +575,6 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=11" defer></script>
+  <script src="/assets/js/main.js?v=12" defer></script>
 </body>
 </html>
