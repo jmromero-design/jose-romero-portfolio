@@ -40,7 +40,7 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=24">
+  <link rel="stylesheet" href="/assets/css/main.css?v=30">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -81,23 +81,6 @@
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
-    /* Cursor-reactive glow (dark theme only, pointer devices only) */
-    .v4-glow {
-      position: fixed;
-      left: 0; top: 0;
-      width: 640px; height: 640px;
-      margin: -320px 0 0 -320px;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: 0;
-      background: radial-gradient(circle,
-        color-mix(in srgb, var(--gold) 9%, transparent) 0%,
-        transparent 62%);
-      opacity: 0;
-      transition: opacity 0.6s ease;
-    }
-    .v4-glow.is-on { opacity: 1; }
-    [data-theme="light"] .v4-glow { display: none; }
 
     /* Underline sweep for inline links */
     .v4-sweep {
@@ -751,7 +734,6 @@
       .v4-marquee-set:nth-child(2) { display: none; }
       .v4-r { opacity: 1; transform: none; filter: none; transition: none; }
       .v4-preview { display: none; }
-      .v4-glow { display: none; }
     }
 
     /* ═══ Responsive ═══ */
@@ -1143,11 +1125,12 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=15" defer></script>
+  <script src="/assets/js/main.js?v=18" defer></script>
 
   <script>
-    // v4 interaction layer — reveals, cursor glow, work previews, magnetic CTAs.
-    // Everything motion-related is gated behind pointer + reduced-motion checks.
+    // v4 interaction layer — reveals, work previews, magnetic CTAs.
+    // Cursor glow is now handled globally by main.js. Everything
+    // motion-related here is gated behind pointer + reduced-motion checks.
     (function () {
       const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
       const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -1161,14 +1144,6 @@
       document.querySelectorAll('.v4-r').forEach((el) => io.observe(el));
 
       if (!fine || reduced) return;
-
-      /* Cursor glow — lerped follow */
-      const glow = document.querySelector('.v4-glow');
-      let gx = 0, gy = 0, tx = 0, ty = 0, glowOn = false;
-      window.addEventListener('pointermove', (e) => {
-        tx = e.clientX; ty = e.clientY;
-        if (!glowOn) { glowOn = true; glow.classList.add('is-on'); gx = tx; gy = ty; }
-      }, { passive: true });
 
       /* Work index preview — composition follows cursor with spring lag */
       const preview = document.querySelector('.v4-preview');
@@ -1204,10 +1179,8 @@
 
       /* Magnetic CTAs now handled globally by main.js (.v4-magnet) */
 
-      /* One rAF loop drives both lerped followers */
+      /* rAF loop drives the preview's lerped follower */
       function tick() {
-        gx += (tx - gx) * 0.08; gy += (ty - gy) * 0.08;
-        glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px)';
         px += (ptx - px) * 0.14; py += (pty - py) * 0.14;
         if (preview) preview.style.left = px + 'px', preview.style.top = py + 'px';
         requestAnimationFrame(tick);

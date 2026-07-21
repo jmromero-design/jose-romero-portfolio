@@ -13,6 +13,7 @@
     sun:           '<circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/>',
     moon:          '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>',
     'arrow-right': '<path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>',
+    'arrow-left':  '<path d="M19 12H5"/><path d="m12 19-7-7 7-7"/>',
     'chevron-right':'<path d="m9 18 6-6-6-6"/>',
     'external-link':'<path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>',
   };
@@ -145,7 +146,7 @@
 
   if (revealEls.length && 'IntersectionObserver' in window) {
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add('visible');
           observer.unobserve(entry.target);
@@ -153,8 +154,18 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
 
-    revealEls.forEach((el, i) => {
-      el.style.transitionDelay = `${i * 0.06}s`;
+    // Stagger delay resets per parent instead of counting across the
+    // whole page — a .reveal deep in a long page (e.g. the 40th one)
+    // used to inherit ~2.4s of dead delay from unrelated sections above
+    // it, so it sat invisible well after scrolling into view. Siblings
+    // that reveal together (a card grid, a row list) still cascade
+    // against each other; capped so a long list doesn't stack minutes.
+    const siblingIndex = new Map();
+    revealEls.forEach((el) => {
+      const parent = el.parentElement;
+      const idx = siblingIndex.get(parent) || 0;
+      el.style.transitionDelay = `${Math.min(idx, 6) * 0.06}s`;
+      siblingIndex.set(parent, idx + 1);
       observer.observe(el);
     });
   } else {
@@ -268,9 +279,10 @@
      9. INLINE ICONS — replace arrow/chevron/external patterns
      ---------------------------------------------------------- */
   (function applyIcons() {
-    // Replace .arrow text spans with arrow-right icon
+    // Replace .arrow text spans with arrow-right icon (or arrow-left,
+    // for the rare case a control genuinely points back/previous).
     document.querySelectorAll('.arrow').forEach(el => {
-      el.innerHTML = icon('arrow-right');
+      el.innerHTML = icon(el.classList.contains('arrow--left') ? 'arrow-left' : 'arrow-right');
     });
 
     // Replace card-footer inline arrow spans
@@ -352,7 +364,7 @@
       const fraction = Math.min(1, Math.max(0, (readingLine - start) / (end - start)));
 
       if (navFill) navFill.style.height = `${fraction * 100}%`;
-      if (progressFill) progressFill.style.width = `${fraction * 100}%`;
+      if (progressFill) progressFill.style.transform = `scaleX(${fraction})`;
 
       let activeIndex = 0;
       sections.forEach((sec, i) => { if (readingLine >= sec.offsetTop) activeIndex = i; });
@@ -426,6 +438,116 @@
       requestAnimationFrame(tick);
     }
     requestAnimationFrame(tick);
+  })();
+
+  /* ----------------------------------------------------------
+     13. EXPERIENCE SPINE PROGRESS — turns the About page's role
+     timeline connector into a real reading-progress fill, not a
+     static line. Same reading-line math as the case-study nav
+     (section 11), simplified since there's no per-item nav to drive.
+     ---------------------------------------------------------- */
+  (function experienceSpine() {
+    const track = document.querySelector('.experience-timeline');
+    const fill = document.querySelector('.experience-fill');
+    if (!track || !fill) return;
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const rect = track.getBoundingClientRect();
+      const readingLine = window.innerHeight * 0.4;
+      const fraction = Math.min(1, Math.max(0, (readingLine - rect.top) / rect.height));
+      fill.style.height = `${fraction * 100}%`;
+    }
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    window.addEventListener('resize', update);
+    update();
+  })();
+
+  /* ----------------------------------------------------------
+     14. CURSOR GLOW — ambient pointer-follow wash, shared by every
+     v4-editorial page via .v4-glow. Dark theme + pointer devices +
+     motion allowed only. Where a page also has backdrop-filter glass
+     elements (e.g. About's role-facet tiles), the glow sits behind
+     them in paint order, so its colour shows through the blur —
+     making the glass material obvious rather than just decorative.
+     ---------------------------------------------------------- */
+  (function cursorGlow() {
+    const glow = document.querySelector('.v4-glow');
+    if (!glow) return;
+    const fine = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!fine || reduced) return;
+
+    let gx = 0, gy = 0, tx = 0, ty = 0, glowOn = false;
+    window.addEventListener('pointermove', (e) => {
+      tx = e.clientX; ty = e.clientY;
+      if (!glowOn) { glowOn = true; glow.classList.add('is-on'); gx = tx; gy = ty; }
+    }, { passive: true });
+
+    function tick() {
+      gx += (tx - gx) * 0.08; gy += (ty - gy) * 0.08;
+      glow.style.transform = 'translate(' + gx + 'px,' + gy + 'px)';
+      requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  })();
+
+  /* ----------------------------------------------------------
+     15. FRAMEWORK ARTICLE NAV — active-chapter highlight + reading
+     progress for the long-form "thinking" essay template (.fwa-*).
+     Same reading-line math as the case-study nav (section 11): one
+     continuous scroll fraction drives the sidebar TOC's fill rail,
+     its active list item, and the mobile fallback's fixed progress
+     line (.cs-progress-fill, shared with case studies). Click-to-scroll
+     compensates for the fixed nav so a chapter title never lands
+     hidden behind it.
+     ---------------------------------------------------------- */
+  (function articleNav() {
+    const chapters = Array.from(document.querySelectorAll('.fwa-chapter[id]'));
+    const preface = document.querySelector('.fwa-preface');
+    const tocLinks = Array.from(document.querySelectorAll('.fwa-toc-list a'));
+    const tocFill = document.querySelector('.fwa-toc-fill');
+    const progressFill = document.querySelector('.cs-progress-fill');
+    if (!chapters.length || (!tocFill && !progressFill)) return;
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    tocLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        const target = document.getElementById(link.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+        const y = target.getBoundingClientRect().top + window.scrollY - (72 + 24);
+        window.scrollTo({ top: y, behavior: reduced ? 'auto' : 'smooth' });
+      });
+    });
+
+    let ticking = false;
+    function update() {
+      ticking = false;
+      const start = (preface || chapters[0]).offsetTop;
+      const last = chapters[chapters.length - 1];
+      const end = last.offsetTop + last.offsetHeight;
+      const readingLine = window.scrollY + window.innerHeight * 0.4;
+      const fraction = Math.min(1, Math.max(0, (readingLine - start) / (end - start)));
+
+      if (tocFill) tocFill.style.height = `${fraction * 100}%`;
+      if (progressFill) progressFill.style.transform = `scaleX(${fraction})`;
+
+      let activeIndex = -1;
+      chapters.forEach((ch, i) => { if (readingLine >= ch.offsetTop) activeIndex = i; });
+      tocLinks.forEach((link, i) => {
+        link.parentElement.classList.toggle('is-active', i === activeIndex + 1);
+      });
+    }
+
+    window.addEventListener('scroll', () => {
+      if (!ticking) { requestAnimationFrame(update); ticking = true; }
+    }, { passive: true });
+    update();
   })();
 
 })();

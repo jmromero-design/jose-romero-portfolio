@@ -56,7 +56,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=24">
+  <link rel="stylesheet" href="/assets/css/main.css?v=30">
   <link rel="preload" href="/assets/images/portrait-standing.webp" as="image" fetchpriority="high">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -146,6 +146,8 @@
 
 <body>
 
+  <div class="v4-glow" aria-hidden="true"></div>
+
   <!-- ══════════════════════════════════════════
        NAVIGATION
   ══════════════════════════════════════════ -->
@@ -195,9 +197,10 @@
               <span class="eyebrow" style="margin-bottom: var(--sp-6); display: inline-flex;">About</span>
             </div>
 
-            <h1 id="about-heading" class="hero-animate" style="margin-bottom: var(--sp-6);">
-              I've always been more comfortable<br>
-              <em class="accent-italic">with hard problems than easy briefs.</em>
+            <h1 id="about-heading" style="margin-bottom: var(--sp-6);"
+              aria-label="I've always been more comfortable with hard problems than easy briefs.">
+              <span class="v4-mask"><span class="v4-line">I've always been more comfortable</span></span>
+              <span class="v4-mask"><span class="v4-line v4-line--accent">with hard problems than easy briefs.</span></span>
             </h1>
 
             <p class="body-lg hero-animate" style="margin-bottom: var(--sp-4);">
@@ -240,6 +243,7 @@
         </div>
 
         <div class="clients-arc reveal">
+          <span class="clients-arc-line" aria-hidden="true"></span>
 
           <div class="clients-arc-stat">
             <span class="clients-arc-phase">
@@ -272,28 +276,28 @@
 
         <p class="clients-sub-label">Clients</p>
 
-        <dl class="clients-list reveal">
+        <dl class="clients-list">
 
-          <div class="clients-row">
+          <div class="clients-row reveal">
             <dt class="clients-era">Garaje de Ideas<br>2025 — Present</dt>
             <dd class="clients-names">IKEA (Ingka Group)</dd>
           </div>
 
-          <div class="clients-row">
+          <div class="clients-row reveal">
             <dt class="clients-era">Flat 101<br>2022 — 2025</dt>
             <dd class="clients-names">
               Meliá Hotels International<span class="client-sep">·</span>Santander Nordics<span class="client-sep">·</span>Mapfre España<span class="client-sep">·</span>Mapfre Internacional<span class="client-sep">·</span>AXA Spain<span class="client-sep">·</span>IQOS Club Spain<span class="client-sep">·</span>Mutua Madrileña<span class="client-sep">·</span>Bankinter<span class="client-sep">·</span>BNP Paribas<span class="client-sep">·</span>XTI<span class="client-sep">·</span>Subaru Spain<span class="client-sep">·</span>GNP<span class="client-sep">·</span>Affinity Petcare
             </dd>
           </div>
 
-          <div class="clients-row">
+          <div class="clients-row reveal">
             <dt class="clients-era">Factor Común<br>2016 — 2021</dt>
             <dd class="clients-names">
               IGP<span class="client-sep">·</span>CIPIMM<span class="client-sep">·</span>ETA<span class="client-sep">·</span>CNDIG<span class="client-sep">·</span>Universidad de Moa<span class="client-sep">·</span>ISMMM<span class="client-sep">·</span>Adypel S.A.<span class="client-sep">·</span>Hidroenergía<span class="client-sep">·</span>Spanish Embassy in Cuba<span class="client-sep">·</span>Amappzing<span class="client-sep">·</span>American Force Music<span class="client-sep">·</span>Industrial Dynamic Control
             </dd>
           </div>
 
-          <div class="clients-row">
+          <div class="clients-row reveal">
             <dt class="clients-era">Independent<br>2014 — 2021</dt>
             <dd class="clients-names">
               CubaMax<span class="client-sep">·</span>AlaCasa<span class="client-sep">·</span>MVPicks<span class="client-sep">·</span>NimbusPC<span class="client-sep">·</span>Gartour<span class="client-sep">·</span>Geominera S.A.<span class="client-sep">·</span>Spanish Consulate in Havana<span class="client-sep">·</span>Aires de Fiesta<span class="client-sep">·</span>Envametal
@@ -320,10 +324,12 @@
         </div>
 
         <div class="experience-timeline">
+          <div class="experience-fill" aria-hidden="true"></div>
 
           <!-- Role 1: IKEA -->
           <article class="role-block reveal">
             <div class="role-meta">
+              <span class="role-node" aria-hidden="true"></span>
               <div class="role-company">Garaje de Ideas / Groupe EDG — IKEA New Business Platform</div>
               <div class="role-period">2025 — Present</div>
               <div class="role-title">Senior Product Designer (Implant)</div>
@@ -333,40 +339,43 @@
               <p>Embedded full-time within IKEA's New Business Platform — an internal startup unit within Ingka Group,
                 tasked with expanding IKEA beyond furniture into adjacent markets across Europe.</p>
 
-              <div class="role-sub-project">
-                <h6>IKEA Home Services</h6>
-                <p>A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home
-                  improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish cities by
-                  mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or
-                  reactivated IKEA Family members, 4.9/5 customer satisfaction rating. I work across user flows,
-                  prototyping, in-store user research sessions at IKEA locations, and accessibility auditing — alongside
-                  product owners, service designers, engineers, content designers, and business developers.</p>
-              </div>
+              <div class="role-facets">
+                <div class="role-facet reveal">
+                  <h6>IKEA Home Services</h6>
+                  <p>A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home
+                    improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish cities by
+                    mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or
+                    reactivated IKEA Family members, 4.9/5 customer satisfaction rating. I work across user flows,
+                    prototyping, in-store user research sessions at IKEA locations, and accessibility auditing —
+                    alongside product owners, service designers, engineers, content designers, and business
+                    developers.</p>
+                </div>
 
-              <div class="role-sub-project">
-                <h6>IKEA Second-hand Marketplace</h6>
-                <p>Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in
-                  Madrid, now live in five European countries, with full European expansion committed. I contribute to
-                  product design and cross-functional collaboration as the platform matures and scales.</p>
-              </div>
+                <div class="role-facet reveal">
+                  <h6>IKEA Second-hand Marketplace</h6>
+                  <p>Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted
+                    in Madrid, now live in five European countries, with full European expansion committed. I
+                    contribute to product design and cross-functional collaboration as the platform matures and
+                    scales.</p>
+                </div>
 
-              <div class="role-sub-project">
-                <h6>Design operations</h6>
-                <p>Built the team's ways-of-working system from scratch — a cross-tool framework spanning Figma (source
-                  of truth), Jira, Confluence, and Phrase — replacing an informal, person-dependent process with
-                  something documented, teachable, and designed to survive personnel change.</p>
-              </div>
+                <div class="role-facet reveal">
+                  <h6>Design operations</h6>
+                  <p>Built the team's ways-of-working system from scratch — a cross-tool framework spanning Figma
+                    (source of truth), Jira, Confluence, and Phrase — replacing an informal, person-dependent process
+                    with something documented, teachable, and designed to survive personnel change.</p>
+                </div>
 
-              <div class="role-sub-project">
-                <h6>AI workflow design &amp; facilitation</h6>
-                <p>Facilitating Shape Up methodology sessions for the product team — and designing the AI layer on
-                  top. The facilitation work led to a parallel body of work: designing AI-assisted workflows for the
-                  shaping process itself, including multi-agent orchestration approaches that distribute complex
-                  product features across specialized agents (problem decomposition, constraint mapping, solution
-                  evaluation). Outputs are structured to flow directly into the team's established Confluence
-                  documentation format.</p>
-                <p>Running AI literacy sessions for senior design professionals at Garaje de Ideas, focused on
-                  workflow design rather than tool use.</p>
+                <div class="role-facet reveal">
+                  <h6>AI workflow design &amp; facilitation</h6>
+                  <p>Facilitating Shape Up methodology sessions for the product team — and designing the AI layer on
+                    top. The facilitation work led to a parallel body of work: designing AI-assisted workflows for the
+                    shaping process itself, including multi-agent orchestration approaches that distribute complex
+                    product features across specialized agents (problem decomposition, constraint mapping, solution
+                    evaluation). Outputs are structured to flow directly into the team's established Confluence
+                    documentation format. Also running AI literacy sessions for senior design professionals at Garaje
+                    de Ideas, focused on workflow design rather than tool use.</p>
+                </div>
               </div>
             </div>
           </article>
@@ -374,6 +383,7 @@
           <!-- Role 2: Flat 101 -->
           <article class="role-block reveal">
             <div class="role-meta">
+              <span class="role-node" aria-hidden="true"></span>
               <div class="role-company">Flat 101 (Digital consultancy) — flat101.es</div>
               <div class="role-period">2022 — 2025</div>
               <div class="role-title">Senior UX/CRO Designer</div>
@@ -384,30 +394,33 @@
                 accounts — each with different teams, different methodologies, and different definitions of success —
                 simultaneously.</p>
 
-              <div class="role-sub-project">
-                <h6>Meliá Hotels International</h6>
-                <p>Three-year engagement on the design and optimisation of an internal marketing campaign management
-                  platform, built from scratch. Conducted multi-hour workshops with senior directors from multiple
-                  international departments at Meliá's headquarters to define requirements and validate direction.
-                  Worked with a team of up to 5 designers and 8 engineers (rotating over time) to deliver a platform
-                  managing dozens of live campaigns across all of Meliá's international markets.</p>
+              <div class="role-facets">
+                <div class="role-facet reveal">
+                  <h6>Meliá Hotels International</h6>
+                  <p>Three-year engagement on the design and optimisation of an internal marketing campaign
+                    management platform, built from scratch. Conducted multi-hour workshops with senior directors
+                    from multiple international departments at Meliá's headquarters to define requirements and
+                    validate direction. Worked with a team of up to 5 designers and 8 engineers (rotating over time)
+                    to deliver a platform managing dozens of live campaigns across all of Meliá's international
+                    markets.</p>
+                </div>
+
+                <div class="role-facet reveal">
+                  <h6>Santander Nordics</h6>
+                  <p>Lead UX/CRO designer on an ongoing conversion optimisation programme across consumer loan,
+                    credit card, deposit, and car loan funnels in Denmark, Sweden, Finland, and Norway. A
+                    multi-country, regulated environment requiring both precision and adaptability.</p>
+                </div>
+
+                <div class="role-facet reveal">
+                  <h6>Mapfre</h6>
+                  <p>UX design for AFIN, Mapfre's self-service financial management app (investments, savings,
+                    pension plans). Also part of the digital platform scaling programme for Mapfre's international
+                    brands: Verti Italy, Germany, and Spain — a major cross-border design and localisation effort.</p>
+                </div>
               </div>
 
-              <div class="role-sub-project">
-                <h6>Santander Nordics</h6>
-                <p>Lead UX/CRO designer on an ongoing conversion optimisation programme across consumer loan, credit
-                  card, deposit, and car loan funnels in Denmark, Sweden, Finland, and Norway. A multi-country,
-                  regulated environment requiring both precision and adaptability.</p>
-              </div>
-
-              <div class="role-sub-project">
-                <h6>Mapfre</h6>
-                <p>UX design for AFIN, Mapfre's self-service financial management app (investments, savings, pension
-                  plans). Also part of the digital platform scaling programme for Mapfre's international brands: Verti
-                  Italy, Germany, and Spain — a major cross-border design and localisation effort.</p>
-              </div>
-
-              <div class="role-sub-project">
+              <div class="role-note reveal">
                 <h6>CRO &amp; E-commerce Optimisation Programmes</h6>
                 <p style="margin-bottom: var(--sp-2);">Contributed to and led various optimization and redesign
                   initiatives:</p>
@@ -431,6 +444,7 @@
           <!-- Role 3: Factor Común -->
           <article class="role-block reveal">
             <div class="role-meta">
+              <span class="role-node" aria-hidden="true"></span>
               <div class="role-company">Factor Común</div>
               <div class="role-period">2016 — 2021</div>
               <div class="role-title">Co-founder &amp; Design Lead</div>
@@ -472,6 +486,7 @@
           <!-- Role 4: ISDi / Universidad de La Habana -->
           <article class="role-block reveal">
             <div class="role-meta">
+              <span class="role-node" aria-hidden="true"></span>
               <div class="role-company">ISDi / Universidad de La Habana</div>
               <div class="role-period">2018 — 2021</div>
               <div class="role-title">UI Design Professor</div>
@@ -556,27 +571,98 @@
 
         </div>
 
-        <!-- Tools tag-cloud list -->
+        <!-- Tools & Platforms — categorized wordmark grid -->
         <div class="reveal"
-          style="margin-top: var(--sp-12); border-top: 1px solid var(--border-subtle); padding-top: var(--sp-8);">
-          <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: inline-flex;">Tools &amp;
+          style="margin-top: var(--sp-12); border-top: 1px solid var(--border-subtle); padding-top: var(--sp-10);">
+          <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-8); display: inline-flex;">Tools &amp;
             Platforms</span>
-          <div style="display: flex; flex-wrap: wrap; gap: var(--sp-2);">
-            <span class="tag tag--teal">Figma</span>
-            <span class="tag tag--teal">FigJam</span>
-            <span class="tag tag--teal">Jira</span>
-            <span class="tag tag--teal">Confluence</span>
-            <span class="tag tag--teal">Miro</span>
-            <span class="tag tag--teal">Hotjar</span>
-            <span class="tag tag--teal">ContentSquare</span>
-            <span class="tag tag--teal">Optimizely</span>
-            <span class="tag tag--teal">AB Tasty</span>
-            <span class="tag tag--teal">VWO</span>
-            <span class="tag tag--teal">Optimal Workshop</span>
-            <span class="tag tag--teal">Phrase</span>
-            <span class="tag tag--teal">Notion</span>
-            <span class="tag tag--teal">Google Analytics</span>
-            <span class="tag tag--teal">AI Orchestration Platforms</span>
+
+          <div class="tools-groups">
+
+            <div class="tools-group">
+              <span class="tools-group-label">Design &amp; documentation</span>
+              <div class="tools-group-items">
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Figma</span>
+                  <span class="tool-desc">Source of truth for design and prototyping</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">FigJam</span>
+                  <span class="tool-desc">Workshop facilitation and shaping sessions</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Miro</span>
+                  <span class="tool-desc">Cross-team whiteboarding and mapping</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Notion</span>
+                  <span class="tool-desc">Team knowledge and process documentation</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Confluence</span>
+                  <span class="tool-desc">Ways-of-working docs and specs</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Jira</span>
+                  <span class="tool-desc">Sprint and ticket tracking</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Phrase</span>
+                  <span class="tool-desc">Localisation and copy management</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tools-group">
+              <span class="tools-group-label">Research &amp; analytics</span>
+              <div class="tools-group-items">
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Hotjar</span>
+                  <span class="tool-desc">Session recordings and heatmaps</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">ContentSquare</span>
+                  <span class="tool-desc">Behavioural analytics at scale</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Google Analytics</span>
+                  <span class="tool-desc">Traffic and funnel measurement</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Optimal Workshop</span>
+                  <span class="tool-desc">Card sorting and tree testing</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tools-group">
+              <span class="tools-group-label">Experimentation</span>
+              <div class="tools-group-items">
+                <div class="tool-item reveal">
+                  <span class="tool-mark">Optimizely</span>
+                  <span class="tool-desc">A/B and multivariate testing</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">AB Tasty</span>
+                  <span class="tool-desc">Experimentation and personalisation</span>
+                </div>
+                <div class="tool-item reveal">
+                  <span class="tool-mark">VWO</span>
+                  <span class="tool-desc">Conversion testing platform</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tools-group">
+              <span class="tools-group-label">AI practice</span>
+              <div class="tools-group-items">
+                <div class="tool-item reveal">
+                  <span class="tool-mark">AI Orchestration</span>
+                  <span class="tool-desc">Multi-agent workflows for product shaping</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
 
@@ -640,7 +726,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=15" defer></script>
+  <script src="/assets/js/main.js?v=18" defer></script>
 
 </body>
 

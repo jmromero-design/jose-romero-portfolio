@@ -25,14 +25,7 @@
     content="Un framework para el diseño de producto liderado por humanos y asistido por agentes.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
-  <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400;1,9..144,500&family=Outfit:wght@300;400;500;600&display=swap"
-    rel="stylesheet">
-
-  <link rel="stylesheet" href="/assets/css/main.css?v=24">
+  <link rel="stylesheet" href="/assets/css/main.css?v=30">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -151,6 +144,23 @@
       .fwa-hero-right { display: none; }
     }
 
+    /* Mobile loses the desktop meta column entirely along with the
+       right-side flex layout it depends on — reading time, topic, and
+       context are useful orientation for an 18-minute piece, so give
+       mobile its own compact line instead of dropping them. */
+    .fwa-hero-meta-mobile { display: none; }
+    @media (max-width: 767px) {
+      .fwa-hero-meta-mobile {
+        display: block;
+        margin-top: var(--sp-5);
+        font-family: var(--font-body);
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        line-height: 1.6;
+      }
+      .fwa-hero-meta-mobile strong { color: var(--text-secondary); font-weight: 500; }
+    }
+
     .fwa-hero-meta-row {
       font-family: var(--font-body);
       font-size: var(--text-xs);
@@ -190,9 +200,25 @@
         top: 88px;
         max-height: calc(100vh - 120px);
         overflow-y: auto;
-        background: var(--bg-surface);
         z-index: 10;
         padding: var(--sp-5) var(--sp-4) var(--sp-5) var(--sp-3);
+        /* A floating panel over scrolling text is the clearest possible
+           use case for glass — the ambient cursor glow and the article's
+           own copy show through as they pass underneath, instead of the
+           sidebar sitting on a flat opaque plate. */
+        border-radius: var(--radius-md);
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
+          color-mix(in srgb, var(--bg-surface) 55%, transparent);
+        backdrop-filter: blur(20px) saturate(1.6);
+        -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      [data-theme="light"] .fwa-sidebar {
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18)),
+          color-mix(in srgb, var(--bg-surface) 45%, transparent);
+        border-color: rgba(255, 255, 255, 0.6);
       }
     }
 
@@ -206,9 +232,33 @@
       margin-bottom: var(--sp-4);
     }
 
+    /* Rail — overall reading progress through the chapter list, same
+       track+fill technique as the case-study nav and About's experience
+       spine. The per-link border-left below is a separate "you are here"
+       cue for the current chapter; the rail shows progress through all
+       of them at a glance. */
+    .fwa-toc-rail { position: relative; }
+    .fwa-toc-track {
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 1px;
+      background: var(--border-default);
+    }
+    .fwa-toc-fill {
+      position: absolute;
+      left: 0; top: 4px;
+      width: 1px;
+      height: 0%;
+      background: var(--gold);
+      transition: height 0.1s linear;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fwa-toc-fill { transition: none; }
+    }
+
     .fwa-toc-list {
       list-style: none;
-      padding: 0;
+      padding-left: var(--sp-4);
       margin: 0;
       display: flex;
       flex-direction: column;
@@ -226,7 +276,7 @@
       gap: var(--sp-2);
       padding-block: 8px;
       line-height: 1.35;
-      transition: color 0.15s;
+      transition: color 0.15s, border-color 0.15s;
       border-left: 2px solid transparent;
       padding-left: var(--sp-3);
     }
@@ -236,6 +286,11 @@
       border-left-color: var(--border-strong);
     }
 
+    .fwa-toc-list li.is-active a {
+      color: var(--text-primary);
+      border-left-color: var(--gold);
+    }
+
     .fwa-toc-num {
       font-family: var(--font-display);
       font-size: 10px;
@@ -243,33 +298,38 @@
       opacity: 0.5;
       flex-shrink: 0;
       margin-top: 1px;
+      transition: opacity 0.15s;
     }
 
-    .fwa-toc-divider {
-      height: 1px;
-      background: var(--border-default);
-      margin-block: var(--sp-4);
-    }
-
-    .fwa-toc-back {
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: 400;
-      color: var(--text-tertiary);
-      text-decoration: none;
-      display: block;
-      padding-block: var(--sp-2);
-      transition: color 0.15s;
-    }
-
-    .fwa-toc-back:hover { color: var(--gold); }
+    .fwa-toc-list li.is-active .fwa-toc-num { opacity: 1; }
 
     .fwa-body { flex: 1; min-width: 0; }
+
+    /* ── Back-links — deliberately its own component, separate from the
+       Contents/TOC above: this one leaves the article, the TOC never
+       does. Shown at every width, not just mobile, now that it's the
+       only place these links live. */
+    .fwa-back-links {
+      display: flex;
+      gap: var(--sp-5);
+      padding-bottom: var(--sp-6);
+      margin-bottom: var(--sp-6);
+      border-bottom: 1px solid var(--border-default);
+    }
+    .fwa-back-links a {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .fwa-back-links a:hover { color: var(--gold); }
 
     .fwa-preface {
       padding-bottom: var(--sp-10);
       border-bottom: 1px solid var(--border-default);
       margin-bottom: var(--sp-4);
+      scroll-margin-top: calc(var(--nav-height) + var(--sp-6));
     }
 
     .fwa-preface-label {
@@ -286,6 +346,7 @@
       margin-block: var(--sp-16) var(--sp-8);
       padding-block: var(--sp-5) var(--sp-6);
       border-top: 1px solid var(--border-strong);
+      scroll-margin-top: calc(var(--nav-height) + var(--sp-6));
     }
 
     @media (min-width: 1100px) {
@@ -396,11 +457,23 @@
     .fwa-list li strong { color: var(--text-primary); font-weight: 500; }
 
     .fwa-note {
-      background: var(--bg-surface-2);
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+        color-mix(in srgb, var(--bg-surface) 55%, transparent);
+      backdrop-filter: blur(16px) saturate(1.5);
+      -webkit-backdrop-filter: blur(16px) saturate(1.5);
+      border: 1px solid rgba(255, 255, 255, 0.09);
       border-left: 2px solid var(--teal);
       padding: var(--sp-4) var(--sp-5);
       border-radius: 0 var(--radius-md) var(--radius-md) 0;
       margin-block: var(--sp-6);
+    }
+    [data-theme="light"] .fwa-note {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)),
+        color-mix(in srgb, var(--bg-surface) 45%, transparent);
+      border-color: rgba(255, 255, 255, 0.6);
+      border-left-color: var(--teal);
     }
 
     .fwa-note-text {
@@ -412,7 +485,18 @@
       margin: 0;
     }
 
-    @media (min-width: 1100px) {
+    /* Floating the note into the margin needs .fwa-body to actually have
+       ~256px of slack beyond the 640px text column (note width + gap) —
+       true once .fwa-outer has reached its own 1280px max-width, but not
+       yet at the 1100px breakpoint where the sidebar itself turns on:
+       there, .fwa-outer is still narrower than its cap, .fwa-body has far
+       less spare width, and the fixed negative margin-right below (tuned
+       for the wide case) pulls the note back until it sits flush against
+       the text with no gap at all. Below this wider breakpoint the note
+       stays in its plain full-width block state instead (see the base
+       .fwa-note rule above) rather than floating into a margin that
+       isn't reliably there yet. */
+    @media (min-width: 1360px) {
       .fwa-note {
         float: right;
         width: var(--fwa-note-w);
@@ -424,13 +508,15 @@
       }
     }
 
+    /* Matches the site's own testimonial-quote convention (About page) —
+       a quiet left rule and italic type, not a filled box. A pull quote
+       is a typographic accent, not a UI panel; it doesn't need glass or
+       a background wash to earn its emphasis. */
     .fwa-pull {
       margin-block: var(--sp-10);
-      padding: var(--sp-10) var(--sp-10);
-      border-left: 3px solid var(--gold);
-      background: color-mix(in srgb, var(--gold) 5%, var(--bg-surface-2));
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-8);
+      border-left: 2px solid var(--gold);
       max-width: var(--fwa-body);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
       clear: both;
     }
 
@@ -471,21 +557,41 @@
       margin: 0;
     }
 
+    /* This is a mockup of an actual AI-generated UI artifact, not a text
+       callout — a floating glass panel reads as "this is a distinct
+       interface object" in a way a flat bordered box doesn't. */
     .fwa-artifact {
       margin-block: var(--sp-8);
-      border: 1px solid var(--border-strong);
       border-radius: var(--radius-md);
       overflow: hidden;
       max-width: var(--fwa-body);
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
+        color-mix(in srgb, var(--bg-surface) 60%, transparent);
+      backdrop-filter: blur(18px) saturate(1.6);
+      -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+    }
+    [data-theme="light"] .fwa-artifact {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)),
+        color-mix(in srgb, var(--bg-surface) 50%, transparent);
+      border-color: rgba(255, 255, 255, 0.65);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 24px 60px -20px rgba(0, 0, 0, 0.18);
     }
 
     .fwa-artifact-header {
       padding: var(--sp-3) var(--sp-5);
-      background: var(--bg-surface-2);
-      border-bottom: 1px solid var(--border-default);
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       display: flex;
       align-items: center;
       gap: var(--sp-3);
+    }
+    [data-theme="light"] .fwa-artifact-header {
+      background: rgba(255, 255, 255, 0.25);
+      border-bottom-color: rgba(255, 255, 255, 0.5);
     }
 
     .fwa-artifact-label {
@@ -559,43 +665,14 @@
       margin-bottom: var(--sp-5);
     }
 
+    /* Uses the site's own .btn/.btn-primary/.btn-ghost — this used to be
+       a bespoke bordered-text-link style that didn't match the .v4-cta
+       buttons two sections below it on the same page. */
     .fwa-cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: var(--sp-4);
       margin-top: var(--sp-8);
-    }
-
-    .fwa-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sp-2);
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: 500;
-      color: var(--gold);
-      text-decoration: none;
-      padding: var(--sp-3) var(--sp-5);
-      border: 1px solid var(--gold-dim);
-      border-radius: var(--radius-sm);
-      transition: background 0.15s, gap 0.15s;
-    }
-
-    .fwa-cta:hover { background: var(--gold-tint); gap: var(--sp-3); }
-
-    .fwa-cta-ghost {
-      color: var(--text-secondary);
-      border-color: var(--border-default);
-    }
-
-    .fwa-cta-ghost:hover { background: var(--bg-hover); color: var(--text-primary); }
-
-    /* ── Article reveal override ─────────────────── */
-    /* Disable JS scroll-reveal inside article: content must never hide on fast scroll */
-    .fwa .reveal {
-      opacity: 1 !important;
-      transform: none !important;
-      transition: none !important;
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -603,6 +680,8 @@
 </head>
 
 <body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
 
   <!-- ══════════════════════════════════════════
        NAVEGACIÓN
@@ -629,6 +708,8 @@
     </button>
   </nav>
 
+  <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
   <main id="main" class="fwa">
 
     <!-- ══════════════════════════════════════════
@@ -642,13 +723,16 @@
             <span class="fwa-hero-kicker-text">Pensamiento · IA · Diseño de Procesos</span>
             <span class="fwa-hero-kicker-sep" aria-hidden="true"></span>
           </div>
-          <h1 class="fwa-hero-title hero-animate">
-            Diseñar<br>
-            <em>con IA</em>
+          <h1 class="fwa-hero-title" aria-label="Diseñar con IA">
+            <span class="v4-mask"><span class="v4-line">Diseñar</span></span>
+            <span class="v4-mask"><span class="v4-line v4-line--accent">con IA</span></span>
           </h1>
           <p class="fwa-hero-sub hero-animate">
             Un framework para el diseño de producto liderado por humanos y asistido por agentes.<br>
             Sobre arquitectura de procesos, checkpoints reales, drift y lo que la integración de IA exige verdaderamente.
+          </p>
+          <p class="fwa-hero-meta-mobile">
+            <strong>Operaciones de Diseño</strong> · IKEA / Ingka Group · 2026 · Lectura de 18 min
           </p>
         </div>
 
@@ -668,23 +752,35 @@
     <div class="fwa-outer">
 
       <!-- ── Sidebar TOC (escritorio) ───────── -->
+      <!-- Solo navegación dentro de la página — la etiqueta "Contenidos"
+           y el aria-label son una promesa explícita; un componente que
+           te lleva a otra página no pertenece a esta misma lista (para
+           eso están los enlaces de vuelta, por separado, más abajo). -->
       <aside class="fwa-sidebar" aria-label="Tabla de contenidos">
         <p class="fwa-toc-label">Contenidos</p>
-        <ul class="fwa-toc-list" role="list">
-          <li><a href="#preface"><span class="fwa-toc-num" aria-hidden="true">—</span>Prefacio</a></li>
-          <li><a href="#ch01"><span class="fwa-toc-num" aria-hidden="true">01</span>El reencuadre</a></li>
-          <li><a href="#ch02"><span class="fwa-toc-num" aria-hidden="true">02</span>La arquitectura</a></li>
-          <li><a href="#ch03"><span class="fwa-toc-num" aria-hidden="true">03</span>Humano en el loop</a></li>
-          <li><a href="#ch04"><span class="fwa-toc-num" aria-hidden="true">04</span>Facilitación</a></li>
-          <li><a href="#ch05"><span class="fwa-toc-num" aria-hidden="true">05</span>Lo que exige</a></li>
-        </ul>
-        <div class="fwa-toc-divider"></div>
-        <a href="/es/work/ai-workflow-framework/" class="fwa-toc-back">← Caso de estudio</a>
-        <a href="/es/thinking/" class="fwa-toc-back">← Todo el pensamiento</a>
+        <div class="fwa-toc-rail">
+          <span class="fwa-toc-track" aria-hidden="true"></span>
+          <span class="fwa-toc-fill" aria-hidden="true"></span>
+          <ul class="fwa-toc-list" role="list">
+            <li><a href="#preface"><span class="fwa-toc-num" aria-hidden="true">—</span>Prefacio</a></li>
+            <li><a href="#ch01"><span class="fwa-toc-num" aria-hidden="true">01</span>El reencuadre</a></li>
+            <li><a href="#ch02"><span class="fwa-toc-num" aria-hidden="true">02</span>La arquitectura</a></li>
+            <li><a href="#ch03"><span class="fwa-toc-num" aria-hidden="true">03</span>Humano en el loop</a></li>
+            <li><a href="#ch04"><span class="fwa-toc-num" aria-hidden="true">04</span>Facilitación</a></li>
+            <li><a href="#ch05"><span class="fwa-toc-num" aria-hidden="true">05</span>Lo que exige</a></li>
+          </ul>
+        </div>
       </aside>
 
       <!-- ── Cuerpo del artículo ────────────── -->
       <div class="fwa-body">
+
+        <!-- Enlaces de vuelta — un componente separado del TOC de arriba,
+             a propósito: este sí abandona el artículo, el TOC nunca. -->
+        <div class="fwa-back-links">
+          <a href="/es/work/ai-workflow-framework/">← Caso de estudio</a>
+          <a href="/es/thinking/">← Todo el pensamiento</a>
+        </div>
 
         <!-- PREFACIO -->
         <section class="fwa-preface fwa-section" id="preface" aria-label="Prefacio">
@@ -951,11 +1047,11 @@
           <p class="fwa-conclusion">Esa cadena de responsabilidad es el punto de todo esto. No los agentes, no el flujo de trabajo, no la herramienta. La cadena.</p>
 
           <div class="fwa-cta-row">
-            <a href="/es/work/ai-workflow-framework/" class="fwa-cta">
-              Ver el caso de estudio <span aria-hidden="true">→</span>
+            <a href="/es/thinking/" class="btn btn-ghost">
+              <span class="arrow arrow--left">←</span> Volver al Pensamiento
             </a>
-            <a href="/es/thinking/" class="fwa-cta fwa-cta-ghost">
-              ← Volver al Pensamiento
+            <a href="/es/work/ai-workflow-framework/" class="btn btn-primary">
+              Ver el caso de estudio <span class="arrow">→</span>
             </a>
           </div>
         </div>
@@ -963,31 +1059,28 @@
       </div><!-- /fwa-body -->
     </div><!-- /fwa-outer -->
 
-    <section class="section--sm" aria-labelledby="cta-heading" style="border-top: 1px solid var(--border-default);">
-      <div class="container">
-        <div class="cta-section reveal">
-          <div>
-            <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-4); display: flex;">Disponible</span>
-            <h2 id="cta-heading">
-              Tu problema más difícil<br>
-              <em class="accent-italic">es un buen punto de partida.</em>
-            </h2>
-            <p style="margin-top: var(--sp-5); max-width: 44ch; color: var(--text-secondary);">
-              Abierto a roles de product design senior y proyectos de consultoría selectivos — en inglés o español.
-            </p>
-          </div>
-          <div class="cta-actions">
-            <a href="https://www.linkedin.com/in/joseromerodesign/"
-               target="_blank"
-               rel="noopener noreferrer"
-               class="btn btn-primary">
-              Conectar en LinkedIn <span class="arrow">→</span>
-            </a>
-            <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
-              Enviar un correo <span class="arrow">→</span>
-            </a>
-          </div>
-        </div>
+    <section class="v4-cta v4-bleed" aria-labelledby="cta-heading">
+      <div class="v4-cta-grid" aria-hidden="true"></div>
+      <span class="eyebrow eyebrow--bare reveal">Disponible</span>
+      <h2 id="cta-heading" class="reveal">
+        Tu problema más difícil<br>
+        <em class="accent-italic">es un buen punto de partida.</em>
+      </h2>
+      <p class="reveal">
+        Abierto a roles de product design senior y proyectos de consultoría selectivos — en inglés o español.
+      </p>
+      <div class="v4-cta-actions reveal">
+        <span class="v4-magnet">
+          <a href="https://www.linkedin.com/in/joseromerodesign/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Conectar en LinkedIn <span class="arrow">→</span>
+          </a>
+        </span>
+        <span class="v4-magnet">
+          <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+            Enviar un correo <span class="arrow">→</span>
+          </a>
+        </span>
       </div>
     </section>
 
@@ -996,14 +1089,10 @@
   <!-- ══════════════════════════════════════════
        FOOTER
   ══════════════════════════════════════════ -->
-  <footer class="footer" role="contentinfo">
-    <div class="footer-inner">
-      <div>
-        <p class="footer-name">Jose <span>Romero</span></p>
-        <p class="footer-sub">Senior Product Designer</p>
-        <p class="footer-sub">Trabajando desde Zaragoza, España</p>
-      </div>
-      <nav class="footer-nav" aria-label="Navegación del pie de página">
+  <footer class="v4-footer" role="contentinfo">
+    <div class="v4-footer-top">
+      <p class="v4-footer-word">Jose <em>Romero</em></p>
+      <nav class="v4-footer-nav" aria-label="Navegación del pie de página">
         <a href="/es/work/">Trabajo</a>
         <a href="/es/about/">Sobre mí</a>
         <a href="/es/thinking/">Pensamiento</a>
@@ -1012,10 +1101,14 @@
         <a href="/assets/cv/jose-romero-cv-es.pdf" download>Descargar CV</a>
       </nav>
     </div>
-    <p class="footer-copy">© 2026 Jose Romero. Todos los derechos reservados.</p>
+    <div class="v4-footer-meta">
+      <span>Senior Product Designer</span>
+      <span>Trabajando desde Zaragoza, España</span>
+      <span>© 2026 Jose Romero. Todos los derechos reservados.</span>
+    </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=15" defer></script>
+  <script src="/assets/js/main.js?v=18" defer></script>
 
 </body>
 
