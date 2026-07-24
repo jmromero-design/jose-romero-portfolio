@@ -60,7 +60,7 @@
 
   <!-- Fonts -->
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=30">
+  <link rel="stylesheet" href="/assets/css/main.css?v=32">
   <link rel="preload" href="/assets/images/portrait-standing.webp" as="image" fetchpriority="high">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -83,8 +83,16 @@
       top: calc(var(--nav-height) + var(--sp-6));
       max-width: 40vw;
     }
+    @media (max-width: 900px) {
+      /* .about-intro-grid collapses to a single column at this same
+         breakpoint (main.css) — sticky only makes sense with the
+         portrait and copy in separate columns. Once stacked, a sticky
+         image gets scrolled over by the copy sharing its column, so
+         it must drop to static here too, not just at phone widths. */
+      .about-portrait { position: static; }
+    }
     @media (max-width: 720px) {
-      .about-portrait { position: static; max-width: none; }
+      .about-portrait { max-width: none; }
 
       /* Hero section: reduce top/bottom space so title is visible above fold */
       section[aria-labelledby="about-heading"] { padding-top: 0; }

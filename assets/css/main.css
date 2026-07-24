@@ -120,21 +120,30 @@
    3. LIGHT MODE TOKENS
    ------------------------------------------------------------ */
 [data-theme="light"] {
-  --bg-base:          #F7F4EF;
-  --bg-surface:       #EDEAE4;
-  --bg-surface-2:     #E4E0D9;
-  --bg-hover:         #DDD9D2;
+  /* Neutral near-white, not cream — cream+serif+earthy-accent is the
+     generic AI-portfolio formula regardless of the exact accent hue.
+     A near-neutral field (imperceptibly warm, not zero) breaks that
+     read without going sterile-white. */
+  --bg-base:          #FAFAF8;
+  --bg-surface:       #F2F1EC;
+  --bg-surface-2:     #E8E7E0;
+  --bg-hover:         #DEDDD4;
 
-  --border-subtle:    #DDD9D2;
-  --border-default:   #C8C3BB;
-  --border-strong:    #B0ABA2;
+  /* Borders cast slightly cool/teal rather than warm, matching teal's
+     promotion to the dominant structural colour in this mode. */
+  --border-subtle:    #DEDDD4;
+  --border-default:   #C3C7BF;
+  --border-strong:    #A8ACA2;
 
   --text-primary:     #1A1917;
   --text-secondary:   #2E2B28;
   --text-tertiary:    #6B6864;
-  --text-inverse:     #F7F4EF;
+  --text-inverse:     #FAFAF8;
 
-  /* Gold — darker for contrast on light backgrounds */
+  /* Gold — true brand terracotta. Kept as-is: the fix is frequency
+     (reserved for rare, single moments — hero accent, primary CTA),
+     not hue engineering. See tag--gold override below for the biggest
+     frequency cut (removes gold from every repeated "Current" badge). */
   --gold:             #B85520;
   --gold-bright:      #D06030;
   --gold-dim:         #8A3E14;
@@ -153,17 +162,17 @@
 /* System preference fallback (no JS required) */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg-base:          #F7F4EF;
-    --bg-surface:       #EDEAE4;
-    --bg-surface-2:     #E4E0D9;
-    --bg-hover:         #DDD9D2;
-    --border-subtle:    #DDD9D2;
-    --border-default:   #C8C3BB;
-    --border-strong:    #B0ABA2;
+    --bg-base:          #FAFAF8;
+    --bg-surface:       #F2F1EC;
+    --bg-surface-2:     #E8E7E0;
+    --bg-hover:         #DEDDD4;
+    --border-subtle:    #DEDDD4;
+    --border-default:   #C3C7BF;
+    --border-strong:    #A8ACA2;
     --text-primary:     #1A1917;
     --text-secondary:   #2E2B28;
     --text-tertiary:    #6B6864;
-    --text-inverse:     #F7F4EF;
+    --text-inverse:     #FAFAF8;
     --gold:             #B85520;
     --gold-bright:      #D06030;
     --gold-dim:         #8A3E14;
@@ -218,6 +227,35 @@ body {
   pointer-events: none;
   z-index: 1;
   opacity: 0.35;
+}
+
+/* Light mode's own texture — a faint dot-grid ("drafting paper") in
+   place of the dark grain, so light mode has a material of its own
+   instead of just being a flat cream field. Selector specificity is
+   matched to the dark rule above (:root + attribute + ::before) so
+   source order — not specificity — decides which wins; both variants
+   below come after it deliberately. */
+:root[data-theme="light"] body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--teal) 24%, transparent) 1px, transparent 0);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.45;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--teal) 24%, transparent) 1px, transparent 0);
+    background-size: 28px 28px;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.45;
+  }
 }
 
 img, video { display: block; max-width: 100%; }
@@ -768,7 +806,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .card:hover .arrow { color: var(--gold); }
 
 [data-theme="light"] .card:hover {
-  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 0 0 1px var(--gold-tint-strong);
+  box-shadow: 0 16px 40px -10px rgba(40, 28, 16, 0.16), 0 0 0 1px var(--gold-tint-strong);
 }
 
 .card-image {
@@ -835,6 +873,15 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--gold);
   border-color: var(--gold-tint-strong);
   background: var(--gold-tint);
+}
+/* Light mode: this tag repeats many times per page (every "Current"
+   case-study badge) — gold there stacks up into the accent doing too
+   much work. Reserved instead for true one-per-page moments (hero
+   accent, primary CTA); the badge itself goes neutral ink. */
+[data-theme="light"] .tag--gold {
+  color: var(--text-secondary);
+  border-color: var(--border-default);
+  background: var(--bg-surface-2);
 }
 
 .card-title {
@@ -1699,6 +1746,9 @@ strong { font-weight: 500; color: var(--text-primary); }
   white-space: nowrap;
 }
 .v4-row-tags .v4-tag-current { color: var(--gold); }
+/* Same frequency cut as .tag--gold: this repeats once per work-index
+   row, so light mode keeps it neutral rather than gold. */
+[data-theme="light"] .v4-row-tags .v4-tag-current { color: var(--text-secondary); }
 
 .v4-row .arrow {
   color: var(--text-tertiary);
@@ -1779,12 +1829,18 @@ strong { font-weight: 500; color: var(--text-primary); }
   border: 1px solid rgba(255, 255, 255, 0.32);
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 70px -18px rgba(0, 0, 0, 0.8);
 }
+/* Daylight glass: a white-highlight gradient washes out to nothing on a
+   light surface, so light mode gets its own recipe — an ink-tinted
+   "mist" gradient (frosted paper, not frosted midnight) plus a
+   teal-tinted edge (structural, per the brand's colour intent) instead
+   of a white border. A thin white inset highlight survives as the one
+   remaining "catches the light" cue. */
 [data-theme="light"] .v4-frame {
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1)),
-    color-mix(in srgb, var(--bg-surface) 30%, transparent);
-  border-color: rgba(255, 255, 255, 0.75);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 28px 70px -18px rgba(0, 0, 0, 0.25);
+    linear-gradient(155deg, color-mix(in srgb, var(--text-primary) 5%, transparent), color-mix(in srgb, var(--text-primary) 1%, transparent)),
+    color-mix(in srgb, var(--bg-surface) 55%, transparent);
+  border-color: color-mix(in srgb, var(--teal) 38%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5), 0 28px 60px -22px rgba(40, 28, 16, 0.22);
 }
 .v4-frame img {
   display: block;
@@ -1934,8 +1990,8 @@ strong { font-weight: 500; color: var(--text-primary); }
   position: relative;
 }
 [data-theme="light"] .portrait-frame {
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7), 0 24px 60px -20px rgba(0, 0, 0, 0.18);
+  border-color: color-mix(in srgb, var(--teal) 32%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.6), 0 24px 50px -20px rgba(40, 28, 16, 0.18);
 }
 
 /* Portrait placeholder — teal tinted */
@@ -2118,9 +2174,9 @@ strong { font-weight: 500; color: var(--text-primary); }
 .role-facet:hover { border-color: color-mix(in srgb, var(--teal) 45%, transparent); }
 [data-theme="light"] .role-facet {
   background:
-    linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)),
-    color-mix(in srgb, var(--bg-surface) 45%, transparent);
-  border-color: rgba(255, 255, 255, 0.6);
+    linear-gradient(155deg, color-mix(in srgb, var(--text-primary) 4%, transparent), color-mix(in srgb, var(--text-primary) 1%, transparent)),
+    color-mix(in srgb, var(--bg-surface) 50%, transparent);
+  border-color: color-mix(in srgb, var(--teal) 30%, transparent);
 }
 
 .role-facet h6 {
@@ -3104,7 +3160,10 @@ strong { font-weight: 500; color: var(--text-primary); }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
 }
 [data-theme="light"] .v4-cta .btn-primary {
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65);
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--text-primary) 5%, transparent), color-mix(in srgb, var(--text-primary) 1%, transparent)),
+    var(--gold-tint);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .v4-cta .btn-ghost {
   background:
@@ -3116,9 +3175,11 @@ strong { font-weight: 500; color: var(--text-primary); }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 20px -10px rgba(0, 0, 0, 0.4);
 }
 [data-theme="light"] .v4-cta .btn-ghost {
-  background: color-mix(in srgb, var(--bg-surface) 45%, transparent);
-  border-color: rgba(255, 255, 255, 0.6);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75);
+  background:
+    linear-gradient(155deg, color-mix(in srgb, var(--text-primary) 4%, transparent), color-mix(in srgb, var(--text-primary) 1%, transparent)),
+    color-mix(in srgb, var(--bg-surface) 45%, transparent);
+  border-color: color-mix(in srgb, var(--teal) 36%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 .v4-cta .btn-ghost:hover {
   backdrop-filter: blur(24px) saturate(1.7);
@@ -3127,8 +3188,8 @@ strong { font-weight: 500; color: var(--text-primary); }
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 12px 32px -14px rgba(0, 0, 0, 0.45);
 }
 [data-theme="light"] .v4-cta .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.8);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 12px 28px -16px rgba(0, 0, 0, 0.12);
+  border-color: color-mix(in srgb, var(--teal) 45%, transparent);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.65), 0 12px 28px -16px rgba(40, 28, 16, 0.15);
 }
 
 .v4-footer {
