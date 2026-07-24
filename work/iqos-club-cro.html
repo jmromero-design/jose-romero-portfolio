@@ -37,7 +37,10 @@
     .comp-browser-url{margin-left:var(--sp-3);font-size:11px;color:var(--text-tertiary);border:1px solid var(--border-default);border-radius:99px;padding:2px 12px}
     .comp-browser-screen{overflow:hidden}
     .comp-browser-screen img{display:block;width:100%;height:auto}
-    .cover-ab{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:12px;padding:18px 24px}
+    /* Top-anchored (not centered): as the box shrinks at narrow widths,
+       the top (browser chrome + top of the screenshot) stays fully
+       visible and only the bottom trims, instead of cropping both ends. */
+    .cover-ab{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:flex-start;justify-content:center;gap:12px;padding:18px 24px}
     .cover-ab::before{content:'';position:absolute;width:220px;height:220px;border-radius:50%;background:var(--bg-surface-2);right:8%;bottom:-90px;box-shadow:0 0 0 90px color-mix(in srgb,var(--teal) 16%,var(--bg-surface-2)),0 0 0 200px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 330px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
     .cover-ab-col{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px;position:relative;z-index:1}
     .cover-ab-label{font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);text-align:center}

@@ -27,7 +27,10 @@
   </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=30">
   <style>
-    .cover-ai-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:center;justify-content:center;gap:14px;padding:20px 24px}
+    /* Top-anchored (not centered): as the box shrinks at narrow widths,
+       the top (board chrome + top of the screenshot) stays fully
+       visible and only the bottom trims, instead of cropping both ends. */
+    .cover-ai-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:flex-start;justify-content:center;gap:14px;padding:20px 24px}
     .cover-ai-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--teal) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--teal) 4%,var(--bg-surface));pointer-events:none}
     .cover-ai-col{position:relative;z-index:1}
     .cover-ai-col.primary{flex:4}
