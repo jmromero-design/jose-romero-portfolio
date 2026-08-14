@@ -443,7 +443,7 @@
       display: grid;
       grid-template-columns: minmax(9ch, auto) 1fr;
       gap: var(--sp-6);
-      align-items: baseline;
+      align-items: start;
       padding-block: var(--sp-5);
       border-bottom: 1px solid var(--border-default);
       position: relative;
@@ -461,6 +461,15 @@
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .v4-path-row:hover::after { transform: scaleX(1); }
+    /* Temporal tag + place name, stacked — reuses the About page's
+       .arc-phase-when tag style (main.css) for cross-page consistency,
+       without its paired concept word (that's specific to About's arc
+       narrative, not needed for this plain list). */
+    .v4-path-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
     .v4-path-place {
       font-family: var(--font-display);
       font-style: italic;
@@ -1005,15 +1014,24 @@
           </p>
           <div class="v4-path v4-r" style="--d: 0.18s;">
             <div class="v4-path-row">
-              <span class="v4-path-place">Garaje de Ideas × IKEA</span>
+              <div class="v4-path-meta">
+                <span class="arc-phase-when">Hoy</span>
+                <span class="v4-path-place">Garaje de Ideas × IKEA</span>
+              </div>
               <span class="v4-path-desc"><strong>Integrado en una de las marcas más reconocidas de Europa</strong> — dos nuevas plataformas de negocio, múltiples mercados.</span>
             </div>
             <div class="v4-path-row">
-              <span class="v4-path-place">Flat 101</span>
+              <div class="v4-path-meta">
+                <span class="arc-phase-when">Antes</span>
+                <span class="v4-path-place">Flat 101</span>
+              </div>
               <span class="v4-path-desc"><strong>Las cuentas empresariales más grandes de España</strong> — liderando CRO y UX en banca, seguros, hostelería y retail.</span>
             </div>
             <div class="v4-path-row">
-              <span class="v4-path-place">La Habana</span>
+              <div class="v4-path-meta">
+                <span class="arc-phase-when">Inicio</span>
+                <span class="v4-path-place">La Habana</span>
+              </div>
               <span class="v4-path-desc"><strong>Un estudio propio a los 21</strong> — dirigiendo una pequeña práctica de diseño antes de mudarme a España.</span>
             </div>
           </div>
