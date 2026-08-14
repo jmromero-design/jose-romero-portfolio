@@ -727,6 +727,12 @@
       .v4-scroll-cue { display: none; }
       .v4-manifest .v4-sub { margin-left: clamp(1.5rem, 10vw, 4rem); }
       .v4-footer-top { align-items: flex-start; flex-direction: column; }
+
+      /* "Garaje de Ideas × IKEA" is far longer than the other two place
+         labels ("Flat 101", "Havana") — the 2-col grid's auto-sized
+         place column would crush the description column at phone
+         widths, so stack instead. */
+      .v4-path-row { grid-template-columns: 1fr; gap: var(--sp-2); }
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -973,16 +979,16 @@
           </p>
           <div class="v4-path v4-r" style="--d: 0.18s;">
             <div class="v4-path-row">
-              <span class="v4-path-place">Havana</span>
-              <span class="v4-path-desc"><strong>A studio of my own at 21</strong> — running a small design practice before moving to Spain.</span>
+              <span class="v4-path-place">Garaje de Ideas × IKEA</span>
+              <span class="v4-path-desc"><strong>Embedded inside one of Europe's most recognised brands</strong> — two new business platforms, multiple markets.</span>
             </div>
             <div class="v4-path-row">
               <span class="v4-path-place">Flat 101</span>
               <span class="v4-path-desc"><strong>Spain's largest enterprise accounts</strong> — leading CRO and UX across banking, insurance, hospitality, and retail.</span>
             </div>
             <div class="v4-path-row">
-              <span class="v4-path-place">IKEA</span>
-              <span class="v4-path-desc"><strong>Embedded inside one of Europe's most recognised brands</strong> — two new business platforms, multiple markets.</span>
+              <span class="v4-path-place">Havana</span>
+              <span class="v4-path-desc"><strong>A studio of my own at 21</strong> — running a small design practice before moving to Spain.</span>
             </div>
           </div>
           <a href="/about/" class="btn btn-primary v4-r" style="--d: 0.26s;">More about me <span class="arrow">→</span></a>

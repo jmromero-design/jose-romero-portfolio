@@ -752,6 +752,12 @@
       .v4-scroll-cue { display: none; }
       .v4-manifest .v4-sub { margin-left: clamp(1.5rem, 10vw, 4rem); }
       .v4-footer-top { align-items: flex-start; flex-direction: column; }
+
+      /* "Garaje de Ideas × IKEA" is far longer than the other two place
+         labels ("Flat 101", "La Habana") — the 2-col grid's auto-sized
+         place column would crush the description column at phone
+         widths, so stack instead. */
+      .v4-path-row { grid-template-columns: 1fr; gap: var(--sp-2); }
     }
   </style>
   <script defer src="/_vercel/insights/script.js"></script>
@@ -999,16 +1005,16 @@
           </p>
           <div class="v4-path v4-r" style="--d: 0.18s;">
             <div class="v4-path-row">
-              <span class="v4-path-place">La Habana</span>
-              <span class="v4-path-desc"><strong>Un estudio propio a los 21</strong> — dirigiendo una pequeña práctica de diseño antes de mudarme a España.</span>
+              <span class="v4-path-place">Garaje de Ideas × IKEA</span>
+              <span class="v4-path-desc"><strong>Integrado en una de las marcas más reconocidas de Europa</strong> — dos nuevas plataformas de negocio, múltiples mercados.</span>
             </div>
             <div class="v4-path-row">
               <span class="v4-path-place">Flat 101</span>
               <span class="v4-path-desc"><strong>Las cuentas empresariales más grandes de España</strong> — liderando CRO y UX en banca, seguros, hostelería y retail.</span>
             </div>
             <div class="v4-path-row">
-              <span class="v4-path-place">IKEA</span>
-              <span class="v4-path-desc"><strong>Integrado en una de las marcas más reconocidas de Europa</strong> — dos nuevas plataformas de negocio, múltiples mercados.</span>
+              <span class="v4-path-place">La Habana</span>
+              <span class="v4-path-desc"><strong>Un estudio propio a los 21</strong> — dirigiendo una pequeña práctica de diseño antes de mudarme a España.</span>
             </div>
           </div>
           <a href="/es/about/" class="btn btn-primary v4-r" style="--d: 0.26s;">Más sobre mí <span class="arrow">→</span></a>
