@@ -172,15 +172,15 @@
             <span class="eyebrow">El problema</span>
             <h2>La pregunta equivocada estaba en todas partes</h2>
             <p>La pregunta dominante en los equipos de diseño que exploraban la IA era "¿qué herramienta deberíamos usar?". La respuesta casi siempre era una recomendación de producto — un asistente específico, un plugin específico, una integración específica. Los equipos lo adoptaban, lo usaban unas semanas y descubrían que los resultados eran inconsistentes, el proceso era más oscuro que antes y nadie podía explicar por qué un output era bueno o malo.</p>
-            <p>El problema no era la herramienta. Era que la IA se había añadido a un proceso que no estaba diseñado para incorporarla. Sin fases explícitas, roles de agentes definidos, checkpoints humanos y gestión de contexto, el trabajo asistido por IA produce algo más peligroso que el fallo: produce outputs que parecen correctos pero se desvían de la intención sin que nadie lo note.</p>
+            <p>La herramienta casi nunca era el problema real. La IA había caído en un proceso que nunca se había construido para sostenerla: sin fases definidas, sin roles de agente, sin checkpoints, sin ningún plan sobre qué contexto debía pasar de una etapa a otra. Así, el trabajo asistido por IA no falla de forma ruidosa. Se aleja de la intención original mientras sigue pareciendo correcto, y eso es peor, porque nadie lo detecta a tiempo.</p>
           </div>
 
           <!-- EL INSIGHT -->
           <div class="cs-section reveal" id="el-insight">
             <span class="eyebrow">El insight</span>
-            <h2>La IA es una capa de proceso, no una funcionalidad</h2>
-            <p>El cambio de perspectiva que hizo posible este proyecto: tratar la IA igual que cualquier otro problema de sistemas de diseño. Define las entradas. Define las salidas. Define los traspasos. Define quién decide qué y cuándo.</p>
-            <p>Ese cambio desplaza la pregunta de "¿qué puede hacer la IA?" a "¿dónde encaja la IA en este proceso y cómo verificamos que funciona correctamente?". La segunda pregunta es más difícil — y mucho más útil. También es el tipo de pregunta que los pensadores sistémicos están mejor posicionados para responder, porque requiere entender el todo antes de optimizar cualquier parte.</p>
+            <h2>Trata la IA como una pieza más del sistema</h2>
+            <p>Lo que realmente hizo posible este proyecto fue negarme a tratar la IA como algo especial. Le di el mismo trato que a cualquier otro problema de sistemas de diseño: entradas, salidas, traspasos, y quién decide qué en cada paso.</p>
+            <p>Dejé de preguntarme qué podía hacer la IA y empecé a preguntarme dónde encajaba de verdad en el proceso y cómo sabría si estaba funcionando bien. Pregunta más difícil, respuesta más útil, y es justo el tipo de pregunta donde un pensador de sistemas tiene ventaja, porque exige entender el conjunto antes de tocar cualquier pieza suelta.</p>
           </div>
 
           <!-- EL FRAMEWORK -->
@@ -383,16 +383,9 @@
           <!-- QUÉ REQUIERE -->
           <div class="cs-section reveal" id="que-requiere">
             <span class="eyebrow">Qué requiere</span>
-            <h2>La IA sube el listón del juicio humano — no lo baja</h2>
-            <p>El malentendido más común sobre los flujos de trabajo asistidos por IA es que simplifican el rol del diseñador. No lo hacen. El rol pasa de producir a dirigir, evaluar e integrar. Ese cambio requiere habilidades que no forman parte del perfil tradicional del diseñador:</p>
-            <ul style="margin: var(--sp-5) 0 var(--sp-5) var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <li><strong>Craft del prompt</strong> — Establecer dirección con suficiente especificidad para guiar outputs útiles, suficiente apertura para permitir una contribución real de la IA. Más cercano a escribir un brief que a especificar.</li>
-              <li><strong>Evaluación de outputs</strong> — Evaluar el output de la IA de forma crítica y ágil: qué es correcto, qué está mal, qué necesita investigación. Requiere conocimiento del dominio y un modelo claro de lo que el trabajo intenta conseguir.</li>
-              <li><strong>Arquitectura de contexto</strong> — Decidir qué información debe trasladarse entre fases, cómo debe comprimirse y qué puede dejarse atrás. Un nuevo tipo de habilidad de diseño de información.</li>
-              <li><strong>Detección de deriva</strong> — Notar cuando el encuadre de la IA se ha desplazado sutilmente de la intención original. Requiere mantener la intención original visible y consultarla constantemente.</li>
-              <li><strong>Confianza calibrada</strong> — Saber cuándo el output de la IA es probablemente fiable y cuándo requiere un escrutinio más profundo. Un output de IA con alta confianza no es señal de corrección — es un activador para una revisión más cuidadosa.</li>
-            </ul>
-            <p>Estas son habilidades que los diseñadores senior, los pensadores sistémicos y los design leads están mejor posicionados para desarrollar — porque ya entienden el proceso a un nivel que hace que la IA sea legible en lugar de mágica.</p>
+            <h2>Este modo de trabajar exige más al diseñador, no menos</h2>
+            <p>Casi todo el mundo asume que un flujo de trabajo asistido por IA facilita el día a día del diseñador. En la práctica, el trabajo simplemente se mueve: menos tiempo produciendo, más tiempo dirigiendo, revisando y encajando piezas. Nada de eso se enseña en una carrera de diseño, así que el framework lo incorpora de forma explícita. Cinco hábitos cargan con la mayor parte del peso: leer un prompt como quien escribe un brief y no una especificación, juzgar rápido el output de la IA sin perder rigor, decidir qué contexto sobrevive de una fase a otra, notar cuándo un agente se ha desviado de la intención original sin que nadie lo avisara, y saber qué outputs necesitan solo un vistazo frente a los que necesitan una revisión completa.</p>
+            <p>Los design leads y los pensadores de sistemas suelen coger esto rápido, sobre todo porque ya leen el proceso de la misma manera — solo tienen que apuntar ese hábito hacia un tipo de colaborador nuevo.</p>
           </div>
 
           <!-- DIAGRAMA 3: Calibración de confianza -->
@@ -454,11 +447,7 @@
             <p>El resultado más duradero de este trabajo es una arquitectura de proceso independiente de cualquier herramienta o plataforma de IA específica. Como el framework define fases, roles de agentes, checkpoints y protocolos de gestión de contexto a nivel de proceso — no de implementación — sobrevive a migraciones de herramientas, cambios de plataforma y rotación de equipos.</p>
             <p>Esa separación también lo hace enseñable. El framework se está compartiendo ahora a través de un programa activo de formación en IA para profesionales del diseño senior, con foco en el diseño de flujos de trabajo y no en el uso de herramientas. El público objetivo son diseñadores y design leads que ya piensan en sistemas — y que están preparados para aplicar ese pensamiento a cómo encaja la IA en el proceso, no solo a qué puede hacer la IA.</p>
 
-            <div class="pull-quote" style="margin-top: var(--sp-8);">
-              <p>"La IA es una capa. El proceso es el diseño."</p>
-            </div>
-
-            <p style="margin-top: var(--sp-6);">El framework está documentado íntegramente como pieza independiente — escrita para ser adoptada, adaptada y evolucionada por cualquier equipo de diseño que trabaje seriamente con IA. Parte de las restricciones y modos de fallo reales encontrados durante este proyecto y representa una posición: que la augmentación responsable de IA en diseño es un problema de diseño de sistemas, y debe tratarse como tal.</p>
+            <p style="margin-top: var(--sp-6);">El framework en sí está escrito por separado, con más detalle del que cabe aquí, para que cualquier otro equipo pueda cogerlo y adaptarlo en vez de partir de cero. Está construido a partir de los fallos reales que encontré en este proyecto, no de una versión teórica de ellos.</p>
 
             <a href="/es/thinking/ai-workflow-framework/" style="display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-6); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--gold); text-decoration: none; padding: var(--sp-3) var(--sp-5); border: 1px solid var(--gold-dim); border-radius: var(--radius-sm); transition: background 0.15s;">
               Leer el framework completo — 18 min <span style="font-family: var(--font-display);">→</span>

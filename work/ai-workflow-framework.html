@@ -172,15 +172,15 @@
             <span class="eyebrow">The problem</span>
             <h2>The wrong question was everywhere</h2>
             <p>The dominant question in design teams exploring AI was "which tool should we use?" The answer was almost always a product recommendation — a specific assistant, a specific plugin, a specific integration. Teams would adopt it, use it for a few weeks, and find that the outputs were inconsistent, the process was murkier than before, and nobody could explain why a particular output was good or bad.</p>
-            <p>The problem wasn't the tool. It was that AI had been added to a process that wasn't designed to accommodate it. Without explicit phases, defined agent roles, human checkpoints, and context management, AI-assisted work produces something more dangerous than failure: it produces plausible-looking output that drifts from intent without anyone noticing.</p>
+            <p>The tool was rarely the actual problem. AI had been dropped into a process that had never been built to hold it — no defined phases, no agent roles, no checkpoints, no plan for what context needed to carry forward. Left like that, AI-assisted work doesn't fail loudly — it drifts away from the original intent while still looking plausible, and that's worse, because nobody catches it in time.</p>
           </div>
 
           <!-- THE INSIGHT -->
           <div class="cs-section reveal" id="the-insight">
             <span class="eyebrow">The insight</span>
-            <h2>AI is a process layer, not a feature</h2>
-            <p>The reframe that made this project possible: treat AI the same way you'd treat any other design systems problem. Define the inputs. Define the outputs. Define the handoffs. Define who decides what and when.</p>
-            <p>That reframe shifts the question from "what can AI do?" to "where does AI fit in this process, and how do we verify that it's working correctly?" The second question is harder — and far more useful. It's also the kind of question that systems thinkers are better positioned to answer than most, because it requires understanding the whole before optimising any part.</p>
+            <h2>Treat AI like any other part of the system</h2>
+            <p>What actually made this project work was refusing to treat AI as special. I gave it the same treatment I'd give any other design-systems problem: pin down the inputs, the outputs, the handoffs, and who's deciding what at each step.</p>
+            <p>Instead of asking what AI could do, I started asking where it actually belonged in the process and how we'd know if it was doing that job well. Harder question, more useful answer — and one that plays to a systems thinker's strengths, since it means understanding the whole flow before touching any single part of it.</p>
           </div>
 
           <!-- THE FRAMEWORK -->
@@ -405,16 +405,9 @@
           <!-- WHAT THIS REQUIRES -->
           <div class="cs-section reveal" id="what-this-requires">
             <span class="eyebrow">What this requires</span>
-            <h2>AI raises the bar for human judgment — it doesn't lower it</h2>
-            <p>The most common misconception about AI-augmented workflows is that they simplify the designer's role. They don't. The role shifts from producing to directing, evaluating, and integrating. That shift requires skills that aren't traditionally part of design education:</p>
-            <ul style="margin: var(--sp-5) 0 var(--sp-5) var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-3);">
-              <li><strong>Prompt craft</strong> — Setting direction with enough specificity to guide useful output, enough openness to allow genuine AI contribution. Closer to brief-writing than specification.</li>
-              <li><strong>Output evaluation</strong> — Assessing AI output critically and quickly: what's right, what's wrong, what needs investigation. Requires domain knowledge and a clear model of what the work is trying to achieve.</li>
-              <li><strong>Context architecture</strong> — Deciding what information must carry forward across phases, how it should be compressed, and what can be safely left behind. A new kind of information design skill.</li>
-              <li><strong>Drift detection</strong> — Noticing when the AI's framing has shifted subtly from original intent. Requires keeping the original intent visible and referring back to it constantly.</li>
-              <li><strong>Calibrated trust</strong> — Knowing when AI output is likely reliable and when it requires deeper scrutiny. High-confidence AI output is not a signal of correctness — it is a trigger for more careful review.</li>
-            </ul>
-            <p>These are skills that senior designers, systems thinkers, and design leads are best positioned to develop — because they already understand process at a level that makes AI augmentation legible rather than magical.</p>
+            <h2>Working this way asks more of a designer, not less</h2>
+            <p>Most people assume AI-augmented workflows make a designer's job easier. In practice the job just moves: less time producing, more time directing, checking, and stitching pieces together. None of that is taught in a design programme, so the framework builds it in explicitly. Five habits carry most of the weight — reading a prompt like a brief instead of a spec, judging AI output fast without losing rigor, deciding what context survives from one phase to the next, catching when an agent has drifted off the original intent without anyone flagging it, and knowing which outputs need a second look versus a full re-check.</p>
+            <p>Design leads and systems thinkers tend to pick this up quickly, mostly because they're already reading process the same way — they just have to point that habit at a new kind of collaborator.</p>
           </div>
 
           <!-- DIAGRAM 3: Trust calibration -->
@@ -479,11 +472,7 @@
             <p>The most durable result of this work is a process architecture that is independent of any specific AI tool or platform. Because the framework defines phases, agent roles, checkpoints, and context management protocols at the process level — not the implementation level — it survives tool migrations, platform changes, and team turnover.</p>
             <p>That separation also makes it teachable. The framework is now being shared through an active AI literacy programme for senior design professionals, with a focus on workflow design rather than tool use. The target audience is designers and design leads who already think in systems — and who are ready to apply that thinking to how AI fits into the process, not just what AI can do.</p>
 
-            <div class="pull-quote" style="margin-top: var(--sp-8);">
-              <p>"The AI is a layer. The process is the design."</p>
-            </div>
-
-            <p style="margin-top: var(--sp-6);">The framework is documented in full as a standalone piece — written to be adopted, adapted, and evolved by any design team working seriously with AI. It draws from the real-world constraints and failure modes encountered during this engagement and represents a position: that responsible AI augmentation in design is a systems design problem, and should be treated as one.</p>
+            <p style="margin-top: var(--sp-6);">The framework itself is written up separately, in more depth than fits here, so another team can pick it up and adapt it rather than start from a blank page. It's built from the actual failure modes I ran into on this engagement, not a theoretical version of them.</p>
 
             <a href="/thinking/ai-workflow-framework/" style="display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-6); font-family: var(--font-body); font-size: var(--text-sm); font-weight: 500; color: var(--gold); text-decoration: none; padding: var(--sp-3) var(--sp-5); border: 1px solid var(--gold-dim); border-radius: var(--radius-sm); transition: background 0.15s;">
               Read the full framework — 18 min <span style="font-family: var(--font-display);">→</span>

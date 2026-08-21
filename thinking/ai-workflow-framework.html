@@ -841,7 +841,7 @@
         <section class="fwa-preface fwa-section" id="preface" aria-label="Preface">
           <p class="fwa-preface-label reveal">Preface</p>
 
-          <p class="fwa-intro reveal">The question dominating design teams right now is the wrong one. "Which AI tool should we use?" is not a design question — it's a procurement question. Answering it before the more fundamental question will produce exactly what most teams are experiencing: impressive demos, inconsistent outputs, and workflows that are harder to audit than the ones they replaced.</p>
+          <p class="fwa-intro reveal">Most design teams I talk to are stuck on the wrong question. "Which AI tool should we use?" is a procurement question dressed up as a design one, and answering it first is exactly how you end up with what most teams have right now: demos that look great, output that's all over the place, and a workflow that's harder to audit than what it replaced.</p>
 
           <p class="fwa-p reveal">The more interesting question is: if you were designing a workflow from scratch, knowing that AI agents would be part of it — how would you structure the process? Where would the humans be? What would they actually do? What would agents handle? And how would you know if it was working?</p>
 
@@ -863,19 +863,17 @@
             <p class="fwa-note-text">The distinction between tool use and workflow design is not semantic. A tool you use is optional and interchangeable. A workflow layer you've designed is part of the architecture — different risk profile, different level of care required.</p>
           </aside>
 
-          <p class="fwa-p reveal">Most teams treat AI as a feature — something bolted onto an existing workflow. The Figma plugin that generates copy variants. The ChatGPT tab that summarises research notes. The assistant that writes the first draft. There is nothing wrong with any of these uses. But they share a common limitation: they inherit whatever structural problems already exist in the workflow.</p>
+          <p class="fwa-p reveal">Most teams I've seen treat AI as a feature bolted onto whatever workflow already exists — a Figma plugin generating copy variants, a ChatGPT tab summarising research notes, an assistant drafting the first pass. None of that is wrong on its own. The catch is that AI used this way just inherits whatever was already broken about the process.</p>
 
-          <p class="fwa-p reveal">If the process is ad hoc, AI makes it faster and more ad hoc. If decisions are poorly documented, AI-generated documentation will be confidently wrong. If the team lacks shared understanding of what they're trying to achieve, AI will optimise for something — but not necessarily for that.</p>
-
-          <p class="fwa-p reveal">Adding intelligence to an unclear process produces something worse than a slow, unclear process. It produces a fast, unclear one that looks credible.</p>
+          <p class="fwa-p reveal">An ad hoc process doesn't get more structured with AI in it — it gets faster and more ad hoc. Undocumented decisions don't become documented; they become confidently, plausibly wrong. And if a team hasn't agreed on what they're actually trying to achieve, AI will happily optimise for something else entirely.</p>
 
           <blockquote class="fwa-pull reveal">
-            <p>Adding intelligence to an unclear process produces something worse than a slow, unclear process. It produces a fast, unclear one that looks credible.</p>
+            <p>An unclear process doesn't get slower when you add AI to it. It gets fast, unclear, and — because the output looks polished — much harder to catch.</p>
           </blockquote>
 
-          <p class="fwa-p reveal">The reframe: treat AI the same way you'd treat any other systems design problem. Define the inputs. Define the outputs. Define the handoffs. Define who decides what and when. Design the workflow first, then design AI into it.</p>
+          <p class="fwa-p reveal">What worked for me was treating AI the way I'd treat any other systems design problem: pin down the inputs, the outputs, the handoffs, who decides what and when — the workflow first, with AI designed into it afterward, not the other way around.</p>
 
-          <p class="fwa-p reveal">This shifts the question from "what can AI do?" to "where does AI fit in this process, and how do we know it's working?" The second question is harder. It is also the one worth asking.</p>
+          <p class="fwa-p reveal">The useful question stopped being "what can AI do?" and became "where does this actually belong in the process, and how would I know if it wasn't working?" Slower to answer, but it's the one that matters.</p>
 
         </section>
 
@@ -922,7 +920,7 @@
 
         <!-- FULL-BLEED STRIPE -->
         <div class="fwa-stripe reveal">
-          <p class="fwa-stripe-text">The AI is a layer. The process is the design.</p>
+          <p class="fwa-stripe-text">Design the process well and the AI is just another layer inside it.</p>
         </div>
 
         <!-- CHAPTER 03 -->
@@ -936,7 +934,7 @@
 
         <section class="fwa-section">
 
-          <p class="fwa-intro reveal">"Human-in-the-loop" has become a phrase that means almost nothing. It describes everything from a pop-up confirmation dialog to a genuine decision authority structure. Most AI-assisted workflows claim human oversight and deliver a rubber stamp.</p>
+          <p class="fwa-intro reveal">I've stopped trusting the phrase "human-in-the-loop" on its own — it covers everything from a real decision-making role down to a confirmation dialog nobody reads before clicking through. Plenty of workflows advertise human oversight and deliver a formality instead.</p>
 
           <aside class="fwa-note reveal">
             <p class="fwa-note-text">High-confidence AI output is not a signal of correctness — it is often a trigger for more careful review. Fluency and accuracy are not correlated. This is counterintuitive and worth making explicit to the whole team.</p>
@@ -976,15 +974,15 @@
             </div>
           </div>
 
-          <p class="fwa-p reveal">If the human reads this and finds nothing to correct, they should be suspicious. Either the agent is accurately capturing a well-structured phase output, or the reviewer is not reading carefully enough. Both are possible. Develop the habit of assuming the second.</p>
+          <p class="fwa-p reveal">If a human reads that summary and has nothing to correct, I'd treat that as a yellow flag, not a green one. It might mean the agent captured a genuinely clean phase output. It might also mean the reviewer skimmed it. I've learned to assume the second until I have a reason not to.</p>
 
           <h3 class="fwa-h3 reveal">The drift problem</h3>
 
-          <p class="fwa-p reveal">Drift is the failure mode nobody talks about, because it doesn't look like failure. It looks like progress.</p>
+          <p class="fwa-p reveal">Nobody talks about drift as a failure mode, probably because it doesn't announce itself — from the inside, it just looks like the project is moving forward.</p>
 
           <p class="fwa-p reveal">Drift is the gradual divergence between the AI's working model and the team's actual intent. It's different from a single error — which is visible and correctable. Drift is cumulative: small misalignments that compound across phases until the gap between "what we're building" and "what we said we were building" becomes significant.</p>
 
-          <p class="fwa-p reveal">It shows up as framing drift (the problem statement shifts subtly), persona drift (the target user becomes different from the research), or priority drift (trade-offs resolved early quietly get re-weighted). By the time it's visible, several phases of work may be built on the wrong foundation.</p>
+          <p class="fwa-p reveal">It shows up as framing drift (the problem statement shifts subtly), persona drift (the target user becomes different from the research), or priority drift (a trade-off resolved early gets re-litigated without anyone flagging it). By the time it's visible, several phases of work may already be built on the wrong foundation.</p>
 
           <p class="fwa-p reveal">The defences against drift are structural: a project context document updated and reviewed at each phase transition; original intent literally re-read at every phase gate, from a document not from memory; and confirmation blocks that explicitly surface the agent's current problem framing for human comparison.</p>
 
@@ -998,7 +996,7 @@
 
           <p class="fwa-p reveal">Working with language models in a multi-phase workflow means accepting a real constraint: agents don't have memory in the way human team members do. Each operates within a context window — a bounded space of information it can actively process. When that window fills up, context is summarised, compressed, or lost.</p>
 
-          <p class="fwa-p reveal">This is not a bug. It is a characteristic of the technology, and designing around it is a genuine skill. The framework addresses it through four mechanisms:</p>
+          <p class="fwa-p reveal">That's just how the technology behaves, not a flaw to engineer away, and designing around it turned out to be its own skill. Four mechanisms in the framework handle it:</p>
 
           <ul class="fwa-list reveal">
             <li><strong>Context Initialisation</strong> — a living project document maintained across all phases, re-injected at each phase start</li>
@@ -1022,9 +1020,9 @@
 
         <section class="fwa-section">
 
-          <p class="fwa-intro reveal">When AI is embedded in a design workflow, the facilitator's job doesn't get easier. It gets different.</p>
+          <p class="fwa-intro reveal">Embedding AI into a design workflow doesn't make the facilitator's job easier. It's a different job.</p>
 
-          <p class="fwa-p reveal">The most visible change: the facilitator is no longer the primary processor of group information. AI handles much of the transcription, tagging, and preliminary synthesis. This frees attention — but it also creates new demands. The facilitator must now monitor not only the room but the system, tracking what the AI is doing with the group's input and preparing participants to engage with those outputs critically rather than passively.</p>
+          <p class="fwa-p reveal">The clearest shift: the facilitator stops being the one processing everything the group says. AI now handles most of the transcription, tagging, and first-pass synthesis. That frees up attention, but it adds a new responsibility in its place — watching the system as closely as the room, tracking what the AI is doing with what people just said, and getting participants to actually interrogate those outputs instead of nodding along.</p>
 
           <aside class="fwa-note reveal">
             <p class="fwa-note-text">The pattern I've seen most often: a group that has been in a two-hour session accepts an AI synthesis as authoritative because it looks organised. The facilitator needs to actively model skepticism — not just once, but consistently.</p>
@@ -1033,7 +1031,7 @@
           <p class="fwa-p reveal">There is a specific risk here. When AI summarises a two-hour workshop into a crisp set of insight clusters, participants tend to accept that summary as authoritative — because it looks organised and confident. The facilitator must actively resist this: prompting the group to interrogate the synthesis, identify what was lost in compression, and surface disagreements the system may have smoothed over.</p>
 
           <blockquote class="fwa-pull reveal">
-            <p>The facilitator must monitor not only the room but the system — and when the two contradict each other, the room wins.</p>
+            <p>Watch the room and the system both. When they disagree, trust the room.</p>
           </blockquote>
 
           <h3 class="fwa-h3 reveal">What doesn't change</h3>
@@ -1048,7 +1046,7 @@
 
           <p class="fwa-p reveal">The most important condition for AI-augmented facilitation is one that cannot be designed into the system: the normalisation of skepticism toward AI output.</p>
 
-          <p class="fwa-p reveal">In teams that work well with AI, questioning the system's output is not a sign of distrust or inefficiency. It is a sign of good professional judgment. "I don't think this captures what we actually said" should be a celebrated contribution, not an awkward one.</p>
+          <p class="fwa-p reveal">On teams that get this right, pushing back on the system's output isn't read as distrust or slowing things down — it's read as someone doing their job well. "I don't think this captures what we actually said" is worth more than the polite silence it usually gets.</p>
 
           <p class="fwa-p reveal">Building this norm requires explicit leadership. The facilitator must model skepticism — asking critical questions about AI synthesis in front of the group, praising pushback, and making it clear that the AI is a collaborator with a defined and bounded role, not a source of truth.</p>
 
@@ -1067,7 +1065,7 @@
 
           <p class="fwa-intro reveal">AI augmentation doesn't simplify the designer's role. It changes it.</p>
 
-          <p class="fwa-p reveal">What decreases: time spent on certain production work — first-draft generation, structured synthesis, repetitive pattern application. These shift substantially to agents. What increases: time and attention required for direction-setting, critical evaluation, integration across phases, and the judgment calls that sit at the intersection of user need, business constraint, and design quality. What stays the same: the responsibility.</p>
+          <p class="fwa-p reveal">Less time goes into production work now — first drafts, structured synthesis, applying a repetitive pattern, most of that's moved to agents. More time goes into setting direction, evaluating what comes back, and making the judgment calls where user need, business constraint, and design quality don't line up cleanly. The responsibility for the outcome hasn't moved at all.</p>
 
           <p class="fwa-p reveal">AI assistance does not transfer accountability. It changes the form of the work required to fulfil it.</p>
 
@@ -1078,7 +1076,7 @@
           </aside>
 
           <ul class="fwa-list reveal">
-            <li><strong>Prompt craft</strong> — setting direction for an agent with enough specificity to guide useful output, enough openness to allow genuine contribution. This is closer to brief-writing than specification. The skill is not in writing a longer, more detailed prompt. It is in writing a precise one.</li>
+            <li><strong>Prompt craft</strong> — giving an agent enough specificity to be useful without boxing out its actual contribution. It's closer to writing a brief than writing a spec, and a longer prompt isn't a better one — a precise one is.</li>
             <li><strong>Output evaluation</strong> — assessing AI output critically and quickly: what is right, what is wrong, what needs investigation. This requires both domain knowledge and a clear mental model of what the work is supposed to achieve.</li>
             <li><strong>Context architecture</strong> — deciding what information must carry forward across phases, how it should be compressed, and what can be safely left behind. A new kind of information design that senior designers are well-positioned to develop.</li>
             <li><strong>Drift detection</strong> — noticing when the AI's framing has shifted subtly from original intent. This requires keeping original intent visible and referring to it regularly — from a document, not from memory.</li>
@@ -1099,7 +1097,7 @@
 
           <p class="fwa-intro">The framework is an attempt to make human judgment more effective, not to replace it. The AI layer exists to serve the process. The process exists to serve the design. The design exists to serve the people who use it.</p>
 
-          <p class="fwa-conclusion">That chain of accountability is the point of all of this. Not the agents, not the workflow, not the tooling. The chain.</p>
+          <p class="fwa-conclusion">The agents, the workflow, the tooling — none of it matters as much as that chain of accountability holding end to end. That's the actual point.</p>
 
           <div class="fwa-cta-row">
             <a href="/thinking/" class="btn btn-ghost">
