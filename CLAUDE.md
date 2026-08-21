@@ -6,6 +6,12 @@ Live: https://joseromerodesign.com · Vercel project: `prj_yrqqL9ZRSixjZM1rjNRp8
 
 ---
 
+## Copy standard — human-voice skill applies to every word on this site
+
+All prose on this site — hero copy, case-study body text, About bio, article body text, alt text, meta descriptions, in either EN or ES — must comply with the global `human-voice` skill (`~/.agents/skills/human-voice/SKILL.md`). That protocol supersedes any tone guidance elsewhere in this file when they conflict. Before writing or editing any copy here, apply it: no banned AI-tell vocabulary, no mirrored "not X, it's Y" constructions, no mechanical rule-of-three padding, no manufactured pull-quotes restating their own paragraph, and run its mandatory self-audit pass before delivering. The one exception is the fixed canonical CTA copy below (§ Canonical CTA copy) and the third-party testimonial quotes in about.html/es/about.html — those are locked/attributed content, not prose to improve.
+
+---
+
 ## File structure
 
 ```
