@@ -222,11 +222,11 @@ Every page ends with `.cta-section`. Copy is fixed — do not paraphrase.
 
 **EN:**
 - Heading: `Your hardest problem<br><em class="accent-italic">is a good place to start.</em>`
-- Body: `Open to senior product design roles and selective consulting engagements — in English or Spanish.`
+- Body: `Open to senior product design roles and selective consulting engagements, in English or Spanish.`
 
 **ES:**
 - Heading: `Tu problema más difícil<br><em class="accent-italic">es un buen punto de partida.</em>`
-- Body: `Abierto a roles de product design senior y proyectos de consultoría selectivos — en inglés o español.`
+- Body: `Abierto a roles de product design senior y proyectos de consultoría selectivos, en inglés o español.`
 
 **Exception:** `about.html` and `es/about.html` include an extra Download CV / Descargar CV `btn-ghost` button below the body.
 
