@@ -441,7 +441,7 @@
     .v4-path { border-top: 1px solid var(--border-default); margin-bottom: var(--sp-10); }
     .v4-path-row {
       display: grid;
-      grid-template-columns: minmax(9ch, auto) 1fr;
+      grid-template-columns: 9rem 1fr;
       gap: var(--sp-6);
       align-items: start;
       padding-block: var(--sp-5);
@@ -762,9 +762,8 @@
       .v4-manifest .v4-sub { margin-left: clamp(1.5rem, 10vw, 4rem); }
       .v4-footer-top { align-items: flex-start; flex-direction: column; }
 
-      /* "Garaje de Ideas × IKEA" is far longer than the other two place
-         labels ("Flat 101", "La Habana") — the 2-col grid's auto-sized
-         place column would crush the description column at phone
+      /* The fixed 9rem place column (set above for cross-row alignment)
+         leaves too little room for the description text at phone
          widths, so stack instead. */
       .v4-path-row { grid-template-columns: 1fr; gap: var(--sp-2); }
     }
@@ -1015,7 +1014,7 @@
             <div class="v4-path-row">
               <div class="v4-path-meta">
                 <span class="arc-phase-when">Hoy</span>
-                <span class="v4-path-place">Garaje de Ideas × IKEA</span>
+                <span class="v4-path-place">GDI × IKEA</span>
               </div>
               <span class="v4-path-desc"><strong>Integrado en una de las marcas más reconocidas de Europa</strong> — dos nuevas plataformas de negocio, múltiples mercados.</span>
             </div>
