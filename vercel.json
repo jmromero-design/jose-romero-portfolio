@@ -14,7 +14,7 @@
     { "source": "/creative-agency-portfolio-website", "destination": "/work/", "permanent": true },
     { "source": "/topics/projects", "destination": "/work/", "permanent": true },
     { "source": "/topics/projects/feed", "destination": "/work/", "permanent": true },
-    { "source": "/privacy-policy", "destination": "/about/", "permanent": true },
+    { "source": "/privacy-policy", "destination": "/privacy/", "permanent": true },
     { "source": "/cookie-policy-eu", "destination": "/", "permanent": true }
   ],
   "headers": [
