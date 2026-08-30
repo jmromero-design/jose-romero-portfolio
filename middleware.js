@@ -1,20 +1,29 @@
-// Edge Middleware — markdown content negotiation for the homepage only.
+// Edge Middleware — markdown content negotiation for agents.
 //
-// Scope is deliberately narrow (matcher: '/' only): this static site has
-// no build step and no server, so this is the one piece of dynamic
-// behaviour on the whole project. Keeping it to a single path limits the
-// blast radius if something about the Edge runtime behaves differently
-// than expected in production.
+// This is the one dynamic piece on an otherwise fully static site, so its
+// scope is kept as narrow as the requirement allows:
 //
-// When a client asks for text/markdown (AI agents following the
-// acceptmarkdown.com convention), respond with a hand-written markdown
-// summary of the homepage instead of the HTML page. Every response from
-// this route — markdown or the normal HTML — carries Vary: Accept, so a
-// CDN never serves the wrong cached variant to the next visitor
-// regardless of which one it saw first.
+//   - The matcher excludes every static asset path (CSS/JS/images/fonts),
+//     favicons, robots.txt, sitemap.xml, and llms.txt — those are already
+//     served correctly and don't need to flow through a function.
+//   - For every request that DOES match (real pages + any nonexistent
+//     path), the middleware only changes behaviour in two cases:
+//       1. The homepage ('/'), when the client asks for text/markdown.
+//       2. Any path that resolves to a real 404, when the client asks
+//          for text/markdown — returns a short markdown 404 body instead
+//          of the HTML error page, with links back to the sitemap,
+//          llms.txt, and the homepage so an agent can recover.
+//     Every other request (any normal page, any normal Accept header) is
+//     returned completely untouched — same bytes, same headers, same
+//     status — so existing product behaviour and visual design are
+//     unaffected.
+//   - Both special-cased responses set Vary: Accept, Accept-Encoding so a
+//     CDN never serves the wrong cached variant to the next visitor.
 
 export const config = {
-  matcher: '/',
+  matcher: [
+    '/((?!assets/|_vercel/|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|robots\\.txt|sitemap\\.xml|llms\\.txt).*)',
+  ],
 };
 
 const HOMEPAGE_MARKDOWN = `# Jose Romero — Senior Product Designer
@@ -58,10 +67,26 @@ Email: joseromero.next@gmail.com
 LinkedIn: https://www.linkedin.com/in/joseromerodesign/
 `;
 
-export default async function middleware(request) {
-  const accept = request.headers.get('accept') || '';
+const NOT_FOUND_MARKDOWN = `# 404 — Page not found
 
-  if (accept.includes('text/markdown')) {
+This URL doesn't correspond to any page on joseromerodesign.com. It may
+have moved, been removed, or never existed.
+
+## Where to look next
+
+- [Sitemap](https://joseromerodesign.com/sitemap.xml) — every indexable URL on this site
+- [llms.txt](https://joseromerodesign.com/llms.txt) — structured summary for agents
+- [Homepage](https://joseromerodesign.com/)
+- [Work index](https://joseromerodesign.com/work/) — all case studies
+- [Thinking](https://joseromerodesign.com/thinking/) — long-form writing
+`;
+
+export default async function middleware(request) {
+  const url = new URL(request.url);
+  const accept = request.headers.get('accept') || '';
+  const wantsMarkdown = accept.includes('text/markdown');
+
+  if (url.pathname === '/' && wantsMarkdown) {
     return new Response(HOMEPAGE_MARKDOWN, {
       status: 200,
       headers: {
@@ -71,15 +96,30 @@ export default async function middleware(request) {
     });
   }
 
-  // Not a markdown request — fetch the normal static homepage from origin
-  // and pass it through, adding Vary so caches keyed on this URL don't mix
-  // up the HTML and markdown variants.
   const originResponse = await fetch(request);
-  const headers = new Headers(originResponse.headers);
-  headers.set('vary', 'Accept, Accept-Encoding');
-  return new Response(originResponse.body, {
-    status: originResponse.status,
-    statusText: originResponse.statusText,
-    headers,
-  });
+
+  if (originResponse.status === 404 && wantsMarkdown) {
+    return new Response(NOT_FOUND_MARKDOWN, {
+      status: 404,
+      headers: {
+        'content-type': 'text/markdown; charset=utf-8',
+        'vary': 'Accept, Accept-Encoding',
+      },
+    });
+  }
+
+  if (url.pathname === '/' || originResponse.status === 404) {
+    // Only these two cases actually vary their response by Accept, so
+    // only these two get Vary added — everything else is returned as-is
+    // below, completely untouched.
+    const headers = new Headers(originResponse.headers);
+    headers.set('vary', 'Accept, Accept-Encoding');
+    return new Response(originResponse.body, {
+      status: originResponse.status,
+      statusText: originResponse.statusText,
+      headers,
+    });
+  }
+
+  return originResponse;
 }
