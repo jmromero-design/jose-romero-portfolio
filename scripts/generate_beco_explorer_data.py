@@ -239,7 +239,14 @@ def main():
         (OUT_DIR / "tree.json").write_text(json.dumps(tree, ensure_ascii=False, separators=(",", ":")))
         print(f"  wrote tree.json ({(OUT_DIR / 'tree.json').stat().st_size:,} bytes)")
 
-        all_bias_ids = [b["id"] for d in domains for t in d["topics"] for b in t["biases"]]
+        # dict.fromkeys dedupes while preserving first-seen order — a bias linked to more
+        # than one Topic (e.g. Choice Blindness, since Phase 142's ABOUT-link fix) walks
+        # more than one Domain/Topic path here, so a plain list comprehension double- or
+        # triple-writes the same file with identical content. Harmless, but ~30% wasted
+        # Neo4j round-trips on every run.
+        all_bias_ids = list(dict.fromkeys(
+            b["id"] for d in domains for t in d["topics"] for b in t["biases"]
+        ))
         print(f"Building {len(all_bias_ids)} bias detail files...")
         for i, bias_id in enumerate(all_bias_ids, 1):
             detail = build_bias_detail(session, bias_id)
