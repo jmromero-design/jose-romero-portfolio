@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the BECO Knowledge Graph · Jose Romero</title>
+  <meta name="description"
+    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one. A static snapshot, not a live database.">
+  <link rel="canonical" href="https://joseromerodesign.com/thinking/beco-explorer/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Explore the BECO Knowledge Graph · Jose Romero">
+  <meta property="og:description"
+    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one.">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:url" content="https://joseromerodesign.com/thinking/beco-explorer/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore the BECO Knowledge Graph · Jose Romero">
+  <meta name="twitter:description"
+    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one.">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/thinking/beco-explorer/">
+  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/thinking/beco-explorer/">
+  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-explorer/">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       BECO GRAPH EXPLORER — bgx- prefix
+       Zoomable treemap-of-cards navigation over a static
+       JSON snapshot (assets/data/beco-explorer/). No live
+       Aura connection — see scripts/generate_beco_explorer_data.py.
+    ═══════════════════════════════════════════════ */
+
+    .bgx-main {
+      padding-block: calc(var(--nav-height) + var(--sp-10)) var(--sp-20);
+      padding-inline: var(--gutter);
+      min-height: 100svh;
+    }
+
+    .bgx-header {
+      max-width: 1200px;
+      margin-inline: auto;
+      margin-bottom: var(--sp-10);
+    }
+
+    .bgx-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-5);
+    }
+    .bgx-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--teal);
+      flex-shrink: 0;
+    }
+
+    .bgx-header h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-5);
+    }
+    .bgx-header h1 em { font-style: italic; color: var(--gold); }
+
+    .bgx-intro {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 68ch;
+    }
+
+    .bgx-snapshot-note {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      margin-top: var(--sp-4);
+    }
+    .bgx-snapshot-note a { color: var(--teal-text); }
+
+    /* ── search ──────────────────────────────────── */
+    .bgx-search-wrap {
+      position: relative;
+      max-width: 520px;
+      margin-top: var(--sp-8);
+    }
+    .bgx-search-input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      color: var(--text-primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-4) var(--sp-5);
+      transition: border-color var(--ease-fast);
+    }
+    .bgx-search-input:focus {
+      outline: none;
+      border-color: var(--teal);
+    }
+    .bgx-search-results {
+      position: absolute;
+      top: calc(100% + var(--sp-2));
+      left: 0; right: 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      max-height: 360px;
+      overflow-y: auto;
+      z-index: 20;
+      box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.4);
+    }
+    .bgx-search-results:empty { display: none; }
+    .bgx-search-result {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--sp-4);
+      width: 100%;
+      text-align: left;
+      padding: var(--sp-3) var(--sp-5);
+      background: none;
+      border: none;
+      border-bottom: 1px solid var(--border-default);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-primary);
+      cursor: pointer;
+    }
+    .bgx-search-result:last-child { border-bottom: none; }
+    .bgx-search-result:hover, .bgx-search-result:focus-visible { background: var(--bg-surface-2); }
+    .bgx-search-result .path { color: var(--text-tertiary); font-size: var(--text-xs); }
+
+    /* ── breadcrumb ──────────────────────────────── */
+    .bgx-breadcrumb {
+      max-width: 1200px;
+      margin-inline: auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: var(--sp-2);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-6);
+      min-height: 1.5em;
+    }
+    .bgx-breadcrumb button {
+      background: none; border: none; padding: 0;
+      font-family: inherit; font-size: inherit;
+      color: var(--text-secondary);
+      cursor: pointer;
+    }
+    .bgx-breadcrumb button:hover, .bgx-breadcrumb button:focus-visible { color: var(--gold); }
+    .bgx-breadcrumb .current { color: var(--text-primary); font-weight: 500; }
+    .bgx-breadcrumb .sep { opacity: 0.5; }
+
+    /* ── stage / tile grid ───────────────────────── */
+    .bgx-stage {
+      max-width: 1200px;
+      margin-inline: auto;
+    }
+
+    .bgx-level-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-4);
+    }
+
+    .bgx-tile-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+    }
+
+    .bgx-tile {
+      flex: 1 1 260px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      text-align: left;
+      cursor: pointer;
+      transition: border-color var(--ease-fast), transform var(--ease-fast);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      min-width: 0;
+    }
+    .bgx-tile:hover, .bgx-tile:focus-visible {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+    }
+    .bgx-tile-name {
+      font-family: var(--font-display);
+      font-weight: 500;
+      color: var(--text-primary);
+      line-height: 1.25;
+    }
+    .bgx-tile[data-tier="cluster"] .bgx-tile-name,
+    .bgx-tile[data-tier="domain"] .bgx-tile-name { font-size: var(--text-xl); }
+    .bgx-tile[data-tier="topic"] .bgx-tile-name { font-size: var(--text-lg); }
+    .bgx-tile[data-tier="bias"] .bgx-tile-name { font-size: var(--text-base); font-weight: 600; }
+
+    .bgx-tile-desc {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      line-height: 1.5;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .bgx-tile-meta {
+      margin-top: auto;
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+    .bgx-tile-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: auto; }
+
+    /* weight-based sizing: bigger groups get more flex-grow, set inline via style */
+
+    /* ── tags/badges (shared with detail view) ──── */
+    .bgx-tag {
+      font-family: var(--font-body);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.6rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .bgx-tag--verified { background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal-text); border: 1px solid color-mix(in srgb, var(--teal) 35%, transparent); }
+    .bgx-tag--partial { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+    .bgx-tag--flagged { background: var(--bg-surface-2); color: var(--text-tertiary); border: 1px dashed var(--border-strong); }
+    .bgx-tag--risk { background: color-mix(in srgb, var(--gold) 10%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent); }
+
+    /* ── empty / loading states ──────────────────── */
+    .bgx-state-msg {
+      font-family: var(--font-body);
+      color: var(--text-tertiary);
+      padding: var(--sp-10) 0;
+      text-align: center;
+    }
+
+    /* ── detail view ─────────────────────────────── */
+    .bgx-detail { max-width: 780px; }
+    .bgx-detail-head { margin-bottom: var(--sp-8); }
+    .bgx-detail-title {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+      color: var(--text-primary);
+      margin-bottom: var(--sp-3);
+    }
+    .bgx-detail-aliases {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-4);
+    }
+    .bgx-detail-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-6); }
+    .bgx-detail-desc {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.65;
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-4);
+    }
+    .bgx-detail-note {
+      font-size: var(--text-base);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      border-left: 2px solid var(--gold);
+      padding-left: var(--sp-5);
+      margin-bottom: var(--sp-2);
+    }
+
+    .bgx-section-title {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-top: var(--sp-10);
+      margin-bottom: var(--sp-5);
+    }
+
+    .bgx-finding, .bgx-application {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-5);
+      margin-bottom: var(--sp-4);
+    }
+    .bgx-finding-desc, .bgx-application-desc {
+      font-size: var(--text-base);
+      color: var(--text-primary);
+      line-height: 1.55;
+      margin-bottom: var(--sp-3);
+    }
+    .bgx-finding-source, .bgx-application-meta {
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+      line-height: 1.5;
+    }
+    .bgx-finding-source a, .bgx-application-meta a { color: var(--teal-text); }
+    .bgx-application-ethics {
+      margin-top: var(--sp-3);
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      border-left: 2px solid var(--border-strong);
+      padding-left: var(--sp-4);
+    }
+
+    .bgx-ego-node circle { transition: r var(--ease-fast), fill-opacity var(--ease-fast); }
+    .bgx-ego-node:hover circle, .bgx-ego-node:focus-visible circle { fill-opacity: 0.16; }
+    .bgx-ego-node:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+    .bgx-ego-node text { transition: fill var(--ease-fast); }
+    .bgx-ego-node:hover text, .bgx-ego-node:focus-visible text { fill: var(--teal-text) !important; }
+
+    @media (max-width: 600px) {
+      .bgx-tile { flex-basis: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo nav-pill" aria-label="Jose Romero, Home">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/thinking/" aria-current="true">Thinking</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      <span class="lang-current" aria-current="true">EN</span>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <a href="/es/thinking/beco-explorer/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a>
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <button class="nav-toggle nav-pill" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main" class="bgx-main">
+    <div class="bgx-header">
+      <div class="bgx-eyebrow">Personal Research Infrastructure</div>
+      <h1>Explore the <em>graph.</em></h1>
+      <p class="bgx-intro">Every named bias in this corpus, organized by domain and topic, down to the studies
+        and real-world examples behind each one. Browse by category, or search directly.</p>
+      <p class="bgx-snapshot-note" id="bgxSnapshotNote"></p>
+      <div class="bgx-search-wrap">
+        <input type="text" class="bgx-search-input" id="bgxSearchInput" placeholder="Search a bias or topic — e.g. &ldquo;scarcity&rdquo;" autocomplete="off">
+        <div class="bgx-search-results" id="bgxSearchResults"></div>
+      </div>
+    </div>
+
+    <nav class="bgx-breadcrumb" id="bgxBreadcrumb" aria-label="Breadcrumb"></nav>
+    <div class="bgx-stage" id="bgxStage">
+      <p class="bgx-state-msg">Loading the graph…</p>
+    </div>
+  </main>
+
+  <footer class="v4-footer" role="contentinfo">
+    <div class="v4-footer-top">
+      <p class="v4-footer-word">Jose <em>Romero</em></p>
+      <nav class="v4-footer-nav" aria-label="Footer navigation">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/assets/cv/jose-romero-cv-en.pdf" download>Download CV</a>
+      </nav>
+    </div>
+    <div class="v4-footer-meta">
+      <span>Senior Product Designer</span>
+      <span>Working from Zaragoza, Spain</span>
+      <span>© 2026 Jose Romero. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js?v=18" defer></script>
+  <script>
+  (function () {
+    'use strict';
+
+    var STRINGS = {
+      snapshot: function (date) { return 'Snapshot generated ' + date + '. Not a live database — read why on the <a href="/thinking/beco-knowledge-graph/">BECO Knowledge Graph</a> page.'; },
+      home: 'All domains',
+      domainsCount: function (n) { return n + (n === 1 ? ' domain' : ' domains'); },
+      topicsCount: function (n) { return n + (n === 1 ? ' topic' : ' topics'); },
+      biasesCount: function (n) { return n + (n === 1 ? ' bias' : ' biases'); },
+      findingsCount: function (n) { return n + (n === 1 ? ' finding' : ' findings'); },
+      applicationsCount: function (n) { return n + (n === 1 ? ' example' : ' examples'); },
+      levelLabel: { domain: 'Domains', topic: 'Topics', bias: 'Named biases', finding: 'Findings without a named bias yet' },
+      relatedGraphTitle: 'How this connects',
+      noRelated: 'No related biases recorded yet.',
+      findingSourceLabel: 'Source',
+      loading: 'Loading the graph…',
+      loadError: 'Could not load this entry — try again in a moment.',
+      noResults: function (q) { return 'No matches for “' + q + '”.'; },
+      findingsTitle: 'Backing findings',
+      applicationsTitle: 'Real-world examples',
+      relatedTitle: 'Related',
+      noFindings: 'No findings recorded yet.',
+      noApplications: 'No real-world examples recorded yet.',
+      backingLabel: { verified: 'Verified', partial: 'Partially backed', no_rigorous_backing_found: 'No rigorous backing found' },
+      mythLabel: { moderate: 'Moderate myth risk', high: 'High myth risk' },
+    };
+
+    var DATA_BASE = '/assets/data/beco-explorer/';
+    var tree = null;
+    var searchIndex = [];
+    var path = []; // array of {tier, id, name}
+
+    var stageEl = document.getElementById('bgxStage');
+    var crumbEl = document.getElementById('bgxBreadcrumb');
+    var noteEl = document.getElementById('bgxSnapshotNote');
+    var searchInput = document.getElementById('bgxSearchInput');
+    var searchResults = document.getElementById('bgxSearchResults');
+
+    function escapeHtml(s) {
+      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+      });
+    }
+
+    function backingTagClass(status) {
+      if (status === 'verified') return 'bgx-tag--verified';
+      if (status === 'partial') return 'bgx-tag--partial';
+      return 'bgx-tag--flagged';
+    }
+
+    function findNode(id, tier) {
+      for (var di = 0; di < tree.domains.length; di++) {
+        var d = tree.domains[di];
+        if (tier === 'domain' && d.id === id) return d;
+        for (var ti = 0; ti < d.topics.length; ti++) {
+          var t = d.topics[ti];
+          if (tier === 'topic' && t.id === id) return t;
+          if (tier === 'finding') {
+            for (var fi = 0; fi < (t.standalone_findings || []).length; fi++) {
+              if (t.standalone_findings[fi].id === id) return t.standalone_findings[fi];
+            }
+          }
+        }
+      }
+      return null;
+    }
+
+    function buildSearchIndex() {
+      var idx = [];
+      tree.domains.forEach(function (d) {
+        d.topics.forEach(function (t) {
+          idx.push({ type: 'topic', id: t.id, name: t.name, path: [d] });
+          t.biases.forEach(function (b) {
+            idx.push({ type: 'bias', id: b.id, name: b.name, path: [d, t], backing_status: b.backing_status });
+          });
+        });
+      });
+      return idx;
+    }
+
+    /* ── routing ─────────────────────────────────── */
+    function pathToHash(p) {
+      return '#' + p.map(function (seg) { return seg.tier + '/' + seg.id; }).join('/');
+    }
+    function hashToPath(hash) {
+      var parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
+      var segs = [];
+      for (var i = 0; i < parts.length; i += 2) {
+        segs.push({ tier: parts[i], id: parts[i + 1] });
+      }
+      return segs;
+    }
+
+    // hashToPath only knows tier/id (that's all a URL can hold) — every crumb
+    // label comes from walking the already-loaded tree. Needed on first load
+    // and on browser back/forward, since neither goes through navigateTo's
+    // in-memory path (which already carries names from the click that built it).
+    function resolvePathNames(rawPath) {
+      var resolved = [];
+      var topic = null;
+      rawPath.forEach(function (seg) {
+        if (seg.tier === 'domain') {
+          var domain = findNode(seg.id, 'domain');
+          resolved.push({ tier: 'domain', id: seg.id, name: domain ? domain.name : seg.id });
+        } else if (seg.tier === 'topic') {
+          topic = findNode(seg.id, 'topic');
+          resolved.push({ tier: 'topic', id: seg.id, name: topic ? topic.name : seg.id });
+        } else if (seg.tier === 'bias') {
+          var bias = topic && (topic.biases || []).filter(function (b) { return b.id === seg.id; })[0];
+          resolved.push({ tier: 'bias', id: seg.id, name: bias ? bias.name : seg.id });
+        } else if (seg.tier === 'finding') {
+          var finding = findNode(seg.id, 'finding');
+          resolved.push({ tier: 'finding', id: seg.id, name: finding ? truncate(finding.description, 90) : seg.id });
+        }
+      });
+      return resolved;
+    }
+
+    function navigateTo(newPath, push) {
+      path = newPath;
+      render();
+      var hash = pathToHash(path);
+      if (push !== false) {
+        history.pushState(null, '', hash || '#');
+      }
+      window.scrollTo({ top: crumbEl.offsetTop - 100, behavior: 'smooth' });
+    }
+
+    /* ── breadcrumb ──────────────────────────────── */
+    function renderBreadcrumb() {
+      var html = '<button type="button" data-idx="-1">' + STRINGS.home + '</button>';
+      path.forEach(function (seg, i) {
+        html += '<span class="sep">/</span>';
+        if (i === path.length - 1) {
+          html += '<span class="current">' + escapeHtml(seg.name) + '</span>';
+        } else {
+          html += '<button type="button" data-idx="' + i + '">' + escapeHtml(seg.name) + '</button>';
+        }
+      });
+      crumbEl.innerHTML = html;
+    }
+
+    crumbEl.addEventListener('click', function (e) {
+      var btn = e.target.closest('button[data-idx]');
+      if (!btn) return;
+      var idx = parseInt(btn.getAttribute('data-idx'), 10);
+      navigateTo(idx === -1 ? [] : path.slice(0, idx + 1));
+    });
+
+    function truncate(s, n) {
+      s = s || '';
+      return s.length > n ? s.slice(0, n).replace(/\s+\S*$/, '') + '…' : s;
+    }
+
+    function replicationTagClass(status) {
+      if (status === 'replicated') return 'bgx-tag--verified';
+      if (status === 'disputed') return 'bgx-tag--risk';
+      return 'bgx-tag--flagged';
+    }
+
+    /* ── tile grid rendering ─────────────────────── */
+    function tileHtml(tier, node, weight, maxWeight) {
+      var grow = 1 + Math.round((weight / Math.max(maxWeight, 1)) * 4);
+      var metaHtml = '';
+      var nameText = node.name;
+      var desc = node.description ? '<p class="bgx-tile-desc">' + escapeHtml(node.description) + '</p>' : '';
+      if (tier === 'domain') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.topicsCount(node.topics.length) + '</div>';
+      else if (tier === 'topic') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.biasesCount(node.biases.length) + '</div>';
+      else if (tier === 'bias') {
+        var tags = '<span class="bgx-tag ' + backingTagClass(node.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[node.backing_status] || node.backing_status) + '</span>';
+        if (node.myth_risk === 'moderate' || node.myth_risk === 'high') {
+          tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[node.myth_risk]) + '</span>';
+        }
+        metaHtml = '<div class="bgx-tile-tags">' + tags + '</div>';
+      } else if (tier === 'finding') {
+        nameText = truncate(node.description, 90);
+        desc = node.source_title ? '<p class="bgx-tile-desc">' + escapeHtml(node.source_title) + '</p>' : '';
+        metaHtml = '<div class="bgx-tile-tags"><span class="bgx-tag ' + replicationTagClass(node.replication_status) + '">' + escapeHtml(node.replication_status || 'undetermined') + '</span></div>';
+      }
+      return '<button type="button" class="bgx-tile" data-tier="' + tier + '" data-id="' + node.id + '" data-name="' + escapeHtml(nameText) + '" style="flex-grow:' + grow + '">' +
+        '<span class="bgx-tile-name">' + escapeHtml(nameText) + '</span>' + desc + metaHtml + '</button>';
+    }
+
+    function tileGridHtml(tier, nodes, weightFn) {
+      if (!nodes.length) return '';
+      var maxWeight = Math.max.apply(null, nodes.map(weightFn));
+      return '<div class="bgx-tile-grid">' +
+        nodes.map(function (n) { return tileHtml(tier, n, weightFn(n), maxWeight); }).join('') +
+        '</div>';
+    }
+
+    function renderTiles(tier, nodes, weightFn) {
+      var levelHtml = '<p class="bgx-level-label">' + STRINGS.levelLabel[tier] + '</p>';
+      if (!nodes.length) {
+        stageEl.innerHTML = levelHtml + '<p class="bgx-state-msg">' + STRINGS.noResults('') + '</p>';
+        return;
+      }
+      stageEl.innerHTML = levelHtml + tileGridHtml(tier, nodes, weightFn);
+    }
+
+    function renderTopicContents(topic) {
+      var biases = topic.biases || [];
+      var findings = topic.standalone_findings || [];
+      if (!biases.length && !findings.length) {
+        stageEl.innerHTML = '<p class="bgx-level-label">' + STRINGS.levelLabel.bias + '</p>' +
+          '<p class="bgx-state-msg">' + STRINGS.noResults('') + '</p>';
+        return;
+      }
+      var html = '';
+      if (biases.length) {
+        html += '<p class="bgx-level-label">' + STRINGS.levelLabel.bias + '</p>' +
+          tileGridHtml('bias', biases, function () { return 1; });
+      }
+      if (findings.length) {
+        html += '<p class="bgx-level-label" style="margin-top: var(--sp-8);">' + STRINGS.levelLabel.finding + '</p>' +
+          tileGridHtml('finding', findings, function () { return 1; });
+      }
+      stageEl.innerHTML = html;
+    }
+
+    /* ── ego-network graph (bias detail) ─────────── */
+    function egoNodeColor(status) {
+      if (status === 'verified') return 'var(--teal)';
+      if (status === 'partial') return 'var(--gold)';
+      return 'var(--border-strong)';
+    }
+
+    function buildEgoGraphSvg(center, related) {
+      var n = related.length;
+      var size = 560;
+      var cx = size / 2, cy = size * 0.44;
+      var radius = Math.min(220, 80 + n * 7);
+      var centerR = 30, nodeR = 20;
+      var nodes = related.map(function (r, i) {
+        var angle = (i / n) * Math.PI * 2 - Math.PI / 2;
+        return { r: r, x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
+      });
+      var edges = nodes.map(function (nd) {
+        return '<line x1="' + cx + '" y1="' + cy + '" x2="' + nd.x + '" y2="' + nd.y + '" stroke="var(--border-default)" stroke-width="1.5" />';
+      }).join('');
+      var nodeEls = nodes.map(function (nd) {
+        var color = egoNodeColor(nd.r.backing_status);
+        return '<g class="bgx-ego-node" data-related-id="' + escapeHtml(nd.r.id) + '" data-related-name="' + escapeHtml(nd.r.name) + '" tabindex="0" role="button" aria-label="' + escapeHtml(nd.r.name) + '">' +
+          '<title>' + escapeHtml(nd.r.name) + '</title>' +
+          '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="' + nodeR + '" fill="var(--bg-surface)" stroke="' + color + '" stroke-width="2" />' +
+          '<text x="' + nd.x + '" y="' + (nd.y + nodeR + 16) + '" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--text-secondary)">' + escapeHtml(truncate(nd.r.name, 20)) + '</text>' +
+          '</g>';
+      }).join('');
+      var centerColor = egoNodeColor(center.backing_status);
+      var centerEl = '<circle cx="' + cx + '" cy="' + cy + '" r="' + centerR + '" fill="' + centerColor + '" fill-opacity="0.16" stroke="' + centerColor + '" stroke-width="2.5" />' +
+        '<text x="' + cx + '" y="' + (cy - centerR - 12) + '" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="13" fill="var(--text-primary)">' + escapeHtml(truncate(center.name, 26)) + '</text>';
+      return '<svg viewBox="0 0 ' + size + ' ' + (size * 0.86) + '" role="img" aria-label="Biases related to ' + escapeHtml(center.name) + '" style="width:100%;max-width:560px;height:auto;display:block;margin-inline:auto;overflow:visible;">' +
+        '<g style="cursor:pointer;">' + edges + nodeEls + '</g>' + centerEl + '</svg>';
+    }
+
+    function wireEgoGraph(container, onSelect) {
+      container.querySelectorAll('[data-related-id]').forEach(function (node) {
+        var go = function () { onSelect(node.getAttribute('data-related-id'), node.getAttribute('data-related-name')); };
+        node.addEventListener('click', go);
+        node.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
+      });
+    }
+
+    /* ── detail view ─────────────────────────────── */
+    function renderBiasDetail(summary) {
+      stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loading + '</p>';
+      fetch(DATA_BASE + 'biases/' + summary.id + '.json')
+        .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
+        .then(function (b) {
+          var tags = '<span class="bgx-tag ' + backingTagClass(b.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[b.backing_status] || b.backing_status) + '</span>';
+          if (b.myth_risk === 'moderate' || b.myth_risk === 'high') {
+            tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[b.myth_risk]) + '</span>';
+          }
+          var aliases = (b.aliases && b.aliases.length) ? 'Also known as: ' + b.aliases.map(escapeHtml).join(', ') : '';
+
+          var findingsHtml = (b.findings || []).length ? b.findings.map(function (f) {
+            var authors = (f.authors || []).filter(Boolean).join(', ');
+            var cite = [authors, f.source_year].filter(Boolean).join(', ');
+            var venue = f.source_venue ? ' — ' + escapeHtml(f.source_venue) : '';
+            var link = f.source_url ? '<a href="' + escapeHtml(f.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(f.source_title || 'Source') + '</a>' : escapeHtml(f.source_title || '');
+            var repl = f.replication_status ? ' &middot; ' + escapeHtml(f.replication_status) : '';
+            return '<div class="bgx-finding"><p class="bgx-finding-desc">' + escapeHtml(f.description) + '</p>' +
+              '<p class="bgx-finding-source">' + link + venue + (cite ? ' &middot; ' + escapeHtml(cite) : '') + repl + '</p></div>';
+          }).join('') : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noFindings + '</p>';
+
+          var appsHtml = (b.applications || []).length ? b.applications.map(function (a) {
+            var link = a.source_url ? '<a href="' + escapeHtml(a.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(a.title) + '</a>' : escapeHtml(a.title);
+            var meta = [a.industry_context, a.provenance, a.date_observed].filter(Boolean).map(escapeHtml).join(' &middot; ');
+            var ethics = a.ethical_note ? '<p class="bgx-application-ethics">' + escapeHtml(a.ethical_note) + '</p>' : '';
+            return '<div class="bgx-application"><p class="bgx-application-desc">' + link + '</p>' +
+              '<p class="bgx-application-meta">' + escapeHtml(a.description || '') + '</p>' +
+              (meta ? '<p class="bgx-application-meta">' + meta + '</p>' : '') + ethics + '</div>';
+          }).join('') : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noApplications + '</p>';
+
+          var relatedHtml = (b.related || []).length
+            ? buildEgoGraphSvg({ name: b.name, backing_status: b.backing_status }, b.related)
+            : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noRelated + '</p>';
+
+          stageEl.innerHTML =
+            '<div class="bgx-detail">' +
+              '<div class="bgx-detail-head">' +
+                '<h2 class="bgx-detail-title">' + escapeHtml(b.name) + '</h2>' +
+                (aliases ? '<p class="bgx-detail-aliases">' + aliases + '</p>' : '') +
+                '<div class="bgx-detail-tags">' + tags + '</div>' +
+              '</div>' +
+              '<p class="bgx-detail-desc">' + escapeHtml(b.description) + '</p>' +
+              (b.design_relevance_note ? '<p class="bgx-detail-note">' + escapeHtml(b.design_relevance_note) + '</p>' : '') +
+              (b.myth_risk_note ? '<p class="bgx-detail-note">' + escapeHtml(b.myth_risk_note) + '</p>' : '') +
+              '<h3 class="bgx-section-title">' + STRINGS.findingsTitle + '</h3>' + findingsHtml +
+              '<h3 class="bgx-section-title">' + STRINGS.applicationsTitle + '</h3>' + appsHtml +
+              '<h3 class="bgx-section-title">' + STRINGS.relatedGraphTitle + '</h3>' + relatedHtml +
+            '</div>';
+
+          wireEgoGraph(stageEl, jumpToBias);
+        })
+        .catch(function () {
+          stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loadError + '</p>';
+        });
+    }
+
+    function renderFindingDetail(f) {
+      var authors = (f.authors || []).filter(Boolean).join(', ');
+      var cite = [authors, f.source_year].filter(Boolean).join(', ');
+      var venue = f.source_venue ? ' — ' + escapeHtml(f.source_venue) : '';
+      var link = f.source_url ? '<a href="' + escapeHtml(f.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(f.source_title || STRINGS.findingSourceLabel) + '</a>' : escapeHtml(f.source_title || '');
+      var repl = f.replication_status ? '<span class="bgx-tag ' + replicationTagClass(f.replication_status) + '">' + escapeHtml(f.replication_status) + '</span>' : '';
+      stageEl.innerHTML =
+        '<div class="bgx-detail">' +
+          '<div class="bgx-detail-head">' +
+            '<h2 class="bgx-detail-title">' + escapeHtml(truncate(f.description, 140)) + '</h2>' +
+            '<div class="bgx-detail-tags">' + repl + '</div>' +
+          '</div>' +
+          '<p class="bgx-detail-desc">' + escapeHtml(f.description) + '</p>' +
+          '<p class="bgx-finding-source">' + link + venue + (cite ? ' &middot; ' + escapeHtml(cite) : '') + '</p>' +
+        '</div>';
+    }
+
+    function jumpToBias(id, name) {
+      // find the bias's full path in the tree for a correct breadcrumb
+      for (var di = 0; di < tree.domains.length; di++) {
+        var d = tree.domains[di];
+        for (var ti = 0; ti < d.topics.length; ti++) {
+          var t = d.topics[ti];
+          for (var bi = 0; bi < t.biases.length; bi++) {
+            if (t.biases[bi].id === id) {
+              navigateTo([
+                { tier: 'domain', id: d.id, name: d.name },
+                { tier: 'topic', id: t.id, name: t.name },
+                { tier: 'bias', id: id, name: name },
+              ]);
+              return;
+            }
+          }
+        }
+      }
+    }
+
+    /* ── main render dispatch ────────────────────── */
+    function render() {
+      renderBreadcrumb();
+      if (path.length === 0) {
+        renderTiles('domain', tree.domains, function (d) { return d.topics.length; });
+        return;
+      }
+      var last = path[path.length - 1];
+      if (last.tier === 'domain') {
+        var domain = findNode(last.id, 'domain');
+        if (!domain) return renderTiles('domain', tree.domains, function (d) { return d.topics.length; });
+        renderTiles('topic', domain.topics, function (t) { return t.biases.length + (t.standalone_findings || []).length; });
+      } else if (last.tier === 'topic') {
+        var topic = findNode(last.id, 'topic');
+        if (!topic) return;
+        renderTopicContents(topic);
+      } else if (last.tier === 'bias') {
+        renderBiasDetail(last);
+      } else if (last.tier === 'finding') {
+        var finding = findNode(last.id, 'finding');
+        if (!finding) return;
+        renderFindingDetail(finding);
+      }
+    }
+
+    stageEl.addEventListener('click', function (e) {
+      var tile = e.target.closest('.bgx-tile');
+      if (!tile) return;
+      var tier = tile.getAttribute('data-tier');
+      var id = tile.getAttribute('data-id');
+      var name = tile.getAttribute('data-name');
+      navigateTo(path.concat([{ tier: tier, id: id, name: name }]));
+    });
+
+    /* ── search ──────────────────────────────────── */
+    function renderSearchResults(query) {
+      if (!query) { searchResults.innerHTML = ''; return; }
+      var q = query.toLowerCase();
+      var matches = searchIndex.filter(function (item) {
+        return item.name.toLowerCase().indexOf(q) !== -1;
+      }).slice(0, 12);
+      if (!matches.length) {
+        searchResults.innerHTML = '<div class="bgx-search-result">' + STRINGS.noResults(escapeHtml(query)) + '</div>';
+        return;
+      }
+      searchResults.innerHTML = matches.map(function (item, i) {
+        var breadcrumbPath = item.path.map(function (n) { return n.name; }).join(' / ');
+        return '<button type="button" class="bgx-search-result" data-idx="' + i + '">' +
+          '<span>' + escapeHtml(item.name) + '</span><span class="path">' + escapeHtml(breadcrumbPath) + '</span></button>';
+      }).join('');
+      searchResults.querySelectorAll('[data-idx]').forEach(function (btn, i) {
+        btn.addEventListener('click', function () {
+          var item = matches[i];
+          searchInput.value = '';
+          searchResults.innerHTML = '';
+          if (item.type === 'bias') {
+            jumpToBias(item.id, item.name);
+          } else {
+            var d = item.path[0];
+            navigateTo([
+              { tier: 'domain', id: d.id, name: d.name },
+              { tier: 'topic', id: item.id, name: item.name },
+            ]);
+          }
+        });
+      });
+    }
+
+    searchInput.addEventListener('input', function () { renderSearchResults(searchInput.value.trim()); });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.bgx-search-wrap')) searchResults.innerHTML = '';
+    });
+
+    /* ── boot ────────────────────────────────────── */
+    fetch(DATA_BASE + 'tree.json')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        tree = data;
+        searchIndex = buildSearchIndex();
+        noteEl.innerHTML = STRINGS.snapshot(tree.generated_at);
+        path = resolvePathNames(hashToPath(window.location.hash));
+        render();
+      })
+      .catch(function () {
+        stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loadError + '</p>';
+      });
+
+    window.addEventListener('popstate', function () {
+      if (!tree) return;
+      path = resolvePathNames(hashToPath(window.location.hash));
+      render();
+    });
+  })();
+  </script>
+
+</body>
+</html>
