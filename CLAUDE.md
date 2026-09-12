@@ -28,7 +28,7 @@ assets/fonts/              Self-hosted Fraunces + Outfit woff2 files
 Designing the portfolio/   Local working folder — gitignored, not deployed
 ```
 
-**31 live pages** as of 2026-06-24. EN pages at root, ES pages under `/es/` with identical structure.
+**33 live pages** as of 2026-09-11 (was 31 as of 2026-06-24, +1 EN/ES pair: `/thinking/beco-knowledge-graph/`, a presentation-style visual explainer using its own `bko-` prefixed page-specific styles — see the file itself, not a template to generalize). EN pages at root, ES pages under `/es/` with identical structure.
 
 ---
 

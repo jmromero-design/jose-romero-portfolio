@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero</title>
+  <meta name="description"
+    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo. Trabajo en curso.">
+  <link rel="canonical" href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero">
+  <meta property="og:description"
+    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:url" content="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero">
+  <meta name="twitter:description"
+    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=32">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/">
+  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/">
+  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       BECO KNOWLEDGE GRAPH — VISUAL EXPLAINER (ES)
+       bko- prefix (BECO Knowledge graph)
+       Presentation-style page: full-bleed slides on
+       desktop/tablet, natural flowing sections on mobile.
+    ═══════════════════════════════════════════════ */
+
+    .bko-deck {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* This page's own hero background image already carries the visual
+       texture the sitewide ambient cursor glow (main.css .v4-glow) is meant
+       to add on plainer pages. Layered on top of the busy graph photo, and
+       with so much open slide background for it to travel across, the glow
+       reads as a distracting moving hot spot rather than an ambient wash —
+       fixed-position, so it also sweeps across whatever content scrolls
+       underneath it. Suppressed here only; every other page keeps it. */
+    .v4-glow { display: none; }
+
+    .bko-slide {
+      position: relative;
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: calc(var(--nav-height) + var(--sp-12)) var(--sp-16);
+      padding-inline: var(--gutter);
+      border-bottom: 1px solid var(--border-default);
+      overflow: hidden;
+    }
+
+    .bko-slide-inner {
+      max-width: 1180px;
+      width: 100%;
+      margin-inline: auto;
+      opacity: 0;
+      transform: translateY(16px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .bko-slide.is-active .bko-slide-inner {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .bko-slide-inner { transition: none; opacity: 1; transform: none; }
+    }
+
+    .bko-eyebrow {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-6);
+    }
+
+    .bko-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--teal);
+      flex-shrink: 0;
+      margin-top: 0.5em;
+    }
+
+    .bko-slide h1 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.25rem, 5.5vw, 4.4rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      max-width: 22ch;
+    }
+
+    .bko-slide h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .bko-lede {
+      font-family: var(--font-body);
+      font-size: var(--text-lg);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 64ch;
+      margin-top: var(--sp-6);
+    }
+
+    .bko-body {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      line-height: 1.65;
+      color: var(--text-secondary);
+      max-width: 66ch;
+    }
+
+    .bko-body + .bko-body {
+      margin-top: var(--sp-4);
+    }
+
+    /* ── progress rail (desktop only) ───────────── */
+    .bko-rail {
+      position: fixed;
+      right: var(--sp-8);
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      z-index: 90;
+    }
+
+    .bko-rail button {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 1px solid var(--border-strong);
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+      opacity: 0.55;
+      transition: all var(--ease-fast);
+    }
+
+    .bko-rail button.is-active {
+      background: var(--teal);
+      border-color: var(--teal);
+      opacity: 1;
+      transform: scale(1.4);
+    }
+
+    .bko-rail button:hover { opacity: 0.9; }
+    .bko-rail button:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+
+    .bko-slidecount {
+      position: fixed;
+      right: var(--sp-8);
+      bottom: var(--sp-6);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-variant-numeric: tabular-nums;
+      color: var(--text-tertiary);
+      z-index: 90;
+    }
+
+    @media (max-width: 900px) {
+      .bko-rail, .bko-slidecount { display: none; }
+    }
+
+    /* ── shared components ───────────────────────── */
+    .bko-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+    }
+
+    .bko-tag {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.6rem;
+      border-radius: var(--radius-sm);
+      display: inline-block;
+      max-width: 100%;
+      line-height: 1.4;
+    }
+
+    .bko-tag--verified { background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal-text); border: 1px solid color-mix(in srgb, var(--teal) 35%, transparent); }
+    .bko-tag--gold { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+    .bko-tag--neutral { background: var(--bg-surface-2); color: var(--text-tertiary); border: 1px solid var(--border-default); }
+
+    /* ── Slide 1: cover ──────────────────────────── */
+    #bko-slide-1 {
+      justify-content: center;
+      background-image:
+        linear-gradient(180deg, color-mix(in srgb, var(--bg-base) 55%, transparent) 0%, var(--bg-base) 78%),
+        url('/assets/images/thinking/beco-knowledge-graph/graph-overview-dark.webp');
+      background-size: cover;
+      background-position: center 30%;
+    }
+
+    :root[data-theme="light"] #bko-slide-1 {
+      background-image:
+        linear-gradient(180deg, color-mix(in srgb, var(--bg-base) 55%, transparent) 0%, var(--bg-base) 82%),
+        url('/assets/images/thinking/beco-knowledge-graph/graph-overview-light.webp');
+    }
+
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) #bko-slide-1 {
+        background-image:
+          linear-gradient(180deg, color-mix(in srgb, var(--bg-base) 55%, transparent) 0%, var(--bg-base) 82%),
+          url('/assets/images/thinking/beco-knowledge-graph/graph-overview-light.webp');
+      }
+    }
+
+    .bko-cover-title {
+      font-size: clamp(2.6rem, 6.2vw, 5.6rem);
+      max-width: 19ch;
+    }
+
+    .bko-cover-sub {
+      font-size: var(--text-lg);
+      color: var(--text-secondary);
+      max-width: 58ch;
+      margin-top: var(--sp-6);
+      line-height: 1.6;
+    }
+
+    .bko-cover-footline {
+      margin-top: var(--sp-10);
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-6) var(--sp-8);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--text-tertiary);
+    }
+
+    .bko-cover-footline b {
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .bko-scroll-hint {
+      position: absolute;
+      bottom: var(--sp-8);
+      left: var(--gutter);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-2);
+      animation: bko-nudge 2.2s ease-in-out infinite;
+    }
+
+    @keyframes bko-nudge { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(6px); } }
+    @media (prefers-reduced-motion: reduce) { .bko-scroll-hint { animation: none; } }
+
+    /* ── Slide 2: problem — myth chips ──────────── */
+    .bko-chip-row { display: flex; flex-wrap: wrap; gap: var(--sp-3); margin-top: var(--sp-8); }
+    .bko-chip {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      padding: 0.55rem 1rem;
+      border: 1px dashed var(--border-strong);
+      border-radius: var(--radius-md);
+      color: var(--text-secondary);
+      background: var(--bg-surface);
+    }
+    .bko-chip .q { color: var(--gold); margin-left: 0.35rem; font-weight: 600; }
+
+    /* ── Slide 3: three tiers ────────────────────── */
+    .bko-tiers { margin-top: var(--sp-10); display: flex; flex-direction: column; gap: 0; }
+    .bko-tier-row { display: flex; align-items: stretch; gap: var(--sp-6); }
+    .bko-tier-card { flex: 1; padding: var(--sp-6) var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-2); }
+    .bko-tier-card h3 { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); color: var(--text-primary); }
+    .bko-tier-card p { color: var(--text-tertiary); font-size: var(--text-sm); line-height: 1.55; }
+    .bko-tier-connector { display: flex; flex-direction: column; align-items: center; justify-content: center; width: 74px; flex-shrink: 0; gap: var(--sp-2); }
+    .bko-tier-connector .line { width: 1px; flex: 1; background: var(--border-strong); position: relative; }
+    .bko-tier-connector .rel { font-family: var(--font-body); font-size: 0.62rem; letter-spacing: 0.04em; color: var(--teal-text); white-space: nowrap; text-transform: uppercase; }
+    .bko-tier-note {
+      margin-top: var(--sp-8);
+      max-width: 62ch;
+      font-size: var(--text-base);
+      color: var(--text-secondary);
+      border-left: 2px solid var(--gold);
+      padding-left: var(--sp-5);
+    }
+
+    @media (max-width: 900px) {
+      .bko-tier-row { flex-direction: column; }
+      .bko-tier-connector { flex-direction: row; width: auto; height: 40px; }
+      .bko-tier-connector .line { width: 100%; height: 1px; flex: 1; }
+    }
+
+    /* ── Slide 4: scale ──────────────────────────── */
+    .bko-stat-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border-default);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-top: var(--sp-10);
+    }
+    .bko-stat-tile { background: var(--bg-surface); padding: var(--sp-8) var(--sp-6); display: flex; flex-direction: column; gap: var(--sp-1); }
+    .bko-stat-n { font-family: var(--font-display); font-weight: 500; font-size: var(--text-4xl); color: var(--gold); font-variant-numeric: tabular-nums; }
+    .bko-stat-label { font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.05em; text-transform: uppercase; color: var(--text-tertiary); }
+    .bko-stat-foot { margin-top: var(--sp-6); font-family: var(--font-body); font-size: var(--text-sm); color: var(--text-tertiary); }
+
+    @media (max-width: 700px) {
+      .bko-stat-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ── Slide 5: schema svg ─────────────────────── */
+    .bko-schema-wrap { margin-top: var(--sp-8); }
+    .bko-schema-wrap svg { width: 100%; height: auto; overflow: visible; }
+    .bko-schema-wrap text { font-family: var(--font-body); }
+
+    /* ── Slide 7: worked example chain ───────────── */
+    .bko-chain { display: flex; align-items: stretch; gap: var(--sp-4); margin-top: var(--sp-10); }
+    .bko-chain-card { flex: 1; min-width: 0; padding: var(--sp-5); display: flex; flex-direction: column; gap: var(--sp-2); }
+    .bko-chain-kind { font-family: var(--font-body); font-size: 0.66rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--teal-text); }
+    .bko-chain-title { font-family: var(--font-display); font-weight: 500; font-size: var(--text-base); line-height: 1.35; color: var(--text-primary); }
+    .bko-chain-meta { font-size: var(--text-sm); color: var(--text-tertiary); line-height: 1.5; }
+    .bko-chain-arrow { display: flex; align-items: center; color: var(--text-tertiary); font-size: 1.2rem; flex-shrink: 0; }
+
+    @media (max-width: 900px) {
+      .bko-chain { flex-direction: column; }
+      .bko-chain-arrow { transform: rotate(90deg); align-self: center; }
+    }
+
+    /* ── Slide 8: proof tiles ─────────────────────── */
+    .bko-proof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--sp-5); margin-top: var(--sp-8); }
+    .bko-proof-tile { padding: var(--sp-6); }
+    .bko-proof-num { font-family: var(--font-display); font-weight: 500; font-size: var(--text-3xl); color: var(--gold); }
+    .bko-proof-detail { font-size: var(--text-sm); color: var(--text-secondary); margin-top: var(--sp-2); line-height: 1.55; }
+
+    @media (max-width: 800px) { .bko-proof-grid { grid-template-columns: 1fr; } }
+
+    /* ── Slide 9: eval table ──────────────────────── */
+    .bko-eval-table { width: 100%; border-collapse: collapse; margin-top: var(--sp-8); font-family: var(--font-body); font-size: var(--text-sm); }
+    .bko-eval-table th, .bko-eval-table td { text-align: left; padding: var(--sp-3) var(--sp-4); border-bottom: 1px solid var(--border-default); }
+    .bko-eval-table th { color: var(--text-tertiary); font-weight: 600; text-transform: uppercase; font-size: var(--text-xs); letter-spacing: 0.05em; }
+    .bko-eval-table td { color: var(--text-secondary); }
+    .bko-eval-table tr.is-production td { color: var(--text-primary); font-weight: 600; }
+    .bko-eval-table tr.is-production td:first-child { color: var(--gold); }
+
+    /* ── Slide 10: terminal ───────────────────────── */
+    .bko-terminal {
+      background: var(--bg-surface-2);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      font-family: 'SF Mono', ui-monospace, Menlo, monospace;
+      font-size: var(--text-sm);
+      line-height: 1.75;
+      margin-top: var(--sp-8);
+      color: var(--text-secondary);
+      overflow-x: auto;
+    }
+    .bko-terminal .prompt { color: var(--teal-text); }
+    .bko-terminal .muted { color: var(--text-tertiary); }
+    .bko-terminal .flag-verified { color: var(--teal-text); }
+    .bko-terminal .flag-risk { color: var(--gold); }
+
+    .bko-tool-row { display: flex; gap: var(--sp-5); margin-top: var(--sp-8); flex-wrap: wrap; }
+    .bko-tool-item { flex: 1; min-width: 200px; padding: var(--sp-5); }
+    .bko-tool-name { font-family: 'SF Mono', ui-monospace, Menlo, monospace; font-size: var(--text-sm); color: var(--gold); }
+    .bko-tool-item p { font-size: var(--text-sm); color: var(--text-tertiary); margin-top: var(--sp-2); line-height: 1.5; }
+
+    /* ── Slide 11: milestones ─────────────────────── */
+    .bko-milestone-row { display: flex; gap: var(--sp-3); margin-top: var(--sp-8); flex-wrap: wrap; }
+    .bko-milestone-pill {
+      display: flex; align-items: center; gap: var(--sp-2);
+      padding: var(--sp-3) var(--sp-5);
+      border-radius: 999px;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+    }
+    .bko-milestone-pill.done { background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal-text); }
+    .bko-milestone-pill.next { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); }
+
+    /* ── Slide 12: closing ────────────────────────── */
+    #bko-slide-12 { border-bottom: none; }
+    .bko-closing-actions { display: flex; gap: var(--sp-4); flex-wrap: wrap; margin-top: var(--sp-8); }
+  </style>
+</head>
+
+<body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVEGACIÓN
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Navegación principal">
+    <a href="/es/" class="nav-logo nav-pill" aria-label="Jose Romero, Inicio">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="/es/work/">Trabajo</a></li>
+      <li><a href="/es/about/">Sobre mí</a></li>
+      <li><a href="/es/thinking/" aria-current="true">Pensamiento</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contacto</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      <a href="/thinking/beco-knowledge-graph/" class="lang-link" data-lang-switch="en" hreflang="en">EN</a>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <span class="lang-current" aria-current="true">ES</span>
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="Cambiar modo de color" title="Cambiar modo de color">○</button>
+    <button class="nav-toggle nav-pill" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+    <div class="bko-deck" id="bkoDeck">
+
+      <!-- SLIDE 1 — PORTADA -->
+      <section class="bko-slide" id="bko-slide-1">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Infraestructura de Investigación Personal &middot; Trabajo en Curso</div>
+          <h1 class="bko-cover-title">Un grafo de conocimiento que <em>califica su propia evidencia.</em></h1>
+          <p class="bko-cover-sub">Cuatrocientas veinte fuentes. Cada una verificada por DOI. Construido para
+            separar lo que la ciencia del comportamiento realmente demuestra de lo que las presentaciones de diseño
+            llevan una década repitiendo.</p>
+          <div class="bko-cover-footline">
+            <span><b>420</b> fuentes</span>
+            <span><b>229</b> sesgos con nombre</span>
+            <span><b>202</b> ejemplos reales</span>
+            <span>En vivo sobre Neo4j Aura</span>
+          </div>
+        </div>
+        <div class="bko-scroll-hint">&darr; Desliza</div>
+      </section>
+
+      <!-- SLIDE 2 — EL PROBLEMA -->
+      <section class="bko-slide" id="bko-slide-2">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Por qué existe esto</div>
+          <h1>&ldquo;Nudge&rdquo; se convirtió en una palabra antes de convertirse en una disciplina.</h1>
+          <p class="bko-lede">El vocabulario de la economía del comportamiento se extiende por el diseño más rápido
+            que su evidencia. Las &ldquo;leyes&rdquo; con nombre propio se citan en presentaciones, guías de estilo y
+            documentación de diseño, y casi nadie comprueba si la investigación detrás de ellas realmente se
+            sostiene.</p>
+          <div class="bko-chip-row">
+            <span class="bko-chip">Ley de Jakob<span class="q">?</span></span>
+            <span class="bko-chip">Ley de Murphy<span class="q">?</span></span>
+            <span class="bko-chip">Navaja de Occam<span class="q">?</span></span>
+            <span class="bko-chip">Ley de Hick<span class="q">?</span></span>
+            <span class="bko-chip">Ley de la Trivialidad<span class="q">?</span></span>
+          </div>
+          <p class="bko-lede" style="font-size: var(--text-base); margin-top: var(--sp-8);">Este grafo existe para
+            responder esa pregunta, para cada una de ellas, dejándolo por escrito, y para mantener la respuesta al
+            día conforme aparece nueva evidencia.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 3 — TRES NIVELES -->
+      <section class="bko-slide" id="bko-slide-3">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">La idea central</div>
+          <h1>Tres niveles. <em>Una sola dirección.</em></h1>
+          <div class="bko-tiers">
+            <div class="bko-tier-row">
+              <div class="bko-tier-card bko-card" style="border-top: 3px solid var(--teal);">
+                <h3>La Ciencia</h3>
+                <p>Fuente &rarr; Hallazgo. Verificado por DOI, calificado como replicado, disputado, no determinado
+                  o no aplicable.</p>
+              </div>
+              <div class="bko-tier-connector">
+                <div class="line"></div>
+                <span class="rel">Respaldado por</span>
+                <div class="line"></div>
+              </div>
+              <div class="bko-tier-card bko-card" style="border-top: 3px solid var(--gold);">
+                <h3>La Calificación de Confianza</h3>
+                <p>Sesgo con nombre. Un estado de respaldo honesto y una calificación de riesgo de mito aparte,
+                  independiente de cuán popular sea la afirmación.</p>
+              </div>
+              <div class="bko-tier-connector">
+                <div class="line"></div>
+                <span class="rel">Ilustrado por</span>
+                <div class="line"></div>
+              </div>
+              <div class="bko-tier-card bko-card" style="border-top: 3px solid var(--border-strong);">
+                <h3>La Práctica</h3>
+                <p>Aplicación. Productos, campañas y estudios reales, calificados por procedencia, con una lectura
+                  ética obligatoria.</p>
+              </div>
+            </div>
+          </div>
+          <p class="bko-tier-note">La flecha solo corre en una dirección. Un ejemplo real puede ilustrar un sesgo.
+            Nunca puede inflar la calificación que tiene encima. La popularidad en la práctica y el rigor en la
+            investigación permanecen separados, de forma visible y permanente.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 4 — ESCALA -->
+      <section class="bko-slide" id="bko-slide-4">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">De un vistazo</div>
+          <h1>No es un <em>prototipo.</em></h1>
+          <div class="bko-stat-grid">
+            <div class="bko-stat-tile"><span class="bko-stat-n">420</span><span class="bko-stat-label">Fuentes</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">431</span><span class="bko-stat-label">Hallazgos</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">229</span><span class="bko-stat-label">Sesgos con Nombre</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">221</span><span class="bko-stat-label">Temas</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">960</span><span class="bko-stat-label">Autores</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">202</span><span class="bko-stat-label">Ejemplos Reales</span></div>
+          </div>
+          <p class="bko-stat-foot">Alojado en Neo4j Aura, siempre activo y accesible desde cualquier lugar, no un
+            archivo local en un solo portátil.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 5 — ESQUEMA -->
+      <section class="bko-slide" id="bko-slide-5">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Cómo está construido</div>
+          <h1>Un mapa, <em>no una hoja de cálculo.</em></h1>
+          <div class="bko-schema-wrap">
+            <svg viewBox="0 0 1000 480" role="img"
+              aria-label="Diagrama de esquema: Fuente respalda Hallazgo, Hallazgo respalda Sesgo con nombre, el Sesgo se ilustra mediante Aplicación, y Hallazgo, Sesgo se ubican dentro de una taxonomía de Tema, Dominio, Clúster">
+              <defs>
+                <marker id="bkoArrowEs" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7"
+                  orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="var(--text-tertiary)" />
+                </marker>
+              </defs>
+              <g font-family="var(--font-body)" font-size="12" fill="var(--teal-text)">
+                <text x="250" y="82" text-anchor="middle">RESPALDA</text>
+                <text x="495" y="200" text-anchor="start">RESPALDA</text>
+                <text x="480" y="365" text-anchor="start">ILUSTRADO POR</text>
+                <text x="820" y="150" text-anchor="middle">EN DOMINIO</text>
+              </g>
+              <g stroke="var(--text-tertiary)" stroke-width="1.4" fill="none" marker-end="url(#bkoArrowEs)">
+                <path d="M180,100 L370,100" />
+                <path d="M465,260 L465,140" />
+                <path d="M465,315 L465,395" />
+                <path d="M735,110 L560,110" />
+              </g>
+              <!-- Fuente -->
+              <rect x="10" y="75" width="170" height="55" rx="8" fill="var(--bg-surface)" stroke="var(--border-default)" />
+              <text x="95" y="98" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-primary)" font-family="var(--font-body)">Fuente</text>
+              <text x="95" y="116" text-anchor="middle" font-size="11" fill="var(--text-tertiary)" font-family="var(--font-body)">420 &middot; verificadas por DOI</text>
+              <!-- Hallazgo -->
+              <rect x="380" y="75" width="170" height="55" rx="8" fill="var(--bg-surface)" stroke="var(--border-default)" />
+              <text x="465" y="98" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-primary)" font-family="var(--font-body)">Hallazgo</text>
+              <text x="465" y="116" text-anchor="middle" font-size="11" fill="var(--text-tertiary)" font-family="var(--font-body)">431 &middot; calificados por replicación</text>
+              <!-- Tema -->
+              <rect x="735" y="75" width="170" height="55" rx="8" fill="var(--bg-surface)" stroke="var(--border-default)" />
+              <text x="820" y="98" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-primary)" font-family="var(--font-body)">Tema</text>
+              <text x="820" y="116" text-anchor="middle" font-size="11" fill="var(--text-tertiary)" font-family="var(--font-body)">221 &middot; taxonomía en dos niveles</text>
+              <!-- Sesgo con nombre -->
+              <rect x="380" y="260" width="170" height="55" rx="8" fill="var(--bg-surface)" stroke="var(--gold)" />
+              <text x="465" y="283" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-primary)" font-family="var(--font-body)">Sesgo con nombre</text>
+              <text x="465" y="301" text-anchor="middle" font-size="11" fill="var(--text-tertiary)" font-family="var(--font-body)">229 &middot; las &ldquo;leyes&rdquo; con nombre</text>
+              <!-- Aplicación -->
+              <rect x="380" y="395" width="170" height="55" rx="8" fill="var(--bg-surface)" stroke="var(--border-strong)" />
+              <text x="465" y="418" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-primary)" font-family="var(--font-body)">Aplicación</text>
+              <text x="465" y="436" text-anchor="middle" font-size="11" fill="var(--text-tertiary)" font-family="var(--font-body)">202 &middot; ejemplos reales</text>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 6 — LA DISCIPLINA -->
+      <section class="bko-slide" id="bko-slide-6">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Lo que realmente lo hace confiable</div>
+          <h1>La regla es simple. <em>Sostenerla es lo difícil.</em></h1>
+          <p class="bko-body" style="margin-top: var(--sp-8);">Cada fuente necesita un DOI real y verificable. Cada
+            hallazgo recibe una de cuatro calificaciones &mdash; replicado, disputado, no determinado o no aplicable
+            &mdash; nunca solo &ldquo;citado&rdquo;. Cada escritura a la base de datos en producción pasa primero por
+            una validación antes de tocar nada. Los campos son de opciones cerradas, no texto libre, así que
+            &ldquo;más o menos respaldado, supongo&rdquo; nunca fue una opción posible.</p>
+          <p class="bko-body">Esa disciplina es todo el punto. Elegir citas que suenen autorizadas es fácil.
+            Sostener un criterio consistente sobre qué cuenta realmente como evidencia, y dejarlo por escrito cada
+            vez, es la parte que casi siempre se salta.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 7 — EJEMPLO RESUELTO -->
+      <section class="bko-slide" id="bko-slide-7">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Verlo funcionar</div>
+          <h1>Principio de Escasez, <em>de principio a fin.</em></h1>
+          <div class="bko-chain">
+            <div class="bko-chain-card bko-card">
+              <span class="bko-chain-kind">Fuente</span>
+              <span class="bko-chain-title">Tácticas de escasez en marketing</span>
+              <span class="bko-chain-meta">Journal of Retailing, 2022</span>
+            </div>
+            <div class="bko-chain-arrow">&rarr;</div>
+            <div class="bko-chain-card bko-card">
+              <span class="bko-chain-kind">Hallazgo</span>
+              <span class="bko-chain-title">416 tamaños de efecto, 131 estudios</span>
+              <span class="bko-chain-meta">Las señales de escasez aumentan de forma consistente la intención de
+                compra, moderadas por el tipo de producto.</span>
+            </div>
+            <div class="bko-chain-arrow">&rarr;</div>
+            <div class="bko-chain-card bko-card" style="border-color: var(--gold);">
+              <span class="bko-chain-kind" style="color: var(--gold);">Sesgo con nombre</span>
+              <span class="bko-chain-title">Principio de Escasez</span>
+              <span class="bko-tag bko-tag--gold" style="width: fit-content;">Verificado &middot; sin riesgo de mito</span>
+            </div>
+            <div class="bko-chain-arrow">&rarr;</div>
+            <div class="bko-chain-card bko-card">
+              <span class="bko-chain-kind">Aplicación</span>
+              <span class="bko-chain-title">Los mensajes de urgencia de Booking.com</span>
+              <span class="bko-chain-meta">Caso real &middot; aclarado tras la intervención regulatoria de la UE en
+                2020</span>
+            </div>
+          </div>
+          <p class="bko-body" style="margin-top: var(--sp-8);">Cada eslabón de esa cadena es una cita real,
+            verificable de forma independiente, no una paráfrasis de &ldquo;la investigación demuestra&rdquo;.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 8 — LA DISCIPLINA EN ACCIÓN -->
+      <section class="bko-slide" id="bko-slide-8">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Prueba de que no es solo archivar</div>
+          <h1>Cuando la evidencia no existe, <em>el grafo lo dice.</em></h1>
+          <p class="bko-body" style="margin-top: var(--sp-8);">Aplicar la misma auditoría sobre quince
+            &ldquo;leyes&rdquo; ampliamente citadas &mdash; entre ellas la ley de Murphy, la navaja de Occam, la ley
+            de Jakob y la ley de la trivialidad &mdash; no encontró ningún respaldo riguroso detrás de ninguna de
+            ellas. Eso no significa que la observación de fondo esté equivocada. Significa que la evidencia que
+            normalmente se le atribuye no aparece cuando uno realmente va a buscarla.</p>
+          <div class="bko-proof-grid">
+            <div class="bko-proof-tile bko-card">
+              <div class="bko-proof-num">1 reversión</div>
+              <div class="bko-proof-detail">La afirmación de que los ganadores de lotería no son más felices que el
+                resto, citada en casi todo argumento de &ldquo;el dinero no da la felicidad&rdquo;, está
+                directamente disputada por una corrección de 2020 sobre un error de medición en el estudio
+                original.</div>
+            </div>
+            <div class="bko-proof-tile bko-card">
+              <div class="bko-proof-num">17%, no 17 puntos</div>
+              <div class="bko-proof-detail">Un estudio sobre el sesgo de resultado en entrenadores de la NBA se
+                citaba diciendo que eran &ldquo;17 puntos porcentuales&rdquo; más propensos a cambiar de alineación
+                tras una derrota. La fuente dice en realidad 17 por ciento, un cambio relativo. Se revisó contra el
+                DOI original y se corrigió para que coincida.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 9 — BÚSQUEDA QUE FUNCIONA -->
+      <section class="bko-slide" id="bko-slide-9">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Útil, no solo preciso</div>
+          <h1>Una respuesta confiable que <em>nadie encuentra</em> no es confiable.</h1>
+          <p class="bko-lede" style="font-size: var(--text-base);">Búsqueda semántica sobre los hallazgos, medida
+            contra un conjunto de preguntas reales etiquetadas, no evaluada a ojo. La configuración en producción
+            supera a dos alternativas razonables por un margen real.</p>
+          <table class="bko-eval-table">
+            <thead>
+              <tr><th>Configuración</th><th>MRR</th><th>Hit@1</th></tr>
+            </thead>
+            <tbody>
+              <tr class="is-production"><td>Producción (con prefijo de instrucción)</td><td>0.811</td><td>0.733</td></tr>
+              <tr><td>Ablación &middot; sin prefijo de instrucción</td><td>0.660</td><td>0.567</td></tr>
+              <tr><td>Ablación &middot; otro modelo de embeddings</td><td>0.751</td><td>0.667</td></tr>
+            </tbody>
+          </table>
+          <p class="bko-body" style="margin-top: var(--sp-8);">Un resultado cambió un enfoque que ya estaba en
+            producción: un paso de reordenamiento que mejora claramente la búsqueda sobre los hallazgos empeora la
+            búsqueda sobre los sesgos con nombre. Una técnica que funciona para una parte de un sistema no funciona
+            automáticamente en otra parte solo porque sea el mismo sistema.</p>
+        </div>
+      </section>
+
+      <!-- SLIDE 10 — HAZLE UNA PREGUNTA -->
+      <section class="bko-slide" id="bko-slide-10">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">No es solo una base de datos</div>
+          <h1>Hazle <em>una pregunta.</em></h1>
+          <div class="bko-terminal">
+            <div><span class="prompt">$</span> python3 query.py <span>"¿de verdad funciona la escasez?"</span></div>
+            <div class="muted" style="margin-top: 0.6rem;">&nbsp;&nbsp;Principio de Escasez &middot; <span class="flag-verified">verificado</span> &middot; fundamental</div>
+            <div class="muted">&nbsp;&nbsp;La disponibilidad limitada aumenta el valor y el deseo percibidos.</div>
+            <div class="muted">&nbsp;&nbsp;Ejemplos reales (4):</div>
+            <div class="muted">&nbsp;&nbsp;&bull; Los mensajes de urgencia de Booking.com <span class="flag-risk">&middot; riesgo de uso manipulador señalado</span></div>
+            <div class="muted">&nbsp;&nbsp;&bull; El encuadre combinado de tiempo y cantidad limitados de Groupon</div>
+          </div>
+          <div class="bko-tool-row">
+            <div class="bko-tool-item bko-card">
+              <div class="bko-tool-name">categorize.py</div>
+              <p>La auditoría por nivel de confianza: qué se sostiene, qué está en disputa, y qué &ldquo;leyes&rdquo;
+                populares cargan un riesgo de mito real.</p>
+            </div>
+            <div class="bko-tool-item bko-card">
+              <div class="bko-tool-name">query.py</div>
+              <p>Búsqueda semántica sobre los hallazgos y los sesgos con nombre, con disputas, respaldos y
+                procedencia completa de la fuente en un solo resultado.</p>
+            </div>
+            <div class="bko-tool-item bko-card">
+              <div class="bko-tool-name">Neo4j Aura</div>
+              <p>Siempre activo, consultable desde cualquier lugar, no un archivo local que alguien tiene que pedir
+                acceso para ver.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 11 — HACIA DÓNDE VA -->
+      <section class="bko-slide" id="bko-slide-11">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Trabajo en curso, a propósito</div>
+          <h1>Construido para crecer. <em>Construido para ser revisado.</em></h1>
+          <p class="bko-body" style="margin-top: var(--sp-8);">Ahora mismo, esto es mío: yo lo consulto, yo lo
+            mantengo, soy el único que ha escrito en él alguna vez. El trabajo actual es de profundidad, no de
+            amplitud: ampliar la cobertura de fuentes en los nombres más citados y más fundamentales del corpus,
+            para que los conceptos en los que más se apoyan los profesionales descansen sobre más de un solo
+            estudio.</p>
+          <p class="bko-body">Con el tiempo, quiero que otros diseñadores puedan explorar esto por sí mismos en
+            lugar de fiarse de mi palabra sobre lo que contiene. Eso, deliberadamente, todavía no está construido.
+            Cuando lo esté, quiero que se pueda poner a prueba, no solo leer: un lugar donde cualquiera que trabaje
+            en este campo pueda presionar sobre una afirmación y ver exactamente qué la respalda.</p>
+          <div class="bko-milestone-row">
+            <span class="bko-milestone-pill done">&#10003; 202 ejemplos reales en todos los dominios</span>
+            <span class="bko-milestone-pill done">&#10003; Búsqueda ajustada y medida, no asumida</span>
+            <span class="bko-milestone-pill next">&rarr; Ampliando la profundidad de literatura en los nombres
+              fundamentales</span>
+            <span class="bko-milestone-pill next">&rarr; Abriéndolo para que otros lo exploren</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SLIDE 12 — CIERRE -->
+      <section class="bko-slide" id="bko-slide-12">
+        <div class="bko-slide-inner">
+          <div class="bko-eyebrow">Ponte en contacto</div>
+          <h1>Si alguna vez citaste una &ldquo;ley&rdquo; que nunca comprobaste, <em>no estás solo.</em></h1>
+          <p class="bko-lede">Por eso exactamente construí esto. Siempre estoy dispuesto a hablar de lo que respalda
+            una afirmación concreta, recorrer el grafo directamente, o escuchar sobre una fuente que me falta.</p>
+          <div class="bko-closing-actions">
+            <a href="mailto:joseromero.next@gmail.com" class="btn btn-primary">Ponte en contacto <span class="arrow">→</span></a>
+            <a href="/es/thinking/" class="btn btn-ghost">Más artículos <span class="arrow">→</span></a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <div class="bko-rail" id="bkoRail"></div>
+  <div class="bko-slidecount" id="bkoSlidecount">01 / 12</div>
+
+  <footer class="v4-footer" role="contentinfo">
+    <div class="v4-footer-top">
+      <p class="v4-footer-word">Jose <em>Romero</em></p>
+      <nav class="v4-footer-nav" aria-label="Navegación del pie de página">
+        <a href="/es/work/">Trabajo</a>
+        <a href="/es/about/">Sobre mí</a>
+        <a href="/es/thinking/">Pensamiento</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
+        <a href="/es/contact/">Contacto</a>
+        <a href="/es/privacy/">Privacidad</a>
+        <a href="/assets/cv/jose-romero-cv-es.pdf" download>Descargar CV</a>
+      </nav>
+    </div>
+    <div class="v4-footer-meta">
+      <span>Senior Product Designer</span>
+      <span>Trabajando desde Zaragoza, España</span>
+      <span>© 2026 Jose Romero. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script src="/assets/js/main.js?v=18" defer></script>
+  <script>
+    (function () {
+      var slides = Array.prototype.slice.call(document.querySelectorAll('.bko-slide'));
+      var rail = document.getElementById('bkoRail');
+      var counter = document.getElementById('bkoSlidecount');
+      if (!slides.length || !rail) return;
+
+      slides.forEach(function (s, i) {
+        var b = document.createElement('button');
+        b.setAttribute('aria-label', 'Ir a la sección ' + (i + 1));
+        b.addEventListener('click', function () {
+          s.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        rail.appendChild(b);
+      });
+      var dots = Array.prototype.slice.call(rail.children);
+
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          var idx = slides.indexOf(entry.target);
+          if (entry.isIntersecting && entry.intersectionRatio > 0.5) {
+            entry.target.classList.add('is-active');
+            dots.forEach(function (d, i) { d.classList.toggle('is-active', i === idx); });
+            counter.textContent = String(idx + 1).padStart(2, '0') + ' / ' + slides.length;
+          }
+        });
+      }, { threshold: [0, 0.5, 1] });
+      slides.forEach(function (s) { io.observe(s); });
+    })();
+  </script>
+
+</body>
+</html>

@@ -342,4 +342,24 @@
     <priority>0.6</priority>
   </url>
 
+  <!-- Article: BECO Knowledge Graph visual explainer (Thinking section) -->
+  <url>
+    <loc>https://joseromerodesign.com/thinking/beco-knowledge-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://joseromerodesign.com/es/thinking/beco-knowledge-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <lastmod>2026-09-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+
 </urlset>
