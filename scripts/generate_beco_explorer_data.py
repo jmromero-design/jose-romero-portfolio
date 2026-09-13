@@ -31,6 +31,7 @@ Usage:
 
 import json
 import os
+import re
 import sys
 from datetime import date
 from pathlib import Path
@@ -54,6 +55,55 @@ BIASES_DIR = OUT_DIR / "biases"
 
 UNCATEGORIZED_DOMAIN = {"id": "domain-uncategorized", "name": "Uncategorized", "description": "Not yet assigned a domain."}
 UNCATEGORIZED_TOPIC = {"id": "topic-uncategorized", "name": "Uncategorized", "description": "Not yet assigned a topic."}
+
+# BiasHeuristic is a deliberate umbrella node type (see the BECO repo's own
+# docs/SCHEMA.md: "a named cognitive bias/heuristic/effect/principle ... as
+# encountered in design practice") -- it was never meant to assert that every
+# entry is literally a "bias". The explorer UI used to label all of them
+# "Bias" regardless, which is actively wrong for entries like "Law of
+# Proximity" or "Fitts's Law" and undermines trust with anyone who actually
+# knows this material. KIND_SUFFIX_MAP reads the classification the field
+# already carries in its own canonical name (the standard way each concept is
+# referred to in the literature) rather than inventing one -- "Loss Aversion"
+# or "Nudge" have no such self-declared suffix and fall through to the honest
+# "concept" catch-all instead of a guessed label.
+KIND_SUFFIX_MAP = {
+    "bias": "bias", "biases": "bias",
+    "effect": "effect", "effects": "effect",
+    "law": "law",
+    "principle": "principle", "principles": "principle",
+    "heuristic": "heuristic", "heuristics": "heuristic",
+    "fallacy": "fallacy", "fallacies": "fallacy",
+    "illusion": "illusion", "illusions": "illusion",
+}
+
+
+def classify_kind_segment(seg):
+    seg = seg.strip()
+    seg_no_paren = re.sub(r"\(.*?\)", "", seg).strip()
+    words = re.findall(r"[A-Za-zÀ-ÿ'’]+", seg_no_paren)
+    if words:
+        last = words[-1].lower()
+        if last in KIND_SUFFIX_MAP:
+            return KIND_SUFFIX_MAP[last]
+    if seg.lower().startswith("law of "):
+        return "law"
+    if seg.lower().startswith("illusion of") or seg.lower().startswith("illusory"):
+        return "illusion"
+    return "concept"
+
+
+def classify_kind(name):
+    # A name like "Weber's Law / Just Noticeable Difference" or "Overconfidence
+    # / Optimism Bias" carries its real classification in one clause, not
+    # necessarily the last word of the whole string -- check each clause in
+    # order and take the first one that resolves to something more specific
+    # than "concept".
+    for seg in name.split("/"):
+        kind = classify_kind_segment(seg)
+        if kind != "concept":
+            return kind
+    return "concept"
 
 
 def run(session, query, **params):
@@ -96,6 +146,7 @@ def build_tree(session):
     """):
         entry = {
             "id": b["id"], "name": b["name"], "description": b["description"],
+            "kind": classify_kind(b["name"]),
             "backing_status": b["backing_status"],
             "myth_risk": b["myth_risk"], "prevalence": b["prevalence"],
             "application_count": b["application_count"], "finding_count": b["finding_count"],
@@ -196,11 +247,14 @@ def build_bias_detail(session, bias_id):
                other.backing_status AS backing_status, other.myth_risk AS myth_risk
         ORDER BY other.name
     """, id=bias_id):
-        related.append(dict(r))
+        entry = dict(r)
+        entry["kind"] = classify_kind(entry["name"] or "")
+        related.append(entry)
 
     return {
         "id": b.get("uuid"),
         "name": b.get("name"),
+        "kind": classify_kind(b.get("name") or ""),
         "aliases": b.get("aliases") or [],
         "description": b.get("description"),
         "design_relevance_note": b.get("design_relevance_note"),

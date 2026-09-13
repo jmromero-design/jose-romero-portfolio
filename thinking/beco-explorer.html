@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore the BECO Knowledge Graph · Jose Romero</title>
   <meta name="description"
-    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one. A static snapshot, not a live database.">
+    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one. A static snapshot, not a live database.">
   <link rel="canonical" href="https://joseromerodesign.com/thinking/beco-explorer/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Explore the BECO Knowledge Graph · Jose Romero">
   <meta property="og:description"
-    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one.">
+    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one.">
   <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
   <meta property="og:url" content="https://joseromerodesign.com/thinking/beco-explorer/">
   <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Explore the BECO Knowledge Graph · Jose Romero">
   <meta name="twitter:description"
-    content="Browse the full BECO knowledge graph — every named behavioral bias, organized by domain and topic, down to the studies and real-world examples behind each one.">
+    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
   <link rel="stylesheet" href="/assets/css/main.css?v=32">
@@ -272,6 +272,7 @@
     .bgx-tag--partial { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
     .bgx-tag--flagged { background: var(--bg-surface-2); color: var(--text-tertiary); border: 1px dashed var(--border-strong); }
     .bgx-tag--risk { background: color-mix(in srgb, var(--gold) 10%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent); }
+    .bgx-tag--kind { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-default); }
 
     /* ── empty / loading states ──────────────────── */
     .bgx-state-msg {
@@ -396,11 +397,11 @@
     <div class="bgx-header">
       <div class="bgx-eyebrow">Personal Research Infrastructure</div>
       <h1>Explore the <em>graph.</em></h1>
-      <p class="bgx-intro">Every named bias in this corpus, organized by domain and topic, down to the studies
+      <p class="bgx-intro">Every named bias, heuristic, effect, and design law in this corpus, organized by domain and topic, down to the studies
         and real-world examples behind each one. Browse by category, or search directly.</p>
       <p class="bgx-snapshot-note" id="bgxSnapshotNote"></p>
       <div class="bgx-search-wrap">
-        <input type="text" class="bgx-search-input" id="bgxSearchInput" placeholder="Search a bias or topic — e.g. &ldquo;scarcity&rdquo;" autocomplete="off">
+        <input type="text" class="bgx-search-input" id="bgxSearchInput" placeholder="Search a concept or topic — e.g. &ldquo;scarcity&rdquo;" autocomplete="off">
         <div class="bgx-search-results" id="bgxSearchResults"></div>
       </div>
     </div>
@@ -442,12 +443,13 @@
       home: 'All domains',
       domainsCount: function (n) { return n + (n === 1 ? ' domain' : ' domains'); },
       topicsCount: function (n) { return n + (n === 1 ? ' topic' : ' topics'); },
-      biasesCount: function (n) { return n + (n === 1 ? ' bias' : ' biases'); },
+      biasesCount: function (n) { return n + (n === 1 ? ' entry' : ' entries'); },
       findingsCount: function (n) { return n + (n === 1 ? ' finding' : ' findings'); },
       applicationsCount: function (n) { return n + (n === 1 ? ' example' : ' examples'); },
-      levelLabel: { domain: 'Domains', topic: 'Topics', bias: 'Named biases', finding: 'Findings without a named bias yet' },
+      levelLabel: { domain: 'Domains', topic: 'Topics', bias: 'Named concepts', finding: 'Findings without a named concept yet' },
+      kindLabel: { bias: 'Bias', heuristic: 'Heuristic', law: 'Law', effect: 'Effect', principle: 'Principle', fallacy: 'Fallacy', illusion: 'Illusion', concept: 'Concept' },
       relatedGraphTitle: 'How this connects',
-      noRelated: 'No related biases recorded yet.',
+      noRelated: 'No related concepts recorded yet.',
       findingSourceLabel: 'Source',
       loading: 'Loading the graph…',
       loadError: 'Could not load this entry — try again in a moment.',
@@ -507,7 +509,7 @@
         d.topics.forEach(function (t) {
           idx.push({ type: 'topic', id: t.id, name: t.name, path: [d] });
           t.biases.forEach(function (b) {
-            idx.push({ type: 'bias', id: b.id, name: b.name, path: [d, t], backing_status: b.backing_status });
+            idx.push({ type: 'bias', id: b.id, name: b.name, path: [d, t], backing_status: b.backing_status, kind: b.kind });
           });
         });
       });
@@ -601,9 +603,10 @@
       var nameText = node.name;
       var desc = node.description ? '<p class="bgx-tile-desc">' + escapeHtml(node.description) + '</p>' : '';
       if (tier === 'domain') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.topicsCount(node.topics.length) + '</div>';
-      else if (tier === 'topic') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.biasesCount(node.biases.length) + '</div>';
+      else if (tier === 'topic') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.biasesCount(node.biases.length + (node.standalone_findings || []).length) + '</div>';
       else if (tier === 'bias') {
-        var tags = '<span class="bgx-tag ' + backingTagClass(node.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[node.backing_status] || node.backing_status) + '</span>';
+        var tags = '<span class="bgx-tag bgx-tag--kind">' + escapeHtml(STRINGS.kindLabel[node.kind] || STRINGS.kindLabel.concept) + '</span>' +
+          '<span class="bgx-tag ' + backingTagClass(node.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[node.backing_status] || node.backing_status) + '</span>';
         if (node.myth_risk === 'moderate' || node.myth_risk === 'high') {
           tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[node.myth_risk]) + '</span>';
         }
@@ -685,7 +688,7 @@
       var centerColor = egoNodeColor(center.backing_status);
       var centerEl = '<circle cx="' + cx + '" cy="' + cy + '" r="' + centerR + '" fill="' + centerColor + '" fill-opacity="0.16" stroke="' + centerColor + '" stroke-width="2.5" />' +
         '<text x="' + cx + '" y="' + (cy - centerR - 12) + '" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="13" fill="var(--text-primary)">' + escapeHtml(truncate(center.name, 26)) + '</text>';
-      return '<svg viewBox="0 0 ' + size + ' ' + (size * 0.86) + '" role="img" aria-label="Biases related to ' + escapeHtml(center.name) + '" style="width:100%;max-width:560px;height:auto;display:block;margin-inline:auto;overflow:visible;">' +
+      return '<svg viewBox="0 0 ' + size + ' ' + (size * 0.86) + '" role="img" aria-label="Concepts related to ' + escapeHtml(center.name) + '" style="width:100%;max-width:560px;height:auto;display:block;margin-inline:auto;overflow:visible;">' +
         '<g style="cursor:pointer;">' + edges + nodeEls + '</g>' + centerEl + '</svg>';
     }
 
@@ -703,7 +706,8 @@
       fetch(DATA_BASE + 'biases/' + summary.id + '.json')
         .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
         .then(function (b) {
-          var tags = '<span class="bgx-tag ' + backingTagClass(b.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[b.backing_status] || b.backing_status) + '</span>';
+          var tags = '<span class="bgx-tag bgx-tag--kind">' + escapeHtml(STRINGS.kindLabel[b.kind] || STRINGS.kindLabel.concept) + '</span>' +
+            '<span class="bgx-tag ' + backingTagClass(b.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[b.backing_status] || b.backing_status) + '</span>';
           if (b.myth_risk === 'moderate' || b.myth_risk === 'high') {
             tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[b.myth_risk]) + '</span>';
           }
