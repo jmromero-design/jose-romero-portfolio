@@ -2063,6 +2063,11 @@
       function layoutPaths() {
         edges.forEach((e) => {
           const d = curve(e);
+          // The attribute gives every engine the shape. Safari/WebKit (which is
+          // every browser on iOS) ignores the CSS `d` property, so a path drawn
+          // only through it has no geometry there; the CSS version stays so
+          // Chromium and Firefox can animate the line when a layer lifts.
+          e.path.setAttribute('d', d);
           e.path.style.d = `path('${d}')`;
           if (e.spark) e.spark.motion.setAttribute('path', d);
         });
