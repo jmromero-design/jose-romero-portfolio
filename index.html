@@ -663,6 +663,9 @@
     }
     .st-svg .st-path.is-lit { stroke-dashoffset: 0; opacity: 0.95; }
     .st-svg .st-spark { fill: var(--c); pointer-events: none; }
+    .st-svg .st-anchor { fill: var(--c); opacity: 0; pointer-events: none; transition: opacity 0.3s ease var(--dl, 0s); }
+    .st-svg .st-anchor.is-lit { opacity: 1; }
+    .st.has-active .st-svg .st-layer:not(.is-active) .st-anchor.is-lit { opacity: 0.2; }
 
     /* Outcome */
     .st-svg .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 18%, var(--bg-surface)); stroke: var(--gold); stroke-width: 1; }
@@ -864,6 +867,95 @@
       font-size: var(--text-lg);
       line-height: 1.5;
       color: var(--text-secondary);
+    }
+
+
+    /* ═══ BECO FEATURE — the knowledge graph, with its evidence grading ═══
+       Counts are a snapshot of assets/data/beco-explorer/tree.json; update
+       them whenever scripts/generate_beco_explorer_data.py is re-run. */
+
+    .bx {
+      padding-block: clamp(var(--sp-20), 12vh, var(--sp-32));
+      border-bottom: 1px solid var(--border-default);
+      overflow: hidden;
+    }
+    .bx-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+      gap: clamp(var(--sp-8), 5vw, var(--sp-20));
+      align-items: center;
+    }
+    .bx-copy .eyebrow { margin-bottom: var(--sp-6); }
+    .bx-copy h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4.6vw, 4.4rem);
+      line-height: 1.06;
+      text-wrap: balance;
+      margin-bottom: var(--sp-8);
+    }
+    .bx-copy h2 em { font-style: italic; color: var(--gold); }
+    .bx-copy > p {
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+      line-height: 1.65;
+      max-width: 46ch;
+      margin-bottom: var(--sp-10);
+    }
+
+    /* The grade, drawn with the explorer's own tag colours: teal verified,
+       gold partial, a dashed outline for no rigorous backing found. */
+    .bx-grade { margin-bottom: var(--sp-10); max-width: 30rem; }
+    .bx-bar { display: flex; gap: 3px; height: 10px; margin-bottom: var(--sp-4); }
+    .bx-bar span {
+      border-radius: 999px;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bx-bar .bx-v { background: var(--teal); transition-delay: 0.2s; }
+    .bx-bar .bx-p { background: var(--gold); transition-delay: 0.35s; }
+    .bx-bar .bx-n { border: 1px dashed var(--border-strong); transition-delay: 0.5s; }
+    .bx-grade.is-in .bx-bar span { transform: none; }
+    .bx-legend { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-6); }
+    .bx-legend li { display: flex; align-items: baseline; gap: var(--sp-2); font-size: var(--text-sm); color: var(--text-tertiary); }
+    .bx-legend li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; align-self: center; }
+    .bx-legend .bx-v::before { background: var(--teal); }
+    .bx-legend .bx-p::before { background: var(--gold); }
+    .bx-legend .bx-n::before { border: 1px dashed var(--text-tertiary); }
+    .bx-legend b { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); color: var(--text-primary); }
+
+    .bx-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+
+    /* the real graph export, faded at the edges so it sits on the page */
+    .bx-visual {
+      display: block;
+      aspect-ratio: 1280 / 1117;
+      -webkit-mask-image: radial-gradient(closest-side, black 62%, transparent);
+      mask-image: radial-gradient(closest-side, black 62%, transparent);
+    }
+    .bx-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .bx-visual:hover img { transform: scale(1.04); }
+    .bx-visual .bx-img--light { display: none; }
+    [data-theme="light"] .bx-visual .bx-img--dark { display: none; }
+    [data-theme="light"] .bx-visual .bx-img--light { display: block; }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) .bx-visual .bx-img--dark { display: none; }
+      :root:not([data-theme="dark"]) .bx-visual .bx-img--light { display: block; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .bx-bar span { transform: none; transition: none; }
+      .bx-visual img { transition: none; }
+    }
+    @media (max-width: 900px) {
+      .bx-grid { grid-template-columns: 1fr; }
+      .bx-visual { max-width: 520px; margin-inline: auto; width: 100%; }
     }
 
 
@@ -1564,6 +1656,48 @@
       </div>
     </section>
 
+    <!-- ═══ BECO KNOWLEDGE GRAPH ═══ -->
+    <section class="bx v4-bleed" aria-labelledby="bx-heading">
+      <div class="bx-grid">
+        <div class="bx-copy">
+          <span class="eyebrow v4-r">Personal research</span>
+          <h2 id="bx-heading" class="v4-r" style="--d: 0.08s;">
+            Most design advice cites a study.<br>
+            <em>I check which ones hold up.</em>
+          </h2>
+          <p class="v4-r" style="--d: 0.14s;">
+            BECO is a knowledge graph I'm building from 420 behavioural-science
+            sources, each one DOI-verified. It links 243 named biases, heuristics
+            and design laws to the findings behind them, and grades every one,
+            including the popular ones the research doesn't support.
+          </p>
+          <div class="bx-grade v4-r" style="--d: 0.2s;" role="img"
+               aria-label="Of 243 concepts: 132 verified, 96 partially backed, 15 with no rigorous backing found.">
+            <div class="bx-bar" aria-hidden="true">
+              <span class="bx-v" style="flex: 132;"></span>
+              <span class="bx-p" style="flex: 96;"></span>
+              <span class="bx-n" style="flex: 15;"></span>
+            </div>
+            <ul class="bx-legend" aria-hidden="true">
+              <li class="bx-v"><b>132</b> verified</li>
+              <li class="bx-p"><b>96</b> partially backed</li>
+              <li class="bx-n"><b>15</b> no rigorous backing found</li>
+            </ul>
+          </div>
+          <div class="bx-actions v4-r" style="--d: 0.26s;">
+            <a href="/thinking/beco-explorer/" class="btn btn-primary">Explore the graph <span class="arrow">→</span></a>
+            <a href="/thinking/beco-knowledge-graph/" class="btn btn-ghost">How it's built <span class="arrow">→</span></a>
+          </div>
+        </div>
+        <a class="bx-visual v4-r" href="/thinking/beco-explorer/" tabindex="-1" aria-hidden="true" style="--d: 0.1s;">
+          <img class="bx-img--dark" src="/assets/images/thinking/beco-knowledge-graph/graph-overview-dark.webp"
+               alt="" width="1280" height="1117" loading="lazy" decoding="async">
+          <img class="bx-img--light" src="/assets/images/thinking/beco-knowledge-graph/graph-overview-light.webp"
+               alt="" width="1280" height="1117" loading="lazy" decoding="async">
+        </a>
+      </div>
+    </section>
+
     <!-- ═══ 7. WORD OF MOUTH ═══ -->
     <section class="v4-voices v4-bleed" aria-label="Testimonials">
       <span class="eyebrow v4-r">Word of mouth</span>
@@ -1856,10 +1990,10 @@
             optNodes.push({ dot, feeds: f, li });
           });
           const cx = (x[0] + x[1]) / 2;
-          // Routes leave from a tile's back edge, so they only cross the bare
-          // margin of the slab, and arrive under the front of the tile above.
-          // While the stack is closed the slab above hides them entirely.
-          return { g, el: grp, feeds, exit: [cx, TY[0] + 4, zt], entry: [cx, TY[1] - 6, z - SLAB_T] };
+          // Routes leave from a tile's front edge, its most visible side, and
+          // arrive under the front of the tile above. Crossing its own tile
+          // reads as the route coming out of it.
+          return { g, el: grp, feeds, exit: [cx, TY[1] - 8, zt], entry: [cx, TY[1] - 6, z - SLAB_T] };
         });
         layers.push({ ...L, plats });
       }
@@ -1897,7 +2031,12 @@
               const path = el('path', { class: 'st-path', pathLength: 1 }, host);
               path.style.setProperty('--c', `var(--st-${f})`);
               path.style.setProperty('--dl', (i * 0.12).toFixed(2) + 's');
-              edges.push({ lower: i, from, to, f, host, path, spark: null });
+              // a dot marks where the route leaves its tile
+              const [ax, ay] = P(...from.exit);
+              const anchor = el('circle', { class: 'st-anchor', cx: ax + LANE[f], cy: ay, r: 2.6 }, host);
+              anchor.style.setProperty('--c', `var(--st-${f})`);
+              anchor.style.setProperty('--dl', (i * 0.12).toFixed(2) + 's');
+              edges.push({ lower: i, from, to, f, host, path, anchor, spark: null });
             });
           });
         });
@@ -2017,6 +2156,7 @@
         edges.forEach((e) => {
           const on = pressed.has(e.f);
           e.path.classList.toggle('is-lit', on);
+          e.anchor.classList.toggle('is-lit', on);
           if (on && !e.spark && !reduceMotion) {
             const dot = el('circle', { class: 'st-spark', r: 1.9 }, e.host);
             dot.style.setProperty('--c', `var(--st-${e.f})`);
