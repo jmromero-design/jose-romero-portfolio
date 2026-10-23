@@ -2048,11 +2048,11 @@
             const dot = el('circle', { class: 'st-dot', cx: x[1] - 12, cy: TY[1] - 28 - k2 * 12, r: 3 }, dots);
             optNodes.push({ dot, feeds: f, li });
           });
-          const cx = (x[0] + x[1]) / 2;
-          // Routes leave from a tile's front edge, its most visible side, and
-          // arrive under the front of the tile above. Crossing its own tile
-          // reads as the route coming out of it.
-          return { g, el: grp, feeds, exit: [cx, TY[1] - 8, zt], entry: [cx, TY[1] - 6, z - SLAB_T] };
+          // Routes plug into the tile's column of option dots, on the side
+          // away from its label: they leave from the first dot and arrive at
+          // the same spot under the tile above.
+          const plug = [x[1] - 12, TY[1] - 28];
+          return { g, el: grp, feeds, exit: [...plug, zt], entry: [...plug, z - SLAB_T] };
         });
         layers.push({ ...L, plats });
       }
