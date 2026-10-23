@@ -40,6 +40,23 @@ Groupe EDG), working on two peer-to-peer marketplaces from early stages
 through European expansion, plus a cross-tool design operations framework
 and an AI workflow design framework for the design team.
 
+## How I work
+
+Every project arrives with pressure from four directions: the business, the
+people using the product, the technology underneath, and the organisation
+making the calls. Above that sit five layers of work, each with a few tools.
+None of it runs in a fixed order, and no project needs all of it. What comes
+in at the bottom decides which tools get picked up on the way to the top.
+
+- Evidence: user research, behavioural analysis, analytics and session data, stakeholder interviews, platform and constraint audits, checking claims against the research
+- Framing: problem framing, behavioural diagnosis, hypotheses and success metrics, trade-off mapping, scoping and appetite
+- Craft: information architecture, design systems, interface and interaction design, content and UX writing, choice architecture
+- Validation: A/B and multivariate testing, usability testing, accessibility review, localisation QA, metrics and reporting
+- Systems: ways of working, facilitation and workshops, mentoring, documentation and handoff, AI-assisted workflows
+
+Where it lands: a decision a team can build, covering what to make next, why
+it matters, and how to tell if it worked.
+
 ## Selected work
 
 - [IKEA Home Services](https://joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
