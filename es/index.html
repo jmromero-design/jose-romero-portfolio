@@ -509,58 +509,366 @@
     .v4-path-desc strong { color: var(--text-secondary); font-weight: 500; }
 
 
-    /* ═══ 6. THINKING — one thesis, three supporting positions ═══ */
+    /* ═══ 6. HOW I WORK — an isometric stack, base pressures to outcome ═══
+       Pure inline SVG drawn by script from the panel markup below, so the
+       copy lives once, in HTML, and the drawing follows the theme tokens. */
 
-    .v4-thinking {
+    .st {
       padding-block: clamp(var(--sp-20), 12vh, var(--sp-32));
       border-bottom: 1px solid var(--border-default);
-      text-align: center;
     }
-    .v4-thinking .eyebrow { margin-bottom: var(--sp-10); }
+    .st-head {
+      display: grid;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: clamp(var(--sp-8), 5vw, var(--sp-20));
+      align-items: end;
+      margin-bottom: clamp(var(--sp-12), 7vh, var(--sp-20));
+    }
+    .st-head .eyebrow { margin-bottom: var(--sp-6); }
+    .st-head h2 {
+      font-family: var(--font-display);
+      font-weight: 300;
+      font-size: clamp(2.2rem, 4.6vw, 4.4rem);
+      text-wrap: balance;
+      line-height: 1.06;
+    }
+    .st-head h2 em { font-style: italic; color: var(--gold); }
+    .st-head p {
+      color: var(--text-secondary);
+      font-size: var(--text-lg);
+      line-height: 1.65;
+      max-width: 46ch;
+    }
+
+    .st-body {
+      display: grid;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 5fr);
+      gap: clamp(var(--sp-8), 5vw, var(--sp-20));
+      align-items: start;
+    }
+
+    /* ── the drawing ── */
+    .st-stage {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--sp-6));
+    }
+    .st-svg { width: 100%; height: auto; display: block; overflow: visible; max-height: calc(100svh - var(--nav-height) - var(--sp-12)); }
+
+    /* Pressure colours. Business and Users keep the brand gold and teal;
+       Technology and Organisation rotate those same tokens around the hue
+       wheel, so all four follow the theme in both modes. Browsers without
+       relative colour fall back to the two brand colours. */
+    .st {
+      --st-b: var(--gold);
+      --st-u: var(--teal);
+      --st-t: var(--teal);
+      --st-o: var(--gold);
+    }
+    @supports (color: oklch(from red l c h)) {
+      .st {
+        --st-t: oklch(from var(--teal) l calc(c * 1.15) calc(h + 80));
+        --st-o: oklch(from var(--gold) l c calc(h - 55));
+      }
+    }
+
+    /* Surfaces are solid: a slab hides what's beneath it until the layers
+       above lift away. Every slab, tile and base platform shares one look,
+       a rounded top with a faint sheen over a darker edge. */
+    .st-svg .st-top   { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.9; }
+    .st-svg .st-edge  { fill: var(--bg-base); stroke: var(--border-default); stroke-width: 0.8; }
+    .st-svg .st-sheen { fill: url(#stSheen); pointer-events: none; }
+    .st-svg .st-slab, .st-svg .st-base, .st-svg .st-cap { filter: drop-shadow(0 12px 16px rgb(0 0 0 / 0.28)); }
+    [data-theme="light"] .st-svg .st-slab,
+    [data-theme="light"] .st-svg .st-base,
+    [data-theme="light"] .st-svg .st-cap { filter: drop-shadow(0 12px 16px rgb(0 0 0 / 0.1)); }
+
+    /* tiles: inset panels on a slab, one step darker than the slab itself */
+    .st-svg .st-tile .st-top { fill: var(--bg-surface-2); stroke: var(--border-default); }
+    .st-svg .st-tile.is-lit .st-top { stroke: var(--lit); stroke-width: 1.3; }
+    .st-svg .st-layer.is-active .st-tile:not(.is-lit) .st-top { stroke: var(--border-strong); }
+
+    .st-svg .st-layer.is-active .st-slab .st-top { stroke: var(--gold); }
+    .st-svg .st-layer.is-hover:not(.is-active) .st-slab .st-top { stroke: var(--teal); }
+    .st-svg .st-base.is-lit .st-top { stroke: var(--lit); stroke-width: 1.2; }
+
+    .st-svg .st-links { pointer-events: none; }
+    .st-svg .st-link { stroke: var(--border-strong); stroke-width: 1; }
+    .st-svg .st-link-node { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.8; }
+
+    .st-svg .st-pname { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--teal-text); transition: fill 0.35s; pointer-events: none; }
+    .st-svg .st-tile.is-lit .st-pname, .st-svg .st-pname.is-lit { fill: var(--lit); }
+    .st-svg .st-dot { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.8; transition: fill 0.35s, stroke 0.35s; }
+    .st-svg .st-dot.is-lit { fill: var(--lit); stroke: var(--lit); }
+
+    .st-svg .st-slab, .st-svg .st-tile, .st-svg .st-base, .st-svg .st-cap, .st-svg .st-venn { cursor: pointer; }
+
+    /* Focus. Whatever isn't in focus sinks into the page: its surfaces take
+       the page background and its lines the faintest border. They stay
+       solid, so they still hide what's beneath, and the rule reads the same
+       in both themes. Styling sits below .st-layer, which owns the build-in
+       animation. */
+    .st-svg .st-top  { transition: fill 0.4s ease, stroke 0.35s ease; }
+    .st-svg .st-edge { transition: fill 0.4s ease, stroke 0.35s ease; }
+    .st-svg .st-pname, .st-svg .st-cap-label, .st-svg .st-venn, .st-svg .st-sat,
+    .st-svg .st-sat-c, .st-svg .st-sat-line, .st-svg .st-link, .st-svg .st-link-node,
+    .st-svg .st-dot, .st-svg .st-mark { transition: opacity 0.4s ease, fill 0.35s, stroke 0.35s, fill-opacity 0.35s, stroke-opacity 0.35s; }
+
+    .st.has-active .st-svg .st-layer:not(.is-active) :is(.st-top, .st-edge) { fill: var(--bg-base); stroke: var(--border-subtle); }
+    .st.has-active .st-svg .st-layer:not(.is-active) :is(.st-slab, .st-base, .st-cap) { filter: none; }
+    .st.has-active .st-svg .st-layer:not(.is-active) :is(.st-pname, .st-cap-label) { opacity: 0.25; }
+    .st.has-active .st-svg .st-layer:not(.is-active) :is(.st-venn, .st-sat, .st-sat-c, .st-sat-line, .st-link, .st-link-node, .st-dot, .st-mark, .st-sheen) { opacity: 0.15; }
+    .st.has-active .st-svg .st-layer:not(.is-active) .st-path.is-lit { opacity: 0.2; }
+
+    /* off-route tiles melt into their slab; off-route base platforms into the page */
+    .st.has-feed .st-svg .st-tile:not(.is-lit) .st-top { fill: var(--bg-surface); stroke: var(--border-subtle); }
+    .st.has-feed .st-svg .st-tile:not(.is-lit) .st-pname { opacity: 0.3; }
+    .st.has-feed .st-svg .st-base:not(.is-lit) :is(.st-top, .st-edge) { fill: var(--bg-base); stroke: var(--border-subtle); }
+    .st.has-feed .st-svg .st-base:not(.is-lit) { filter: none; }
+    .st.has-feed .st-svg .st-venn:not(.is-lit) { stroke-opacity: 0.15; fill-opacity: 0.02; }
+    .st.has-feed .st-svg .st-pname.is-dim { opacity: 0.3; }
+
+    /* Outcome: the hero map's centre, rings around one gold point.
+       It brightens and breathes once a route reaches it. */
+    .st-svg .st-mark { pointer-events: none; }
+    .st-svg .st-mark-glow  { fill: url(#stMarkGlow); opacity: 0.5; transition: opacity 0.5s ease; }
+    .st-svg .st-mark-ring2 { fill: none; stroke: var(--teal); stroke-width: 0.6; stroke-dasharray: 2 7; opacity: 0.6; }
+    .st-svg .st-mark-ring  { fill: none; stroke: var(--gold); stroke-width: 0.9; stroke-dasharray: 3 6; opacity: 0.75; }
+    .st-svg .st-mark-core  { fill: var(--gold); opacity: 0.8; transition: opacity 0.5s ease; }
+    .st-svg .st-layer.is-lit .st-mark-glow { opacity: 1; animation: stBreathe 2.8s ease-in-out infinite; }
+    .st-svg .st-layer.is-lit .st-mark-core { opacity: 1; }
+    @keyframes stBreathe { 50% { opacity: 0.55; } }
+    @media (prefers-reduced-motion: reduce) { .st-svg .st-layer.is-lit .st-mark-glow { animation: none; } }
+
+    /* fitting the viewBox measures the drawing at its resting position */
+    .st-svg.is-measuring .st-layer { translate: none; transition: none; }
+
+    /* Foundation: the hero's four circles, one per pressure colour */
+    .st-svg .st-found { pointer-events: none; }
+    .st-svg .st-venn { pointer-events: auto; fill: var(--c); fill-opacity: 0.05; stroke: var(--c); stroke-opacity: 0.45; stroke-width: 0.9; transition: fill-opacity 0.35s, stroke-opacity 0.35s, stroke-width 0.35s; }
+    .st-svg .st-venn:hover { stroke-opacity: 0.8; }
+    .st-svg .st-venn.is-lit { fill-opacity: 0.14; stroke-opacity: 1; stroke-width: 1.3; }
+    .st-svg .st-sat-line { stroke: var(--c); stroke-opacity: 0.3; stroke-width: 0.6; transition: stroke-opacity 0.35s; }
+    .st-svg .st-sat-line.is-lit { stroke-opacity: 0.9; }
+    .st-svg .st-sat { fill: var(--bg-surface-2); stroke: var(--border-strong); stroke-width: 0.7; }
+    .st-svg .st-sat-c { fill: var(--c); fill-opacity: 0.8; }
+
+    /* Pathways: hidden until a pressure is picked, then drawn bottom to top
+       in that pressure's colour. pathLength="1" normalises the dash maths. */
+    .st-svg .st-path {
+      fill: none;
+      stroke: var(--c);
+      stroke-width: 1.4;
+      stroke-linecap: round;
+      stroke-dasharray: 1;
+      stroke-dashoffset: 1;
+      opacity: 0;
+      pointer-events: none;
+      transition:
+        stroke-dashoffset 0.7s cubic-bezier(0.4, 0, 0.2, 1) var(--dl, 0s),
+        opacity 0.25s ease var(--dl, 0s),
+        d 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .st-svg .st-path.is-lit { stroke-dashoffset: 0; opacity: 0.95; }
+    .st-svg .st-spark { fill: var(--c); pointer-events: none; }
+
+    /* Outcome */
+    .st-svg .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 18%, var(--bg-surface)); stroke: var(--gold); stroke-width: 1; }
+    .st-svg .st-layer.is-active .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 34%, var(--bg-surface)); }
+    .st-svg .st-cap-label { font-family: var(--font-display); font-style: italic; font-size: 17px; fill: var(--gold); pointer-events: none; }
+
+    /* layer groups: build-in uses `translate`, opening uses `transform`,
+       so the two never fight over one property */
+    .st-svg .st-layer {
+      opacity: 0;
+      translate: 0 -36px;
+      transition:
+        opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.11s),
+        translate 0.9s cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 0.11s),
+        transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .st.is-built .st-svg .st-layer { opacity: 1; translate: 0 0; }
+
+    /* ── the panel ── */
+    .st-start { margin-bottom: var(--sp-8); }
+    .st-start-label {
+      display: block;
+      font-size: var(--text-xs);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-bottom: var(--sp-3);
+    }
+    .st-start-hint { font-size: var(--text-sm); color: var(--text-tertiary); margin-top: var(--sp-3); line-height: 1.55; }
+    .st-toggles { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+    .st-toggle {
+      font: inherit;
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      background: transparent;
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: var(--sp-2) var(--sp-4);
+      cursor: pointer;
+      transition: color var(--ease-fast), border-color var(--ease-fast), background var(--ease-fast);
+    }
+    .st-toggle:hover { border-color: var(--teal); color: var(--text-primary); }
+    .st-toggle { display: inline-flex; align-items: center; gap: var(--sp-2); }
+    .st-toggle::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--c); flex: none; }
+    .st-toggle[data-feed="b"] { --c: var(--st-b); }
+    .st-toggle[data-feed="u"] { --c: var(--st-u); }
+    .st-toggle[data-feed="t"] { --c: var(--st-t); }
+    .st-toggle[data-feed="o"] { --c: var(--st-o); }
+    .st-toggle[aria-pressed="true"] { border-color: var(--c); background: color-mix(in srgb, var(--c) 14%, transparent); color: var(--text-primary); }
+    .st-hint-line { display: block; }
+    .st-hint-line + .st-hint-line { margin-top: var(--sp-1); }
+    .st-hint-line strong { color: var(--c); font-weight: 500; }
+    .st-toggle:focus-visible, .st-layer-btn:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .st-layers { list-style: none; padding: 0; margin: 0; border-top: 1px solid var(--border-default); }
+    .st-layer-item { border-bottom: 1px solid var(--border-default); }
+    .st-layer-btn {
+      width: 100%;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: baseline;
+      gap: var(--sp-4);
+      text-align: left;
+      font: inherit;
+      color: inherit;
+      background: none;
+      border: 0;
+      padding: var(--sp-5) 0;
+      cursor: pointer;
+      transition: padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .st-layer-btn:hover { padding-left: var(--sp-3); }
+    .st-layer-title { display: flex; flex-direction: column; gap: 2px; }
+    .st-layer-name { font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); color: var(--text-primary); transition: color var(--ease-fast); }
+    .st-layer-q { font-size: var(--text-sm); color: var(--text-tertiary); }
+    .st-layer-count { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); white-space: nowrap; }
+    .st-layer-count.is-lit { color: var(--gold); }
+    .st-layer-btn[aria-expanded="true"] .st-layer-name { color: var(--gold); }
+
+    .st-layer-detail { display: grid; grid-template-rows: 0fr; transition: grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+    .st-layer-detail > div { overflow: hidden; }
+    .st-layer-item.is-open .st-layer-detail { grid-template-rows: 1fr; }
+    .st-layer-detail p { color: var(--text-secondary); line-height: 1.65; margin-bottom: var(--sp-4); max-width: 48ch; }
+    .st-opts { list-style: none; padding: 0; margin: 0 0 var(--sp-6); display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+    .st-opts li {
+      font-size: var(--text-xs);
+      color: var(--text-secondary);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: var(--sp-1) var(--sp-3);
+      transition: color 0.35s, border-color 0.35s, background 0.35s;
+    }
+    .st-opts li.is-lit { color: var(--text-primary); border-color: var(--lit); background: color-mix(in srgb, var(--lit) 14%, transparent); }
+    .st-groups { display: grid; gap: var(--sp-4); margin-bottom: var(--sp-6); }
+    .st-groups .st-opts { margin-bottom: 0; }
+    .st-group { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: var(--sp-3); align-items: baseline; }
+    .st-group-name { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-text); transition: color 0.35s; }
+    .st-group.is-lit .st-group-name { color: var(--lit); }
+    @media (max-width: 480px) { .st-group { grid-template-columns: 1fr; gap: var(--sp-2); } }
+
+    .st-cta { margin-top: var(--sp-10); }
+
+    @media (prefers-reduced-motion: reduce) {
+      .st-svg .st-layer { opacity: 1; translate: 0 0; transition: none; }
+      .st.is-built .st-svg .st-spark { animation: none; }
+      .st-layer-detail { transition: none; }
+    }
+
+    @media (max-width: 900px) {
+      .st-head, .st-body { grid-template-columns: 1fr; }
+      /* Phones: the drawing runs full width and scrolls with the page */
+      .st-stage {
+        position: relative;
+        top: auto;
+        width: calc(100% + var(--gutter) * 2);
+        margin-inline: calc(var(--gutter) * -1);
+      }
+      .st-svg { max-height: none; }
+
+      /* Opening a layer focuses the page on it: the rest of the panel steps
+         aside and the open layer becomes a glass card that slides up over the
+         drawing (the script sets how far), stopping just below that layer. */
+      .st-panel {
+        position: relative;
+        z-index: 2;
+        transition: margin-top 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .st.has-active .st-start,
+      .st.has-active .st-layer-item:not(.is-open) { display: none; }
+      .st.has-active .st-layers {
+        border: 1px solid var(--border-default);
+        border-radius: var(--radius-lg);
+        padding-inline: var(--sp-5);
+        background: color-mix(in srgb, var(--bg-base) 76%, transparent);
+        backdrop-filter: blur(14px) saturate(1.4);
+        -webkit-backdrop-filter: blur(14px) saturate(1.4);
+      }
+      .st.has-active .st-layer-item { border-bottom: 0; }
+    }
+
+
+    /* ═══ 7. THINKING — compact: thesis left, positions as a list right ═══ */
+
+    .v4-thinking {
+      padding-block: clamp(var(--sp-16), 10vh, var(--sp-24));
+      border-bottom: 1px solid var(--border-default);
+    }
+    .v4-thinking-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+      gap: clamp(var(--sp-8), 5vw, var(--sp-20));
+      align-items: start;
+    }
+    .v4-thinking .eyebrow { margin-bottom: var(--sp-6); }
     .v4-thinking blockquote {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(1.7rem, 4.4vw, 3.6rem);
-      line-height: 1.35;
+      font-size: clamp(1.6rem, 3vw, 2.6rem);
+      line-height: 1.3;
       color: var(--text-primary);
-      max-width: 24ch;
+      max-width: 18ch;
       text-wrap: balance;
-      margin-inline: auto;
-      margin-bottom: clamp(var(--sp-12), 8vh, var(--sp-20));
+      margin-bottom: var(--sp-8);
     }
     .v4-thinking blockquote em { color: var(--gold); }
 
-    /* three quieter positions — fill the room without shouting */
-    .v4-positions {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: clamp(var(--sp-8), 4vw, var(--sp-16));
-      text-align: left;
-      max-width: 1080px;
-      margin-inline: auto;
-      margin-bottom: var(--sp-14, var(--sp-12));
-      margin-bottom: var(--sp-12);
-    }
+    .v4-positions { border-top: 1px solid var(--border-default); }
     .v4-position {
-      border-top: 1px solid var(--border-default);
-      padding-top: var(--sp-5);
-      transition: border-color var(--ease-base);
+      display: grid;
+      grid-template-columns: 13rem minmax(0, 1fr);
+      gap: var(--sp-6);
+      align-items: baseline;
+      padding-block: var(--sp-5);
+      border-bottom: 1px solid var(--border-default);
+      position: relative;
     }
-    .v4-position:hover { border-top-color: var(--teal); }
+    .v4-position::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -1px;
+      height: 1px; width: 100%;
+      background: var(--teal);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .v4-position:hover::after { transform: scaleX(1); }
     .v4-position-topic {
-      display: block;
       font-size: var(--text-xs);
       color: var(--teal-text);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-bottom: var(--sp-3);
     }
     .v4-position p {
       font-family: var(--font-display);
       font-style: italic;
       font-weight: 300;
-      font-size: clamp(var(--text-lg), 1.7vw, var(--text-xl));
+      font-size: var(--text-lg);
       line-height: 1.5;
       color: var(--text-secondary);
     }
@@ -775,7 +1083,8 @@
       .v4-about-grid { grid-template-columns: 1fr; }
       .v4-about-visual { max-width: 420px; }
       .v4-work-head p { text-align: left; }
-      .v4-positions { grid-template-columns: 1fr; gap: var(--sp-8); }
+      .v4-thinking-grid { grid-template-columns: 1fr; }
+      .v4-position { grid-template-columns: 1fr; gap: var(--sp-2); }
       .v4-voice-b { margin-left: 0; margin-right: 0; }
       .v4-voices-more { justify-content: flex-start; }
     }
@@ -1063,27 +1372,204 @@
       </div>
     </section>
 
-    <!-- ═══ 6. REFLEXIONES ═══ -->
-    <section class="v4-thinking v4-bleed" aria-labelledby="thinking-heading">
-      <span class="eyebrow eyebrow--bare v4-r" id="thinking-heading">Reflexiones</span>
-      <blockquote class="v4-r" style="--d: 0.1s;">
-        "La mayoría de las decisiones de diseño son decisiones de <em>comportamiento</em>. Trátalas como tal."
-      </blockquote>
-      <div class="v4-positions">
-        <div class="v4-position v4-r" style="--d: 0.15s;">
-          <span class="v4-position-topic">La empatía como herramienta estratégica</span>
-          <p>Lo que la gente hace de verdad dice más que lo que dice. Leer bien esa diferencia vale dinero, no solo buena voluntad.</p>
+    <!-- ═══ 6. CÓMO TRABAJO ═══ -->
+    <section class="st v4-bleed" id="how-i-work" aria-labelledby="st-heading">
+      <div class="st-head">
+        <div>
+          <span class="eyebrow v4-r">Cómo trabajo</span>
+          <h2 id="st-heading" class="v4-r" style="--d: 0.08s;">
+            De un briefing caótico<br>
+            <em>a un siguiente paso claro.</em>
+          </h2>
         </div>
-        <div class="v4-position v4-r" style="--d: 0.25s;">
-          <span class="v4-position-topic">Sistemas que sobreviven a las personas</span>
-          <p>Si un proceso solo funciona mientras su autor lo está vigilando, todavía no es un sistema. Es solo alguien siendo cuidadoso.</p>
-        </div>
-        <div class="v4-position v4-r" style="--d: 0.35s;">
-          <span class="v4-position-topic">Diseñar con IA</span>
-          <p>La IA puede acelerar el trabajo todo lo que quiera. Decidir qué merece la pena hacer sigue siendo cosa mía.</p>
+        <p class="v4-r" style="--d: 0.16s;">
+          Todo proyecto llega con presión desde cuatro frentes: el negocio, las personas
+          que usan el producto, la tecnología que hay debajo y la organización que toma
+          las decisiones. Encima están las capas en las que trabajo, cada una con unas
+          cuantas herramientas distintas. Nada de esto sigue un orden fijo, y ningún
+          proyecto lo necesita todo. Lo que entra por abajo decide qué herramientas se
+          usan de camino hacia arriba.
+        </p>
+      </div>
+
+      <div class="st-body">
+        <div class="st-stage" id="stStage" aria-hidden="true"
+             data-title="Una decisión lista para construir"
+             data-count-lit="{n} de {total} en juego"
+             data-count-all="{total} opciones"></div>
+
+        <div class="st-panel">
+          <div class="st-start v4-r">
+            <span class="st-start-label" id="stStartLabel">Empieza por</span>
+            <div class="st-toggles" role="group" aria-labelledby="stStartLabel">
+              <button type="button" class="st-toggle" data-feed="b" aria-pressed="false"
+                      data-desc="Objetivos de ingresos, regulación, plazos y cuánto puede permitirse equivocarse la empresa.">Negocio</button>
+              <button type="button" class="st-toggle" data-feed="u" aria-pressed="false"
+                      data-desc="Quién usa el producto, qué intenta conseguir y dónde se atasca.">Usuarios</button>
+              <button type="button" class="st-toggle" data-feed="t" aria-pressed="false"
+                      data-desc="Plataformas heredadas, datos que pueden existir o no, y lo que ingeniería puede sacar este trimestre.">Tecnología</button>
+              <button type="button" class="st-toggle" data-feed="o" aria-pressed="false"
+                      data-desc="Quién decide, quién tiene que estar de acuerdo y cómo trabaja ya el equipo.">Organización</button>
+            </div>
+            <p class="st-start-hint" id="stHint" aria-live="polite"
+               data-default="Elige una. Su ruta se ilumina a lo largo de la pila, a través de las herramientas que suelo usar."></p>
+          </div>
+
+          <ol class="st-layers v4-r" style="--d: 0.1s;">
+            <li class="st-layer-item" data-layer="6">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l6">
+                <span class="st-layer-title"><span class="st-layer-name">Resultado</span><span class="st-layer-q">¿Con qué se queda el equipo?</span></span>
+                <span class="st-layer-count">Donde termina</span>
+              </button>
+              <div class="st-layer-detail" id="st-l6"><div>
+                <p>Sea cual sea la ruta, el trabajo acaba en algo con lo que un equipo puede ponerse manos a la obra a la mañana siguiente: qué construir, por qué importa y cómo sabremos si ha funcionado.</p>
+                <ul class="st-opts">
+                  <li>Registro de decisiones</li>
+                  <li>Prototipo validado</li>
+                  <li>Backlog priorizado</li>
+                  <li>Métricas de éxito</li>
+                </ul>
+              </div></div>
+            </li>
+            <li class="st-layer-item" data-layer="5">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l5">
+                <span class="st-layer-title"><span class="st-layer-name">Sistemas</span><span class="st-layer-q">¿Se sostiene cuando ya no estoy en la sala?</span></span>
+                <span class="st-layer-count"></span>
+              </button>
+              <div class="st-layer-detail" id="st-l5"><div>
+                <p>Todo lo de abajo solo sirve si un equipo puede repetirlo. Esta capa recoge los rituales compartidos, las decisiones por escrito y los flujos en los que la IA se encarga de lo repetitivo.</p>
+                <div class="st-groups">
+                  <div class="st-group"><span class="st-group-name">Equipo</span><ul class="st-opts">
+                    <li data-feeds="o">Formas de trabajo</li>
+                    <li data-feeds="o b">Facilitación y talleres</li>
+                    <li data-feeds="o">Mentoría y formación</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Flujos</span><ul class="st-opts">
+                    <li data-feeds="o t">Documentación y traspaso</li>
+                    <li data-feeds="o t">Flujos asistidos por IA</li>
+                  </ul></div>
+                </div>
+              </div></div>
+            </li>
+            <li class="st-layer-item" data-layer="4">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l4">
+                <span class="st-layer-title"><span class="st-layer-name">Validación</span><span class="st-layer-q">¿Ha funcionado?</span></span>
+                <span class="st-layer-count"></span>
+              </button>
+              <div class="st-layer-detail" id="st-l4"><div>
+                <p>Lanzar es donde se responde la pregunta. Con tráfico suficiente, testeo como es debido. Sin él, busco la forma más barata de equivocarme menos.</p>
+                <div class="st-groups">
+                  <div class="st-group"><span class="st-group-name">Pruebas</span><ul class="st-opts">
+                    <li data-feeds="b u">Tests A/B y multivariantes</li>
+                    <li data-feeds="b o">Métricas e informes</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Calidad</span><ul class="st-opts">
+                    <li data-feeds="u">Tests de usabilidad</li>
+                    <li data-feeds="u t">Revisión de accesibilidad</li>
+                    <li data-feeds="t o">QA de localización</li>
+                  </ul></div>
+                </div>
+              </div></div>
+            </li>
+            <li class="st-layer-item" data-layer="3">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l3">
+                <span class="st-layer-title"><span class="st-layer-name">Oficio</span><span class="st-layer-q">¿Qué aspecto tiene?</span></span>
+                <span class="st-layer-count"></span>
+              </button>
+              <div class="st-layer-detail" id="st-l3"><div>
+                <p>La parte visible. Como se apoya en las decisiones de debajo, las revisiones suelen girar en torno a si funciona, que es una discusión mucho más útil que la del gusto.</p>
+                <div class="st-groups">
+                  <div class="st-group"><span class="st-group-name">Estructura</span><ul class="st-opts">
+                    <li data-feeds="u t">Arquitectura de información</li>
+                    <li data-feeds="t o">Sistemas de diseño</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Superficie</span><ul class="st-opts">
+                    <li data-feeds="u t">Diseño de interfaz e interacción</li>
+                    <li data-feeds="u b">Contenido y UX writing</li>
+                    <li data-feeds="u b">Arquitectura de elección</li>
+                  </ul></div>
+                </div>
+              </div></div>
+            </li>
+            <li class="st-layer-item" data-layer="2">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l2">
+                <span class="st-layer-title"><span class="st-layer-name">Encuadre</span><span class="st-layer-q">¿Qué importa más?</span></span>
+                <span class="st-layer-count"></span>
+              </button>
+              <div class="st-layer-detail" id="st-l2"><div>
+                <p>Aquí se decide casi todo el valor de un proyecto: qué acuerda resolver el equipo y qué acuerda dejar para más adelante.</p>
+                <div class="st-groups">
+                  <div class="st-group"><span class="st-group-name">Problema</span><ul class="st-opts">
+                    <li data-feeds="b u o">Definición del problema</li>
+                    <li data-feeds="u">Diagnóstico conductual</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Apuestas</span><ul class="st-opts">
+                    <li data-feeds="b u">Hipótesis y métricas de éxito</li>
+                    <li data-feeds="b t o">Mapa de trade-offs</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Alcance</span><ul class="st-opts">
+                    <li data-feeds="t o">Alcance y apetito</li>
+                  </ul></div>
+                </div>
+              </div></div>
+            </li>
+            <li class="st-layer-item" data-layer="1">
+              <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l1">
+                <span class="st-layer-title"><span class="st-layer-name">Evidencia</span><span class="st-layer-q">¿Qué es cierto aquí?</span></span>
+                <span class="st-layer-count"></span>
+              </button>
+              <div class="st-layer-detail" id="st-l1"><div>
+                <p>Antes de que una opinión se convierta en una pantalla, compruebo qué respalda la evidencia. A veces hace falta una ronda de investigación. Otras basta con una grabación de sesión y dos buenas preguntas.</p>
+                <div class="st-groups">
+                  <div class="st-group"><span class="st-group-name">Personas</span><ul class="st-opts">
+                    <li data-feeds="u">Investigación con usuarios</li>
+                    <li data-feeds="u b">Análisis conductual</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Datos</span><ul class="st-opts">
+                    <li data-feeds="u b t">Analítica y datos de sesión</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Contexto</span><ul class="st-opts">
+                    <li data-feeds="b o">Entrevistas con stakeholders</li>
+                    <li data-feeds="t">Auditoría de plataforma y restricciones</li>
+                  </ul></div>
+                  <div class="st-group"><span class="st-group-name">Ciencia</span><ul class="st-opts">
+                    <li data-feeds="u b">Contrastar afirmaciones con la investigación</li>
+                  </ul></div>
+                </div>
+              </div></div>
+            </li>
+          </ol>
+
+          <a href="/es/work/" class="btn btn-ghost st-cta v4-r" style="--d: 0.2s;">Verlo aplicado en los proyectos <span class="arrow">→</span></a>
         </div>
       </div>
-      <a href="/es/thinking/" class="btn btn-ghost v4-r" style="--d: 0.4s;">Leer mi enfoque <span class="arrow">→</span></a>
+    </section>
+
+    <!-- ═══ 7. REFLEXIONES ═══ -->
+    <section class="v4-thinking v4-bleed" aria-labelledby="thinking-heading">
+      <div class="v4-thinking-grid">
+        <div>
+          <span class="eyebrow eyebrow--bare v4-r" id="thinking-heading">Reflexiones</span>
+          <blockquote class="v4-r" style="--d: 0.1s;">
+            "La mayoría de las decisiones de diseño son decisiones de <em>comportamiento</em>. Trátalas como tal."
+          </blockquote>
+          <a href="/es/thinking/" class="btn btn-ghost v4-r" style="--d: 0.2s;">Leer mi enfoque <span class="arrow">→</span></a>
+        </div>
+        <div class="v4-positions">
+          <div class="v4-position v4-r" style="--d: 0.15s;">
+            <span class="v4-position-topic">La empatía como herramienta estratégica</span>
+            <p>Lo que la gente hace de verdad dice más que lo que dice. Leer bien esa diferencia vale dinero, no solo buena voluntad.</p>
+          </div>
+          <div class="v4-position v4-r" style="--d: 0.25s;">
+            <span class="v4-position-topic">Sistemas que sobreviven a las personas</span>
+            <p>Si un proceso solo funciona mientras su autor lo está vigilando, todavía no es un sistema. Es solo alguien siendo cuidadoso.</p>
+          </div>
+          <div class="v4-position v4-r" style="--d: 0.35s;">
+            <span class="v4-position-topic">Diseñar con IA</span>
+            <p>La IA puede acelerar el trabajo todo lo que quiera. Decidir qué merece la pena hacer sigue siendo cosa mía.</p>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- ═══ 7. DE PRIMERA MANO ═══ -->
@@ -1238,5 +1724,437 @@
     })();
   </script>
 
+
+  <script>
+    // How I work — isometric stack of solid slabs, mirrored so labels face
+    // the page's centre line. Plane coords (x, y) on a surface at height z
+    // project to screen as ((y - x)·cos30, (x + y)·sin30 − z). Each slab hides
+    // most of the one below; opening a layer lifts everything above it.
+    // Tile names and options are read from the panel markup.
+    // Waits for fonts so label widths settle before anything is laid out.
+    (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () {
+      const section = document.getElementById('how-i-work');
+      const stage = document.getElementById('stStage');
+      if (!section || !stage) return;
+
+      const NS = 'http://www.w3.org/2000/svg';
+      const C = Math.cos(Math.PI / 6), S = 0.5;
+      const FEEDS = ['b', 'u', 't', 'o'];
+      const LANE = { b: -3.3, u: -1.1, t: 1.1, o: 3.3 };   // transit-map lanes
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const narrow = window.matchMedia('(max-width: 900px)');
+
+      // Geometry: a stepped pyramid. Each slab is sized to what it holds (tile
+      // count × tile width, and a depth that shrinks going up), all centred on
+      // one point. A slab hides the middle of the one below, so at rest each
+      // layer shows a front band and side margins; the rest appears when the
+      // layers above lift away.
+      const CENTRE = [170, 150];
+      const LAYOUT = {
+        1: { tw: 80, d: 140 },
+        2: { tw: 80, d: 130 },
+        3: { tw: 96, d: 122 },
+        4: { tw: 88, d: 114 },
+        5: { tw: 80, d: 106 },
+      };
+      const PAD = 14, TGAP = 10;
+      const SLAB_T = 8, TILE_T = 3, R_SLAB = 16, R_TILE = 10;
+      const GAP0 = 112, GAP = 62, LIFT = 74, CAP_I = 6;
+      // Picking a pressure spreads every layer apart a little, so each gap
+      // opens and the whole route shows at once, base to top.
+      const SPREAD0 = 40, SPREAD = 24;
+      const spreadOf = (i) => (i === 0 ? 0 : SPREAD0 + (i - 1) * SPREAD);
+      const HEADROOM = Math.max(LIFT, spreadOf(CAP_I));
+      const Z = (i) => (i === 0 ? 0 : GAP0 + (i - 1) * GAP);
+
+      const P = (x, y, z) => [(y - x) * C, (x + y) * S - z];
+      const plane = (z) => `matrix(${-C} ${S} ${C} ${S} 0 ${-z})`;
+      // Text lying on a surface, reading along plane −x (up and to the right
+      // on screen). The plane matrix mirrors, so text gets its own.
+      const onPlane = (x, y, z) => { const [X, Y] = P(x, y, z); return `matrix(${C} ${-S} ${C} ${S} ${X} ${Y})`; };
+      const el = (tag, attrs, parent) => {
+        const n = document.createElementNS(NS, tag);
+        for (const k in attrs) n.setAttribute(k, attrs[k]);
+        if (parent) parent.appendChild(n);
+        return n;
+      };
+      const label = (cls, txt, x, y, z, parent) => {
+        const t = el('text', { class: cls, transform: onPlane(x, y, z) }, parent);
+        t.textContent = txt;
+        return t;
+      };
+
+      // Foundation: the hero's four circles, each on its own platform and in
+      // its pressure's colour, spilling into each other's space.
+      const FOUND = [
+        { feed: 'b', x: [0, 160],   y: [0, 140],   c: [122, 112], lab: [150, 130], sats: [[14, 100], [40, 124], [62, 90]] },
+        { feed: 'u', x: [180, 340], y: [0, 140],   c: [218, 112], lab: [330, 130], sats: [[318, 24], [300, 54], [330, 76]] },
+        { feed: 't', x: [0, 160],   y: [160, 300], c: [122, 188], lab: [150, 290], sats: [[16, 276], [40, 256], [18, 232]] },
+        { feed: 'o', x: [180, 340], y: [160, 300], c: [218, 188], lab: [330, 290], sats: [[326, 282], [304, 262], [330, 240]] },
+      ];
+
+      const items = [...section.querySelectorAll('.st-layer-item')];
+      const toggles = [...section.querySelectorAll('.st-toggle')];
+      const hint = document.getElementById('stHint');
+      const byLayer = {};
+      items.forEach((it) => { byLayer[it.dataset.layer] = it; });
+
+      const svg = el('svg', { class: 'st-svg', role: 'presentation', focusable: 'false' });
+      const defs = el('defs', {}, svg);
+      const sheen = el('linearGradient', { id: 'stSheen', x1: 1, y1: 0, x2: 0, y2: 1 }, defs);
+      el('stop', { offset: '0%', style: 'stop-color: var(--text-primary); stop-opacity: 0.07' }, sheen);
+      el('stop', { offset: '55%', style: 'stop-color: var(--text-primary); stop-opacity: 0' }, sheen);
+      stage.appendChild(svg);
+
+      // Each layer: an outer group for the build-in and lift, and an inner one
+      // for dimming, so the two animations never share a property.
+      function layerGroup(i) {
+        const outer = el('g', { class: 'st-layer', 'data-i': i }, svg);
+        outer.style.setProperty('--i', i);
+        return { outer, inner: el('g', { class: 'st-inner' }, outer) };
+      }
+
+      // A rounded rect drawn flat on the plane, with a darker copy t units
+      // below standing in for its thickness.
+      function slab(parent, x, y, z, t, r, cls) {
+        const g = el('g', { class: cls }, parent);
+        const rect = { x: x[0], y: y[0], width: x[1] - x[0], height: y[1] - y[0], rx: r };
+        el('rect', { class: 'st-edge', ...rect }, el('g', { transform: plane(z - t) }, g));
+        const top = el('g', { transform: plane(z) }, g);
+        el('rect', { class: 'st-top', ...rect }, top);
+        el('rect', { class: 'st-sheen', ...rect }, top);
+        return g;
+      }
+
+      const layers = [];
+      const edges = [];
+      const optNodes = [];
+      const hover = (L) => {
+        L.outer.addEventListener('mouseenter', () => L.outer.classList.add('is-hover'));
+        L.outer.addEventListener('mouseleave', () => L.outer.classList.remove('is-hover'));
+      };
+
+      // ── 0: foundation ──
+      // Clicking a base platform picks that pressure, which spreads the
+      // stack open and lights its whole route.
+      const L0 = layerGroup(0);
+      hover(L0);
+      const toggleFeed = (f) => toggles.find((b) => b.dataset.feed === f).click();
+      const openBase = (feed) => { if (active !== null) setActive(active); toggleFeed(feed); };
+      const found = FOUND.map((f) => {
+        const g = slab(L0.inner, f.x, f.y, 0, SLAB_T, R_SLAB, 'st-base');
+        g.style.setProperty('--lit', `var(--st-${f.feed})`);
+        g.addEventListener('click', () => openBase(f.feed));
+        // each pressure's routes rise out of its own circle
+        return { ...f, g, feeds: new Set([f.feed]), exit: [f.c[0], f.c[1], 0] };
+      });
+      const fc = el('g', { class: 'st-found', transform: plane(0) }, L0.inner);
+      found.forEach((f) => {
+        f.venn = el('circle', { class: 'st-venn', cx: f.c[0], cy: f.c[1], r: 72 }, fc);
+        f.venn.style.setProperty('--c', `var(--st-${f.feed})`);
+        f.venn.addEventListener('click', () => openBase(f.feed));
+      });
+      found.forEach((f) => {
+        f.satLines = [];
+        f.sats.forEach(([sx, sy]) => {
+          const dx = f.c[0] - sx, dy = f.c[1] - sy, d = Math.hypot(dx, dy);
+          const line = el('line', { class: 'st-sat-line', x1: sx, y1: sy, x2: f.c[0] - (dx / d) * 72, y2: f.c[1] - (dy / d) * 72 }, fc);
+          line.style.setProperty('--c', `var(--st-${f.feed})`);
+          f.satLines.push(line);
+          el('circle', { class: 'st-sat', cx: sx, cy: sy, r: 4.2 }, fc);
+          el('circle', { class: 'st-sat-c', cx: sx, cy: sy, r: 1.6 }, fc).style.setProperty('--c', `var(--st-${f.feed})`);
+        });
+      });
+      // base labels reuse the toggle wording, so each language supplies its own
+      const nameOf = (feed) => toggles.find((b) => b.dataset.feed === feed).textContent.trim();
+      found.forEach((f) => { f.label = label('st-pname', nameOf(f.feed), f.lab[0], f.lab[1], 0, L0.inner); });
+      layers.push({ ...L0, plats: found });
+
+      // ── 1–5: one solid slab per layer, sized to its tiles ──
+      for (let i = 1; i <= 5; i++) {
+        const item = byLayer[i];
+        const z = Z(i);
+        const L = layerGroup(i);
+        L.outer.addEventListener('click', () => setActive(i));
+        hover(L);
+
+        const groups = [...item.querySelectorAll('.st-group')];
+        const n = groups.length, { tw, d } = LAYOUT[i];
+        const W = n * tw + (n - 1) * TGAP + PAD * 2;
+        const SX = [CENTRE[0] - W / 2, CENTRE[0] + W / 2];
+        const SY = [CENTRE[1] - d / 2, CENTRE[1] + d / 2];
+        const TY = [SY[0] + 14, SY[1] - 12];
+        slab(L.inner, SX, SY, z, SLAB_T, R_SLAB, 'st-slab');
+        const zt = z + TILE_T;
+        // tiles run left to right on screen in panel order; screen-left is +x
+        const spans = groups.map((_, k) => {
+          const x1 = SX[1] - PAD - k * (tw + TGAP);
+          return [x1 - tw, x1];
+        });
+
+        // links between neighbouring tiles, on the slab under them
+        const links = el('g', { class: 'st-links', transform: plane(z) }, L.inner);
+        const midY = (TY[0] + TY[1]) / 2;
+        for (let k = 0; k < n - 1; k++) {
+          const xa = spans[k][0], xb = spans[k + 1][1];
+          el('line', { class: 'st-link', x1: xa + 2, y1: midY, x2: xb - 2, y2: midY }, links);
+          el('circle', { class: 'st-link-node', cx: (xa + xb) / 2, cy: midY, r: 2.6 }, links);
+        }
+
+        const plats = groups.map((grp, k) => {
+          const x = spans[k];
+          const g = slab(L.inner, x, TY, zt, TILE_T, R_TILE, 'st-tile');
+          label('st-pname', grp.querySelector('.st-group-name').textContent, x[1] - 9, TY[1] - 9, zt, g);
+          const dots = el('g', { transform: plane(zt) }, g);
+          const feeds = new Set();
+          [...grp.querySelectorAll('.st-opts li')].forEach((li, k2) => {
+            const f = li.dataset.feeds.split(' ');
+            f.forEach((v) => feeds.add(v));
+            const dot = el('circle', { class: 'st-dot', cx: x[1] - 12, cy: TY[1] - 28 - k2 * 12, r: 3 }, dots);
+            optNodes.push({ dot, feeds: f, li });
+          });
+          const cx = (x[0] + x[1]) / 2;
+          // Routes leave from a tile's back edge, so they only cross the bare
+          // margin of the slab, and arrive under the front of the tile above.
+          // While the stack is closed the slab above hides them entirely.
+          return { g, el: grp, feeds, exit: [cx, TY[0] + 4, zt], entry: [cx, TY[1] - 6, z - SLAB_T] };
+        });
+        layers.push({ ...L, plats });
+      }
+
+      // ── 6: the outcome ──
+      // The hero map's centre on a small slab: rings around a single gold
+      // point, the one place every route converges.
+      const L6 = layerGroup(CAP_I);
+      L6.outer.addEventListener('click', () => setActive(CAP_I));
+      hover(L6);
+      const zc = Z(CAP_I);
+      const CAP = { x: [124, 216], y: [104, 196] };
+      const capG = slab(L6.inner, CAP.x, CAP.y, zc, SLAB_T, R_SLAB, 'st-cap');
+      const markGlow = el('radialGradient', { id: 'stMarkGlow' }, defs);
+      el('stop', { offset: '0%', style: 'stop-color: var(--gold); stop-opacity: 0.4' }, markGlow);
+      el('stop', { offset: '100%', style: 'stop-color: var(--gold); stop-opacity: 0' }, markGlow);
+      const mark = el('g', { class: 'st-mark', transform: plane(zc) }, L6.inner);
+      el('circle', { class: 'st-mark-glow', cx: 170, cy: 150, r: 40 }, mark);
+      el('circle', { class: 'st-mark-ring2', cx: 170, cy: 150, r: 34 }, mark);
+      el('circle', { class: 'st-mark-ring', cx: 170, cy: 150, r: 21 }, mark);
+      el('circle', { class: 'st-mark-core', cx: 170, cy: 150, r: 5.5 }, mark);
+      const capC = P(170, 150, zc);
+      el('text', { class: 'st-cap-label', x: capC[0], y: capC[1] - 62, 'text-anchor': 'middle' }, L6.inner).textContent = stage.dataset.title;
+      layers.push({ ...L6, plats: [{ g: capG, feeds: new Set(FEEDS), entry: [170, CAP.y[1] - 6, zc - SLAB_T] }] });
+
+      // ── pathways: one coloured line per pressure, per link between layers.
+      // Drawn inside the lower layer, so the solid slab above hides all but
+      // the stretch crossing the gap. Hidden until that pressure is picked.
+      for (let i = 0; i < CAP_I; i++) {
+        const host = el('g', { class: 'st-paths' }, layers[i].inner);
+        layers[i].plats.forEach((from) => {
+          layers[i + 1].plats.forEach((to) => {
+            FEEDS.forEach((f) => {
+              if (!from.feeds.has(f) || !to.feeds.has(f)) return;
+              const path = el('path', { class: 'st-path', pathLength: 1 }, host);
+              path.style.setProperty('--c', `var(--st-${f})`);
+              path.style.setProperty('--dl', (i * 0.12).toFixed(2) + 's');
+              edges.push({ lower: i, from, to, f, host, path, spark: null });
+            });
+          });
+        });
+      }
+
+      // Fit the viewBox to what was drawn, with headroom for a lifted layer.
+      svg.classList.add('is-measuring');
+      const box = svg.getBBox();
+      svg.classList.remove('is-measuring');
+      svg.setAttribute('viewBox', [box.x - 6, box.y - HEADROOM - 6, box.width + 12, box.height + HEADROOM + 12].map((v) => v.toFixed(1)).join(' '));
+
+      let active = null;
+      const pressed = new Set();
+
+      function curve(e) {
+        const a = P(...e.from.exit);
+        const b = P(...e.to.entry);
+        b[1] -= liftOf(e.lower + 1) - liftOf(e.lower);
+        a[0] += LANE[e.f]; b[0] += LANE[e.f];
+        const k = (a[1] - b[1]) * 0.55;
+        return `M${a[0].toFixed(1)},${a[1].toFixed(1)} C${a[0].toFixed(1)},${(a[1] - k).toFixed(1)} ${b[0].toFixed(1)},${(b[1] + k).toFixed(1)} ${b[0].toFixed(1)},${b[1].toFixed(1)}`;
+      }
+
+      function layoutPaths() {
+        edges.forEach((e) => {
+          const d = curve(e);
+          e.path.style.d = `path('${d}')`;
+          if (e.spark) e.spark.motion.setAttribute('path', d);
+        });
+      }
+
+      // How far each layer rises: an open layer lifts everything above it;
+      // otherwise a picked pressure spreads the whole stack.
+      function liftOf(i) {
+        if (active !== null) return i > active ? LIFT : 0;
+        return pressed.size ? spreadOf(i) : 0;
+      }
+      function applyLift() {
+        section.classList.toggle('is-spread', active === null && pressed.size > 0);
+        layers.forEach((L, i) => { L.outer.style.transform = `translateY(${-liftOf(i)}px)`; });
+        layoutPaths();
+      }
+
+      function setActive(i) {
+        active = (active === i) ? null : i;
+        section.classList.toggle('has-active', active !== null);
+        layers.forEach((L, li) => {
+          L.outer.classList.toggle('is-active', li === active);
+        });
+        items.forEach((it) => {
+          const open = Number(it.dataset.layer) === active;
+          it.classList.toggle('is-open', open);
+          it.querySelector('.st-layer-btn').setAttribute('aria-expanded', String(open));
+        });
+        applyLift();
+        paintCap();
+        // layers glide for ~0.55s; measure once they have settled
+        clearTimeout(focusTimer);
+        if (narrow.matches && active !== null) focusTimer = setTimeout(focusOnPhone, reduceMotion ? 0 : 580);
+        else focusOnPhone();
+      }
+      let focusTimer;
+
+      // Phones: opening a layer hides the rest of the panel and slides the
+      // open layer's card up over the drawing, stopping just below the
+      // selected layer, so the two read as one. Nothing pins; the page then
+      // scrolls to bring the selected layer to the top.
+      const panel = section.querySelector('.st-panel');
+      function focusOnPhone() {
+        if (!narrow.matches || active === null) { panel.style.marginTop = ''; return; }
+        const current = parseFloat(panel.style.marginTop) || 0;
+        const naturalTop = panel.getBoundingClientRect().top - current;
+        const slab = layers[active].outer.querySelector('.st-slab, .st-cap').getBoundingClientRect();
+        const overlap = Math.max(0, naturalTop - (slab.bottom + 14));
+        panel.style.marginTop = overlap ? `-${overlap}px` : '';
+        const target = window.scrollY + slab.top - 96;
+        window.scrollTo({ top: Math.max(0, target), behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+      narrow.addEventListener('change', focusOnPhone);
+
+      function paintCap() {
+        L6.outer.classList.toggle('is-lit', pressed.size > 0 || active === CAP_I);
+      }
+
+      const firstHit = (feeds) => FEEDS.find((f) => pressed.has(f) && feeds.includes(f));
+      const setLit = (node, f) => {
+        node.classList.toggle('is-lit', !!f);
+        if (f) node.style.setProperty('--lit', `var(--st-${f})`);
+      };
+
+      function paint() {
+        section.classList.toggle('has-feed', pressed.size > 0);
+        found.forEach((f) => {
+          const on = pressed.has(f.feed);
+          f.g.classList.toggle('is-lit', on);
+          f.venn.classList.toggle('is-lit', on);
+          f.label.classList.toggle('is-lit', on);
+          f.label.classList.toggle('is-dim', pressed.size > 0 && !on);
+          f.label.style.setProperty('--lit', `var(--st-${f.feed})`);
+          f.satLines.forEach((s) => s.classList.toggle('is-lit', on));
+        });
+        optNodes.forEach((o) => {
+          const f = firstHit(o.feeds);
+          setLit(o.dot, f);
+          setLit(o.li, f);
+        });
+        layers.slice(1, CAP_I).forEach((L) => {
+          L.plats.forEach((p) => {
+            const f = firstHit([...p.feeds]);
+            setLit(p.g, f);
+            setLit(p.el, f);
+          });
+        });
+        capG.classList.toggle('is-lit', pressed.size > 0);
+        paintCap();
+        applyLift();
+        edges.forEach((e) => {
+          const on = pressed.has(e.f);
+          e.path.classList.toggle('is-lit', on);
+          if (on && !e.spark && !reduceMotion) {
+            const dot = el('circle', { class: 'st-spark', r: 1.9 }, e.host);
+            dot.style.setProperty('--c', `var(--st-${e.f})`);
+            const motion = el('animateMotion', { dur: (2.4 + Math.random() * 1.4).toFixed(2) + 's', begin: 'indefinite', repeatCount: 'indefinite', path: curve(e) }, dot);
+            e.spark = { dot, motion };
+            motion.beginElementAt(e.lower * 0.12 + 0.6);
+          } else if (!on && e.spark) {
+            e.spark.dot.remove();
+            e.spark = null;
+          }
+        });
+        items.forEach((it) => {
+          const opts = [...it.querySelectorAll('.st-opts li[data-feeds]')];
+          const count = it.querySelector('.st-layer-count');
+          if (!opts.length) return;
+          const n = opts.filter((li) => li.classList.contains('is-lit')).length;
+          // wording comes from the page, so each language supplies its own
+          const tpl = pressed.size ? stage.dataset.countLit : stage.dataset.countAll;
+          count.textContent = tpl.replace('{n}', n).replace('{total}', opts.length);
+          count.classList.toggle('is-lit', pressed.size > 0 && n > 0);
+        });
+
+        // the hint explains whichever pressures are picked
+        hint.textContent = '';
+        if (!pressed.size) { hint.textContent = hint.dataset.default; return; }
+        FEEDS.filter((f) => pressed.has(f)).forEach((f) => {
+          const b = toggles.find((t) => t.dataset.feed === f);
+          const line = document.createElement('span');
+          line.className = 'st-hint-line';
+          line.style.setProperty('--c', `var(--st-${f})`);
+          const strong = document.createElement('strong');
+          strong.textContent = b.textContent.trim() + '.';
+          line.append(strong, ' ' + b.dataset.desc);
+          hint.appendChild(line);
+        });
+      }
+
+      items.forEach((it) => {
+        const btn = it.querySelector('.st-layer-btn');
+        const target = () => layers[Number(it.dataset.layer)].outer;
+        btn.addEventListener('click', () => setActive(Number(it.dataset.layer)));
+        btn.addEventListener('mouseenter', () => target().classList.add('is-hover'));
+        btn.addEventListener('mouseleave', () => target().classList.remove('is-hover'));
+      });
+      toggles.forEach((b) => {
+        b.addEventListener('click', () => {
+          // one pressure at a time, so no route's colour ever covers another's
+          const f = b.dataset.feed;
+          const wasOn = pressed.has(f);
+          pressed.clear();
+          if (!wasOn) pressed.add(f);
+          toggles.forEach((t) => t.setAttribute('aria-pressed', String(pressed.has(t.dataset.feed))));
+          paint();
+        });
+      });
+
+      // clicking anywhere outside the drawing's surfaces and the panel, or
+      // pressing Escape, puts everything back to rest
+      function reset() {
+        if (active !== null) setActive(active);
+        if (!pressed.size) return;
+        pressed.clear();
+        toggles.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+        paint();
+      }
+      document.addEventListener('click', (e) => {
+        if (!e.target.closest('.st-slab, .st-tile, .st-base, .st-cap, .st-venn, .st-panel')) reset();
+      });
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') reset(); });
+
+      layoutPaths();
+      paint();
+
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { section.classList.add('is-built'); io.disconnect(); }
+        });
+      }, { threshold: 0.18 });
+      io.observe(stage);
+    });
+  </script>
 </body>
 </html>
