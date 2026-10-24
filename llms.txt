@@ -31,14 +31,14 @@ Senior Product Designer at Garaje de Ideas / Groupe EDG, embedded full-time
 within IKEA's New Business Platform team in Spain. Working on:
 - IKEA Home Services: peer-to-peer home improvement services marketplace.
   500,000+ downloads, 21,000 service requests, 4.9/5 satisfaction.
-  Live in seven Spanish cities as of 2026.
+  Live in seven Spanish regions as of 2026.
 - IKEA Second-hand Marketplace: peer-to-peer resale of IKEA products,
   now live in five European countries, scaling across Europe.
 - IKEA Ways of Working System: cross-tool design operations framework spanning
   Figma, Jira, Confluence, and Phrase. Built from first principles to replace
   informal, person-dependent process with documented, teachable structure.
   Includes a five-phase content workflow with explicit ownership handoffs and
-  a Phrase localisation optimization that made translations verifiable in QA
+  a Phrase localisation optimisation that made translations verifiable in QA
   for the first time.
 - AI Workflow Design Framework: multi-agent process architecture for AI-augmented
   product design. Three-tier agent hierarchy (Orchestrator / Phase Agents / Task

@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>A Knowledge Graph That Grades Its Own Evidence · Jose Romero</title>
   <meta name="description"
-    content="A personal, DOI-verified knowledge graph of 420+ behavioral-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade. Work in progress.">
+    content="A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.">
   <link rel="canonical" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="A Knowledge Graph That Grades Its Own Evidence · Jose Romero">
   <meta property="og:description"
-    content="A personal, DOI-verified knowledge graph of 420+ behavioral-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.">
+    content="A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.">
   <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
   <meta property="og:url" content="https://joseromerodesign.com/thinking/beco-knowledge-graph/">
   <meta property="og:type" content="article">
@@ -22,9 +22,30 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="A Knowledge Graph That Grades Its Own Evidence · Jose Romero">
   <meta name="twitter:description"
-    content="A personal, DOI-verified knowledge graph of 420+ behavioral-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.">
+    content="A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "A knowledge graph that grades its own evidence",
+    "description": "A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.",
+    "image": "https://joseromerodesign.com/assets/images/og-default.webp",
+    "inLanguage": "en",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-10-24",
+    "author": {
+      "@type": "Person",
+      "name": "Jose Romero",
+      "url": "https://joseromerodesign.com/about/",
+      "sameAs": [
+        "https://www.linkedin.com/in/joseromerodesign/"
+      ]
+    },
+    "mainEntityOfPage": "https://joseromerodesign.com/thinking/beco-knowledge-graph/"
+  }
+  </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=37">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -116,7 +137,8 @@
       margin-top: 0.5em;
     }
 
-    .bko-slide h1 {
+    /* the cover is the page's one h1; every later slide heading is an h2 */
+    .bko-slide :is(h1, h2) {
       font-family: var(--font-display);
       font-weight: 400;
       font-size: clamp(2.25rem, 5.5vw, 4.4rem);
@@ -126,7 +148,7 @@
       max-width: 20ch;
     }
 
-    .bko-slide h1 em {
+    .bko-slide :is(h1, h2) em {
       font-style: italic;
       color: var(--gold);
     }
@@ -465,12 +487,13 @@
           <div class="bko-eyebrow">Personal Research Infrastructure &middot; Work in Progress</div>
           <h1 class="bko-cover-title">A knowledge graph that <em>grades its own evidence.</em></h1>
           <p class="bko-cover-sub">Four hundred and twenty sources. Every one DOI-verified. Built to separate what
-            behavioral science actually shows from what design decks have been repeating for a decade.</p>
+            behavioural science actually shows from what design decks have been repeating for a decade.</p>
           <div class="bko-cover-footline">
             <span><b>420</b> sources</span>
-            <span><b>229</b> named biases</span>
-            <span><b>202</b> real-world examples</span>
+            <span><b>243</b> named concepts</span>
+            <span><b>222</b> real-world examples</span>
             <span>Live on Neo4j Aura</span>
+            <span>Updated <time datetime="2026-10-24">October 2026</time></span>
           </div>
         </div>
         <div class="bko-scroll-hint">&darr; Scroll</div>
@@ -480,8 +503,8 @@
       <section class="bko-slide" id="bko-slide-2">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Why this exists</div>
-          <h1>&ldquo;Nudge&rdquo; became a word before it became a discipline.</h1>
-          <p class="bko-lede">Behavioral-science vocabulary spreads through design faster than its evidence does.
+          <h2 class="bko-slide-title">&ldquo;Nudge&rdquo; became a word before it became a discipline.</h2>
+          <p class="bko-lede">Behavioural-science vocabulary spreads through design faster than its evidence does.
             Named &ldquo;laws&rdquo; get cited in decks, style guides, and design documentation, and almost nobody
             checks whether the research behind them actually holds up.</p>
           <div class="bko-chip-row">
@@ -501,7 +524,7 @@
       <section class="bko-slide" id="bko-slide-3">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">The core idea</div>
-          <h1>Three tiers. <em>One direction only.</em></h1>
+          <h2 class="bko-slide-title">Three tiers. <em>One direction only.</em></h2>
           <div class="bko-tiers">
             <div class="bko-tier-row">
               <div class="bko-tier-card bko-card" style="border-top: 3px solid var(--teal);">
@@ -541,14 +564,14 @@
       <section class="bko-slide" id="bko-slide-4">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">At a glance</div>
-          <h1>Not a <em>prototype.</em></h1>
+          <h2 class="bko-slide-title">Not a <em>prototype.</em></h2>
           <div class="bko-stat-grid">
             <div class="bko-stat-tile"><span class="bko-stat-n">420</span><span class="bko-stat-label">Sources</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">431</span><span class="bko-stat-label">Findings</span></div>
-            <div class="bko-stat-tile"><span class="bko-stat-n">229</span><span class="bko-stat-label">Named Biases</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">243</span><span class="bko-stat-label">Named Concepts</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">221</span><span class="bko-stat-label">Topics</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">960</span><span class="bko-stat-label">Authors</span></div>
-            <div class="bko-stat-tile"><span class="bko-stat-n">202</span><span class="bko-stat-label">Real-World Examples</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">222</span><span class="bko-stat-label">Real-World Examples</span></div>
           </div>
           <p class="bko-stat-foot">Hosted on Neo4j Aura, always-on and reachable from anywhere, not a local file on
             one laptop.</p>
@@ -559,7 +582,7 @@
       <section class="bko-slide" id="bko-slide-5">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">How it&rsquo;s built</div>
-          <h1>A map, <em>not a spreadsheet.</em></h1>
+          <h2 class="bko-slide-title">A map, <em>not a spreadsheet.</em></h2>
           <div class="bko-schema-wrap">
             <svg viewBox="0 0 1000 480" role="img"
               aria-label="Schema diagram: Source backs Finding, Finding backs BiasHeuristic, BiasHeuristic is illustrated by Application, and Finding, BiasHeuristic sit inside a Topic, Domain, Cluster taxonomy">
@@ -610,7 +633,7 @@
       <section class="bko-slide" id="bko-slide-6">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">What actually makes it reliable</div>
-          <h1>The rule is simple. <em>Holding it is the hard part.</em></h1>
+          <h2 class="bko-slide-title">The rule is simple. <em>Holding it is the hard part.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Every source needs a real, checkable DOI. Every
             finding gets one of four grades &mdash; replicated, disputed, undetermined, or not applicable &mdash;
             never just &ldquo;cited.&rdquo; Every write to the live database runs through a validation pass before it
@@ -626,7 +649,7 @@
       <section class="bko-slide" id="bko-slide-7">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">See it work</div>
-          <h1>Scarcity Principle, <em>start to finish.</em></h1>
+          <h2 class="bko-slide-title">Scarcity Principle, <em>start to finish.</em></h2>
           <div class="bko-chain">
             <div class="bko-chain-card bko-card">
               <span class="bko-chain-kind">Source</span>
@@ -662,7 +685,7 @@
       <section class="bko-slide" id="bko-slide-8">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Proof it&rsquo;s not just filing</div>
-          <h1>When the evidence isn&rsquo;t there, <em>the graph says so.</em></h1>
+          <h2 class="bko-slide-title">When the evidence isn&rsquo;t there, <em>the graph says so.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Running the same audit against fifteen widely-cited
             &ldquo;laws&rdquo; &mdash; Murphy&rsquo;s Law, Occam&rsquo;s Razor, Jakob&rsquo;s Law, and the Law of
             Triviality among them &mdash; found no rigorous backing behind any of them. That doesn&rsquo;t mean the
@@ -689,7 +712,7 @@
       <section class="bko-slide" id="bko-slide-9">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Useful, not just accurate</div>
-          <h1>A reliable answer <em>nobody can find</em> isn&rsquo;t reliable.</h1>
+          <h2 class="bko-slide-title">A reliable answer <em>nobody can find</em> isn&rsquo;t reliable.</h2>
           <p class="bko-lede" style="font-size: var(--text-base);">Semantic search over the findings, tested against
             a labeled set of real questions rather than eyeballed. The production configuration beats two reasonable
             alternatives by a real margin.</p>
@@ -714,7 +737,7 @@
       <section class="bko-slide" id="bko-slide-10">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Not just a database</div>
-          <h1>Ask it <em>a question.</em></h1>
+          <h2 class="bko-slide-title">Ask it <em>a question.</em></h2>
           <div class="bko-terminal">
             <div><span class="prompt">$</span> python3 query.py <span>"does scarcity actually work?"</span></div>
             <div class="muted" style="margin-top: 0.6rem;">&nbsp;&nbsp;Scarcity Principle &middot; <span class="flag-verified">verified</span> &middot; foundational</div>
@@ -746,7 +769,7 @@
       <section class="bko-slide" id="bko-slide-11">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Work in progress, on purpose</div>
-          <h1>Built to grow. <em>Built to be checked.</em></h1>
+          <h2 class="bko-slide-title">Built to grow. <em>Built to be checked.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Right now, this is mine: I query it, I maintain it,
             I&rsquo;m the only one who has ever written to it. The current stretch of work is depth, not breadth:
             extending source coverage on the corpus&rsquo;s most-cited, most foundational names, so the concepts
@@ -769,8 +792,8 @@
       <section class="bko-slide" id="bko-slide-12">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Get in touch</div>
-          <h1>If you&rsquo;ve ever cited a &ldquo;law&rdquo; you&rsquo;d never checked, <em>you&rsquo;re not
-              alone.</em></h1>
+          <h2 class="bko-slide-title">If you&rsquo;ve ever cited a &ldquo;law&rdquo; you&rsquo;d never checked, <em>you&rsquo;re not
+              alone.</em></h2>
           <p class="bko-lede">That's exactly why I built this. I'm always glad to talk through what's behind a
             specific claim, walk through the graph directly, or hear about a source I'm missing.</p>
           <div class="bko-closing-actions">

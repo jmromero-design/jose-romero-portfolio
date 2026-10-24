@@ -4,15 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero</title>
+  <title>Un grafo que califica su propia evidencia · Jose Romero</title>
   <meta name="description"
-    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo. Trabajo en curso.">
+    content="Un grafo con más de 420 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.">
   <link rel="canonical" href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero">
+  <meta property="og:title" content="Un grafo que califica su propia evidencia · Jose Romero">
   <meta property="og:description"
-    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.">
+    content="Un grafo con más de 420 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.">
   <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
   <meta property="og:url" content="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/">
   <meta property="og:type" content="article">
@@ -20,11 +20,32 @@
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Un Grafo de Conocimiento que Califica su Propia Evidencia · Jose Romero">
+  <meta name="twitter:title" content="Un grafo que califica su propia evidencia · Jose Romero">
   <meta name="twitter:description"
-    content="Un grafo de conocimiento personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.">
+    content="Un grafo con más de 420 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Un grafo de conocimiento que califica su propia evidencia",
+    "description": "Un grafo con más de 420 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.",
+    "image": "https://joseromerodesign.com/assets/images/og-default.webp",
+    "inLanguage": "es",
+    "datePublished": "2026-09-12",
+    "dateModified": "2026-10-24",
+    "author": {
+      "@type": "Person",
+      "name": "Jose Romero",
+      "url": "https://joseromerodesign.com/about/",
+      "sameAs": [
+        "https://www.linkedin.com/in/joseromerodesign/"
+      ]
+    },
+    "mainEntityOfPage": "https://joseromerodesign.com/es/thinking/beco-knowledge-graph/"
+  }
+  </script>
   <link rel="stylesheet" href="/assets/css/main.css?v=37">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
@@ -116,7 +137,8 @@
       margin-top: 0.5em;
     }
 
-    .bko-slide h1 {
+    /* the cover is the page's one h1; every later slide heading is an h2 */
+    .bko-slide :is(h1, h2) {
       font-family: var(--font-display);
       font-weight: 400;
       font-size: clamp(2.25rem, 5.5vw, 4.4rem);
@@ -126,7 +148,7 @@
       max-width: 22ch;
     }
 
-    .bko-slide h1 em {
+    .bko-slide :is(h1, h2) em {
       font-style: italic;
       color: var(--gold);
     }
@@ -469,9 +491,10 @@
             llevan una década repitiendo.</p>
           <div class="bko-cover-footline">
             <span><b>420</b> fuentes</span>
-            <span><b>229</b> sesgos con nombre</span>
-            <span><b>202</b> ejemplos reales</span>
+            <span><b>243</b> conceptos con nombre</span>
+            <span><b>222</b> ejemplos reales</span>
             <span>En vivo sobre Neo4j Aura</span>
+            <span>Actualizado en <time datetime="2026-10-24">octubre de 2026</time></span>
           </div>
         </div>
         <div class="bko-scroll-hint">&darr; Desliza</div>
@@ -481,7 +504,7 @@
       <section class="bko-slide" id="bko-slide-2">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Por qué existe esto</div>
-          <h1>&ldquo;Nudge&rdquo; se convirtió en una palabra antes de convertirse en una disciplina.</h1>
+          <h2 class="bko-slide-title">&ldquo;Nudge&rdquo; se convirtió en una palabra antes de convertirse en una disciplina.</h2>
           <p class="bko-lede">El vocabulario de la economía del comportamiento se extiende por el diseño más rápido
             que su evidencia. Las &ldquo;leyes&rdquo; con nombre propio se citan en presentaciones, guías de estilo y
             documentación de diseño, y casi nadie comprueba si la investigación detrás de ellas realmente se
@@ -503,7 +526,7 @@
       <section class="bko-slide" id="bko-slide-3">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">La idea central</div>
-          <h1>Tres niveles. <em>Una sola dirección.</em></h1>
+          <h2 class="bko-slide-title">Tres niveles. <em>Una sola dirección.</em></h2>
           <div class="bko-tiers">
             <div class="bko-tier-row">
               <div class="bko-tier-card bko-card" style="border-top: 3px solid var(--teal);">
@@ -543,14 +566,14 @@
       <section class="bko-slide" id="bko-slide-4">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">De un vistazo</div>
-          <h1>No es un <em>prototipo.</em></h1>
+          <h2 class="bko-slide-title">No es un <em>prototipo.</em></h2>
           <div class="bko-stat-grid">
             <div class="bko-stat-tile"><span class="bko-stat-n">420</span><span class="bko-stat-label">Fuentes</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">431</span><span class="bko-stat-label">Hallazgos</span></div>
-            <div class="bko-stat-tile"><span class="bko-stat-n">229</span><span class="bko-stat-label">Sesgos con Nombre</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">243</span><span class="bko-stat-label">Conceptos con Nombre</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">221</span><span class="bko-stat-label">Temas</span></div>
             <div class="bko-stat-tile"><span class="bko-stat-n">960</span><span class="bko-stat-label">Autores</span></div>
-            <div class="bko-stat-tile"><span class="bko-stat-n">202</span><span class="bko-stat-label">Ejemplos Reales</span></div>
+            <div class="bko-stat-tile"><span class="bko-stat-n">222</span><span class="bko-stat-label">Ejemplos Reales</span></div>
           </div>
           <p class="bko-stat-foot">Alojado en Neo4j Aura, siempre activo y accesible desde cualquier lugar, no un
             archivo local en un solo portátil.</p>
@@ -561,7 +584,7 @@
       <section class="bko-slide" id="bko-slide-5">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Cómo está construido</div>
-          <h1>Un mapa, <em>no una hoja de cálculo.</em></h1>
+          <h2 class="bko-slide-title">Un mapa, <em>no una hoja de cálculo.</em></h2>
           <div class="bko-schema-wrap">
             <svg viewBox="0 0 1000 480" role="img"
               aria-label="Diagrama de esquema: Fuente respalda Hallazgo, Hallazgo respalda Sesgo con nombre, el Sesgo se ilustra mediante Aplicación, y Hallazgo, Sesgo se ubican dentro de una taxonomía de Tema, Dominio, Clúster">
@@ -612,7 +635,7 @@
       <section class="bko-slide" id="bko-slide-6">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Lo que realmente lo hace confiable</div>
-          <h1>La regla es simple. <em>Sostenerla es lo difícil.</em></h1>
+          <h2 class="bko-slide-title">La regla es simple. <em>Sostenerla es lo difícil.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Cada fuente necesita un DOI real y verificable. Cada
             hallazgo recibe una de cuatro calificaciones &mdash; replicado, disputado, no determinado o no aplicable
             &mdash; nunca solo &ldquo;citado&rdquo;. Cada escritura a la base de datos en producción pasa primero por
@@ -628,7 +651,7 @@
       <section class="bko-slide" id="bko-slide-7">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Verlo funcionar</div>
-          <h1>Principio de Escasez, <em>de principio a fin.</em></h1>
+          <h2 class="bko-slide-title">Principio de Escasez, <em>de principio a fin.</em></h2>
           <div class="bko-chain">
             <div class="bko-chain-card bko-card">
               <span class="bko-chain-kind">Fuente</span>
@@ -665,7 +688,7 @@
       <section class="bko-slide" id="bko-slide-8">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Prueba de que no es solo archivar</div>
-          <h1>Cuando la evidencia no existe, <em>el grafo lo dice.</em></h1>
+          <h2 class="bko-slide-title">Cuando la evidencia no existe, <em>el grafo lo dice.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Aplicar la misma auditoría sobre quince
             &ldquo;leyes&rdquo; ampliamente citadas &mdash; entre ellas la ley de Murphy, la navaja de Occam, la ley
             de Jakob y la ley de la trivialidad &mdash; no encontró ningún respaldo riguroso detrás de ninguna de
@@ -694,7 +717,7 @@
       <section class="bko-slide" id="bko-slide-9">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Útil, no solo preciso</div>
-          <h1>Una respuesta confiable que <em>nadie encuentra</em> no es confiable.</h1>
+          <h2 class="bko-slide-title">Una respuesta confiable que <em>nadie encuentra</em> no es confiable.</h2>
           <p class="bko-lede" style="font-size: var(--text-base);">Búsqueda semántica sobre los hallazgos, medida
             contra un conjunto de preguntas reales etiquetadas, no evaluada a ojo. La configuración en producción
             supera a dos alternativas razonables por un margen real.</p>
@@ -719,7 +742,7 @@
       <section class="bko-slide" id="bko-slide-10">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">No es solo una base de datos</div>
-          <h1>Hazle <em>una pregunta.</em></h1>
+          <h2 class="bko-slide-title">Hazle <em>una pregunta.</em></h2>
           <div class="bko-terminal">
             <div><span class="prompt">$</span> python3 query.py <span>"¿de verdad funciona la escasez?"</span></div>
             <div class="muted" style="margin-top: 0.6rem;">&nbsp;&nbsp;Principio de Escasez &middot; <span class="flag-verified">verificado</span> &middot; fundamental</div>
@@ -752,7 +775,7 @@
       <section class="bko-slide" id="bko-slide-11">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Trabajo en curso, a propósito</div>
-          <h1>Construido para crecer. <em>Construido para ser revisado.</em></h1>
+          <h2 class="bko-slide-title">Construido para crecer. <em>Construido para ser revisado.</em></h2>
           <p class="bko-body" style="margin-top: var(--sp-8);">Ahora mismo, esto es mío: yo lo consulto, yo lo
             mantengo, soy el único que ha escrito en él alguna vez. El trabajo actual es de profundidad, no de
             amplitud: ampliar la cobertura de fuentes en los nombres más citados y más fundamentales del corpus,
@@ -778,7 +801,7 @@
       <section class="bko-slide" id="bko-slide-12">
         <div class="bko-slide-inner">
           <div class="bko-eyebrow">Ponte en contacto</div>
-          <h1>Si alguna vez citaste una &ldquo;ley&rdquo; que nunca comprobaste, <em>no estás solo.</em></h1>
+          <h2 class="bko-slide-title">Si alguna vez citaste una &ldquo;ley&rdquo; que nunca comprobaste, <em>no estás solo.</em></h2>
           <p class="bko-lede">Por eso exactamente construí esto. Siempre estoy dispuesto a hablar de lo que respalda
             una afirmación concreta, recorrer el grafo directamente, o escuchar sobre una fuente que me falta.</p>
           <div class="bko-closing-actions">

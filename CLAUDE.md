@@ -12,6 +12,18 @@ All prose on this site — hero copy, case-study body text, About bio, article b
 
 ---
 
+## Content consistency (set 2026-10-24)
+
+AI search tools quote this site, so facts and conventions must match on every page:
+
+- **British spelling** in all English prose: behavioural, organisation, optimisation, prioritise, colour. Never inside code, class names, URLs or published titles quoted from sources.
+- **Facts that appear on several pages** must read the same everywhere, including `llms.txt` and `middleware.js`: e.g. IKEA Home Services is live in "seven Spanish **regions**"; BECO counts come from `assets/data/beco-explorer/tree.json` totals (420 sources, 243 named concepts, 222 real-world examples as of 2026-10-24).
+- **One `<h1>` per page.** Slide or section headings are `<h2>`.
+- **Meta descriptions ≤ 160 characters** (og:/twitter:description too); titles ≤ 60.
+- **Dates:** case studies carry `temporalCoverage` / `datePublished` / `dateModified` in their JSON-LD; the Thinking articles carry Article JSON-LD and a visible "Published · Updated" line. When an article's or case study's content changes, update `dateModified` and the visible "Updated" date.
+
+---
+
 ## File structure
 
 ```
@@ -36,7 +48,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 45 HTML files.** Current: `main.css?v=37` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=37` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -253,7 +265,7 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 - **Don't add `<br>` after `<em class="accent-italic">`** — the break goes *before*, not after.
 - **Don't put page-specific rules in main.css** — use a `<style>` block in the page `<head>`.
 - **Don't add global rules to a page `<style>` block** — they won't apply to other pages.
-- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 45 HTML files.
+- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 39 HTML files.
 - **Don't re-add Lucide** — icons are already inlined in `main.js`.
 - **Don't add card numbers** — intentionally removed June 2026.
 - **Don't use `min-width` on SVG diagrams** — all diagrams are mobile-first portrait viewBox.
