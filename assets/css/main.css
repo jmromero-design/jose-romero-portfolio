@@ -1205,12 +1205,6 @@ strong { font-weight: 500; color: var(--text-primary); }
   border: 1px solid var(--border-default);
   border-radius: var(--radius-md);
   background: var(--bg-surface);
-  transition: border-color var(--ease-base), transform var(--ease-slow);
-}
-
-.stat-item:hover {
-  border-color: var(--border-strong);
-  transform: translateY(-2px);
 }
 
 /* Stat values — teal (informational) */
@@ -2164,7 +2158,6 @@ strong { font-weight: 500; color: var(--text-primary); }
   transition: filter 0.7s cubic-bezier(0.22, 1, 0.36, 1), border-color var(--ease-base);
 }
 .role-facet.visible { filter: blur(0); }
-.role-facet:hover { border-color: color-mix(in srgb, var(--teal) 45%, transparent); }
 [data-theme="light"] .role-facet {
   background:
     linear-gradient(155deg, color-mix(in srgb, var(--text-primary) 4%, transparent), color-mix(in srgb, var(--text-primary) 1%, transparent)),
@@ -2221,7 +2214,6 @@ strong { font-weight: 500; color: var(--text-primary); }
   transition: color var(--ease-base);
 }
 
-.skill-item:hover .skill-name { color: var(--gold); }
 
 .skill-desc {
   font-size: var(--text-base);

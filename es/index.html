@@ -65,7 +65,7 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=33">
+  <link rel="stylesheet" href="/assets/css/main.css?v=34">
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
@@ -95,6 +95,15 @@
       transition-delay: var(--d, 0s);
     }
     .v4-r.is-in { opacity: 1; transform: none; filter: none; }
+    /* Work rows reveal like everything else but also ease their hover
+       shift; .v4-r would otherwise replace the row's own transition. */
+    .v4-row.v4-r {
+      transition:
+        opacity  0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+        transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+        filter   0.9s cubic-bezier(0.22, 1, 0.36, 1) var(--d, 0s),
+        padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+    }
 
     /* Grain texture over everything — tactility against flat dark */
     .v4-grain {
@@ -512,30 +521,54 @@
     .v4-about-copy .body-lg { margin-bottom: var(--sp-4); }
     .v4-about-copy > p:not(.body-lg) { margin-bottom: var(--sp-10); color: var(--text-tertiary); }
 
-    /* The path — three stops, same interaction language as the work index */
+    /* The path — three stops read as a timeline. Nothing here is clickable,
+       so there's no hover: the rail draws down once when the block comes
+       into view, lighting each stop as it reaches it, current one in gold. */
     .v4-path { border-top: 1px solid var(--border-default); margin-bottom: var(--sp-10); }
     .v4-path-row {
+      --node-top: calc(var(--sp-5) + 0.3rem);
       display: grid;
       grid-template-columns: 9rem 1fr;
       gap: var(--sp-6);
       align-items: start;
       padding-block: var(--sp-5);
+      padding-left: var(--sp-8);
       border-bottom: 1px solid var(--border-default);
       position: relative;
-      transition: padding-left 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .v4-path-row:hover { padding-left: var(--sp-4); }
-    .v4-path-row::after {
+    .v4-path-row::before {
       content: '';
       position: absolute;
-      left: 0; bottom: -1px;
-      height: 1px; width: 100%;
-      background: var(--teal);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+      left: 0; top: var(--node-top);
+      width: 9px; height: 9px;
+      box-sizing: border-box;
+      border-radius: 50%;
+      border: 1px solid var(--border-strong);
+      background: var(--bg-base);
+      z-index: 1;
+      transition: background-color 0.4s ease, border-color 0.4s ease;
     }
-    .v4-path-row:hover::after { transform: scaleX(1); }
+    .v4-path-row:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 4px; top: calc(var(--node-top) + 9px);
+      width: 1px; height: calc(100% - 9px);
+      background: var(--teal);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    .v4-path.is-in .v4-path-row::before { border-color: var(--teal); background: var(--teal); }
+    .v4-path.is-in .v4-path-row:first-child::before { border-color: var(--gold); background: var(--gold); }
+    .v4-path.is-in .v4-path-row::after { transform: scaleY(1); }
+    .v4-path-row:nth-child(1)::before { transition-delay: 0.5s; }
+    .v4-path-row:nth-child(1)::after  { transition-delay: 0.6s; }
+    .v4-path-row:nth-child(2)::before { transition-delay: 1.15s; }
+    .v4-path-row:nth-child(2)::after  { transition-delay: 1.25s; }
+    .v4-path-row:nth-child(3)::before { transition-delay: 1.8s; }
+    @media (prefers-reduced-motion: reduce) {
+      .v4-path-row::before, .v4-path-row::after { transition: none; }
+    }
     /* Temporal tag + place name, stacked — reuses the About page's
        .arc-phase-when tag style (main.css) for cross-page consistency,
        without its paired concept word (that's specific to About's arc
@@ -898,19 +931,7 @@
       align-items: baseline;
       padding-block: var(--sp-5);
       border-bottom: 1px solid var(--border-default);
-      position: relative;
     }
-    .v4-position::after {
-      content: '';
-      position: absolute;
-      left: 0; bottom: -1px;
-      height: 1px; width: 100%;
-      background: var(--teal);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .v4-position:hover::after { transform: scaleX(1); }
     .v4-position-topic {
       font-size: var(--text-xs);
       color: var(--teal-text);
