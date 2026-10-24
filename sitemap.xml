@@ -4,19 +4,19 @@
 
   <!-- Homepage -->
   <url>
-    <loc>https://joseromerodesign.com/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/"/>
+    <loc>https://www.joseromerodesign.com/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/"/>
+    <loc>https://www.joseromerodesign.com/es/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -24,19 +24,19 @@
 
   <!-- About -->
   <url>
-    <loc>https://joseromerodesign.com/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/about/"/>
+    <loc>https://www.joseromerodesign.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/about/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/about/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/about/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/about/"/>
+    <loc>https://www.joseromerodesign.com/es/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/about/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/about/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/about/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -44,19 +44,19 @@
 
   <!-- Contact -->
   <url>
-    <loc>https://joseromerodesign.com/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/contact/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/contact/"/>
+    <loc>https://www.joseromerodesign.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/contact/"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/contact/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/contact/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/contact/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/contact/"/>
+    <loc>https://www.joseromerodesign.com/es/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/contact/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/contact/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/contact/"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
@@ -64,19 +64,19 @@
 
   <!-- Privacy -->
   <url>
-    <loc>https://joseromerodesign.com/privacy/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/privacy/"/>
+    <loc>https://www.joseromerodesign.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/privacy/"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/privacy/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/privacy/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/privacy/"/>
+    <loc>https://www.joseromerodesign.com/es/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/privacy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/privacy/"/>
     <lastmod>2026-08-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
@@ -84,19 +84,19 @@
 
   <!-- Work index -->
   <url>
-    <loc>https://joseromerodesign.com/work/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/"/>
+    <loc>https://www.joseromerodesign.com/work/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/"/>
+    <loc>https://www.joseromerodesign.com/es/work/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -104,19 +104,19 @@
 
   <!-- Thinking index -->
   <url>
-    <loc>https://joseromerodesign.com/thinking/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/"/>
+    <loc>https://www.joseromerodesign.com/thinking/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/thinking/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/"/>
+    <loc>https://www.joseromerodesign.com/es/thinking/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -124,19 +124,19 @@
 
   <!-- Case study: IKEA Home Services -->
   <url>
-    <loc>https://joseromerodesign.com/work/ikea-home-services/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-home-services/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-home-services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-home-services/"/>
+    <loc>https://www.joseromerodesign.com/work/ikea-home-services/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-home-services/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-home-services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-home-services/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/ikea-home-services/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-home-services/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-home-services/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-home-services/"/>
+    <loc>https://www.joseromerodesign.com/es/work/ikea-home-services/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-home-services/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-home-services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-home-services/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -144,19 +144,19 @@
 
   <!-- Case study: IKEA Secondhand Marketplace -->
   <url>
-    <loc>https://joseromerodesign.com/work/ikea-secondhand-marketplace/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-secondhand-marketplace/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
+    <loc>https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-secondhand-marketplace/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/ikea-secondhand-marketplace/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-secondhand-marketplace/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
+    <loc>https://www.joseromerodesign.com/es/work/ikea-secondhand-marketplace/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-secondhand-marketplace/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -164,19 +164,19 @@
 
   <!-- Case study: Santander Nordics CRO -->
   <url>
-    <loc>https://joseromerodesign.com/work/santander-nordics-cro/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/santander-nordics-cro/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/santander-nordics-cro/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/santander-nordics-cro/"/>
+    <loc>https://www.joseromerodesign.com/work/santander-nordics-cro/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/santander-nordics-cro/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/santander-nordics-cro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/santander-nordics-cro/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/santander-nordics-cro/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/santander-nordics-cro/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/santander-nordics-cro/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/santander-nordics-cro/"/>
+    <loc>https://www.joseromerodesign.com/es/work/santander-nordics-cro/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/santander-nordics-cro/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/santander-nordics-cro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/santander-nordics-cro/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -184,19 +184,19 @@
 
   <!-- Case study: Meliá Hotels -->
   <url>
-    <loc>https://joseromerodesign.com/work/melia-hotels-campaign-platform/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/melia-hotels-campaign-platform/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
+    <loc>https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/melia-hotels-campaign-platform/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/melia-hotels-campaign-platform/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/melia-hotels-campaign-platform/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
+    <loc>https://www.joseromerodesign.com/es/work/melia-hotels-campaign-platform/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/melia-hotels-campaign-platform/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -204,19 +204,19 @@
 
   <!-- Case study: Mapfre Digital Expansion -->
   <url>
-    <loc>https://joseromerodesign.com/work/mapfre-digital-expansion/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/mapfre-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/mapfre-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-digital-expansion/"/>
+    <loc>https://www.joseromerodesign.com/work/mapfre-digital-expansion/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/mapfre-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/mapfre-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/mapfre-digital-expansion/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/mapfre-digital-expansion/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/mapfre-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/mapfre-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-digital-expansion/"/>
+    <loc>https://www.joseromerodesign.com/es/work/mapfre-digital-expansion/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/mapfre-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/mapfre-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/mapfre-digital-expansion/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -224,19 +224,19 @@
 
   <!-- Case study: Mapfre AFIN -->
   <url>
-    <loc>https://joseromerodesign.com/work/mapfre-afin-digital-expansion/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/mapfre-afin-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
+    <loc>https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/mapfre-afin-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/mapfre-afin-digital-expansion/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/mapfre-afin-digital-expansion/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
+    <loc>https://www.joseromerodesign.com/es/work/mapfre-afin-digital-expansion/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/mapfre-afin-digital-expansion/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -244,19 +244,19 @@
 
   <!-- Case study: IQOS Club CRO -->
   <url>
-    <loc>https://joseromerodesign.com/work/iqos-club-cro/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/iqos-club-cro/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/iqos-club-cro/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/iqos-club-cro/"/>
+    <loc>https://www.joseromerodesign.com/work/iqos-club-cro/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/iqos-club-cro/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/iqos-club-cro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/iqos-club-cro/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/iqos-club-cro/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/iqos-club-cro/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/iqos-club-cro/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/iqos-club-cro/"/>
+    <loc>https://www.joseromerodesign.com/es/work/iqos-club-cro/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/iqos-club-cro/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/iqos-club-cro/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/iqos-club-cro/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -264,19 +264,19 @@
 
   <!-- Case study: XTI E-commerce -->
   <url>
-    <loc>https://joseromerodesign.com/work/xti-ecommerce-redesign/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/xti-ecommerce-redesign/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/xti-ecommerce-redesign/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/"/>
+    <loc>https://www.joseromerodesign.com/work/xti-ecommerce-redesign/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/xti-ecommerce-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/xti-ecommerce-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/xti-ecommerce-redesign/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/xti-ecommerce-redesign/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/xti-ecommerce-redesign/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/xti-ecommerce-redesign/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/xti-ecommerce-redesign/"/>
+    <loc>https://www.joseromerodesign.com/es/work/xti-ecommerce-redesign/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/xti-ecommerce-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/xti-ecommerce-redesign/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/xti-ecommerce-redesign/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -284,19 +284,19 @@
 
   <!-- Case study: IKEA Ways of Working -->
   <url>
-    <loc>https://joseromerodesign.com/work/ikea-ways-of-working/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-ways-of-working/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-ways-of-working/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-ways-of-working/"/>
+    <loc>https://www.joseromerodesign.com/work/ikea-ways-of-working/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-ways-of-working/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-ways-of-working/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-ways-of-working/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/ikea-ways-of-working/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ikea-ways-of-working/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ikea-ways-of-working/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ikea-ways-of-working/"/>
+    <loc>https://www.joseromerodesign.com/es/work/ikea-ways-of-working/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ikea-ways-of-working/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ikea-ways-of-working/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-ways-of-working/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -304,19 +304,19 @@
 
   <!-- Case study / article: AI Workflow Framework -->
   <url>
-    <loc>https://joseromerodesign.com/work/ai-workflow-framework/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ai-workflow-framework/"/>
+    <loc>https://www.joseromerodesign.com/work/ai-workflow-framework/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ai-workflow-framework/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/work/ai-workflow-framework/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/work/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/work/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/work/ai-workflow-framework/"/>
+    <loc>https://www.joseromerodesign.com/es/work/ai-workflow-framework/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/work/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/work/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ai-workflow-framework/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -324,19 +324,19 @@
 
   <!-- Article: Designing with AI (Thinking section) -->
   <url>
-    <loc>https://joseromerodesign.com/thinking/ai-workflow-framework/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/ai-workflow-framework/"/>
+    <loc>https://www.joseromerodesign.com/thinking/ai-workflow-framework/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/thinking/ai-workflow-framework/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/ai-workflow-framework/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/ai-workflow-framework/"/>
+    <loc>https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/"/>
     <lastmod>2026-06-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -344,19 +344,19 @@
 
   <!-- Article: BECO Knowledge Graph visual explainer (Thinking section) -->
   <url>
-    <loc>https://joseromerodesign.com/thinking/beco-knowledge-graph/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <loc>https://www.joseromerodesign.com/thinking/beco-knowledge-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/beco-knowledge-graph/"/>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/thinking/beco-knowledge-graph/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <loc>https://www.joseromerodesign.com/es/thinking/beco-knowledge-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/beco-knowledge-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/beco-knowledge-graph/"/>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -364,19 +364,19 @@
 
   <!-- Tool: BECO Knowledge Graph explorer (Thinking section) -->
   <url>
-    <loc>https://joseromerodesign.com/thinking/beco-explorer/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-explorer/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-explorer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-explorer/"/>
+    <loc>https://www.joseromerodesign.com/thinking/beco-explorer/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/beco-explorer/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/beco-explorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/beco-explorer/"/>
     <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://joseromerodesign.com/es/thinking/beco-explorer/</loc>
-    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-explorer/"/>
-    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-explorer/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-explorer/"/>
+    <loc>https://www.joseromerodesign.com/es/thinking/beco-explorer/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://www.joseromerodesign.com/thinking/beco-explorer/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://www.joseromerodesign.com/es/thinking/beco-explorer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/beco-explorer/"/>
     <lastmod>2026-10-24</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

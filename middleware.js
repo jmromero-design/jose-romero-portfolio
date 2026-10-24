@@ -59,24 +59,24 @@ it matters, and how to tell if it worked.
 
 ## Selected work
 
-- [IKEA Home Services](https://joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
-- [Mapfre · AFIN Financial App](https://joseromerodesign.com/work/mapfre-afin-digital-expansion/) — self-service financial app
-- [Santander Nordics · CRO Programme](https://joseromerodesign.com/work/santander-nordics-cro/) — multi-market CRO under regulatory constraints
-- [Meliá Hotels · Campaign Platform](https://joseromerodesign.com/work/melia-hotels-campaign-platform/) — zero-to-one internal tool
-- [Mapfre · Digital Expansion](https://joseromerodesign.com/work/mapfre-digital-expansion/) — Verti platform redesign across Europe
-- [IQOS Club Spain · CRO Programme](https://joseromerodesign.com/work/iqos-club-cro/) — loyalty and behavioural economics
-- [XTI Store · E-commerce Redesign](https://joseromerodesign.com/work/xti-ecommerce-redesign/) — fashion retail within platform constraints
-- [IKEA · Ways of Working System](https://joseromerodesign.com/work/ikea-ways-of-working/) — design operations framework
-- [AI Workflow Design Framework](https://joseromerodesign.com/work/ai-workflow-framework/) — multi-agent process architecture
+- [IKEA Home Services](https://www.joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
+- [Mapfre · AFIN Financial App](https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/) — self-service financial app
+- [Santander Nordics · CRO Programme](https://www.joseromerodesign.com/work/santander-nordics-cro/) — multi-market CRO under regulatory constraints
+- [Meliá Hotels · Campaign Platform](https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/) — zero-to-one internal tool
+- [Mapfre · Digital Expansion](https://www.joseromerodesign.com/work/mapfre-digital-expansion/) — Verti platform redesign across Europe
+- [IQOS Club Spain · CRO Programme](https://www.joseromerodesign.com/work/iqos-club-cro/) — loyalty and behavioural economics
+- [XTI Store · E-commerce Redesign](https://www.joseromerodesign.com/work/xti-ecommerce-redesign/) — fashion retail within platform constraints
+- [IKEA · Ways of Working System](https://www.joseromerodesign.com/work/ikea-ways-of-working/) — design operations framework
+- [AI Workflow Design Framework](https://www.joseromerodesign.com/work/ai-workflow-framework/) — multi-agent process architecture
 
-Full case-study list: https://joseromerodesign.com/work/
+Full case-study list: https://www.joseromerodesign.com/work/
 
 ## More
 
-- About: https://joseromerodesign.com/about/
-- Thinking (long-form writing): https://joseromerodesign.com/thinking/
-- Contact: https://joseromerodesign.com/contact/
-- Structured agent summary: https://joseromerodesign.com/llms.txt
+- About: https://www.joseromerodesign.com/about/
+- Thinking (long-form writing): https://www.joseromerodesign.com/thinking/
+- Contact: https://www.joseromerodesign.com/contact/
+- Structured agent summary: https://www.joseromerodesign.com/llms.txt
 
 ## Contact
 
@@ -91,11 +91,11 @@ have moved, been removed, or never existed.
 
 ## Where to look next
 
-- [Sitemap](https://joseromerodesign.com/sitemap.xml) — every indexable URL on this site
-- [llms.txt](https://joseromerodesign.com/llms.txt) — structured summary for agents
-- [Homepage](https://joseromerodesign.com/)
-- [Work index](https://joseromerodesign.com/work/) — all case studies
-- [Thinking](https://joseromerodesign.com/thinking/) — long-form writing
+- [Sitemap](https://www.joseromerodesign.com/sitemap.xml) — every indexable URL on this site
+- [llms.txt](https://www.joseromerodesign.com/llms.txt) — structured summary for agents
+- [Homepage](https://www.joseromerodesign.com/)
+- [Work index](https://www.joseromerodesign.com/work/) — all case studies
+- [Thinking](https://www.joseromerodesign.com/thinking/) — long-form writing
 `;
 
 export default async function middleware(request) {

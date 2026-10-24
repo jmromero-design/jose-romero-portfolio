@@ -2,7 +2,7 @@
 
 Static HTML/CSS portfolio. No build step, no framework, no JS bundler.
 Deploy: push to `main` on `jmromero-design/jose-romero-portfolio` → Vercel auto-deploys.
-Live: https://joseromerodesign.com · Vercel project: `prj_yrqqL9ZRSixjZM1rjNRp8hW6iTEj`
+Live: https://www.joseromerodesign.com (the bare domain redirects here; canonicals, sitemap, llms.txt and JSON-LD all use www) · Vercel project: `prj_yrqqL9ZRSixjZM1rjNRp8hW6iTEj`
 
 ---
 

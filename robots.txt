@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
-Sitemap: https://joseromerodesign.com/sitemap.xml
+Sitemap: https://www.joseromerodesign.com/sitemap.xml
 
 User-agent: GPTBot
 Allow: /
