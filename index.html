@@ -149,17 +149,63 @@
     @keyframes v4Illo {
       to { opacity: 1; transform: translateX(0) scale(1); }
     }
-    .v4-hero-illo img {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: cover;
-      object-position: center;
-    }
-    [data-theme="light"] .v4-hero-illo {
-      /* inverting turns crimson to teal and teal to red; a half-turn of hue
-         sends each back to its own colour */
-      filter: invert(1) hue-rotate(180deg) saturate(0.8);
+    /* The map is the "How I work" stack seen from above (built by
+       scripts/build_hero_map.mjs): base platforms, the Evidence slab, the
+       middle layers pressed into contour steps, the outcome cap. It reuses
+       the stack's pressure colours and surfaces, so both themes come from
+       tokens. */
+    .hm { width: 100%; height: 100%; display: block; overflow: visible; opacity: 0.82; }
+    .hm .hm-top   { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.7; }
+    .hm .hm-edge  { fill: var(--bg-base); stroke: var(--border-default); stroke-width: 0.6; }
+    .hm .hm-sheen { fill: url(#hmSheen); }
+    .hm .hm-plat .hm-top { fill: color-mix(in srgb, var(--bg-surface) 70%, var(--bg-base)); stroke: var(--border-default); }
+    .hm .hm-plat { filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.25)); }
+    .hm .hm-slab { filter: drop-shadow(0 8px 12px rgb(0 0 0 / 0.32)); }
+    .hm .hm-mid  { filter: drop-shadow(0 2px 2px rgb(0 0 0 / 0.3)); }
+    .hm .hm-mid .hm-top { stroke: var(--border-default); }
+    [data-theme="light"] .hm :is(.hm-plat, .hm-slab) { filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.08)); }
+    [data-theme="light"] .hm .hm-mid { filter: drop-shadow(0 1px 1.5px rgb(0 0 0 / 0.12)); }
+
+    .hm .hm-venn { fill: var(--c); fill-opacity: 0.03; stroke: var(--c); stroke-opacity: 0.2; stroke-width: 0.8; }
+    .hm .hm-thread { stroke: var(--border-default); stroke-width: 0.4; }
+    .hm .hm-speck { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.6; }
+    .hm .hm-speck-c, .hm .hm-node-c { fill: var(--c); opacity: 0.7; }
+    .hm .hm-link { stroke: var(--c); stroke-opacity: 0.35; stroke-width: 0.6; }
+    .hm .hm-node-top { fill: var(--bg-surface); stroke: var(--border-strong); stroke-width: 0.7; }
+    .hm .hm-node-edge { fill: var(--bg-base); stroke: var(--border-default); stroke-width: 0.6; }
+    .hm .hm-sat-label { font-family: var(--font-body); font-size: 6.5px; letter-spacing: 0.06em; fill: var(--text-tertiary); }
+
+    .hm .hm-pillar-top  { fill: var(--bg-surface-2); stroke: var(--c); stroke-width: 1.1; }
+    .hm .hm-pillar-edge { fill: var(--bg-base); stroke: var(--border-default); stroke-width: 0.6; }
+    .hm .hm-pillar-ring { fill: none; stroke: var(--c); stroke-opacity: 0.35; stroke-width: 0.7; stroke-dasharray: 2 3; }
+    .hm .hm-pillar-c    { fill: var(--c); }
+    .hm .hm-pillar { filter: drop-shadow(0 4px 6px rgb(0 0 0 / 0.3)); }
+    [data-theme="light"] .hm .hm-pillar { filter: drop-shadow(0 3px 5px rgb(0 0 0 / 0.1)); }
+    .hm .hm-pname { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--c); }
+
+    .hm .hm-glow { fill: url(#hmGlow); }
+    .hm .hm-route { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-linecap: round; opacity: 0.85;
+      stroke-dasharray: 1; stroke-dashoffset: 1; animation: hmDraw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards; }
+    .hm .hm-routes > g:nth-child(2) .hm-route { animation-delay: 1.65s; }
+    .hm .hm-routes > g:nth-child(3) .hm-route { animation-delay: 1.8s; }
+    .hm .hm-routes > g:nth-child(4) .hm-route { animation-delay: 1.95s; }
+    @keyframes hmDraw { to { stroke-dashoffset: 0; } }
+    .hm .hm-plug  { fill: var(--bg-surface); stroke: var(--c); stroke-width: 1; }
+    .hm .hm-spark { fill: var(--c); }
+    .hm .hm-route-label { font-family: var(--font-body); font-size: 7.5px; font-weight: 500; letter-spacing: 0.04em; fill: var(--c); }
+
+    .hm .hm-cap .hm-top { fill: color-mix(in srgb, var(--gold) 16%, var(--bg-surface)); stroke: color-mix(in srgb, var(--gold) 50%, transparent); }
+    .hm .hm-ring { fill: none; }
+    .hm .hm-ring--outer { stroke: var(--teal); stroke-width: 0.4; stroke-dasharray: 2 11; opacity: 0.4; }
+    .hm .hm-ring--mid   { stroke: var(--teal); stroke-width: 0.5; stroke-dasharray: 2 9; opacity: 0.3; }
+    .hm .hm-ring--gold  { stroke: var(--gold); stroke-width: 0.7; stroke-dasharray: 3 5; opacity: 0.6; }
+    .hm .hm-core { fill: var(--bg-base); stroke: var(--gold); stroke-width: 1.4; }
+    .hm .hm-core-a { font-family: var(--font-body); font-size: 5.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; fill: var(--gold); }
+    .hm .hm-core-c { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 8.5px; fill: var(--text-primary); }
+    .hm .hm-fade { fill: url(#hmFade); }
+    @media (prefers-reduced-motion: reduce) {
+      .hm .hm-route { animation: none; stroke-dashoffset: 0; }
+      .hm .hm-spark { display: none; }
     }
 
     /* Legibility gradient over the illo, under the type */
@@ -169,7 +215,7 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      background: linear-gradient(to right, var(--bg-base) 42%, transparent 72%);
+      background: linear-gradient(to right, var(--bg-base) 44%, color-mix(in srgb, var(--bg-base) 55%, transparent) 62%, transparent 78%);
     }
     @media (max-width: 1150px) {
       .v4-hero-illo, .v4-hero::before { display: none; }
@@ -559,14 +605,14 @@
        Technology and Organisation rotate those same tokens around the hue
        wheel, so all four follow the theme in both modes. Browsers without
        relative colour fall back to the two brand colours. */
-    .st {
+    .st, .v4-hero {
       --st-b: var(--gold);
       --st-u: var(--teal);
       --st-t: var(--teal);
       --st-o: var(--gold);
     }
     @supports (color: oklch(from red l c h)) {
-      .st {
+      .st, .v4-hero {
         --st-t: oklch(from var(--teal) l calc(c * 1.15) calc(h + 80));
         --st-o: oklch(from var(--gold) l c calc(h - 55));
       }
@@ -1231,7 +1277,144 @@
     <!-- ═══ 1. HERO ═══ -->
     <section class="v4-hero v4-bleed" aria-label="Introduction">
       <div class="v4-hero-illo" aria-hidden="true">
-        <img src="/assets/images/hero-complexity-map.svg" alt="" width="400" height="460" loading="eager" decoding="async">
+        <!-- hero-map:start -->
+<svg class="hm" viewBox="0 0 400 460" preserveAspectRatio="xMidYMid slice" role="presentation" focusable="false">
+<defs>
+  <linearGradient id="hmSheen" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" style="stop-color:var(--text-primary);stop-opacity:.07"/><stop offset="55%" style="stop-color:var(--text-primary);stop-opacity:0"/></linearGradient>
+  <radialGradient id="hmGlow"><stop offset="0%" style="stop-color:var(--gold);stop-opacity:.22"/><stop offset="100%" style="stop-color:var(--gold);stop-opacity:0"/></radialGradient>
+  <radialGradient id="hmFade" cx="50%" cy="50%" r="60%"><stop offset="70%" style="stop-color:var(--bg-base);stop-opacity:0"/><stop offset="100%" style="stop-color:var(--bg-base);stop-opacity:1"/></radialGradient>
+</defs>
+<g class="hm-base">
+<g class="hm-plat" style="--c:var(--st-b)"><rect class="hm-edge" x="6" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="6" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" style="--c:var(--st-u)"><rect class="hm-edge" x="206" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="6" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" style="--c:var(--st-t)"><rect class="hm-edge" x="6" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="236" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" style="--c:var(--st-o)"><rect class="hm-edge" x="206" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="236" width="188" height="218" rx="18"/></g>
+<circle class="hm-venn" style="--c:var(--st-b)" cx="142" cy="142" r="142"/>
+<circle class="hm-venn" style="--c:var(--st-u)" cx="258" cy="142" r="142"/>
+<circle class="hm-venn" style="--c:var(--st-t)" cx="142" cy="318" r="142"/>
+<circle class="hm-venn" style="--c:var(--st-o)" cx="258" cy="318" r="142"/>
+<line class="hm-thread" x1="40" y1="90" x2="87.3" y2="126.2"/>
+<circle class="hm-speck" cx="40" cy="90" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="40" cy="90" r="1.6"/>
+<line class="hm-thread" x1="74" y1="34" x2="100.2" y2="117.2"/>
+<circle class="hm-speck" cx="74" cy="34" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="74" cy="34" r="2"/>
+<line class="hm-thread" x1="172" y1="44" x2="122.2" y2="120.2"/>
+<circle class="hm-speck" cx="172" cy="44" r="4"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="172" cy="44" r="1.4"/>
+<line class="hm-thread" x1="40" y1="156" x2="82.5" y2="147.2"/>
+<circle class="hm-speck" cx="40" cy="156" r="3"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="40" cy="156" r="1.1"/>
+<line class="hm-thread" x1="184" y1="54" x2="125" y2="122.3"/>
+<circle class="hm-speck" cx="184" cy="54" r="3"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="184" cy="54" r="1.1"/>
+<line class="hm-thread" x1="228" y1="44" x2="277.8" y2="120.2"/>
+<circle class="hm-speck" cx="228" cy="44" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="228" cy="44" r="1.6"/>
+<line class="hm-thread" x1="326" y1="34" x2="299.8" y2="117.2"/>
+<circle class="hm-speck" cx="326" cy="34" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="326" cy="34" r="2"/>
+<line class="hm-thread" x1="366" y1="98" x2="314.3" y2="128.7"/>
+<circle class="hm-speck" cx="366" cy="98" r="4"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="366" cy="98" r="1.4"/>
+<line class="hm-thread" x1="358" y1="154" x2="317.6" y2="146.7"/>
+<circle class="hm-speck" cx="358" cy="154" r="3"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="358" cy="154" r="1.1"/>
+<line class="hm-thread" x1="216" y1="54" x2="275" y2="122.3"/>
+<circle class="hm-speck" cx="216" cy="54" r="3"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="216" cy="54" r="1.1"/>
+<line class="hm-thread" x1="40" y1="378" x2="87.3" y2="341.8"/>
+<circle class="hm-speck" cx="40" cy="378" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="40" cy="378" r="1.6"/>
+<line class="hm-thread" x1="74" y1="434" x2="100.2" y2="350.8"/>
+<circle class="hm-speck" cx="74" cy="434" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="74" cy="434" r="2"/>
+<line class="hm-thread" x1="172" y1="424" x2="122.2" y2="347.8"/>
+<circle class="hm-speck" cx="172" cy="424" r="4"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="172" cy="424" r="1.4"/>
+<line class="hm-thread" x1="22" y1="312" x2="82.3" y2="321.8"/>
+<circle class="hm-speck" cx="22" cy="312" r="3"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="22" cy="312" r="1.1"/>
+<line class="hm-thread" x1="108" y1="450" x2="108" y2="352"/>
+<circle class="hm-speck" cx="108" cy="450" r="3"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="108" cy="450" r="1.1"/>
+<line class="hm-thread" x1="360" y1="378" x2="312.7" y2="341.8"/>
+<circle class="hm-speck" cx="360" cy="378" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="360" cy="378" r="1.6"/>
+<line class="hm-thread" x1="326" y1="434" x2="299.8" y2="350.8"/>
+<circle class="hm-speck" cx="326" cy="434" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="326" cy="434" r="2"/>
+<line class="hm-thread" x1="228" y1="424" x2="277.8" y2="347.8"/>
+<circle class="hm-speck" cx="228" cy="424" r="4"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="228" cy="424" r="1.4"/>
+<line class="hm-thread" x1="378" y1="312" x2="317.7" y2="321.8"/>
+<circle class="hm-speck" cx="378" cy="312" r="3"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="378" cy="312" r="1.1"/>
+<line class="hm-thread" x1="292" y1="450" x2="292" y2="352"/>
+<circle class="hm-speck" cx="292" cy="450" r="3"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="292" cy="450" r="1.1"/>
+<line class="hm-link" style="--c:var(--st-b)" x1="75.9" y1="108.3" x2="90.1" y2="123.2"/>
+<g class="hm-node" style="--c:var(--st-b)"><circle class="hm-node-edge" cx="68" cy="102" r="10"/><circle class="hm-node-top" cx="68" cy="100" r="10"/><circle class="hm-node-c" cx="68" cy="100" r="2.6"/></g>
+<text class="hm-sat-label" x="68" y="122" text-anchor="middle">Strategy</text>
+<line class="hm-link" style="--c:var(--st-b)" x1="144" y1="83.8" x2="121.7" y2="119.9"/>
+<g class="hm-node" style="--c:var(--st-b)"><circle class="hm-node-edge" cx="150" cy="76" r="10"/><circle class="hm-node-top" cx="150" cy="74" r="10"/><circle class="hm-node-c" cx="150" cy="74" r="2.6"/></g>
+<text class="hm-sat-label" x="150" y="96" text-anchor="middle">Research</text>
+<line class="hm-link" style="--c:var(--st-u)" x1="257.8" y1="83.9" x2="278.8" y2="119.6"/>
+<g class="hm-node" style="--c:var(--st-u)"><circle class="hm-node-edge" cx="252" cy="76" r="10"/><circle class="hm-node-top" cx="252" cy="74" r="10"/><circle class="hm-node-c" cx="252" cy="74" r="2.6"/></g>
+<text class="hm-sat-label" x="252" y="96" text-anchor="middle">Journeys</text>
+<line class="hm-link" style="--c:var(--st-u)" x1="324.1" y1="108.3" x2="309.9" y2="123.2"/>
+<g class="hm-node" style="--c:var(--st-u)"><circle class="hm-node-edge" cx="332" cy="102" r="10"/><circle class="hm-node-top" cx="332" cy="100" r="10"/><circle class="hm-node-c" cx="332" cy="100" r="2.6"/></g>
+<text class="hm-sat-label" x="332" y="122" text-anchor="middle">Stakeholders</text>
+<line class="hm-link" style="--c:var(--st-t)" x1="75.9" y1="359.7" x2="90.1" y2="344.8"/>
+<g class="hm-node" style="--c:var(--st-t)"><circle class="hm-node-edge" cx="68" cy="370" r="10"/><circle class="hm-node-top" cx="68" cy="368" r="10"/><circle class="hm-node-c" cx="68" cy="368" r="2.6"/></g>
+<text class="hm-sat-label" x="68" y="390" text-anchor="middle">Systems</text>
+<line class="hm-link" style="--c:var(--st-t)" x1="144" y1="384.2" x2="121.7" y2="348.1"/>
+<g class="hm-node" style="--c:var(--st-t)"><circle class="hm-node-edge" cx="150" cy="396" r="10"/><circle class="hm-node-top" cx="150" cy="394" r="10"/><circle class="hm-node-c" cx="150" cy="394" r="2.6"/></g>
+<text class="hm-sat-label" x="150" y="416" text-anchor="middle">Data</text>
+<line class="hm-link" style="--c:var(--st-o)" x1="324.1" y1="359.7" x2="309.9" y2="344.8"/>
+<g class="hm-node" style="--c:var(--st-o)"><circle class="hm-node-edge" cx="332" cy="370" r="10"/><circle class="hm-node-top" cx="332" cy="368" r="10"/><circle class="hm-node-c" cx="332" cy="368" r="2.6"/></g>
+<text class="hm-sat-label" x="332" y="390" text-anchor="middle">Process</text>
+<line class="hm-link" style="--c:var(--st-o)" x1="257.8" y1="384.1" x2="278.8" y2="348.4"/>
+<g class="hm-node" style="--c:var(--st-o)"><circle class="hm-node-edge" cx="252" cy="396" r="10"/><circle class="hm-node-top" cx="252" cy="394" r="10"/><circle class="hm-node-c" cx="252" cy="394" r="2.6"/></g>
+<text class="hm-sat-label" x="252" y="416" text-anchor="middle">Teams</text>
+</g>
+<circle class="hm-glow" cx="200" cy="230" r="140"/>
+<g class="hm-slab hm-evidence"><rect class="hm-edge" x="116" y="151" width="168" height="168" rx="24"/><rect class="hm-top" x="116" y="146" width="168" height="168" rx="24"/><rect class="hm-sheen" x="116" y="146" width="168" height="168" rx="24"/></g>
+<g class="hm-slab hm-mid"><rect class="hm-edge" x="138" y="170.4" width="124" height="124" rx="20"/><rect class="hm-top" x="138" y="168" width="124" height="124" rx="20"/><rect class="hm-sheen" x="138" y="168" width="124" height="124" rx="20"/></g>
+<g class="hm-slab hm-mid"><rect class="hm-edge" x="144" y="176.4" width="112" height="112" rx="19"/><rect class="hm-top" x="144" y="174" width="112" height="112" rx="19"/><rect class="hm-sheen" x="144" y="174" width="112" height="112" rx="19"/></g>
+<g class="hm-slab hm-mid"><rect class="hm-edge" x="150" y="182.4" width="100" height="100" rx="18"/><rect class="hm-top" x="150" y="180" width="100" height="100" rx="18"/><rect class="hm-sheen" x="150" y="180" width="100" height="100" rx="18"/></g>
+<g class="hm-slab hm-mid"><rect class="hm-edge" x="156" y="188.4" width="88" height="88" rx="17"/><rect class="hm-top" x="156" y="186" width="88" height="88" rx="17"/><rect class="hm-sheen" x="156" y="186" width="88" height="88" rx="17"/></g>
+<g class="hm-routes">
+<g style="--c:var(--st-b)">
+<path class="hm-route" pathLength="1" d="M108 142 C161.333 153.478 192 182.812 200 230"/>
+<circle class="hm-plug" cx="130.1" cy="148.2" r="2.4"/>
+<circle class="hm-plug" cx="166" cy="168.1" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="2.6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 142 C161.333 153.478 192 182.812 200 230"/></circle>
+</g>
+<g style="--c:var(--st-u)">
+<path class="hm-route" pathLength="1" d="M292 142 C282.667 181.536 252 210.87 200 230"/>
+<circle class="hm-plug" cx="283.4" cy="165.3" r="2.4"/>
+<circle class="hm-plug" cx="261.8" cy="193.9" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="3.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 142 C282.667 181.536 252 210.87 200 230"/></circle>
+</g>
+<g style="--c:var(--st-t)">
+<path class="hm-route" pathLength="1" d="M108 326 C117.333 284.261 148 252.261 200 230"/>
+<circle class="hm-plug" cx="117.8" cy="298.7" r="2.4"/>
+<circle class="hm-plug" cx="138.2" cy="270.5" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="4.1s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 326 C117.333 284.261 148 252.261 200 230"/></circle>
+</g>
+<g style="--c:var(--st-o)">
+<path class="hm-route" pathLength="1" d="M292 326 C240 319.043 209.333 287.043 200 230"/>
+<circle class="hm-plug" cx="252.7" cy="313.9" r="2.4"/>
+<circle class="hm-plug" cx="225.6" cy="291.8" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="4.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 326 C240 319.043 209.333 287.043 200 230"/></circle>
+</g>
+</g>
+<g class="hm-pillar" style="--c:var(--st-b)"><circle class="hm-pillar-edge" cx="108" cy="146" r="24"/><circle class="hm-pillar-top" cx="108" cy="142" r="24"/><circle class="hm-pillar-ring" cx="108" cy="142" r="15"/><circle class="hm-pillar-c" cx="108" cy="142" r="5.5"/></g>
+<text class="hm-pname" style="--c:var(--st-b)" x="108" y="109" text-anchor="middle">Business</text>
+<g class="hm-pillar" style="--c:var(--st-u)"><circle class="hm-pillar-edge" cx="292" cy="146" r="24"/><circle class="hm-pillar-top" cx="292" cy="142" r="24"/><circle class="hm-pillar-ring" cx="292" cy="142" r="15"/><circle class="hm-pillar-c" cx="292" cy="142" r="5.5"/></g>
+<text class="hm-pname" style="--c:var(--st-u)" x="292" y="109" text-anchor="middle">Users</text>
+<g class="hm-pillar" style="--c:var(--st-t)"><circle class="hm-pillar-edge" cx="108" cy="330" r="24"/><circle class="hm-pillar-top" cx="108" cy="326" r="24"/><circle class="hm-pillar-ring" cx="108" cy="326" r="15"/><circle class="hm-pillar-c" cx="108" cy="326" r="5.5"/></g>
+<text class="hm-pname" style="--c:var(--st-t)" x="108" y="369" text-anchor="middle">Technology</text>
+<g class="hm-pillar" style="--c:var(--st-o)"><circle class="hm-pillar-edge" cx="292" cy="330" r="24"/><circle class="hm-pillar-top" cx="292" cy="326" r="24"/><circle class="hm-pillar-ring" cx="292" cy="326" r="15"/><circle class="hm-pillar-c" cx="292" cy="326" r="5.5"/></g>
+<text class="hm-pname" style="--c:var(--st-o)" x="292" y="369" text-anchor="middle">Organisation</text>
+<g class="hm-slab hm-cap"><rect class="hm-edge" x="160" y="194" width="80" height="80" rx="16"/><rect class="hm-top" x="160" y="190" width="80" height="80" rx="16"/><rect class="hm-sheen" x="160" y="190" width="80" height="80" rx="16"/></g>
+<g class="hm-mark">
+  <circle class="hm-ring hm-ring--outer" cx="200" cy="230" r="148"/>
+  <circle class="hm-ring hm-ring--mid" cx="200" cy="230" r="96"/>
+  <circle class="hm-ring hm-ring--gold" cx="200" cy="230" r="35"/>
+  <circle class="hm-core" cx="200" cy="230" r="30"/>
+  <text class="hm-core-a" x="200" y="219.5" text-anchor="middle">Outcome</text>
+  <text class="hm-core-c" x="200" y="230.5" text-anchor="middle">A decision</text>
+  <text class="hm-core-c" x="200" y="239.5" text-anchor="middle">you can build</text>
+</g>
+<text class="hm-route-label" style="--c:var(--st-b)" x="166" y="157" text-anchor="start">Viability</text>
+<text class="hm-route-label" style="--c:var(--st-u)" x="278" y="201" text-anchor="start">Desirability</text>
+<text class="hm-route-label" style="--c:var(--st-t)" x="124" y="276" text-anchor="end">Feasibility</text>
+<text class="hm-route-label" style="--c:var(--st-o)" x="226" y="312" text-anchor="end">Scalability</text>
+<rect class="hm-fade" width="400" height="460"/>
+</svg>
+        <!-- hero-map:end -->
       </div>
       <div class="v4-hero-type">
         <h1 aria-label="Design that works inside complexity.">
