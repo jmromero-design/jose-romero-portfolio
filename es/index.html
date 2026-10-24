@@ -228,8 +228,35 @@
       pointer-events: none;
       background: linear-gradient(to right, var(--bg-base) 44%, color-mix(in srgb, var(--bg-base) 55%, transparent) 62%, transparent 78%);
     }
+    /* Below 1150px there is no room beside the type, so the map drops into
+       the flow under the byline: cropped a little tighter so the stack
+       reads at phone size, dimmed, and faded at every edge so it sits
+       behind the headline and the rail. */
     @media (max-width: 1150px) {
-      .v4-hero-illo, .v4-hero::before { display: none; }
+      .v4-hero::before { display: none; }
+      .v4-hero-type { flex: none; }
+      .v4-hero-illo {
+        order: 1;
+        position: relative;
+        right: auto; top: auto; bottom: auto;
+        align-self: center;
+        width: min(100%, 560px);
+        aspect-ratio: 1 / 1.02;
+        margin-block: calc(-1 * var(--sp-8)) calc(-1 * var(--sp-6));
+        overflow: hidden;
+        -webkit-mask-image: radial-gradient(closest-side, black 70%, transparent 100%);
+        mask-image: radial-gradient(closest-side, black 70%, transparent 100%);
+        transform: translateY(24px);
+      }
+      @keyframes v4Illo { to { opacity: 1; transform: none; } }
+      .v4-hero-illo .hm {
+        position: absolute;
+        left: 50%; top: 50%;
+        width: 112%; height: auto;
+        transform: translate(-50%, -50%);
+        opacity: 0.5;
+      }
+      .v4-hero-rail { order: 2; }
     }
 
     .v4-hero-type {
