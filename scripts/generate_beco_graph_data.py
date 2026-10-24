@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-generate_beco_graph_data.py — node-link snapshot for the immersive BECO graph
-(/thinking/beco-graph/).
+generate_beco_graph_data.py — node-link snapshot for the BECO explorer
+(/thinking/beco-explorer/: the map and its cards).
 
 Reads the card explorer's static export (assets/data/beco-explorer/), so it
 needs no Aura connection: run generate_beco_explorer_data.py first after an
@@ -18,9 +18,9 @@ Output: assets/data/beco-graph/graph.json
   nodes  [[type, x, y, label, extra], ...]   type is an index into `types`
   edges  [a, b, a, b, ...]                    structural links
   rel    [a, b, ...]                          concept-to-concept RELATED_TO
-  extra  per type: concept {g: grade, m: myth, k: kind, f: findings, a: apps,
-         h: explorer hash}, finding {r: replication, d: text}, source {y, v},
-         application {e: ethical risk}
+  extra  per type: cluster/domain/topic {id, d: description}, concept {id,
+         g: grade, m: myth, k: kind, f: findings, a: apps}, finding {r:
+         replication, d: text}, source {y, v}, application {e: ethical risk}
 
 Usage: python3 scripts/generate_beco_graph_data.py
 """
@@ -81,20 +81,18 @@ def build():
     for d in tree["domains"]:
         cname = d["cluster_name"]
         if cname not in clusters:
-            clusters[cname] = node("cl:" + cname, "cluster", cname)
-        di = node(d["id"], "domain", d["name"])
+            slug = "cluster-" + "-".join("".join(ch if ch.isalnum() else " " for ch in cname.lower()).split())
+            clusters[cname] = node("cl:" + cname, "cluster", cname, {"id": slug})
+        di = node(d["id"], "domain", d["name"], {"id": d["id"], "d": clip(d.get("description"), 200)})
         link(clusters[cname], di)
         for tp in d["topics"]:
-            ti = node(tp["id"], "topic", tp["name"])
+            ti = node(tp["id"], "topic", tp["name"], {"id": tp["id"], "d": clip(tp.get("description"), 240)})
             link(di, ti)
             for f in tp.get("standalone_findings") or []:
                 evidence(ti, f, f["id"])
             for b in tp["biases"]:
-                first = b["id"] not in index
-                ci = node(b["id"], "concept", b["name"])
+                ci = node(b["id"], "concept", b["name"], {"id": b["id"]})
                 link(ti, ci)
-                if first:
-                    nodes[ci]["x"]["h"] = f"#domain/{d['id']}/topic/{tp['id']}/bias/{b['id']}"
 
     for ci_key in [n["key"] for n in nodes if n["t"] == "concept"]:
         ci = index[ci_key]

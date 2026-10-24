@@ -15,7 +15,9 @@
     { "source": "/topics/projects", "destination": "/work/", "permanent": true },
     { "source": "/topics/projects/feed", "destination": "/work/", "permanent": true },
     { "source": "/privacy-policy", "destination": "/privacy/", "permanent": true },
-    { "source": "/cookie-policy-eu", "destination": "/", "permanent": true }
+    { "source": "/cookie-policy-eu", "destination": "/", "permanent": true },
+    { "source": "/thinking/beco-graph", "destination": "/thinking/beco-explorer/", "permanent": true },
+    { "source": "/es/thinking/beco-graph", "destination": "/es/thinking/beco-explorer/", "permanent": true }
   ],
   "headers": [
     {

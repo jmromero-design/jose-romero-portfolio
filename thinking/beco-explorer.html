@@ -6,13 +6,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Explore the BECO Knowledge Graph · Jose Romero</title>
   <meta name="description"
-    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one. A static snapshot, not a live database.">
+    content="The whole BECO knowledge graph on one zoomable map, with cards to read whatever you pick: every behavioural-science concept, the findings and sources behind it, and how well the research backs it. A static snapshot, not a live database.">
   <link rel="canonical" href="https://joseromerodesign.com/thinking/beco-explorer/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Explore the BECO Knowledge Graph · Jose Romero">
   <meta property="og:description"
-    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one.">
+    content="The whole BECO knowledge graph on one zoomable map, with cards to read whatever you pick, each concept graded by how well the research backs it.">
   <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
   <meta property="og:url" content="https://joseromerodesign.com/thinking/beco-explorer/">
   <meta property="og:type" content="website">
@@ -22,7 +22,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Explore the BECO Knowledge Graph · Jose Romero">
   <meta name="twitter:description"
-    content="Browse the full BECO knowledge graph — every named bias, heuristic, effect, and design law, organized by domain and topic, down to the studies and real-world examples behind each one.">
+    content="The whole BECO knowledge graph on one zoomable map, with cards to read whatever you pick, each concept graded by how well the research backs it.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
   <link rel="stylesheet" href="/assets/css/main.css?v=36">
@@ -41,329 +41,278 @@
 
   <style>
     /* ═══════════════════════════════════════════════
-       BECO GRAPH EXPLORER — bgx- prefix
-       Zoomable treemap-of-cards navigation over a static
-       JSON snapshot (assets/data/beco-explorer/). No live
-       Aura connection — see scripts/generate_beco_explorer_data.py.
+       BECO EXPLORER — bgx- prefix
+       One page, two ways into the same graph: a canvas map and a column
+       of cards. Drawing, cards and their wiring live in
+       /assets/js/beco-explorer.js (shared with the ES page); wording is
+       passed in through window.BGX_STRINGS at the end of this file.
     ═══════════════════════════════════════════════ */
 
-    .bgx-main {
-      padding-block: calc(var(--nav-height) + var(--sp-10)) var(--sp-20);
-      padding-inline: var(--gutter);
-      min-height: 100svh;
+    /* ── the app: map left, cards right; stacked on narrow screens ── */
+    .bgx-app {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) min(27rem, 36vw);
+      grid-template-rows: auto minmax(0, 1fr);
+      grid-template-areas: "map head" "map col";
+      height: 100svh;
+      min-height: 620px;
+      padding-top: var(--nav-height);
+      border-bottom: 1px solid var(--border-default);
     }
-
-    .bgx-header {
-      max-width: 1200px;
-      margin-inline: auto;
-      margin-bottom: var(--sp-10);
+    .bgx-head { grid-area: head; padding: var(--sp-6) var(--gutter) var(--sp-4) var(--sp-6); border-left: 1px solid var(--border-default); }
+    .bgx-col {
+      grid-area: col;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 0 var(--gutter) var(--sp-10) var(--sp-6);
+      border-left: 1px solid var(--border-default);
     }
+    .bgx-map { grid-area: map; position: relative; min-height: 0; }
 
     .bgx-eyebrow {
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
+      font-size: var(--text-xs); font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
       color: var(--teal-text);
-      display: flex;
-      align-items: center;
-      gap: var(--sp-3);
-      margin-bottom: var(--sp-5);
+      display: flex; align-items: center; gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
     }
-    .bgx-eyebrow::before {
-      content: '';
-      width: 28px;
-      height: 1px;
-      background: var(--teal);
-      flex-shrink: 0;
-    }
-
-    .bgx-header h1 {
+    .bgx-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--teal); }
+    .bgx-head h1 {
       font-family: var(--font-display);
-      font-weight: 400;
-      font-size: clamp(2.25rem, 5vw, 3.75rem);
+      font-weight: 500;
+      font-size: clamp(1.75rem, 2.4vw, 2.4rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
       color: var(--text-primary);
-      margin-bottom: var(--sp-5);
+      margin: 0 0 var(--sp-2);
     }
-    .bgx-header h1 em { font-style: italic; color: var(--gold); }
+    .bgx-head h1 em { font-style: italic; color: var(--gold); }
+    .bgx-stats { font-size: var(--text-sm); color: var(--text-tertiary); margin: 0 0 var(--sp-4); }
 
-    .bgx-intro {
-      font-family: var(--font-body);
-      font-size: var(--text-lg);
-      line-height: 1.6;
-      color: var(--text-secondary);
-      max-width: 68ch;
-    }
-
-    .bgx-snapshot-note {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      margin-top: var(--sp-4);
-    }
-    .bgx-snapshot-note a { color: var(--teal-text); }
-
-    /* ── search ──────────────────────────────────── */
-    .bgx-search-wrap {
-      position: relative;
-      max-width: 520px;
-      margin-top: var(--sp-8);
-    }
-    .bgx-search-input {
+    /* ── search ── */
+    .bgx-search-wrap { position: relative; }
+    .bgx-search {
       width: 100%;
-      font-family: var(--font-body);
-      font-size: var(--text-base);
+      font: inherit; font-size: var(--text-sm);
       color: var(--text-primary);
       background: var(--bg-surface);
       border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
-      padding: var(--sp-4) var(--sp-5);
-      transition: border-color var(--ease-fast);
-    }
-    .bgx-search-input:focus {
-      outline: none;
-      border-color: var(--teal);
-    }
-    .bgx-search-results {
-      position: absolute;
-      top: calc(100% + var(--sp-2));
-      left: 0; right: 0;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
-      max-height: 360px;
-      overflow-y: auto;
-      z-index: 20;
-      box-shadow: 0 20px 50px -20px rgba(0, 0, 0, 0.4);
-    }
-    .bgx-search-results:empty { display: none; }
-    .bgx-search-result {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--sp-4);
-      width: 100%;
-      text-align: left;
+      border-radius: 999px;
       padding: var(--sp-3) var(--sp-5);
-      background: none;
-      border: none;
-      border-bottom: 1px solid var(--border-default);
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--text-primary);
-      cursor: pointer;
     }
-    .bgx-search-result:last-child { border-bottom: none; }
-    .bgx-search-result:hover, .bgx-search-result:focus-visible { background: var(--bg-surface-2); }
-    .bgx-search-result .path { color: var(--text-tertiary); font-size: var(--text-xs); }
-
-    /* ── breadcrumb ──────────────────────────────── */
-    .bgx-breadcrumb {
-      max-width: 1200px;
-      margin-inline: auto;
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      gap: var(--sp-2);
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      margin-bottom: var(--sp-6);
-      min-height: 1.5em;
-    }
-    .bgx-breadcrumb button {
-      background: none; border: none; padding: 0;
-      font-family: inherit; font-size: inherit;
-      color: var(--text-secondary);
-      cursor: pointer;
-    }
-    .bgx-breadcrumb button:hover, .bgx-breadcrumb button:focus-visible { color: var(--gold); }
-    .bgx-breadcrumb .current { color: var(--text-primary); font-weight: 500; }
-    .bgx-breadcrumb .sep { opacity: 0.5; }
-
-    /* ── stage / tile grid ───────────────────────── */
-    .bgx-stage {
-      max-width: 1200px;
-      margin-inline: auto;
-    }
-
-    .bgx-level-label {
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-tertiary);
-      margin-bottom: var(--sp-4);
-    }
-
-    .bgx-tile-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--sp-4);
-    }
-
-    .bgx-tile {
-      flex: 1 1 260px;
+    .bgx-search::placeholder { color: var(--text-tertiary); }
+    .bgx-search:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-results {
+      list-style: none; margin: 0; padding: var(--sp-2);
+      position: absolute; z-index: 5; left: 0; right: 0; top: calc(100% + var(--sp-2));
       background: var(--bg-surface);
       border: 1px solid var(--border-default);
       border-radius: var(--radius-lg);
-      padding: var(--sp-6);
-      text-align: left;
+      box-shadow: 0 12px 30px rgb(0 0 0 / 0.3);
+    }
+    [data-theme="light"] .bgx-results { box-shadow: 0 12px 30px rgb(0 0 0 / 0.08); }
+    .bgx-results:empty { display: none; }
+    .bgx-results li {
+      display: flex; align-items: center; gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm); color: var(--text-primary);
       cursor: pointer;
-      transition: border-color var(--ease-fast), transform var(--ease-fast);
-      display: flex;
-      flex-direction: column;
-      gap: var(--sp-3);
-      min-width: 0;
     }
-    .bgx-tile:hover, .bgx-tile:focus-visible {
-      border-color: var(--teal);
-      transform: translateY(-2px);
-    }
-    .bgx-tile-name {
-      font-family: var(--font-display);
-      font-weight: 600;
-      color: var(--text-primary);
-      line-height: 1.25;
-    }
-    .bgx-tile[data-tier="cluster"] .bgx-tile-name,
-    .bgx-tile[data-tier="domain"] .bgx-tile-name { font-size: var(--text-xl); }
-    .bgx-tile[data-tier="topic"] .bgx-tile-name { font-size: var(--text-lg); }
-    .bgx-tile[data-tier="bias"] .bgx-tile-name { font-size: var(--text-base); font-weight: 600; }
+    .bgx-results li:hover, .bgx-results li[aria-selected="true"] { background: var(--bg-surface-2); }
+    .bgx-results li small { margin-left: auto; color: var(--text-tertiary); font-size: 0.75rem; white-space: nowrap; }
+    .bgx-results .bgx-empty { color: var(--text-tertiary); cursor: default; }
 
-    .bgx-tile-desc {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      line-height: 1.5;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .bgx-tile-meta {
-      margin-top: auto;
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--teal-text);
-    }
-    .bgx-tile-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: auto; }
-
-    /* weight-based sizing: bigger groups get more flex-grow, set inline via style */
-
-    /* ── tags/badges (shared with detail view) ──── */
-    .bgx-tag {
-      font-family: var(--font-body);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-      padding: 0.25rem 0.6rem;
-      border-radius: var(--radius-sm);
-      display: inline-block;
-      white-space: nowrap;
-    }
-    .bgx-tag--verified { background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal-text); border: 1px solid color-mix(in srgb, var(--teal) 35%, transparent); }
-    /* Backing grades read as one scale of evidence (solid teal, paler teal,
-       dashed outline) rather than borrowing the brand accent, which now
-       leans red and would make "partial" look like a warning. */
-    :root { --bgx-partial: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
-    .bgx-tag--partial { background: color-mix(in srgb, var(--teal) 6%, transparent); color: var(--text-secondary); border: 1px solid var(--bgx-partial); }
-    .bgx-tag--flagged { background: var(--bg-surface-2); color: var(--text-tertiary); border: 1px dashed var(--border-strong); }
-    .bgx-tag--risk { background: color-mix(in srgb, var(--gold) 10%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent); }
-    .bgx-tag--kind { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-default); }
-
-    /* ── empty / loading states ──────────────────── */
-    .bgx-state-msg {
-      font-family: var(--font-body);
-      color: var(--text-tertiary);
-      padding: var(--sp-10) 0;
-      text-align: center;
-    }
-
-    /* ── detail view ─────────────────────────────── */
-    .bgx-detail { max-width: 780px; }
-    .bgx-detail-head { margin-bottom: var(--sp-8); }
-    .bgx-detail-title {
-      font-family: var(--font-display);
-      font-weight: 500;
-      font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-      color: var(--text-primary);
-      margin-bottom: var(--sp-3);
-    }
-    .bgx-detail-aliases {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      margin-bottom: var(--sp-4);
-    }
-    .bgx-detail-tags { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-bottom: var(--sp-6); }
-    .bgx-detail-desc {
-      font-family: var(--font-body);
-      font-size: var(--text-lg);
-      line-height: 1.65;
-      color: var(--text-secondary);
-      margin-bottom: var(--sp-4);
-    }
-    .bgx-detail-note {
-      font-size: var(--text-base);
-      line-height: 1.6;
-      color: var(--text-secondary);
-      border-left: 2px solid var(--gold);
-      padding-left: var(--sp-5);
-      margin-bottom: var(--sp-2);
-    }
-
-    .bgx-section-title {
-      font-family: var(--font-body);
-      font-size: var(--text-xs);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal-text);
-      margin-top: var(--sp-10);
+    /* ── crumbs ── */
+    .bgx-crumbs {
+      position: sticky; top: 0; z-index: 2;
+      padding-block: var(--sp-3);
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--border-subtle);
       margin-bottom: var(--sp-5);
     }
+    .bgx-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: 0.8125rem; }
+    .bgx-crumbs li { display: inline-flex; align-items: center; color: var(--text-tertiary); min-width: 0; }
+    .bgx-crumbs li + li::before { content: '/'; margin-inline: var(--sp-2); color: var(--border-strong); }
+    .bgx-crumb {
+      font: inherit; color: var(--teal-text);
+      background: none; border: 0; padding: 0; cursor: pointer;
+      max-width: 14rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .bgx-crumb:hover { color: var(--gold); }
+    .bgx-crumb[aria-current="page"] { color: var(--text-secondary); cursor: default; }
+    .bgx-crumb:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
 
-    .bgx-finding, .bgx-application {
+    /* ── cards ── */
+    .bgx-lead { font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-2); }
+    .bgx-type { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-text); margin: 0 0 var(--sp-2); }
+    .bgx-name { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); line-height: 1.15; color: var(--text-primary); margin: 0 0 var(--sp-4); }
+    .bgx-name:focus { outline: none; }
+    /* the root card names itself for screen readers only */
+    .bgx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .bgx-badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0 0 var(--sp-4); }
+    .bgx-grade, .bgx-myth { font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border-default); color: var(--text-secondary); }
+    .bgx-grade--v { border-color: var(--teal); color: var(--teal-text); }
+    .bgx-grade--p { border-color: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgx-grade--n { border-style: dashed; }
+    .bgx-myth { border-color: var(--gold); color: var(--gold); }
+    .bgx-desc { font-size: var(--text-sm); line-height: 1.65; color: var(--text-secondary); margin: 0 0 var(--sp-4); }
+    .bgx-aliases { font-size: 0.8125rem; color: var(--text-tertiary); margin: 0 0 var(--sp-3); }
+    .bgx-note { font-size: 0.8125rem; line-height: 1.6; color: var(--text-tertiary); border-left: 2px solid var(--border-strong); padding-left: var(--sp-3); margin: 0 0 var(--sp-4); }
+    .bgx-note--myth { border-left-color: var(--gold); }
+    .bgx-counts { font-size: 0.8125rem; color: var(--text-tertiary); margin: 0 0 var(--sp-2); }
+    .bgx-h3 { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin: var(--sp-6) 0 var(--sp-3); }
+    .bgx-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+    .bgx-card {
+      width: 100%;
+      display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center;
+      column-gap: var(--sp-2); row-gap: 4px;
+      text-align: left;
+      font: inherit; color: var(--text-primary);
       background: var(--bg-surface);
       border: 1px solid var(--border-default);
-      border-radius: var(--radius-lg);
-      padding: var(--sp-5);
-      margin-bottom: var(--sp-4);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      cursor: pointer;
+      transition: border-color var(--ease-fast), background-color var(--ease-fast);
     }
-    .bgx-finding-desc, .bgx-application-desc {
-      font-size: var(--text-base);
-      color: var(--text-primary);
-      line-height: 1.55;
-      margin-bottom: var(--sp-3);
+    .bgx-card:hover { border-color: var(--teal); background: var(--bg-surface-2); }
+    .bgx-card:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-card > :not(.bgx-dot) { grid-column: 2; }
+    .bgx-card > .bgx-card-name:first-child, .bgx-card > .bgx-card-name:first-child ~ * { grid-column: 1 / -1; }
+    .bgx-card-name { font-size: var(--text-sm); font-weight: 500; line-height: 1.35; }
+    .bgx-card-meta { font-size: 0.75rem; color: var(--text-tertiary); }
+    .bgx-card-meta em { font-style: normal; color: var(--gold); }
+    .bgx-more { font-size: 0.75rem; color: var(--text-tertiary); margin: var(--sp-2) 0 0; }
+    .bgx-finding { padding: var(--sp-3) 0; border-top: 1px solid var(--border-subtle); }
+    .bgx-finding p { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-2); }
+    .bgx-finding .bgx-cite { font-size: 0.75rem; color: var(--text-tertiary); margin: 0; }
+    .bgx-finding a { color: var(--teal-text); }
+    .bgx-finding a:hover { color: var(--gold); }
+    .bgx-example-title { font-weight: 500; }
+
+    /* evidence bar: the same teal scale as the homepage feature */
+    .bgx-bar { display: flex; gap: 2px; height: 5px; width: 100%; margin: 2px 0 0; }
+    .bgx-counts + .bgx-bar { margin-bottom: var(--sp-2); height: 7px; }
+    .bgx-bar i { border-radius: 999px; }
+    .bgx-bar-v { background: var(--teal); }
+    .bgx-bar-p { background: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgx-bar-n { border: 1px dashed var(--border-strong); }
+
+    /* swatches */
+    .bgx-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--text-tertiary); display: inline-block; }
+    .bgx-dot--v { background: var(--teal); }
+    .bgx-dot--p { background: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgx-dot--n { background: transparent; border: 1px dashed var(--text-secondary); }
+    .bgx-dot--cluster { background: transparent; border: 1.5px solid var(--text-primary); }
+    .bgx-dot--domain { background: var(--text-secondary); }
+    .bgx-dot--source { background: var(--border-strong); border-radius: 2px; }
+    .bgx-dot--author { width: 6px; height: 6px; }
+    .bgx-dot--myth { background: transparent; border: 1.5px solid var(--gold); }
+
+    /* ── the map ── */
+    .bgx-stage {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      background: radial-gradient(ellipse 60% 55% at 50% 50%, color-mix(in srgb, var(--teal) 6%, transparent), transparent 70%), var(--bg-base);
     }
-    .bgx-finding-source, .bgx-application-meta {
-      font-size: var(--text-sm);
-      color: var(--text-tertiary);
-      line-height: 1.5;
+    .bgx-canvas { position: absolute; inset: 0; display: block; cursor: grab; touch-action: none; opacity: 0; transition: opacity 0.6s ease; }
+    .bgx-app.is-ready .bgx-canvas { opacity: 1; }
+    .bgx-loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: var(--text-sm); color: var(--text-tertiary); pointer-events: none; transition: opacity 0.4s ease; margin: 0; }
+    .bgx-app.is-ready .bgx-loading { opacity: 0; }
+
+    .bgx-tools {
+      position: absolute; z-index: 2; left: var(--gutter); bottom: var(--sp-6);
+      display: flex; flex-direction: column; gap: var(--sp-2);
+      pointer-events: none;
     }
-    .bgx-finding-source a, .bgx-application-meta a { color: var(--teal-text); }
-    .bgx-application-ethics {
-      margin-top: var(--sp-3);
-      font-size: var(--text-sm);
+    .bgx-tools > * { pointer-events: auto; }
+    .bgx-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+    .bgx-chip, .bgx-icon-btn {
+      font: inherit; font-size: 0.8125rem;
       color: var(--text-secondary);
-      border-left: 2px solid var(--border-strong);
-      padding-left: var(--sp-4);
+      background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      padding: var(--sp-2) var(--sp-3);
+      display: inline-flex; align-items: center; gap: var(--sp-2);
+      cursor: pointer;
+      transition: border-color var(--ease-fast), color var(--ease-fast);
     }
+    .bgx-chip:hover, .bgx-icon-btn:hover { border-color: var(--teal); color: var(--text-primary); }
+    .bgx-chip[aria-pressed="true"] { border-color: var(--teal); color: var(--text-primary); background: var(--bg-surface-2); }
+    .bgx-chip:focus-visible, .bgx-icon-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-icon-btn { width: 36px; height: 36px; padding: 0; justify-content: center; font-size: 1rem; }
+    .bgx-icon-btn--wide { width: auto; padding-inline: var(--sp-3); font-size: 0.8125rem; }
+    .bgx-key { display: flex; align-items: center; gap: var(--sp-2); margin: 0; font-size: 0.75rem; color: var(--text-tertiary); text-shadow: 0 0 8px var(--bg-base); }
 
-    .bgx-ego-node circle { transition: r var(--ease-fast), fill-opacity var(--ease-fast); }
-    .bgx-ego-node:hover circle, .bgx-ego-node:focus-visible circle { fill-opacity: 0.16; }
-    .bgx-ego-node:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
-    .bgx-ego-node text { transition: fill var(--ease-fast); }
-    .bgx-ego-node:hover text, .bgx-ego-node:focus-visible text { fill: var(--teal-text) !important; }
+    .bgx-hint {
+      position: absolute; z-index: 3; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      padding: var(--sp-3) var(--sp-5); margin: 0;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+      border: 1px solid var(--border-default);
+      font-size: var(--text-sm); color: var(--text-primary);
+      pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+    }
+    .bgx-hint.is-on { opacity: 1; }
 
-    @media (max-width: 600px) {
-      .bgx-tile { flex-basis: 100%; }
+    .bgx-open, .bgx-done, .bgx-peek { display: none; }
+
+    /* ── narrow screens: heading, a map preview, then the cards ── */
+    @media (max-width: 900px) {
+      .bgx-app { display: block; height: auto; min-height: 0; padding-top: calc(var(--nav-height) + var(--sp-4)); border-bottom: 0; }
+      .bgx-head, .bgx-col { border-left: 0; padding-inline: var(--gutter); }
+      .bgx-head { padding-bottom: var(--sp-5); }
+      .bgx-col { overflow: visible; padding-bottom: var(--sp-16); scroll-margin-top: var(--nav-height); }
+      .bgx-crumbs { top: var(--nav-height); }
+      .bgx-map { height: 52svh; min-height: 300px; border-block: 1px solid var(--border-default); margin-bottom: var(--sp-2); scroll-margin-top: calc(var(--nav-height) + var(--sp-2)); }
+      .bgx-canvas { touch-action: pan-y; cursor: default; }
+      .bgx-tools { display: none; }
+      .bgx-open { display: inline-flex; position: absolute; z-index: 3; right: var(--gutter); bottom: var(--sp-4); }
+
+      /* full screen once opened */
+      .bgx-app.is-exploring .bgx-map { position: fixed; inset: 0; z-index: 1000; height: 100dvh; margin: 0; border: 0; }
+      .bgx-app.is-exploring .bgx-canvas { touch-action: none; }
+      .bgx-app.is-exploring .bgx-open { display: none; }
+      .bgx-app.is-exploring .bgx-done { display: inline-flex; position: absolute; z-index: 3; top: var(--sp-4); left: var(--sp-4); }
+      .bgx-app.is-exploring .bgx-tools {
+        display: flex; left: var(--sp-4); right: var(--sp-4); top: calc(var(--sp-4) + 44px); bottom: auto;
+      }
+      .bgx-app.is-exploring .bgx-key, .bgx-app.is-exploring [data-zoom="in"], .bgx-app.is-exploring [data-zoom="out"] { display: none; }
+      .bgx-app.is-exploring .bgx-row[role="group"] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+      .bgx-app.is-exploring .bgx-chip { white-space: nowrap; flex-shrink: 0; }
+      .bgx-app.is-exploring .bgx-peek:not([hidden]) {
+        display: flex; align-items: center; gap: var(--sp-3);
+        position: absolute; z-index: 3; left: var(--sp-3); right: var(--sp-3); bottom: var(--sp-3);
+        padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-5);
+        background: color-mix(in srgb, var(--bg-surface) 94%, transparent);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      }
+      .bgx-peek-name { flex: 1; min-width: 0; font-size: var(--text-sm); font-weight: 500; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    }
+    html.bgx-lock, html.bgx-lock body { overflow: hidden; }
+
+    /* ── below the app: how to read it ── */
+    .bgx-read {
+      padding: var(--sp-24) var(--gutter);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--sp-12);
+      max-width: calc(var(--max-width) + 2 * var(--gutter));
+      margin-inline: auto;
+    }
+    .bgx-read h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(var(--text-3xl), 3.4vw, var(--text-4xl)); line-height: 1.1; margin: 0; }
+    .bgx-read h2 em { font-style: italic; color: var(--gold); }
+    .bgx-read-body p { color: var(--text-secondary); line-height: 1.7; margin: 0 0 var(--sp-5); max-width: 62ch; }
+    .bgx-read-body ul { list-style: none; padding: 0; margin: 0 0 var(--sp-8); display: grid; gap: var(--sp-3); }
+    .bgx-read-body li { display: flex; gap: var(--sp-3); align-items: baseline; color: var(--text-secondary); line-height: 1.6; }
+    .bgx-read-body li .bgx-dot { transform: translateY(1px); }
+    @media (max-width: 900px) {
+      .bgx-read { grid-template-columns: 1fr; padding-block: var(--sp-16); gap: var(--sp-8); }
     }
   </style>
 </head>
@@ -397,24 +346,105 @@
     </button>
   </nav>
 
-  <main id="main" class="bgx-main">
-    <div class="bgx-header">
-      <div class="bgx-eyebrow">Personal Research Infrastructure</div>
-      <h1>Explore the <em>graph.</em></h1>
-      <p class="bgx-intro">Every named bias, heuristic, effect, and design law in this corpus, organized by domain and topic, down to the studies
-        and real-world examples behind each one. Browse by category, or search directly.</p>
-      <p class="bgx-snapshot-note" id="bgxSnapshotNote"></p>
-      <p class="bgx-snapshot-note"><a href="/thinking/beco-graph/">See all of it at once on the map →</a></p>
-      <div class="bgx-search-wrap">
-        <input type="text" class="bgx-search-input" id="bgxSearchInput" placeholder="Search a concept or topic — e.g. &ldquo;scarcity&rdquo;" autocomplete="off">
-        <div class="bgx-search-results" id="bgxSearchResults"></div>
-      </div>
-    </div>
+  <main id="main">
 
-    <nav class="bgx-breadcrumb" id="bgxBreadcrumb" aria-label="Breadcrumb"></nav>
-    <div class="bgx-stage" id="bgxStage">
-      <p class="bgx-state-msg">Loading the graph…</p>
-    </div>
+    <section class="bgx-app" id="bgxApp" aria-labelledby="bgx-title">
+      <header class="bgx-head">
+        <span class="bgx-eyebrow">Personal research</span>
+        <h1 id="bgx-title">Explore the<br>
+          <em>BECO graph.</em></h1>
+        <p class="bgx-stats" id="bgxStats"></p>
+        <div class="bgx-search-wrap">
+          <input type="search" class="bgx-search" id="bgxSearch" placeholder="Find a concept, topic, source or author"
+                 aria-label="Find a concept, topic, source or author" role="combobox" aria-controls="bgxResults"
+                 aria-expanded="false" aria-autocomplete="list" autocomplete="off">
+          <ul class="bgx-results" id="bgxResults" role="listbox" aria-label="Results"></ul>
+        </div>
+      </header>
+
+      <div class="bgx-map">
+        <div class="bgx-stage" id="bgxStage">
+          <canvas class="bgx-canvas" id="bgxCanvas" aria-hidden="true"></canvas>
+          <p class="bgx-loading">Drawing the graph…</p>
+          <div class="bgx-tools">
+            <div class="bgx-row" role="group" aria-label="Show concepts by how well the research backs them">
+              <button type="button" class="bgx-chip" data-grade="v" aria-pressed="false"><span class="bgx-dot bgx-dot--v"></span>Verified</button>
+              <button type="button" class="bgx-chip" data-grade="p" aria-pressed="false"><span class="bgx-dot bgx-dot--p"></span>Partially backed</button>
+              <button type="button" class="bgx-chip" data-grade="n" aria-pressed="false"><span class="bgx-dot bgx-dot--n"></span>No rigorous backing</button>
+            </div>
+            <p class="bgx-key"><span class="bgx-dot bgx-dot--myth"></span>Red ring: often repeated as a myth</p>
+            <div class="bgx-row">
+              <button type="button" class="bgx-icon-btn" data-zoom="in" aria-label="Zoom in">+</button>
+              <button type="button" class="bgx-icon-btn" data-zoom="out" aria-label="Zoom out">−</button>
+              <button type="button" class="bgx-icon-btn bgx-icon-btn--wide" data-zoom="reset">Whole map</button>
+            </div>
+          </div>
+          <p class="bgx-hint" id="bgxHint" aria-hidden="true"></p>
+          <button type="button" class="btn btn-ghost bgx-open" id="bgxOpen">Open the map</button>
+          <button type="button" class="bgx-icon-btn bgx-icon-btn--wide bgx-done" id="bgxDone">Done</button>
+          <div class="bgx-peek" id="bgxPeek" hidden>
+            <span class="bgx-peek-name" data-peek-name></span>
+            <button type="button" class="btn btn-primary" data-peek-read>Read it</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bgx-col">
+        <nav class="bgx-crumbs" id="bgxCrumbs" aria-label="Where you are"></nav>
+        <div class="bgx-body" id="bgxBody"><p class="bgx-lead">Loading the graph…</p></div>
+      </div>
+    </section>
+
+    <section class="bgx-read" aria-labelledby="bgx-read-title">
+      <h2 id="bgx-read-title">How to<br>
+        <em>read it.</em></h2>
+      <div class="bgx-read-body">
+        <p>
+          BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they
+          end up in a design decision. The map draws all of it at once: the eight clusters at the centre, then
+          domains, topics and named concepts, then the findings and real-world examples behind each concept, and
+          at the edge the sources and the people who wrote them. The cards beside it read whatever you pick.
+        </p>
+        <p>
+          Nothing is placed by hand. Each item sits near what it's linked to, so concepts that share topics,
+          studies or authors end up close together, and the teal arcs connect concepts the research treats as related.
+          It's a snapshot I regenerate after each research round, not a live database.
+        </p>
+        <ul>
+          <li><span class="bgx-dot bgx-dot--v"></span>Solid teal: the research supports it.</li>
+          <li><span class="bgx-dot bgx-dot--p"></span>Pale teal: partly supported, with caveats worth knowing.</li>
+          <li><span class="bgx-dot bgx-dot--n"></span>Dashed outline: no rigorous backing found yet.</li>
+          <li><span class="bgx-dot bgx-dot--myth"></span>Red ring: often repeated in design circles in a form the studies don't support.</li>
+        </ul>
+        <a href="/thinking/beco-knowledge-graph/" class="btn btn-ghost">How it's built <span class="arrow">→</span></a>
+      </div>
+    </section>
+
+    <section class="v4-cta v4-bleed" aria-labelledby="cta-heading">
+      <div class="v4-cta-grid" aria-hidden="true"></div>
+      <span class="eyebrow eyebrow--bare reveal">Available</span>
+      <h2 id="cta-heading" class="reveal">
+        Your hardest problem<br>
+        <em class="accent-italic">is a good place to start.</em>
+      </h2>
+      <p class="reveal">
+        Open to senior product design roles and selective consulting engagements, in English or Spanish.
+      </p>
+      <div class="v4-cta-actions reveal">
+        <span class="v4-magnet">
+          <a href="https://www.linkedin.com/in/joseromerodesign/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Connect on LinkedIn <span class="arrow">→</span>
+          </a>
+        </span>
+        <span class="v4-magnet">
+          <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+            Send an email <span class="arrow">→</span>
+          </a>
+        </span>
+      </div>
+    </section>
+
   </main>
 
   <footer class="v4-footer" role="contentinfo">
@@ -438,462 +468,44 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=19" defer></script>
   <script>
-  (function () {
-    'use strict';
-
-    var STRINGS = {
-      snapshot: function (date) { return 'Snapshot generated ' + date + '. Not a live database — read why on the <a href="/thinking/beco-knowledge-graph/">BECO Knowledge Graph</a> page.'; },
-      home: 'All domains',
-      domainsCount: function (n) { return n + (n === 1 ? ' domain' : ' domains'); },
-      topicsCount: function (n) { return n + (n === 1 ? ' topic' : ' topics'); },
-      biasesCount: function (n) { return n + (n === 1 ? ' entry' : ' entries'); },
-      findingsCount: function (n) { return n + (n === 1 ? ' finding' : ' findings'); },
-      applicationsCount: function (n) { return n + (n === 1 ? ' example' : ' examples'); },
-      levelLabel: { domain: 'Domains', topic: 'Topics', bias: 'Named concepts', finding: 'Findings without a named concept yet' },
-      kindLabel: { bias: 'Bias', heuristic: 'Heuristic', law: 'Law', effect: 'Effect', principle: 'Principle', fallacy: 'Fallacy', illusion: 'Illusion', concept: 'Concept' },
-      relatedGraphTitle: 'How this connects',
-      noRelated: 'No related concepts recorded yet.',
-      findingSourceLabel: 'Source',
-      loading: 'Loading the graph…',
-      loadError: 'Could not load this entry — try again in a moment.',
-      noResults: function (q) { return 'No matches for “' + q + '”.'; },
-      findingsTitle: 'Backing findings',
-      applicationsTitle: 'Real-world examples',
-      relatedTitle: 'Related',
+    // Wording for /assets/js/beco-explorer.js. Arrays are indexed by node type, centre outward.
+    window.BGX_STRINGS = {
+      stats: (c, f, s, a) => `${c} concepts · ${f} findings · ${s} sources · ${a} authors`,
+      home: 'All clusters',
+      intro: 'Every concept in BECO, from the eight clusters down to the studies behind each one and the people who ran them. Pick a card to move the map there, or pick anything on the map to read its card.',
+      type: ['Cluster', 'Domain', 'Topic', 'Concept', 'Finding', 'Real-world example', 'Source', 'Author'],
+      typeKey: ['cluster', 'domain', 'topic', 'concept', 'finding', 'app', 'source', 'author'],
+      kind: { bias: 'Bias', heuristic: 'Heuristic', law: 'Law', effect: 'Effect', principle: 'Principle', fallacy: 'Fallacy', illusion: 'Illusion', concept: 'Concept' },
+      grade: { v: 'Verified', p: 'Partially backed', n: 'No rigorous backing found' },
+      gradeNote: {
+        v: 'Concepts the research supports, each backed by at least one solid study.',
+        p: 'Concepts with some support, but with caveats worth knowing before you lean on them.',
+        n: 'Concepts that get cited a lot, where no rigorous backing has turned up yet.',
+      },
+      myth: { moderate: 'Sometimes repeated as a myth', high: 'Often repeated as a myth' },
+      mythShort: 'myth risk',
+      replication: { replicated: 'Replicated', disputed: 'Replication disputed', undetermined: 'Replication not yet established', not_applicable: 'Not a replication question' },
+      ethics: { user_beneficial: 'Works in the user’s favour', mixed: 'Mixed for the user', manipulative_risk: 'Risk of manipulation', unclear: 'Effect on the user unclear' },
+      concepts: (n) => `${n} ${n === 1 ? 'concept' : 'concepts'}`,
+      barLabel: (v, p, n) => `${v} verified, ${p} partially backed, ${n} with no rigorous backing`,
+      more: (n) => `and ${n} more`,
+      aliases: (list) => `Also known as ${list}`,
+      loading: 'Loading…',
+      loadError: 'This didn’t load. Try again in a moment.',
+      noResults: 'Nothing by that name',
       noFindings: 'No findings recorded yet.',
-      noApplications: 'No real-world examples recorded yet.',
-      backingLabel: { verified: 'Verified', partial: 'Partially backed', no_rigorous_backing_found: 'No rigorous backing found' },
-      mythLabel: { moderate: 'Moderate myth risk', high: 'High myth risk' },
+      h: {
+        clusters: 'Clusters', concepts: 'Concepts', loose: 'Findings not yet tied to a concept',
+        children: ['Domains', 'Topics', 'Concepts'],
+        related: 'Related concepts', topics: 'Topics', about: 'About', source: 'Source',
+        supports: 'Evidence for', authors: 'Authors', sources: 'Sources',
+        findings: 'The evidence', examples: 'Real-world examples', byGrade: 'Concepts by evidence',
+      },
+      zoomHint: (mac) => `Pinch or ${mac ? '⌘' : 'Ctrl'} + scroll to zoom`,
     };
-
-    var DATA_BASE = '/assets/data/beco-explorer/';
-    var tree = null;
-    var searchIndex = [];
-    var path = []; // array of {tier, id, name}
-
-    var stageEl = document.getElementById('bgxStage');
-    var crumbEl = document.getElementById('bgxBreadcrumb');
-    var noteEl = document.getElementById('bgxSnapshotNote');
-    var searchInput = document.getElementById('bgxSearchInput');
-    var searchResults = document.getElementById('bgxSearchResults');
-
-    function escapeHtml(s) {
-      return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
-        return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
-      });
-    }
-
-    function backingTagClass(status) {
-      if (status === 'verified') return 'bgx-tag--verified';
-      if (status === 'partial') return 'bgx-tag--partial';
-      return 'bgx-tag--flagged';
-    }
-
-    function findNode(id, tier) {
-      for (var di = 0; di < tree.domains.length; di++) {
-        var d = tree.domains[di];
-        if (tier === 'domain' && d.id === id) return d;
-        for (var ti = 0; ti < d.topics.length; ti++) {
-          var t = d.topics[ti];
-          if (tier === 'topic' && t.id === id) return t;
-          if (tier === 'finding') {
-            for (var fi = 0; fi < (t.standalone_findings || []).length; fi++) {
-              if (t.standalone_findings[fi].id === id) return t.standalone_findings[fi];
-            }
-          }
-        }
-      }
-      return null;
-    }
-
-    function buildSearchIndex() {
-      var idx = [];
-      tree.domains.forEach(function (d) {
-        d.topics.forEach(function (t) {
-          idx.push({ type: 'topic', id: t.id, name: t.name, path: [d] });
-          t.biases.forEach(function (b) {
-            idx.push({ type: 'bias', id: b.id, name: b.name, path: [d, t], backing_status: b.backing_status, kind: b.kind });
-          });
-        });
-      });
-      return idx;
-    }
-
-    /* ── routing ─────────────────────────────────── */
-    function pathToHash(p) {
-      return '#' + p.map(function (seg) { return seg.tier + '/' + seg.id; }).join('/');
-    }
-    function hashToPath(hash) {
-      var parts = hash.replace(/^#\/?/, '').split('/').filter(Boolean);
-      var segs = [];
-      for (var i = 0; i < parts.length; i += 2) {
-        segs.push({ tier: parts[i], id: parts[i + 1] });
-      }
-      return segs;
-    }
-
-    // hashToPath only knows tier/id (that's all a URL can hold) — every crumb
-    // label comes from walking the already-loaded tree. Needed on first load
-    // and on browser back/forward, since neither goes through navigateTo's
-    // in-memory path (which already carries names from the click that built it).
-    function resolvePathNames(rawPath) {
-      var resolved = [];
-      var topic = null;
-      rawPath.forEach(function (seg) {
-        if (seg.tier === 'domain') {
-          var domain = findNode(seg.id, 'domain');
-          resolved.push({ tier: 'domain', id: seg.id, name: domain ? domain.name : seg.id });
-        } else if (seg.tier === 'topic') {
-          topic = findNode(seg.id, 'topic');
-          resolved.push({ tier: 'topic', id: seg.id, name: topic ? topic.name : seg.id });
-        } else if (seg.tier === 'bias') {
-          var bias = topic && (topic.biases || []).filter(function (b) { return b.id === seg.id; })[0];
-          resolved.push({ tier: 'bias', id: seg.id, name: bias ? bias.name : seg.id });
-        } else if (seg.tier === 'finding') {
-          var finding = findNode(seg.id, 'finding');
-          resolved.push({ tier: 'finding', id: seg.id, name: finding ? truncate(finding.description, 90) : seg.id });
-        }
-      });
-      return resolved;
-    }
-
-    function navigateTo(newPath, push) {
-      path = newPath;
-      render();
-      var hash = pathToHash(path);
-      if (push !== false) {
-        history.pushState(null, '', hash || '#');
-      }
-      window.scrollTo({ top: crumbEl.offsetTop - 100, behavior: 'smooth' });
-    }
-
-    /* ── breadcrumb ──────────────────────────────── */
-    function renderBreadcrumb() {
-      var html = '<button type="button" data-idx="-1">' + STRINGS.home + '</button>';
-      path.forEach(function (seg, i) {
-        html += '<span class="sep">/</span>';
-        if (i === path.length - 1) {
-          html += '<span class="current">' + escapeHtml(seg.name) + '</span>';
-        } else {
-          html += '<button type="button" data-idx="' + i + '">' + escapeHtml(seg.name) + '</button>';
-        }
-      });
-      crumbEl.innerHTML = html;
-    }
-
-    crumbEl.addEventListener('click', function (e) {
-      var btn = e.target.closest('button[data-idx]');
-      if (!btn) return;
-      var idx = parseInt(btn.getAttribute('data-idx'), 10);
-      navigateTo(idx === -1 ? [] : path.slice(0, idx + 1));
-    });
-
-    function truncate(s, n) {
-      s = s || '';
-      return s.length > n ? s.slice(0, n).replace(/\s+\S*$/, '') + '…' : s;
-    }
-
-    function replicationTagClass(status) {
-      if (status === 'replicated') return 'bgx-tag--verified';
-      if (status === 'disputed') return 'bgx-tag--risk';
-      return 'bgx-tag--flagged';
-    }
-
-    /* ── tile grid rendering ─────────────────────── */
-    function tileHtml(tier, node, weight, maxWeight) {
-      var grow = 1 + Math.round((weight / Math.max(maxWeight, 1)) * 4);
-      var metaHtml = '';
-      var nameText = node.name;
-      var desc = node.description ? '<p class="bgx-tile-desc">' + escapeHtml(node.description) + '</p>' : '';
-      if (tier === 'domain') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.topicsCount(node.topics.length) + '</div>';
-      else if (tier === 'topic') metaHtml = '<div class="bgx-tile-meta">' + STRINGS.biasesCount(node.biases.length + (node.standalone_findings || []).length) + '</div>';
-      else if (tier === 'bias') {
-        var tags = '<span class="bgx-tag bgx-tag--kind">' + escapeHtml(STRINGS.kindLabel[node.kind] || STRINGS.kindLabel.concept) + '</span>' +
-          '<span class="bgx-tag ' + backingTagClass(node.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[node.backing_status] || node.backing_status) + '</span>';
-        if (node.myth_risk === 'moderate' || node.myth_risk === 'high') {
-          tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[node.myth_risk]) + '</span>';
-        }
-        metaHtml = '<div class="bgx-tile-tags">' + tags + '</div>';
-      } else if (tier === 'finding') {
-        nameText = truncate(node.description, 90);
-        desc = node.source_title ? '<p class="bgx-tile-desc">' + escapeHtml(node.source_title) + '</p>' : '';
-        metaHtml = '<div class="bgx-tile-tags"><span class="bgx-tag ' + replicationTagClass(node.replication_status) + '">' + escapeHtml(node.replication_status || 'undetermined') + '</span></div>';
-      }
-      return '<button type="button" class="bgx-tile" data-tier="' + tier + '" data-id="' + node.id + '" data-name="' + escapeHtml(nameText) + '" style="flex-grow:' + grow + '">' +
-        '<span class="bgx-tile-name">' + escapeHtml(nameText) + '</span>' + desc + metaHtml + '</button>';
-    }
-
-    function tileGridHtml(tier, nodes, weightFn) {
-      if (!nodes.length) return '';
-      var maxWeight = Math.max.apply(null, nodes.map(weightFn));
-      return '<div class="bgx-tile-grid">' +
-        nodes.map(function (n) { return tileHtml(tier, n, weightFn(n), maxWeight); }).join('') +
-        '</div>';
-    }
-
-    function renderTiles(tier, nodes, weightFn) {
-      var levelHtml = '<p class="bgx-level-label">' + STRINGS.levelLabel[tier] + '</p>';
-      if (!nodes.length) {
-        stageEl.innerHTML = levelHtml + '<p class="bgx-state-msg">' + STRINGS.noResults('') + '</p>';
-        return;
-      }
-      stageEl.innerHTML = levelHtml + tileGridHtml(tier, nodes, weightFn);
-    }
-
-    function renderTopicContents(topic) {
-      var biases = topic.biases || [];
-      var findings = topic.standalone_findings || [];
-      if (!biases.length && !findings.length) {
-        stageEl.innerHTML = '<p class="bgx-level-label">' + STRINGS.levelLabel.bias + '</p>' +
-          '<p class="bgx-state-msg">' + STRINGS.noResults('') + '</p>';
-        return;
-      }
-      var html = '';
-      if (biases.length) {
-        html += '<p class="bgx-level-label">' + STRINGS.levelLabel.bias + '</p>' +
-          tileGridHtml('bias', biases, function () { return 1; });
-      }
-      if (findings.length) {
-        html += '<p class="bgx-level-label" style="margin-top: var(--sp-8);">' + STRINGS.levelLabel.finding + '</p>' +
-          tileGridHtml('finding', findings, function () { return 1; });
-      }
-      stageEl.innerHTML = html;
-    }
-
-    /* ── ego-network graph (bias detail) ─────────── */
-    function egoNodeColor(status) {
-      if (status === 'verified') return 'var(--teal)';
-      if (status === 'partial') return 'var(--bgx-partial)';
-      return 'var(--border-strong)';
-    }
-
-    function buildEgoGraphSvg(center, related) {
-      var n = related.length;
-      var size = 560;
-      var cx = size / 2, cy = size * 0.44;
-      var radius = Math.min(220, 80 + n * 7);
-      var centerR = 30, nodeR = 20;
-      var nodes = related.map(function (r, i) {
-        var angle = (i / n) * Math.PI * 2 - Math.PI / 2;
-        return { r: r, x: cx + radius * Math.cos(angle), y: cy + radius * Math.sin(angle) };
-      });
-      var edges = nodes.map(function (nd) {
-        return '<line x1="' + cx + '" y1="' + cy + '" x2="' + nd.x + '" y2="' + nd.y + '" stroke="var(--border-default)" stroke-width="1.5" />';
-      }).join('');
-      var nodeEls = nodes.map(function (nd) {
-        var color = egoNodeColor(nd.r.backing_status);
-        return '<g class="bgx-ego-node" data-related-id="' + escapeHtml(nd.r.id) + '" data-related-name="' + escapeHtml(nd.r.name) + '" tabindex="0" role="button" aria-label="' + escapeHtml(nd.r.name) + '">' +
-          '<title>' + escapeHtml(nd.r.name) + '</title>' +
-          '<circle cx="' + nd.x + '" cy="' + nd.y + '" r="' + nodeR + '" fill="var(--bg-surface)" stroke="' + color + '" stroke-width="2" />' +
-          '<text x="' + nd.x + '" y="' + (nd.y + nodeR + 16) + '" text-anchor="middle" font-family="var(--font-body)" font-size="11" fill="var(--text-secondary)">' + escapeHtml(truncate(nd.r.name, 20)) + '</text>' +
-          '</g>';
-      }).join('');
-      var centerColor = egoNodeColor(center.backing_status);
-      var centerEl = '<circle cx="' + cx + '" cy="' + cy + '" r="' + centerR + '" fill="' + centerColor + '" fill-opacity="0.16" stroke="' + centerColor + '" stroke-width="2.5" />' +
-        '<text x="' + cx + '" y="' + (cy - centerR - 12) + '" text-anchor="middle" font-family="var(--font-display)" font-weight="600" font-size="13" fill="var(--text-primary)">' + escapeHtml(truncate(center.name, 26)) + '</text>';
-      return '<svg viewBox="0 0 ' + size + ' ' + (size * 0.86) + '" role="img" aria-label="Concepts related to ' + escapeHtml(center.name) + '" style="width:100%;max-width:560px;height:auto;display:block;margin-inline:auto;overflow:visible;">' +
-        '<g style="cursor:pointer;">' + edges + nodeEls + '</g>' + centerEl + '</svg>';
-    }
-
-    function wireEgoGraph(container, onSelect) {
-      container.querySelectorAll('[data-related-id]').forEach(function (node) {
-        var go = function () { onSelect(node.getAttribute('data-related-id'), node.getAttribute('data-related-name')); };
-        node.addEventListener('click', go);
-        node.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(); } });
-      });
-    }
-
-    /* ── detail view ─────────────────────────────── */
-    function renderBiasDetail(summary) {
-      stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loading + '</p>';
-      fetch(DATA_BASE + 'biases/' + summary.id + '.json')
-        .then(function (r) { if (!r.ok) throw new Error('not ok'); return r.json(); })
-        .then(function (b) {
-          var tags = '<span class="bgx-tag bgx-tag--kind">' + escapeHtml(STRINGS.kindLabel[b.kind] || STRINGS.kindLabel.concept) + '</span>' +
-            '<span class="bgx-tag ' + backingTagClass(b.backing_status) + '">' + escapeHtml(STRINGS.backingLabel[b.backing_status] || b.backing_status) + '</span>';
-          if (b.myth_risk === 'moderate' || b.myth_risk === 'high') {
-            tags += '<span class="bgx-tag bgx-tag--risk">' + escapeHtml(STRINGS.mythLabel[b.myth_risk]) + '</span>';
-          }
-          var aliases = (b.aliases && b.aliases.length) ? 'Also known as: ' + b.aliases.map(escapeHtml).join(', ') : '';
-
-          var findingsHtml = (b.findings || []).length ? b.findings.map(function (f) {
-            var authors = (f.authors || []).filter(Boolean).join(', ');
-            var cite = [authors, f.source_year].filter(Boolean).join(', ');
-            var venue = f.source_venue ? ' — ' + escapeHtml(f.source_venue) : '';
-            var link = f.source_url ? '<a href="' + escapeHtml(f.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(f.source_title || 'Source') + '</a>' : escapeHtml(f.source_title || '');
-            var repl = f.replication_status ? ' &middot; ' + escapeHtml(f.replication_status) : '';
-            return '<div class="bgx-finding"><p class="bgx-finding-desc">' + escapeHtml(f.description) + '</p>' +
-              '<p class="bgx-finding-source">' + link + venue + (cite ? ' &middot; ' + escapeHtml(cite) : '') + repl + '</p></div>';
-          }).join('') : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noFindings + '</p>';
-
-          var appsHtml = (b.applications || []).length ? b.applications.map(function (a) {
-            var link = a.source_url ? '<a href="' + escapeHtml(a.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(a.title) + '</a>' : escapeHtml(a.title);
-            var meta = [a.industry_context, a.provenance, a.date_observed].filter(Boolean).map(escapeHtml).join(' &middot; ');
-            var ethics = a.ethical_note ? '<p class="bgx-application-ethics">' + escapeHtml(a.ethical_note) + '</p>' : '';
-            return '<div class="bgx-application"><p class="bgx-application-desc">' + link + '</p>' +
-              '<p class="bgx-application-meta">' + escapeHtml(a.description || '') + '</p>' +
-              (meta ? '<p class="bgx-application-meta">' + meta + '</p>' : '') + ethics + '</div>';
-          }).join('') : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noApplications + '</p>';
-
-          var relatedHtml = (b.related || []).length
-            ? buildEgoGraphSvg({ name: b.name, backing_status: b.backing_status }, b.related)
-            : '<p class="bgx-state-msg" style="padding:var(--sp-4) 0;">' + STRINGS.noRelated + '</p>';
-
-          stageEl.innerHTML =
-            '<div class="bgx-detail">' +
-              '<div class="bgx-detail-head">' +
-                '<h2 class="bgx-detail-title">' + escapeHtml(b.name) + '</h2>' +
-                (aliases ? '<p class="bgx-detail-aliases">' + aliases + '</p>' : '') +
-                '<div class="bgx-detail-tags">' + tags + '</div>' +
-              '</div>' +
-              '<p class="bgx-detail-desc">' + escapeHtml(b.description) + '</p>' +
-              (b.design_relevance_note ? '<p class="bgx-detail-note">' + escapeHtml(b.design_relevance_note) + '</p>' : '') +
-              (b.myth_risk_note ? '<p class="bgx-detail-note">' + escapeHtml(b.myth_risk_note) + '</p>' : '') +
-              '<h3 class="bgx-section-title">' + STRINGS.findingsTitle + '</h3>' + findingsHtml +
-              '<h3 class="bgx-section-title">' + STRINGS.applicationsTitle + '</h3>' + appsHtml +
-              '<h3 class="bgx-section-title">' + STRINGS.relatedGraphTitle + '</h3>' + relatedHtml +
-            '</div>';
-
-          wireEgoGraph(stageEl, jumpToBias);
-        })
-        .catch(function () {
-          stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loadError + '</p>';
-        });
-    }
-
-    function renderFindingDetail(f) {
-      var authors = (f.authors || []).filter(Boolean).join(', ');
-      var cite = [authors, f.source_year].filter(Boolean).join(', ');
-      var venue = f.source_venue ? ' — ' + escapeHtml(f.source_venue) : '';
-      var link = f.source_url ? '<a href="' + escapeHtml(f.source_url) + '" target="_blank" rel="noopener noreferrer">' + escapeHtml(f.source_title || STRINGS.findingSourceLabel) + '</a>' : escapeHtml(f.source_title || '');
-      var repl = f.replication_status ? '<span class="bgx-tag ' + replicationTagClass(f.replication_status) + '">' + escapeHtml(f.replication_status) + '</span>' : '';
-      stageEl.innerHTML =
-        '<div class="bgx-detail">' +
-          '<div class="bgx-detail-head">' +
-            '<h2 class="bgx-detail-title">' + escapeHtml(truncate(f.description, 140)) + '</h2>' +
-            '<div class="bgx-detail-tags">' + repl + '</div>' +
-          '</div>' +
-          '<p class="bgx-detail-desc">' + escapeHtml(f.description) + '</p>' +
-          '<p class="bgx-finding-source">' + link + venue + (cite ? ' &middot; ' + escapeHtml(cite) : '') + '</p>' +
-        '</div>';
-    }
-
-    function jumpToBias(id, name) {
-      // find the bias's full path in the tree for a correct breadcrumb
-      for (var di = 0; di < tree.domains.length; di++) {
-        var d = tree.domains[di];
-        for (var ti = 0; ti < d.topics.length; ti++) {
-          var t = d.topics[ti];
-          for (var bi = 0; bi < t.biases.length; bi++) {
-            if (t.biases[bi].id === id) {
-              navigateTo([
-                { tier: 'domain', id: d.id, name: d.name },
-                { tier: 'topic', id: t.id, name: t.name },
-                { tier: 'bias', id: id, name: name },
-              ]);
-              return;
-            }
-          }
-        }
-      }
-    }
-
-    /* ── main render dispatch ────────────────────── */
-    function render() {
-      renderBreadcrumb();
-      if (path.length === 0) {
-        renderTiles('domain', tree.domains, function (d) { return d.topics.length; });
-        return;
-      }
-      var last = path[path.length - 1];
-      if (last.tier === 'domain') {
-        var domain = findNode(last.id, 'domain');
-        if (!domain) return renderTiles('domain', tree.domains, function (d) { return d.topics.length; });
-        renderTiles('topic', domain.topics, function (t) { return t.biases.length + (t.standalone_findings || []).length; });
-      } else if (last.tier === 'topic') {
-        var topic = findNode(last.id, 'topic');
-        if (!topic) return;
-        renderTopicContents(topic);
-      } else if (last.tier === 'bias') {
-        renderBiasDetail(last);
-      } else if (last.tier === 'finding') {
-        var finding = findNode(last.id, 'finding');
-        if (!finding) return;
-        renderFindingDetail(finding);
-      }
-    }
-
-    stageEl.addEventListener('click', function (e) {
-      var tile = e.target.closest('.bgx-tile');
-      if (!tile) return;
-      var tier = tile.getAttribute('data-tier');
-      var id = tile.getAttribute('data-id');
-      var name = tile.getAttribute('data-name');
-      navigateTo(path.concat([{ tier: tier, id: id, name: name }]));
-    });
-
-    /* ── search ──────────────────────────────────── */
-    function renderSearchResults(query) {
-      if (!query) { searchResults.innerHTML = ''; return; }
-      var q = query.toLowerCase();
-      var matches = searchIndex.filter(function (item) {
-        return item.name.toLowerCase().indexOf(q) !== -1;
-      }).slice(0, 12);
-      if (!matches.length) {
-        searchResults.innerHTML = '<div class="bgx-search-result">' + STRINGS.noResults(escapeHtml(query)) + '</div>';
-        return;
-      }
-      searchResults.innerHTML = matches.map(function (item, i) {
-        var breadcrumbPath = item.path.map(function (n) { return n.name; }).join(' / ');
-        return '<button type="button" class="bgx-search-result" data-idx="' + i + '">' +
-          '<span>' + escapeHtml(item.name) + '</span><span class="path">' + escapeHtml(breadcrumbPath) + '</span></button>';
-      }).join('');
-      searchResults.querySelectorAll('[data-idx]').forEach(function (btn, i) {
-        btn.addEventListener('click', function () {
-          var item = matches[i];
-          searchInput.value = '';
-          searchResults.innerHTML = '';
-          if (item.type === 'bias') {
-            jumpToBias(item.id, item.name);
-          } else {
-            var d = item.path[0];
-            navigateTo([
-              { tier: 'domain', id: d.id, name: d.name },
-              { tier: 'topic', id: item.id, name: item.name },
-            ]);
-          }
-        });
-      });
-    }
-
-    searchInput.addEventListener('input', function () { renderSearchResults(searchInput.value.trim()); });
-    document.addEventListener('click', function (e) {
-      if (!e.target.closest('.bgx-search-wrap')) searchResults.innerHTML = '';
-    });
-
-    /* ── boot ────────────────────────────────────── */
-    fetch(DATA_BASE + 'tree.json')
-      .then(function (r) { return r.json(); })
-      .then(function (data) {
-        tree = data;
-        searchIndex = buildSearchIndex();
-        noteEl.innerHTML = STRINGS.snapshot(tree.generated_at);
-        path = resolvePathNames(hashToPath(window.location.hash));
-        render();
-      })
-      .catch(function () {
-        stageEl.innerHTML = '<p class="bgx-state-msg">' + STRINGS.loadError + '</p>';
-      });
-
-    window.addEventListener('popstate', function () {
-      if (!tree) return;
-      path = resolvePathNames(hashToPath(window.location.hash));
-      render();
-    });
-  })();
   </script>
-
+  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/beco-explorer.js?v=1" defer></script>
 </body>
 </html>
