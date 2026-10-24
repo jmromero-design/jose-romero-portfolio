@@ -63,7 +63,7 @@
   }
   </script>
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=34">
+  <link rel="stylesheet" href="/assets/css/main.css?v=35">
   <link rel="icon" href="/favicon.ico?v=2" sizes="any">
   <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
@@ -411,40 +411,13 @@
     }
 
 
-    /* ═══ 3. CLIENT MARQUEE — full bleed, seamless ═══ */
+    /* ═══ 3. CLIENTS — rotating logo grid (.logo-cycle in main.css) ═══ */
 
     .v4-marquee-section {
       padding-block: var(--sp-16);
       border-bottom: 1px solid var(--border-default);
       overflow: hidden;
     }
-    .v4-marquee {
-      display: flex;
-      width: max-content;
-      animation: v4Marquee 30s linear infinite;
-    }
-    .v4-marquee:hover { animation-play-state: paused; }
-    @keyframes v4Marquee { to { transform: translateX(-50%); } }
-
-    /* Two identical sets. Each set carries its own trailing gap
-       (padding-right = the inter-logo gap), so setWidth is constant
-       and translateX(-50%) lands exactly on the seam — no jump. */
-    .v4-marquee-set {
-      display: flex;
-      align-items: center;
-      gap: clamp(var(--sp-20), 9vw, var(--sp-40));
-      padding-right: clamp(var(--sp-20), 9vw, var(--sp-40));
-      flex-shrink: 0;
-    }
-    .v4-marquee-set img {
-      height: clamp(34px, 4vw, 52px);
-      width: auto;
-      opacity: 0.5;
-      filter: grayscale(1) brightness(1.6);
-      transition: opacity var(--ease-base), filter var(--ease-base);
-    }
-    [data-theme="light"] .v4-marquee-set img { filter: grayscale(1) brightness(0.4); }
-    .v4-marquee-set img:hover { opacity: 1; filter: none; }
 
     .v4-marquee-note {
       margin-top: var(--sp-12);
@@ -1260,8 +1233,6 @@
       .v4-line { animation-duration: 0.01ms; animation-delay: 0ms; }
       .v4-hero-rail, .v4-hero-illo { animation-duration: 0.01ms; animation-delay: 0ms; }
       .v4-scroll-cue::after { animation: none; }
-      .v4-marquee { animation: none; flex-wrap: wrap; width: auto; }
-      .v4-marquee-set:nth-child(2) { display: none; }
       .v4-r { opacity: 1; transform: none; filter: none; transition: none; }
       .v4-preview { display: none; }
     }
@@ -1502,21 +1473,18 @@
 
     <!-- ═══ 3. CLIENT MARQUEE ═══ -->
     <section class="v4-marquee-section" aria-label="Clients">
-      <div class="v4-marquee" aria-hidden="true">
-        <div class="v4-marquee-set">
-          <img src="/assets/images/ikea-logo.svg" alt="">
-          <img src="/assets/images/santander-logo.svg" alt="">
-          <img src="/assets/images/melia-logo.svg" alt="">
-          <img src="/assets/images/mapfre-logo.svg" alt="">
-          <img src="/assets/images/iqos-logo.svg" alt="">
+      <div class="v4-bleed">
+        <div class="logo-cycle" data-logo-cycle aria-hidden="true">
+          <img class="lc-logo" src="/assets/images/ikea-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/santander-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/melia-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/mapfre-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/iqos-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/axa-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/bnp-paribas-logo.svg" alt="" width="354" height="185" decoding="async">
+          <img class="lc-logo" src="/assets/images/bankinter-logo.svg" alt="" width="354" height="185" decoding="async">
         </div>
-        <div class="v4-marquee-set">
-          <img src="/assets/images/ikea-logo.svg" alt="">
-          <img src="/assets/images/santander-logo.svg" alt="">
-          <img src="/assets/images/melia-logo.svg" alt="">
-          <img src="/assets/images/mapfre-logo.svg" alt="">
-          <img src="/assets/images/iqos-logo.svg" alt="">
-        </div>
+        <ul class="sr-only"><li>IKEA</li><li>Santander</li><li>Meliá Hotels</li><li>Mapfre</li><li>IQOS</li><li>AXA</li><li>BNP Paribas</li><li>Bankinter</li></ul>
       </div>
       <div class="v4-marquee-note v4-bleed">
         <p class="v4-r">A selection of clients worked with directly or through agency partnerships. Most engagements are covered by NDA, though <strong>methodology and decisions are always mine to share.</strong></p>
@@ -2029,7 +1997,7 @@
     </div>
   </footer>
 
-  <script src="/assets/js/main.js?v=18" defer></script>
+  <script src="/assets/js/main.js?v=19" defer></script>
 
   <script>
     // v4 interaction layer — scroll reveals for this page's .v4-r elements.

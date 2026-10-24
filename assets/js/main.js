@@ -441,6 +441,72 @@
   })();
 
   /* ----------------------------------------------------------
+     12b. LOGO CYCLE — one slot at a time trades its logo for the one
+     that has waited longest, so no logo ever shows twice. Pauses
+     off-screen and in background tabs; still with reduced motion.
+     ---------------------------------------------------------- */
+  (function logoCycle() {
+    const roots = document.querySelectorAll('[data-logo-cycle]');
+    if (!roots.length || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const EVERY = 2400, SWAP = 900;
+    const breakpoints = ['(max-width: 1100px)', '(max-width: 768px)'].map((q) => window.matchMedia(q));
+
+    roots.forEach((root) => {
+      const logos = Array.from(root.querySelectorAll('.lc-logo'));
+      let slots = [], pool = [], last = -1, timer = null, onScreen = false;
+
+      // The CSS decides how many show at this width; everything else waits.
+      function build() {
+        stop();
+        root.replaceChildren(...logos);
+        logos.forEach((img) => img.classList.remove('is-below', 'is-above'));
+        const shown = logos.filter((img) => getComputedStyle(img).display !== 'none');
+        pool = logos.filter((img) => !shown.includes(img));
+        slots = shown.map((img) => {
+          const slot = document.createElement('div');
+          slot.className = 'lc-slot';
+          root.insertBefore(slot, img);
+          slot.appendChild(img);
+          return slot;
+        });
+        pool.forEach((img) => img.remove());
+        start();
+      }
+
+      function swap() {
+        if (!pool.length || !slots.length) return;
+        let i;
+        do { i = Math.floor(Math.random() * slots.length); } while (slots.length > 1 && i === last);
+        last = i;
+        const slot = slots[i];
+        const out = slot.querySelector('.lc-logo:not(.is-above)');
+        const next = pool.shift();
+        next.classList.add('is-below');
+        slot.appendChild(next);
+        void next.offsetWidth;
+        next.classList.remove('is-below');
+        out.classList.add('is-above');
+        setTimeout(() => {
+          out.remove();
+          out.classList.remove('is-above');
+          pool.push(out);
+        }, SWAP);
+      }
+
+      function start() {
+        if (timer || !onScreen || document.hidden || !pool.length) return;
+        timer = setInterval(swap, EVERY);
+      }
+      function stop() { clearInterval(timer); timer = null; }
+
+      new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; onScreen ? start() : stop(); }).observe(root);
+      document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+      breakpoints.forEach((mq) => mq.addEventListener('change', build));
+      build();
+    });
+  })();
+
+  /* ----------------------------------------------------------
      13. EXPERIENCE SPINE PROGRESS — turns the About page's role
      timeline connector into a real reading-progress fill, not a
      static line. Same reading-line math as the case-study nav
