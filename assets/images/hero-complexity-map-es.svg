@@ -1,11 +1,11 @@
 <svg width="400" height="460" viewBox="0 0 400 460" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g clip-path="url(#clip0_2779_39216)">
-<path d="M142 284C220.424 284 284 220.424 284 142C284 63.5756 220.424 0 142 0C63.5756 0 0 63.5756 0 142C0 220.424 63.5756 284 142 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
-<path d="M258 284C336.424 284 400 220.424 400 142C400 63.5756 336.424 0 258 0C179.576 0 116 63.5756 116 142C116 220.424 179.576 284 258 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
-<path d="M142 460C220.424 460 284 396.424 284 318C284 239.576 220.424 176 142 176C63.5756 176 0 239.576 0 318C0 396.424 63.5756 460 142 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
-<path d="M258 460C336.424 460 400 396.424 400 318C400 239.576 336.424 176 258 176C179.576 176 116 239.576 116 318C116 396.424 179.576 460 258 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#E28B53" stroke-opacity="0.2" stroke-width="0.8"/>
+<path d="M142 284C220.424 284 284 220.424 284 142C284 63.5756 220.424 0 142 0C63.5756 0 0 63.5756 0 142C0 220.424 63.5756 284 142 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#EA6674" stroke-opacity="0.2" stroke-width="0.8"/>
+<path d="M258 284C336.424 284 400 220.424 400 142C400 63.5756 336.424 0 258 0C179.576 0 116 63.5756 116 142C116 220.424 179.576 284 258 284Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#EA6674" stroke-opacity="0.2" stroke-width="0.8"/>
+<path d="M142 460C220.424 460 284 396.424 284 318C284 239.576 220.424 176 142 176C63.5756 176 0 239.576 0 318C0 396.424 63.5756 460 142 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#EA6674" stroke-opacity="0.2" stroke-width="0.8"/>
+<path d="M258 460C336.424 460 400 396.424 400 318C400 239.576 336.424 176 258 176C179.576 176 116 239.576 116 318C116 396.424 179.576 460 258 460Z" fill="#3A8A8A" fill-opacity="0.03" stroke="#EA6674" stroke-opacity="0.2" stroke-width="0.8"/>
 <path d="M200 370C277.32 370 340 307.32 340 230C340 152.68 277.32 90 200 90C122.68 90 60 152.68 60 230C60 307.32 122.68 370 200 370Z" fill="url(#paint1_radial_2779_39216)"/>
-<path opacity="0.4" d="M200 302C239.764 302 272 269.764 272 230C272 190.235 239.764 158 200 158C160.235 158 128 190.235 128 230C128 269.764 160.235 302 200 302Z" stroke="#C17F3A" stroke-width="0.7" stroke-dasharray="3 8"/>
+<path opacity="0.4" d="M200 302C239.764 302 272 269.764 272 230C272 190.235 239.764 158 200 158C160.235 158 128 190.235 128 230C128 269.764 160.235 302 200 302Z" stroke="#BC2E3D" stroke-width="0.7" stroke-dasharray="3 8"/>
 <path opacity="0.3" d="M200 326C253.019 326 296 283.019 296 230C296 176.981 253.019 134 200 134C146.981 134 104 176.981 104 230C104 283.019 146.981 326 200 326Z" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 9"/>
 <path opacity="0.5" d="M200 378C281.738 378 348 311.738 348 230C348 148.262 281.738 82 200 82C118.262 82 52 148.262 52 230C52 311.738 118.262 378 200 378Z" stroke="#3A8A8A" stroke-width="0.4" stroke-dasharray="2 11"/>
 <path opacity="0.1" d="M108 326H292" stroke="#3A8A8A" stroke-width="0.5" stroke-dasharray="2 6"/>
@@ -108,10 +108,10 @@
 <path opacity="0.78" d="M108 332C111.314 332 114 329.314 114 326C114 322.686 111.314 320 108 320C104.686 320 102 322.686 102 326C102 329.314 104.686 332 108 332Z" fill="#3A8A8A"/>
 <path d="M292 350C305.255 350 316 339.255 316 326C316 312.745 305.255 302 292 302C278.745 302 268 312.745 268 326C268 339.255 278.745 350 292 350Z" fill="#1C2424" stroke="#2C4040"/>
 <path opacity="0.78" d="M292 332C295.314 332 298 329.314 298 326C298 322.686 295.314 320 292 320C288.686 320 286 322.686 286 326C286 329.314 288.686 332 292 332Z" fill="#3A8A8A"/>
-<path opacity="0.28" d="M200 281C228.167 281 251 258.167 251 230C251 201.833 228.167 179 200 179C171.833 179 149 201.833 149 230C149 258.167 171.833 281 200 281Z" stroke="#C17F3A" stroke-dasharray="4 7"/>
-<path opacity="0.18" d="M200 273C223.748 273 243 253.748 243 230C243 206.252 223.748 187 200 187C176.252 187 157 206.252 157 230C157 253.748 176.252 273 200 273Z" stroke="#C17F3A" stroke-width="0.6" stroke-dasharray="2 5"/>
-<path d="M200 266C219.882 266 236 249.882 236 230C236 210.118 219.882 194 200 194C180.118 194 164 210.118 164 230C164 249.882 180.118 266 200 266Z" fill="#1A1714" stroke="#C17F3A" stroke-width="1.6"/>
-<path d="M200 252C212.15 252 222 242.15 222 230C222 217.85 212.15 208 200 208C187.85 208 178 217.85 178 230C178 242.15 187.85 252 200 252Z" fill="#C17F3A" fill-opacity="0.07"/>
+<path opacity="0.28" d="M200 281C228.167 281 251 258.167 251 230C251 201.833 228.167 179 200 179C171.833 179 149 201.833 149 230C149 258.167 171.833 281 200 281Z" stroke="#BC2E3D" stroke-dasharray="4 7"/>
+<path opacity="0.18" d="M200 273C223.748 273 243 253.748 243 230C243 206.252 223.748 187 200 187C176.252 187 157 206.252 157 230C157 253.748 176.252 273 200 273Z" stroke="#BC2E3D" stroke-width="0.6" stroke-dasharray="2 5"/>
+<path d="M200 266C219.882 266 236 249.882 236 230C236 210.118 219.882 194 200 194C180.118 194 164 210.118 164 230C164 249.882 180.118 266 200 266Z" fill="#1A1714" stroke="#BC2E3D" stroke-width="1.6"/>
+<path d="M200 252C212.15 252 222 242.15 222 230C222 217.85 212.15 208 200 208C187.85 208 178 217.85 178 230C178 242.15 187.85 252 200 252Z" fill="#BC2E3D" fill-opacity="0.07"/>
 <path d="M400 0H0V460H400V0Z" fill="url(#paint0_radial_2779_39216)"/>
 <text x="68" y="116" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.04em">Estrategia</text>
 <text x="150" y="90" fill="#3E4A4A" font-size="7" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.04em">Investigación</text>
@@ -125,7 +125,7 @@
 <text x="292" y="173" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.04em">Usuarios</text>
 <text x="108" y="358" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.04em">Tecnología</text>
 <text x="292" y="360" fill="#3A8A8A" font-size="9" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.04em">Organización</text>
-<text x="200" y="224" fill="#C17F3A" font-size="8" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.06em">Diseño</text>
+<text x="200" y="224" fill="#BC2E3D" font-size="8" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.06em">Diseño</text>
 <text x="200" y="232" fill="#9E8F78" font-size="6" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="middle" letter-spacing="0.08em">genera</text>
 <text x="200" y="242" fill="#E3DBCE" font-size="11" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="italic" font-weight="300" text-anchor="middle" letter-spacing="0.02em">Claridad</text>
 <text x="167" y="166" fill="#89E3E3" font-size="8" font-family="ui-sans-serif,system-ui,-apple-system,sans-serif" font-style="normal" font-weight="400" text-anchor="start" letter-spacing="0.04em">Viabilidad</text>
@@ -140,9 +140,9 @@
 <stop offset="1" stop-color="#090908" stop-opacity="1"/>
 </radialGradient>
 <radialGradient id="paint1_radial_2779_39216" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(200 230) scale(140)">
-<stop stop-color="#C17F3A" stop-opacity="0.28"/>
-<stop offset="0.5" stop-color="#C17F3A" stop-opacity="0.07"/>
-<stop offset="1" stop-color="#C17F3A" stop-opacity="0"/>
+<stop stop-color="#BC2E3D" stop-opacity="0.28"/>
+<stop offset="0.5" stop-color="#BC2E3D" stop-opacity="0.07"/>
+<stop offset="1" stop-color="#BC2E3D" stop-opacity="0"/>
 </radialGradient>
 <clipPath id="clip0_2779_39216">
 <rect width="400" height="460" fill="white"/>

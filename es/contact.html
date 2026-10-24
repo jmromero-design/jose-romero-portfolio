@@ -22,7 +22,7 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/contact/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/contact/">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=32">
+  <link rel="stylesheet" href="/assets/css/main.css?v=33">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -61,8 +61,10 @@
       color: var(--teal);
     }
     .contact-method-value {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
+      font-family: var(--font-display); font-weight: 400;
+      /* scales down on phones so a long address fits; wraps as a last resort */
+      font-size: clamp(var(--text-lg), 5vw, var(--text-2xl));
+      overflow-wrap: anywhere;
       color: var(--text-primary);
     }
     .contact-method-value a { border-bottom: 1px solid var(--border-strong); transition: border-color var(--ease-fast), color var(--ease-fast); }

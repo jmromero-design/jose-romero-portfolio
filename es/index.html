@@ -65,7 +65,7 @@
   <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/">
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=32">
+  <link rel="stylesheet" href="/assets/css/main.css?v=33">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -159,7 +159,9 @@
       object-position: center;
     }
     [data-theme="light"] .v4-hero-illo {
-      filter: invert(1) hue-rotate(160deg) saturate(0.8);
+      /* inverting turns crimson to teal and teal to red; a half-turn of hue
+         sends each back to its own colour */
+      filter: invert(1) hue-rotate(180deg) saturate(0.8);
     }
 
     /* Legibility gradient over the illo, under the type */
@@ -186,8 +188,10 @@
 
     .v4-hero h1 {
       font-family: var(--font-display);
-      font-weight: 300;
-      font-size: clamp(3.2rem, 10.5vw, 10rem);
+      font-weight: 400;
+      /* Bitter runs ~25% wider than the old display face; this keeps the
+         longest hero line clear of the map */
+      font-size: clamp(2.8rem, 8.3vw, 7.9rem);
       line-height: 1.02;
       letter-spacing: -0.015em;
       color: var(--text-primary);
@@ -299,7 +303,7 @@
     }
     .v4-manifest .v4-lead {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(1.5rem, 3.1vw, 2.6rem);
       line-height: 1.45;
       color: var(--text-tertiary);
@@ -321,7 +325,7 @@
       color: var(--text-tertiary);
     }
     .v4-manifest .v4-sub em {
-      font-family: var(--font-display);
+      font-family: var(--font-display); font-weight: 400;
       font-style: italic;
       color: var(--gold);
       font-size: 1.1em;
@@ -378,7 +382,7 @@
     }
     .v4-marquee-note p strong { color: var(--text-secondary); font-weight: 500; }
     .v4-marquee-count {
-      font-family: var(--font-display);
+      font-family: var(--font-display); font-weight: 400;
       font-style: italic;
       font-size: var(--text-2xl);
       color: var(--gold);
@@ -407,7 +411,7 @@
 
     .v4-about > h2 {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(2.4rem, 6vw, 5.5rem);
       line-height: 1.06;
       margin-bottom: clamp(var(--sp-12), 8vh, var(--sp-24));
@@ -496,7 +500,7 @@
       gap: 4px;
     }
     .v4-path-place {
-      font-family: var(--font-display);
+      font-family: var(--font-display); font-weight: 400;
       font-style: italic;
       font-size: var(--text-xl);
       color: var(--text-primary);
@@ -527,7 +531,7 @@
     .st-head .eyebrow { margin-bottom: var(--sp-6); }
     .st-head h2 {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(2.2rem, 4.6vw, 4.4rem);
       text-wrap: balance;
       line-height: 1.06;
@@ -677,7 +681,7 @@
     /* Outcome */
     .st-svg .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 18%, var(--bg-surface)); stroke: var(--gold); stroke-width: 1; }
     .st-svg .st-layer.is-active .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 34%, var(--bg-surface)); }
-    .st-svg .st-cap-label { font-family: var(--font-display); font-style: italic; font-size: 17px; fill: var(--gold); pointer-events: none; }
+    .st-svg .st-cap-label { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 17px; fill: var(--gold); pointer-events: none; }
 
     /* layer groups: build-in uses `translate`, opening uses `transform`,
        so the two never fight over one property */
@@ -746,7 +750,7 @@
     }
     .st-layer-btn:hover { padding-left: var(--sp-3); }
     .st-layer-title { display: flex; flex-direction: column; gap: 2px; }
-    .st-layer-name { font-family: var(--font-display); font-style: italic; font-size: var(--text-xl); color: var(--text-primary); transition: color var(--ease-fast); }
+    .st-layer-name { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: var(--text-xl); color: var(--text-primary); transition: color var(--ease-fast); }
     .st-layer-q { font-size: var(--text-sm); color: var(--text-tertiary); }
     .st-layer-count { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); white-space: nowrap; }
     .st-layer-count.is-lit { color: var(--gold); }
@@ -830,7 +834,7 @@
     .v4-thinking blockquote {
       font-family: var(--font-display);
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(1.6rem, 3vw, 2.6rem);
       line-height: 1.3;
       color: var(--text-primary);
@@ -870,7 +874,7 @@
     .v4-position p {
       font-family: var(--font-display);
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       font-size: var(--text-lg);
       line-height: 1.5;
       color: var(--text-secondary);
@@ -895,7 +899,7 @@
     .bx-copy .eyebrow { margin-bottom: var(--sp-6); }
     .bx-copy h2 {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(2.2rem, 4.6vw, 4.4rem);
       line-height: 1.06;
       text-wrap: balance;
@@ -910,8 +914,8 @@
       margin-bottom: var(--sp-10);
     }
 
-    /* The grade, drawn with the explorer's own tag colours: teal verified,
-       gold partial, a dashed outline for no rigorous backing found. */
+    /* The grade as one scale of evidence, matching the explorer: solid teal
+       verified, paler teal partial, a dashed outline for no rigorous backing. */
     .bx-grade { margin-bottom: var(--sp-10); max-width: 30rem; }
     .bx-bar { display: flex; gap: 3px; height: 10px; margin-bottom: var(--sp-4); }
     .bx-bar span {
@@ -921,16 +925,17 @@
       transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .bx-bar .bx-v { background: var(--teal); transition-delay: 0.2s; }
-    .bx-bar .bx-p { background: var(--gold); transition-delay: 0.35s; }
+    .bx { --bx-partial: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bx-bar .bx-p { background: var(--bx-partial); transition-delay: 0.35s; }
     .bx-bar .bx-n { border: 1px dashed var(--border-strong); transition-delay: 0.5s; }
     .bx-grade.is-in .bx-bar span { transform: none; }
     .bx-legend { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: var(--sp-2) var(--sp-6); }
     .bx-legend li { display: flex; align-items: baseline; gap: var(--sp-2); font-size: var(--text-sm); color: var(--text-tertiary); }
     .bx-legend li::before { content: ''; width: 8px; height: 8px; border-radius: 50%; align-self: center; }
     .bx-legend .bx-v::before { background: var(--teal); }
-    .bx-legend .bx-p::before { background: var(--gold); }
+    .bx-legend .bx-p::before { background: var(--bx-partial); }
     .bx-legend .bx-n::before { border: 1px dashed var(--text-tertiary); }
-    .bx-legend b { font-family: var(--font-display); font-weight: 400; font-size: var(--text-lg); color: var(--text-primary); }
+    .bx-legend b { font-family: var(--font-display); font-weight: 500; font-size: var(--text-lg); color: var(--text-primary); }
 
     .bx-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
 
@@ -980,7 +985,7 @@
       position: absolute;
       left: -0.06em;
       top: -0.12em;
-      font-family: var(--font-display);
+      font-family: var(--font-display); font-weight: 400;
       font-size: clamp(16rem, 34vw, 34rem);
       line-height: 1;
       color: var(--gold);
@@ -998,13 +1003,13 @@
       max-width: 26ch;
       font-family: var(--font-display);
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(1.5rem, 3vw, 2.5rem);
       line-height: 1.45;
       color: var(--text-primary);
     }
     .v4-voice-a blockquote strong {
-      font-weight: 300;
+      font-weight: 400;
       color: var(--gold);
     }
 
@@ -1019,7 +1024,7 @@
       max-width: 30ch;
       font-family: var(--font-display);
       font-style: italic;
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(1.2rem, 2vw, 1.7rem);
       line-height: 1.55;
       color: var(--text-secondary);
@@ -1043,7 +1048,7 @@
       justify-content: flex-end;
     }
     .v4-voices-more a {
-      font-family: var(--font-display);
+      font-family: var(--font-display); font-weight: 400;
       font-style: italic;
       font-size: clamp(var(--text-xl), 2.4vw, var(--text-3xl));
       color: var(--text-secondary);
@@ -1084,7 +1089,7 @@
     .v4-cta .eyebrow { margin-bottom: var(--sp-8); }
     .v4-cta h2 {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(2.4rem, 7vw, 6.5rem);
       line-height: 1.08;
       margin-bottom: var(--sp-8);
@@ -1121,7 +1126,7 @@
     }
     .v4-footer-word {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-style: italic;
       font-size: clamp(2.6rem, 6vw, 5rem);
       line-height: 1;

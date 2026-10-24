@@ -21,10 +21,10 @@ All prose on this site — hero copy, case-study body text, About bio, article b
 /es/work/<slug>/           ES case studies
 /thinking/<slug>/          EN articles
 /es/thinking/<slug>/       ES articles
-assets/css/main.css        All global styles (versioned ?v=17)
-assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=10)
+assets/css/main.css        All global styles (versioned ?v=33)
+assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=18)
 assets/images/work/<slug>/ WebP images per case study
-assets/fonts/              Self-hosted Fraunces + Outfit woff2 files
+assets/fonts/              Self-hosted Bitter (variable, display) + Outfit woff2 files
 Designing the portfolio/   Local working folder — gitignored, not deployed
 ```
 
@@ -36,7 +36,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 31 HTML files.** Current: `main.css?v=17` / `main.js?v=10`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 49 HTML files.** Current: `main.css?v=33` / `main.js?v=18`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -56,17 +56,17 @@ All tokens are CSS custom properties on `:root`. Reference them by name — neve
 | `--text-primary` | `#F2EEE6` | `#1A1917` | Headings, body |
 | `--text-secondary` | `#D4CFC6` | `#2E2B28` | Supporting text |
 | `--text-tertiary` | `#84817D` | `#6B6864` | Labels, metadata |
-| `--gold` | `#E8955A` | `#B85520` | Accent, interactive hover, `<em>` colour |
+| `--gold` | `#EA6674` | `#B42844` | Accent (warm crimson since 2026-10-24; the token keeps its old name), interactive hover, `<em>` colour |
 | `--teal` | `#4BBFB2` | `#1F8A80` | Eyebrow labels, informational tags, links |
 | `--teal-text` | `#66D4C8` | `#0E5750` | Teal text on surfaces (contrast-safe) |
 
-**Colour intent:** gold = brand accent and interactive feedback. Teal = informational and structural. Never swap them.
+**Colour intent:** gold = brand accent and interactive feedback. Teal = informational and structural. Never swap them. The accent leans red, so never use it to mean a *middle* grade or status (it reads as a warning): BECO backing grades are a teal scale (solid teal verified, teal mixed 50% toward `--bg-base` partial, dashed outline none). Red-for-risk (myth-risk tags) is fine.
 
 ### Typography
 
 | Token | Value | Use |
 |-------|-------|-----|
-| `--font-display` | Fraunces (self-hosted) | Headings, nav logo, pull quotes, `.lead` |
+| `--font-display` | Bitter (self-hosted variable slab, 300–500 + italic; replaced Fraunces 2026-10-24) | Headings, nav logo, pull quotes, `.lead`. Runs ~25% wider than Fraunces, so the homepage hero is sized down and EN is split over 4 lines like ES |
 | `--font-body` | Outfit (self-hosted) | All body text, UI labels, tags, eyebrows |
 | `--text-xs` | `0.875rem` | Tags, labels, captions |
 | `--text-sm` | `0.875rem` | Small body |
@@ -253,7 +253,7 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 - **Don't add `<br>` after `<em class="accent-italic">`** — the break goes *before*, not after.
 - **Don't put page-specific rules in main.css** — use a `<style>` block in the page `<head>`.
 - **Don't add global rules to a page `<style>` block** — they won't apply to other pages.
-- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 31 HTML files.
+- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 49 HTML files.
 - **Don't re-add Lucide** — icons are already inlined in `main.js`.
 - **Don't add card numbers** — intentionally removed June 2026.
 - **Don't use `min-width` on SVG diagrams** — all diagrams are mobile-first portrait viewBox.

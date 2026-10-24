@@ -25,7 +25,7 @@
     content="Explora el grafo de conocimiento BECO completo: cada sesgo, heurística, efecto y ley de diseño con nombre, organizado por dominio y tema, hasta los estudios y ejemplos reales que lo respaldan.">
   <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
 
-  <link rel="stylesheet" href="/assets/css/main.css?v=32">
+  <link rel="stylesheet" href="/assets/css/main.css?v=33">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -84,7 +84,7 @@
 
     .bgx-header h1 {
       font-family: var(--font-display);
-      font-weight: 300;
+      font-weight: 400;
       font-size: clamp(2.25rem, 5vw, 3.75rem);
       line-height: 1.05;
       letter-spacing: -0.02em;
@@ -229,7 +229,7 @@
     }
     .bgx-tile-name {
       font-family: var(--font-display);
-      font-weight: 500;
+      font-weight: 600;
       color: var(--text-primary);
       line-height: 1.25;
     }
@@ -270,7 +270,11 @@
       white-space: nowrap;
     }
     .bgx-tag--verified { background: color-mix(in srgb, var(--teal) 14%, transparent); color: var(--teal-text); border: 1px solid color-mix(in srgb, var(--teal) 35%, transparent); }
-    .bgx-tag--partial { background: color-mix(in srgb, var(--gold) 14%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 35%, transparent); }
+    /* Backing grades read as one scale of evidence (solid teal, paler teal,
+       dashed outline) rather than borrowing the brand accent, which now
+       leans red and would make "partial" look like a warning. */
+    :root { --bgx-partial: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgx-tag--partial { background: color-mix(in srgb, var(--teal) 6%, transparent); color: var(--text-secondary); border: 1px solid var(--bgx-partial); }
     .bgx-tag--flagged { background: var(--bg-surface-2); color: var(--text-tertiary); border: 1px dashed var(--border-strong); }
     .bgx-tag--risk { background: color-mix(in srgb, var(--gold) 10%, transparent); color: var(--gold); border: 1px solid color-mix(in srgb, var(--gold) 28%, transparent); }
     .bgx-tag--kind { background: transparent; color: var(--text-secondary); border: 1px solid var(--border-default); }
@@ -288,7 +292,7 @@
     .bgx-detail-head { margin-bottom: var(--sp-8); }
     .bgx-detail-title {
       font-family: var(--font-display);
-      font-weight: 400;
+      font-weight: 500;
       font-size: clamp(1.75rem, 3.5vw, 2.5rem);
       color: var(--text-primary);
       margin-bottom: var(--sp-3);
@@ -661,7 +665,7 @@
     /* ── ego-network graph (bias detail) ─────────── */
     function egoNodeColor(status) {
       if (status === 'verified') return 'var(--teal)';
-      if (status === 'partial') return 'var(--gold)';
+      if (status === 'partial') return 'var(--bgx-partial)';
       return 'var(--border-strong)';
     }
 
