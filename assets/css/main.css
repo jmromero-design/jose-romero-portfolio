@@ -1832,6 +1832,7 @@ strong { font-weight: 500; color: var(--text-primary); }
 .v4-frame img {
   display: block;
   width: 100%;
+  height: auto;
   border-radius: 12px;
 }
 
