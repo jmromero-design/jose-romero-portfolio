@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Imagery treatments — internal demo</title>
-  <link rel="stylesheet" href="/assets/css/main.css?v=36">
+  <link rel="stylesheet" href="/assets/css/main.css?v=37">
+  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
+  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
   <style>
     body { padding: var(--sp-10) 0; }
     .demo-label {
