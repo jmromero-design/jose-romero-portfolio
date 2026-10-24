@@ -255,8 +255,11 @@
         opacity: 0.5;
       }
       .v4-hero-rail { order: 2; }
-      /* a short, early fade: the long desktop entrance held back Speed Index */
-      .v4-hero-illo { animation-duration: 0.7s; animation-delay: 0.15s; }
+      /* a short fade once the headline is up (an earlier start slowed first
+         paint), and no drop shadows: at half opacity they barely show, but
+         they cost a slow phone CPU real time to render */
+      .v4-hero-illo { animation-duration: 0.6s; animation-delay: 0.5s; }
+      .hm :is(.hm-plat, .hm-slab, .hm-mid, .hm-pillar) { filter: none; }
     }
 
     .v4-hero-type {
