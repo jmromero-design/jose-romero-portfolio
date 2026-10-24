@@ -64,10 +64,10 @@
   </script>
 
   <link rel="stylesheet" href="/assets/css/main.css?v=33">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
   <script src="/assets/js/lang-detect.js"></script>
 
   <style>
@@ -1531,7 +1531,7 @@
                 <span class="st-layer-count"></span>
               </button>
               <div class="st-layer-detail" id="st-l5"><div>
-                <p>Everything below is only useful if a team can repeat it. This layer covers the shared rituals, written decisions, and workflows where AI takes the repetitive parts.</p>
+                <p>Everything below is only useful if a team can repeat it. This layer covers the shared rituals, a record of what we've learned about users, and workflows where AI takes the repetitive parts.</p>
                 <div class="st-groups">
                   <div class="st-group"><span class="st-group-name">Team</span><ul class="st-opts">
                     <li data-feeds="o">Ways of working</li>
@@ -1540,6 +1540,7 @@
                   </ul></div>
                   <div class="st-group"><span class="st-group-name">Tooling</span><ul class="st-opts">
                     <li data-feeds="o t" data-short="Docs &amp; handoff">Documentation &amp; handoff</li>
+                    <li data-feeds="u b" data-short="Insight library">Shared insight library</li>
                     <li data-feeds="o t" data-short="AI workflows">AI-assisted workflows</li>
                   </ul></div>
                 </div>
@@ -1624,6 +1625,7 @@
                   </ul></div>
                   <div class="st-group"><span class="st-group-name">Context</span><ul class="st-opts">
                     <li data-feeds="b o" data-short="Stakeholders">Stakeholder interviews</li>
+                    <li data-feeds="o t" data-short="Process mapping">Process &amp; service mapping</li>
                     <li data-feeds="t" data-short="Platform audit">Platform &amp; constraint audit</li>
                   </ul></div>
                   <div class="st-group"><span class="st-group-name">Science</span><ul class="st-opts">
@@ -1645,22 +1647,22 @@
         <div>
           <span class="eyebrow eyebrow--bare v4-r" id="thinking-heading">Thinking</span>
           <blockquote class="v4-r" style="--d: 0.1s;">
-            "Most design decisions are <em>behavioral</em> decisions. Treat them that way."
+            "AI can draw a hundred screens before lunch. <em>Choosing the one worth shipping</em> is still the job."
           </blockquote>
           <a href="/thinking/" class="btn btn-ghost v4-r" style="--d: 0.2s;">Read my approach <span class="arrow">→</span></a>
         </div>
         <div class="v4-positions">
           <div class="v4-position v4-r" style="--d: 0.15s;">
-            <span class="v4-position-topic">Empathy as a strategic tool</span>
-            <p>What people actually do tells you more than what they say. Reading that gap correctly is worth money, not just goodwill.</p>
+            <span class="v4-position-topic">Speed moves the bottleneck</span>
+            <p>When a prototype takes an afternoon instead of a sprint, the slow part becomes knowing what to test. That's where the saved time goes.</p>
           </div>
           <div class="v4-position v4-r" style="--d: 0.25s;">
-            <span class="v4-position-topic">Systems that survive people</span>
-            <p>If a process only works while its author is watching it, that's not a system yet. That's just someone being careful.</p>
+            <span class="v4-position-topic">Models repeat the folklore</span>
+            <p>Ask a model for UX best practice and it returns whatever gets repeated most, myths included. So I keep a graph of what the research actually backs.</p>
           </div>
           <div class="v4-position v4-r" style="--d: 0.35s;">
-            <span class="v4-position-topic">Designing with AI</span>
-            <p>AI can speed up the work all day. Deciding what's worth making in the first place is still mine to do.</p>
+            <span class="v4-position-topic">Workflows the team can keep</span>
+            <p>An AI workflow that only I know how to run leaves when I do. I write each one down so the team can run it without me.</p>
           </div>
         </div>
       </div>
@@ -1672,8 +1674,8 @@
         <div class="bx-copy">
           <span class="eyebrow v4-r">Personal research</span>
           <h2 id="bx-heading" class="v4-r" style="--d: 0.08s;">
-            Most design advice cites a study.<br>
-            <em>I check which ones hold up.</em>
+            Before you cite a bias,<br>
+            <em>see if the research agrees.</em>
           </h2>
           <p class="v4-r" style="--d: 0.14s;">
             BECO is a knowledge graph I'm building from 420 behavioural-science
@@ -2007,6 +2009,12 @@
         });
         layers.push({ ...L, plats });
       }
+
+      // Every pressure needs a tile in every layer, or its route stops short
+      // of the outcome. Flag a gap while editing the panel markup.
+      layers.slice(1).forEach((L, k) => FEEDS.forEach((f) => {
+        if (!L.plats.some((p) => p.feeds.has(f))) console.warn(`How I work: layer ${k + 1} has no tile for "${f}"`);
+      }));
 
       // ── 6: the outcome ──
       // The hero map's centre on a small slab: rings around a single gold

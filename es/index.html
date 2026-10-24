@@ -66,10 +66,10 @@
   <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/">
 
   <link rel="stylesheet" href="/assets/css/main.css?v=33">
-  <link rel="icon" href="/favicon.ico" sizes="any">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
   <script src="/assets/js/lang-detect.js"></script>
 
   <style>
@@ -1534,15 +1534,16 @@
                 <span class="st-layer-count"></span>
               </button>
               <div class="st-layer-detail" id="st-l5"><div>
-                <p>Todo lo de abajo solo sirve si un equipo puede repetirlo. Esta capa recoge los rituales compartidos, las decisiones por escrito y los flujos en los que la IA se encarga de lo repetitivo.</p>
+                <p>Todo lo de abajo solo sirve si un equipo puede repetirlo. Esta capa recoge los rituales compartidos, un registro de lo que hemos aprendido de los usuarios y los flujos en los que la IA se encarga de lo repetitivo.</p>
                 <div class="st-groups">
                   <div class="st-group"><span class="st-group-name">Equipo</span><ul class="st-opts">
                     <li data-feeds="o">Formas de trabajo</li>
                     <li data-feeds="o b">Facilitación y talleres</li>
                     <li data-feeds="o">Mentoría y formación</li>
                   </ul></div>
-                  <div class="st-group"><span class="st-group-name">Flujos</span><ul class="st-opts">
+                  <div class="st-group"><span class="st-group-name">Recursos</span><ul class="st-opts">
                     <li data-feeds="o t">Documentación y traspaso</li>
+                    <li data-feeds="u b">Biblioteca compartida de hallazgos</li>
                     <li data-feeds="o t">Flujos asistidos por IA</li>
                   </ul></div>
                 </div>
@@ -1627,6 +1628,7 @@
                   </ul></div>
                   <div class="st-group"><span class="st-group-name">Contexto</span><ul class="st-opts">
                     <li data-feeds="b o">Entrevistas con stakeholders</li>
+                    <li data-feeds="o t">Mapa de procesos y servicios</li>
                     <li data-feeds="t">Auditoría de plataforma y restricciones</li>
                   </ul></div>
                   <div class="st-group"><span class="st-group-name">Ciencia</span><ul class="st-opts">
@@ -1648,22 +1650,22 @@
         <div>
           <span class="eyebrow eyebrow--bare v4-r" id="thinking-heading">Reflexiones</span>
           <blockquote class="v4-r" style="--d: 0.1s;">
-            "La mayoría de las decisiones de diseño son decisiones de <em>comportamiento</em>. Trátalas como tal."
+            "La IA puede dibujar cien pantallas antes de comer. <em>Elegir la que merece salir</em> sigue siendo el trabajo."
           </blockquote>
           <a href="/es/thinking/" class="btn btn-ghost v4-r" style="--d: 0.2s;">Leer mi enfoque <span class="arrow">→</span></a>
         </div>
         <div class="v4-positions">
           <div class="v4-position v4-r" style="--d: 0.15s;">
-            <span class="v4-position-topic">La empatía como herramienta estratégica</span>
-            <p>Lo que la gente hace de verdad dice más que lo que dice. Leer bien esa diferencia vale dinero, no solo buena voluntad.</p>
+            <span class="v4-position-topic">La velocidad mueve el cuello de botella</span>
+            <p>Cuando un prototipo cuesta una tarde en vez de un sprint, lo lento pasa a ser saber qué probar. Ahí va el tiempo que se ahorra.</p>
           </div>
           <div class="v4-position v4-r" style="--d: 0.25s;">
-            <span class="v4-position-topic">Sistemas que sobreviven a las personas</span>
-            <p>Si un proceso solo funciona mientras su autor lo está vigilando, todavía no es un sistema. Es solo alguien siendo cuidadoso.</p>
+            <span class="v4-position-topic">Los modelos repiten el folclore</span>
+            <p>Pídele a un modelo buenas prácticas de UX y te devuelve lo que más se repite, mitos incluidos. Por eso mantengo un grafo de lo que la investigación respalda de verdad.</p>
           </div>
           <div class="v4-position v4-r" style="--d: 0.35s;">
-            <span class="v4-position-topic">Diseñar con IA</span>
-            <p>La IA puede acelerar el trabajo todo lo que quiera. Decidir qué merece la pena hacer sigue siendo cosa mía.</p>
+            <span class="v4-position-topic">Flujos que el equipo pueda quedarse</span>
+            <p>Un flujo con IA que solo sé usar yo se va cuando me voy. Dejo cada uno por escrito para que el equipo pueda usarlo sin mí.</p>
           </div>
         </div>
       </div>
@@ -1675,8 +1677,8 @@
         <div class="bx-copy">
           <span class="eyebrow v4-r">Investigación personal</span>
           <h2 id="bx-heading" class="v4-r" style="--d: 0.08s;">
-            Casi todo consejo de diseño cita un estudio.<br>
-            <em>Yo compruebo cuáles se sostienen.</em>
+            Antes de citar un sesgo,<br>
+            <em>mira si la investigación lo respalda.</em>
           </h2>
           <p class="v4-r" style="--d: 0.14s;">
             BECO es un grafo de conocimiento que estoy construyendo con 420 fuentes
@@ -2061,6 +2063,12 @@
         });
         layers.push({ ...L, plats });
       }
+
+      // Every pressure needs a tile in every layer, or its route stops short
+      // of the outcome. Flag a gap while editing the panel markup.
+      layers.slice(1).forEach((L, k) => FEEDS.forEach((f) => {
+        if (!L.plats.some((p) => p.feeds.has(f))) console.warn(`How I work: layer ${k + 1} has no tile for "${f}"`);
+      }));
 
       // ── 6: the outcome ──
       // The hero map's centre on a small slab: rings around a single gold
