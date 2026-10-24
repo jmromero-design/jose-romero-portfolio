@@ -20,6 +20,8 @@ AI search tools quote this site, so facts and conventions must match on every pa
 - **Facts that appear on several pages** must read the same everywhere, including `llms.txt` and `middleware.js`: e.g. IKEA Home Services is live in "seven Spanish **regions**"; BECO counts come from `assets/data/beco-explorer/tree.json` totals (420 sources, 243 named concepts, 222 real-world examples as of 2026-10-24).
 - **One `<h1>` per page.** Slide or section headings are `<h2>`.
 - **Meta descriptions ≤ 160 characters** (og:/twitter:description too); titles ≤ 60.
+- **Markdown for AI tools:** every page except the homepage has a generated markdown twin under `md/<path>/index.md`, served by `middleware.js` to requests with `Accept: text/markdown` and linked from each page's `<head>`; `llms-full.txt` concatenates the English ones. **After editing any page copy, run `python3 scripts/build_markdown.py`** or the markdown goes stale. The homepage's agent summary is hand-written in `middleware.js`; update it when the homepage story changes.
+- **Structured data:** the Person has one `@id` (`https://www.joseromerodesign.com/#person`) that articles, case studies and index pages reference; every page but the homepages has a `BreadcrumbList`; Work and Thinking are `CollectionPage` + `ItemList` (add new entries there); the explorer is a `Dataset`. New pages should follow the same pattern.
 - **Dates:** case studies carry `temporalCoverage` / `datePublished` / `dateModified` in their JSON-LD; the Thinking articles carry Article JSON-LD and a visible "Published · Updated" line. When an article's or case study's content changes, update `dateModified` and the visible "Updated" date.
 
 ---

@@ -113,6 +113,11 @@ Shorter engagements listed on [/work/](https://www.joseromerodesign.com/work/):
 - MD Staff Solutions
 - MEKCO Group Aviation
 
+## Full text for assistants
+- [llms-full.txt](https://www.joseromerodesign.com/llms-full.txt) · every English page in one markdown file: case studies, articles, About and the Work and Thinking indexes
+- Each page is also available as markdown on its own: request it with `Accept: text/markdown`, or open `/md/<path>/index.md` (for example https://www.joseromerodesign.com/md/work/ikea-home-services/index.md)
+- The BECO graph's data: https://www.joseromerodesign.com/assets/data/beco-graph/graph.json (every concept with its evidence grade, findings, sources and authors)
+
 ## Other pages
 - [About](https://www.joseromerodesign.com/about/) · background, approach, CV download
 - [Work index](https://www.joseromerodesign.com/work/) · all case studies

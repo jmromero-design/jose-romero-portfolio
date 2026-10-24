@@ -7,22 +7,22 @@
 //     favicons, robots.txt, sitemap.xml, and llms.txt — those are already
 //     served correctly and don't need to flow through a function.
 //   - For every request that DOES match (real pages + any nonexistent
-//     path), the middleware only changes behaviour in two cases:
-//       1. The homepage ('/'), when the client asks for text/markdown.
-//       2. Any path that resolves to a real 404, when the client asks
-//          for text/markdown — returns a short markdown 404 body instead
-//          of the HTML error page, with links back to the sitemap,
-//          llms.txt, and the homepage so an agent can recover.
-//     Every other request (any normal page, any normal Accept header) is
-//     returned completely untouched — same bytes, same headers, same
-//     status — so existing product behaviour and visual design are
-//     unaffected.
-//   - Both special-cased responses set Vary: Accept, Accept-Encoding so a
-//     CDN never serves the wrong cached variant to the next visitor.
+//     path), the middleware only changes behaviour when the client asks
+//     for text/markdown:
+//       1. The homepage ('/') gets the hand-written agent summary below.
+//       2. Any other page gets its generated markdown version, a static
+//          file at /md/<path>/index.md built by scripts/build_markdown.py.
+//       3. Any path that resolves to a real 404 gets a short markdown 404
+//          body, with links back to the sitemap, llms.txt and the
+//          homepage so an agent can recover.
+//     Normal browser requests get the same bytes and status as before;
+//     the only change is a Vary: Accept, Accept-Encoding header on pages,
+//     so a CDN never serves the markdown variant to a browser or the
+//     HTML variant to an agent.
 
 export const config = {
   matcher: [
-    '/((?!assets/|_vercel/|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|robots\\.txt|sitemap\\.xml|llms\\.txt).*)',
+    '/((?!assets/|_vercel/|md/|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt).*)',
   ],
 };
 
@@ -113,6 +113,21 @@ export default async function middleware(request) {
     });
   }
 
+  // any other page: its generated markdown version, when one exists
+  if (wantsMarkdown && url.pathname.endsWith('/')) {
+    const md = await fetch(new URL('/md' + url.pathname + 'index.md', url.origin));
+    if (md.ok) {
+      return new Response(md.body, {
+        status: 200,
+        headers: {
+          'content-type': 'text/markdown; charset=utf-8',
+          'vary': 'Accept, Accept-Encoding',
+          'link': `<${url.origin}${url.pathname}>; rel="canonical"`,
+        },
+      });
+    }
+  }
+
   const originResponse = await fetch(request);
 
   if (originResponse.status === 404 && wantsMarkdown) {
@@ -125,10 +140,9 @@ export default async function middleware(request) {
     });
   }
 
-  if (url.pathname === '/' || originResponse.status === 404) {
-    // Only these two cases actually vary their response by Accept, so
-    // only these two get Vary added — everything else is returned as-is
-    // below, completely untouched.
+  const isPage = (originResponse.headers.get('content-type') || '').includes('text/html');
+  if (isPage || originResponse.status === 404) {
+    // pages (and 404s) vary by Accept now that each has a markdown twin
     const headers = new Headers(originResponse.headers);
     headers.set('vary', 'Accept, Accept-Encoding');
     return new Response(originResponse.body, {

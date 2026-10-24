@@ -1,0 +1,1624 @@
+# Jose Romero · Senior Product Designer
+
+Jose Romero is a senior product designer based in Zaragoza, Spain, with 12 years
+of professional experience across digital product design, conversion rate
+optimisation (CRO), behavioural economics, and design operations.
+He works in English and Spanish at professional level (C1 English).
+
+This file holds the full text of every English page on the site, one after another, so an assistant can read the whole portfolio in one request. Each page is also available on its own as markdown: request the page with Accept: text/markdown, or open /md/<path>/index.md.
+
+
+---
+
+# About · Jose Romero, Senior Product Designer
+
+12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain.
+
+Source: https://www.joseromerodesign.com/about/
+
+Jose Romero · Zaragoza, Spain About
+
+# I've always been more comfortable with hard problems than easy briefs.
+
+I'm Jose Romero, a senior product designer with 12 years of experience across digital products, conversion strategy, and design systems. I work in English and Spanish at professional level, and I'm currently based in Zaragoza, Spain, working as an embedded senior designer on IKEA's New Business Platform, part of the team building two peer-to-peer marketplaces from their early stages through European expansion.
+
+Before that, I spent three years at Flat 101, one of Spain's leading digital consultancies, running UX and CRO work across four to eight concurrent enterprise accounts simultaneously. Santander Nordics, Meliá Hotels International, Mapfre, Mutua Madrileña, AXA Spain, IQOS, XTI. Different industries, different team structures, often at the same time.
+
+None of that arc was planned. It started as 120-plus projects across print, branding, digital product, and CRO. Somewhere along the way the engagements got harder, longer, and fewer, until I ended up fully embedded inside one product team. Each stage just happened to set up the next one. The same systems thinking that made those complex engagements manageable is what I now use to design AI into a workflow properly, as its own layer, rather than treating it as a shortcut.
+
+Career
+
+## Brands I've designed for, _across twelve years._
+
+Earlier Breadth 120+ Projects across disciplines: branding, print, video, digital, and campaigns Then Complexity 13 Enterprise accounts at Flat 101, across banking, insurance, hospitality, and retail Now Depth 2 Products in active design, embedded inside IKEA's product team
+
+Clients
+
+Garaje de Ideas 2025–Present
+
+IKEA (Ingka Group)
+
+Flat 101 2022–2025
+
+Meliá Hotels International·Santander Nordics·Mapfre España·Mapfre Internacional·AXA Spain·IQOS Club Spain·Mutua Madrileña·Bankinter·BNP Paribas·XTI·Subaru Spain·GNP·Affinity Petcare
+
+Factor Común 2016–2021
+
+IGP·CIPIMM·ETA·CNDIG·Universidad de Moa·ISMMM·Adypel S.A.·Hidroenergía·Spanish Embassy in Cuba·Amappzing·American Force Music·Industrial Dynamic Control
+
+Independent 2014–2021
+
+CubaMax·AlaCasa·MVPicks·NimbusPC·Gartour·Geominera S.A.·Spanish Consulate in Havana·Aires de Fiesta·Envametal
+
+Experience
+
+## Tenures in digital product design _& strategic CRO._
+
+Garaje de Ideas / Groupe EDG: IKEA New Business Platform 2025–Present Senior Product Designer (Implant) Zaragoza, Spain (English environment)
+
+Embedded full-time within IKEA's New Business Platform, an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe.
+
+IKEA Home Services
+
+A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish regions by mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or reactivated IKEA Family members, 4.9/5 customer satisfaction rating. I work across user flows, prototyping, in-store user research sessions at IKEA locations, and accessibility auditing, alongside product owners, service designers, engineers, content designers, and business developers.
+
+IKEA Second-hand Marketplace
+
+Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed. I contribute to product design and cross-functional collaboration as the platform matures and scales.
+
+Design operations
+
+Built the team's ways-of-working system from scratch: a framework spanning Figma (source of truth), Jira, Confluence, and Phrase. Before this, the process lived mostly in people's heads. Now it's written down somewhere new hires can actually find it.
+
+AI workflow design & facilitation
+
+Facilitating Shape Up methodology sessions for the product team and designing the AI layer on top. The facilitation work led to a parallel body of work: designing AI-assisted workflows for the shaping process itself, including multi-agent orchestration approaches that distribute complex product features across specialized agents (problem decomposition, constraint mapping, solution evaluation). Outputs are structured to flow directly into the team's established Confluence documentation format. Also running AI literacy sessions for senior design professionals at Garaje de Ideas, focused on workflow design rather than tool use.
+
+Flat 101 (Digital consultancy), flat101.es 2022–2025 Senior UX/CRO Designer Spain
+
+Flat 101 is one of Spain's leading digital consultancies. I worked across 4–8 concurrent enterprise accounts simultaneously, each with different teams, different methodologies, and different definitions of success.
+
+Meliá Hotels International
+
+Three-year engagement on the design and optimisation of an internal marketing campaign management platform, built from scratch. Conducted multi-hour workshops with senior directors from multiple international departments at Meliá's headquarters to define requirements and validate direction. Worked with a team of up to 5 designers and 8 engineers (rotating over time) to deliver a platform managing dozens of live campaigns across all of Meliá's international markets.
+
+Santander Nordics
+
+Lead UX/CRO designer on an ongoing conversion optimisation programme across consumer loan, credit card, deposit, and car loan funnels in Denmark, Sweden, Finland, and Norway. A multi-country, regulated environment requiring both precision and adaptability.
+
+Mapfre
+
+UX design for AFIN, Mapfre's self-service financial management app (investments, savings, pension plans). Also part of the digital platform scaling programme for Mapfre's international brands: Verti Italy, Germany, and Spain, a major cross-border design and localisation effort.
+
+CRO & E-commerce Optimisation Programmes
+
+Contributed to and led various optimisation and redesign initiatives:
+
+- **Mutua Madrileña:** CRO programme contributing to a +41% increase in leads (published by Flat 101).
+
+- **AXA Spain:** Part of the CRO programme contributing to +18% increase in insurance contracts (published by Flat 101).
+
+- **IQOS Club Spain:** Project lead for ongoing CRO on Philip Morris's loyalty platform. Fast-cycle experimentation under limited traffic and shared resources.
+
+- **XTI Store:** Full e-commerce redesign within a Magento platform migration.
+
+- **Audits:** Experience, CRO, and behavioural audits for Bankinter, Subaru Spain, and Affinity Petcare.
+
+**Tools:** Optimizely · AB Tasty · ContentSquare · VWO · Hotjar · Google Analytics · Optimal Workshop · Figma
+
+Factor Común 2016–2021 Co-founder & Design Lead Havana, Cuba
+
+At 23, while finishing a five-year degree in Visual Communication Design, I co-founded Factor Común, a registered design and communications studio in Havana. It started as freelance work with two colleagues and grew into a proper studio doing branding, editorial design, digital interfaces, audiovisual production, and campaign work for institutional clients across Cuba.
+
+Running it meant doing a lot that had nothing to do with design itself: client relationships, project planning, chasing down suppliers, bringing in new business, all under real resource constraints. The scale of it is nothing like what I do now, but the underlying discipline hasn't changed. It's where I learned structured thinking and commercial reality, well before any formal training in design methodology.
+
+> "I had the privilege of reporting directly to him — his capacity to inspire and guide our team was evident in our project successes. His acumen in UX/UI elevated our products, combining functionality with aesthetics seamlessly."
+
+_Erick Hernández Pino Product Designer · Factor Común_
+
+> "A great communicator and a flexible professional, capable of moving comfortably from one area of knowledge to another. His capacity to work with and lead teams made my experience working with him gratifying."
+
+_Luis E. Lázaro García Architect & Interior Designer · Factor Común_
+
+ISDi / Universidad de La Habana 2018–2021 UI Design Professor Havana, Cuba / Remote
+
+Taught UI design at the Instituto Superior de Diseño, affiliated with the University of Havana, developing curriculum, facilitating studio sessions, and building shared understanding of complex concepts across students at different levels of ability and experience.
+
+Teaching forces habits you don't expect to need later: spelling out things that feel obvious to you but aren't, reading a room and adjusting on the fly, getting a group to agree on something nobody came in agreeing on. Turns out those are exactly the skills enterprise facilitation runs on, and I've leaned on them ever since.
+
+Capabilities
+
+## Skillsets shaped in _real-world environments._
+
+Product Design
+
+End-to-end digital product design across web and mobile: from research and flows to high-fidelity prototypes and handoff-ready specifications.
+
+Conversion Rate Optimisation
+
+Data-driven experimentation across e-commerce, banking, insurance, and loyalty platforms. Hypothesis generation, A/B and multivariate test design, analytics interpretation, and results communication to stakeholders.
+
+Behavioural Economics
+
+Applying behavioural science frameworks, such as cognitive bias, loss aversion, social proof, friction analysis, and defaults, to design decisions that affect how people think and act online.
+
+UX Research
+
+Moderated and unmoderated user research, in-store testing sessions, heuristic evaluation, accessibility auditing (WCAG), and synthesis into actionable design direction.
+
+Design Operations
+
+Process design, cross-tool workflow architecture (Figma, Jira, Confluence, Phrase), ways-of-working documentation, and team facilitation.
+
+AI Integration in Workflows
+
+Designing AI-assisted facilitation processes for complex product shaping. Building and demonstrating multi-agent orchestration workflows. Running AI literacy sessions for senior design teams.
+
+Stakeholder Communication
+
+Operating effectively within complex enterprise environments, across product, engineering, business, and client teams, in English and Spanish, to move work forward despite incomplete information and competing priorities.
+
+Tools & Platforms Design & documentation Figma Source of truth for design and prototyping FigJam Workshop facilitation and shaping sessions Miro Cross-team whiteboarding and mapping Notion Team knowledge and process documentation Confluence Ways-of-working docs and specs Jira Sprint and ticket tracking Phrase Localisation and copy management Research & analytics Hotjar Session recordings and heatmaps ContentSquare Behavioural analytics at scale Google Analytics Traffic and funnel measurement Optimal Workshop Card sorting and tree testing Experimentation Optimizely A/B and multivariate testing AB Tasty Experimentation and personalisation VWO Conversion testing platform AI practice AI Orchestration Multi-agent workflows for product shaping
+
+
+---
+
+# Work · Jose Romero, Senior Product Designer
+
+Case studies in product design, CRO, behavioural strategy and design operations, for IKEA, Santander, Meliá, Mapfre, Mutua Madrileña, AXA, IQOS and XTI.
+
+Source: https://www.joseromerodesign.com/work/
+
+Work
+
+# Projects across _complexity and craft._
+
+Ten case studies, no two alike: a product built from nothing, conversion programmes that ran for years, a design system meant to hold up across a distributed team. Some client details stay behind an NDA, but the methodology and the decisions are always mine to walk through.
+
+- IKEA
+
+- Santander
+
+- Meliá Hotels
+
+- Mapfre
+
+- IQOS
+
+- AXA
+
+- BNP Paribas
+
+- Bankinter
+
+A selection of clients worked with directly or through agency partnerships. Most engagements covered by NDA, though **methodology and decisions are always mine to share.**
+
+_35+_ clients
+
+## Ten case studies, _one page._
+
+Hover a row to preview.
+
+Garaje de Ideas × IKEA
+
+### IKEA Home Services
+
+Peer-to-peer home improvement marketplace, launched Spain 2024. 500,000+ downloads · 21,000 service requests · 4.9/5 satisfaction.
+
+Current · Product Design · Marketplace · Mobile → Garaje de Ideas × IKEA
+
+### IKEA Second-hand Marketplace
+
+Peer-to-peer IKEA resale platform, now live in five European countries.
+
+Current · Product Design · Marketplace · Circular Commerce → Flat 101 × Santander
+
+### Santander Nordics · CRO Programme
+
+Lead UX/CRO designer across four Nordic markets throughout the Flat 101 engagement.
+
+CRO · Banking · Multi-market → Flat 101 × Meliá Hotels International
+
+### Meliá Hotels International · Campaign Platform
+
+3-year engagement. Platform built from zero, live across all Meliá markets.
+
+Product Design · Web Application · Hospitality → Flat 101 × Mapfre España
+
+### Mapfre · AFIN Financial App
+
+Self-service financial app: progressive disclosure IA and a Financial Advisor feature built around user trust and autonomy.
+
+Product Design · Mobile & Web · FinTech → Flat 101 × Mapfre Internacional
+
+### Mapfre · Digital Expansion
+
+Lead designer on Verti platform redesign, Insurance Offices & Agents Directory (Latin America), and international CRO.
+
+Platform Design · Multi-market · Design System → Flat 101 × Philip Morris
+
+### IQOS Club Spain · CRO Programme
+
+Project lead, ongoing optimisation of Philip Morris loyalty portal.
+
+CRO · Loyalty · Behavioural Economics → Flat 101 × XTI Store
+
+### XTI Store · E-commerce Redesign
+
+Full redesign within Magento platform constraints.
+
+E-commerce · UI Design · Fashion → Garaje de Ideas × IKEA
+
+### IKEA · Ways of Working System
+
+Cross-tool workflow architecture built from first principles.
+
+Current · Design Operations · Systems · Facilitation → Garaje de Ideas × IKEA
+
+### AI Workflow Design Framework
+
+Multi-agent process architecture, designing AI into the workflow rather than just using it.
+
+AI Workflow Design · Process Architecture · Facilitation → Also notable
+
+## Shorter engagements
+
+### Mutua Madrileña · CRO
+
+Part of programme: +41% lead increase (Flat 101 published)
+
+### AXA Spain · CRO Programme
+
+Part of programme: +18% insurance contracts (Flat 101 published)
+
+### Bankinter
+
+CRO & Experience Audit
+
+### Subaru Spain
+
+CRO, Experience & Behavioural Audit
+
+### Affinity Petcare
+
+Ongoing CRO Programme
+
+Freelance · 2024
+
+## Independent web projects
+
+### NimbusPC
+
+Brand, IA, UI design, Webflow build with relational CMS, and interactive 3D hero (Spline). Miami-based B2B IT services. Full lifecycle, solo delivery in two weeks.
+
+### MD Staff Solutions
+
+Corporate website for a Florida healthcare staffing and AHCA compliance firm. Regulated B2B audience: brand direction, UI design, and Webflow development with trust and credibility as primary conversion drivers.
+
+### MEKCO Group Aviation
+
+FAA and EASA-certified aviation MRO firm with four specialist service divisions. Brand architecture, multi-section information design, and Webflow development, balancing division-level depth with group-level coherence.
+
+
+---
+
+# Thinking · Jose Romero, Senior Product Designer
+
+How I approach design work: on strategic empathy, behavioural economics, systems that survive people, and what it means to design with AI in the room.
+
+Source: https://www.joseromerodesign.com/thinking/
+
+This isn't a blog. These are positions, things I've thought about long enough to put into words, drawn from 12 years across enterprise product, CRO, and team leadership.
+
+**1 essay**·**4 positions**, last updated June 2026
+
+## Long-form _essays._
+
+Full frameworks, built from real work. More in progress.
+
+Featured
+
+### Designing with AI demands process design first. _Tool choice second._
+
+A full framework for human-led, agent-assisted product design: three-tier agent architecture, genuine checkpoints, the drift problem, and what this shift demands from senior designers.
+
+18 min read · AI · Process Design → New · Work in progress
+
+### A knowledge graph that grades its own evidence. _Visual walkthrough._
+
+A personal, DOI-verified graph of 420+ behavioural-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.
+
+Visual explainer · AI · Behavioural Science → New · Interactive
+
+### The whole graph on one map. _With a card for every point._
+
+All 243 concepts, the findings and sources behind them and the people who wrote those sources, on one map you can zoom through. Beside it, a card reads whatever you pick, with every study cited and how well it backs the concept.
+
+Interactive · AI · Behavioural Science →
+
+More essays are in progress. This index will grow.
+
+## Shorter _positions._
+
+Things I've thought about long enough to put into words. Tap to read.
+
+There's a version of empathy that's emotional: you put yourself in someone's position and feel what they might feel. That has real value: it's the foundation of personal connection and deep user trust. But in design work, especially inside large organisations, what's more useful day-to-day is a different kind: the ability to map how another person understands the situation, what they're optimising for, what they're afraid of, and what they need to be true in order to move forward.
+
+I've started calling this positional empathy. It sits alongside compassion rather than standing in for it, and it's turned out to be one of the more useful skills I've picked up in enterprise work. Most of the genuinely hard problems in these environments have nothing to do with visuals or technical execution. People show up misaligned, working from different mental models of the same problem, carrying incentives the brief never mentions.
+
+Map that out accurately, without losing your own read on it, and you can usually work through it. It's rarely about winning an argument. It's about understanding the situation well enough that people stop arguing about the wrong things.
+
+> Stakeholder alignment isn't something you feel your way into. You map it, the same way you'd map any other system.
+
+The standard design process asks what users need. That's a fine question, but it's not the one I spend most of my time on. The behavioural economics question asks something narrower and, I'd argue, more useful: given how people's cognition actually works, with its shortcuts and biases and context-dependence, what is this specific interface going to make them do?
+
+Years of conversion rate optimisation across banking, insurance, loyalty, and e-commerce taught me that the answer to that question usually comes down to details nobody thinks to argue about: the order information appears on a page, whether a choice is framed as a gain or a loss, whether there's a default option at all. Get those wrong and no amount of good intentions in the brief saves the design.
+
+This doesn't mean manipulating people. It means understanding how decisions are actually made, under time pressure, with incomplete information, shaped by context, and designing for that reality rather than an idealised version of it.
+
+> What users need and what users do are not the same question. The behavioural approach works by modifying choice architecture through psychological levers, not by gathering more stated preferences.
+
+When I joined the IKEA Home Services team, there was no shared working system. Files existed everywhere. The hierarchy of work, what belonged in Figma, what in Confluence, what in Jira, was unclear and inconsistently applied. The process that existed depended on specific individuals to hold it in memory and transmit it informally. When those individuals weren't available, the system collapsed.
+
+My approach was to start with principles rather than tools. I mapped the actual work the team was doing: the types of tasks, their interdependencies, the decisions that kept getting lost. From that, I derived a set of structural rules, what goes where, when, and why, that could be documented, taught, and modified without requiring me to be present.
+
+Adoption was messy, honestly, but the underlying structure held up regardless. That's actually what I was aiming for: not everyone following the process to the letter, but a process solid enough to keep working when they didn't. It's already survived my leaving, a round of new hires, and the stretches where nobody had time to babysit it. That's the real test, and it passed.
+
+> A good system doesn't need everyone following it perfectly. It just needs to still work when they don't.
+
+What I've been exploring over the past year is what happens when you introduce AI into a design process that was already complex, specifically, the Shape Up methodology my team uses at IKEA. Shape Up asks people to hold a lot of context, make judgment calls on incomplete information, and move quickly through shaping decisions that have long downstream consequences.
+
+AI can process and produce information faster than any team can absorb it. Which means the bottleneck shifts. It's no longer about generating options. It's about making sense of them, about having enough shared context to evaluate what the AI has produced and decide what to do with it.
+
+The hard part turned out to be human, not technical: getting an AI-assisted process to produce output that's actually useful instead of just plentiful, building in checkpoints at the moments that actually need human judgment, and keeping a room full of people from getting buried in AI-generated text and losing track of the decision they were actually there to make.
+
+All of that is facilitation work. Which, it turns out, is design work too.
+
+> AI does not remove the need for judgment. It moves it. The bottleneck shifts from generation to sense-making, and structuring that process is a design problem.
+
+[Read the full framework →](https://www.joseromerodesign.com/thinking/ai-workflow-framework/)
+
+These positions will change. The work continues.
+
+
+---
+
+# IKEA Home Services · Jose Romero
+
+Designing IKEA’s peer-to-peer home improvement marketplace from concept to launch in seven Spanish regions. 500,000+ downloads, 4.9/5 satisfaction.
+
+Source: https://www.joseromerodesign.com/work/ikea-home-services/
+
+Product Design · Marketplace · Mobile
+
+# Peer-to-peer home improvement marketplace.
+
+Connecting homeowners with verified local professionals across 50+ home improvement categories, designed from early concept through to a live product now running across seven Spanish regions.
+
+- **Client:** IKEA / Ingka Group
+
+- **Agency:** Garaje de Ideas / Groupe EDG
+
+- **My role:** Senior Product Designer (Implant)
+
+- **Period:** 2025–Present
+
+- **Scope:** Product Design · UX Research · Mobile · Accessibility
+
+Context
+
+## Extending IKEA beyond furniture
+
+IKEA's New Business Platform is an internal startup unit within Ingka Group, tasked with expanding the brand into adjacent markets across Europe. The ambition was clear: if you've just bought a flat-pack wardrobe, you probably need someone to help you put it up. And IKEA wanted to be the one to connect you.
+
+IKEA Home Services is the result: a peer-to-peer marketplace connecting homeowners with vetted, reviewed professionals across more than 50 home improvement and assembly categories. It launched in Madrid in September 2024, reached Barcelona a year later, and expanded to seven Spanish regions by May 2026, including renovation services added in March 2026.
+
+_Both sides of the marketplace must be convinced simultaneously: IKEA's platform acts as the trust layer that makes quality, pricing, and safety legible to both homeowners and professionals._
+
+_**Two sides, one platform.** AI-assisted matching turns a homeowner's natural-language request into a structured job (left), while a verified onboarding flow brings professionals onto the supply side (right)._
+
+The challenge
+
+## Trust, consistency, and speed
+
+Marketplace products live or die on trust. Homeowners need to trust the professionals they're letting into their homes. Professionals need to trust that the platform is worth their time. And IKEA needs the product to feel like IKEA: considered, reliable, without friction.
+
+The additional complexity: we were building a new product inside a very large, brand-sensitive organisation, working with multiple stakeholders across product, service design, engineering, content, and the in-store IKEA network. Decisions had to be made at pace, but they had to hold up to scrutiny. The brief was never fully stable.
+
+Trust, made explicit
+
+Rather than leaving credibility implicit, IKEA's commitment is stated plainly at the point of decision: verified professionals, backed by the brand, with recourse if something goes wrong.
+
+My role
+
+## Embedded, end-to-end
+
+I work as a Senior Product Designer embedded full-time within the IKEA New Business Platform team. That means I'm not consulting from the outside; I'm inside the product team, alongside product owners, service designers, engineers, content designers, and business developers.
+
+My work spans user flows, interaction design, high-fidelity prototyping, in-store user research sessions at IKEA locations, accessibility auditing (WCAG compliance), and design handoff. I contribute to product decisions, not just design delivery.
+
+_Embedded design means being present at every stage: from research sessions inside IKEA stores to product decisions in sprint reviews._
+
+Approach
+
+## Research first, iteration always
+
+We ran user research sessions inside IKEA stores: recruiting participants on-site and testing flows in context, with the app running on real devices. This gave us faster signal than remote testing and was consistent with the product's natural discovery channel.
+
+The design process was iterative by necessity. A marketplace has two distinct user types, homeowners and service professionals, each with different mental models and success criteria. We mapped flows for both sides separately before working on the points of intersection: booking, confirmation, dispute resolution, and review mechanics.
+
+Accessibility was treated as a requirement from day one, not an audit at the end. The product had to meet IKEA's own accessibility standards alongside WCAG AA, across iOS and Android.
+
+_**Discovery.** Search by need, browse the services within a category, and review a verified professional's profile. Each step builds confidence before the homeowner commits to anything._
+
+_**The booking moment.** IKEA Family sign-in as step one ties the request to the wider ecosystem, a considered loading state keeps the user oriented, and a confirmation that sets expectations clearly closes the loop._
+
+Outcomes
+
+## Strong adoption from launch
+
+500k+ Downloads 21k Service requests completed 57k New or reactivated IKEA Family members 4.9 Customer satisfaction rating
+
+These are published figures from Ingka Group. The product launched in Madrid in September 2024 and has since expanded to seven Spanish regions as of May 2026, with continued growth in progress.
+
+Learnings
+
+## What building inside a large brand teaches you
+
+Being embedded inside IKEA's team has confirmed something for me: the design itself is rarely the hard part. Keeping a coherent direction while stakeholder priorities shift, the roadmap moves, and people rotate on and off the team. That's the actual job. Fighting that instability is a losing battle. Building systems that can absorb it isn't.
+
+This project also sharpened how I think about trust in a marketplace. Visual polish and a smooth onboarding flow barely register next to things like how a professional's credentials get displayed, what happens on screen when a booking goes wrong, or the exact wording of a review prompt. Nobody labels those as "design decisions," but that's exactly what they are, and they carry most of the weight.
+
+
+---
+
+# IKEA Second-hand Marketplace · Jose Romero
+
+Peer-to-peer resale of IKEA products using IKEA's own catalogue as a listing backbone. Piloted in Spain, now live in five European countries.
+
+Source: https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/
+
+Product Design · Marketplace · Circular Commerce
+
+# IKEA‑native resale, at European scale.
+
+A peer-to-peer marketplace for buying and selling used IKEA products, with IKEA's own catalogue acting as a structural backbone for listings. Piloted in Spain and Norway, now live across five European countries.
+
+- **Client:** IKEA / Ingka Group
+
+- **Agency:** Garaje de Ideas / Groupe EDG
+
+- **My role:** Senior Product Designer (Implant)
+
+- **Period:** 2025–Present
+
+- **Scope:** Product Design · Cross-functional · Multi-market
+
+Context
+
+## Circular commerce built on IKEA's own catalogue
+
+IKEA's sustainability commitments require more than recycling materials; they require rethinking the lifetime of the product. A second-hand marketplace solves that problem commercially: it keeps IKEA products in circulation, creates value for sellers, and lowers the barrier to buying IKEA for price-conscious buyers.
+
+What makes this product structurally interesting is its data backbone. Because IKEA's product catalogue is exhaustive and machine-readable, listings don't need manual product descriptions: the platform can retrieve dimensions, materials, assembly instructions, and compatibility data automatically from the IKEA database. This dramatically reduces listing friction and increases trust.
+
+_IKEA's product catalogue acts as the structural backbone: removing listing friction for sellers while delivering verified product identity and secure payment to buyers._
+
+The challenge
+
+## Scaling a pilot across markets
+
+The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services on the same team. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five, with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.
+
+This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Portugal. Localisation wasn't an afterthought; it was a structural constraint from the beginning of the expansion phase.
+
+_From two pilot cities in 2024 to five markets in early 2026: each expansion phase stress-tested localisation assumptions before the next rollout._
+
+My role
+
+## Product design across the full lifecycle
+
+I contribute to the Second-hand Marketplace alongside my work on IKEA Home Services; both products operate within the same IKEA New Business Platform team. My role spans product design, cross-functional collaboration, and contribution to the shared design operations framework that supports both products.
+
+As the platform has matured and scaled, the nature of the work has shifted from defining new flows to refining and extending a system that needs to remain coherent across markets and team changes.
+
+Approach
+
+## Modular by design
+
+Working on two marketplace products simultaneously has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
+
+The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.
+
+Status
+
+## Live in five markets, scaling further
+
+The platform launched as a pilot in Madrid and Oslo in August 2024. Through 2025 it expanded to Spain, Norway, Portugal, and Poland. Sweden joined in January 2026, bringing the total to five active markets. Ingka Group has committed to continuing EU-wide expansion, with a target of approximately 170,000 listings in 2026. Specific commercial performance figures are not published publicly at this time.
+
+
+---
+
+# Santander Nordics CRO Programme · Jose Romero
+
+Lead UX/CRO designer on conversion optimisation for loan, credit card and deposit funnels in Denmark, Sweden, Finland and Norway.
+
+Source: https://www.joseromerodesign.com/work/santander-nordics-cro/
+
+CRO · Banking · Multi-market
+
+# Data-driven optimisation across four markets.
+
+Lead UX/CRO designer on an ongoing programme of conversion optimisation across consumer loan, credit card, deposit, and car loan funnels in Denmark, Sweden, Finland, and Norway.
+
+- **Client:** Santander Consumer Finance Nordics
+
+- **Agency:** Flat 101
+
+- **My role:** Lead UX / CRO Designer
+
+- **Period:** 2022–2025
+
+- **Markets:** Denmark · Sweden · Finland · Norway
+
+Context
+
+## CRO inside a regulated banking environment
+
+Santander Consumer Finance operates consumer lending across multiple European markets. In the Nordics (Denmark, Sweden, Finland, and Norway) they offer consumer loans, credit cards, deposit products, and car financing through dedicated digital funnels, each localised to its market.
+
+The CRO programme at Flat 101 was an ongoing retainer engagement: continuous hypothesis generation, experiment design, test execution, and results analysis. My role was lead UX/CRO designer, responsible for the design side of the experimentation process, working alongside analysts, developers, and Santander's in-market digital teams.
+
+The challenge
+
+## Precision in a constrained environment
+
+Banking is one of the most regulated digital environments you can work in. Every change to a funnel page goes through legal review. Certain UI patterns (urgency messaging, social proof, framing) require explicit sign-off. The scope for experimentation is narrower than in e-commerce, and the cost of a false result is higher.
+
+Working across four markets means juggling four sets of constraints at once. Something legally fine in Denmark can be restricted in Norway. Copy that resonates with Swedish users can fall flat in Finland. Localisation here meant regulatory review and cultural read, not just translation.
+
+Approach
+
+## Hypothesis-first, data-rigorous
+
+Every experiment began with a structured hypothesis: a specific behaviour we observed or predicted, a proposed intervention, a measurable outcome, and a defined significance threshold. This discipline keeps experimentation honest, and in a regulated environment, it also provides the paper trail required for stakeholder sign-off.
+
+The design work covered the full funnel: landing pages, product comparison pages, application forms, confirmation flows, and re-engagement touchpoints. Application forms (the highest-stakes, highest-drop-off stage) were a consistent focus. The behavioural economics principles most relevant here: reducing perceived effort, managing anxiety around sensitive financial information, using progress indicators and milestone framing to maintain commitment.
+
+I was also responsible for communicating results clearly to Santander's teams across four markets: translating statistical results into actionable design direction and translating stakeholder feedback into testable hypotheses.
+
+The work was structured around a three-pillar approach: deep analytics and session data to surface friction, heuristic and behavioural economics evaluation to understand why that friction exists, and disciplined hypothesis development to prioritise interventions by potential impact. The team operated on a structured sprint cadence with a dedicated Kanban board tracking each experiment from backlog through to live. Beyond designing variants, I maintained QA oversight on test implementations, validating that live variants matched approved specifications before results were collected. In a regulated environment where a misconfigured test produces misleading data, implementation fidelity is as much a design responsibility as the variant itself.
+
+Control Variant A
+
+**Consumer loan funnel · Step 2:** Restructured field grouping and progress framing to reduce perceived effort at the highest drop-off point in the application flow.
+
+_Each experiment moves through the same seven-stage cycle. Legal Review is the regulatory gate: sign-off is required across all four Nordic markets before any variant goes live. The loop closes at Learn, where every result, including failures, updates the hypothesis library and informs the next sprint._
+
+Control Variant OP2
+
+**Insurance info page:** Reordered trust signals and simplified pricing presentation. Regulated content constraints required legal sign-off across all four markets before the variant could go live.
+
+Control Variant
+
+**Insurance add-on nudge:** Behavioural nudge applied at the insurance decision point in the loan funnel. Timing and framing derived from anxiety-reduction and commitment heuristics.
+
+Learnings
+
+## What multi-market CRO teaches you about design
+
+Working across four markets simultaneously sharpens your understanding of what's universal and what's contextual in design. Some friction points appear consistently regardless of market: long form fields without inline validation, ambiguous progress indicators, unclear error messages. Others are deeply market-specific.
+
+CRO work also teaches you to hold your own taste loosely. A design looking good and a design performing well line up often enough to be dangerous, you start assuming they're the same thing. When the data disagrees with your instinct, the data wins, every time.
+
+Specific performance data for this engagement is subject to NDA and has not been published by the client.
+
+
+---
+
+# Meliá Hotels · Campaign Management Platform · Jose Romero
+
+An internal campaign management platform for Meliá Hotels: from director workshops to live in under a year, then refined over three across all markets.
+
+Source: https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/
+
+Product Design · Web Application · Hospitality
+
+# A platform built from zero, live in twelve months.
+
+Conceptualised, designed, and optimised a marketing campaign management platform from scratch for Meliá Hotels International, from multi-department workshops with senior directors to a fully launched internal tool managing campaigns across all Meliá markets.
+
+- **Client:** Meliá Hotels International
+
+- **Agency:** Flat 101
+
+- **My role:** Lead Product Designer
+
+- **Duration:** 2022–2025
+
+- **Scope:** Product Design · Facilitation · Internal Tool
+
+Campaign Hub / Development / Media Plan Campaign Hub / Development overview Context
+
+## A large hospitality group with a coordination problem
+
+Meliá Hotels International is one of Europe's largest hotel groups, with properties across more than 40 countries and a complex international marketing structure. Managing campaign activity across brands, markets, and departments relied on a combination of email threads, spreadsheets, and manual coordination, a system that worked until the volume of concurrent campaigns made it fragile.
+
+The brief was to design an internal platform that gave Meliá's marketing teams a single place to create, review, approve, schedule, and track campaigns across their global portfolio. This was a zero-to-one product problem: nothing existed, and the requirements had to be discovered, not specified.
+
+Discovery
+
+## Director-level workshops, across departments
+
+The engagement began with a structured discovery phase: multi-hour workshops with senior directors from multiple international departments at Meliá's headquarters. These weren't standard stakeholder interviews. They were working sessions designed to surface the mental models and workflow assumptions of people who had been managing campaigns manually for years.
+
+The tricky part of this phase is that people rarely describe what they need. They describe the solution they've already pictured in their head. Senior stakeholders especially: ask what they want and you get a product spec, not a problem statement. My job was to listen to that spec, then work backward to the actual problem underneath it.
+
+"Asking 'what do you want' gets you a wish list. Asking 'show me what breaks' gets you an actual project."
+
+From those sessions, we derived a shared model of how campaigns actually moved through the organisation: from idea to brief, brief to asset, asset to approval, approval to scheduling, scheduling to performance review. Each stage had different owners, different blockers, and different information needs.
+
+_Discovery to live in under twelve months, then two further years of refinement, and a platform that kept evolving after the engagement ended. The brief was a blank page; the requirement was that it outlast us._
+
+**Minimum times framework.** A strategic artefact I built from scratch based on deep knowledge of the campaign process, mapping the minimum lead time required per phase and development module. This became the architectural backbone every campaign setup was validated against.
+
+Design & delivery
+
+## Live in a year, refined over three
+
+The platform went from first workshop to live in under twelve months, a timeline that required moving fast from discovery through architecture to a functioning product. The engagement then ran for a further two years of ongoing refinement and improvement, with the platform continuing to evolve even after my involvement ended. My role throughout was lead product designer, responsible for the UX architecture, interaction design, design system consistency, and the ongoing working relationship with Meliá's internal teams.
+
+The platform evolved significantly from its initial design. Early testing revealed two distinct groups with fundamentally different needs: campaign creators who just needed to move fast without extra steps in the way, and marketing managers who needed visibility and control instead. This led to approval gateways, a visual campaign timeline view, and reporting dashboards, none of which were in the original brief, all of which emerged directly from user behaviour. The interface shifted from a content-management model toward a workflow-first structure: organised around campaign states, handoff actions, and role-based views tailored to each team.
+
+Working with a rotating engineering team across the engagement also taught me a great deal about design-to-development handoff. Consistency in component naming, documentation of interaction states, and explicit specification of edge cases, the unglamorous work of design systems, became increasingly important as the team changed and institutional knowledge had to live in the documentation, not in people's heads. The engagement concluded with a structured handover: documentation, training sessions for the Meliá team, and a role-based access model that ensured each user type had the tools and interface they needed to manage and evolve the platform independently.
+
+**User permissions matrix.** One of two reference documents I designed to specify access logic across 8 roles and 15 platform sections, used directly by engineers as the source of truth for backend permission configuration and frontend conditional rendering.
+
+Outcome
+
+## Live across all Meliá markets
+
+The platform launched and is in active use across Meliá's international operations, managing live campaigns across all of the group's markets. It replaced the fragmented spreadsheet-and-email system that preceded it.
+
+The specific performance numbers here are commercially sensitive, so I can't share them. What I can say is that a product that started life as a blank brief, shaped through workshops, launched inside a year, and refined over three more, is now in daily use, at scale, by the teams it was actually built for.
+
+
+---
+
+# Mapfre · Digital Expansion · Jose Romero
+
+Lead product designer on Mapfre Internacional’s expansion: Verti in Italy and Germany, an office directory for Latin America, and a CRO programme.
+
+Source: https://www.joseromerodesign.com/work/mapfre-digital-expansion/
+
+Product Design · Multi-market · Design System
+
+# Multi-market platform design, at the design lead level.
+
+Lead product designer on Mapfre Internacional's digital platform work: Verti brand redesign across Italy and Germany, an Insurance Offices & Agents Directory deployed across Latin America, and a CRO programme for international digital properties. All in English, across multiple markets and a shared development partner.
+
+- **Client:** Mapfre Internacional
+
+- **Agency:** Flat 101
+
+- **My role:** Lead Product Designer
+
+- **Period:** 2023 – 2025
+
+- **Scope:** Platform Design · Design System · Multi-market
+
+verti.it Context
+
+## A separate account, a different kind of complexity
+
+The Mapfre engagement at Flat 101 covered two legally distinct entities. Mapfre España, which included the AFIN financial app, operated independently from Mapfre Internacional, which managed the Verti direct insurance brand across European markets and digital properties across international territories. Both accounts ran in parallel at Flat 101, but with entirely different client teams, technical stacks, and design needs.
+
+The Internacional work was conducted entirely in English, with Capgemini as the shared development partner across all programmes. Complexity wasn't just about the number of markets; it was about managing multi-agency delivery across teams that each operated under different organisational cultures and timelines.
+
+Verti · Platform redesign
+
+## Two markets, one convergence approach
+
+Verti is Mapfre's direct insurance brand, operating in Italy, Germany, and Spain. The platforms had evolved independently per market, accumulating inconsistencies in UX patterns, design system components, and conversion flows. Some differences were intentional (regulatory or cultural requirements), but most were simply the result of independent development without shared standards.
+
+The engagement began with Verti Italia: a full platform redesign migrating from a custom-built platform to the Mapfre corporate design system, while preserving Verti's distinct branding and adapting to Italian regulatory requirements. Verti Germany followed as a sequential project: same methodology, same design system foundation, applied to Germany-specific requirements, brand criteria, and technical constraints. My role on both was design lead, directly supervising two designers throughout the engagement. Daily responsibilities included client requirements alignment, progress presentations with the Mapfre and Capgemini teams, work plan definition and phase management, and maintaining coherence between the Mapfre corporate system and Verti's own branding.
+
+_Three markets that had evolved independently. The design work was convergence: audit to separate intentional divergence from accidental drift, then a shared design system as the foundation. One component library, three localized market surfaces._
+
+Approach
+
+## Shared structure, localized surface
+
+Before any redesign, most of the audit work was figuring out which cross-market differences were actually intentional (regulatory requirements, local conventions, deliberate brand calls) and which had just accumulated because each market had built independently for years with no shared standard to check against. Those two categories needed completely different fixes, and mixing them up would have meant either breaking something a market needed or preserving an accident as if it were policy.
+
+The shared design system became the operational foundation: components, interaction patterns, and conversion flows consistent across markets, defined once and adapted at the surface layer. For a brand like Verti, which has its own strong branding within the Mapfre family, this required careful work at the boundary between the Mapfre corporate system and Verti's own aesthetic. The goal was not uniformity; it was coherence without flattening the brand.
+
+preventivo.verti.it · La tua polizza auto
+
+**Verti Italia, Self-service funnel.** The first step of the prospecting flow, redesigned as part of the Verti platform convergence: policy type, vehicle details, and CTA in a single, uncluttered entry point.
+
+Offices & Agents Directory
+
+## A public-facing feature for international markets
+
+Alongside the Verti platform work, I designed a public-facing product feature for Mapfre Internacional: an Insurance Offices & Agents Directory enabling users to find nearby Mapfre offices and registered insurance agents. The feature comprised three interconnected components: an interactive map, a filterable directory listing, and individual profile pages per office and per agent.
+
+Initial deployment covered Brazil, Peru, and Nicaragua, with a structured rollout to additional markets underway at the point of handover. Multi-market deployment required careful consideration of localisation beyond language: address format conventions, map provider integration per territory, regulatory requirements for displaying licensed agent information in each country, and country-specific page structures for local compliance.
+
+mapfre.com.br · Oficinas Referenciadas
+
+**Insurance Offices Directory, Brazil.** Interactive map with clustered markers across São Paulo. Filterable directory, office listings, and individual agent profile pages, deployed across Brazil, Peru, and Nicaragua.
+
+_Three concurrent workstreams, one client, one agency, one development partner. Each programme required its own rhythm and team configuration, all managed from the design lead role._
+
+CRO Programme
+
+## Experiment design for international properties
+
+A conversion rate optimisation programme ran alongside the platform redesign work, applying structured hypothesis development and experiment design to Mapfre Internacional's digital properties. The work covered the full CRO pipeline: data analysis to surface friction points, hypothesis formulation, design of test variants, implementation specification, and results analysis.
+
+Performance data and programme scope for this engagement are subject to NDA and have not been published by the client.
+
+Design leadership
+
+## Running three programmes from the lead role
+
+Running concurrent programmes for the same client required clear workload management across the team. For the Verti work specifically, leading two designers meant defining task scope and priorities, reviewing output quality and brand coherence, and handling all client-facing presentations and requirements alignment. Work plans, phase definitions, and effort estimates were mine to define and maintain.
+
+Daily communication with the Mapfre teams and Capgemini in English, across multiple markets and time zones, required documentation and status management rigorous enough that all parties stayed aligned without constant synchronisation. In a multi-agency environment, the cost of miscommunication lands on the design team first, and fast feedback loops between design, development, and client are the only effective mitigation.
+
+Learnings
+
+## What multi-market platform work teaches you
+
+The most useful distinction in multi-market design is between divergence that serves the user and divergence that serves no one. Platforms that evolve independently tend to accumulate a lot of the second kind: inconsistencies that developed because nobody was watching, not because the local market required them. Finding and removing that accidental drift is its own design discipline, and it's usually where the biggest efficiency gains are sitting, waiting for someone to notice them.
+
+Leading design across several concurrent programmes, each with its own team, timeline, and level of client readiness, taught me something about what the lead role is actually for. Quality control is the easy part. The harder part is keeping one coherent picture of the whole engagement in your head when every individual programme has a natural pull toward becoming its own silo.
+
+Specific performance data for this engagement is subject to NDA.
+
+
+---
+
+# Mapfre · AFIN Financial App · Jose Romero
+
+Lead UX designer on AFIN, Mapfre’s self-service finance app: progressive disclosure, and a Financial Advisor built on trust and transparent data use.
+
+Source: https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/
+
+Product Design · FinTech · Mobile & Web
+
+# Self-service finance, designed for trust.
+
+Lead UX designer for AFIN, Mapfre's self-service financial management app covering investments, savings, and pension plans, from progressive disclosure information architecture to a new Financial Advisor feature built around personalised guidance, transparent data collection, and preserved user autonomy.
+
+- **Client:** Mapfre
+
+- **Agency:** Flat 101
+
+- **My role:** Lead UX / Product Designer
+
+- **Period:** Dec 2022 – Aug 2023
+
+- **Scope:** Product Design · Mobile & Web · FinTech
+
+afin.mapfre.es · simulación a futuro Context
+
+## A self-service financial app at a complex intersection
+
+AFIN is Mapfre's self-service financial app for individual customers, covering savings products, investment portfolios, and pension plans. The product sits at an intersection that's rare in financial services: it needs to feel simple enough for customers who aren't financially sophisticated, while being trustworthy enough for customers making long-term financial decisions.
+
+That tension between simplicity and completeness is really the central design challenge in financial app UX. Strip too much away and customers lose information they actually need; show everything and you overwhelm the person who just wanted a quick status check. Most of the actual design work here was finding the right balance at every layer of the product, not just once at the top.
+
+The challenge
+
+## Adding a Financial Advisor without breaking trust
+
+The primary objective of the engagement was introducing a Financial Advisor feature: a personalised guidance system generating product recommendations based on each user's risk profile and financial goals. A meaningful new capability, and a correspondingly complex design problem.
+
+Three problems ended up shaping most of the work. Fitting a substantial new feature into an app that already had its own information model, without breaking that coherence, was the first. The second was getting people to actually trust a data-collection flow that asks about their financial situation, risk appetite, and long-term goals. Most financial apps never earn that level of transparency. The third was the recommendation engine itself: push too hard and it reads as a sales tool, which kills trust faster than not recommending anything at all, so every suggestion had to visibly show its reasoning.
+
+_Four layers, three product types. The default view loads fast with what most users need most of the time. Every additional layer, detail then action, is one deliberate tap deeper. Complexity on demand, not by default._
+
+Approach
+
+## Progressive disclosure, not progressive complexity
+
+The engagement opened with a discovery phase: customer journey mapping across multiple user entry points to understand how different users moved through the app, what they came for, where they dropped off, and where the information architecture was creating unnecessary friction. That research shaped the layered model the redesign was built around.
+
+The UX architecture was built around progressive disclosure: the default view presents the summary most users need most of the time, with a consistent path to detail available at every level. No feature is hidden, but not every feature needs to be prominent. The Financial Advisor sits at the deepest layer of this hierarchy: always available, never intrusive.
+
+Financial product UX also requires careful attention to the language of trust. How you label a product (pension plan vs. retirement savings), how you present performance data, how you communicate risk: these are design decisions with real consequences for the decisions users make. I worked closely with Mapfre's product and legal teams to define language conventions that would hold across the whole product.
+
+_Four layers, three product types. The default view loads what most users need most of the time. Each additional layer, detail then action, is one deliberate tap deeper. Complexity on demand, not by default._
+
+The Financial Advisor
+
+## Personalised guidance, with visible reasoning
+
+The advisory feature required designing a data collection flow that users would willingly complete. Asking someone about their financial risk tolerance and long-term goals is sensitive: the design had to communicate clearly why the information was being collected and how it would be used, without burying that context in legal language. Each question was framed in plain terms with transparent purpose.
+
+The recommendation output had to earn trust at the point of display: every suggested product was shown with its rationale, why this product, why now, what assumption it was based on. Users could accept a recommendation, modify the inputs that generated it, or ignore it entirely. Preserving that autonomy, making the guidance feel like informed advice rather than a sales funnel, was the defining design constraint of the feature.
+
+_The advisory flow is designed around trust at every step. Data collection is transparent and purposeful. Recommendations are shown with visible reasoning. User autonomy is preserved throughout; the system advises, it does not decide._
+
+_**Advisory flow, mobile**: entry point, investment proposal with risk controls, and signed confirmation. Three steps from a single user journey._
+
+Design decision
+
+When a user tries to leave the advisory flow mid-process, the exit modal intercepts with a callback offer: "We'll call you." Abandonment becomes a route into assisted help rather than a lost session. A small decision with measurable retention implications.
+
+Design operations
+
+## Migration, coordination, and handoff
+
+The engagement included a significant design operations challenge from the outset: the app had an extensive screen library and complete design system built in Sketch, requiring full migration to Figma while active feature development continued in parallel. I planned and led that migration, defining the structure, phases, and effort estimates, ensuring no disruption to ongoing product work throughout.
+
+Coordination with Capgemini, the development partner, was a constant throughout: disciplined handoff and regular multi-team alignment were essential across design, client, and engineering teams operating under different organisational structures. The multi-device scope (desktop, tablet, and mobile) added a further layer of specification and handoff complexity to every delivery.
+
+Learnings
+
+## What financial UX teaches you about trust
+
+Financial products make the stakes of UX decisions visible in a way that consumer apps often don't. A confusing navigation pattern on a streaming service costs a user a few seconds. A confusing navigation pattern on an investment account can contribute to a decision made without sufficient information, with real financial consequences.
+
+That reality sharpens design decisions fast, and it only works with a real working relationship with compliance and legal rather than an adversarial one. On the teams I've seen do this well, legal has learned enough about the page to accept that a required disclosure doesn't have to sit in the most disruptive spot, and design has accepted that the disclosure isn't going away regardless.
+
+Specific performance data for this engagement is subject to NDA.
+
+
+---
+
+# IQOS Club Spain · CRO Programme · Jose Romero
+
+Project lead on ongoing CRO for the IQOS Club loyalty portal: fast experiments on limited traffic, with behavioural economics applied to habit and retention.
+
+Source: https://www.joseromerodesign.com/work/iqos-club-cro/
+
+CRO · Loyalty · Behavioural Economics
+
+# Optimising loyalty under tight constraints.
+
+Project lead for ongoing conversion optimisation across the IQOS Club members' portal: fast-cycle experimentation, behavioural economics applied to habit and retention mechanics, operating under limited traffic and shared resources.
+
+- **Client:** Philip Morris International (IQOS)
+
+- **Agency:** Flat 101
+
+- **My role:** CRO Project Lead
+
+- **Period:** 2022–2025
+
+- **Scope:** CRO · Loyalty · Behavioural Strategy
+
+Control iqosclub.es Variant 6 iqosclub.es Context
+
+## A loyalty programme with a specific kind of complexity
+
+IQOS Club is Philip Morris International's loyalty programme for IQOS users in Spain, a members' portal where users track rewards, access exclusive content, manage their devices, and engage with the brand between purchases. The programme sits in the tobacco alternatives category, which carries significant marketing restrictions and shapes what's possible in digital promotion.
+
+Acquisition wasn't really the CRO challenge here. Engagement and retention were: getting existing members to use the platform more, move up through loyalty tiers, and stay connected to the brand over the long haul. That calls for a different set of levers than a standard transactional funnel.
+
+The challenge
+
+## Low traffic, high standards
+
+Loyalty portals are structurally harder to optimise than transactional funnels. Traffic volumes are lower, because you're targeting only existing members, not the broader market. This means experiments take longer to reach statistical significance, and the risk of acting on false positives is higher.
+
+In this environment, good CRO practice requires more discipline, not less. The hypothesis quality has to be higher because you can run fewer experiments. The design decisions have to be better informed because you have less data to course-correct with.
+
+Approach
+
+## Behavioural economics in a loyalty context
+
+The most relevant behavioural frameworks for loyalty are different from those that dominate conversion optimisation in e-commerce. Loss aversion still applies: the framing of tier status and expiring points is a powerful lever. But habit formation mechanics become more important here: variable reward schedules, completion mechanics, progress visualisation.
+
+As project lead, I was responsible for generating the experiment pipeline: identifying opportunity areas through analytics and heuristic review, structuring hypotheses, prioritising based on potential impact and implementation cost, and communicating the programme's direction to the client. The design work included experiment variant design, interaction specifications, and performance analysis.
+
+The experiment pipeline ran in three phases: insight generation (web analytics, heatmaps, heuristic review, and behavioural economics framing), hypothesis and prioritisation (structuring focused hypotheses ranked by impact versus implementation cost), and rapid experimentation using Visual Website Optimizer (VWO). VWO enabled both A/B tests and personalisation variants without heavy development overhead, a key constraint given the shared-resource model. Personalisation complemented A/B work: tailoring content and mechanics to member segments, rather than forcing a single optimised experience on a heterogeneous membership base.
+
+"In loyalty work, 'will people convert' is the easy question. The one that actually matters is whether you're building a habit or just catching them in a good mood."
+
+Control iqosclub.es Variant 6 iqosclub.es
+
+**Homepage: Referral programme entry point.** V6 replaced the default hero with a full-bleed lifestyle photo tied to the active referral campaign, making the referral CTA the primary visual focus. Hypothesis: a contextually relevant, campaign-led hero outperforms the default brand hero at driving referral programme engagement.
+
+_The behavioural lever depends on the loyalty goal. CRO tests optimise the continuous hook loop of trigger, action, reward, and investment, rather than isolated touchpoints._
+
+Control iqosclub.es · Recomienda Variant 1 iqosclub.es · Recomienda
+
+**Recomienda: Reward framing test.** The control offered 1,000 points buried in a cluttered layout. V1 reduced the reward to 500 points but redesigned the page with cleaner hierarchy and a more prominent CTA, testing whether a better-framed lower reward could outperform a higher reward presented poorly.
+
+_Experiments run in a three-phase cycle. Insight quality feeds hypothesis quality; hypothesis quality determines how much learning can be extracted from limited traffic._
+
+Case 1 · 2,500+ pts iqosclub.es Case 5 · <500 pts iqosclub.es
+
+**Personalisation: Segment-led homepage CTA.** Members with 2,500+ points see a "Canjear puntos" primary CTA, the natural next step for a high-balance member. Members below 500 points see earn-oriented CTAs with a teal notification bar surfacing relevant actions. Same hero; different primary intent.
+
+Outcome
+
+## Ongoing programme with measurable engagement gains
+
+The IQOS Club engagement improved across the programme period. Specific figures are subject to client confidentiality and have not been published. The programme ran continuously throughout the Flat 101 engagement.
+
+The more durable outcome for me was methodological: running CRO at low traffic volumes sharpens your thinking about what makes a good hypothesis and what constitutes meaningful evidence. The discipline of making high-quality decisions with limited data is transferable to almost any design context.
+
+Scope evolution
+
+## CRO tooling as a campaign delivery channel
+
+As the programme matured, something useful happened: the client began recognising VWO not just as a testing tool, but as a fast deployment channel for time-sensitive campaign assets. Because VWO variants could go live without a development sprint, it became the preferred path for promotional modals, campaign banners, and temporary content tied to specific launches.
+
+This was a natural evolution. The same infrastructure that let us test UX hypotheses could push a promotional overlay to logged-in members within hours of a product launch, without touching the underlying platform. Promotional modals for device releases and loyalty campaigns became a recurring deliverable alongside the A/B pipeline.
+
+**Promotional modal: IQOS ILUMA Stardrift launch.** One of several campaign modals deployed via VWO during the programme. Triggered on login for targeted member segments, timed to product availability windows. Designed, built, and deployed without a development sprint.
+
+
+---
+
+# XTI Store · E-commerce Redesign · Jose Romero
+
+A full redesign of XTI’s fashion e-commerce platform, balancing brand ambition with a Magento migration, informed by competitor analysis and Hotjar data.
+
+Source: https://www.joseromerodesign.com/work/xti-ecommerce-redesign/
+
+E-commerce · UI Design · Fashion
+
+# Brand ambition within platform constraints.
+
+Full redesign of XTI's national fashion e-commerce platform, balancing brand ambition against the real constraints of a Magento migration and informed by competitive analysis, information architecture testing, and Hotjar behavioural data.
+
+- **Client:** XTI Store
+
+- **Agency:** Flat 101
+
+- **My role:** Lead UX/UI Designer
+
+- **Period:** 2022–2025
+
+- **Scope:** E-commerce Redesign · IA · UI Design
+
+xtistore.com/calzado-mujer Context
+
+## A national fashion retailer migrating platforms
+
+XTI is a Spanish footwear and fashion brand with a national retail presence and a significant direct-to-consumer digital operation. The redesign was scoped to coincide with a platform migration to Magento, which meant the design work had to operate within the constraints of what Magento could deliver, not an ideal technical canvas.
+
+People underrate how much the platform itself decides the UX before you've made a single design choice. Its component model, its URL structure, its filtering logic all draw the boundaries of what's even possible, whether anyone notices or not. Knowing those boundaries going in is the difference between a design that's exciting on screen and one that actually ships.
+
+Research & discovery
+
+## Behavioural data first
+
+The discovery phase used Hotjar session recordings, heatmaps, and funnel analytics from the existing site, alongside a structured competitive analysis studying how fashion category leaders like Zara and Adidas handled navigation, filtering, and product presentation. The goal was to understand where XTI's existing experience was losing users and why, before proposing any changes.
+
+Information architecture testing was also part of the process: card sorting and tree testing exercises conducted in Optimal Workshop to validate the proposed category and navigation structure before committing to high-fidelity design. IA problems discovered in testing are much cheaper to fix than IA problems discovered in live user data, especially on a Magento migration where structural changes post-launch carry significant development cost.
+
+_**Product listing · mobile scroll**: category hero, filter chips and grid density, mid-page editorial break. Three screens from a single scroll._
+
+_Constraints mapped first. Research inputs are filtered through the platform constraint, and the design brief becomes: what is the best possible UX within what can actually be built?_
+
+Design
+
+## Balancing brand and conversion
+
+Fashion e-commerce has a tension most other sectors don't deal with in quite the same way. The brand side wants editorial presence and a sense of aspiration; the conversion side wants clarity, product imagery front and center, and as little friction as possible between browsing and buying. Good fashion sites manage both, but only by being deliberate about exactly where brand gets to take up space and where it has to step back.
+
+For XTI, the design decisions focused on the product listing page and product detail page, the two highest-traffic, highest-drop-off stages in any fashion funnel. Filtering and sorting UX, product image presentation, size selection, and the add-to-cart interaction were all redesigned with conversion data as the primary success measure.
+
+The creative direction took cues from fashion editorial: clean layouts, generous whitespace, typography-led hierarchy, and product photography given room to breathe. That register was achievable within Magento's constraints because it relies on restraint rather than technical complexity. Developer collaboration was embedded from the start: involving the technical team early meant understanding what would perform within Magento's template model and avoiding patterns that would require expensive custom development.
+
+_**Product detail · mobile scroll**: product hero and ATC, size and colour selection, similar products and reviews. The highest drop-off point in the funnel._
+
+_The redesign concentrated effort on the highest drop-off stages: product listing and product detail. Brand expression earns its space at the top of the funnel; conversion mechanics take over from the listing page down._
+
+Learnings
+
+## Platform constraints are a design brief, not an obstacle
+
+The experience of designing within a specific platform constraint, knowing what's possible and what isn't before starting, is valuable in a way that isn't obvious until you've done it. It eliminates a large category of wasted design work: the elegant solution that can't be built, the interaction pattern that the platform doesn't support.
+
+It also changes what question you're actually answering as a designer. Not "what's the ideal UX here," in the abstract, but "what's the best UX I can build given what this platform will actually let me do", a less flattering question, but the one that matters when the project has to ship.
+
+Specific performance data for this engagement is subject to NDA.
+
+
+---
+
+# IKEA Ways of Working System · Jose Romero
+
+A cross-tool design operations framework for IKEA’s New Business Platform, spanning Figma, Jira, Confluence and Phrase, built to run without its author.
+
+Source: https://www.joseromerodesign.com/work/ikea-ways-of-working/
+
+Design Operations · Systems · Facilitation
+
+# A process designed to survive people.
+
+When I joined the IKEA Home Services team, there was no shared working system. I built one: a cross-tool framework spanning Figma, Jira, Confluence, and Phrase, from first principles.
+
+- **Client:** IKEA / Ingka Group
+
+- **Agency:** Garaje de Ideas / Groupe EDG
+
+- **My role:** Design Operations Lead
+
+- **Period:** 2025–Present
+
+- **Scope:** Process Design · Documentation · Tool Architecture · AI Workflow Design · Facilitation
+
+WoW System Architecture Skapa-First Decision Framework The problem
+
+## Eight failure modes, not one
+
+When I joined the team, the working process existed, but only in people's heads. Files were spread across Figma, Confluence, and local drives with no consistent structure. Nobody could say for certain what belonged in Figma, what in Confluence, or what in Jira, and the answer changed depending on who you asked.
+
+What looked like a cultural problem was a structural one. A root cause audit surfaced eight distinct failure modes actively slowing the team down. They were not independent; each fed the others:
+
+_Eight interlocking failure modes. The underlying pattern: information held informally, and no owner for the gaps between tools._
+
+Approach
+
+## Principles first, tools second
+
+The first step was making the existing state legible. Mapping what was actually happening, not the ideal, not what people believed happened, revealed that the problems were structural, not behavioural. People weren't being careless; the system had no clear rules about who owned what at which stage.
+
+The obvious move is to audit the tools first and write documentation around them, but that gets the order backwards. Without a structural principle underneath it, documentation is just one more thing to keep updated.
+
+I started by mapping the actual work: the types of tasks the team performed, their interdependencies, the decisions that kept getting lost, the questions that kept being asked by new team members. From that map, I derived a set of structural rules: what type of information lives in each tool, when it moves between tools, who owns it at each stage.
+
+"Design truth lives in Figma, context truth in Confluence, progress truth in Jira, and the moment the same fact exists in two of those without one clearly overriding the other, something's already gone wrong."
+
+Once the principles were clear, the documentation wrote itself. Tools were assigned roles. Naming conventions followed from those roles. Onboarding followed from the naming conventions.
+
+The framework
+
+## Four tools, one backbone
+
+The framework assigns a single, non-overlapping role to each of the four primary tools. The rule is simple enough to hold in memory without documentation:
+
+_One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation._
+
+_Working reference artifact: the complete WoW system architecture as distributed to the team. Covers tool-role assignments, Figma project structure, Skapa library hierarchy, and the five-phase content workflow in a single reference surface._
+
+The content workflow
+
+## Five phases. Two owners.
+
+Alongside the tool framework, the team needed a clear workflow for how design work, particularly content and translations, moved through the production cycle. The existing process had no defined phases, no explicit ownership handoffs, and no point at which translations could be verified before they reached users.
+
+The redesigned workflow is structured as five phases with explicit ownership. Phases one through three are designer-owned: content is defined, localisation keys are set up, and designs are handed off. Phases four and five are engineering-owned: implementation, integration, and QA happen here. The release is the output of a completed cycle, not a deadline that compresses earlier phases.
+
+The critical structural change was in Phase Two. Content localisation keys, the strings that feed the translation system, had to be created during design, not during development. Moving key creation earlier made translations a parallel track from Phase Two onward, which meant they were ready when QA began rather than still in progress.
+
+_Five phases, two owners. The key structural change: translation keys set up in Phase 2 (design), not Phase 4 (engineering), which made them verifiable in QA for the first time._
+
+_Branch-level workflow artifact, showing how the five-phase process maps to daily Figma work: branch lifecycle from creation to deletion, naming conventions, handoff protocol, and Jira integration in one operational view._
+
+Figma framework
+
+## Component decisions, not component chaos.
+
+File structure and naming conventions solve the organisation problem. Component governance solves a different one: when to use what already exists, when to adapt it, and when to propose something new.
+
+IKEA's Skapa design system provides a solid foundation of icons, foundations, and components. But a product team building features for the Home App will eventually encounter scenarios Skapa doesn't cover. Without a rule, those gaps get filled inconsistently: every designer making a different call, with no trail and no review. The Skapa-First decision framework makes the rule explicit: check Skapa first, adapt if needed, and only propose new components when no existing solution is feasible, with written justification and a governance review before anything enters production.
+
+_Component governance artifact, the Skapa-First decision framework as distributed to designers. Three evaluation paths: YES (use directly), MAYBE (adapt as a variant), NO (justify and submit for governance review before production)._
+
+Phrase optimisation
+
+## From untestable to verifiable
+
+The translation workflow was the most acute failure point. In the existing state, localisation keys were created late in the cycle, typically by engineering, not design, which compressed the translation window, forced localisation to happen in parallel with development rather than before it, and left QA with no mechanism to verify language quality before release. Translation errors were caught by end users, not by the team.
+
+The redesigned workflow shifted both the ownership and timing of key creation. Designers create content keys during Phase Two, as part of the design process, before handoff. This turns translation into a parallel track that is ready when development completes. Quality assurance now includes a dedicated translation review step: language errors are catchable before they ship.
+
+"If you can't test a problem before release, you will ship it. Testable translations weren't a nice-to-have; they were the reason the quality bar held."
+
+The change also reduced the cognitive load on engineering. When keys arrive in development already created and named correctly, engineers aren't making content decisions under deadline. The system produces better work because each role is doing the work it's positioned to do.
+
+AI workflow design
+
+## When the process is solid, you can design what comes next.
+
+Fixing the structural failures was necessary. But it also opened a different question: now that handoffs and ownership were explicit and documented, which parts of the design workflow could be fundamentally restructured, not just improved, using AI?
+
+Two threads emerged from this:
+
+Shape Up facilitation
+
+Shape Up sessions are cognitively demanding: problem framing, constraint definition, appetite-setting, and rough solution sketching, all compressed into a few hours. I designed and tested facilitation workflows that use AI to support the shaping process: structuring prompting sequences, helping surface edge cases before pitches are written, and synthesizing multi-participant outputs into pitch-ready documentation.
+
+Multi-agent orchestration for product shaping
+
+Complex features usually involve multiple stakeholders: product, engineering, content, business. For those, I designed a multi-agent approach that distributes the shaping task across specialized agents: problem decomposition, constraint mapping, and solution evaluation. Outputs are structured to flow directly into the Confluence documentation format established by the ways-of-working system. The process and the AI layer are the same system.
+
+"Most designers pick up AI as another tool in the kit. What I'm doing here is closer to designing AI into the workflow itself, a different skill, and honestly the direction systems thinking was always heading anyway."
+
+This work is ongoing and is being shared with senior design professionals at Garaje de Ideas as part of an active AI literacy programme.
+
+Outcome
+
+## Imperfect adoption. Structural bones held.
+
+Adoption has been uneven, which was expected. Some habits stuck fast, others are still catching on team by team, and a few corners of the process still get worked out informally rather than by the book.
+
+But the structural bones held. New team members can now onboard without needing a personal guide through every tool. Handoffs have a consistent shape. When the process breaks down, it breaks down in identifiable ways: a naming convention ignored, a Confluence page not updated. Both get fixed by adjusting documentation, not by hunting through files or asking the right person.
+
+The translation workflow change had the most immediate effect: QA could verify language quality before release for the first time. The feedback loop shortened from "a user reports a translation issue" to "QA catches it in pre-production."
+
+Honestly, that's fine by me. I'd rather have a system that keeps functioning when people cut corners than one that only works if everybody follows it to the letter. The second kind looks great on paper and falls apart the day its one caretaker goes on holiday.
+
+
+---
+
+# AI Workflow Design Framework · Jose Romero
+
+A multi-agent AI workflow framework designed from first principles for a global retailer, with AI treated as part of the process to design.
+
+Source: https://www.joseromerodesign.com/work/ai-workflow-framework/
+
+AI Workflow Design · Process Architecture · Facilitation
+
+# Designing the AI layer, not just using it.
+
+Most teams add AI tools to an existing process. This project, an internal exploratory initiative within IKEA's digital experience design team, asked a different question: what does it look like to architect AI into a design workflow from first principles, with explicit checkpoints, structured agent roles, and a human decision layer that genuinely controls the output?
+
+- **Client:** IKEA / Ingka Group
+
+- **Agency:** Garaje de Ideas / Groupe EDG
+
+- **My role:** Design Operations Lead
+
+- **Period:** 2025–Present
+
+- **Scope:** AI Workflow Design · Process Architecture · Multi-agent Orchestration · Facilitation
+
+Multi-Agent Orchestration Five-Phase Workflow + Human Gates The problem
+
+## The wrong question was everywhere
+
+The dominant question in design teams exploring AI was "which tool should we use?" The answer was almost always a product recommendation: a specific assistant, a specific plugin, a specific integration. Teams would adopt it, use it for a few weeks, and find that the outputs were inconsistent, the process was murkier than before, and nobody could explain why a particular output was good or bad.
+
+The tool was rarely the actual problem. AI had been dropped into a process that had never been built to hold it: no defined phases, no agent roles, no checkpoints, no plan for what context needed to carry forward. Left like that, AI-assisted work doesn't fail loudly; it drifts away from the original intent while still looking plausible, and that's worse, because nobody catches it in time.
+
+The insight
+
+## Treat AI like any other part of the system
+
+What actually made this project work was refusing to treat AI as special. I gave it the same treatment I'd give any other design-systems problem: pin down the inputs, the outputs, the handoffs, and who's deciding what at each step.
+
+Instead of asking what AI could do, I started asking where it actually belonged in the process and how we'd know if it was doing that job well. Harder question, more useful answer, and one that plays to a systems thinker's strengths, since it means understanding the whole flow before touching any single part of it.
+
+The framework
+
+## Three tiers. Five phases. Human gates throughout.
+
+The framework organises AI-assisted design work into a three-tier agent hierarchy operating across five defined phases. Each tier has explicit scope, defined inputs and outputs, and clear escalation paths to human decision-makers.
+
+_Three-tier agent hierarchy. Each tier has defined scope and escalation paths. The Orchestrator coordinates but does not decide; humans hold final authority at every phase gate._
+
+_Orchestration working artifact, the board version adds operational detail the diagram above abstracts: I/O nodes (Shaping Session Brief → Pitch-Ready Docs), the Human Decision Layer above all tiers with explicit gate conditions, and the rule that no tier self-approves._
+
+Applied
+
+## Two threads from the same structure
+
+The framework wasn't built in the abstract. It emerged from two parallel workstreams inside an enterprise design team, both of which exposed the same underlying problem: AI without process produces work nobody can own.
+
+Shape Up facilitation
+
+Shape Up shaping sessions are cognitively intensive: multiple stakeholders, ambiguous scope, competing constraints. I designed facilitation workflows that use AI to support the shaping process: structuring the problem before the session begins, surfacing edge cases before pitches are written, and synthesising multi-participant outputs into pitch-ready documentation. The AI handles structure; the facilitator handles judgment.
+
+Multi-agent orchestration for complex features
+
+For features involving product, engineering, content, and business stakeholders simultaneously, a single-agent approach produces generic outputs that satisfy nobody. The multi-agent approach distributes the shaping task: one agent decomposes the problem, another maps constraints, another evaluates solution directions. Outputs are structured to flow into existing documentation formats, so the AI layer and the process layer are the same system.
+
+_Five-phase workflow with human gate checkpoints. Each gate requires a named human decision, not an acknowledgement. AI advances only after human sign-off._
+
+_Five-phase workflow artifact, the team-facing reference. Each row shows AI contribution detail, a named human gate condition, and the output artifact per phase. Teal = AI-supported; gold = human-led. Gates are hard stops, not formalities._
+
+What this requires
+
+## Working this way asks more of a designer, not less
+
+Most people assume AI-augmented workflows make a designer's job easier. In practice the job just moves: less time producing, more time directing, checking, and stitching pieces together. None of that is taught in a design programme, so the framework builds it in explicitly. Five habits carry most of the weight: reading a prompt like a brief instead of a spec, judging AI output fast without losing rigor, deciding what context survives from one phase to the next, catching when an agent has drifted off the original intent without anyone flagging it, and knowing which outputs need a second look versus a full re-check.
+
+Design leads and systems thinkers tend to pick this up quickly, mostly because they're already reading process the same way; they just have to point that habit at a new kind of collaborator.
+
+_Trust calibration tiers. Calibrated trust, knowing what to review versus scrutinise versus validate externally, is a skill that develops with practice and should be made explicit across the team._
+
+_Trust calibration artifact, active reference for evaluating AI output: High Confidence (review efficiently), Scrutinise Carefully (deep human review), Validate Externally (independent source required). The key rule: AI fluency is a trigger for more scrutiny, not less._
+
+Outcome
+
+## A framework that separates process from tooling
+
+The most durable result of this work is a process architecture that is independent of any specific AI tool or platform. Because the framework defines phases, agent roles, checkpoints, and context management protocols at the process level, not the implementation level, it survives tool migrations, platform changes, and team turnover.
+
+That separation also makes it teachable. The framework is now being shared through an active AI literacy programme for senior design professionals, with a focus on workflow design rather than tool use. The target audience is designers and design leads who already think in systems and are ready to apply that thinking to how AI fits into the process, not just what AI can do.
+
+The framework itself is written up separately, in more depth than fits here, so another team can pick it up and adapt it rather than start from a blank page. It's built from the actual failure modes I ran into on this engagement, not a theoretical version of them.
+
+[Read the full framework (18 min) →](https://www.joseromerodesign.com/thinking/ai-workflow-framework/)
+
+
+---
+
+# Designing with AI · Jose Romero
+
+A framework for human-led, agent-assisted product design: process architecture, real checkpoints, drift, and what AI asks of senior designers.
+
+Source: https://www.joseromerodesign.com/thinking/ai-workflow-framework/
+
+Thinking · AI · Process Design
+
+# Designing with AI
+
+A framework for human-led, agent-assisted product design. On process architecture, genuine checkpoints, drift, and what AI augmentation actually demands.
+
+**Design Operations** · IKEA / Ingka Group · June 2026, updated October 2026 · 18 min read
+
+**Topic**· Design Operations**Context**· IKEA / Ingka Group**Published**· June 2026**Updated**· October 2026**Read** · 18 min
+
+Contents
+
+- Preface
+
+- The reframe
+
+- The architecture
+
+- Human-in-the-loop
+
+- Facilitation
+
+- What this demands
+
+[← Case study](https://www.joseromerodesign.com/work/ai-workflow-framework/) [← All thinking](https://www.joseromerodesign.com/thinking/)
+
+Preface
+
+Most design teams I talk to are stuck on the wrong question. "Which AI tool should we use?" is a procurement question dressed up as a design one, and answering it first is exactly how you end up with what most teams have right now: demos that look great, output that's all over the place, and a workflow that's harder to audit than what it replaced.
+
+The more interesting question is: if you were designing a workflow from scratch, knowing that AI agents would be part of it, how would you structure the process? Where would the humans be? What would they actually do? What would agents handle? And how would you know if it was working?
+
+That is the question this framework tries to answer. It grew out of real work inside IKEA's digital experience design team, and was extended afterward into something that can operate independently of any specific toolset. What follows is the full argument, including the parts that failed before they worked.
+
+Process design
+
+## The reframe
+
+The distinction between tool use and workflow design is not semantic. A tool you use is optional and interchangeable. A workflow layer you've designed is part of the architecture: different risk profile, different level of care required.
+
+Most teams I've seen treat AI as a feature bolted onto whatever workflow already exists: a Figma plugin generating copy variants, a ChatGPT tab summarising research notes, an assistant drafting the first pass. None of that is wrong on its own. The catch is that AI used this way just inherits whatever was already broken about the process.
+
+An ad hoc process doesn't get more structured with AI in it. It gets faster and more ad hoc. Undocumented decisions don't become documented; they become confidently, plausibly wrong. And if a team hasn't agreed on what they're actually trying to achieve, AI will happily optimise for something else entirely.
+
+An unclear process doesn't get slower when you add AI to it. It gets fast, unclear, and, because the output looks polished, much harder to catch.
+
+What worked for me was treating AI the way I'd treat any other systems design problem: pin down the inputs, the outputs, the handoffs, who decides what and when: the workflow first, with AI designed into it afterward, not the other way around.
+
+The useful question stopped being "what can AI do?" and became "where does this actually belong in the process, and how would I know if it wasn't working?" Slower to answer, but it's the one that matters.
+
+Systems architecture
+
+## The architecture
+
+The framework organises AI-assisted design work into three tiers of agents operating across five phases.
+
+### The three tiers
+
+Shape Up's fixed appetite and variable scope maps well here. The appetite constrains the Orchestrator's context management. Betting table moments become genuine human decision points rather than rubber stamps.
+
+**Tier 1: the Orchestrator** sits at the top. Its job is to manage context across the entire project: maintaining the project record, summarising phase outputs, coordinating handoffs between phases, and escalating to human decision-makers when something is genuinely ambiguous or consequential. The Orchestrator does not make design decisions. It manages the conditions under which design decisions are made.
+
+**Tier 2: Phase Agents** each own a single phase: Discovery, Shaping, Betting, Building, or Retrospective. They receive inputs from the Orchestrator, coordinate the Task Agents within their phase, and produce structured outputs for human review at the phase exit.
+
+**Tier 3: Task Agents** are narrow specialists. A constraints analysis agent. A user needs synthesis agent. A decision logging agent. A scope monitoring agent. Each does one thing within its phase and produces a structured output that feeds directly into the Phase Agent's synthesis. Their narrowness is a feature, not a limitation: narrow scope means clear accountability and containable failure.
+
+### The five phases
+
+The phases follow the Shape Up methodology's core rhythm: discovery shapes the problem, shaping produces a pitch, betting commits the scope, building executes it, and the retrospective evolves the framework itself. Each phase has explicit exit criteria: conditions that must be met before the framework advances.
+
+This matters because it prevents the most common failure in AI-assisted workflows: phases that technically complete but don't actually resolve anything. Exit criteria force resolution. They prevent the appearance of progress masking the absence of it.
+
+### Why the structure matters
+
+The three-tier hierarchy is not bureaucracy. It is containment. An agent that operates with too broad a mandate will drift. An agent that receives poorly scoped inputs will hallucinate plausibly. The hierarchy creates the conditions under which each agent can be reliable: clear scope, well-formed inputs, structured outputs, and a human review layer at every meaningful transition.
+
+The hierarchy creates the conditions under which each agent can be reliable. Clear scope, well-formed inputs, structured outputs, and a human review layer at every meaningful transition.
+
+Design the process well and the AI is just another layer inside it.
+
+Trust & governance
+
+## Human-in-the-loop, for real
+
+I've stopped trusting the phrase "human-in-the-loop" on its own: it covers everything from a real decision-making role down to a confirmation dialog nobody reads before clicking through. Plenty of workflows advertise human oversight and deliver a formality instead.
+
+High-confidence AI output is not a signal of correctness; it is often a trigger for more careful review. Fluency and accuracy are not correlated. This is counterintuitive and worth making explicit to the whole team.
+
+The framework takes a different position: human checkpoints must be hard gates: moments where the workflow literally cannot advance without a named human decision. Not a notification. Not a summary email. A decision, with a record of who made it and why.
+
+### What a genuine checkpoint looks like
+
+Every meaningful phase transition requires a Confirmation Block: a structured AI output that captures the agent's current understanding of the problem, the assumptions it's carrying forward, and the decisions that remain open. The human reviewer's job is not to approve this as a courtesy. It is to read it adversarially: what is wrong here? What is missing? What has shifted?
+
+Confirmation Block Discovery Phase · Awaiting human review
+
+Problem statement
+
+Users in the onboarding flow abandon at the document upload step due to perceived complexity and uncertainty about data handling. Primary signal: drop-off analytics + usability session recordings (n=12).
+
+Assumptions carried forward
+
+Primary persona: first-time users, low technical confidence. Success metric: abandonment reduction at upload step. Scope: native mobile only. Desktop parity not in this cycle.
+
+Decisions deferred
+
+Whether to redesign the upload UI or add contextual guidance only. Requires human resolution before Shaping phase begins.
+
+Open questions
+
+Legal sign-off on revised data handling copy. Dependency on backend team for file validation timeline.
+
+→ Please confirm, correct, or expand before the workflow advances.
+
+If a human reads that summary and has nothing to correct, I'd treat that as a yellow flag, not a green one. It might mean the agent captured a genuinely clean phase output. It might also mean the reviewer skimmed it. I've learned to assume the second until I have a reason not to.
+
+### The drift problem
+
+Nobody talks about drift as a failure mode, probably because it doesn't announce itself. From the inside, it just looks like the project is moving forward.
+
+Drift is the gradual divergence between the AI's working model and the team's actual intent. It's different from a single error, which is visible and correctable. Drift is cumulative: small misalignments that compound across phases until the gap between "what we're building" and "what we said we were building" becomes significant.
+
+It shows up as framing drift (the problem statement shifts subtly), persona drift (the target user becomes different from the research), or priority drift (a trade-off resolved early gets re-litigated without anyone flagging it). By the time it's visible, several phases of work may already be built on the wrong foundation.
+
+The defences against drift are structural: a project context document updated and reviewed at each phase transition; original intent literally re-read at every phase gate, from a document not from memory; and confirmation blocks that explicitly surface the agent's current problem framing for human comparison.
+
+The most important defence is cultural: a team environment where questioning the AI's framing is expected and rewarded, not treated as friction.
+
+### Context as a design discipline
+
+Context architecture is information design. Structuring a complex interface calls for the same instincts: hierarchy, compression, what to show and what to defer. They transfer directly to managing context in a multi-agent system.
+
+Working with language models in a multi-phase workflow means accepting a real constraint: agents don't have memory in the way human team members do. Each operates within a context window: a bounded space of information it can actively process. When that window fills up, context is summarised, compressed, or lost.
+
+That's just how the technology behaves, not a flaw to engineer away, and designing around it turned out to be its own skill. Four mechanisms in the framework handle it:
+
+- **Context Initialisation**: a living project document maintained across all phases, re-injected at each phase start
+
+- **Incremental Summarisation**: structured compression of phase outputs that preserves decisions and open questions
+
+- **Selective Injection**: task-specific context packages that give each agent only what it needs for its scope
+
+- **Context Auditing**: a human-led review of context accuracy at each phase boundary
+
+The skill of context architecture, knowing what information to carry forward, how to compress it without losing signal, when the context has drifted from reality, is one of the most underrated skills in AI-augmented design work. It is also one of the most teachable.
+
+Leadership & practice
+
+## Facilitation
+
+Embedding AI into a design workflow doesn't make the facilitator's job easier. It's a different job.
+
+The clearest shift: the facilitator stops being the one processing everything the group says. AI now handles most of the transcription, tagging, and first-pass synthesis. That frees up attention, but it adds a new responsibility in its place: watching the system as closely as the room, tracking what the AI is doing with what people just said, and getting participants to actually interrogate those outputs instead of nodding along.
+
+The pattern I've seen most often: a group that has been in a two-hour session accepts an AI synthesis as authoritative because it looks organised. The facilitator needs to actively model skepticism, not just once, but consistently.
+
+There is a specific risk here. When AI summarises a two-hour workshop into a crisp set of insight clusters, participants tend to accept that summary as authoritative, because it looks organised and confident. The facilitator must actively resist this: prompting the group to interrogate the synthesis, identify what was lost in compression, and surface disagreements the system may have smoothed over.
+
+Watch the room and the system both. When they disagree, trust the room.
+
+### What doesn't change
+
+- **Holding purpose**: AI can track topics but cannot hold intent. The facilitator owns why the session is happening.
+
+- **Reading the room**: no model can sense when a team is losing confidence, when a voice is being systematically deferred to, or when the group is about to commit to something they don't actually understand.
+
+- **Judgment calls**: when the AI's synthesis contradicts the facilitator's read of the room, the facilitator's judgment takes precedence. Always.
+
+### The norm worth protecting
+
+The most important condition for AI-augmented facilitation is one that cannot be designed into the system: the normalisation of skepticism toward AI output.
+
+On teams that get this right, pushing back on the system's output isn't read as distrust or slowing things down; it's read as someone doing their job well. "I don't think this captures what we actually said" is worth more than the polite silence it usually gets.
+
+Building this norm requires explicit leadership. The facilitator must model skepticism: asking critical questions about AI synthesis in front of the group, praising pushback, and making it clear that the AI is a collaborator with a defined and bounded role, not a source of truth.
+
+Skills & calibration
+
+## What this demands
+
+AI augmentation doesn't simplify the designer's role. It changes it.
+
+Less time goes into production work now: first drafts, structured synthesis, applying a repetitive pattern, most of that's moved to agents. More time goes into setting direction, evaluating what comes back, and making the judgment calls where user need, business constraint, and design quality don't line up cleanly. The responsibility for the outcome hasn't moved at all.
+
+AI assistance does not transfer accountability. It changes the form of the work required to fulfil it.
+
+### The skills that design education hasn't caught up with
+
+Tired reviewers accept more. Build time and structure for careful review into the process itself. Don't rely on team discipline to do the work that the process should do.
+
+- **Prompt craft**: giving an agent enough specificity to be useful without boxing out its actual contribution. It's closer to writing a brief than writing a spec, and a longer prompt isn't a better one; a precise one is.
+
+- **Output evaluation**: assessing AI output critically and quickly: what is right, what is wrong, what needs investigation. This requires both domain knowledge and a clear mental model of what the work is supposed to achieve.
+
+- **Context architecture**: deciding what information must carry forward across phases, how it should be compressed, and what can be safely left behind. A new kind of information design that senior designers are well-positioned to develop.
+
+- **Drift detection**: noticing when the AI's framing has shifted subtly from original intent. This requires keeping original intent visible and referring to it regularly, from a document, not from memory.
+
+- **Calibrated trust**: knowing when AI output is likely reliable and when it requires deeper scrutiny. Calibration develops with practice and should be made explicit across the team.
+
+### The framework as a living practice
+
+A framework that is treated as finished stops improving. The retrospective phase is specifically designed to prevent this: at the end of each cycle, the team reviews not just the design work but the framework itself. What worked. What generated overhead without value. What needs to change.
+
+The practices described here are the result of real experimentation: what has worked, what has failed, and what has been learned. They represent a current state, not a final one. Every team that adopts this framework will encounter situations it doesn't fully address. The right response is to adapt and document, not to follow mechanically.
+
+To close
+
+The framework is an attempt to make human judgment more effective, not to replace it. The AI layer exists to serve the process. The process exists to serve the design. The design exists to serve the people who use it.
+
+The agents, the workflow, the tooling: none of it matters as much as that chain of accountability holding end to end. That's the actual point.
+
+[← Back to Thinking](https://www.joseromerodesign.com/thinking/) [View the case study →](https://www.joseromerodesign.com/work/ai-workflow-framework/)
+
+
+---
+
+# A Knowledge Graph That Grades Its Own Evidence · Jose Romero
+
+A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.
+
+Source: https://www.joseromerodesign.com/thinking/beco-knowledge-graph/
+
+Personal Research Infrastructure · Work in Progress
+
+# A knowledge graph that _grades its own evidence._
+
+Four hundred and twenty sources. Every one DOI-verified. Built to separate what behavioural science actually shows from what design decks have been repeating for a decade.
+
+Why this exists
+
+## “Nudge” became a word before it became a discipline.
+
+Behavioural-science vocabulary spreads through design faster than its evidence does. Named “laws” get cited in decks, style guides, and design documentation, and almost nobody checks whether the research behind them actually holds up.
+
+Jakob’s Law? Murphy’s Law? Occam’s Razor? Hick’s Law? The Law of Triviality?
+
+This graph exists to answer that question, for every one of them, on the record — and to keep the answer current as new evidence shows up.
+
+The core idea
+
+## Three tiers. _One direction only._
+
+### The Science
+
+Source → Finding. DOI-verified, graded replicated, disputed, undetermined, or not applicable.
+
+Backed by
+
+### The Trust Rating
+
+BiasHeuristic. An honest backing status and a separate myth-risk rating, independent of how popular the claim is.
+
+Illustrated by
+
+### The Practice
+
+Application. Real products, campaigns, and studies, provenance-graded, with a mandatory ethical read.
+
+The arrow only runs one way. A real-world example can illustrate a bias. It can never inflate the rating above it. Popularity in practice and rigor in research stay visibly, permanently separate.
+
+At a glance
+
+## Not a _prototype._
+
+420Sources 431Findings 243Named Concepts 221Topics 960Authors 222Real-World Examples
+
+Hosted on Neo4j Aura, always-on and reachable from anywhere, not a local file on one laptop.
+
+How it’s built
+
+## A map, _not a spreadsheet._
+
+What actually makes it reliable
+
+## The rule is simple. _Holding it is the hard part._
+
+Every source needs a real, checkable DOI. Every finding gets one of four grades — replicated, disputed, undetermined, or not applicable — never just “cited.” Every write to the live database runs through a validation pass before it touches anything. Fields are closed-enum, not free text, so “sort of backed, I guess” was never an option to begin with.
+
+That discipline is the entire point. Picking quotes that sound authoritative is easy. Holding a consistent bar for what actually counts as evidence, and writing it down every single time, is the part that's usually skipped.
+
+See it work
+
+## Scarcity Principle, _start to finish._
+
+Source Scarcity tactics in marketing Journal of Retailing, 2022 → Finding 416 effect sizes, 131 studies Scarcity cues reliably increase purchase intent, moderated by product type. → BiasHeuristic Scarcity Principle Verified · no myth risk → Application Booking.com’s urgency messaging Real case study · clarified after EU enforcement, 2020
+
+Every link in that chain is a real, independently checkable citation, not a paraphrase of “research shows.”
+
+Proof it’s not just filing
+
+## When the evidence isn’t there, _the graph says so._
+
+Running the same audit against fifteen widely-cited “laws” — Murphy’s Law, Occam’s Razor, Jakob’s Law, and the Law of Triviality among them — found no rigorous backing behind any of them. That doesn’t mean the underlying observations are wrong. It means the evidence usually attached to them isn’t there when you actually go look for it.
+
+1 reversal The claim that lottery winners aren’t any happier than everyone else, cited in nearly every “money doesn’t buy happiness” argument, is directly disputed by a 2020 correction of a measurement error in the original study. 17%, not 17 points A study on outcome bias among NBA coaches was cited as showing “17 percentage points” more likely to change lineups after a loss. The source actually says 17 percent — a relative change. Checked against the original DOI and corrected to match. Useful, not just accurate
+
+## A reliable answer _nobody can find_ isn’t reliable.
+
+Semantic search over the findings, tested against a labeled set of real questions rather than eyeballed. The production configuration beats two reasonable alternatives by a real margin.
+
+ConfigurationMRRHit@1
+
+Production (query-instruction prefix)0.8110.733
+
+Ablation · no instruction prefix0.6600.567
+
+Ablation · alternate embedding model0.7510.667
+
+One result changed an approach already shipped: a re-ranking step that clearly improves search over the findings makes search over the named biases worse. A technique that works for one part of a system doesn’t automatically work for another part just because it’s the same system.
+
+Not just a database
+
+## Ask it _a question._
+
+$ python3 query.py "does scarcity actually work?" Scarcity Principle · verified · foundational Limited availability increases perceived value and desirability. Real-world examples (4): • Booking.com’s urgency messaging · manipulative-use risk flagged • Groupon’s combined time- and quantity-limited framing categorize.py
+
+The confidence-first audit: what’s solid, what’s contested, and which popular “laws” carry real myth risk.
+
+query.py
+
+Semantic search over the findings and the named biases, with disputes, support, and full source provenance surfaced in one pass.
+
+Neo4j Aura
+
+Always-on, queryable from anywhere, not a local file someone has to request access to.
+
+Work in progress, on purpose
+
+## Built to grow. _Built to be checked._
+
+Right now, this is mine: I query it, I maintain it, I’m the only one who has ever written to it. The current stretch of work is depth, not breadth: extending source coverage on the corpus’s most-cited, most foundational names, so the concepts practitioners lean on hardest rest on more than a single study.
+
+I wanted other designers to explore this themselves rather than take my word for what’s in it, so there’s now a browsable version of the whole graph — the same clusters, the same citations, no highlight reel. It’s a snapshot, not a live connection, and read-only for now. Anyone working in this field can already open a claim and see exactly what backs it; letting other people write to it is the part still ahead.
+
+✓ 202 real-world examples across all domains ✓ Retrieval tuned and measured, not assumed ✓ Open for anyone to browse → Extending literature depth on foundational names Get in touch
+
+## If you’ve ever cited a “law” you’d never checked, _you’re not alone._
+
+That's exactly why I built this. I'm always glad to talk through what's behind a specific claim, walk through the graph directly, or hear about a source I'm missing.
+
+[Explore the graph →](https://www.joseromerodesign.com/thinking/beco-explorer/) [Get in touch →](mailto:joseromero.next@gmail.com)
+
+
+---
+
+# Explore the BECO Knowledge Graph · Jose Romero
+
+The whole BECO knowledge graph on one zoomable map, with a card for anything you pick and each concept graded by how well the research backs it.
+
+Source: https://www.joseromerodesign.com/thinking/beco-explorer/
+
+Personal research
+
+# Explore the _BECO graph._
+
+## How to _read it._
+
+BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they end up in a design decision. The map draws all of it at once: the eight clusters at the centre, then domains, topics and named concepts, then the findings and real-world examples behind each concept, and at the edge the sources and the people who wrote them. The cards beside it read whatever you pick.
+
+Nothing is placed by hand. Each item sits near what it's linked to, so concepts that share topics, studies or authors end up close together, and the teal arcs connect concepts the research treats as related. It's a snapshot I regenerate after each research round, not a live database.
+
+- Solid teal: the research supports it.
+
+- Pale teal: partly supported, with caveats worth knowing.
+
+- Dashed outline: no rigorous backing found yet.
+
+- Red ring: often repeated in design circles in a form the studies don't support.
+
+[How it's built →](https://www.joseromerodesign.com/thinking/beco-knowledge-graph/)
