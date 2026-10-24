@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The BECO graph, all of it · Jose Romero</title>
+  <meta name="description"
+    content="The whole BECO knowledge graph on one zoomable map: 243 behavioural-science concepts, the findings and sources behind them, and the authors of those sources, each concept graded by how well the research backs it.">
+  <link rel="canonical" href="https://joseromerodesign.com/thinking/beco-graph/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="The BECO graph, all of it · Jose Romero">
+  <meta property="og:description"
+    content="The whole BECO knowledge graph on one zoomable map, every concept graded by how well the research backs it.">
+  <meta property="og:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+  <meta property="og:url" content="https://joseromerodesign.com/thinking/beco-graph/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The BECO graph, all of it · Jose Romero">
+  <meta name="twitter:description"
+    content="The whole BECO knowledge graph on one zoomable map, every concept graded by how well the research backs it.">
+  <meta name="twitter:image" content="https://joseromerodesign.com/assets/images/og-default.webp">
+
+  <link rel="stylesheet" href="/assets/css/main.css?v=35">
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+  <link rel="preload" href="/assets/data/beco-graph/graph.json" as="fetch" crossorigin>
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="en" href="https://joseromerodesign.com/thinking/beco-graph/">
+  <link rel="alternate" hreflang="es" href="https://joseromerodesign.com/es/thinking/beco-graph/">
+  <link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-graph/">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       BECO GRAPH — bgr- prefix
+       The whole graph as one canvas map. Drawing and interaction live
+       in /assets/js/beco-graph.js (shared with the ES page); wording is
+       passed in through window.BGR_STRINGS at the end of this file.
+    ═══════════════════════════════════════════════ */
+
+    /* ── the stage: the map fills the first screen ── */
+    .bgr-stage {
+      position: relative;
+      height: 100svh;
+      min-height: 560px;
+      overflow: hidden;
+      border-bottom: 1px solid var(--border-default);
+      background:
+        radial-gradient(ellipse 60% 55% at 50% 52%, color-mix(in srgb, var(--teal) 6%, transparent), transparent 70%),
+        var(--bg-base);
+    }
+    .bgr-canvas {
+      position: absolute; inset: 0;
+      display: block;
+      cursor: grab;
+      touch-action: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+    .bgr-stage.is-ready .bgr-canvas { opacity: 1; }
+    .bgr-loading {
+      position: absolute; inset: 0;
+      display: grid; place-items: center;
+      font-size: var(--text-sm); color: var(--text-tertiary);
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .bgr-stage.is-ready .bgr-loading { opacity: 0; }
+
+    /* overlays sit on the map but let the pointer through except on controls */
+    .bgr-head, .bgr-tools { position: absolute; z-index: 2; pointer-events: none; }
+    .bgr-head > *, .bgr-tools > * { pointer-events: auto; }
+
+    .bgr-head {
+      top: calc(var(--nav-height) + var(--sp-6));
+      left: var(--gutter);
+      max-width: min(26rem, 40vw);
+    }
+    .bgr-eyebrow {
+      font-size: var(--text-xs); font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--teal-text);
+      display: flex; align-items: center; gap: var(--sp-3);
+      margin-bottom: var(--sp-4);
+    }
+    .bgr-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--teal); }
+    .bgr-head h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.9rem, 2.6vw, 2.75rem);
+      line-height: 1.04;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      margin: 0 0 var(--sp-4);
+      text-shadow: 0 0 18px var(--bg-base), 0 0 6px var(--bg-base);
+    }
+    .bgr-head h1 em { font-style: italic; color: var(--gold); }
+    /* once something is picked, the heading steps back so the map has the screen */
+    .bgr-head { transition: opacity 0.4s ease; }
+    .bgr-stage.has-selection .bgr-head { opacity: 0; pointer-events: none; }
+    .bgr-stage.has-selection .bgr-head > * { pointer-events: none; }
+    .bgr-stats {
+      font-size: var(--text-sm);
+      color: var(--text-secondary);
+      letter-spacing: 0.02em;
+      text-shadow: 0 0 10px var(--bg-base);
+    }
+
+    /* ── tools: search, grade filter, zoom ── */
+    .bgr-tools {
+      left: var(--gutter);
+      bottom: var(--sp-8);
+      display: flex; flex-direction: column; gap: var(--sp-3);
+      width: min(22rem, calc(100% - 2 * var(--gutter)));
+    }
+    .bgr-search-wrap { position: relative; }
+    .bgr-search {
+      width: 100%;
+      font: inherit; font-size: var(--text-sm);
+      color: var(--text-primary);
+      background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      padding: var(--sp-3) var(--sp-5);
+    }
+    .bgr-search::placeholder { color: var(--text-tertiary); }
+    .bgr-search:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgr-results {
+      list-style: none; margin: 0; padding: var(--sp-2);
+      position: absolute; left: 0; right: 0; bottom: calc(100% + var(--sp-2));
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 12px 30px rgb(0 0 0 / 0.3);
+    }
+    .bgr-results:empty { display: none; }
+    .bgr-results li {
+      display: flex; align-items: center; gap: var(--sp-2);
+      padding: var(--sp-2) var(--sp-3);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm); color: var(--text-primary);
+      cursor: pointer;
+    }
+    .bgr-results li:hover { background: var(--bg-surface-2); }
+    .bgr-results li small { margin-left: auto; color: var(--text-tertiary); font-size: 0.75rem; white-space: nowrap; }
+    .bgr-results .bgr-empty { color: var(--text-tertiary); cursor: default; }
+
+    .bgr-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+    .bgr-chip, .bgr-icon-btn {
+      font: inherit; font-size: 0.8125rem;
+      color: var(--text-secondary);
+      background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      padding: var(--sp-2) var(--sp-3);
+      display: inline-flex; align-items: center; gap: var(--sp-2);
+      cursor: pointer;
+      transition: border-color var(--ease-fast), color var(--ease-fast);
+    }
+    .bgr-chip:hover, .bgr-icon-btn:hover { border-color: var(--teal); color: var(--text-primary); }
+    .bgr-chip[aria-pressed="true"] { border-color: var(--teal); color: var(--text-primary); background: var(--bg-surface-2); }
+    .bgr-chip:focus-visible, .bgr-icon-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgr-icon-btn { width: 36px; height: 36px; padding: 0; justify-content: center; font-size: 1rem; }
+    .bgr-icon-btn--wide { width: auto; padding-inline: var(--sp-3); font-size: 0.8125rem; }
+
+    /* grade swatches — the same scale as the explorer and homepage */
+    .bgr-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--text-tertiary); }
+    .bgr-dot--v { background: var(--teal); }
+    .bgr-dot--p { background: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgr-dot--n { background: transparent; border: 1px dashed var(--text-secondary); }
+    .bgr-dot--cluster { background: transparent; border: 1.5px solid var(--text-primary); }
+    .bgr-dot--domain { background: var(--text-secondary); }
+    .bgr-dot--source { background: var(--border-strong); border-radius: 2px; }
+    .bgr-dot--author { width: 6px; height: 6px; }
+    .bgr-dot--myth { background: transparent; border: 1.5px solid var(--gold); }
+
+    .bgr-key {
+      display: flex; align-items: center; gap: var(--sp-2);
+      margin: 0; font-size: 0.75rem; color: var(--text-tertiary);
+      text-shadow: 0 0 8px var(--bg-base);
+    }
+
+    .bgr-hint {
+      position: absolute; z-index: 3;
+      left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      padding: var(--sp-3) var(--sp-5);
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+      border: 1px solid var(--border-default);
+      font-size: var(--text-sm); color: var(--text-primary);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+    }
+    .bgr-hint.is-on { opacity: 1; }
+
+    /* ── detail panel ── */
+    .bgr-panel {
+      position: absolute; z-index: 4;
+      top: calc(var(--nav-height) + var(--sp-6));
+      right: var(--gutter);
+      bottom: var(--sp-8);
+      width: min(23rem, 34vw);
+      display: flex; flex-direction: column;
+      background: color-mix(in srgb, var(--bg-surface) 94%, transparent);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 18px 40px rgb(0 0 0 / 0.35);
+    }
+    [data-theme="light"] .bgr-panel { box-shadow: 0 18px 40px rgb(0 0 0 / 0.08); }
+    .bgr-panel[hidden] { display: none; }
+    .bgr-panel-close {
+      position: absolute; top: var(--sp-3); right: var(--sp-3);
+      width: 32px; height: 32px;
+      border: 0; border-radius: 50%;
+      background: transparent; color: var(--text-tertiary);
+      font-size: 1.25rem; line-height: 1; cursor: pointer;
+    }
+    .bgr-panel-close:hover { color: var(--text-primary); background: var(--bg-surface-2); }
+    .bgr-panel-close:focus-visible { outline: 2px solid var(--teal); }
+    .bgr-panel-body { overflow-y: auto; padding: var(--sp-6); overscroll-behavior: contain; }
+    .bgr-type { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-text); margin: 0 0 var(--sp-2); }
+    .bgr-name { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); line-height: 1.15; color: var(--text-primary); margin: 0 var(--sp-8) var(--sp-4) 0; }
+    .bgr-badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0 0 var(--sp-4); }
+    .bgr-grade, .bgr-myth { font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border-default); color: var(--text-secondary); }
+    .bgr-grade--v { border-color: var(--teal); color: var(--teal-text); }
+    .bgr-grade--p { border-color: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgr-grade--n { border-style: dashed; }
+    .bgr-myth { border-color: var(--gold); color: var(--gold); }
+    .bgr-desc { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-4); }
+    .bgr-counts { font-size: 0.8125rem; color: var(--text-tertiary); margin: 0 0 var(--sp-5); }
+    .bgr-h3 { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin: var(--sp-5) 0 var(--sp-2); }
+    .bgr-links { display: flex; flex-direction: column; }
+    .bgr-link {
+      display: flex; align-items: center; gap: var(--sp-2);
+      text-align: left;
+      font: inherit; font-size: var(--text-sm); line-height: 1.35;
+      color: var(--text-primary);
+      background: none; border: 0; border-radius: var(--radius-sm);
+      padding: 6px var(--sp-2); margin-inline: calc(-1 * var(--sp-2));
+      cursor: pointer;
+    }
+    .bgr-link:hover { background: var(--bg-surface-2); color: var(--gold); }
+    .bgr-link:focus-visible { outline: 2px solid var(--teal); }
+    .bgr-more { font-size: 0.75rem; color: var(--text-tertiary); margin: var(--sp-1) 0 0; }
+    .bgr-out { display: inline-flex; gap: var(--sp-2); margin-top: var(--sp-6); font-size: var(--text-sm); color: var(--teal-text); text-decoration: none; }
+    .bgr-out:hover { color: var(--gold); }
+
+    /* ── phones: the map previews in the page; Explore opens it full screen ── */
+    .bgr-explore, .bgr-done { display: none; }
+    @media (pointer: coarse), (max-width: 760px) {
+      .bgr-head { max-width: none; right: var(--gutter); }
+      .bgr-tools { display: none; }
+      .bgr-explore {
+        display: inline-flex;
+        position: absolute; z-index: 3;
+        left: 50%; bottom: var(--sp-10);
+        transform: translateX(-50%);
+      }
+      .bgr-stage:not(.is-exploring) .bgr-canvas { touch-action: pan-y; cursor: default; }
+      .bgr-stage.is-exploring {
+        position: fixed; inset: 0; z-index: 1000;
+        height: 100dvh; min-height: 0;
+      }
+      .bgr-stage.is-exploring .bgr-head, .bgr-stage.is-exploring .bgr-explore { display: none; }
+      .bgr-stage.is-exploring .bgr-tools {
+        display: flex;
+        left: var(--sp-4); right: var(--sp-4); bottom: auto; top: var(--sp-4);
+        width: auto;
+      }
+      .bgr-stage.is-exploring .bgr-results { bottom: auto; top: calc(100% + var(--sp-2)); }
+      .bgr-stage.is-exploring .bgr-done { display: inline-flex; }
+      /* keep the controls to two slim rows so the map gets the screen */
+      .bgr-stage.is-exploring .bgr-key, .bgr-stage.is-exploring [data-zoom="in"], .bgr-stage.is-exploring [data-zoom="out"] { display: none; }
+      .bgr-stage.is-exploring .bgr-row[role="group"] { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; margin-inline: calc(-1 * var(--sp-4)); padding-inline: var(--sp-4); }
+      .bgr-stage.is-exploring .bgr-row[role="group"]::-webkit-scrollbar { display: none; }
+      .bgr-stage.is-exploring .bgr-chip { white-space: nowrap; flex-shrink: 0; }
+      .bgr-stage.is-exploring .bgr-row:last-child { position: absolute; right: 0; top: calc(100% + var(--sp-2)); }
+      .bgr-panel {
+        top: auto; left: var(--sp-3); right: var(--sp-3); bottom: var(--sp-3);
+        width: auto; max-height: 46dvh;
+      }
+    }
+    html.bgr-lock, html.bgr-lock body { overflow: hidden; }
+
+    /* ── below the map: how to read it ── */
+    .bgr-read {
+      padding: var(--sp-24) var(--gutter);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+      gap: var(--sp-12);
+      max-width: calc(var(--max-width) + 2 * var(--gutter));
+      margin-inline: auto;
+    }
+    .bgr-read h2 { font-family: var(--font-display); font-weight: 400; font-size: clamp(var(--text-3xl), 3.4vw, var(--text-4xl)); line-height: 1.1; margin: 0; }
+    .bgr-read h2 em { font-style: italic; color: var(--gold); }
+    .bgr-read-body p { color: var(--text-secondary); line-height: 1.7; margin: 0 0 var(--sp-5); max-width: 62ch; }
+    .bgr-read-body ul { list-style: none; padding: 0; margin: 0 0 var(--sp-8); display: grid; gap: var(--sp-3); }
+    .bgr-read-body li { display: flex; gap: var(--sp-3); align-items: baseline; color: var(--text-secondary); line-height: 1.6; }
+    .bgr-read-body li .bgr-dot { transform: translateY(1px); }
+    .bgr-read-actions { display: flex; flex-wrap: wrap; gap: var(--sp-3); }
+    @media (max-width: 900px) {
+      .bgr-read { grid-template-columns: 1fr; padding-block: var(--sp-16); gap: var(--sp-8); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <a href="/" class="nav-logo nav-pill" aria-label="Jose Romero, Home">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="/work/">Work</a></li>
+      <li><a href="/about/">About</a></li>
+      <li><a href="/thinking/" aria-current="true">Thinking</a></li>
+      <li><a href="mailto:joseromero.next@gmail.com" class="nav-cta">Contact</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      <span class="lang-current" aria-current="true">EN</span>
+      <span class="lang-sep" aria-hidden="true">·</span>
+      <a href="/es/thinking/beco-graph/" class="lang-link" data-lang-switch="es" hreflang="es">ES</a>
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="Toggle colour mode" title="Toggle colour mode">○</button>
+    <button class="nav-toggle nav-pill" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <main id="main">
+
+    <section class="bgr-stage" id="bgrStage" aria-labelledby="bgr-title">
+      <canvas class="bgr-canvas" id="bgrCanvas" aria-hidden="true"></canvas>
+      <p class="bgr-loading">Drawing the graph…</p>
+
+      <div class="bgr-head">
+        <span class="bgr-eyebrow">Personal research</span>
+        <h1 id="bgr-title">Every concept, finding and source,<br>
+          <em>on one map.</em></h1>
+        <p class="bgr-stats" id="bgrStats"></p>
+      </div>
+
+      <div class="bgr-tools">
+        <div class="bgr-row">
+          <button type="button" class="bgr-icon-btn bgr-icon-btn--wide bgr-done" id="bgrDone">Done</button>
+          <div class="bgr-search-wrap" style="flex: 1;">
+            <input type="search" class="bgr-search" id="bgrSearch" placeholder="Find a concept, topic, source or author"
+                   aria-label="Find a concept, topic, source or author" role="combobox" aria-controls="bgrResults"
+                   aria-expanded="false" aria-autocomplete="list" autocomplete="off">
+            <ul class="bgr-results" id="bgrResults" role="listbox"></ul>
+          </div>
+        </div>
+        <div class="bgr-row" role="group" aria-label="Light up concepts by how well the research backs them">
+          <button type="button" class="bgr-chip" data-grade="v" aria-pressed="false"><span class="bgr-dot bgr-dot--v"></span>Verified</button>
+          <button type="button" class="bgr-chip" data-grade="p" aria-pressed="false"><span class="bgr-dot bgr-dot--p"></span>Partially backed</button>
+          <button type="button" class="bgr-chip" data-grade="n" aria-pressed="false"><span class="bgr-dot bgr-dot--n"></span>No rigorous backing</button>
+        </div>
+        <p class="bgr-key"><span class="bgr-dot bgr-dot--myth"></span>Red ring: often repeated as a myth</p>
+        <div class="bgr-row">
+          <button type="button" class="bgr-icon-btn" data-zoom="in" aria-label="Zoom in">+</button>
+          <button type="button" class="bgr-icon-btn" data-zoom="out" aria-label="Zoom out">−</button>
+          <button type="button" class="bgr-icon-btn bgr-icon-btn--wide" data-zoom="reset">Whole map</button>
+        </div>
+      </div>
+
+
+      <button type="button" class="btn btn-primary bgr-explore" id="bgrExplore">Explore the map</button>
+      <p class="bgr-hint" id="bgrHint" aria-hidden="true"></p>
+
+      <aside class="bgr-panel" id="bgrPanel" hidden aria-live="polite" aria-label="Details">
+        <button type="button" class="bgr-panel-close" data-close aria-label="Close details">×</button>
+        <div class="bgr-panel-body" id="bgrPanelBody"></div>
+      </aside>
+    </section>
+
+    <section class="bgr-read" aria-labelledby="bgr-read-title">
+      <h2 id="bgr-read-title">How to<br><em>read it.</em></h2>
+      <div class="bgr-read-body">
+        <p>
+          BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they
+          end up in a design decision. This map draws all of it at once. The eight clusters sit at the centre, with
+          domains and topics around them, then the named concepts, then the findings and real-world examples
+          behind each concept, and at the edge the sources and the people who wrote them.
+        </p>
+        <p>
+          Nothing is placed by hand. Each item sits near what it's linked to, so concepts that share topics,
+          studies or authors end up close together, and the teal arcs connect concepts the research treats as related.
+        </p>
+        <ul>
+          <li><span class="bgr-dot bgr-dot--v"></span>Solid teal: the research supports it.</li>
+          <li><span class="bgr-dot bgr-dot--p"></span>Pale teal: partly supported, with caveats worth knowing.</li>
+          <li><span class="bgr-dot bgr-dot--n"></span>Dashed outline: no rigorous backing found yet.</li>
+          <li><span class="bgr-dot bgr-dot--myth"></span>Red ring: often repeated in design circles in a form the studies don't support.</li>
+        </ul>
+        <div class="bgr-read-actions">
+          <a href="/thinking/beco-explorer/" class="btn btn-ghost">Browse it as cards <span class="arrow">→</span></a>
+          <a href="/thinking/beco-knowledge-graph/" class="btn btn-ghost">How it's built <span class="arrow">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="v4-cta v4-bleed" aria-labelledby="cta-heading">
+      <div class="v4-cta-grid" aria-hidden="true"></div>
+      <span class="eyebrow eyebrow--bare reveal">Available</span>
+      <h2 id="cta-heading" class="reveal">
+        Your hardest problem<br>
+        <em class="accent-italic">is a good place to start.</em>
+      </h2>
+      <p class="reveal">
+        Open to senior product design roles and selective consulting engagements, in English or Spanish.
+      </p>
+      <div class="v4-cta-actions reveal">
+        <span class="v4-magnet">
+          <a href="https://www.linkedin.com/in/joseromerodesign/"
+             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Connect on LinkedIn <span class="arrow">→</span>
+          </a>
+        </span>
+        <span class="v4-magnet">
+          <a href="mailto:joseromero.next@gmail.com" class="btn btn-ghost">
+            Send an email <span class="arrow">→</span>
+          </a>
+        </span>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="v4-footer" role="contentinfo">
+    <div class="v4-footer-top">
+      <p class="v4-footer-word">Jose <em>Romero</em></p>
+      <nav class="v4-footer-nav" aria-label="Footer navigation">
+        <a href="/work/">Work</a>
+        <a href="/about/">About</a>
+        <a href="/thinking/">Thinking</a>
+        <a href="https://www.linkedin.com/in/joseromerodesign/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:joseromero.next@gmail.com">Email</a>
+        <a href="/contact/">Contact</a>
+        <a href="/privacy/">Privacy</a>
+        <a href="/assets/cv/jose-romero-cv-en.pdf" download>Download CV</a>
+      </nav>
+    </div>
+    <div class="v4-footer-meta">
+      <span>Senior Product Designer</span>
+      <span>Working from Zaragoza, Spain</span>
+      <span>© 2026 Jose Romero. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Wording for /assets/js/beco-graph.js. Index = node type, centre outward.
+    window.BGR_STRINGS = {
+      stats: (c, f, s, a) => `${c} concepts · ${f} findings · ${s} sources · ${a} authors`,
+      type: ['Cluster', 'Domain', 'Topic', 'Concept', 'Finding', 'Real-world example', 'Source', 'Author'],
+      typeKey: ['cluster', 'domain', 'topic', 'concept', 'finding', 'app', 'source', 'author'],
+      kind: { bias: 'Bias', heuristic: 'Heuristic', law: 'Law', effect: 'Effect', principle: 'Principle', fallacy: 'Fallacy', illusion: 'Illusion', concept: 'Concept' },
+      grade: { v: 'Verified', p: 'Partially backed', n: 'No rigorous backing found' },
+      mythHigh: 'Often repeated as a myth',
+      replication: { replicated: 'Replicated', disputed: 'Replication disputed', undetermined: 'Replication not yet established', not_applicable: 'Not a replication question' },
+      ethics: { user_beneficial: 'Works in the user’s favour', mixed: 'Mixed for the user', manipulative_risk: 'Risk of manipulation', unclear: 'Effect on the user unclear' },
+      counts: (f, a) => `${f} ${f === 1 ? 'finding' : 'findings'} · ${a} real-world ${a === 1 ? 'example' : 'examples'}`,
+      beneath: (n) => `${n} ${n === 1 ? 'concept' : 'concepts'} beneath it`,
+      more: (n) => `and ${n} more`,
+      loading: 'Loading…',
+      noResults: 'Nothing by that name',
+      openInExplorer: 'Open in the card explorer',
+      explorerPath: '/thinking/beco-explorer/',
+      h: {
+        related: 'Related concepts', topics: 'Topics', findings: 'Findings',
+        about: 'About', source: 'Source', supports: 'Evidence for', authors: 'Authors', sources: 'Sources',
+        children: ['Domains', 'Topics', 'Concepts'],
+      },
+      zoomHint: (mac) => `Pinch or ${mac ? '⌘' : 'Ctrl'} + scroll to zoom`,
+    };
+  </script>
+  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/beco-graph.js?v=1" defer></script>
+</body>
+</html>

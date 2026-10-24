@@ -381,5 +381,23 @@
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
+  <url>
+    <loc>https://joseromerodesign.com/thinking/beco-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-graph/"/>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://joseromerodesign.com/es/thinking/beco-graph/</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="https://joseromerodesign.com/thinking/beco-graph/"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="https://joseromerodesign.com/es/thinking/beco-graph/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://joseromerodesign.com/thinking/beco-graph/"/>
+    <lastmod>2026-10-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
 </urlset>
