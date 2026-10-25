@@ -85,7 +85,6 @@
   const W = COLS + PAD * 2, D = ROWS + PAD * 2 + BAND;
   const T = 9, GAP = 150, TILE = 0.8, TH = 5;
   const iso = (u, v, z) => [(v - u) * C * K, (u + v) * S * K - z];
-  const pts = (list) => list.map((p) => p.map((n) => n.toFixed(2)).join(',')).join(' ');
   // something lying on a surface and reading along −u (up and to the right)
   const onPlane = (u, v, z, s) => {
     const [x, y] = iso(u, v, z);
@@ -95,13 +94,15 @@
   const svg = el('svg', { class: 'tk-svg', role: 'presentation', focusable: 'false' });
   stage.appendChild(svg);
 
-  function block(parent, u0, v0, w, d, z, h, cls) {
+  // A rounded rect drawn flat on the plane at height z, with a darker copy
+  // h below standing in for its thickness, as on the homepage stack.
+  // Plane units are px (u·K, v·K), so strokes keep their CSS widths.
+  const plane = (z) => `matrix(${-C} ${S} ${C} ${S} 0 ${-z})`;
+  function block(parent, u0, v0, w, d, z, h, cls, r) {
     const g = el('g', { class: cls }, parent);
-    const a = iso(u0, v0, z), b = iso(u0 + w, v0, z), c = iso(u0 + w, v0 + d, z), e = iso(u0, v0 + d, z);
-    const dn = (p) => [p[0], p[1] + h];
-    el('polygon', { class: 'tk-side tk-side--l', points: pts([b, c, dn(c), dn(b)]) }, g);
-    el('polygon', { class: 'tk-side tk-side--r', points: pts([e, c, dn(c), dn(e)]) }, g);
-    el('polygon', { class: 'tk-top', points: pts([a, b, c, e]) }, g);
+    const rect = { x: u0 * K, y: v0 * K, width: w * K, height: d * K, rx: r };
+    el('rect', { class: 'tk-side', ...rect }, el('g', { transform: plane(z - h) }, g));
+    el('rect', { class: 'tk-top', ...rect }, el('g', { transform: plane(z) }, g));
     return g;
   }
 
@@ -109,14 +110,14 @@
   for (let i = 0; i < 3; i++) {
     const z = i * GAP;
     const g = el('g', { class: 'tk-layer', 'data-layer': i, style: `--i:${i}` }, svg);
-    block(g, 0, 0, W, D, z, T, 'tk-slab');
+    block(g, 0, 0, W, D, z, T, 'tk-slab', 16);
     const list = TOOLS.filter((t) => t.layer === i);
     const cols = Math.min(COLS, Math.ceil(list.length / ROWS));
     const off = (COLS - cols) / 2;
     list.forEach((t, n) => {
       const col = n % cols, row = Math.floor(n / cols);
       const u0 = PAD + off + (cols - 1 - col) + (1 - TILE) / 2, v0 = PAD + row + (1 - TILE) / 2;
-      const tg = block(g, u0, v0, TILE, TILE, z + TH, TH, 'tk-tile');
+      const tg = block(g, u0, v0, TILE, TILE, z + TH, TH, 'tk-tile', 8);
       tg.dataset.tool = t.id;
       const m = el('g', { class: 'tk-mark', transform: onPlane(u0 + TILE * 0.85, v0 + TILE * 0.15, z + TH, (TILE * 0.7) / 24) }, tg);
       mark(t, m);

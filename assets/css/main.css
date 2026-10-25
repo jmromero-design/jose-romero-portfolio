@@ -112,10 +112,12 @@
    3. LIGHT MODE TOKENS
    ------------------------------------------------------------ */
 [data-theme="light"] {
-  /* Drafting paper (2026-10-25): a cool blue-grey ground with ink-navy text.
-     Warm off-white with a serif and a red accent is the generic AI look;
-     the cool ground breaks it and ties the page to the diagrams. */
-  --bg-base:          #F4F7F9;
+  /* Drafting paper (2026-10-25): near-white paper with ink-navy text, and
+     a cool blue-grey ground (--bg-tint) for a few sections so pages
+     alternate. Warm off-white with a serif and a red accent is the generic
+     AI look; the cool tones break it and tie the page to the diagrams. */
+  --bg-base:          #FBFCFD;
+  --bg-tint:          #EEF3F6;
   --bg-surface:       #EAEFF2;
   --bg-surface-2:     #DFE6EA;
   --bg-hover:         #D4DDE2;
@@ -128,7 +130,7 @@
   --text-primary:     #0E1A23;
   --text-secondary:   #24333D;
   --text-tertiary:    #586873;
-  --text-inverse:     #F4F7F9;
+  --text-inverse:     #FBFCFD;
 
   /* Accent — deep crimson for light grounds. Reserved for rare, single
      moments (hero accent, primary CTA); see the tag--gold override below,
@@ -146,13 +148,14 @@
   --teal-tint:        rgba(19, 111, 103, 0.08);
   --teal-tint-strong: rgba(19, 111, 103, 0.14);
   --teal-text:        #0B4E48; /* text-on-light: ~5.8:1 on bg-surface */
-  --grid-line:        rgba(19, 111, 103, 0.06);
+  --grid-line:        rgba(19, 111, 103, 0.1);
 }
 
 /* System preference fallback (no JS required) */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg-base:          #F4F7F9;
+    --bg-base:          #FBFCFD;
+    --bg-tint:          #EEF3F6;
     --bg-surface:       #EAEFF2;
     --bg-surface-2:     #DFE6EA;
     --bg-hover:         #D4DDE2;
@@ -174,19 +177,10 @@
     --teal-tint:        rgba(19, 111, 103, 0.08);
     --teal-tint-strong: rgba(19, 111, 103, 0.14);
     --teal-text:        #0B4E48;
-    --grid-line:        rgba(19, 111, 103, 0.06);
+    --grid-line:        rgba(19, 111, 103, 0.1);
   }
 }
 
-/* Light mode's one signature: a faint teal grid on the page ground, like
-   engineering paper. Cards and panels sit on it in their own colours. */
-[data-theme="light"] body,
-:root:not([data-theme="dark"]) body {
-  background-image:
-    linear-gradient(var(--grid-line, transparent) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-line, transparent) 1px, transparent 1px);
-  background-size: 28px 28px;
-}
 
 /* ------------------------------------------------------------
    4. RESET & BASE
@@ -230,33 +224,24 @@ body {
   opacity: 0.35;
 }
 
-/* Light mode's own texture — a faint dot-grid ("drafting paper") in
-   place of the dark grain, so light mode has a material of its own
-   instead of just being a flat cream field. Selector specificity is
-   matched to the dark rule above (:root + attribute + ::before) so
-   source order — not specificity — decides which wins; both variants
-   below come after it deliberately. */
-:root[data-theme="light"] body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--teal) 24%, transparent) 1px, transparent 0);
-  background-size: 28px 28px;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.45;
+/* Light mode has no page-wide texture: the paper stays plain, and the grid
+   appears only as a detail in a few sections (see LIGHT MODE SECTIONS). */
+:root[data-theme="light"] body::before { content: none; }
+
+/* LIGHT MODE SECTIONS. Pages alternate between paper and the blue-grey
+   ground: every page opens on the ground, the closing call to action sits
+   on it, and so do the homepage's two diagrams and About's experience
+   timeline. Inner page openings carry a faint grid that fades out from
+   the top-right corner; the homepage hero stays plain behind its map. */
+[data-theme="light"] :is(main > section:first-of-type, .cta-section, .v4-cta, #how-i-work, .bx, section[aria-labelledby="experience-heading"]) {
+  background-color: var(--bg-tint);
 }
-@media (prefers-color-scheme: light) {
-  :root:not([data-theme="dark"]) body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--teal) 24%, transparent) 1px, transparent 0);
-    background-size: 28px 28px;
-    pointer-events: none;
-    z-index: 1;
-    opacity: 0.45;
-  }
+[data-theme="light"] main > section:first-of-type:not(.v4-hero) {
+  background-image:
+    radial-gradient(ellipse 55% 95% at 100% 0%, transparent 0%, var(--bg-tint) 80%),
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: auto, 28px 28px, 28px 28px;
 }
 
 img, video { display: block; max-width: 100%; }
