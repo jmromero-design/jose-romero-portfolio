@@ -6,17 +6,17 @@ Source: https://www.joseromerodesign.com/es/about/
 
 Jose Romero · Zaragoza, España Sobre mí
 
-# Siempre me han resultado más cómodos los problemas difíciles que los briefings sencillos.
+# Problemas difíciles, por elección.
 
-Soy Jose Romero, senior product designer con 12 años de experiencia en productos digitales, estrategia de conversión y sistemas de diseño. Trabajo en inglés y español a nivel profesional, y actualmente estoy en Zaragoza, España, como senior designer integrado en la plataforma New Business de IKEA, parte del equipo que está construyendo dos marketplaces P2P desde sus primeras etapas hasta la expansión europea.
+Soy Jose Romero, senior product designer con 12 años en productos digitales, CRO y sistemas de diseño. Trabajo en inglés y español desde Zaragoza, y ahora mismo estoy integrado en la New Business Platform de IKEA, diseñando dos marketplaces P2P.
 
-Antes estuve tres años en Flat 101, una de las principales consultoras digitales de España, llevando trabajo de UX y CRO en cuatro a ocho cuentas empresariales simultáneas. Santander Nordics, Meliá Hotels International, Mapfre, Mutua Madrileña, AXA España, IQOS, XTI. Sectores distintos, estructuras de equipo distintas, muchas veces al mismo tiempo.
-
-Nada de ese recorrido estaba planeado. Empezó como más de 120 proyectos entre print, branding, producto digital y CRO. En algún punto los encargos se volvieron más difíciles, más largos y menos frecuentes, hasta terminar integrado por completo en un único equipo de producto. Cada etapa simplemente dejó preparadas las condiciones para la siguiente. El mismo pensamiento sistémico que hacía manejables esos encargos complejos es el que ahora uso para diseñar la IA dentro de un flujo de trabajo como una capa propia, no como un atajo.
+Antes: tres años llevando UX y CRO para clientes enterprise en Flat 101, y un estudio de diseño que cofundé en La Habana.
 
 Trayectoria
 
 ## Marcas para las que he diseñado, _a lo largo de doce años._
+
+Nada de esto estaba planeado. Los proyectos se volvieron más difíciles, más largos y menos frecuentes, hasta acabar dentro de un único equipo de producto.
 
 Antes Amplitud 120+ Proyectos en múltiples disciplinas: branding, print, vídeo, digital y campañas Luego Complejidad 13 Cuentas empresariales en Flat 101, en banca, seguros, hostelería y retail Hoy Profundidad 2 Productos en diseño activo, integrado dentro del equipo de producto de IKEA
 
@@ -46,65 +46,109 @@ Experiencia
 
 2025–Presente Senior Product Designer (Implant) Zaragoza, España (entorno en inglés)
 
-Integrado a tiempo completo en la plataforma New Business de IKEA, una unidad de startup interna dentro de Ingka Group, encargada de expandir IKEA más allá del mueble hacia mercados adyacentes en Europa. Un mismo equipo lleva los dos productos de abajo, y trabajo en ambos.
+La New Business Platform de IKEA es una unidad de startup interna de Ingka Group que lleva a IKEA más allá del mueble, hacia nuevos mercados en Europa. Un mismo equipo lleva los dos marketplaces, y trabajo en ambos.
 
 #### IKEA Home Services
 
-Un marketplace P2P que conecta a propietarios con profesionales verificados en más de 50 categorías de mejoras del hogar. Lanzado en Madrid en septiembre de 2024, expandido a siete regiones españolas a mediados de 2026. Cifras publicadas: más de 500.000 descargas, 21.000 solicitudes de servicio completadas, 57.000 miembros nuevos o reactivados de IKEA Family, 4.9/5 de satisfacción del cliente. Es el producto con el que empecé: flujos de usuario, prototipado, sesiones de investigación en tiendas IKEA y auditoría de accesibilidad, junto a product owners, service designers, ingenieros, content designers y business developers. Sigo dándole soporte.
+Un marketplace P2P que conecta a propietarios con profesionales verificados. Es el producto con el que empecé, y sigo dándole soporte.
+
+- Activo en siete regiones españolas desde su lanzamiento en Madrid en septiembre de 2024
+
+- Más de 500.000 descargas, 21.000 servicios completados y 4.9/5 de satisfacción, según Ingka Group
+
+- Flujos de usuario, prototipado, investigación en tienda y auditorías de accesibilidad
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/ikea-home-services/)
 
 #### IKEA Second-hand Marketplace
 
-Reventa P2P de productos IKEA, con el catálogo de IKEA como base de datos para los anuncios. Pilotado en Madrid, activo en cinco países europeos, con expansión europea total comprometida. Hoy va aquí la mayor parte de mi trabajo: diseño de producto y colaboración cross-funcional a medida que la plataforma madura y escala.
+Reventa P2P de productos IKEA, con el propio catálogo de IKEA rellenando cada anuncio. Hoy va aquí la mayor parte de mi trabajo.
+
+- Pilotado en Madrid y Oslo, hoy activo en cinco países europeos
+
+- Flujos de publicación, confianza y valoraciones coherentes entre mercados
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/ikea-secondhand-marketplace/)
 
 #### Operaciones de diseño
 
-Construí desde cero el sistema de formas de trabajar del equipo: un framework que combina Figma (fuente de verdad), Jira, Confluence y Phrase. Antes, el proceso vivía sobre todo en la cabeza de la gente. Ahora está escrito en algún sitio donde las nuevas incorporaciones pueden encontrarlo de verdad.
+El sistema de formas de trabajar del equipo, construido desde cero.
+
+- Figma como fuente de verdad, conectado con Jira, Confluence y Phrase
+
+- Escrito donde las nuevas incorporaciones pueden encontrarlo; antes vivía sobre todo en la cabeza de la gente
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/ikea-ways-of-working/)
 
 #### Diseño de flujos IA & facilitación
 
-Facilito sesiones de metodología Shape Up para el equipo de producto y diseño la capa de IA encima. El trabajo de facilitación dio lugar a un cuerpo de trabajo paralelo: el diseño de flujos de trabajo asistidos por IA para el proceso de shaping en sí, incluyendo enfoques de orquestación multiagente que distribuyen funcionalidades de producto complejas entre agentes especializados (descomposición del problema, mapeo de restricciones, evaluación de soluciones). Los outputs se estructuran para fluir directamente al formato de documentación de Confluence del equipo. También imparto sesiones de alfabetización en IA para profesionales senior de diseño en Garaje de Ideas, con foco en el diseño de flujos de trabajo y no en el uso de herramientas.
+Sesiones de Shape Up para el equipo de producto, con una capa de IA diseñada encima.
+
+- Flujos multiagente que reparten funcionalidades complejas entre agentes especializados
+
+- Resultados que encajan directamente en el formato de Confluence del equipo
+
+- Sesiones de alfabetización en IA para diseñadores senior de Garaje de Ideas, centradas en el diseño de flujos
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/ai-workflow-framework/)
 
 ### Flat 101 (Consultora digital), flat101.es
 
 2022–2025 Senior UX/CRO Designer España
 
-Flat 101 es una de las principales consultoras digitales de España. Trabajé en 4–8 cuentas empresariales simultáneas, cada una con equipos, metodologías y definiciones de éxito diferentes.
+Una de las principales consultoras digitales de España. Trabajé en entre cuatro y ocho cuentas enterprise a la vez, cada una con su equipo, sus métodos y su propia idea de éxito.
 
 #### Meliá Hotels International
 
-Proyecto de tres años en el diseño y optimización de una plataforma interna de gestión de campañas de marketing, construida desde cero. Conduje talleres de varias horas con directivos senior de múltiples departamentos internacionales en la sede de Meliá para definir requisitos y validar la dirección. Trabajé con un equipo de hasta 5 diseñadores y 8 ingenieros (rotativos) para entregar una plataforma que gestiona decenas de campañas activas en todos los mercados internacionales de Meliá.
+Una plataforma interna para gestionar campañas de marketing, diseñada desde cero durante tres años.
+
+- Talleres con directores de varios departamentos internacionales
+
+- Un equipo de hasta 5 diseñadores y 8 ingenieros
+
+- Decenas de campañas activas en los mercados internacionales de Meliá
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/melia-hotels-campaign-platform/)
 
 #### Santander Nordics
 
-Diseñador líder UX/CRO en un programa de optimización de conversión continuo en funnels de préstamos personales, tarjetas de crédito, depósitos y préstamos de coche en Dinamarca, Suecia, Finlandia y Noruega. Un entorno multipaís y regulado que requería precisión y adaptabilidad.
+Lead UX/CRO designer en un programa de conversión para préstamos, tarjetas y depósitos.
+
+- Dinamarca, Suecia, Finlandia y Noruega, en un entorno regulado
+
+- El formulario de solicitud rediseñado pasó a ser el estándar en los cuatro mercados
+
+[Caso de estudio →](https://www.joseromerodesign.com/es/work/santander-nordics-cro/)
 
 #### Mapfre
 
-Diseño UX para AFIN, la app de gestión financiera de autoservicio de Mapfre (inversiones, ahorros, planes de pensiones). También parte del programa de escalado de plataforma digital para las marcas internacionales de Mapfre: Verti Italia, Alemania y España, un importante esfuerzo de diseño y localización transfronterizo.
+Dos programas para la misma aseguradora.
 
-#### Programas de CRO & Optimización E-commerce
+- AFIN: UX de la app de autogestión de Mapfre para inversiones, ahorro y pensiones
 
-Contribuí y lideré diversas iniciativas de optimización y rediseño:
+- Verti Italia, Alemania y España: escalar la plataforma digital entre marcas y mercados
 
-- **Mutua Madrileña:** Programa de CRO que contribuyó a un incremento del +41% en leads (publicado por Flat 101).
+[Caso de estudio: AFIN →](https://www.joseromerodesign.com/es/work/mapfre-afin-digital-expansion/)[Caso de estudio: Mapfre Internacional →](https://www.joseromerodesign.com/es/work/mapfre-digital-expansion/)
 
-- **AXA España:** Parte del programa de CRO que contribuyó a un incremento del +18% en contratos de seguros (publicado por Flat 101).
+#### Programas de CRO y e-commerce
 
-- **IQOS Club España:** Project lead del CRO continuado en la plataforma de fidelización de Philip Morris. Experimentación de ciclo corto con tráfico limitado y recursos compartidos.
+- **Mutua Madrileña:** programa de CRO, +41% de leads (publicado por Flat 101)
 
-- **XTI Store:** Rediseño e-commerce completo dentro de una migración a la plataforma Magento.
+- **AXA España:** programa de CRO, +18% de contratos de seguros (publicado por Flat 101)
 
-- **Auditorías:** De experiencia, CRO y comportamiento para Bankinter, Subaru España y Affinity Petcare.
+- **IQOS Club España:** líder de proyecto de CRO en la plataforma de fidelización de Philip Morris. [Caso de estudio](https://www.joseromerodesign.com/es/work/iqos-club-cro/)
 
-**Herramientas:** Optimizely · AB Tasty · ContentSquare · VWO · Hotjar · Google Analytics · Optimal Workshop · Figma
+- **XTI Store:** rediseño del e-commerce durante una migración a Magento. [Caso de estudio](https://www.joseromerodesign.com/es/work/xti-ecommerce-redesign/)
+
+- **Auditorías:** de experiencia, CRO y comportamiento para Bankinter, Subaru España y Affinity Petcare
 
 ### Factor Común
 
 2016–2021 Co-fundador & Design Lead La Habana, Cuba
 
-Con 23 años, mientras terminaba una carrera de cinco años en Diseño de Comunicación Visual, cofundé Factor Común, un estudio registrado de diseño y comunicación en La Habana. Empezó como trabajo freelance con dos colegas y acabó convertido en un estudio de verdad, haciendo branding, diseño editorial, interfaces digitales, producción audiovisual y campañas para clientes institucionales en toda Cuba.
+A los 23 años, mientras terminaba la carrera de Diseño de Comunicación Visual, cofundé con dos compañeros un estudio de diseño y comunicación en La Habana. Hacíamos branding, diseño editorial, interfaces digitales, vídeo y campañas para clientes institucionales de toda Cuba.
 
-Llevarlo significaba ocuparme de muchas cosas que no tenían nada que ver con el diseño en sí: relaciones con clientes, planificación de proyectos, ir detrás de proveedores, buscar nuevos encargos, todo bajo restricciones reales de recursos. La escala no se parece en nada a lo que hago ahora, pero la disciplina de fondo sigue siendo la misma. Ahí aprendí pensamiento estructurado y realidad comercial, mucho antes de cualquier formación formal en metodología de diseño.
+Llevarlo me enseñó la parte del trabajo que no es diseño: clientes, planificación, proveedores y captación, todo con recursos muy ajustados.
 
 > «Tuve el privilegio de reportar directamente a él: su capacidad para inspirar y guiar al equipo fue evidente en el éxito de nuestros proyectos. Su dominio de UX/UI elevó nuestros productos, combinando funcionalidad y estética con naturalidad.»
 
@@ -118,15 +162,15 @@ _Luis E. Lázaro García Arquitecto y diseñador de interiores · Factor Común 
 
 2018–2021 Profesor de Diseño UI La Habana, Cuba / Remoto
 
-Impartí diseño UI en el Instituto Superior de Diseño, afiliado a la Universidad de La Habana, desarrollando currículum, facilitando sesiones de estudio y construyendo comprensión compartida de conceptos complejos entre estudiantes con diferentes niveles de capacidad y experiencia.
+Enseñé diseño UI en el Instituto Superior de Diseño, adscrito a la Universidad de La Habana: plan de estudios, sesiones de taller y explicar ideas complejas a estudiantes de niveles muy distintos.
 
-Dar clase te obliga a coger hábitos que no esperas necesitar después: explicar cosas que a ti te parecen obvias pero no lo son, leer una sala y ajustar sobre la marcha, conseguir que un grupo se ponga de acuerdo en algo que nadie compartía al entrar. Resulta que esas son exactamente las habilidades con las que funciona la facilitación en el mundo empresarial, y las he seguido usando desde entonces.
+Ahí aprendí a leer una sala y a poner de acuerdo a un grupo, lo mismo que exige la facilitación en entornos enterprise.
 
-Capacidades
+Habilidades y herramientas
 
-## Cómo trabajo hoy, _y de dónde viene._
+## Lo que aporto, _y las herramientas con las que lo hago._
 
-La mayor parte de mi trabajo pasa ya por la IA: GitHub Copilot en VS Code en IKEA, y Claude para construir, prototipar y escribir. Debajo siguen las herramientas que llevo años usando en diseño, investigación y experimentación. Elige una capacidad para ver en qué se apoya, o cambia a 2022 para ver qué ha cambiado.
+Esta es mi propia caja de herramientas. La mayor parte de mi trabajo pasa ya por la IA: GitHub Copilot en VS Code en IKEA, y Claude para construir, prototipar y escribir, junto a las herramientas de diseño, investigación y experimentación que llevo años usando. Elige una habilidad para ver en qué herramientas se apoya, o una herramienta para ver dónde la uso.
 
 ### Práctica con IA
 
@@ -154,7 +198,7 @@ Prototipos e interfaces en producción construidos con IA, con Figma conectado a
 
 Herramientas de investigación que califican su propia evidencia. [BECO](https://www.joseromerodesign.com/es/thinking/beco-explorer/) conecta 420 fuentes de ciencia conductual con 243 conceptos en un grafo de Neo4j.
 
-### Fundamentos
+### Diseño e investigación
 
 #### Diseño de producto
 
@@ -184,7 +228,7 @@ Formas de trabajar entre Figma, Jira, Confluence y Phrase, y el trabajo con stak
 
 - Claude: Construir, prototipar y escribir, con skills configuradas a mi manera.
 
-- Granola: Notas de reuniones y síntesis.
+- Anarlog: Notas de reuniones y síntesis: mi propia versión adaptada, con modelos locales y conectada a Copilot.
 
 - Neo4j: La base de datos de grafos detrás de BECO.
 
@@ -206,9 +250,9 @@ Formas de trabajar entre Figma, Jira, Confluence y Phrase, y el trabajo con stak
 
 - Microsoft 365: Suite de oficina, ahora casi siempre a través de agentes.
 
-- Optimizely: Tests A/B y multivariantes. Sigo usándolo.
+- Optimizely: Tests A/B y multivariantes.
 
-- ContentSquare: Analítica de comportamiento. Sigo usándolo.
+- ContentSquare: Analítica de comportamiento y análisis de experimentos.
 
 - Hotjar: Grabaciones de sesión y mapas de calor.
 

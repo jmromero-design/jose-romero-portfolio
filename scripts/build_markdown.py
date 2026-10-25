@@ -30,7 +30,7 @@ DROP_TAGS = {"script", "style", "svg", "noscript", "template", "canvas", "button
 DROP_CLASSES = ("v4-cta", "cta-section", "next-project", "cs-nav", "fwa-toc", "bgx-tools", "bgx-col",
                 "bgx-loading", "v4-scroll-cue", "skip-nav", "bko-scroll-hint", "v4-preview", "v4-row-thumbs",
                 "v4-ediag-preview-card", "bko-rail", "breadcrumb", "tag", "cs-tags", "card-tags",
-                "bko-cover-footline", "tk-era", "tk-era-note", "tk-skill-tag")
+                "bko-cover-footline", "tk-skill-count")
 # buttons are interface, except where the button label is the content's own heading
 KEEP_BUTTONS = ("tk-skill-btn",)
 

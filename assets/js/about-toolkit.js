@@ -1,16 +1,20 @@
-/* About · toolkit. The tools I work with, drawn as an isometric stack of
-   three layers: research and experimentation at the base, design and
-   delivery above it, AI on top. Picking a skill lights the tools it draws
-   on and threads them to one point; the year switch shows the work in 2022,
-   before the AI layer existed. Wording lives in the page markup, so EN and
-   ES share this file. Logos are Simple Icons (CC0, simple-icons@16.30.0);
-   tools without one get a typographic mark in the same style. */
+/* About · toolkit. The skills I bring and the tools I use for them, drawn
+   as an isometric stack of three layers: research and experimentation at
+   the base, design and delivery above it, AI on top. Mirrored like the
+   homepage stack, so it faces the panel beside it. Picking a skill lights
+   the tools it draws on and threads them to one point; picking a tool opens
+   a skill that uses it. Wording lives in the page markup, so EN and ES share
+   this file. Logos are Simple Icons (CC0, simple-icons@16.30.0); tools
+   without one get a typographic mark in the same style. */
 (function () {
   const root = document.getElementById('toolkit');
   if (!root) return;
   const stage = root.querySelector('.tk-stage');
   const caption = root.querySelector('.tk-caption');
+  const panel = root.querySelector('.tk-panel');
   const NS = 'http://www.w3.org/2000/svg';
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const narrow = window.matchMedia('(max-width: 900px)');
 
   const ICONS = {
     hotjar: 'M10.119 9.814C12.899 8.27 16.704 6.155 16.704 0h-4.609c0 3.444-1.676 4.375-4.214 5.786C5.1 7.33 1.295 9.444 1.295 15.6h4.61c0-3.444 1.676-4.376 4.214-5.786zM18.096 8.4c0 3.444-1.677 4.376-4.215 5.785-2.778 1.544-6.585 3.66-6.585 9.815h4.609c0-3.444 1.676-4.376 4.214-5.786 2.78-1.544 6.586-3.658 6.586-9.814h-4.609z',
@@ -26,30 +30,29 @@
     python: 'M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z',
   };
 
-  // layer 0 = research & experimentation, 1 = design & delivery, 2 = AI.
-  // then = in use in 2022, now = in use in 2026.
+  // layer 0 = research & experimentation, 1 = design & delivery, 2 = AI
   const TOOLS = [
-    { id: 'optimizely', name: 'Optimizely', layer: 0, mono: 'Op', then: 1, now: 1 },
-    { id: 'contentsquare', name: 'ContentSquare', layer: 0, mono: 'Cs', then: 1, now: 1 },
-    { id: 'hotjar', name: 'Hotjar', layer: 0, then: 1, now: 0 },
-    { id: 'googleanalytics', name: 'Google Analytics', layer: 0, then: 1, now: 0 },
-    { id: 'abtasty', name: 'AB Tasty', layer: 0, mono: 'AB', then: 1, now: 0 },
-    { id: 'vwo', name: 'VWO', layer: 0, mono: 'VWO', then: 1, now: 0 },
-    { id: 'optimalworkshop', name: 'Optimal Workshop', layer: 0, mono: 'OW', then: 1, now: 0 },
-    { id: 'figma', name: 'Figma', layer: 1, then: 1, now: 1 },
-    { id: 'figjam', name: 'FigJam', layer: 1, mono: 'FJ', then: 1, now: 1 },
-    { id: 'miro', name: 'Miro', layer: 1, then: 1, now: 1 },
-    { id: 'notion', name: 'Notion', layer: 1, then: 1, now: 1 },
-    { id: 'jira', name: 'Jira', layer: 1, then: 1, now: 1 },
-    { id: 'confluence', name: 'Confluence', layer: 1, then: 1, now: 1 },
-    { id: 'phrase', name: 'Phrase', layer: 1, mono: 'Ph', then: 0, now: 1 },
-    { id: 'microsoft365', name: 'Microsoft 365', layer: 1, mono: '365', then: 1, now: 1 },
-    { id: 'githubcopilot', name: 'GitHub Copilot', layer: 2, then: 0, now: 1 },
-    { id: 'vscode', name: 'VS Code', layer: 2, mono: 'VS', then: 0, now: 1 },
-    { id: 'claude', name: 'Claude', layer: 2, then: 0, now: 1 },
-    { id: 'granola', name: 'Granola', layer: 2, mono: 'Gr', then: 0, now: 1 },
-    { id: 'neo4j', name: 'Neo4j', layer: 2, then: 0, now: 1 },
-    { id: 'python', name: 'Python', layer: 2, then: 0, now: 1 },
+    { id: 'optimizely', name: 'Optimizely', layer: 0, mono: 'Op' },
+    { id: 'contentsquare', name: 'ContentSquare', layer: 0, mono: 'Cs' },
+    { id: 'hotjar', name: 'Hotjar', layer: 0 },
+    { id: 'googleanalytics', name: 'Google Analytics', layer: 0 },
+    { id: 'abtasty', name: 'AB Tasty', layer: 0, mono: 'AB' },
+    { id: 'vwo', name: 'VWO', layer: 0, mono: 'VWO' },
+    { id: 'optimalworkshop', name: 'Optimal Workshop', layer: 0, mono: 'OW' },
+    { id: 'figma', name: 'Figma', layer: 1 },
+    { id: 'figjam', name: 'FigJam', layer: 1, mono: 'FJ' },
+    { id: 'miro', name: 'Miro', layer: 1 },
+    { id: 'notion', name: 'Notion', layer: 1 },
+    { id: 'jira', name: 'Jira', layer: 1 },
+    { id: 'confluence', name: 'Confluence', layer: 1 },
+    { id: 'phrase', name: 'Phrase', layer: 1, mono: 'Ph' },
+    { id: 'microsoft365', name: 'Microsoft 365', layer: 1, mono: '365' },
+    { id: 'githubcopilot', name: 'GitHub Copilot', layer: 2 },
+    { id: 'vscode', name: 'VS Code', layer: 2, mono: 'VS' },
+    { id: 'claude', name: 'Claude', layer: 2 },
+    { id: 'anarlog', name: 'Anarlog', layer: 2, mono: 'An' },
+    { id: 'neo4j', name: 'Neo4j', layer: 2 },
+    { id: 'python', name: 'Python', layer: 2 },
   ];
   const byId = Object.fromEntries(TOOLS.map((t) => [t.id, t]));
 
@@ -65,21 +68,29 @@
     if (parent) parent.appendChild(n);
     return n;
   };
+  // a logo or monogram, drawn in a 24-unit box
   const mark = (t, parent, chip) => {
-    // a logo or monogram drawn in a 24-unit box
     if (ICONS[t.id]) return el('path', { d: ICONS[t.id], class: 'tk-logo' }, parent);
-    const tx = el('text', { x: 12, y: 12, class: 'tk-mono', 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': chip ? (t.mono.length > 2 ? 11 : 15) : (t.mono.length > 2 ? 9.5 : 12) }, parent);
+    const size = chip ? (t.mono.length > 2 ? 11 : 15) : (t.mono.length > 2 ? 9.5 : 12);
+    const tx = el('text', { x: 12, y: 12, class: 'tk-mono', 'text-anchor': 'middle', 'dominant-baseline': 'central', 'font-size': size }, parent);
     tx.textContent = t.mono;
     return tx;
   };
 
-  /* ── geometry ── isometric: u runs right-down, v left-down, z up */
+  /* ── geometry ── plane coords (u, v) on a surface at height z project to
+     screen as ((v − u)·cos30, (u + v)·sin30 − z): the long side runs from
+     lower left to upper right, as on the homepage. */
   const K = 46, C = Math.cos(Math.PI / 6), S = 0.5;
-  const COLS = 4, ROWS = 2, PAD = 0.22;
-  const W = COLS + PAD * 2, D = ROWS + PAD * 2;
+  const COLS = 4, ROWS = 2, PAD = 0.22, BAND = 0.42;
+  const W = COLS + PAD * 2, D = ROWS + PAD * 2 + BAND;
   const T = 9, GAP = 150, TILE = 0.8, TH = 5;
-  const iso = (u, v, z) => [(u - v) * C * K, (u + v) * S * K - z];
+  const iso = (u, v, z) => [(v - u) * C * K, (u + v) * S * K - z];
   const pts = (list) => list.map((p) => p.map((n) => n.toFixed(2)).join(',')).join(' ');
+  // something lying on a surface and reading along −u (up and to the right)
+  const onPlane = (u, v, z, s) => {
+    const [x, y] = iso(u, v, z);
+    return `matrix(${C * K * s} ${-S * K * s} ${C * K * s} ${S * K * s} ${x.toFixed(2)} ${y.toFixed(2)})`;
+  };
 
   const svg = el('svg', { class: 'tk-svg', role: 'presentation', focusable: 'false' });
   stage.appendChild(svg);
@@ -88,13 +99,12 @@
     const g = el('g', { class: cls }, parent);
     const a = iso(u0, v0, z), b = iso(u0 + w, v0, z), c = iso(u0 + w, v0 + d, z), e = iso(u0, v0 + d, z);
     const dn = (p) => [p[0], p[1] + h];
-    el('polygon', { class: 'tk-side tk-side--r', points: pts([b, c, dn(c), dn(b)]) }, g);
-    el('polygon', { class: 'tk-side tk-side--l', points: pts([e, c, dn(c), dn(e)]) }, g);
+    el('polygon', { class: 'tk-side tk-side--l', points: pts([b, c, dn(c), dn(b)]) }, g);
+    el('polygon', { class: 'tk-side tk-side--r', points: pts([e, c, dn(c), dn(e)]) }, g);
     el('polygon', { class: 'tk-top', points: pts([a, b, c, e]) }, g);
     return g;
   }
 
-  const layers = [];
   const tiles = {};
   for (let i = 0; i < 3; i++) {
     const z = i * GAP;
@@ -105,24 +115,16 @@
     const off = (COLS - cols) / 2;
     list.forEach((t, n) => {
       const col = n % cols, row = Math.floor(n / cols);
-      const u0 = PAD + off + col + (1 - TILE) / 2, v0 = PAD + row + (1 - TILE) / 2;
+      const u0 = PAD + off + (cols - 1 - col) + (1 - TILE) / 2, v0 = PAD + row + (1 - TILE) / 2;
       const tg = block(g, u0, v0, TILE, TILE, z + TH, TH, 'tk-tile');
       tg.dataset.tool = t.id;
-      // the mark lies flat on the tile's top face
-      const s = (TILE * 0.7) / 24;
-      const [ox, oy] = iso(u0 + TILE * 0.15, v0 + TILE * 0.15, z + TH);
-      const m = el('g', { class: 'tk-mark', transform: `matrix(${C * K * s} ${S * K * s} ${-C * K * s} ${S * K * s} ${ox} ${oy})` }, tg);
+      const m = el('g', { class: 'tk-mark', transform: onPlane(u0 + TILE * 0.85, v0 + TILE * 0.15, z + TH, (TILE * 0.7) / 24) }, tg);
       mark(t, m);
       tiles[t.id] = { g: tg, at: iso(u0 + TILE / 2, v0 + TILE / 2, z + TH) };
     });
-    // layer name beside the slab's left corner
-    const [lx, ly] = iso(0, D, z);
-    const lab = el('text', { class: 'tk-lname', x: lx - 18, y: ly - 6, 'text-anchor': 'end' }, g);
-    String(layerNames[i]).split('|').forEach((line, k) => {
-      const ts = el('tspan', { x: lx - 18, dy: k ? 13 : 0 }, lab);
-      ts.textContent = line;
-    });
-    layers.push(g);
+    // the layer's name lies on the slab's front band, reading up and to the right
+    const lab = el('text', { class: 'tk-lname', transform: onPlane(W - PAD, D - BAND * 0.32, z, 1 / K) }, g);
+    lab.textContent = String(layerNames[i]).replace('|', ' ');
   }
   const threads = el('g', { class: 'tk-threads' }, svg);
   const [hx, hy] = iso(W / 2, D / 2, 2 * GAP + 95);
@@ -131,24 +133,20 @@
   el('circle', { class: 'tk-hub-dot', cx: hx, cy: hy, r: 3.5 }, hub);
   const hubLabel = el('text', { class: 'tk-hub-label', x: hx, y: hy - 18, 'text-anchor': 'middle' }, hub);
 
-  const narrow = window.matchMedia('(max-width: 900px)');
+  // fit the viewBox to the drawing at rest, again once the label font is in
   function fit() {
-    const left = narrow.matches ? -D * C * K - 6 : -D * C * K - 200;
-    const top = hy - 44, right = W * C * K + 6, bottom = (W + D) * S * K + T + 8;
-    svg.setAttribute('viewBox', `${left.toFixed(1)} ${top.toFixed(1)} ${(right - left).toFixed(1)} ${(bottom - top).toFixed(1)}`);
+    svg.classList.add('is-measuring');
+    const box = svg.getBBox();
+    svg.classList.remove('is-measuring');
+    svg.setAttribute('viewBox', [box.x - 8, hy - 44, box.width + 16, box.y + box.height - hy + 52].map((n) => n.toFixed(1)).join(' '));
   }
   fit();
-  narrow.addEventListener('change', fit);
+  if (document.fonts) document.fonts.ready.then(fit);
 
-  /* ── state ── */
+  /* ── state: one skill open at a time ── */
   const skills = [...root.querySelectorAll('.tk-skill')];
-  const eraBtns = [...root.querySelectorAll('.tk-era-btn')];
-  const eraNote = root.querySelector('.tk-era-note');
-  let era = 'now';
   let open = null;
-
   const toolsOf = (li) => li.dataset.tools.split(/\s+/).filter((id) => byId[id]);
-  const inEra = (t) => (era === 'now' ? t.now : t.then);
 
   function drawThreads(ids) {
     threads.textContent = '';
@@ -156,45 +154,61 @@
       const [x, y] = tiles[id].at;
       const p = el('path', {
         class: 'tk-thread', pathLength: 1, style: `--dl:${(n * 0.04).toFixed(2)}s`,
-        d: `M${x.toFixed(1)} ${y.toFixed(1)} C${x.toFixed(1)} ${(y - 70).toFixed(1)} ${hx} ${(hy + 90).toFixed(1)} ${hx} ${hy}`,
+        d: `M${x.toFixed(1)} ${y.toFixed(1)} C${x.toFixed(1)} ${(y - 70).toFixed(1)} ${hx.toFixed(1)} ${(hy + 90).toFixed(1)} ${hx.toFixed(1)} ${hy.toFixed(1)}`,
       }, threads);
-      el('circle', { class: 'tk-anchor', cx: x, cy: y, r: 2.6 }, threads);
+      el('circle', { class: 'tk-anchor', cx: x.toFixed(1), cy: y.toFixed(1), r: 2.6 }, threads);
       requestAnimationFrame(() => requestAnimationFrame(() => p.classList.add('is-drawn')));
     });
   }
 
   function render() {
-    const lit = open ? new Set(toolsOf(open)) : null;
-    root.classList.toggle('is-2022', era === 'then');
-    root.classList.toggle('has-skill', !!lit);
-    TOOLS.forEach((t) => {
-      const g = tiles[t.id].g;
-      g.classList.toggle('is-out', !inEra(t));
-      g.classList.toggle('is-lit', !!lit && lit.has(t.id));
-    });
+    const lit = open ? toolsOf(open) : [];
+    root.classList.toggle('has-skill', !!open);
+    TOOLS.forEach((t) => tiles[t.id].g.classList.toggle('is-lit', lit.includes(t.id)));
     hubLabel.textContent = open ? open.querySelector('.tk-skill-name').textContent : '';
-    // 2022 has no thread to a tool that wasn't in use yet; today, tools used earlier still count
-    drawThreads(lit ? [...lit].filter((id) => era === 'now' || inEra(byId[id])) : []);
-    eraBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.era === era)));
-    eraNote.textContent = eraNote.dataset[era];
-    skills.forEach((li) => li.classList.toggle('is-future', era === 'then' && li.dataset.since === 'ai'));
+    drawThreads(lit);
+    skills.forEach((li) => {
+      const on = li === open;
+      li.classList.toggle('is-open', on);
+      li.querySelector('.tk-skill-btn').setAttribute('aria-expanded', String(on));
+    });
   }
 
-  function setOpen(li) {
-    if (open && open !== li) {
-      open.classList.remove('is-open');
-      open.querySelector('.tk-skill-btn').setAttribute('aria-expanded', 'false');
+  // Phones: opening a skill hides the rest of the panel and slides the open
+  // skill's card up over the drawing, stopping just below its lowest lit
+  // tool, then scrolls so the drawing's top sits under the nav. Desktop just
+  // brings the open skill into view if it isn't.
+  let focusTimer;
+  function focus(how) {
+    clearTimeout(focusTimer);
+    if (!narrow.matches || !open) panel.style.marginTop = '';
+    if (!open) return;
+    if (!narrow.matches) {
+      if (how !== 'list') {
+        const r = open.getBoundingClientRect();
+        if (r.top < 90 || r.top > innerHeight - 120) open.scrollIntoView({ block: 'center', behavior: reduceMotion ? 'auto' : 'smooth' });
+      }
+      return;
     }
+    focusTimer = setTimeout(() => {
+      const current = parseFloat(panel.style.marginTop) || 0;
+      const naturalTop = panel.getBoundingClientRect().top - current;
+      const lowest = Math.max(...toolsOf(open).map((id) => tiles[id].g.getBoundingClientRect().bottom));
+      const overlap = Math.max(0, naturalTop - (lowest + 16));
+      panel.style.marginTop = overlap ? `-${overlap}px` : '';
+      const top = hub.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({ top: Math.max(0, top), behavior: reduceMotion ? 'auto' : 'smooth' });
+    }, 30);
+  }
+  narrow.addEventListener('change', () => focus('list'));
+
+  function setOpen(li, how) {
     open = li && open !== li ? li : null;
-    if (open) {
-      if (era === 'then' && open.dataset.since === 'ai') era = 'now';
-      open.classList.add('is-open');
-      open.querySelector('.tk-skill-btn').setAttribute('aria-expanded', 'true');
-    }
     render();
+    focus(how);
   }
 
-  /* ── the skill panels: tools grouped by layer, and the skills they share tools with ── */
+  /* ── each skill's panel: its tools by layer, and the skills it shares tools with ── */
   const overlapLabel = root.dataset.overlap;
   skills.forEach((li) => {
     const ids = toolsOf(li);
@@ -204,21 +218,26 @@
       if (!mine.length) return;
       const row = document.createElement('div');
       row.className = 'tk-uses-row';
-      row.innerHTML = `<span class="tk-uses-layer">${String(layerNames[k]).replace('|', ' ')}</span><ul class="tk-chips"></ul>`;
-      const ul = row.querySelector('ul');
+      const name = document.createElement('span');
+      name.className = 'tk-uses-layer';
+      name.textContent = String(layerNames[k]).replace('|', ' ');
+      const ul = document.createElement('ul');
+      ul.className = 'tk-chips';
       mine.forEach((id) => {
         const t = byId[id];
         const chip = document.createElement('li');
         chip.className = 'tk-chip';
-        chip.dataset.tool = id;
         const ic = document.createElementNS(NS, 'svg');
         ic.setAttribute('viewBox', '0 0 24 24');
         ic.setAttribute('aria-hidden', 'true');
         mark(t, ic, true);
-        chip.appendChild(ic);
-        chip.appendChild(document.createTextNode(t.name));
+        chip.append(ic, t.name);
+        // naming a tool points it out in the drawing
+        chip.addEventListener('pointerenter', () => tiles[id].g.classList.add('is-hover'));
+        chip.addEventListener('pointerleave', () => tiles[id].g.classList.remove('is-hover'));
         ul.appendChild(chip);
       });
+      row.append(name, ul);
       box.appendChild(row);
     });
     const shared = skills
@@ -230,36 +249,42 @@
     if (shared.length) {
       const p = document.createElement('p');
       p.className = 'tk-overlap';
-      p.innerHTML = `<span>${overlapLabel}</span> `;
+      p.append(overlapLabel + ' ');
       shared.forEach(({ o }) => {
         const b = document.createElement('button');
         b.type = 'button';
         b.className = 'tk-overlap-btn';
         b.textContent = o.querySelector('.tk-skill-name').textContent;
-        b.addEventListener('click', () => { setOpen(o); o.querySelector('.tk-skill-btn').focus({ preventScroll: true }); });
+        b.addEventListener('click', () => {
+          setOpen(o, 'jump');
+          o.querySelector('.tk-skill-btn').focus({ preventScroll: true });
+        });
         p.appendChild(b);
       });
       box.appendChild(p);
     }
-    li.querySelector('.tk-skill-btn').addEventListener('click', () => setOpen(li));
+    li.querySelector('.tk-skill-btn').addEventListener('click', () => setOpen(li, 'list'));
   });
   TOOLS.forEach((t) => {
     if (!skills.some((li) => toolsOf(li).includes(t.id))) console.warn(`Toolkit: no skill uses ${t.id}`);
     if (!purpose[t.id]) console.warn(`Toolkit: no description for ${t.id}`);
   });
 
-  eraBtns.forEach((b) => b.addEventListener('click', () => {
-    era = b.dataset.era;
-    if (era === 'then' && open && open.dataset.since === 'ai') setOpen(open);
-    else render();
-  }));
-
-  /* ── hover a tile: say what it's for, and mark the skills that use it ── */
+  /* ── tiles: hover says what the tool is for and marks the skills using it;
+     a click opens one of those skills ── */
+  const restCaption = () => {
+    caption.textContent = caption.dataset.default;
+    caption.classList.remove('is-on');
+    skills.forEach((li) => li.classList.remove('is-uses'));
+  };
   svg.addEventListener('pointerover', (e) => {
     const g = e.target.closest('.tk-tile');
     if (!g) return;
     const t = byId[g.dataset.tool];
-    caption.innerHTML = `<strong>${t.name}</strong> ${purpose[t.id] || ''}`;
+    caption.textContent = '';
+    const strong = document.createElement('strong');
+    strong.textContent = t.name;
+    caption.append(strong, ' ' + (purpose[t.id] || ''));
     caption.classList.add('is-on');
     skills.forEach((li) => li.classList.toggle('is-uses', toolsOf(li).includes(t.id)));
     g.classList.add('is-hover');
@@ -268,19 +293,22 @@
     const g = e.target.closest('.tk-tile');
     if (!g || g.contains(e.relatedTarget)) return;
     g.classList.remove('is-hover');
-    caption.textContent = caption.dataset.default;
-    caption.classList.remove('is-on');
-    skills.forEach((li) => li.classList.remove('is-uses'));
+    restCaption();
   });
   svg.addEventListener('click', (e) => {
     const g = e.target.closest('.tk-tile');
     if (!g) return;
-    // a tile opens the first skill that uses it, unless the open one already does
     if (open && toolsOf(open).includes(g.dataset.tool)) return;
-    const first = skills.find((li) => toolsOf(li).includes(g.dataset.tool) && !(era === 'then' && li.dataset.since === 'ai'));
-    if (first) setOpen(first);
+    const first = skills.find((li) => toolsOf(li).includes(g.dataset.tool));
+    if (first) setOpen(first, 'jump');
   });
-  caption.textContent = caption.dataset.default;
+  restCaption();
+
+  // clicking outside the drawing's tiles and the panel, or Escape, closes the open skill
+  document.addEventListener('click', (e) => {
+    if (open && !e.target.closest('.tk-tile, .tk-panel')) setOpen(null);
+  });
+  document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && open) setOpen(null); });
 
   render();
   // layers rise into place the first time the section comes into view
