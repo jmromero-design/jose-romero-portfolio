@@ -35,7 +35,7 @@ AI search tools quote this site, so facts and conventions must match on every pa
 /es/work/<slug>/           ES case studies
 /thinking/<slug>/          EN articles
 /es/thinking/<slug>/       ES articles
-assets/css/main.css        All global styles (versioned ?v=47)
+assets/css/main.css        All global styles (versioned ?v=48)
 assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=19)
 assets/images/work/<slug>/ WebP images per case study
 assets/fonts/              Self-hosted Bitter (variable, display) + Outfit woff2 files
@@ -50,7 +50,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=47` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=48` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -115,7 +115,7 @@ All tokens are CSS custom properties on `:root`. Reference them by name — neve
 
 Dark mode is the default. Light mode is set via `[data-theme="light"]` on `<html>`. Persisted to `localStorage` key `jr-theme`. System preference fallback via `@media (prefers-color-scheme: light)` requires no JS; it repeats the light tokens, so change both blocks together.
 
-**Light mode is "drafting paper" (since 2026-10-25):** near-white paper (`--bg-base`) with ink-navy text, and a cool blue-grey ground (`--bg-tint`) on chosen sections so pages alternate: every page opening, the closing CTA, the homepage stack and BECO sections, and About's Experience. The grid is a detail, never page-wide: a faint corner fade on inner page openings (`--grid-line`), a softer bottom-left fade on a few paper sections that would feel empty (homepage positioning, Thinking and testimonials, About's Career; `--grid-line-soft`), plus the grids components already carry (CTA, homepage About card). The BECO explorer stays plain paper throughout. No dot texture in light mode. Grain is a static 160px tile (`assets/images/texture/noise-ink.webp` on the light blue-grey ground, `noise-chalk.webp` page-wide in dark mode) set as a background image; never bring back a `position: fixed` texture layer, which repaints on scroll and fought the glass elements. See "LIGHT MODE SECTIONS" in main.css. The earlier warm off-white read as the generic AI look; don't drift back to warm greys or cream.
+**Light mode is "drafting paper" (since 2026-10-25):** near-white paper (`--bg-base`) with ink-navy text, and a cool blue-grey ground (`--bg-tint`) on chosen sections so pages alternate: every page opening, the closing CTA, the homepage stack and BECO sections, and About's Experience. The grid is a detail, never page-wide: a faint corner fade on inner page openings (`--grid-line`), a softer bottom-left fade on a few paper sections that would feel empty (homepage positioning, Thinking and testimonials, About's Career; `--grid-line-soft`), plus the grids components already carry (CTA, homepage About card). The BECO explorer stays plain paper throughout. No dot texture in light mode. Grain is a static 160px tile: in light mode `noise-ink-soft.webp` on the paper (barely visible) and `noise-ink.webp` on the blue-grey ground; `noise-chalk.webp` page-wide in dark mode. Images cache for a day, so bump a `?v=` on a tile URL when you regenerate it set as a background image; never bring back a `position: fixed` texture layer, which repaints on scroll and fought the glass elements. See "LIGHT MODE SECTIONS" in main.css. The earlier warm off-white read as the generic AI look; don't drift back to warm greys or cream.
 
 When editing colours or backgrounds always verify both modes. Never hardcode `#090908` or `#FBFCFD` — use `var(--bg-base)`.
 

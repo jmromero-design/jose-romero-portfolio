@@ -216,11 +216,12 @@ body {
 
 /* Grain. A static 160px noise tile (6 KB WebP, assets/images/texture/)
    on the background, so it scrolls with the page and is never redrawn.
-   Dark mode has it page-wide in chalk specks; light mode keeps the paper
-   plain and gives ink specks only to the blue-grey ground (see LIGHT MODE
-   SECTIONS). This replaced a fixed full-screen SVG-filter layer that was
+   Dark mode has it page-wide in chalk specks. Light mode uses ink specks:
+   barely there on the paper (noise-ink-soft), a touch stronger on the
+   blue-grey ground (see LIGHT MODE SECTIONS). This replaced a fixed full-screen SVG-filter layer that was
    repainted on scroll and fought the glass elements for compositing. */
 :root:not([data-theme="light"]) body { background-image: url('/assets/images/texture/noise-chalk.webp'); }
+:root[data-theme="light"] body { background-image: url('/assets/images/texture/noise-ink-soft.webp'); }
 
 /* LIGHT MODE SECTIONS. Pages alternate between paper and the blue-grey
    ground: every page opens on the ground, the closing call to action sits
@@ -229,11 +230,11 @@ body {
    the top-right corner; the homepage hero stays plain behind its map. */
 [data-theme="light"] :is(main > section:first-of-type:not(.bgx-app), .cta-section, .v4-cta, #how-i-work, .bx, section[aria-labelledby="experience-heading"]) {
   background-color: var(--bg-tint);
-  background-image: url('/assets/images/texture/noise-ink.webp');
+  background-image: url('/assets/images/texture/noise-ink.webp?v=2');
 }
 [data-theme="light"] main > section:first-of-type:not(.v4-hero, .bgx-app) {
   background-image:
-    url('/assets/images/texture/noise-ink.webp'),
+    url('/assets/images/texture/noise-ink.webp?v=2'),
     radial-gradient(ellipse 55% 95% at 100% 0%, transparent 0%, var(--bg-tint) 80%),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
@@ -243,10 +244,11 @@ body {
    fading in from the bottom-left corner. */
 [data-theme="light"] :is(.v4-manifest, .v4-thinking, .v4-voices, section[aria-labelledby="clients-heading"]) {
   background-image:
+    url('/assets/images/texture/noise-ink-soft.webp'),
     radial-gradient(ellipse 50% 90% at 0% 100%, transparent 0%, var(--bg-base) 78%),
     linear-gradient(var(--grid-line-soft) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line-soft) 1px, transparent 1px);
-  background-size: auto, 28px 28px, 28px 28px;
+  background-size: 160px 160px, auto, 28px 28px, 28px 28px;
 }
 /* The BECO explorer stays plain paper, map, cards and close alike */
 [data-theme="light"] main:has(> .bgx-app) :is(.v4-cta, .cta-section) { background-color: var(--bg-base); }
