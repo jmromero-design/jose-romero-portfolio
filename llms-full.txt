@@ -56,15 +56,15 @@ Experience
 
 Garaje de Ideas / Groupe EDG: IKEA New Business Platform 2025–Present Senior Product Designer (Implant) Zaragoza, Spain (English environment)
 
-Embedded full-time within IKEA's New Business Platform, an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe.
+Embedded full-time within IKEA's New Business Platform, an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe. The two products below are run by one team, and I work across both.
 
 IKEA Home Services
 
-A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish regions by mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or reactivated IKEA Family members, 4.9/5 customer satisfaction rating. I work across user flows, prototyping, in-store user research sessions at IKEA locations, and accessibility auditing, alongside product owners, service designers, engineers, content designers, and business developers.
+A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish regions by mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or reactivated IKEA Family members, 4.9/5 customer satisfaction rating. This is the product I joined for: user flows, prototyping, in-store user research sessions at IKEA locations, and accessibility auditing, alongside product owners, service designers, engineers, content designers, and business developers. I still support it.
 
 IKEA Second-hand Marketplace
 
-Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed. I contribute to product design and cross-functional collaboration as the platform matures and scales.
+Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed. Most of my work goes here today: product design and cross-functional collaboration as the platform matures and scales.
 
 Design operations
 
@@ -445,7 +445,7 @@ My role
 
 ## Embedded, end-to-end
 
-I work as a Senior Product Designer embedded full-time within the IKEA New Business Platform team. That means I'm not consulting from the outside; I'm inside the product team, alongside product owners, service designers, engineers, content designers, and business developers.
+I joined IKEA's New Business Platform as a Senior Product Designer embedded full-time on Home Services, working inside the product team with product owners, service designers, engineers, content designers and business developers. Today the platform runs Home Services and the Second-hand Marketplace as one team, and I still support Home Services from there.
 
 My work spans user flows, interaction design, high-fidelity prototyping, in-store user research sessions at IKEA locations, accessibility auditing (WCAG compliance), and design handoff. I contribute to product decisions, not just design delivery.
 
@@ -534,7 +534,7 @@ The challenge
 
 ## Scaling a pilot across markets
 
-The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services on the same team. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five, with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.
+The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services inside the same New Business Platform. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five, with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.
 
 This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Portugal. Localisation wasn't an afterthought; it was a structural constraint from the beginning of the expansion phase.
 
@@ -544,7 +544,7 @@ My role
 
 ## Product design across the full lifecycle
 
-I contribute to the Second-hand Marketplace alongside my work on IKEA Home Services; both products operate within the same IKEA New Business Platform team. My role spans product design, cross-functional collaboration, and contribution to the shared design operations framework that supports both products.
+I started on the Second-hand Marketplace as a collaborator, while my main work was Home Services. Today one New Business Platform team runs both products, and the Second-hand Marketplace is where most of my work goes: product design, cross-functional collaboration, and the shared design operations framework that supports both products.
 
 As the platform has matured and scaled, the nature of the work has shifted from defining new flows to refining and extending a system that needs to remain coherent across markets and team changes.
 
@@ -552,7 +552,7 @@ Approach
 
 ## Modular by design
 
-Working on two marketplace products simultaneously has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
+Working across two marketplace products has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
 
 The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.
 

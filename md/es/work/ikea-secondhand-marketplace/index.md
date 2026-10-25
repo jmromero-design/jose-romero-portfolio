@@ -48,7 +48,7 @@ El reto
 
 ## Escalar un piloto a múltiples mercados
 
-El producto se lanzó como piloto en Madrid y Oslo en agosto de 2024, funcionando en paralelo con IKEA Home Services en el mismo equipo. A medida que los pilotos demostraron su valor, la presión cambió: de hacer que el producto funcionase en un mercado a hacerlo funcionar en cinco, con diferentes sistemas de pago, diferentes leyes de protección al consumidor y diferentes grados de madurez del mercado de segunda mano.
+El producto se lanzó como piloto en Madrid y Oslo en agosto de 2024, funcionando en paralelo con IKEA Home Services dentro de la misma New Business Platform. A medida que los pilotos demostraron su valor, la presión cambió: de hacer que el producto funcionase en un mercado a hacerlo funcionar en cinco, con diferentes sistemas de pago, diferentes leyes de protección al consumidor y diferentes grados de madurez del mercado de segunda mano.
 
 Esto significaba que el trabajo de diseño tenía que ser modular. Los supuestos válidos en España no podían estar codificados en componentes que servirían a Noruega o Portugal. La localización no era una consideración posterior; era una restricción estructural desde el inicio de la fase de expansión.
 
@@ -58,7 +58,7 @@ Mi rol
 
 ## Diseño de producto a lo largo del ciclo de vida completo
 
-Contribuyo al Second-hand Marketplace junto a mi trabajo en IKEA Home Services; ambos productos operan dentro del mismo equipo de IKEA New Business Platform. Mi rol abarca diseño de producto, colaboración cross-funcional y contribución al framework compartido de operaciones de diseño que da soporte a ambos productos.
+Empecé en el Second-hand Marketplace como colaborador, cuando mi trabajo principal era Home Services. Hoy un solo equipo de New Business Platform lleva los dos productos, y el Second-hand Marketplace es donde va la mayor parte de mi trabajo: diseño de producto, colaboración cross-funcional y el framework compartido de operaciones de diseño que da soporte a ambos.
 
 A medida que la plataforma ha madurado y escalado, la naturaleza del trabajo ha pasado de definir nuevos flujos a refinar y extender un sistema que necesita mantenerse coherente entre mercados y cambios de equipo.
 
@@ -66,7 +66,7 @@ Enfoque
 
 ## Modular por diseño
 
-Trabajar en dos productos de marketplace simultáneamente tiene un efecto secundario útil: los patrones que funcionan en uno tienden a informar al otro, y la deuda de diseño en uno se hace visible más rápido cuando mantienes la consistencia entre ambos. El flujo de creación de anuncios, los mensajes de confianza y seguridad, la arquitectura de reseñas: todos se desarrollaron pensando en la consistencia entre productos.
+Trabajar entre dos productos de marketplace tiene un efecto secundario útil: los patrones que funcionan en uno tienden a informar al otro, y la deuda de diseño en uno se hace visible más rápido cuando mantienes la consistencia entre ambos. El flujo de creación de anuncios, los mensajes de confianza y seguridad, la arquitectura de reseñas: todos se desarrollaron pensando en la consistencia entre productos.
 
 La integración del catálogo IKEA requirió una estrecha colaboración con ingeniería para definir el contrato de datos entre el catálogo y la UI. ¿Qué campos estaban siempre disponibles? ¿Cuáles eran opcionales o con datos inconsistentes? Las respuestas dieron forma a la jerarquía de información de cada página de anuncio.
 

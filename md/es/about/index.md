@@ -44,15 +44,15 @@ Experiencia
 
 Garaje de Ideas / Groupe EDG: IKEA New Business Platform 2025–Presente Senior Product Designer (Implant) Zaragoza, España (entorno en inglés)
 
-Integrado a tiempo completo en la plataforma New Business de IKEA, una unidad de startup interna dentro de Ingka Group, encargada de expandir IKEA más allá del mueble hacia mercados adyacentes en Europa.
+Integrado a tiempo completo en la plataforma New Business de IKEA, una unidad de startup interna dentro de Ingka Group, encargada de expandir IKEA más allá del mueble hacia mercados adyacentes en Europa. Un mismo equipo lleva los dos productos de abajo, y trabajo en ambos.
 
 IKEA Home Services
 
-Un marketplace P2P que conecta a propietarios con profesionales verificados en más de 50 categorías de mejoras del hogar. Lanzado en Madrid en septiembre de 2024, expandido a siete regiones españolas a mediados de 2026. Cifras publicadas: más de 500.000 descargas, 21.000 solicitudes de servicio completadas, 57.000 miembros nuevos o reactivados de IKEA Family, 4.9/5 de satisfacción del cliente. Trabajo en flujos de usuario, prototipado, sesiones de investigación en tiendas IKEA y auditoría de accesibilidad, junto a product owners, service designers, ingenieros, content designers y business developers.
+Un marketplace P2P que conecta a propietarios con profesionales verificados en más de 50 categorías de mejoras del hogar. Lanzado en Madrid en septiembre de 2024, expandido a siete regiones españolas a mediados de 2026. Cifras publicadas: más de 500.000 descargas, 21.000 solicitudes de servicio completadas, 57.000 miembros nuevos o reactivados de IKEA Family, 4.9/5 de satisfacción del cliente. Es el producto con el que empecé: flujos de usuario, prototipado, sesiones de investigación en tiendas IKEA y auditoría de accesibilidad, junto a product owners, service designers, ingenieros, content designers y business developers. Sigo dándole soporte.
 
 IKEA Second-hand Marketplace
 
-Reventa P2P de productos IKEA, con el catálogo de IKEA como base de datos para los anuncios. Pilotado en Madrid, activo en cinco países europeos, con expansión europea total comprometida. Contribuyo al diseño de producto y a la colaboración cross-funcional a medida que la plataforma madura y escala.
+Reventa P2P de productos IKEA, con el catálogo de IKEA como base de datos para los anuncios. Pilotado en Madrid, activo en cinco países europeos, con expansión europea total comprometida. Hoy va aquí la mayor parte de mi trabajo: diseño de producto y colaboración cross-funcional a medida que la plataforma madura y escala.
 
 Operaciones de diseño
 

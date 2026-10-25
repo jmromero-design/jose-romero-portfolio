@@ -62,7 +62,7 @@ My role
 
 ## Embedded, end-to-end
 
-I work as a Senior Product Designer embedded full-time within the IKEA New Business Platform team. That means I'm not consulting from the outside; I'm inside the product team, alongside product owners, service designers, engineers, content designers, and business developers.
+I joined IKEA's New Business Platform as a Senior Product Designer embedded full-time on Home Services, working inside the product team with product owners, service designers, engineers, content designers and business developers. Today the platform runs Home Services and the Second-hand Marketplace as one team, and I still support Home Services from there.
 
 My work spans user flows, interaction design, high-fidelity prototyping, in-store user research sessions at IKEA locations, accessibility auditing (WCAG compliance), and design handoff. I contribute to product decisions, not just design delivery.
 

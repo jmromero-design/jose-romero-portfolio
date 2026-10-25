@@ -28,7 +28,8 @@ Contact: joseromero.next@gmail.com or via the site's contact page
 
 ## Current role
 Senior Product Designer at Garaje de Ideas / Groupe EDG, embedded full-time
-within IKEA's New Business Platform team in Spain. Working on:
+within IKEA's New Business Platform team in Spain, which runs Home Services
+and the Second-hand Marketplace as one team. Working across:
 - IKEA Home Services: peer-to-peer home improvement services marketplace.
   500,000+ downloads, 21,000 service requests, 4.9/5 satisfaction.
   Live in seven Spanish regions as of 2026.

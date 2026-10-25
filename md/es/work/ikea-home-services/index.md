@@ -62,7 +62,7 @@ Mi rol
 
 ## Integrado, de extremo a extremo
 
-Trabajo como Senior Product Designer integrado a tiempo completo en el equipo de IKEA New Business Platform. Eso significa que no consulto desde fuera; estoy dentro del equipo de producto, junto a product owners, service designers, ingenieros, content designers y business developers.
+Me incorporé a la New Business Platform de IKEA como Senior Product Designer integrado a tiempo completo en Home Services, dentro del equipo de producto, con product owners, service designers, ingenieros, content designers y business developers. Hoy la plataforma lleva Home Services y el Second-hand Marketplace como un solo equipo, y desde ahí sigo dando soporte a Home Services.
 
 Mi trabajo abarca flujos de usuario, diseño de interacción, prototipado de alta fidelidad, sesiones de investigación con usuarios en tiendas IKEA, auditoría de accesibilidad (cumplimiento WCAG) y entrega de diseño. Contribuyo a las decisiones de producto, no solo a la entrega de diseño.
 

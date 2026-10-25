@@ -36,8 +36,8 @@ English and Spanish at professional level.
 ## Currently
 
 Embedded full-time within IKEA's New Business Platform (Garaje de Ideas /
-Groupe EDG), working on two peer-to-peer marketplaces from early stages
-through European expansion, plus a cross-tool design operations framework
+Groupe EDG), working across two peer-to-peer marketplaces that the platform
+runs as one team, from early stages through European expansion, plus a cross-tool design operations framework
 and an AI workflow design framework for the design team.
 
 ## How I work

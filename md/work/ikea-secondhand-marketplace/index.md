@@ -48,7 +48,7 @@ The challenge
 
 ## Scaling a pilot across markets
 
-The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services on the same team. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five, with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.
+The product launched as a pilot in Madrid and Oslo in August 2024, running in parallel with IKEA Home Services inside the same New Business Platform. As the pilots proved themselves, the pressure shifted: from getting the product to work in one market to making it work across five, with different payment systems, different consumer protection laws, and different levels of second-hand market maturity.
 
 This meant the design work had to be modular. Assumptions valid in Spain couldn't be hardcoded into components that would serve Norway or Portugal. Localisation wasn't an afterthought; it was a structural constraint from the beginning of the expansion phase.
 
@@ -58,7 +58,7 @@ My role
 
 ## Product design across the full lifecycle
 
-I contribute to the Second-hand Marketplace alongside my work on IKEA Home Services; both products operate within the same IKEA New Business Platform team. My role spans product design, cross-functional collaboration, and contribution to the shared design operations framework that supports both products.
+I started on the Second-hand Marketplace as a collaborator, while my main work was Home Services. Today one New Business Platform team runs both products, and the Second-hand Marketplace is where most of my work goes: product design, cross-functional collaboration, and the shared design operations framework that supports both products.
 
 As the platform has matured and scaled, the nature of the work has shifted from defining new flows to refining and extending a system that needs to remain coherent across markets and team changes.
 
@@ -66,7 +66,7 @@ Approach
 
 ## Modular by design
 
-Working on two marketplace products simultaneously has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
+Working across two marketplace products has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
 
 The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.
 

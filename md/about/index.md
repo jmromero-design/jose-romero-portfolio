@@ -44,15 +44,15 @@ Experience
 
 Garaje de Ideas / Groupe EDG: IKEA New Business Platform 2025–Present Senior Product Designer (Implant) Zaragoza, Spain (English environment)
 
-Embedded full-time within IKEA's New Business Platform, an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe.
+Embedded full-time within IKEA's New Business Platform, an internal startup unit within Ingka Group, tasked with expanding IKEA beyond furniture into adjacent markets across Europe. The two products below are run by one team, and I work across both.
 
 IKEA Home Services
 
-A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish regions by mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or reactivated IKEA Family members, 4.9/5 customer satisfaction rating. I work across user flows, prototyping, in-store user research sessions at IKEA locations, and accessibility auditing, alongside product owners, service designers, engineers, content designers, and business developers.
+A peer-to-peer marketplace connecting homeowners with verified professionals across 50+ home improvement categories. Launched in Madrid in September 2024, expanded to seven Spanish regions by mid-2026. Published figures: 500,000+ downloads, 21,000 service requests completed, 57,000 new or reactivated IKEA Family members, 4.9/5 customer satisfaction rating. This is the product I joined for: user flows, prototyping, in-store user research sessions at IKEA locations, and accessibility auditing, alongside product owners, service designers, engineers, content designers, and business developers. I still support it.
 
 IKEA Second-hand Marketplace
 
-Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed. I contribute to product design and cross-functional collaboration as the platform matures and scales.
+Peer-to-peer resale of IKEA products, with IKEA's catalog as a data backbone for listings. Piloted in Madrid, now live in five European countries, with full European expansion committed. Most of my work goes here today: product design and cross-functional collaboration as the platform matures and scales.
 
 Design operations
 
