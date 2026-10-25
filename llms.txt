@@ -52,6 +52,9 @@ within IKEA's New Business Platform team in Spain. Working on:
 Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
 - Santander Nordics · CRO Programme: lead UX/CRO designer across Denmark,
   Sweden, Finland, and Norway. Multi-market, legally constrained A/B testing.
+  The application form was redesigned from winning experiments and became the
+  default in all four markets; changes shipped only after significant uplifts
+  in at least the two largest markets.
 - Meliá Hotels International · Campaign Management Platform: 3-year engagement,
   zero-to-one internal tool, live across all Meliá markets globally.
 - Mapfre · AFIN Financial App: self-service financial app covering investments,

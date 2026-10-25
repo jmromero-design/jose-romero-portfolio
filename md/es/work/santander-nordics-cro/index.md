@@ -20,6 +20,20 @@ Diseñador líder UX/CRO en un programa continuo de optimización de conversión
 
 - **Mercados:** Dinamarca · Suecia · Finlandia · Noruega
 
+## En resumen
+
+El reto
+
+Mejorar la conversión de préstamos, tarjetas y depósitos en cuatro mercados nórdicos, donde cada cambio necesita aprobación legal y un resultado falso sale más caro que en e-commerce.
+
+Lo que hice
+
+Durante tres años lideré el diseño UX y CRO: hipótesis estructuradas, variantes en todo el funnel con foco en los formularios, QA de los tests en vivo y resultados explicados a cuatro equipos locales.
+
+Resultado
+
+El formulario de solicitud se rehízo test a test y acabó siendo el estándar en los cuatro mercados. Un cambio solo salía tras mejoras significativas al menos en los dos mayores, para que ningún resultado dependiera de un solo mercado, cultura o temporada.
+
 Contexto
 
 ## CRO dentro de un entorno bancario regulado
@@ -70,4 +84,4 @@ Trabajar en cuatro mercados simultáneamente agudiza tu comprensión de qué es 
 
 El trabajo de CRO también enseña a no aferrarte a tu propio gusto. Que un diseño se vea bien y que funcione coinciden lo suficiente como para ser peligroso, porque empiezas a dar por hecho que son lo mismo. Cuando el dato contradice el instinto, gana el dato, siempre.
 
-Los datos de rendimiento específicos de este encargo están sujetos a NDA y no han sido publicados por el cliente.
+**Lo que puedo contar de los resultados:** el formulario de solicitud se fue rediseñando a partir de los experimentos ganadores, y esa versión acabó siendo el estándar en los cuatro mercados. Un cambio solo salía cuando mostraba una mejora significativa al menos en los dos mercados más grandes, para que ningún resultado dependiera de un único mercado ni de efectos culturales o de temporada. La banca en mercados regulados es lo bastante delicada como para que la metodología que acordamos con Santander fuera más estricta que en la mayoría de proyectos. Las cifras exactas siguen bajo NDA.

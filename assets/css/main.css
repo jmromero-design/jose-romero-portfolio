@@ -1444,6 +1444,40 @@ strong { font-weight: 500; color: var(--text-primary); }
   font-weight: 400;
 }
 
+/* In short: the case study in three lines, read before the long version.
+   Problem, what I did, result; the result carries the accent. */
+.cs-brief { margin: calc(-1 * var(--sp-4)) 0 var(--sp-12); }
+.cs-brief .cs-brief-title {
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal-text);
+  margin: 0 0 var(--sp-4);
+}
+.cs-brief-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--sp-6) var(--sp-8);
+  margin: 0;
+}
+.cs-brief-list > div { padding-top: var(--sp-4); border-top: 2px solid var(--border-default); }
+.cs-brief-list > div:last-child { border-top-color: var(--gold); }
+.cs-brief-list dt {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: var(--sp-2);
+}
+.cs-brief-list dd { margin: 0; font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); }
+.cs-brief-list > div:last-child dd { color: var(--text-primary); }
+@media (max-width: 768px) {
+  .cs-brief-list { grid-template-columns: 1fr; gap: var(--sp-5); }
+}
+
 .cs-cover {
   width: 100%;
   aspect-ratio: 21/9;

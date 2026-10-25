@@ -20,6 +20,20 @@ A peer-to-peer marketplace for buying and selling used IKEA products, with IKEA'
 
 - **Scope:** Product Design · Cross-functional · Multi-market
 
+## In short
+
+The problem
+
+A pilot in Madrid and Oslo had to grow into one product that works across markets with different payment systems, consumer laws and second-hand habits.
+
+What I did
+
+I designed the listing, trust and review flows to stay consistent across markets, and worked with engineering on how IKEA’s own catalogue fills in each listing automatically.
+
+Result
+
+Live in five countries (Spain, Norway, Portugal, Poland and Sweden), with Ingka aiming for around 170,000 listings in 2026. Commercial figures aren’t public yet.
+
 Context
 
 ## Circular commerce built on IKEA's own catalogue

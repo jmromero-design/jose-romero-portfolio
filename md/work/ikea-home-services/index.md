@@ -20,6 +20,20 @@ Connecting homeowners with verified local professionals across 50+ home improvem
 
 - **Scope:** Product Design · UX Research · Mobile · Accessibility
 
+## In short
+
+The problem
+
+IKEA wanted a marketplace for home services that earned the trust of homeowners and professionals at the same time, inside a brand that’s careful about every detail.
+
+What I did
+
+Embedded full-time in IKEA’s product team, I designed both sides of the marketplace, ran research sessions inside IKEA stores, and built accessibility in from the first flow.
+
+Result
+
+Live in seven Spanish regions since its Madrid launch in 2024: 500,000+ downloads, 21,000 completed service requests and a 4.9/5 satisfaction rating, per Ingka Group.
+
 Context
 
 ## Extending IKEA beyond furniture

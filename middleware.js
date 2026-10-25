@@ -61,7 +61,7 @@ it matters, and how to tell if it worked.
 
 - [IKEA Home Services](https://www.joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
 - [Mapfre · AFIN Financial App](https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/) — self-service financial app
-- [Santander Nordics · CRO Programme](https://www.joseromerodesign.com/work/santander-nordics-cro/) — multi-market CRO under regulatory constraints
+- [Santander Nordics · CRO Programme](https://www.joseromerodesign.com/work/santander-nordics-cro/) — multi-market CRO under regulatory constraints; the redesigned application form became the default in all four markets
 - [Meliá Hotels · Campaign Platform](https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/) — zero-to-one internal tool
 - [Mapfre · Digital Expansion](https://www.joseromerodesign.com/work/mapfre-digital-expansion/) — Verti platform redesign across Europe
 - [IQOS Club Spain · CRO Programme](https://www.joseromerodesign.com/work/iqos-club-cro/) — loyalty and behavioural economics

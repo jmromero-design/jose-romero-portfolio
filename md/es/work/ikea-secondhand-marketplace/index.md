@@ -20,6 +20,20 @@ Un marketplace P2P para comprar y vender productos IKEA de segunda mano, con el 
 
 - **Alcance:** Diseño de Producto · Cross-funcional · Multipaís
 
+## En resumen
+
+El reto
+
+Un piloto en Madrid y Oslo tenía que convertirse en un solo producto que funcionara en mercados con distintos sistemas de pago, leyes de consumo y hábitos de segunda mano.
+
+Lo que hice
+
+Diseñé los flujos de publicación, confianza y valoraciones para que fueran coherentes entre mercados, y definí con ingeniería cómo el propio catálogo de IKEA rellena cada anuncio.
+
+Resultado
+
+Activo en cinco países (España, Noruega, Portugal, Polonia y Suecia), con el objetivo de Ingka de llegar a unos 170.000 anuncios en 2026. Las cifras comerciales aún no son públicas.
+
 Contexto
 
 ## Comercio circular construido sobre el catálogo de IKEA

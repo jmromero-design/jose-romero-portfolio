@@ -405,6 +405,20 @@ Connecting homeowners with verified local professionals across 50+ home improvem
 
 - **Scope:** Product Design · UX Research · Mobile · Accessibility
 
+## In short
+
+The problem
+
+IKEA wanted a marketplace for home services that earned the trust of homeowners and professionals at the same time, inside a brand that’s careful about every detail.
+
+What I did
+
+Embedded full-time in IKEA’s product team, I designed both sides of the marketplace, ran research sessions inside IKEA stores, and built accessibility in from the first flow.
+
+Result
+
+Live in seven Spanish regions since its Madrid launch in 2024: 500,000+ downloads, 21,000 completed service requests and a 4.9/5 satisfaction rating, per Ingka Group.
+
 Context
 
 ## Extending IKEA beyond furniture
@@ -494,6 +508,20 @@ A peer-to-peer marketplace for buying and selling used IKEA products, with IKEA'
 
 - **Scope:** Product Design · Cross-functional · Multi-market
 
+## In short
+
+The problem
+
+A pilot in Madrid and Oslo had to grow into one product that works across markets with different payment systems, consumer laws and second-hand habits.
+
+What I did
+
+I designed the listing, trust and review flows to stay consistent across markets, and worked with engineering on how IKEA’s own catalogue fills in each listing automatically.
+
+Result
+
+Live in five countries (Spain, Norway, Portugal, Poland and Sweden), with Ingka aiming for around 170,000 listings in 2026. Commercial figures aren’t public yet.
+
 Context
 
 ## Circular commerce built on IKEA's own catalogue
@@ -561,6 +589,20 @@ Lead UX/CRO designer on an ongoing programme of conversion optimisation across c
 
 - **Markets:** Denmark · Sweden · Finland · Norway
 
+## In short
+
+The problem
+
+Raise conversion on loan, card and deposit funnels in four Nordic markets, where every change needs legal sign-off and a false result costs more than in e-commerce.
+
+What I did
+
+For three years I led UX and CRO design: structured hypotheses, variants across the whole funnel with a focus on application forms, QA on live tests, and results explained to four in-market teams.
+
+Result
+
+The application form was rebuilt test by test and became the default in all four markets. A change only shipped after significant uplifts in at least the two largest, so no win rested on one market, culture or season.
+
 Context
 
 ## CRO inside a regulated banking environment
@@ -611,7 +653,7 @@ Working across four markets simultaneously sharpens your understanding of what's
 
 CRO work also teaches you to hold your own taste loosely. A design looking good and a design performing well line up often enough to be dangerous, you start assuming they're the same thing. When the data disagrees with your instinct, the data wins, every time.
 
-Specific performance data for this engagement is subject to NDA and has not been published by the client.
+**What I can share about the results:** the application form was redesigned over time from the experiments that won, and that version became the default in all four markets. A change only shipped once it showed a significant uplift in at least the two largest markets, so that no result depended on a single market or on cultural or seasonal effects. Banking in regulated markets is sensitive enough that the methodology we agreed with Santander was stricter than on most projects. The exact figures stay under NDA.
 
 
 ---

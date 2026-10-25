@@ -20,6 +20,20 @@ Lead UX/CRO designer on an ongoing programme of conversion optimisation across c
 
 - **Markets:** Denmark · Sweden · Finland · Norway
 
+## In short
+
+The problem
+
+Raise conversion on loan, card and deposit funnels in four Nordic markets, where every change needs legal sign-off and a false result costs more than in e-commerce.
+
+What I did
+
+For three years I led UX and CRO design: structured hypotheses, variants across the whole funnel with a focus on application forms, QA on live tests, and results explained to four in-market teams.
+
+Result
+
+The application form was rebuilt test by test and became the default in all four markets. A change only shipped after significant uplifts in at least the two largest, so no win rested on one market, culture or season.
+
 Context
 
 ## CRO inside a regulated banking environment
@@ -70,4 +84,4 @@ Working across four markets simultaneously sharpens your understanding of what's
 
 CRO work also teaches you to hold your own taste loosely. A design looking good and a design performing well line up often enough to be dangerous, you start assuming they're the same thing. When the data disagrees with your instinct, the data wins, every time.
 
-Specific performance data for this engagement is subject to NDA and has not been published by the client.
+**What I can share about the results:** the application form was redesigned over time from the experiments that won, and that version became the default in all four markets. A change only shipped once it showed a significant uplift in at least the two largest markets, so that no result depended on a single market or on cultural or seasonal effects. Banking in regulated markets is sensitive enough that the methodology we agreed with Santander was stricter than on most projects. The exact figures stay under NDA.

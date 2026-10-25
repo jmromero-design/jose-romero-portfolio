@@ -20,6 +20,20 @@ Conectando a propietarios con profesionales locales verificados en más de 50 ca
 
 - **Alcance:** Diseño de Producto · Investigación UX · Móvil · Accesibilidad
 
+## En resumen
+
+El reto
+
+IKEA quería un marketplace de servicios para el hogar que se ganara a la vez la confianza de propietarios y profesionales, dentro de una marca que cuida cada detalle.
+
+Lo que hice
+
+Integrado a tiempo completo en el equipo de producto de IKEA, diseñé los dos lados del marketplace, investigué con usuarios en tiendas IKEA e incorporé la accesibilidad desde el primer flujo.
+
+Resultado
+
+Activo en siete regiones españolas desde su lanzamiento en Madrid en 2024: más de 500.000 descargas, 21.000 servicios completados y 4.9/5 de satisfacción, según Ingka Group.
+
 Contexto
 
 ## Expandiendo IKEA más allá del mueble
