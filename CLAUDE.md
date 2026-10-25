@@ -82,12 +82,12 @@ All tokens are CSS custom properties on `:root`. Reference them by name — neve
 |-------|-------|-----|
 | `--font-display` | Bitter (self-hosted variable slab, 300–500 + italic; replaced Fraunces 2026-10-24) | Headings, nav logo, pull quotes, `.lead`. Runs ~25% wider than Fraunces, so the homepage hero is sized down and EN is split over 4 lines like ES |
 | `--font-body` | Outfit (self-hosted) | All body text, UI labels, tags, eyebrows |
-| `--text-xs` | `0.875rem` | Tags, labels, captions |
-| `--text-sm` | `0.875rem` | Small body |
-| `--text-base` | `1rem` | Base body |
-| `--text-lg` | `1.125rem` | `.body-lg` paragraphs |
-| `--text-xl` | `1.25rem` | Lead-in text, nav logo (desktop) |
-| `--text-2xl` | `1.5rem` | Card titles |
+| `--text-xs` | `0.9375rem` (15px) | Tags, labels, captions |
+| `--text-sm` | `1rem` (16px) | Small body |
+| `--text-base` | `1.125rem` (18px, since 2026-10-25) | Base body; prose is weight 400, not 300 |
+| `--text-lg` | `1.25rem` | `.body-lg` paragraphs |
+| `--text-xl` | `1.375rem` | Lead-in text, nav logo (desktop) |
+| `--text-2xl` | `1.625rem` | Card titles |
 | `--text-3xl` | `2rem` | Section headings |
 | `--text-4xl` | `2.75rem` | Large headings |
 | `--text-5xl` | `3.75rem` | |
