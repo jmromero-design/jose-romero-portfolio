@@ -104,7 +104,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=41">
+  <link rel="stylesheet" href="/assets/css/main.css?v=42">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -490,145 +490,162 @@
       </div>
     </section>
 
-    <section class="section" aria-labelledby="capabilities-heading" style="border-top: 1px solid var(--border-default);">
+    <section class="section tk" id="toolkit" aria-labelledby="capabilities-heading" data-overlap="Comparte herramientas con"
+      style="border-top: 1px solid var(--border-default);">
       <div class="container">
 
         <div class="section-header reveal" style="margin-bottom: var(--sp-12);">
           <span class="eyebrow">Capacidades</span>
           <h2 id="capabilities-heading" style="margin-top: var(--sp-4);">
-            Lo que sé hacer,<br>
-            <em class="accent-italic">aprendido en proyectos reales.</em>
+            Cómo trabajo hoy,<br>
+            <em class="accent-italic">y de dónde viene.</em>
           </h2>
+          <p class="tk-intro">La mayor parte de mi trabajo pasa ya por la IA: GitHub Copilot en VS Code en IKEA, y Claude para construir, prototipar y escribir. Debajo siguen las herramientas que llevo años usando en diseño, investigación y experimentación. Elige una capacidad para ver en qué se apoya, o cambia a 2022 para ver qué ha cambiado.</p>
         </div>
 
-        <div class="skills-grid">
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Diseño de Producto</h3>
-            <p class="skill-desc">Diseño de producto digital de extremo a extremo en web y móvil: desde investigación y flujos hasta prototipos de alta fidelidad y especificaciones listas para entrega.</p>
+        <div class="tk-body">
+          <div class="tk-figure">
+            <div class="tk-stage" aria-hidden="true" data-l0="Investigación y|experimentación" data-l1="Diseño y|entrega" data-l2="IA"></div>
+            <p class="tk-caption" aria-hidden="true" data-default="Pasa el cursor por una herramienta para ver para qué la uso."></p>
           </div>
 
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Optimización de la Tasa de Conversión</h3>
-            <p class="skill-desc">Experimentación basada en datos en plataformas de e-commerce, banca, seguros y fidelización. Generación de hipótesis, diseño de tests A/B y multivariante, interpretación analítica y comunicación de resultados a stakeholders.</p>
-          </div>
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Economía Conductual</h3>
-            <p class="skill-desc">Aplicación de marcos de ciencias del comportamiento, como sesgo cognitivo, aversión a la pérdida, prueba social, análisis de fricción y valores por defecto, a decisiones de diseño que afectan cómo las personas piensan y actúan online.</p>
-          </div>
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Investigación UX</h3>
-            <p class="skill-desc">Investigación de usuario moderada y no moderada, sesiones de prueba en tienda, evaluación heurística, auditoría de accesibilidad (WCAG) y síntesis en dirección de diseño accionable.</p>
-          </div>
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Operaciones de Diseño</h3>
-            <p class="skill-desc">Diseño de procesos, arquitectura de flujos cross-tool (Figma, Jira, Confluence, Phrase), documentación de formas de trabajar y facilitación de equipos.</p>
-          </div>
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Integración de IA en Flujos de Trabajo</h3>
-            <p class="skill-desc">Diseño de procesos de facilitación asistidos por IA para dar forma a productos complejos. Construcción y demostración de flujos de orquestación multi-agente. Impartición de sesiones de alfabetización en IA para equipos senior de diseño.</p>
-          </div>
-
-          <div class="skill-item reveal">
-            <h3 class="skill-name">Comunicación con Stakeholders</h3>
-            <p class="skill-desc">Operar eficazmente en entornos empresariales complejos, a través de equipos de producto, ingeniería, negocio y cliente, en inglés y español, para hacer avanzar el trabajo a pesar de información incompleta y prioridades en competencia.</p>
-          </div>
-
-        </div>
-
-        <div class="reveal" style="margin-top: var(--sp-12); border-top: 1px solid var(--border-subtle); padding-top: var(--sp-10);">
-          <span class="eyebrow eyebrow--bare" style="margin-bottom: var(--sp-8); display: inline-flex;">Herramientas &amp; Plataformas</span>
-
-          <div class="tools-groups">
-
-            <div class="tools-group">
-              <span class="tools-group-label">Diseño y documentación</span>
-              <div class="tools-group-items">
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Figma</span>
-                  <span class="tool-desc">Fuente de verdad para diseño y prototipado</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">FigJam</span>
-                  <span class="tool-desc">Facilitación de talleres y sesiones de shaping</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Miro</span>
-                  <span class="tool-desc">Whiteboarding y mapeo entre equipos</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Notion</span>
-                  <span class="tool-desc">Conocimiento y documentación de procesos</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Confluence</span>
-                  <span class="tool-desc">Documentación de ways-of-working y specs</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Jira</span>
-                  <span class="tool-desc">Seguimiento de sprints y tickets</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Phrase</span>
-                  <span class="tool-desc">Gestión de localización y copy</span>
-                </div>
-              </div>
+          <div class="tk-panel">
+            <div class="tk-era" role="group" aria-label="Año">
+              <button type="button" class="tk-era-btn" data-era="then" aria-pressed="false">2022</button>
+              <button type="button" class="tk-era-btn" data-era="now" aria-pressed="true">2026</button>
             </div>
+            <p class="tk-era-note" aria-live="polite" data-now="2026: la IA atraviesa casi todo el trabajo, sobre los mismos fundamentos." data-then="2022: CRO y diseño para varios clientes enterprise a la vez, todavía sin IA en el flujo de trabajo.">2026: la IA atraviesa casi todo el trabajo, sobre los mismos fundamentos.</p>
 
-            <div class="tools-group">
-              <span class="tools-group-label">Investigación y analítica</span>
-              <div class="tools-group-items">
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Hotjar</span>
-                  <span class="tool-desc">Grabaciones de sesión y mapas de calor</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">ContentSquare</span>
-                  <span class="tool-desc">Analítica de comportamiento a escala</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Google Analytics</span>
-                  <span class="tool-desc">Medición de tráfico y funnels</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Optimal Workshop</span>
-                  <span class="tool-desc">Card sorting y tree testing</span>
-                </div>
-              </div>
-            </div>
+            <h3 class="tk-group-name">Práctica con IA</h3>
+            <ul class="tk-skills">
+              <li class="tk-skill" data-since="ai" data-tools="claude githubcopilot granola figjam miro notion">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s0">
+                  <span class="tk-skill-name">Facilitación con IA</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s0"><div>
+                  <p>Convertir lo que produce la IA en material que un equipo pueda leer, discutir y llevar a la acción. Hoy casi toda mi facilitación consiste en estructurar y descifrar resultados de IA para que el equipo los asimile sin saturarse y actúe sobre ellos.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="ai" data-tools="claude githubcopilot vscode notion confluence">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s1">
+                  <span class="tk-skill-name">Diseño de flujos con IA</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s1"><div>
+                  <p>Flujos multiagente con puntos de control humanos obligatorios, sobre Shape Up. El framework completo está en <a href="/es/thinking/ai-workflow-framework/">Diseñar con IA</a>.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="ai" data-tools="claude githubcopilot vscode">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s2">
+                  <span class="tk-skill-name">Contexto y skills</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s2"><div>
+                  <p>Escribir las skills, las instrucciones de proyecto y la memoria que hacen que los agentes trabajen como el equipo: tono, estándares y qué revisar antes de entregar nada.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="ai" data-tools="githubcopilot vscode jira confluence microsoft365">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s3">
+                  <span class="tk-skill-name">Informes con agentes</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s3"><div>
+                  <p>Informes, presentaciones y dashboards que construyen agentes en VS Code, conectados a Jira, Confluence y Microsoft 365. Casi han sustituido a mis herramientas de oficina.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="ai" data-tools="claude githubcopilot vscode figma">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s4">
+                  <span class="tk-skill-name">Diseñar en código</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s4"><div>
+                  <p>Prototipos e interfaces en producción construidos con IA, con Figma conectado al código. Esta web es uno de ellos.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="ai" data-tools="neo4j python claude">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s5">
+                  <span class="tk-skill-name">Sistemas de conocimiento</span><span class="tk-skill-tag" data-now="Nuevo" data-then="Todavía no"></span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s5"><div>
+                  <p>Herramientas de investigación que califican su propia evidencia. <a href="/es/thinking/beco-explorer/">BECO</a> conecta 420 fuentes de ciencia conductual con 243 conceptos en un grafo de Neo4j.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+            </ul>
+            <h3 class="tk-group-name">Fundamentos</h3>
+            <ul class="tk-skills">
+              <li class="tk-skill" data-since="base" data-tools="figma figjam phrase jira">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s6">
+                  <span class="tk-skill-name">Diseño de producto</span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s6"><div>
+                  <p>Diseño de producto de principio a fin en web y móvil, desde la investigación y los flujos hasta prototipos y especificaciones con las que ingeniería puede construir.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="base" data-tools="optimizely contentsquare abtasty vwo hotjar googleanalytics">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s7">
+                  <span class="tk-skill-name">Experimentación y CRO</span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s7"><div>
+                  <p>Hipótesis, tests A/B y multivariantes, y resultados que se sostienen ante los stakeholders. Sigo experimentando con Optimizely y ContentSquare en el Second-hand Marketplace.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="base" data-tools="contentsquare hotjar optimizely neo4j">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s8">
+                  <span class="tk-skill-name">Economía conductual</span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s8"><div>
+                  <p>Defaults, fricción, aversión a la pérdida y prueba social aplicados a decisiones de diseño reales, con BECO como la evidencia que los respalda.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="base" data-tools="optimalworkshop hotjar contentsquare granola figjam">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s9">
+                  <span class="tk-skill-name">Investigación UX</span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s9"><div>
+                  <p>Investigación moderada y no moderada, sesiones en tienda, revisiones heurísticas y auditorías WCAG, convertidas en una dirección que el equipo pueda usar.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+              <li class="tk-skill" data-since="base" data-tools="figma jira confluence phrase notion miro">
+                <h4><button type="button" class="tk-skill-btn" aria-expanded="false" aria-controls="tk-s10">
+                  <span class="tk-skill-name">Operaciones de diseño</span>
+                </button></h4>
+                <div class="tk-skill-detail" id="tk-s10"><div>
+                  <p>Formas de trabajar entre Figma, Jira, Confluence y Phrase, y el trabajo con stakeholders que mantiene en marcha a producto, ingeniería y negocio, en inglés y español.</p>
+                  <div class="tk-uses"></div>
+                </div></div>
+              </li>
+            </ul>
 
-            <div class="tools-group">
-              <span class="tools-group-label">Experimentación</span>
-              <div class="tools-group-items">
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Optimizely</span>
-                  <span class="tool-desc">Tests A/B y multivariante</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">AB Tasty</span>
-                  <span class="tool-desc">Experimentación y personalización</span>
-                </div>
-                <div class="tool-item reveal">
-                  <span class="tool-mark">VWO</span>
-                  <span class="tool-desc">Plataforma de tests de conversión</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="tools-group">
-              <span class="tools-group-label">Práctica en IA</span>
-              <div class="tools-group-items">
-                <div class="tool-item reveal">
-                  <span class="tool-mark">Orquestación IA</span>
-                  <span class="tool-desc">Flujos multiagente para shaping de producto</span>
-                </div>
-              </div>
-            </div>
-
+            <h3 class="sr-only">Herramientas que uso</h3>
+            <ul class="tk-tools sr-only">
+              <li data-tool="githubcopilot">GitHub Copilot: <span class="tk-tool-what">Mi herramienta principal en IKEA: informes, presentaciones y dashboards con agentes.</span></li>
+              <li data-tool="vscode">VS Code: <span class="tk-tool-what">Donde trabajan Copilot y Claude: código, documentos e informes.</span></li>
+              <li data-tool="claude">Claude: <span class="tk-tool-what">Construir, prototipar y escribir, con skills configuradas a mi manera.</span></li>
+              <li data-tool="granola">Granola: <span class="tk-tool-what">Notas de reuniones y síntesis.</span></li>
+              <li data-tool="neo4j">Neo4j: <span class="tk-tool-what">La base de datos de grafos detrás de BECO.</span></li>
+              <li data-tool="python">Python: <span class="tk-tool-what">Los pipelines de datos de BECO.</span></li>
+              <li data-tool="figma">Figma: <span class="tk-tool-what">Fuente de verdad del diseño, ahora conectada al código con IA.</span></li>
+              <li data-tool="figjam">FigJam: <span class="tk-tool-what">Talleres y sesiones de shaping.</span></li>
+              <li data-tool="miro">Miro: <span class="tk-tool-what">Mapas entre equipos.</span></li>
+              <li data-tool="notion">Notion: <span class="tk-tool-what">Notas, conocimiento y documentación de procesos.</span></li>
+              <li data-tool="jira">Jira: <span class="tk-tool-what">Seguimiento de sprints y tickets, que los agentes leen para los informes.</span></li>
+              <li data-tool="confluence">Confluence: <span class="tk-tool-what">Documentación de formas de trabajar y especificaciones.</span></li>
+              <li data-tool="phrase">Phrase: <span class="tk-tool-what">Localización y gestión de textos.</span></li>
+              <li data-tool="microsoft365">Microsoft 365: <span class="tk-tool-what">Suite de oficina, ahora casi siempre a través de agentes.</span></li>
+              <li data-tool="optimizely">Optimizely: <span class="tk-tool-what">Tests A/B y multivariantes. Sigo usándolo.</span></li>
+              <li data-tool="contentsquare">ContentSquare: <span class="tk-tool-what">Analítica de comportamiento. Sigo usándolo.</span></li>
+              <li data-tool="hotjar">Hotjar: <span class="tk-tool-what">Grabaciones de sesión y mapas de calor.</span></li>
+              <li data-tool="googleanalytics">Google Analytics: <span class="tk-tool-what">Medición de tráfico y funnels.</span></li>
+              <li data-tool="abtasty">AB Tasty: <span class="tk-tool-what">Experimentación y personalización.</span></li>
+              <li data-tool="vwo">VWO: <span class="tk-tool-what">Tests de conversión.</span></li>
+              <li data-tool="optimalworkshop">Optimal Workshop: <span class="tk-tool-what">Card sorting y tree testing.</span></li>
+            </ul>
           </div>
         </div>
 
@@ -689,6 +706,7 @@
   </footer>
 
   <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/about-toolkit.js?v=1" defer></script>
 
 </body>
 

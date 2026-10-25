@@ -124,34 +124,98 @@ Dar clase te obliga a coger hábitos que no esperas necesitar después: explicar
 
 Capacidades
 
-## Lo que sé hacer, _aprendido en proyectos reales._
+## Cómo trabajo hoy, _y de dónde viene._
 
-### Diseño de Producto
+La mayor parte de mi trabajo pasa ya por la IA: GitHub Copilot en VS Code en IKEA, y Claude para construir, prototipar y escribir. Debajo siguen las herramientas que llevo años usando en diseño, investigación y experimentación. Elige una capacidad para ver en qué se apoya, o cambia a 2022 para ver qué ha cambiado.
 
-Diseño de producto digital de extremo a extremo en web y móvil: desde investigación y flujos hasta prototipos de alta fidelidad y especificaciones listas para entrega.
+### Práctica con IA
 
-### Optimización de la Tasa de Conversión
+#### Facilitación con IA
 
-Experimentación basada en datos en plataformas de e-commerce, banca, seguros y fidelización. Generación de hipótesis, diseño de tests A/B y multivariante, interpretación analítica y comunicación de resultados a stakeholders.
+Convertir lo que produce la IA en material que un equipo pueda leer, discutir y llevar a la acción. Hoy casi toda mi facilitación consiste en estructurar y descifrar resultados de IA para que el equipo los asimile sin saturarse y actúe sobre ellos.
 
-### Economía Conductual
+#### Diseño de flujos con IA
 
-Aplicación de marcos de ciencias del comportamiento, como sesgo cognitivo, aversión a la pérdida, prueba social, análisis de fricción y valores por defecto, a decisiones de diseño que afectan cómo las personas piensan y actúan online.
+Flujos multiagente con puntos de control humanos obligatorios, sobre Shape Up. El framework completo está en [Diseñar con IA](https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/).
 
-### Investigación UX
+#### Contexto y skills
 
-Investigación de usuario moderada y no moderada, sesiones de prueba en tienda, evaluación heurística, auditoría de accesibilidad (WCAG) y síntesis en dirección de diseño accionable.
+Escribir las skills, las instrucciones de proyecto y la memoria que hacen que los agentes trabajen como el equipo: tono, estándares y qué revisar antes de entregar nada.
 
-### Operaciones de Diseño
+#### Informes con agentes
 
-Diseño de procesos, arquitectura de flujos cross-tool (Figma, Jira, Confluence, Phrase), documentación de formas de trabajar y facilitación de equipos.
+Informes, presentaciones y dashboards que construyen agentes en VS Code, conectados a Jira, Confluence y Microsoft 365. Casi han sustituido a mis herramientas de oficina.
 
-### Integración de IA en Flujos de Trabajo
+#### Diseñar en código
 
-Diseño de procesos de facilitación asistidos por IA para dar forma a productos complejos. Construcción y demostración de flujos de orquestación multi-agente. Impartición de sesiones de alfabetización en IA para equipos senior de diseño.
+Prototipos e interfaces en producción construidos con IA, con Figma conectado al código. Esta web es uno de ellos.
 
-### Comunicación con Stakeholders
+#### Sistemas de conocimiento
 
-Operar eficazmente en entornos empresariales complejos, a través de equipos de producto, ingeniería, negocio y cliente, en inglés y español, para hacer avanzar el trabajo a pesar de información incompleta y prioridades en competencia.
+Herramientas de investigación que califican su propia evidencia. [BECO](https://www.joseromerodesign.com/es/thinking/beco-explorer/) conecta 420 fuentes de ciencia conductual con 243 conceptos en un grafo de Neo4j.
 
-Herramientas & Plataformas Diseño y documentación Figma Fuente de verdad para diseño y prototipado FigJam Facilitación de talleres y sesiones de shaping Miro Whiteboarding y mapeo entre equipos Notion Conocimiento y documentación de procesos Confluence Documentación de ways-of-working y specs Jira Seguimiento de sprints y tickets Phrase Gestión de localización y copy Investigación y analítica Hotjar Grabaciones de sesión y mapas de calor ContentSquare Analítica de comportamiento a escala Google Analytics Medición de tráfico y funnels Optimal Workshop Card sorting y tree testing Experimentación Optimizely Tests A/B y multivariante AB Tasty Experimentación y personalización VWO Plataforma de tests de conversión Práctica en IA Orquestación IA Flujos multiagente para shaping de producto
+### Fundamentos
+
+#### Diseño de producto
+
+Diseño de producto de principio a fin en web y móvil, desde la investigación y los flujos hasta prototipos y especificaciones con las que ingeniería puede construir.
+
+#### Experimentación y CRO
+
+Hipótesis, tests A/B y multivariantes, y resultados que se sostienen ante los stakeholders. Sigo experimentando con Optimizely y ContentSquare en el Second-hand Marketplace.
+
+#### Economía conductual
+
+Defaults, fricción, aversión a la pérdida y prueba social aplicados a decisiones de diseño reales, con BECO como la evidencia que los respalda.
+
+#### Investigación UX
+
+Investigación moderada y no moderada, sesiones en tienda, revisiones heurísticas y auditorías WCAG, convertidas en una dirección que el equipo pueda usar.
+
+#### Operaciones de diseño
+
+Formas de trabajar entre Figma, Jira, Confluence y Phrase, y el trabajo con stakeholders que mantiene en marcha a producto, ingeniería y negocio, en inglés y español.
+
+### Herramientas que uso
+
+- GitHub Copilot: Mi herramienta principal en IKEA: informes, presentaciones y dashboards con agentes.
+
+- VS Code: Donde trabajan Copilot y Claude: código, documentos e informes.
+
+- Claude: Construir, prototipar y escribir, con skills configuradas a mi manera.
+
+- Granola: Notas de reuniones y síntesis.
+
+- Neo4j: La base de datos de grafos detrás de BECO.
+
+- Python: Los pipelines de datos de BECO.
+
+- Figma: Fuente de verdad del diseño, ahora conectada al código con IA.
+
+- FigJam: Talleres y sesiones de shaping.
+
+- Miro: Mapas entre equipos.
+
+- Notion: Notas, conocimiento y documentación de procesos.
+
+- Jira: Seguimiento de sprints y tickets, que los agentes leen para los informes.
+
+- Confluence: Documentación de formas de trabajar y especificaciones.
+
+- Phrase: Localización y gestión de textos.
+
+- Microsoft 365: Suite de oficina, ahora casi siempre a través de agentes.
+
+- Optimizely: Tests A/B y multivariantes. Sigo usándolo.
+
+- ContentSquare: Analítica de comportamiento. Sigo usándolo.
+
+- Hotjar: Grabaciones de sesión y mapas de calor.
+
+- Google Analytics: Medición de tráfico y funnels.
+
+- AB Tasty: Experimentación y personalización.
+
+- VWO: Tests de conversión.
+
+- Optimal Workshop: Card sorting y tree testing.

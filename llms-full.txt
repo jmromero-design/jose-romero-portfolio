@@ -136,37 +136,101 @@ Teaching forces habits you don't expect to need later: spelling out things that 
 
 Capabilities
 
-## What I'm good at, _learned on real projects._
+## How I work today, _and what it grew from._
 
-### Product Design
+Most of my work now runs through AI: GitHub Copilot in VS Code at IKEA, and Claude for building, prototyping and writing. Underneath sit the tools I’ve used for years in design, research and experimentation. Pick a skill to see what it draws on, or switch to 2022 to see what changed.
 
-End-to-end digital product design across web and mobile: from research and flows to high-fidelity prototypes and handoff-ready specifications.
+### AI practice
 
-### Conversion Rate Optimisation
+#### AI facilitation
 
-Data-driven experimentation across e-commerce, banking, insurance, and loyalty platforms. Hypothesis generation, A/B and multivariate test design, analytics interpretation, and results communication to stakeholders.
+Turning what AI produces into material a team can read, discuss and act on. Most of my facilitation now is structuring and decoding AI output so a team can take it in without overload and act on it.
 
-### Behavioural Economics
+#### AI workflow design
 
-Applying behavioural science frameworks, such as cognitive bias, loss aversion, social proof, friction analysis, and defaults, to design decisions that affect how people think and act online.
+Multi-agent workflows with hard human checkpoints, built on Shape Up. The full framework is in [Designing with AI](https://www.joseromerodesign.com/thinking/ai-workflow-framework/).
 
-### UX Research
+#### Context and skill building
 
-Moderated and unmoderated user research, in-store testing sessions, heuristic evaluation, accessibility auditing (WCAG), and synthesis into actionable design direction.
+Writing the skills, project instructions and memory that make agents work the team’s way: tone, standards, and what to check before handing anything back.
 
-### Design Operations
+#### Agentic reporting
 
-Process design, cross-tool workflow architecture (Figma, Jira, Confluence, Phrase), ways-of-working documentation, and team facilitation.
+Reports, decks and dashboards built by agents in VS Code, connected to Jira, Confluence and Microsoft 365. It has almost replaced my office tools.
 
-### AI Integration in Workflows
+#### Designing in code
 
-Designing AI-assisted facilitation processes for complex product shaping. Building and demonstrating multi-agent orchestration workflows. Running AI literacy sessions for senior design teams.
+Prototypes and production UI built with AI, with Figma connected to the code. This site is one of them.
 
-### Stakeholder Communication
+#### Knowledge systems
 
-Operating effectively within complex enterprise environments, across product, engineering, business, and client teams, in English and Spanish, to move work forward despite incomplete information and competing priorities.
+Research tooling that grades its own evidence. [BECO](https://www.joseromerodesign.com/thinking/beco-explorer/) links 420 behavioural-science sources to 243 concepts in a Neo4j graph.
 
-Tools & Platforms Design & documentation Figma Source of truth for design and prototyping FigJam Workshop facilitation and shaping sessions Miro Cross-team whiteboarding and mapping Notion Team knowledge and process documentation Confluence Ways-of-working docs and specs Jira Sprint and ticket tracking Phrase Localisation and copy management Research & analytics Hotjar Session recordings and heatmaps ContentSquare Behavioural analytics at scale Google Analytics Traffic and funnel measurement Optimal Workshop Card sorting and tree testing Experimentation Optimizely A/B and multivariate testing AB Tasty Experimentation and personalisation VWO Conversion testing platform AI practice AI Orchestration Multi-agent workflows for product shaping
+### Foundations
+
+#### Product design
+
+End-to-end product design across web and mobile, from research and flows to prototypes and specs engineering can build from.
+
+#### Experimentation and CRO
+
+Hypotheses, A/B and multivariate tests, and results that hold up in front of stakeholders. I still run experiments in Optimizely and ContentSquare on the Second-hand Marketplace.
+
+#### Behavioural economics
+
+Defaults, friction, loss aversion and social proof applied to real design decisions, with BECO as the evidence behind them.
+
+#### UX research
+
+Moderated and unmoderated research, in-store sessions, heuristic reviews and WCAG audits, turned into direction a team can use.
+
+#### Design operations
+
+Ways of working across Figma, Jira, Confluence and Phrase, and the stakeholder work that keeps product, engineering and business moving, in English and Spanish.
+
+### Tools I use
+
+- GitHub Copilot: My main tool at IKEA: reports, decks and dashboards built with agents.
+
+- VS Code: Where Copilot and Claude work: code, docs and reports.
+
+- Claude: Building, prototyping and writing, with skills set up my way.
+
+- Granola: Meeting notes and synthesis.
+
+- Neo4j: The graph database behind BECO.
+
+- Python: Data pipelines for BECO.
+
+- Figma: Source of truth for design, now connected to code through AI.
+
+- FigJam: Workshops and shaping sessions.
+
+- Miro: Cross-team mapping.
+
+- Notion: Notes, knowledge and process documentation.
+
+- Jira: Sprint and ticket tracking, read by agents for reporting.
+
+- Confluence: Ways-of-working docs and specs.
+
+- Phrase: Localisation and copy management.
+
+- Microsoft 365: Office suite, now mostly worked through agents.
+
+- Optimizely: A/B and multivariate testing. Still in use.
+
+- ContentSquare: Behavioural analytics. Still in use.
+
+- Hotjar: Session recordings and heatmaps.
+
+- Google Analytics: Traffic and funnel measurement.
+
+- AB Tasty: Experimentation and personalisation.
+
+- VWO: Conversion testing.
+
+- Optimal Workshop: Card sorting and tree testing.
 
 
 ---

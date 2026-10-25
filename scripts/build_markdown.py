@@ -30,7 +30,9 @@ DROP_TAGS = {"script", "style", "svg", "noscript", "template", "canvas", "button
 DROP_CLASSES = ("v4-cta", "cta-section", "next-project", "cs-nav", "fwa-toc", "bgx-tools", "bgx-col",
                 "bgx-loading", "v4-scroll-cue", "skip-nav", "bko-scroll-hint", "v4-preview", "v4-row-thumbs",
                 "v4-ediag-preview-card", "bko-rail", "breadcrumb", "tag", "cs-tags", "card-tags",
-                "bko-cover-footline")
+                "bko-cover-footline", "tk-era", "tk-era-note", "tk-skill-tag")
+# buttons are interface, except where the button label is the content's own heading
+KEEP_BUTTONS = ("tk-skill-btn",)
 
 
 class ToMarkdown(HTMLParser):
@@ -60,7 +62,8 @@ class ToMarkdown(HTMLParser):
         if not self.in_main:
             return
         cls = a.get("class") or ""
-        dropped = (tag in DROP_TAGS or a.get("aria-hidden") == "true"
+        dropped = ((tag in DROP_TAGS and not any(c in cls.split() for c in KEEP_BUTTONS))
+                   or a.get("aria-hidden") == "true"
                    or any(c in cls.split() for c in DROP_CLASSES))
         if tag not in VOID:
             self.stack.append((tag, dropped))

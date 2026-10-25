@@ -35,7 +35,7 @@ AI search tools quote this site, so facts and conventions must match on every pa
 /es/work/<slug>/           ES case studies
 /thinking/<slug>/          EN articles
 /es/thinking/<slug>/       ES articles
-assets/css/main.css        All global styles (versioned ?v=41)
+assets/css/main.css        All global styles (versioned ?v=42)
 assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=19)
 assets/images/work/<slug>/ WebP images per case study
 assets/fonts/              Self-hosted Bitter (variable, display) + Outfit woff2 files
@@ -50,7 +50,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=41` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=42` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
