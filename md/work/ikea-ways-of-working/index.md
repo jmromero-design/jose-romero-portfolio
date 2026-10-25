@@ -20,6 +20,20 @@ When I joined the IKEA Home Services team, there was no shared working system. I
 
 - **Scope:** Process Design · Documentation · Tool Architecture · AI Workflow Design · Facilitation
 
+## In short
+
+The problem
+
+When I joined, the team’s process lived in people’s heads: files scattered across tools, no agreed home for anything, and translation errors reaching users before anyone caught them.
+
+What I did
+
+I mapped the real work, wrote rules for what lives in Figma, Confluence, Jira and Phrase, redesigned the content workflow into five phases with clear owners, and set a rule for when to adapt Skapa components.
+
+Result
+
+Adoption is uneven, but the structure holds: newcomers onboard without a personal guide, handoffs share one shape, and QA now catches translation errors before release.
+
 WoW System Architecture Skapa-First Decision Framework The problem
 
 ## Eight failure modes, not one

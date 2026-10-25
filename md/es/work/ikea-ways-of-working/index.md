@@ -20,6 +20,20 @@ Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de tra
 
 - **Alcance:** Diseño de Procesos · Documentación · Arquitectura de Herramientas · Diseño de Flujos IA · Facilitación
 
+## En resumen
+
+El reto
+
+Cuando llegué, el proceso del equipo vivía en la cabeza de cada uno: archivos repartidos entre herramientas, sin un sitio acordado para nada y con errores de traducción que llegaban a los usuarios.
+
+Lo que hice
+
+Mapeé el trabajo real, definí qué vive en Figma, Confluence, Jira y Phrase, rediseñé el flujo de contenido en cinco fases con responsables claros y fijé una regla para adaptar componentes de Skapa.
+
+Resultado
+
+La adopción es desigual, pero la estructura aguanta: quien llega se incorpora sin un guía personal, los traspasos tienen una forma común y QA detecta los errores de traducción antes de publicar.
+
 Arquitectura del Sistema WoW Framework de Decisión Skapa-First El problema
 
 ## Ocho puntos de fallo, no uno

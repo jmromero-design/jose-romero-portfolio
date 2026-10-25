@@ -20,6 +20,20 @@ Project lead en optimización de conversión continua en el portal de miembros I
 
 - **Alcance:** CRO · Fidelización · Estrategia Conductual
 
+## En resumen
+
+El reto
+
+Aumentar el engagement y la retención en el portal de IQOS Club en España, con poco tráfico (solo socios), restricciones de marketing estrictas y recursos de desarrollo compartidos.
+
+Lo que hice
+
+Como project lead de CRO, construí el pipeline de experimentos, desde la analítica y la revisión heurística hasta hipótesis priorizadas por impacto y coste, diseñé las variantes y la personalización en VWO y marqué el rumbo del programa con el cliente.
+
+Resultado
+
+El engagement mejoró a lo largo del programa, que funcionó durante todo el encargo, y el cliente acabó usando VWO como canal rápido para campañas de lanzamiento. Las cifras concretas son confidenciales.
+
 Control iqosclub.es Variante 6 iqosclub.es Contexto
 
 ## Un programa de fidelización con un tipo específico de complejidad

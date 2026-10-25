@@ -20,6 +20,20 @@ Most teams add AI tools to an existing process. This project, an internal explor
 
 - **Scope:** AI Workflow Design · Process Architecture · Multi-agent Orchestration · Facilitation
 
+## In short
+
+The problem
+
+Teams kept asking which AI tool to use, then watched outputs drift with no way to tell good from bad, because AI had been dropped into a process that was never built to hold it.
+
+What I did
+
+I designed a framework that places AI inside the process: three tiers of agents across five phases, a named human sign-off at every gate, and two working uses, Shape Up facilitation and multi-agent shaping for complex features.
+
+Result
+
+A process that holds whichever AI tool a team picks, now taught to senior designers at Garaje de Ideas through an AI literacy programme.
+
 Multi-Agent Orchestration Five-Phase Workflow + Human Gates The problem
 
 ## The wrong question was everywhere

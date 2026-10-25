@@ -20,6 +20,20 @@ Rediseño completo de la plataforma e-commerce de moda de XTI, equilibrando la a
 
 - **Alcance:** Rediseño E-commerce · IA · Diseño UI
 
+## En resumen
+
+El reto
+
+Rediseñar el e-commerce de moda de XTI en plena migración a Magento, así que cada decisión de diseño tenía que encajar en lo que la plataforma podía ofrecer de verdad.
+
+Lo que hice
+
+Como diseñador UX/UI líder, usé datos de Hotjar, un análisis de la competencia y card sorting y tree testing para fijar la estructura, y después rediseñé el listado y la ficha de producto con desarrollo implicado desde el principio.
+
+Resultado
+
+Se lanzó sobre Magento y fue la tienda principal de XTI durante unos tres años, hasta el siguiente relanzamiento de la marca. Diseñado en un solo mes, con plantillas estándar y un presupuesto reducido.
+
 xtistore.com/calzado-mujer Contexto
 
 ## Un retailer de moda nacional migrando de plataforma
@@ -62,4 +76,4 @@ La experiencia de diseñar dentro de una restricción específica de plataforma,
 
 Esto también cambia qué pregunta te estás haciendo como diseñador. No "cuál sería el UX ideal aquí" en abstracto, sino "cuál es el mejor UX que puedo construir dado lo que esta plataforma realmente permite", una pregunta menos favorecedora, pero la que importa cuando el proyecto tiene que salir a producción.
 
-Los datos de rendimiento específicos de este encargo están sujetos a NDA.
+**Qué pasó después:** el rediseño se lanzó y fue la tienda principal de XTI durante unos tres años, hasta que la marca relanzó una nueva versión. Al equipo le enseñó a crear una tienda distinta y atractiva a partir de restricciones muy duras: plantillas estándar de Magento sin funciones premium, un presupuesto reducido y un solo mes para entregar un diseño de alto nivel con pocos recursos de producción.

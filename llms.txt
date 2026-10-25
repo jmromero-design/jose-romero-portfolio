@@ -72,7 +72,9 @@ Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
   Philip Morris loyalty portal using behavioural economics frameworks.
 - XTI Store · E-commerce Redesign: full redesign of a national fashion retailer's
   digital storefront within Magento platform constraints; informed by Hotjar
-  session data and competitive analysis.
+  session data and competitive analysis. Designed in a single month on standard
+  templates and a reduced budget; it launched and served as XTI's main store for
+  about three years, until the brand's next relaunch.
 - Mutua Madrileña · CRO: +41% increase in qualified leads.
 - AXA Spain · CRO Programme: +18% increase in insurance contracts.
 - Additional accounts: Bankinter, Subaru Spain, Affinity Petcare.

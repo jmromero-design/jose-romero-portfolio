@@ -20,6 +20,20 @@ Full redesign of XTI's national fashion e-commerce platform, balancing brand amb
 
 - **Scope:** E-commerce Redesign · IA · UI Design
 
+## In short
+
+The problem
+
+Redesign XTI’s fashion e-commerce site during a migration to Magento, so every design decision had to fit what the platform could actually deliver.
+
+What I did
+
+As lead UX/UI designer I used Hotjar data, a competitor study and card sorting and tree testing to set the structure, then redesigned the product listing and detail pages with the developers involved from the start.
+
+Result
+
+Launched on Magento and stayed XTI’s main store for about three years, until the brand’s next relaunch. Designed in a single month, on standard templates and a reduced budget.
+
 xtistore.com/calzado-mujer Context
 
 ## A national fashion retailer migrating platforms
@@ -62,4 +76,4 @@ The experience of designing within a specific platform constraint, knowing what'
 
 It also changes what question you're actually answering as a designer. Not "what's the ideal UX here," in the abstract, but "what's the best UX I can build given what this platform will actually let me do", a less flattering question, but the one that matters when the project has to ship.
 
-Specific performance data for this engagement is subject to NDA.
+**What happened next:** the redesign launched and stayed XTI’s main store for about three years, until the brand relaunched with a new version. For the team, it was a lesson in building a distinctive, appealing store out of steep constraints: standard Magento templates without premium features, a reduced budget, and a single month to deliver the design to a high standard with few production resources.

@@ -975,6 +975,20 @@ Project lead for ongoing conversion optimisation across the IQOS Club members' p
 
 - **Scope:** CRO · Loyalty · Behavioural Strategy
 
+## In short
+
+The problem
+
+Grow engagement and retention in the IQOS Club members’ portal in Spain, with low traffic from existing members only, tight marketing restrictions and shared development resources.
+
+What I did
+
+As CRO project lead I built the experiment pipeline, from analytics and heuristic review to hypotheses ranked by impact and cost, designed the variants and personalisation in VWO, and set the programme’s direction with the client.
+
+Result
+
+Engagement improved across the programme, which ran for the whole engagement, and the client came to use VWO as a fast channel for launch campaigns. Specific figures are confidential.
+
 Control iqosclub.es Variant 6 iqosclub.es Context
 
 ## A loyalty programme with a specific kind of complexity
@@ -1062,6 +1076,20 @@ Full redesign of XTI's national fashion e-commerce platform, balancing brand amb
 
 - **Scope:** E-commerce Redesign · IA · UI Design
 
+## In short
+
+The problem
+
+Redesign XTI’s fashion e-commerce site during a migration to Magento, so every design decision had to fit what the platform could actually deliver.
+
+What I did
+
+As lead UX/UI designer I used Hotjar data, a competitor study and card sorting and tree testing to set the structure, then redesigned the product listing and detail pages with the developers involved from the start.
+
+Result
+
+Launched on Magento and stayed XTI’s main store for about three years, until the brand’s next relaunch. Designed in a single month, on standard templates and a reduced budget.
+
 xtistore.com/calzado-mujer Context
 
 ## A national fashion retailer migrating platforms
@@ -1104,7 +1132,7 @@ The experience of designing within a specific platform constraint, knowing what'
 
 It also changes what question you're actually answering as a designer. Not "what's the ideal UX here," in the abstract, but "what's the best UX I can build given what this platform will actually let me do", a less flattering question, but the one that matters when the project has to ship.
 
-Specific performance data for this engagement is subject to NDA.
+**What happened next:** the redesign launched and stayed XTI’s main store for about three years, until the brand relaunched with a new version. For the team, it was a lesson in building a distinctive, appealing store out of steep constraints: standard Magento templates without premium features, a reduced budget, and a single month to deliver the design to a high standard with few production resources.
 
 
 ---
@@ -1130,6 +1158,20 @@ When I joined the IKEA Home Services team, there was no shared working system. I
 - **Period:** 2025–Present
 
 - **Scope:** Process Design · Documentation · Tool Architecture · AI Workflow Design · Facilitation
+
+## In short
+
+The problem
+
+When I joined, the team’s process lived in people’s heads: files scattered across tools, no agreed home for anything, and translation errors reaching users before anyone caught them.
+
+What I did
+
+I mapped the real work, wrote rules for what lives in Figma, Confluence, Jira and Phrase, redesigned the content workflow into five phases with clear owners, and set a rule for when to adapt Skapa components.
+
+Result
+
+Adoption is uneven, but the structure holds: newcomers onboard without a personal guide, handoffs share one shape, and QA now catches translation errors before release.
 
 WoW System Architecture Skapa-First Decision Framework The problem
 
@@ -1257,6 +1299,20 @@ Most teams add AI tools to an existing process. This project, an internal explor
 - **Period:** 2025–Present
 
 - **Scope:** AI Workflow Design · Process Architecture · Multi-agent Orchestration · Facilitation
+
+## In short
+
+The problem
+
+Teams kept asking which AI tool to use, then watched outputs drift with no way to tell good from bad, because AI had been dropped into a process that was never built to hold it.
+
+What I did
+
+I designed a framework that places AI inside the process: three tiers of agents across five phases, a named human sign-off at every gate, and two working uses, Shape Up facilitation and multi-agent shaping for complex features.
+
+Result
+
+A process that holds whichever AI tool a team picks, now taught to senior designers at Garaje de Ideas through an AI literacy programme.
 
 Multi-Agent Orchestration Five-Phase Workflow + Human Gates The problem
 

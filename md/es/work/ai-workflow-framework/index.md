@@ -20,6 +20,20 @@ La mayoría de los equipos añaden herramientas de IA a un proceso existente. Es
 
 - **Alcance:** Diseño de Flujos IA · Arquitectura de Procesos · Orquestación Multi-agente · Facilitación
 
+## En resumen
+
+El reto
+
+Los equipos se preguntaban qué herramienta de IA usar y luego veían cómo los resultados se desviaban sin forma de distinguir lo bueno de lo malo, porque la IA había caído en un proceso que no estaba hecho para sostenerla.
+
+Lo que hice
+
+Diseñé un framework que sitúa la IA dentro del proceso: tres niveles de agentes en cinco fases, una aprobación humana con nombre en cada puerta y dos usos reales, la facilitación de Shape Up y el shaping multiagente de funcionalidades complejas.
+
+Resultado
+
+Un proceso que funciona con cualquier herramienta de IA que elija el equipo, y que ya se enseña a diseñadores senior de Garaje de Ideas en un programa de alfabetización en IA.
+
 Orquestación Multi-Agente Flujo de 5 Fases + Puertas Humanas El problema
 
 ## La pregunta equivocada estaba en todas partes

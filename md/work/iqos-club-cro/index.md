@@ -20,6 +20,20 @@ Project lead for ongoing conversion optimisation across the IQOS Club members' p
 
 - **Scope:** CRO · Loyalty · Behavioural Strategy
 
+## In short
+
+The problem
+
+Grow engagement and retention in the IQOS Club members’ portal in Spain, with low traffic from existing members only, tight marketing restrictions and shared development resources.
+
+What I did
+
+As CRO project lead I built the experiment pipeline, from analytics and heuristic review to hypotheses ranked by impact and cost, designed the variants and personalisation in VWO, and set the programme’s direction with the client.
+
+Result
+
+Engagement improved across the programme, which ran for the whole engagement, and the client came to use VWO as a fast channel for launch campaigns. Specific figures are confidential.
+
 Control iqosclub.es Variant 6 iqosclub.es Context
 
 ## A loyalty programme with a specific kind of complexity
