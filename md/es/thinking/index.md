@@ -56,7 +56,7 @@ Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de tra
 
 Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabajo real que hacía el equipo: los tipos de tareas, sus interdependencias, las decisiones que se perdían continuamente. A partir de ahí, derivé un conjunto de reglas estructurales, qué va dónde, cuándo y por qué, que podían documentarse, enseñarse y modificarse sin que yo tuviera que estar presente.
 
-La adopción fue desordenada, la verdad, pero la estructura de fondo aguantó de todas formas. Y eso era justo lo que buscaba: un proceso lo bastante sólido como para seguir funcionando aunque la gente no lo siga al pie de la letra. Ya ha sobrevivido a mi paso de Home Services al Marketplace de Segunda Mano, a una ronda de incorporaciones nuevas y a las temporadas en que nadie tenía tiempo de cuidarlo. Esa es la prueba de verdad, y la ha superado.
+La adopción fue desordenada, la verdad, pero la estructura de fondo aguantó de todas formas. Y eso era justo lo que buscaba: un proceso lo bastante sólido como para seguir funcionando aunque la gente no lo siga al pie de la letra. Ya ha sobrevivido a cambios en el equipo, a una ronda de incorporaciones nuevas y a las temporadas en que nadie tenía tiempo de cuidarlo. Esa es la prueba de verdad, y la ha superado.
 
 > Un buen sistema sigue funcionando aunque la gente no lo siga a la perfección.
 

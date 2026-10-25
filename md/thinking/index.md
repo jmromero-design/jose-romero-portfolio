@@ -56,7 +56,7 @@ When I joined the IKEA Home Services team, there was no shared working system. F
 
 My approach was to start with principles rather than tools. I mapped the actual work the team was doing: the types of tasks, their interdependencies, the decisions that kept getting lost. From that, I derived a set of structural rules, what goes where, when, and why, that could be documented, taught, and modified without requiring me to be present.
 
-Adoption was messy, honestly, but the underlying structure held up regardless. That's what I was aiming for: a process solid enough to keep working when people don't follow it to the letter. It's already outlived my move from Home Services to the Second-hand Marketplace, a round of new hires, and the stretches where nobody had time to babysit it. That's the real test, and it passed.
+Adoption was messy, honestly, but the underlying structure held up regardless. That's what I was aiming for: a process solid enough to keep working when people don't follow it to the letter. It's already outlived changes in the team, a round of new hires, and the stretches where nobody had time to babysit it. That's the real test, and it passed.
 
 > A good system keeps working when people don't follow it perfectly.
 
