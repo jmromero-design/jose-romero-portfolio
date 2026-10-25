@@ -8,7 +8,8 @@ from assets/images/og-*.webp, finding where the visuals start; later runs
 reuse those crops, so the script never crops its own output.
 
 Renders with headless Chrome at 1200x630, device scale 2, and writes
-2400x1260 WebP (quality 82) over assets/images/og-<slug>.webp.
+2400x1260 WebP (quality 82) over assets/images/og-<slug>.webp, and
+og-<slug>-es.webp for the Spanish pages.
 
     python3 scripts/build_og_images.py
 """
@@ -48,6 +49,33 @@ CARDS = {
                               "Conversion experiments for loans, cards and deposits in four Nordic markets."),
     "xti-ecommerce": ("E-commerce · Fashion", "XTI Store",
                       "A full e-commerce redesign within a Magento migration, designed in one month."),
+}
+
+
+# the Spanish pages get their own cards: og-<slug>-es.webp
+CARDS_ES = {
+    "default": ("Senior product designer", "Jose Romero",
+                "12 años en productos digitales, CRO y estrategia conductual. Ahora integrado en IKEA."),
+    "ai-workflow-framework": ("Diseño de flujos con IA", "Framework de flujos con IA",
+                              "Un flujo multiagente para diseño de producto, con una persona que aprueba cada fase."),
+    "ikea-home-services": ("Marketplace · Móvil", "IKEA Home Services",
+                           "Propietarios y profesionales verificados en siete regiones españolas. Más de 500.000 descargas."),
+    "ikea-secondhand-marketplace": ("Comercio circular", "IKEA Second-hand Marketplace",
+                                    "Reventa P2P de productos IKEA, activa en cinco países europeos."),
+    "ikea-ways-of-working": ("Operaciones de diseño", "IKEA: formas de trabajar",
+                             "Un sistema entre Figma, Jira, Confluence y Phrase que sigue funcionando cuando cambia el equipo."),
+    "iqos-club-cro": ("CRO · Fidelización", "IQOS Club España",
+                      "Experimentos rápidos en una plataforma de fidelización con poco tráfico y recursos compartidos."),
+    "mapfre-afin": ("FinTech · Móvil", "Mapfre AFIN",
+                    "Una app de autogestión para inversiones, ahorro y pensiones, con un asesor que explica su razonamiento."),
+    "mapfre-digital-expansion": ("Plataforma multimercado", "Mapfre: expansión digital",
+                                 "Verti Italia y Alemania en un mismo sistema de diseño, y un directorio de oficinas en tres países."),
+    "melia-hotels-campaign-platform": ("Aplicación web · Hostelería", "Meliá: plataforma de campañas",
+                                       "Una plataforma de campañas de marketing para Meliá Hotels International, creada desde cero."),
+    "santander-nordics-cro": ("CRO · Banca", "Santander Nordics",
+                              "Experimentos de conversión para préstamos, tarjetas y depósitos en cuatro mercados nórdicos."),
+    "xti-ecommerce": ("E-commerce · Moda", "XTI Store",
+                      "Rediseño completo del e-commerce dentro de una migración a Magento, diseñado en un mes."),
 }
 
 
@@ -108,7 +136,7 @@ p {{ font: 400 22px/1.5 Outfit; color: #D4CFC6; margin: 0; max-width: 30ch; }}
 </body></html>"""
 
 
-def render(slug, eyebrow, title, desc):
+def render(slug, eyebrow, title, desc, suffix=""):
     visual = visual_for(slug)
     bg = (VISUALS / f"{slug}.txt").read_text().replace(",", " ")
     vw, vh = Image.open(visual).size
@@ -127,10 +155,13 @@ def render(slug, eyebrow, title, desc):
                         "--window-size=1200,630", "--virtual-time-budget=3000",
                         f"--screenshot={shot}", src.as_uri()],
                        check=True, capture_output=True)
-        Image.open(shot).convert("RGB").save(IMAGES / f"og-{slug}.webp", "WEBP", quality=82)
+        Image.open(shot).convert("RGB").save(IMAGES / f"og-{slug}{suffix}.webp", "WEBP", quality=82)
 
 
 if __name__ == "__main__":
     for slug, (eyebrow, title, desc) in CARDS.items():
         render(slug, eyebrow, title, desc)
         print("og-" + slug + ".webp")
+    for slug, (eyebrow, title, desc) in CARDS_ES.items():
+        render(slug, eyebrow, title, desc, "-es")
+        print("og-" + slug + "-es.webp")
