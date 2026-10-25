@@ -20,6 +20,20 @@ Conceptualicé, diseñé y optimicé una plataforma interna de gestión de campa
 
 - **Alcance:** Diseño de Producto · Facilitación · Herramienta Interna
 
+## En resumen
+
+El reto
+
+Meliá gestionaba campañas en más de 40 países con hilos de correo y hojas de cálculo. No había nada que las sustituyera, así que los requisitos tenían que salir de quienes hacían el trabajo.
+
+Lo que hice
+
+Como diseñador de producto líder, dirigí talleres con directivos, mapeé cómo avanza de verdad una campaña de la idea a la revisión y diseñé la arquitectura, la interacción y la documentación de traspaso.
+
+Resultado
+
+En producción en menos de doce meses y mejorada durante dos años más, hoy gestiona campañas en todos los mercados de Meliá en lugar de hojas de cálculo y correos. Las cifras son confidenciales.
+
 Campaign Hub / Development / Media Plan Campaign Hub / Development overview Contexto
 
 ## Un gran grupo hotelero con un problema de coordinación

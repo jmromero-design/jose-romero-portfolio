@@ -59,10 +59,15 @@ Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
   zero-to-one internal tool, live across all Meliá markets globally.
 - Mapfre · AFIN Financial App: self-service financial app covering investments,
   savings, and pension plans. Progressive disclosure information architecture
-  and a Financial Advisor feature built around user trust and autonomy.
-- Mapfre · Digital Expansion: lead designer on Verti platform redesign
-  (Italy, Germany, Spain), Insurance Offices & Agents Directory for Latin America,
-  and international CRO across Mapfre brands.
+  and a Financial Advisor feature built around user trust and autonomy. The
+  redesign wasn't built at the time (resources and priority) but became the
+  baseline for later improvements by other designers; leading the move to Figma
+  sped up backlog work and improved collaboration across teams.
+- Mapfre · Digital Expansion: lead designer on the Verti platform redesigns
+  (Italy and Germany) on one shared design system, an Insurance Offices & Agents
+  Directory live in Brazil, Peru and Nicaragua, and international CRO, which
+  found cross-product data too immature for reliable testing and narrowed to
+  the areas where results could be attributed.
 - IQOS Club Spain · CRO Programme: project lead, ongoing optimisation of the
   Philip Morris loyalty portal using behavioural economics frameworks.
 - XTI Store · E-commerce Redesign: full redesign of a national fashion retailer's

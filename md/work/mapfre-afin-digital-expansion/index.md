@@ -20,6 +20,20 @@ Lead UX designer for AFIN, Mapfre's self-service financial management app coveri
 
 - **Scope:** Product Design · Mobile & Web · FinTech
 
+## In short
+
+The problem
+
+Mapfre wanted to add a Financial Advisor to its savings and investment app, which meant asking people about money and risk without losing their trust or the app’s simplicity.
+
+What I did
+
+As lead UX designer I rebuilt the app around progressive disclosure, designed a data-collection flow that explains every question, and showed the reasoning behind each recommendation. I also led the move from Sketch to Figma.
+
+Result
+
+The redesign wasn’t built at the time for lack of resources and priority, but it became the baseline other designers used to improve parts of the app. The move to Figma sped up backlog work and made collaboration easier for everyone.
+
 afin.mapfre.es · simulación a futuro Context
 
 ## A self-service financial app at a complex intersection
@@ -82,4 +96,4 @@ Financial products make the stakes of UX decisions visible in a way that consume
 
 That reality sharpens design decisions fast, and it only works with a real working relationship with compliance and legal rather than an adversarial one. On the teams I've seen do this well, legal has learned enough about the page to accept that a required disclosure doesn't have to sit in the most disruptive spot, and design has accepted that the disclosure isn't going away regardless.
 
-Specific performance data for this engagement is subject to NDA.
+**What happened next:** AFIN had already launched to Mapfre’s finance clients before I joined, and those who opted in were using it. My redesign wasn’t implemented at the time because of resources and priorities, but it became the baseline for gradually improving specific parts of the app, work that other designers took over when I moved to other high-level projects. The process side paid off straight away: with the product designed in the cloud, on a clear structure and process instead of legacy tools, the team worked through its backlogs faster, and collaboration between stakeholders, engineers and designers improved across the board.

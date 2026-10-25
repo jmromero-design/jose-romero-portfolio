@@ -680,6 +680,20 @@ Conceptualised, designed, and optimised a marketing campaign management platform
 
 - **Scope:** Product Design · Facilitation · Internal Tool
 
+## In short
+
+The problem
+
+Meliá ran campaigns across more than 40 countries on email threads and spreadsheets. Nothing existed to replace them, so the requirements had to come from the people doing the work.
+
+What I did
+
+As lead product designer I ran workshops with senior directors, mapped how a campaign really moves from idea to review, and designed the platform’s architecture, interactions and handover documentation.
+
+Result
+
+Live in under twelve months and refined for two more years, it now runs campaigns across all Meliá markets in place of the spreadsheet-and-email system. Figures are commercially sensitive.
+
 Campaign Hub / Development / Media Plan Campaign Hub / Development overview Context
 
 ## A large hospitality group with a coordination problem
@@ -749,6 +763,20 @@ Lead product designer on Mapfre Internacional's digital platform work: Verti bra
 
 - **Scope:** Platform Design · Design System · Multi-market
 
+## In short
+
+The problem
+
+Verti’s sites in Italy and Germany had grown apart over years, mostly by accident, while Mapfre Internacional also needed a directory for Latin America and a CRO programme, all with one development partner.
+
+What I did
+
+I led design across three programmes: supervising two designers on the Verti redesigns built on Mapfre’s design system, designing the offices and agents directory, and shaping the experiments for the CRO work.
+
+Result
+
+Verti Italia and Germany now share one design system with Verti’s branding intact, and the directory went live in Brazil, Peru and Nicaragua. The CRO work found the data too immature to test reliably, so it narrowed to where results could be measured.
+
 verti.it Context
 
 ## A separate account, a different kind of complexity
@@ -799,7 +827,7 @@ CRO Programme
 
 A conversion rate optimisation programme ran alongside the platform redesign work, applying structured hypothesis development and experiment design to Mapfre Internacional's digital properties. The work covered the full CRO pipeline: data analysis to surface friction points, hypothesis formulation, design of test variants, implementation specification, and results analysis.
 
-Performance data and programme scope for this engagement are subject to NDA and have not been published by the client.
+**What the CRO work found:** the teams were too isolated from each other, and data across products wasn’t mature enough to support proper experimentation. We narrowed the scope to smaller, more mature parts of the process, where results could be attributed and reach statistical significance on a realistic timeline. That surfaced refactoring work that had to happen before testing was possible, so the programme didn’t get far while I was on it.
 
 Design leadership
 
@@ -843,6 +871,20 @@ Lead UX designer for AFIN, Mapfre's self-service financial management app coveri
 - **Period:** Dec 2022 – Aug 2023
 
 - **Scope:** Product Design · Mobile & Web · FinTech
+
+## In short
+
+The problem
+
+Mapfre wanted to add a Financial Advisor to its savings and investment app, which meant asking people about money and risk without losing their trust or the app’s simplicity.
+
+What I did
+
+As lead UX designer I rebuilt the app around progressive disclosure, designed a data-collection flow that explains every question, and showed the reasoning behind each recommendation. I also led the move from Sketch to Figma.
+
+Result
+
+The redesign wasn’t built at the time for lack of resources and priority, but it became the baseline other designers used to improve parts of the app. The move to Figma sped up backlog work and made collaboration easier for everyone.
 
 afin.mapfre.es · simulación a futuro Context
 
@@ -906,7 +948,7 @@ Financial products make the stakes of UX decisions visible in a way that consume
 
 That reality sharpens design decisions fast, and it only works with a real working relationship with compliance and legal rather than an adversarial one. On the teams I've seen do this well, legal has learned enough about the page to accept that a required disclosure doesn't have to sit in the most disruptive spot, and design has accepted that the disclosure isn't going away regardless.
 
-Specific performance data for this engagement is subject to NDA.
+**What happened next:** AFIN had already launched to Mapfre’s finance clients before I joined, and those who opted in were using it. My redesign wasn’t implemented at the time because of resources and priorities, but it became the baseline for gradually improving specific parts of the app, work that other designers took over when I moved to other high-level projects. The process side paid off straight away: with the product designed in the cloud, on a clear structure and process instead of legacy tools, the team worked through its backlogs faster, and collaboration between stakeholders, engineers and designers improved across the board.
 
 
 ---

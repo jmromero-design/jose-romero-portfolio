@@ -20,6 +20,20 @@ Diseñador de producto líder en la expansión digital de Mapfre Internacional: 
 
 - **Alcance:** Diseño de Plataforma · Sistema de Diseño · Multipaís
 
+## En resumen
+
+El reto
+
+Las webs de Verti en Italia y Alemania se habían separado con los años, sobre todo por accidente, y Mapfre Internacional necesitaba además un directorio para Latinoamérica y un programa CRO, con un único partner de desarrollo.
+
+Lo que hice
+
+Lideré el diseño de tres programas: supervisé a dos diseñadores en los rediseños de Verti sobre el sistema de diseño de Mapfre, diseñé el directorio de oficinas y agentes y di forma a los experimentos del CRO.
+
+Resultado
+
+Verti Italia y Alemania comparten ahora un sistema de diseño sin perder la marca de Verti, y el directorio salió en Brasil, Perú y Nicaragua. El CRO vio que los datos no daban para testear con rigor y se centró donde se podía medir.
+
 verti.it Contexto
 
 ## Una cuenta distinta, un tipo de complejidad diferente
@@ -70,7 +84,7 @@ Programa CRO
 
 Un programa de optimización de la tasa de conversión corrió en paralelo al trabajo de rediseño de plataformas, aplicando desarrollo estructurado de hipótesis y diseño de experimentos a las propiedades digitales de Mapfre Internacional. El trabajo cubría el pipeline completo de CRO: análisis de datos para detectar puntos de fricción, formulación de hipótesis, diseño de variantes de test, especificación de implementación y análisis de resultados.
 
-Los datos de rendimiento y el alcance del programa están sujetos a NDA y no han sido publicados por el cliente.
+**Qué encontró el trabajo de CRO:** los equipos estaban demasiado aislados entre sí, y los datos entre productos no eran lo bastante maduros para experimentar con rigor. Redujimos el alcance a partes del proceso más pequeñas y maduras, donde los resultados se pudieran atribuir y alcanzar significancia estadística en plazos realistas. Eso sacó a la luz tareas de refactorización que había que hacer antes de poder testear, así que el programa no llegó muy lejos mientras estuve en él.
 
 Liderazgo de diseño
 

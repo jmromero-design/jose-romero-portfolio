@@ -20,6 +20,20 @@ Diseñador UX líder para AFIN, la app de gestión financiera de autoservicio de
 
 - **Alcance:** Diseño de Producto · Móvil y Web · FinTech
 
+## En resumen
+
+El reto
+
+Mapfre quería añadir un Asesor Financiero a su app de ahorro e inversión, lo que suponía preguntar a la gente por su dinero y su riesgo sin perder su confianza ni la sencillez de la app.
+
+Lo que hice
+
+Como diseñador UX líder, reorganicé la app con divulgación progresiva, diseñé una recogida de datos que explica cada pregunta y mostré el razonamiento de cada recomendación. También lideré la migración de Sketch a Figma.
+
+Resultado
+
+El rediseño no se construyó entonces por falta de recursos y prioridad, pero fue la base que otros diseñadores usaron para mejorar partes de la app. El paso a Figma aceleró el trabajo con el backlog y facilitó la colaboración de todos.
+
 afin.mapfre.es · simulación a futuro Contexto
 
 ## Una app financiera de autoservicio en una intersección compleja
@@ -80,4 +94,4 @@ Los productos financieros hacen visibles las apuestas de las decisiones de UX de
 
 Esa realidad afila rápido las decisiones de diseño, y solo funciona con una relación de trabajo real con compliance y legal, no una de enfrentamiento constante. En los equipos donde esto sale bien, legal ha aceptado que un aviso obligatorio no tiene que ocupar el sitio más molesto de la página, y diseño ha aceptado que ese aviso no va a desaparecer.
 
-Los datos de rendimiento específicos de este encargo están sujetos a NDA.
+**Qué pasó después:** AFIN ya se había lanzado para los clientes de Mapfre antes de que yo llegara, y la usaban quienes se habían dado de alta. Mi rediseño no se implementó entonces por falta de recursos y de prioridad, pero se convirtió en la base para ir mejorando partes concretas de la app, un trabajo que asumieron otros diseñadores cuando pasé a otros proyectos de alto nivel. La parte de proceso dio fruto de inmediato: con el producto diseñado en la nube, con una estructura y un proceso claros en lugar de herramientas heredadas, el equipo avanzaba más rápido con el backlog, y mejoró la colaboración entre stakeholders, ingeniería y diseño en general.

@@ -20,6 +20,20 @@ Conceptualised, designed, and optimised a marketing campaign management platform
 
 - **Scope:** Product Design · Facilitation · Internal Tool
 
+## In short
+
+The problem
+
+Meliá ran campaigns across more than 40 countries on email threads and spreadsheets. Nothing existed to replace them, so the requirements had to come from the people doing the work.
+
+What I did
+
+As lead product designer I ran workshops with senior directors, mapped how a campaign really moves from idea to review, and designed the platform’s architecture, interactions and handover documentation.
+
+Result
+
+Live in under twelve months and refined for two more years, it now runs campaigns across all Meliá markets in place of the spreadsheet-and-email system. Figures are commercially sensitive.
+
 Campaign Hub / Development / Media Plan Campaign Hub / Development overview Context
 
 ## A large hospitality group with a coordination problem

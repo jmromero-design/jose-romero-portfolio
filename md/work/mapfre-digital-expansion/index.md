@@ -20,6 +20,20 @@ Lead product designer on Mapfre Internacional's digital platform work: Verti bra
 
 - **Scope:** Platform Design · Design System · Multi-market
 
+## In short
+
+The problem
+
+Verti’s sites in Italy and Germany had grown apart over years, mostly by accident, while Mapfre Internacional also needed a directory for Latin America and a CRO programme, all with one development partner.
+
+What I did
+
+I led design across three programmes: supervising two designers on the Verti redesigns built on Mapfre’s design system, designing the offices and agents directory, and shaping the experiments for the CRO work.
+
+Result
+
+Verti Italia and Germany now share one design system with Verti’s branding intact, and the directory went live in Brazil, Peru and Nicaragua. The CRO work found the data too immature to test reliably, so it narrowed to where results could be measured.
+
 verti.it Context
 
 ## A separate account, a different kind of complexity
@@ -70,7 +84,7 @@ CRO Programme
 
 A conversion rate optimisation programme ran alongside the platform redesign work, applying structured hypothesis development and experiment design to Mapfre Internacional's digital properties. The work covered the full CRO pipeline: data analysis to surface friction points, hypothesis formulation, design of test variants, implementation specification, and results analysis.
 
-Performance data and programme scope for this engagement are subject to NDA and have not been published by the client.
+**What the CRO work found:** the teams were too isolated from each other, and data across products wasn’t mature enough to support proper experimentation. We narrowed the scope to smaller, more mature parts of the process, where results could be attributed and reach statistical significance on a realistic timeline. That surfaced refactoring work that had to happen before testing was possible, so the programme didn’t get far while I was on it.
 
 Design leadership
 
