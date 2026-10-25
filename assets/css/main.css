@@ -112,70 +112,80 @@
    3. LIGHT MODE TOKENS
    ------------------------------------------------------------ */
 [data-theme="light"] {
-  /* Neutral near-white, not cream — cream+serif+earthy-accent is the
-     generic AI-portfolio formula regardless of the exact accent hue.
-     A near-neutral field (imperceptibly warm, not zero) breaks that
-     read without going sterile-white. */
-  --bg-base:          #FAFAF8;
-  --bg-surface:       #F2F1EC;
-  --bg-surface-2:     #E8E7E0;
-  --bg-hover:         #DEDDD4;
+  /* Drafting paper (2026-10-25): a cool blue-grey ground with ink-navy text.
+     Warm off-white with a serif and a red accent is the generic AI look;
+     the cool ground breaks it and ties the page to the diagrams. */
+  --bg-base:          #F4F7F9;
+  --bg-surface:       #EAEFF2;
+  --bg-surface-2:     #DFE6EA;
+  --bg-hover:         #D4DDE2;
 
-  /* Borders cast slightly cool/teal rather than warm, matching teal's
-     promotion to the dominant structural colour in this mode. */
-  --border-subtle:    #DEDDD4;
-  --border-default:   #C3C7BF;
-  --border-strong:    #A8ACA2;
+  /* Borders in the same cool family as the ground */
+  --border-subtle:    #D4DDE2;
+  --border-default:   #C2CED5;
+  --border-strong:    #9AABB5;
 
-  --text-primary:     #1A1917;
-  --text-secondary:   #2E2B28;
-  --text-tertiary:    #6B6864;
-  --text-inverse:     #FAFAF8;
+  --text-primary:     #0E1A23;
+  --text-secondary:   #24333D;
+  --text-tertiary:    #586873;
+  --text-inverse:     #F4F7F9;
 
   /* Accent — deep crimson for light grounds. Reserved for rare, single
      moments (hero accent, primary CTA); see the tag--gold override below,
      which keeps it off every repeated "Current" badge. */
-  --gold:             #B42844;
-  --gold-bright:      #D23350;
-  --gold-dim:         #80293B;
-  --gold-tint:        rgba(180, 40, 68, 0.08);
-  --gold-tint-strong: rgba(180, 40, 68, 0.14);
+  --gold:             #B4233F;
+  --gold-bright:      #CF2C4A;
+  --gold-dim:         #7E1B30;
+  --gold-tint:        rgba(180, 35, 63, 0.08);
+  --gold-tint-strong: rgba(180, 35, 63, 0.14);
 
   /* Teal — darker for contrast on light backgrounds */
-  --teal:             #1F8A80;
-  --teal-bright:      #2AA898;
-  --teal-dim:         #145E58;
-  --teal-tint:        rgba(31, 138, 128, 0.08);
-  --teal-tint-strong: rgba(31, 138, 128, 0.14);
-  --teal-text:        #0E5750; /* text-on-light: ~5.8:1 on bg-surface */
+  --teal:             #136F67;
+  --teal-bright:      #1C8C82;
+  --teal-dim:         #0C4E48;
+  --teal-tint:        rgba(19, 111, 103, 0.08);
+  --teal-tint-strong: rgba(19, 111, 103, 0.14);
+  --teal-text:        #0B4E48; /* text-on-light: ~5.8:1 on bg-surface */
+  --grid-line:        rgba(19, 111, 103, 0.06);
 }
 
 /* System preference fallback (no JS required) */
 @media (prefers-color-scheme: light) {
   :root:not([data-theme="dark"]) {
-    --bg-base:          #FAFAF8;
-    --bg-surface:       #F2F1EC;
-    --bg-surface-2:     #E8E7E0;
-    --bg-hover:         #DEDDD4;
-    --border-subtle:    #DEDDD4;
-    --border-default:   #C3C7BF;
-    --border-strong:    #A8ACA2;
-    --text-primary:     #1A1917;
-    --text-secondary:   #2E2B28;
-    --text-tertiary:    #6B6864;
-    --text-inverse:     #FAFAF8;
-    --gold:             #B42844;
-    --gold-bright:      #D23350;
-    --gold-dim:         #80293B;
-    --gold-tint:        rgba(180, 40, 68, 0.08);
-    --gold-tint-strong: rgba(180, 40, 68, 0.14);
-    --teal:             #1F8A80;
-    --teal-bright:      #2AA898;
-    --teal-dim:         #145E58;
-    --teal-tint:        rgba(31, 138, 128, 0.08);
-    --teal-tint-strong: rgba(31, 138, 128, 0.14);
-    --teal-text:        #0E5750;
+    --bg-base:          #F4F7F9;
+    --bg-surface:       #EAEFF2;
+    --bg-surface-2:     #DFE6EA;
+    --bg-hover:         #D4DDE2;
+    --border-subtle:    #D4DDE2;
+    --border-default:   #C2CED5;
+    --border-strong:    #9AABB5;
+    --text-primary:     #0E1A23;
+    --text-secondary:   #24333D;
+    --text-tertiary:    #586873;
+    --text-inverse:     #F4F7F9;
+    --gold:             #B4233F;
+    --gold-bright:      #CF2C4A;
+    --gold-dim:         #7E1B30;
+    --gold-tint:        rgba(180, 35, 63, 0.08);
+    --gold-tint-strong: rgba(180, 35, 63, 0.14);
+    --teal:             #136F67;
+    --teal-bright:      #1C8C82;
+    --teal-dim:         #0C4E48;
+    --teal-tint:        rgba(19, 111, 103, 0.08);
+    --teal-tint-strong: rgba(19, 111, 103, 0.14);
+    --teal-text:        #0B4E48;
+    --grid-line:        rgba(19, 111, 103, 0.06);
   }
+}
+
+/* Light mode's one signature: a faint teal grid on the page ground, like
+   engineering paper. Cards and panels sit on it in their own colours. */
+[data-theme="light"] body,
+:root:not([data-theme="dark"]) body {
+  background-image:
+    linear-gradient(var(--grid-line, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line, transparent) 1px, transparent 1px);
+  background-size: 28px 28px;
 }
 
 /* ------------------------------------------------------------

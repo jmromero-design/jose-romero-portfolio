@@ -35,7 +35,7 @@ AI search tools quote this site, so facts and conventions must match on every pa
 /es/work/<slug>/           ES case studies
 /thinking/<slug>/          EN articles
 /es/thinking/<slug>/       ES articles
-assets/css/main.css        All global styles (versioned ?v=43)
+assets/css/main.css        All global styles (versioned ?v=44)
 assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=19)
 assets/images/work/<slug>/ WebP images per case study
 assets/fonts/              Self-hosted Bitter (variable, display) + Outfit woff2 files
@@ -50,7 +50,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=43` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=44` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -64,15 +64,15 @@ All tokens are CSS custom properties on `:root`. Reference them by name — neve
 
 | Token | Dark | Light | Use |
 |-------|------|-------|-----|
-| `--bg-base` | `#090908` | `#F7F4EF` | Page background |
-| `--bg-surface` | `#111110` | `#EDEAE4` | Card backgrounds |
-| `--bg-surface-2` | `#181816` | `#E4E0D9` | Nested surfaces |
-| `--text-primary` | `#F2EEE6` | `#1A1917` | Headings, body |
-| `--text-secondary` | `#D4CFC6` | `#2E2B28` | Supporting text |
-| `--text-tertiary` | `#84817D` | `#6B6864` | Labels, metadata |
-| `--gold` | `#EA6674` | `#B42844` | Accent (warm crimson since 2026-10-24; the token keeps its old name), interactive hover, `<em>` colour |
-| `--teal` | `#4BBFB2` | `#1F8A80` | Eyebrow labels, informational tags, links |
-| `--teal-text` | `#66D4C8` | `#0E5750` | Teal text on surfaces (contrast-safe) |
+| `--bg-base` | `#090908` | `#F4F7F9` | Page background |
+| `--bg-surface` | `#111110` | `#EAEFF2` | Card backgrounds |
+| `--bg-surface-2` | `#181816` | `#DFE6EA` | Nested surfaces |
+| `--text-primary` | `#F2EEE6` | `#0E1A23` | Headings, body |
+| `--text-secondary` | `#D4CFC6` | `#24333D` | Supporting text |
+| `--text-tertiary` | `#84817D` | `#586873` | Labels, metadata |
+| `--gold` | `#EA6674` | `#B4233F` | Accent (warm crimson since 2026-10-24; the token keeps its old name), interactive hover, `<em>` colour |
+| `--teal` | `#4BBFB2` | `#136F67` | Eyebrow labels, informational tags, links |
+| `--teal-text` | `#66D4C8` | `#0B4E48` | Teal text on surfaces (contrast-safe) |
 
 **Colour intent:** gold = brand accent and interactive feedback. Teal = informational and structural. Never swap them. The accent leans red, so never use it to mean a *middle* grade or status (it reads as a warning): BECO backing grades are a teal scale (solid teal verified, teal mixed 50% toward `--bg-base` partial, dashed outline none). Red-for-risk (myth-risk tags) is fine.
 
@@ -113,9 +113,11 @@ All tokens are CSS custom properties on `:root`. Reference them by name — neve
 
 ## Theming
 
-Dark mode is the default. Light mode is set via `[data-theme="light"]` on `<html>`. Persisted to `localStorage` key `jr-theme`. System preference fallback via `@media (prefers-color-scheme: light)` requires no JS.
+Dark mode is the default. Light mode is set via `[data-theme="light"]` on `<html>`. Persisted to `localStorage` key `jr-theme`. System preference fallback via `@media (prefers-color-scheme: light)` requires no JS; it repeats the light tokens, so change both blocks together.
 
-When editing colours or backgrounds always verify both modes. Never hardcode `#090908` or `#F7F4EF` — use `var(--bg-base)`.
+**Light mode is "drafting paper" (since 2026-10-25):** a cool blue-grey ground, ink-navy text and a faint teal grid on the page (`--grid-line`, light mode only). The earlier warm off-white read as the generic AI look; don't drift back to warm greys or cream.
+
+When editing colours or backgrounds always verify both modes. Never hardcode `#090908` or `#F4F7F9` — use `var(--bg-base)`.
 
 ---
 
