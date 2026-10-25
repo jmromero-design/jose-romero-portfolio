@@ -214,22 +214,13 @@ body {
   transition: background-color var(--ease-base), color var(--ease-base);
 }
 
-/* Grain texture — dark mode only.
-   z-index: 1 keeps it above bg but below the nav (z-index: 100) and all
-   positioned elements, which prevents compositing fights with backdrop-filter. */
-:root:not([data-theme="light"]) body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.35;
-}
-
-/* Light mode has no page-wide texture: the paper stays plain, and the grid
-   appears only as a detail in a few sections (see LIGHT MODE SECTIONS). */
-:root[data-theme="light"] body::before { content: none; }
+/* Grain. A static 160px noise tile (6 KB WebP, assets/images/texture/)
+   on the background, so it scrolls with the page and is never redrawn.
+   Dark mode has it page-wide in chalk specks; light mode keeps the paper
+   plain and gives ink specks only to the blue-grey ground (see LIGHT MODE
+   SECTIONS). This replaced a fixed full-screen SVG-filter layer that was
+   repainted on scroll and fought the glass elements for compositing. */
+:root:not([data-theme="light"]) body { background-image: url('/assets/images/texture/noise-chalk.webp'); }
 
 /* LIGHT MODE SECTIONS. Pages alternate between paper and the blue-grey
    ground: every page opens on the ground, the closing call to action sits
@@ -238,13 +229,15 @@ body {
    the top-right corner; the homepage hero stays plain behind its map. */
 [data-theme="light"] :is(main > section:first-of-type:not(.bgx-app), .cta-section, .v4-cta, #how-i-work, .bx, section[aria-labelledby="experience-heading"]) {
   background-color: var(--bg-tint);
+  background-image: url('/assets/images/texture/noise-ink.webp');
 }
 [data-theme="light"] main > section:first-of-type:not(.v4-hero, .bgx-app) {
   background-image:
+    url('/assets/images/texture/noise-ink.webp'),
     radial-gradient(ellipse 55% 95% at 100% 0%, transparent 0%, var(--bg-tint) 80%),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
-  background-size: auto, 28px 28px, 28px 28px;
+  background-size: 160px 160px, auto, 28px 28px, 28px 28px;
 }
 /* A softer grid on a few paper sections that would otherwise feel empty,
    fading in from the bottom-left corner. */
