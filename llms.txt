@@ -108,11 +108,11 @@ Featured case studies (10):
 09. [IKEA · Ways of Working System](https://www.joseromerodesign.com/work/ikea-ways-of-working/) · design operations, process design, Phrase localisation
 10. [AI Workflow Design Framework](https://www.joseromerodesign.com/work/ai-workflow-framework/) · multi-agent orchestration, process architecture, facilitation
 
-Long-form thinking pieces:
+Essays and research:
 - [Designing with AI · A Framework for Human-Led, Agent-Assisted Product Design](https://www.joseromerodesign.com/thinking/ai-workflow-framework/) · full framework article: 3-tier agent architecture, 5-phase workflow, checkpoints, drift, facilitation
 - [A Knowledge Graph That Grades Its Own Evidence](https://www.joseromerodesign.com/thinking/beco-knowledge-graph/) · personal, DOI-verified knowledge graph of 420+ behavioural-science sources; visual explainer, work in progress
 - [Explore the BECO Knowledge Graph](https://www.joseromerodesign.com/thinking/beco-explorer/) · the whole graph as one zoomable map with a card for whatever you pick: clusters down to each study and its authors, concepts coloured by evidence grade; static snapshot, not a live database
-- [Thinking](https://www.joseromerodesign.com/thinking/) · empathy as a strategic tool, behavioural decisions, process that survives people, AI and the ratio of thinking
+- [Thinking](https://www.joseromerodesign.com/thinking/) · the index: one essay, one research project (BECO) and four short positions: empathy as positional understanding, design decisions as behavioural decisions, process that doesn't depend on one person, and how AI shifts design work from doing to thinking
 
 Shorter engagements listed on [/work/](https://www.joseromerodesign.com/work/):
 - Mutua Madrileña · CRO (+41% leads)

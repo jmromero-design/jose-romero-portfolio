@@ -28,7 +28,17 @@ Contenidos
 
 - Lo que exige
 
-[← Caso de estudio](https://www.joseromerodesign.com/es/work/ai-workflow-framework/) [← Todo el pensamiento](https://www.joseromerodesign.com/es/thinking/)
+[← Caso de estudio](https://www.joseromerodesign.com/es/work/ai-workflow-framework/) [← Todas las reflexiones](https://www.joseromerodesign.com/es/thinking/)
+
+## En resumen
+
+- **Empieza por el flujo de trabajo.** Antes de elegir herramientas de IA, decide cómo se estructura el proceso y dónde deciden las personas. La IA añadida a un proceso desordenado solo acelera el desorden.
+
+- **Tres niveles, cinco fases.** Un Orquestador mantiene el contexto del proyecto, los Agentes de Fase llevan Discovery, Shaping, Betting, Building y Retrospectiva, y Agentes de Tarea muy acotados hacen una sola cosa cada uno. Cada fase tiene criterios de salida.
+
+- **Puntos de control que una persona tiene que superar.** Cada fase termina con un Bloque de Confirmación que una persona concreta lee con ojo crítico y aprueba. Releer la intención original en cada paso mantiene a raya la deriva.
+
+- **Cambia el trabajo del diseñador.** Menos producción y más dirección, revisión y criterio. La responsabilidad sigue siendo de las personas, y quien facilita hace que el grupo cuestione lo que devuelve la IA.
 
 Prefacio
 

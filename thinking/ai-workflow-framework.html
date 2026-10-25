@@ -35,7 +35,7 @@
     "image": "https://www.joseromerodesign.com/assets/images/og-default.webp",
     "inLanguage": "en",
     "datePublished": "2026-06-11",
-    "dateModified": "2026-10-24",
+    "dateModified": "2026-10-25",
     "author": {
       "@type": "Person",
       "@id": "https://www.joseromerodesign.com/#person",
@@ -74,7 +74,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=40">
+  <link rel="stylesheet" href="/assets/css/main.css?v=41">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -363,6 +363,40 @@
     }
 
     .fwa-toc-list li.is-active .fwa-toc-num { opacity: 1; }
+
+    /* ── In short — the argument in four lines, read before the long
+       version. Chapter links sit underneath only where the sidebar
+       Contents is hidden. */
+    .fwa-brief {
+      margin-bottom: var(--sp-16);
+      padding: var(--sp-6) 0 0;
+      border-top: 2px solid var(--gold);
+    }
+    .fwa-brief-title {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-bottom: var(--sp-5);
+    }
+    .fwa-brief-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); }
+    .fwa-brief-list li { font-size: var(--text-base); line-height: 1.65; color: var(--text-secondary); max-width: 38em; }
+    .fwa-brief-list strong { color: var(--text-primary); font-weight: 600; }
+    .fwa-brief-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-5);
+      margin-top: var(--sp-6);
+      font-size: var(--text-sm);
+    }
+    .fwa-brief-jump span { color: var(--text-tertiary); }
+    .fwa-brief-jump a { color: var(--teal-text); text-decoration: none; }
+    .fwa-brief-jump a:hover { color: var(--gold); }
+    @media (min-width: 1100px) {
+      .fwa-brief-jump { display: none; }
+    }
 
     /* ── Main article body ───────────────────── */
     .fwa-body {
@@ -839,7 +873,7 @@
             On process architecture, genuine checkpoints, drift, and what AI augmentation actually demands.
           </p>
           <p class="fwa-hero-meta-mobile">
-            <strong>Design Operations</strong> · IKEA / Ingka Group · <time datetime="2026-06-11">June 2026</time>, updated <time datetime="2026-10-24">October 2026</time> · 18 min read
+            <strong>Design Operations</strong> · IKEA / Ingka Group · <time datetime="2026-06-11">June 2026</time>, updated <time datetime="2026-10-25">October 2026</time> · 18 min read
           </p>
         </div>
 
@@ -847,7 +881,7 @@
           <div class="fwa-hero-meta-row"><strong>Topic</strong> · Design Operations</div>
           <div class="fwa-hero-meta-row"><strong>Context</strong> · IKEA / Ingka Group</div>
           <div class="fwa-hero-meta-row"><strong>Published</strong> · <time datetime="2026-06-11">June 2026</time></div>
-          <div class="fwa-hero-meta-row"><strong>Updated</strong> · <time datetime="2026-10-24">October 2026</time></div>
+          <div class="fwa-hero-meta-row"><strong>Updated</strong> · <time datetime="2026-10-25">October 2026</time></div>
           <div class="fwa-hero-meta-row"><strong>Read</strong> · 18 min</div>
         </div>
 
@@ -889,6 +923,24 @@
           <a href="/work/ai-workflow-framework/">← Case study</a>
           <a href="/thinking/">← All thinking</a>
         </div>
+
+        <section class="fwa-brief reveal" aria-labelledby="fwa-brief-title">
+          <h2 class="fwa-brief-title" id="fwa-brief-title">In short</h2>
+          <ul class="fwa-brief-list" role="list">
+            <li><strong>Start with the workflow.</strong> Before picking AI tools, decide how the process is structured and where people make the calls. AI added to a messy process makes the mess faster.</li>
+            <li><strong>Three tiers, five phases.</strong> An Orchestrator keeps the project’s context, Phase Agents run Discovery, Shaping, Betting, Building and Retrospective, and narrow Task Agents do one job each. Every phase has exit criteria.</li>
+            <li><strong>Checkpoints a person has to pass.</strong> Each phase ends with a Confirmation Block that a named person reads critically and signs off. Re-reading the original intent at every gate keeps drift in check.</li>
+            <li><strong>The designer’s job shifts.</strong> Less production, more direction, review and judgment. Accountability stays with people, and the facilitator keeps the group questioning what the AI hands back.</li>
+          </ul>
+          <nav class="fwa-brief-jump" aria-label="Jump to">
+            <span>Jump to</span>
+            <a href="#ch01">The reframe</a>
+            <a href="#ch02">The architecture</a>
+            <a href="#ch03">Human-in-the-loop</a>
+            <a href="#ch04">Facilitation</a>
+            <a href="#ch05">What this demands</a>
+          </nav>
+        </section>
 
         <!-- PREFACE -->
         <section class="fwa-preface fwa-section" id="preface" aria-label="Preface">

@@ -35,7 +35,7 @@
     "image": "https://www.joseromerodesign.com/assets/images/og-default.webp",
     "inLanguage": "es",
     "datePublished": "2026-06-11",
-    "dateModified": "2026-10-24",
+    "dateModified": "2026-10-25",
     "author": {
       "@type": "Person",
       "@id": "https://www.joseromerodesign.com/#person",
@@ -74,7 +74,7 @@
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=40">
+  <link rel="stylesheet" href="/assets/css/main.css?v=41">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -355,6 +355,41 @@
 
     .fwa-toc-list li.is-active .fwa-toc-num { opacity: 1; }
 
+    /* ── In short — the argument in four lines, read before the long
+       version. Chapter links sit underneath only where the sidebar
+       Contents is hidden. */
+    .fwa-brief {
+      margin-bottom: var(--sp-16);
+      padding: var(--sp-6) 0 0;
+      border-top: 2px solid var(--gold);
+    }
+    .fwa-brief-title {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-bottom: var(--sp-5);
+    }
+    .fwa-brief-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); }
+    .fwa-brief-list li { font-size: var(--text-base); line-height: 1.65; color: var(--text-secondary); max-width: 38em; }
+    .fwa-brief-list strong { color: var(--text-primary); font-weight: 600; }
+    .fwa-brief-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-5);
+      margin-top: var(--sp-6);
+      font-size: var(--text-sm);
+    }
+    .fwa-brief-jump span { color: var(--text-tertiary); }
+    .fwa-brief-jump a { color: var(--teal-text); text-decoration: none; }
+    .fwa-brief-jump a:hover { color: var(--gold); }
+    @media (min-width: 1100px) {
+      .fwa-brief-jump { display: none; }
+    }
+
+    /* ── Main article body ───────────────────── */
     .fwa-body { flex: 1; min-width: 0; }
 
     /* ── Back-links — deliberately its own component, separate from the
@@ -784,7 +819,7 @@
             Sobre arquitectura de procesos, checkpoints reales, drift y lo que la integración de IA exige verdaderamente.
           </p>
           <p class="fwa-hero-meta-mobile">
-            <strong>Operaciones de Diseño</strong> · IKEA / Ingka Group · <time datetime="2026-06-11">junio de 2026</time>, actualizado en <time datetime="2026-10-24">octubre de 2026</time> · Lectura de 18 min
+            <strong>Operaciones de Diseño</strong> · IKEA / Ingka Group · <time datetime="2026-06-11">junio de 2026</time>, actualizado en <time datetime="2026-10-25">octubre de 2026</time> · Lectura de 18 min
           </p>
         </div>
 
@@ -792,7 +827,7 @@
           <div class="fwa-hero-meta-row"><strong>Tema</strong> · Operaciones de Diseño</div>
           <div class="fwa-hero-meta-row"><strong>Contexto</strong> · IKEA / Ingka Group</div>
           <div class="fwa-hero-meta-row"><strong>Publicado</strong> · <time datetime="2026-06-11">junio de 2026</time></div>
-          <div class="fwa-hero-meta-row"><strong>Actualizado</strong> · <time datetime="2026-10-24">octubre de 2026</time></div>
+          <div class="fwa-hero-meta-row"><strong>Actualizado</strong> · <time datetime="2026-10-25">octubre de 2026</time></div>
           <div class="fwa-hero-meta-row"><strong>Lectura</strong> · 18 min</div>
         </div>
 
@@ -832,8 +867,26 @@
              a propósito: este sí abandona el artículo, el TOC nunca. -->
         <div class="fwa-back-links">
           <a href="/es/work/ai-workflow-framework/">← Caso de estudio</a>
-          <a href="/es/thinking/">← Todo el pensamiento</a>
+          <a href="/es/thinking/">← Todas las reflexiones</a>
         </div>
+
+        <section class="fwa-brief reveal" aria-labelledby="fwa-brief-title">
+          <h2 class="fwa-brief-title" id="fwa-brief-title">En resumen</h2>
+          <ul class="fwa-brief-list" role="list">
+            <li><strong>Empieza por el flujo de trabajo.</strong> Antes de elegir herramientas de IA, decide cómo se estructura el proceso y dónde deciden las personas. La IA añadida a un proceso desordenado solo acelera el desorden.</li>
+            <li><strong>Tres niveles, cinco fases.</strong> Un Orquestador mantiene el contexto del proyecto, los Agentes de Fase llevan Discovery, Shaping, Betting, Building y Retrospectiva, y Agentes de Tarea muy acotados hacen una sola cosa cada uno. Cada fase tiene criterios de salida.</li>
+            <li><strong>Puntos de control que una persona tiene que superar.</strong> Cada fase termina con un Bloque de Confirmación que una persona concreta lee con ojo crítico y aprueba. Releer la intención original en cada paso mantiene a raya la deriva.</li>
+            <li><strong>Cambia el trabajo del diseñador.</strong> Menos producción y más dirección, revisión y criterio. La responsabilidad sigue siendo de las personas, y quien facilita hace que el grupo cuestione lo que devuelve la IA.</li>
+          </ul>
+          <nav class="fwa-brief-jump" aria-label="Ir a">
+            <span>Ir a</span>
+            <a href="#ch01">El reencuadre</a>
+            <a href="#ch02">La arquitectura</a>
+            <a href="#ch03">Humano en el loop</a>
+            <a href="#ch04">Facilitación</a>
+            <a href="#ch05">Lo que exige</a>
+          </nav>
+        </section>
 
         <!-- PREFACIO -->
         <section class="fwa-preface fwa-section" id="preface" aria-label="Prefacio">

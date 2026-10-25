@@ -30,6 +30,16 @@ Contents
 
 [← Case study](https://www.joseromerodesign.com/work/ai-workflow-framework/) [← All thinking](https://www.joseromerodesign.com/thinking/)
 
+## In short
+
+- **Start with the workflow.** Before picking AI tools, decide how the process is structured and where people make the calls. AI added to a messy process makes the mess faster.
+
+- **Three tiers, five phases.** An Orchestrator keeps the project’s context, Phase Agents run Discovery, Shaping, Betting, Building and Retrospective, and narrow Task Agents do one job each. Every phase has exit criteria.
+
+- **Checkpoints a person has to pass.** Each phase ends with a Confirmation Block that a named person reads critically and signs off. Re-reading the original intent at every gate keeps drift in check.
+
+- **The designer’s job shifts.** Less production, more direction, review and judgment. Accountability stays with people, and the facilitator keeps the group questioning what the AI hands back.
+
 Preface
 
 Most design teams I talk to are stuck on the wrong question. "Which AI tool should we use?" is a procurement question dressed up as a design one, and answering it first is exactly how you end up with what most teams have right now: demos that look great, output that's all over the place, and a workflow that's harder to audit than what it replaced.
