@@ -149,6 +149,7 @@
   --teal-tint-strong: rgba(19, 111, 103, 0.14);
   --teal-text:        #0B4E48; /* text-on-light: ~5.8:1 on bg-surface */
   --grid-line:        rgba(19, 111, 103, 0.1);
+  --grid-line-soft:   rgba(19, 111, 103, 0.07);
 }
 
 /* System preference fallback (no JS required) */
@@ -178,6 +179,8 @@
     --teal-tint-strong: rgba(19, 111, 103, 0.14);
     --teal-text:        #0B4E48;
     --grid-line:        rgba(19, 111, 103, 0.1);
+    --grid-line-soft:   rgba(19, 111, 103, 0.07);
+  --grid-line-soft:   rgba(19, 111, 103, 0.07);
   }
 }
 
@@ -233,16 +236,27 @@ body {
    on it, and so do the homepage's two diagrams and About's experience
    timeline. Inner page openings carry a faint grid that fades out from
    the top-right corner; the homepage hero stays plain behind its map. */
-[data-theme="light"] :is(main > section:first-of-type, .cta-section, .v4-cta, #how-i-work, .bx, section[aria-labelledby="experience-heading"]) {
+[data-theme="light"] :is(main > section:first-of-type:not(.bgx-app), .cta-section, .v4-cta, #how-i-work, .bx, section[aria-labelledby="experience-heading"]) {
   background-color: var(--bg-tint);
 }
-[data-theme="light"] main > section:first-of-type:not(.v4-hero) {
+[data-theme="light"] main > section:first-of-type:not(.v4-hero, .bgx-app) {
   background-image:
     radial-gradient(ellipse 55% 95% at 100% 0%, transparent 0%, var(--bg-tint) 80%),
     linear-gradient(var(--grid-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
   background-size: auto, 28px 28px, 28px 28px;
 }
+/* A softer grid on a few paper sections that would otherwise feel empty,
+   fading in from the bottom-left corner. */
+[data-theme="light"] :is(.v4-manifest, .v4-thinking, .v4-voices, section[aria-labelledby="clients-heading"]) {
+  background-image:
+    radial-gradient(ellipse 50% 90% at 0% 100%, transparent 0%, var(--bg-base) 78%),
+    linear-gradient(var(--grid-line-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line-soft) 1px, transparent 1px);
+  background-size: auto, 28px 28px, 28px 28px;
+}
+/* The BECO explorer stays plain paper, map, cards and close alike */
+[data-theme="light"] main:has(> .bgx-app) :is(.v4-cta, .cta-section) { background-color: var(--bg-base); }
 
 img, video { display: block; max-width: 100%; }
 a { color: inherit; text-decoration: none; }
