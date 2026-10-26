@@ -113,7 +113,14 @@ EXTRA_VISUALS = {
 
 def extra_visual(slug):
     src, ground = EXTRA_VISUALS[slug]
-    im = Image.open(ROOT / src).convert("RGB")
+    im = Image.open(ROOT / src).convert("RGBA")
+    if ground:
+        # flatten onto the card colour; a bare RGBA->RGB convert keeps the junk
+        # colour stored under transparent pixels and shows it as grey blocks
+        flat = Image.new("RGBA", im.size, (*ground, 255))
+        flat.alpha_composite(im)
+        im = flat
+    im = im.convert("RGB")
     im = im.resize((round(im.width * 1260 / im.height), 1260), Image.LANCZOS)
     ground = ground or im.getpixel((min(40, im.width - 1), 40))
     VISUALS.mkdir(parents=True, exist_ok=True)
