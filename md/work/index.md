@@ -6,7 +6,7 @@ Source: https://www.joseromerodesign.com/work/
 
 Work
 
-# Projects across _complexity and craft._
+# Products under pressure, _decisions on the record._
 
 Ten case studies, no two alike: a product built from nothing, conversion programmes that ran for years, a design system meant to hold up across a distributed team. Some client details stay behind an NDA, but the methodology and the decisions are always mine to walk through.
 
@@ -30,7 +30,7 @@ A selection of clients worked with directly or through agency partnerships. Most
 
 _35+_ clients
 
-## Ten case studies, _one page._
+## Start with the one _closest to your problem._
 
 Hover a row to preview.
 

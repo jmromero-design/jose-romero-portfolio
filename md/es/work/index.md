@@ -6,7 +6,7 @@ Source: https://www.joseromerodesign.com/es/work/
 
 Trabajo
 
-# Proyectos a través de _complejidad y oficio._
+# Productos bajo presión, _decisiones a la vista._
 
 Diez casos de estudio, ninguno igual a otro: producto construido desde cero, programas de conversión que duraron años, un sistema de diseño pensado para sostenerse en un equipo distribuido. Algunos detalles quedan tras un NDA, pero la metodología y las decisiones siempre puedo compartirlas.
 
@@ -30,7 +30,7 @@ Una selección de clientes con los que he trabajado directamente o a través de 
 
 _35+_ clientes
 
-## Diez casos de estudio, _una página._
+## Empieza por el más _parecido a tu reto._
 
 Pasa el cursor sobre una fila para previsualizar.
 

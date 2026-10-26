@@ -35,7 +35,7 @@ AI search tools quote this site, so facts and conventions must match on every pa
 /es/work/<slug>/           ES case studies
 /thinking/<slug>/          EN articles
 /es/thinking/<slug>/       ES articles
-assets/css/main.css        All global styles (versioned ?v=49)
+assets/css/main.css        All global styles (versioned ?v=50)
 assets/js/main.js          All JS — theme, nav, icons, scroll (versioned ?v=19)
 assets/images/work/<slug>/ WebP images per case study
 assets/fonts/              Self-hosted Bitter (variable, display) + Outfit woff2 files
@@ -50,7 +50,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=49` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=50` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -234,7 +234,14 @@ footer
 
 ## Canonical CTA copy
 
-Every page ends with `.cta-section`. Copy is fixed — do not paraphrase.
+Every page ends with a closing section (`.v4-cta` / `.cta-section`). Since 2026-10-26 it answers the page:
+
+- **Home, About, Work, Contact** keep the canonical copy below, unchanged.
+- **Case studies:** heading `Have a problem<br><em class="accent-italic">shaped like this one?</em>` (ES `¿Tienes un reto<br><em class="accent-italic">parecido a este?</em>`); body = one sentence naming that study's problem, then the canonical body line.
+- **Thinking index and the AI article:** `Thinking about<br><em class="accent-italic">the same questions?</em>` (ES `¿Le das vueltas<br><em class="accent-italic">a las mismas preguntas?</em>`), a line inviting readers to compare notes, then the canonical body line.
+- **BECO explorer:** `Using behavioural science<br><em class="accent-italic">in product decisions?</em>` (ES `¿Usas ciencia del comportamiento<br><em class="accent-italic">en decisiones de producto?</em>`), one line on BECO, then the canonical body line.
+
+The canonical copy (fixed, do not paraphrase):
 
 **EN:**
 - Heading: `Your hardest problem<br><em class="accent-italic">is a good place to start.</em>`
