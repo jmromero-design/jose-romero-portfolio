@@ -80,7 +80,7 @@
       {
         "@type": "DataDownload",
         "encodingFormat": "application/json",
-        "contentUrl": "https://www.joseromerodesign.com/assets/data/beco-graph/graph.json"
+        "contentUrl": "https://www.joseromerodesign.com/assets/data/beco-graph-es/graph.json"
       }
     ]
   }
@@ -536,6 +536,8 @@
   <script>
     // Textos para /assets/js/beco-explorer.js. Las listas van por tipo de nodo, del centro hacia fuera.
     window.BGX_STRINGS = {
+      dataDir: '/assets/data/beco-explorer-es',
+      graphUrl: '/assets/data/beco-graph-es/graph.json',
       stats: (c, f, s, a) => `${c} conceptos · ${f} hallazgos · ${s} fuentes · ${a} autores`,
       home: 'Todos los grupos',
       intro: 'Todos los conceptos de BECO, desde los ocho grupos hasta los estudios que hay detrás de cada uno y las personas que los hicieron. Elige una ficha para mover el mapa hasta allí, o elige cualquier punto del mapa para leer su ficha.',
@@ -571,6 +573,6 @@
     };
   </script>
   <script src="/assets/js/main.js?v=19" defer></script>
-  <script src="/assets/js/beco-explorer.js?v=1" defer></script>
+  <script src="/assets/js/beco-explorer.js?v=2" defer></script>
 </body>
 </html>

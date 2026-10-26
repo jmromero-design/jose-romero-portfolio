@@ -22,13 +22,13 @@ A full framework for human-led, agent-assisted product design: three-tier agent 
 
 ### A knowledge graph that grades its own evidence. _Visual walkthrough._
 
-A personal, DOI-verified graph of 420+ behavioural-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.
+A personal, DOI-verified graph of 450+ behavioural-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.
 
 Visual explainer · AI · Behavioural Science → Research · BECO · Interactive
 
 ### The whole graph on one map. _With a card for every point._
 
-All 243 concepts, the findings and sources behind them and the people who wrote those sources, on one map you can zoom through. Beside it, a card reads whatever you pick, with every study cited and how well it backs the concept.
+All 254 concepts, the findings and sources behind them and the people who wrote those sources, on one map you can zoom through. Beside it, a card reads whatever you pick, with every study cited and how well it backs the concept.
 
 Interactive · AI · Behavioural Science →
 

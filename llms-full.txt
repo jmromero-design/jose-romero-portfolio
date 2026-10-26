@@ -208,7 +208,7 @@ Prototypes and production UI built with AI, with Figma connected to the code. Th
 
 #### Knowledge systems
 
-Research tooling that grades its own evidence. [BECO](https://www.joseromerodesign.com/thinking/beco-explorer/) links 420 behavioural-science sources to 243 concepts in a Neo4j graph.
+Research tooling that grades its own evidence. [BECO](https://www.joseromerodesign.com/thinking/beco-explorer/) links 452 behavioural-science sources to 254 concepts in a Neo4j graph.
 
 ### Design and research
 
@@ -442,13 +442,13 @@ A full framework for human-led, agent-assisted product design: three-tier agent 
 
 ### A knowledge graph that grades its own evidence. _Visual walkthrough._
 
-A personal, DOI-verified graph of 420+ behavioural-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.
+A personal, DOI-verified graph of 450+ behavioural-science sources, built to separate what the research actually shows from what design decks have been repeating for a decade.
 
 Visual explainer · AI · Behavioural Science → Research · BECO · Interactive
 
 ### The whole graph on one map. _With a card for every point._
 
-All 243 concepts, the findings and sources behind them and the people who wrote those sources, on one map you can zoom through. Beside it, a card reads whatever you pick, with every study cited and how well it backs the concept.
+All 254 concepts, the findings and sources behind them and the people who wrote those sources, on one map you can zoom through. Beside it, a card reads whatever you pick, with every study cited and how well it backs the concept.
 
 Interactive · AI · Behavioural Science →
 
@@ -1734,7 +1734,7 @@ The agents, the workflow, the tooling: none of it matters as much as that chain 
 
 # A Knowledge Graph That Grades Its Own Evidence · Jose Romero
 
-A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.
+A DOI-verified knowledge graph of 450+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.
 
 Source: https://www.joseromerodesign.com/thinking/beco-knowledge-graph/
 

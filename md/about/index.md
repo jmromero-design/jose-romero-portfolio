@@ -196,7 +196,7 @@ Prototypes and production UI built with AI, with Figma connected to the code. Th
 
 #### Knowledge systems
 
-Research tooling that grades its own evidence. [BECO](https://www.joseromerodesign.com/thinking/beco-explorer/) links 420 behavioural-science sources to 243 concepts in a Neo4j graph.
+Research tooling that grades its own evidence. [BECO](https://www.joseromerodesign.com/thinking/beco-explorer/) links 452 behavioural-science sources to 254 concepts in a Neo4j graph.
 
 ### Design and research
 

@@ -196,7 +196,7 @@ Prototipos e interfaces en producción construidos con IA, con Figma conectado a
 
 #### Sistemas de conocimiento
 
-Herramientas de investigación que califican su propia evidencia. [BECO](https://www.joseromerodesign.com/es/thinking/beco-explorer/) conecta 420 fuentes de ciencia conductual con 243 conceptos en un grafo de Neo4j.
+Herramientas de investigación que califican su propia evidencia. [BECO](https://www.joseromerodesign.com/es/thinking/beco-explorer/) conecta 452 fuentes de ciencia conductual con 254 conceptos en un grafo de Neo4j.
 
 ### Diseño e investigación
 

@@ -110,7 +110,7 @@ Featured case studies (10):
 
 Essays and research:
 - [Designing with AI · A Framework for Human-Led, Agent-Assisted Product Design](https://www.joseromerodesign.com/thinking/ai-workflow-framework/) · full framework article: 3-tier agent architecture, 5-phase workflow, checkpoints, drift, facilitation
-- [A Knowledge Graph That Grades Its Own Evidence](https://www.joseromerodesign.com/thinking/beco-knowledge-graph/) · personal, DOI-verified knowledge graph of 420+ behavioural-science sources; visual explainer, work in progress
+- [A Knowledge Graph That Grades Its Own Evidence](https://www.joseromerodesign.com/thinking/beco-knowledge-graph/) · personal, DOI-verified knowledge graph of 450+ behavioural-science sources; visual explainer, work in progress
 - [Explore the BECO Knowledge Graph](https://www.joseromerodesign.com/thinking/beco-explorer/) · the whole graph as one zoomable map with a card for whatever you pick: clusters down to each study and its authors, concepts coloured by evidence grade; static snapshot, not a live database
 - [Thinking](https://www.joseromerodesign.com/thinking/) · the index: one essay, one research project (BECO) and four short positions: empathy as positional understanding, design decisions as behavioural decisions, process that doesn't depend on one person, and how AI shifts design work from doing to thinking
 

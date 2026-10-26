@@ -22,13 +22,13 @@ Un framework completo para el diseño de producto liderado por humanos y asistid
 
 ### Un grafo de conocimiento que califica su propia evidencia. _Recorrido visual._
 
-Un grafo personal, verificado por DOI, con más de 420 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.
+Un grafo personal, verificado por DOI, con más de 450 fuentes de ciencia del comportamiento, construido para separar lo que la investigación realmente demuestra de lo que las presentaciones de diseño llevan una década repitiendo.
 
 Recorrido visual · IA · Ciencia del Comportamiento → Investigación · BECO · Interactivo
 
 ### Todo el grafo en un mapa. _Y una ficha para cada punto._
 
-Los 243 conceptos, los hallazgos y las fuentes que hay detrás y quienes las firman, en un mapa que se acerca y se recorre. Al lado, una ficha lee lo que elijas, con cada estudio citado y cuánto respalda al concepto.
+Los 254 conceptos, los hallazgos y las fuentes que hay detrás y quienes las firman, en un mapa que se acerca y se recorre. Al lado, una ficha lee lo que elijas, con cada estudio citado y cuánto respalda al concepto.
 
 Interactivo · IA · Ciencia del Comportamiento →
 

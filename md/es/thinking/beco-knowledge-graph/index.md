@@ -1,6 +1,6 @@
 # Un grafo que califica su propia evidencia · Jose Romero
 
-Un grafo con más de 420 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.
+Un grafo con más de 450 fuentes verificadas por DOI para separar lo que muestra la investigación de lo que repiten las presentaciones de diseño.
 
 Source: https://www.joseromerodesign.com/es/thinking/beco-knowledge-graph/
 

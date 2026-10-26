@@ -90,7 +90,10 @@
     for (const t of [CLUSTER, DOMAIN, TOPIC]) for (const i of byType[t]) below.set(i, conceptsUnder(i));
     // names sort the way people expect, not by file order
     for (const t of [CLUSTER, DOMAIN, TOPIC, CONCEPT]) byType[t].sort((a, b) => label[a].localeCompare(label[b]));
-    statsEl.textContent = S.stats(byType[CONCEPT].length, byType[FINDING].length, byType[SOURCE].length, byType[AUTHOR].length);
+    // the database totals when the export carries them; the node counts above double-count a finding cited under more than one concept
+    const tot = data.totals;
+    statsEl.textContent = tot ? S.stats(tot.biases, tot.findings, tot.sources, tot.authors)
+      : S.stats(byType[CONCEPT].length, byType[FINDING].length, byType[SOURCE].length, byType[AUTHOR].length);
     buildGrid();
   }
   function conceptsUnder(i) {
@@ -566,7 +569,7 @@
   // A concept's full entry: description, the studies behind it, the
   // real-world examples, fetched only when its card opens.
   function loadConcept(i) {
-    fetch(`/assets/data/beco-explorer/biases/${encodeURIComponent(extra[i].id)}.json`)
+    fetch(`${S.dataDir || '/assets/data/beco-explorer'}/biases/${encodeURIComponent(extra[i].id)}.json`)
       .then((r) => { if (!r.ok) throw new Error(r.status); return r.json(); })
       .then((b) => {
         const el = document.getElementById('bgxDetail');
@@ -765,7 +768,7 @@
   new MutationObserver(readTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   window.addEventListener('resize', resize);
   stacked.addEventListener('change', () => { if (!stacked.matches) explore(false); resize(); });
-  fetch('/assets/data/beco-graph/graph.json')
+  fetch(S.graphUrl || '/assets/data/beco-graph/graph.json')
     .then((r) => r.json())
     .then((data) => {
       load(data);

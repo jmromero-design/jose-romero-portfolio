@@ -1,6 +1,6 @@
 # A Knowledge Graph That Grades Its Own Evidence · Jose Romero
 
-A DOI-verified knowledge graph of 420+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.
+A DOI-verified knowledge graph of 450+ behavioural-science sources, built to separate what the research shows from what design decks keep repeating.
 
 Source: https://www.joseromerodesign.com/thinking/beco-knowledge-graph/
 
