@@ -79,7 +79,7 @@
     }
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=48">
+  <link rel="stylesheet" href="/assets/css/main.css?v=49">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
   <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
@@ -115,14 +115,6 @@
     }
     .v4-r.is-in { opacity: 1; transform: none; filter: none; }
 
-    .v4-grain {
-      position: fixed;
-      inset: 0;
-      z-index: 9999;
-      pointer-events: none;
-      opacity: 0.035;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
 
 
 
@@ -908,6 +900,16 @@
       .v4-t-head p { text-align: left; }
       .v4-footer-top { align-items: flex-start; flex-direction: column; }
     }
+    /* explorer preview: the map at rest (scripts/build_beco_map_images.py) */
+    .ediag-map { aspect-ratio: 360 / 170; display: flex; justify-content: center; }
+    .ediag-map img {
+      height: 100%; width: auto; aspect-ratio: 1 / 1; display: block;
+      -webkit-mask-image: radial-gradient(closest-side, black 70%, transparent);
+      mask-image: radial-gradient(closest-side, black 70%, transparent);
+    }
+    .ediag-map--light { display: none !important; }
+    [data-theme="light"] .ediag-map--dark { display: none !important; }
+    [data-theme="light"] .ediag-map--light { display: block !important; }
   </style>
 
   <script defer src="/_vercel/insights/script.js"></script>
@@ -915,7 +917,6 @@
 </head>
 <body>
 
-  <div class="v4-grain" aria-hidden="true"></div>
   <div class="v4-glow" aria-hidden="true"></div>
 
   <a href="#main" class="skip-nav">Skip to content</a>
@@ -1361,193 +1362,10 @@
           </svg>
         </div>
         <div class="v4-ediag-preview-card" id="ediag-beco-explorer" hidden>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 170" role="img" aria-hidden="true">
-            <circle cx="324.4" cy="87.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="324.7" cy="97.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="321.0" cy="102.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="318.5" cy="111.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="316.9" cy="114.5" r="1.1" fill="var(--border-default)"/>
-            <circle cx="310.8" cy="124.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="306.5" cy="127.4" r="1.1" fill="var(--border-default)"/>
-            <circle cx="289.9" cy="132.2" r="1.1" fill="var(--border-default)"/>
-            <circle cx="286.5" cy="141.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="271.9" cy="143.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="268.7" cy="145.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="254.0" cy="153.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="240.9" cy="154.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="235.9" cy="158.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="225.5" cy="160.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="207.2" cy="161.8" r="1.1" fill="var(--border-default)"/>
-            <circle cx="196.7" cy="163.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="186.3" cy="162.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="170.1" cy="159.5" r="1.1" fill="var(--border-default)"/>
-            <circle cx="155.5" cy="159.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="134.7" cy="162.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="129.5" cy="155.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="117.8" cy="158.7" r="1.1" fill="var(--border-default)"/>
-            <circle cx="107.0" cy="154.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="94.2" cy="147.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="84.8" cy="140.4" r="1.1" fill="var(--border-default)"/>
-            <circle cx="72.9" cy="143.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="60.1" cy="134.4" r="1.1" fill="var(--border-default)"/>
-            <circle cx="51.2" cy="129.5" r="1.1" fill="var(--border-default)"/>
-            <circle cx="51.9" cy="118.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="40.1" cy="118.8" r="1.1" fill="var(--border-default)"/>
-            <circle cx="31.9" cy="107.7" r="1.1" fill="var(--border-default)"/>
-            <circle cx="36.7" cy="104.8" r="1.1" fill="var(--border-default)"/>
-            <circle cx="39.1" cy="95.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="33.4" cy="90.8" r="1.1" fill="var(--border-default)"/>
-            <circle cx="32.8" cy="84.8" r="1.1" fill="var(--border-default)"/>
-            <circle cx="33.9" cy="72.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="34.1" cy="67.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="43.6" cy="59.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="43.7" cy="52.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="44.7" cy="46.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="55.9" cy="45.5" r="1.1" fill="var(--border-default)"/>
-            <circle cx="61.2" cy="36.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="70.5" cy="30.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="82.8" cy="23.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="92.3" cy="25.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="106.3" cy="19.5" r="1.1" fill="var(--border-default)"/>
-            <circle cx="118.8" cy="15.7" r="1.1" fill="var(--border-default)"/>
-            <circle cx="126.8" cy="14.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="135.6" cy="8.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="156.4" cy="4.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="163.4" cy="9.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="182.5" cy="4.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="194.4" cy="9.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="203.4" cy="7.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="219.5" cy="8.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="230.1" cy="13.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="247.3" cy="14.1" r="1.1" fill="var(--border-default)"/>
-            <circle cx="259.4" cy="17.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="267.9" cy="22.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="283.2" cy="26.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="285.6" cy="34.9" r="1.1" fill="var(--border-default)"/>
-            <circle cx="293.4" cy="36.2" r="1.1" fill="var(--border-default)"/>
-            <circle cx="297.5" cy="42.4" r="1.1" fill="var(--border-default)"/>
-            <circle cx="305.3" cy="47.7" r="1.1" fill="var(--border-default)"/>
-            <circle cx="309.6" cy="53.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="314.1" cy="59.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="322.5" cy="65.6" r="1.1" fill="var(--border-default)"/>
-            <circle cx="320.3" cy="73.3" r="1.1" fill="var(--border-default)"/>
-            <circle cx="322.9" cy="82.0" r="1.1" fill="var(--border-default)"/>
-            <circle cx="296.2" cy="85.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="301.0" cy="92.9" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="296.7" cy="101.5" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="294.1" cy="107.8" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="288.4" cy="119.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="277.5" cy="122.5" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="263.3" cy="127.5" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="254.0" cy="135.5" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="247.0" cy="137.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="225.4" cy="141.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="218.3" cy="146.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="208.6" cy="148.8" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="188.7" cy="151.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="177.2" cy="149.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="160.0" cy="149.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="142.4" cy="147.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="132.3" cy="146.2" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="117.0" cy="140.9" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="100.2" cy="137.3" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="98.5" cy="133.2" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="78.9" cy="125.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="73.4" cy="122.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="72.7" cy="110.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="59.9" cy="105.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="66.4" cy="99.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="64.4" cy="88.8" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="54.7" cy="84.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="57.3" cy="73.2" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="63.3" cy="67.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="74.3" cy="60.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="80.1" cy="53.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="77.6" cy="47.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="88.8" cy="38.2" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="99.9" cy="36.3" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="113.3" cy="33.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="124.7" cy="25.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="141.6" cy="24.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="158.1" cy="23.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="168.1" cy="24.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="180.5" cy="23.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="197.3" cy="23.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="215.7" cy="20.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="226.4" cy="23.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="237.9" cy="30.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="256.2" cy="32.4" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="258.0" cy="39.8" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="271.5" cy="48.2" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="278.4" cy="53.7" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="283.8" cy="58.3" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="296.3" cy="64.6" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="303.5" cy="71.0" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="295.8" cy="78.1" r="1.4" fill="var(--border-strong)"/>
-            <circle cx="269.1" cy="86.7" r="2.4" fill="var(--teal)"/>
-            <circle cx="271.5" cy="96.8" r="2.4" fill="var(--teal)"/>
-            <circle cx="267.0" cy="102.9" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="254.8" cy="113.3" r="2.4" fill="var(--teal)"/>
-            <circle cx="247.7" cy="120.8" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="234.3" cy="127.5" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="216.0" cy="127.4" r="2.4" fill="var(--teal)"/>
-            <circle cx="200.6" cy="129.8" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="187.6" cy="130.9" r="2.4" fill="var(--teal)"/>
-            <circle cx="166.5" cy="133.9" r="2.4" fill="var(--teal)"/>
-            <circle cx="152.5" cy="127.6" r="2.4" fill="var(--teal)"/>
-            <circle cx="135.0" cy="128.6" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="125.4" cy="120.0" r="2.4" fill="var(--teal)"/>
-            <circle cx="110.1" cy="117.3" r="2.4" fill="var(--teal)"/>
-            <circle cx="99.9" cy="110.9" r="2.4" fill="var(--teal)"/>
-            <circle cx="90.9" cy="101.7" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="93.8" cy="91.4" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="89.8" cy="84.6" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="86.1" cy="74.1" r="2.4" fill="var(--teal)"/>
-            <circle cx="91.8" cy="63.2" r="2.4" fill="var(--teal)"/>
-            <circle cx="110.3" cy="58.4" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="115.4" cy="48.9" r="2.4" fill="var(--teal)"/>
-            <circle cx="129.5" cy="47.4" r="2.4" fill="var(--teal)"/>
-            <circle cx="146.4" cy="43.9" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="156.4" cy="38.2" r="2.4" fill="var(--teal)"/>
-            <circle cx="174.9" cy="39.1" r="2.4" fill="var(--teal)"/>
-            <circle cx="193.3" cy="38.0" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="208.7" cy="38.6" r="2.4" fill="var(--teal)"/>
-            <circle cx="219.8" cy="44.3" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="236.5" cy="46.8" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="248.2" cy="57.0" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="259.3" cy="63.1" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="268.1" cy="68.8" r="2.4" fill="color-mix(in srgb, var(--teal) 50%, var(--bg-base))"/>
-            <circle cx="269.5" cy="79.7" r="2.4" fill="var(--teal)"/>
-            <circle cx="236.6" cy="87.0" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="240.5" cy="96.2" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="233.2" cy="106.3" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="220.0" cy="111.8" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="201.1" cy="114.5" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="186.2" cy="115.4" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="170.3" cy="119.8" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="154.5" cy="113.5" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="140.5" cy="108.5" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="122.2" cy="103.0" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="113.0" cy="92.7" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="117.7" cy="84.1" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="125.4" cy="76.1" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="127.4" cy="65.9" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="143.8" cy="61.4" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="154.8" cy="52.0" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="171.1" cy="51.9" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="192.8" cy="52.5" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="210.6" cy="55.9" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="218.6" cy="61.8" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="229.2" cy="70.1" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="240.1" cy="77.5" r="1.6" fill="var(--text-tertiary)"/>
-            <circle cx="200.3" cy="89.3" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <circle cx="182.7" cy="95.9" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <circle cx="162.4" cy="91.6" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <circle cx="159.7" cy="80.7" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <circle cx="177.3" cy="74.1" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <circle cx="197.6" cy="78.4" r="3" fill="var(--bg-base)" stroke="var(--text-primary)" stroke-width="1"/>
-            <path d="M150 70 Q180 85 214 66 M138 98 Q182 88 222 104" fill="none" stroke="var(--teal)" stroke-width="0.8" opacity="0.6"/>
-          </svg>
+          <div class="ediag-map" aria-hidden="true">
+            <img class="ediag-map--dark" src="/assets/images/thinking/beco-knowledge-graph/graph-map-dark.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+            <img class="ediag-map--light" src="/assets/images/thinking/beco-knowledge-graph/graph-map-light.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
+          </div>
         </div>
       </div>
 
