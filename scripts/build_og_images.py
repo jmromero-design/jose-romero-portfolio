@@ -52,6 +52,17 @@ CARDS = {
 }
 
 
+CARDS.update({
+    "about": ("About", "Hard problems, by choice.",
+              "Senior product designer, 12 years in digital products, CRO and design systems. Now embedded at IKEA."),
+    "thinking": ("Thinking", "Essays, research and positions",
+                 "On AI in design teams, behavioural science and how teams work, from 12 years of practice."),
+    "beco-knowledge-graph": ("Research · BECO", "A knowledge graph that grades its own evidence",
+                             "420 DOI-verified sources behind 243 behavioural-science concepts."),
+    "beco-explorer": ("Interactive · BECO", "Explore the BECO graph",
+                      "243 concepts, 420 sources and the studies behind them, on one zoomable map."),
+})
+
 # the Spanish pages get their own cards: og-<slug>-es.webp
 CARDS_ES = {
     "default": ("Senior product designer", "Jose Romero",
@@ -79,10 +90,44 @@ CARDS_ES = {
 }
 
 
+CARDS_ES.update({
+    "about": ("Sobre mí", "Problemas difíciles, por elección.",
+              "Senior product designer, 12 años en productos digitales, CRO y sistemas de diseño. Ahora integrado en IKEA."),
+    "thinking": ("Reflexiones", "Ensayos, investigación y posiciones",
+                 "Sobre IA en equipos de diseño, ciencia del comportamiento y cómo trabajan los equipos."),
+    "beco-knowledge-graph": ("Investigación · BECO", "Un grafo que califica su propia evidencia",
+                             "420 fuentes verificadas por DOI detrás de 243 conceptos de ciencia del comportamiento."),
+    "beco-explorer": ("Interactivo · BECO", "Explora el grafo BECO",
+                      "243 conceptos, 420 fuentes y los estudios detrás de ellos, en un mapa con zoom."),
+})
+
+# Pages without an original share image take their visual from site assets:
+# slug: (source image, ground colour to blend the panel into)
+EXTRA_VISUALS = {
+    "about": ("assets/images/portrait-standing.webp", (0, 0, 0)),
+    "thinking": ("Designing the portfolio/og-visuals/ai-workflow-framework.png", None),
+    "beco-knowledge-graph": ("assets/images/thinking/beco-knowledge-graph/graph-map-dark.webp", (9, 9, 8)),
+    "beco-explorer": ("assets/images/thinking/beco-knowledge-graph/graph-map-dark.webp", (9, 9, 8)),
+}
+
+
+def extra_visual(slug):
+    src, ground = EXTRA_VISUALS[slug]
+    im = Image.open(ROOT / src).convert("RGB")
+    im = im.resize((round(im.width * 1260 / im.height), 1260), Image.LANCZOS)
+    ground = ground or im.getpixel((min(40, im.width - 1), 40))
+    VISUALS.mkdir(parents=True, exist_ok=True)
+    im.save(VISUALS / f"{slug}.png")
+    (VISUALS / f"{slug}.txt").write_text(f"{ground[0]},{ground[1]},{ground[2]}")
+
+
 def visual_for(slug):
     """The right-hand visual for a card, cut once from the original image."""
     out = VISUALS / f"{slug}.png"
     if out.exists():
+        return out
+    if slug in EXTRA_VISUALS:
+        extra_visual(slug)
         return out
     im = Image.open(IMAGES / f"og-{slug}.webp").convert("RGB")
     w, h = im.size

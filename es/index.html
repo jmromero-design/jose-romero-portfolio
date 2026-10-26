@@ -380,7 +380,8 @@
     }
     @keyframes v4Fade { to { opacity: 1; } }
 
-    .v4-hero-id { max-width: 44ch; }
+    .v4-hero-id { max-width: 62rem; }
+    .v4-hero-id > p { max-width: 44ch; }
     .v4-hero-id p {
       font-size: var(--text-sm);
       color: var(--text-tertiary);
@@ -388,6 +389,16 @@
       line-height: 1.6;
     }
     .v4-hero-id p strong { color: var(--text-secondary); font-weight: 500; }
+    /* proof line: three published figures, one per strand of the work */
+    .v4-proof { list-style: none; padding: 0; margin: var(--sp-6) 0 0; display: flex; flex-wrap: wrap; gap: var(--sp-4) var(--sp-10); }
+    .v4-proof li { display: flex; flex-direction: column; gap: 2px; max-width: 17rem; }
+    .v4-proof b { font-family: var(--font-display); font-weight: 400; font-size: var(--text-2xl); line-height: 1.1; color: var(--text-primary); }
+    .v4-proof span { font-size: var(--text-xs); line-height: 1.45; color: var(--text-tertiary); }
+    @media (max-width: 480px) {
+      .v4-proof { flex-direction: column; gap: var(--sp-3); }
+      .v4-proof li { flex-direction: row; align-items: baseline; gap: var(--sp-4); max-width: 100%; }
+      .v4-proof b { flex: none; min-width: 6.5rem; font-size: var(--text-xl); }
+    }
 
     .v4-scroll-cue {
       display: flex;
@@ -1517,6 +1528,11 @@
       <div class="v4-hero-rail">
         <div class="v4-hero-id">
           <p>Actualmente integrado en IKEA, trabajando en dos de sus nuevas plataformas de negocio en Europa.</p>
+          <ul class="v4-proof" aria-label="En cifras">
+            <li><b>500.000+</b><span>descargas de IKEA Home Services</span></li>
+            <li><b>4</b><span>mercados nórdicos adoptaron como estándar el formulario rediseñado de Santander</span></li>
+            <li><b>420</b><span>fuentes de ciencia del comportamiento calificadas en BECO</span></li>
+          </ul>
         </div>
         <div class="v4-scroll-cue" aria-hidden="true">
           <span>Desplázate</span>
