@@ -200,7 +200,7 @@
     }
     /* The map is the "How I work" stack seen from above (built by
        scripts/build_hero_map.mjs): base platforms, the Evidence slab, the
-       middle layers pressed into contour steps, the outcome cap. It reuses
+       middle layers pressed into contour steps, the product cap. It reuses
        the stack's pressure colours and surfaces, so both themes come from
        tokens. */
     .hm { width: 100%; height: 100%; display: block; overflow: visible; opacity: 0.82; }
@@ -579,22 +579,31 @@
     /* The path — three stops read as a timeline. Nothing here is clickable,
        so there's no hover: the rail draws down once when the block comes
        into view, lighting each stop as it reaches it, current one in gold. */
-    .v4-path { border-top: 1px solid var(--border-default); margin-bottom: var(--sp-10); }
+    .v4-path { margin-bottom: var(--sp-10); }
     .v4-path-row {
       --node-top: calc(var(--sp-5) + 0.3rem);
+      --node-y: var(--node-top);
       display: grid;
       grid-template-columns: 9rem 1fr;
       gap: var(--sp-6);
       align-items: start;
       padding-block: var(--sp-5);
       padding-left: var(--sp-8);
-      border-bottom: 1px solid var(--border-default);
       position: relative;
+      /* The horizontal rules start where the text does, so the rail on the
+         left runs unbroken from stop to stop and never crosses one. */
+      background: linear-gradient(var(--border-default), var(--border-default)) right bottom / calc(100% - var(--sp-8)) 1px no-repeat;
+    }
+    .v4-path-row:first-child {
+      background:
+        linear-gradient(var(--border-default), var(--border-default)) right top / calc(100% - var(--sp-8)) 1px no-repeat,
+        linear-gradient(var(--border-default), var(--border-default)) right bottom / calc(100% - var(--sp-8)) 1px no-repeat;
     }
     .v4-path-row::before {
       content: '';
       position: absolute;
-      left: 0; top: var(--node-top);
+      left: 0; top: var(--node-y);
+      margin-top: -4.5px;
       width: 9px; height: 9px;
       box-sizing: border-box;
       border-radius: 50%;
@@ -603,11 +612,13 @@
       z-index: 1;
       transition: background-color 0.4s ease, border-color 0.4s ease;
     }
-    .v4-path-row:not(:last-child)::after {
+    /* One rail segment per row: from the previous stop through this row's
+       node to the next, so segments meet at the row edges. */
+    .v4-path-row::after {
       content: '';
       position: absolute;
-      left: 4px; top: calc(var(--node-top) + 9px);
-      width: 1px; height: calc(100% - 9px);
+      left: 4px; top: 0; bottom: 0;
+      width: 1px;
       background: var(--teal);
       transform: scaleY(0);
       transform-origin: top;
@@ -615,11 +626,14 @@
     }
     .v4-path.is-in .v4-path-row::before { border-color: var(--teal); background: var(--teal); }
     .v4-path.is-in .v4-path-row:first-child::before { border-color: var(--gold); background: var(--gold); }
+    .v4-path-row:first-child::after { top: var(--node-y); }
+    .v4-path-row:last-child::after { bottom: calc(100% - var(--node-y)); }
     .v4-path.is-in .v4-path-row::after { transform: scaleY(1); }
     .v4-path-row:nth-child(1)::before { transition-delay: 0.5s; }
     .v4-path-row:nth-child(1)::after  { transition-delay: 0.6s; }
     .v4-path-row:nth-child(2)::before { transition-delay: 1.15s; }
-    .v4-path-row:nth-child(2)::after  { transition-delay: 1.25s; }
+    .v4-path-row:nth-child(2)::after  { transition-delay: 0.95s; }
+    .v4-path-row:nth-child(3)::after  { transition-delay: 1.6s; }
     .v4-path-row:nth-child(3)::before { transition-delay: 1.8s; }
     @media (prefers-reduced-motion: reduce) {
       .v4-path-row::before, .v4-path-row::after { transition: none; }
@@ -655,12 +669,12 @@
       .v4-about-visual img { position: absolute; inset: 0; }
       .v4-about-copy { display: flex; flex-direction: column; }
       .v4-path { flex: 1; display: flex; flex-direction: column; margin-bottom: var(--sp-8); }
-      .v4-path-row { flex: 1; }
+      .v4-path-row { flex: 1; --node-y: 50%; align-items: center; }
       .v4-about-copy > .btn { align-self: flex-start; }
     }
 
 
-    /* ═══ 6. HOW I WORK — an isometric stack, base pressures to outcome ═══
+    /* ═══ 6. HOW I WORK — an isometric stack, base pressures to product ═══
        Pure inline SVG drawn by script from the panel markup below, so the
        copy lives once, in HTML, and the drawing follows the theme tokens. */
 
@@ -778,7 +792,7 @@
     .st.has-feed .st-svg .st-venn:not(.is-lit) { stroke-opacity: 0.15; fill-opacity: 0.02; }
     .st.has-feed .st-svg .st-pname.is-dim { opacity: 0.3; }
 
-    /* Outcome: the hero map's centre, rings around one gold point.
+    /* Product: the hero map's centre, rings around one gold point.
        It brightens and breathes once a route reaches it. */
     .st-svg .st-mark { pointer-events: none; }
     .st-svg .st-mark-glow  { fill: url(#stMarkGlow); opacity: 0.5; transition: opacity 0.5s ease; }
@@ -825,7 +839,7 @@
     .st-svg .st-anchor.is-lit { opacity: 1; }
     .st.has-active .st-svg .st-layer:not(.is-active) .st-anchor.is-lit { opacity: 0.2; }
 
-    /* Outcome */
+    /* Product */
     .st-svg .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 18%, var(--bg-surface)); stroke: var(--gold); stroke-width: 1; }
     .st-svg .st-layer.is-active .st-cap .st-top { fill: color-mix(in srgb, var(--gold) 34%, var(--bg-surface)); }
     .st-svg .st-cap-label { font-family: var(--font-display); font-weight: 400; font-style: italic; font-size: 17px; fill: var(--gold); pointer-events: none; }
@@ -1498,9 +1512,9 @@
   <circle class="hm-ring hm-ring--mid" cx="200" cy="230" r="96"/>
   <circle class="hm-ring hm-ring--gold" cx="200" cy="230" r="35"/>
   <circle class="hm-core" cx="200" cy="230" r="30"/>
-  <text class="hm-core-a" x="200" y="219.5" text-anchor="middle">Outcome</text>
+  <text class="hm-core-a" x="200" y="219.5" text-anchor="middle">Product</text>
   <text class="hm-core-c" x="200" y="230.5" text-anchor="middle">A decision</text>
-  <text class="hm-core-c" x="200" y="239.5" text-anchor="middle">you can build</text>
+  <text class="hm-core-c" x="200" y="239.5" text-anchor="middle">made real</text>
 </g>
 <text class="hm-route-label" style="--c:var(--st-b)" x="166" y="157" text-anchor="start">Viability</text>
 <text class="hm-route-label" style="--c:var(--st-u)" x="278" y="201" text-anchor="start">Desirability</text>
@@ -1767,7 +1781,7 @@
 
       <div class="st-body">
         <div class="st-stage" id="stStage" aria-hidden="true"
-             data-title="A decision you can build"
+             data-title="A decision made real"
              data-count-lit="{n} of {total} in play"
              data-count-all="{total} options"></div>
 
@@ -1791,11 +1805,11 @@
           <ol class="st-layers v4-r" style="--d: 0.1s;">
             <li class="st-layer-item" data-layer="6">
               <button type="button" class="st-layer-btn" aria-expanded="false" aria-controls="st-l6">
-                <span class="st-layer-title"><span class="st-layer-name">Outcome</span><span class="st-layer-q">What does the team walk away with?</span></span>
+                <span class="st-layer-title"><span class="st-layer-name">Product</span><span class="st-layer-q">What actually gets built?</span></span>
                 <span class="st-layer-count">Where it lands</span>
               </button>
               <div class="st-layer-detail" id="st-l6"><div>
-                <p>Whichever route the work takes, it ends in something a team can act on the next morning: what to build, why it matters, and how we'll know it worked.</p>
+                <p>Whichever route the work takes, it ends in a built product. The layers below decide what goes into it: what to build, why it matters, and how we'll know it worked.</p>
                 <ul class="st-opts">
                   <li>Decision record</li>
                   <li>Tested prototype</li>
@@ -2299,12 +2313,12 @@
       }
 
       // Every pressure needs a tile in every layer, or its route stops short
-      // of the outcome. Flag a gap while editing the panel markup.
+      // of the product. Flag a gap while editing the panel markup.
       layers.slice(1).forEach((L, k) => FEEDS.forEach((f) => {
         if (!L.plats.some((p) => p.feeds.has(f))) console.warn(`How I work: layer ${k + 1} has no tile for "${f}"`);
       }));
 
-      // ── 6: the outcome ──
+      // ── 6: the product ──
       // The hero map's centre on a small slab: rings around a single gold
       // point, the one place every route converges.
       const L6 = layerGroup(CAP_I);
