@@ -3445,9 +3445,17 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--text-tertiary);
   letter-spacing: 0.04em;
 }
+.v4-footer-sign {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--text-lg);
+  letter-spacing: 0;
+  color: var(--text-secondary);
+}
 
 @media (max-width: 768px) {
   .v4-footer-top { align-items: flex-start; flex-direction: column; }
+  .v4-footer-sign { flex-basis: 100%; }
 }
 
 /* ------------------------------------------------------------

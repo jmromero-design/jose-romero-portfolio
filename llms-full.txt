@@ -1780,7 +1780,7 @@ At a glance
 
 ## Not a _prototype._
 
-420Sources 431Findings 243Named Concepts 221Topics 960Authors 222Real-World Examples
+452Sources 465Findings 254Named Concepts 221Topics 960Authors 227Real-World Examples
 
 Hosted on Neo4j Aura, always-on and reachable from anywhere, not a local file on one laptop.
 

@@ -46,7 +46,7 @@ De un vistazo
 
 ## No es un _prototipo._
 
-420Fuentes 431Hallazgos 243Conceptos con Nombre 221Temas 960Autores 222Ejemplos Reales
+452Fuentes 465Hallazgos 254Conceptos con Nombre 221Temas 960Autores 227Ejemplos Reales
 
 Alojado en Neo4j Aura, siempre activo y accesible desde cualquier lugar, no un archivo local en un solo portátil.
 
