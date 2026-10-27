@@ -144,6 +144,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v
       overscroll-behavior: contain;
       padding: 0 var(--gutter) var(--sp-10) var(--sp-6);
       border-left: 1px solid var(--border-default);
+      background: var(--bg-base);
     }
     .bgx-map { grid-area: map; position: relative; min-height: 0; }
 
@@ -208,7 +209,9 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v
       padding-block: var(--sp-3);
       background: var(--bg-base);
       border-bottom: 1px solid var(--border-subtle);
-      margin-bottom: var(--sp-5);
+      /* spans the column edge to edge, so it reads as the column's own top bar */
+      margin: 0 calc(-1 * var(--gutter)) var(--sp-5) calc(-1 * var(--sp-6));
+      padding-inline: var(--sp-6) var(--gutter);
     }
     .bgx-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: 0.9375rem; }
     .bgx-crumbs li { display: inline-flex; align-items: center; color: var(--text-tertiary); min-width: 0; }
@@ -269,9 +272,15 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v
     .bgx-card-meta { font-size: 0.875rem; color: var(--text-tertiary); }
     .bgx-card-meta em { font-style: normal; color: var(--gold); }
     .bgx-more { font-size: 0.875rem; color: var(--text-tertiary); margin: var(--sp-2) 0 0; }
-    .bgx-finding { padding: var(--sp-3) 0; border-top: 1px solid var(--border-subtle); }
-    .bgx-finding p { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-2); }
-    .bgx-finding .bgx-cite { font-size: 0.875rem; line-height: 1.5; color: var(--text-tertiary); margin: 0; }
+    /* one rhythm for the concept entry: blocks 16px apart, headings 32px above */
+    .bgx-detail { display: flex; flex-direction: column; gap: var(--sp-4); }
+    .bgx-detail > * { margin-block: 0; }
+    .bgx-detail > .bgx-h3 { margin-top: var(--sp-4); }
+    .bgx-finding { display: flex; flex-direction: column; gap: var(--sp-2); padding-top: var(--sp-4); border-top: 1px solid var(--border-subtle); }
+    .bgx-finding > * { margin: 0; }
+    .bgx-finding > .bgx-note { margin-top: var(--sp-2); }
+    .bgx-finding p { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); }
+    .bgx-finding .bgx-cite { font-size: var(--text-xs); line-height: 1.5; color: var(--text-tertiary); }
     .bgx-finding a { color: var(--teal-text); }
     .bgx-finding a:hover { color: var(--gold); }
     .bgx-finding .bgx-example-title { font-weight: 500; color: var(--text-primary); }
@@ -361,7 +370,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v
       .bgx-zoom, .bgx-panel-btn, .bgx-resize, .bgx-kbd, .bgx-stage > .bgx-key { display: none; }
       .bgx-tools-end { margin-left: 0; }
       .bgx-col { overflow: visible; border-left: 0; padding: 0 var(--gutter) var(--sp-16); }
-      .bgx-crumbs { position: static; }
+      .bgx-crumbs { position: static; margin-inline: 0; padding-inline: 0; }
       .bgx-map { height: 52svh; min-height: 300px; border-bottom: 1px solid var(--border-default); margin-bottom: var(--sp-2); }
       /* while searching, the results come straight under the search box */
       .bgx-app.is-searching:not(.is-exploring) .bgx-map { display: none; }
