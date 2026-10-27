@@ -3,7 +3,9 @@
    and a column of cards that read it. Picking anything in either
    moves the other: a card flies the map there, a dot on the map
    opens its card. Shared by /thinking/beco-explorer/ and its Spanish
-   twin; each page supplies its wording in window.BGX_STRINGS.
+   twin (a copy of the BECO lab's file, with the data paths taken from
+   BGX_STRINGS.dataDir and .graphUrl); each page supplies its wording in
+   window.BGX_STRINGS.
 
    Data: assets/data/beco-graph/graph.json (nodes with precomputed
    positions, built by scripts/generate_beco_graph_data.py). A concept's
@@ -23,7 +25,13 @@
   const crumbs = document.getElementById('bgxCrumbs');
   const statsEl = document.getElementById('bgxStats');
   const searchInput = document.getElementById('bgxSearch');
-  const searchList = document.getElementById('bgxResults');
+  const colEl = document.getElementById('bgxCol');
+  const statusEl = document.getElementById('bgxStatus');
+  const panelBtn = document.getElementById('bgxPanel');
+  const helpEl = document.getElementById('bgxHelp');
+  const resizer = document.getElementById('bgxResize');
+  // optional: a page can supply its own starting card (the lab's welcome) as a <template>
+  const welcomeTpl = document.getElementById('bgxWelcome');
   const hintEl = document.getElementById('bgxHint');
   const peek = document.getElementById('bgxPeek');
   const gradeBtns = Array.from(document.querySelectorAll('[data-grade]'));
@@ -42,6 +50,17 @@
   const cam = { x: 0, y: 0, k: 1 };
   let W = 0, H = 0, dpr = 1, fitK = 1;
   let hover = -1, current = -1, grade = null, focus = null;
+  // a specialty (lab only): a named set of starting concepts, lit like a filter
+  let spec = null, specs = [], specById = new Map();
+  let statsText = '';
+  // the lab leaves authors off the map (they stay in the cards); their ring is the
+  // busiest and says the least, so the map's edge moves in to the sources
+  const showAuthors = !S.hideAuthors;
+  const OUT = showAuthors ? 1040 : 925;     // world radius of the rim ticks
+  const hidden = (i) => !showAuthors && T[i] === AUTHOR;
+  // colour by group: each node takes the hue of the group it sits under (sources and
+  // authors stay neutral); the page supplies the hues as --g1..--g8
+  let slotOf = null;                      // node → hue slot 0..7, or -1
   let needsDraw = true;
 
   /* ── theme: every colour comes from the page's tokens ── */
@@ -56,6 +75,8 @@
     };
     // partial backing: teal pulled halfway to the page background, as on the homepage
     theme.partial = mix(theme.teal, theme.bg, 0.5);
+    const g = [1, 2, 3, 4, 5, 6, 7, 8].map((n) => v('--g' + n));
+    theme.groups = g.every(Boolean) ? g.map((c) => ({ full: c, half: mix(c, theme.bg, 0.5), soft: mix(c, theme.bg, 0.45), topic: mix(c, theme.bg, 0.25) })) : null;
     needsDraw = true;
   }
   function mix(a, b, t) {
@@ -88,12 +109,23 @@
       R[i] = r;
     }
     for (const t of [CLUSTER, DOMAIN, TOPIC]) for (const i of byType[t]) below.set(i, conceptsUnder(i));
+    // hues go round the dial in an alternating order, so neighbouring groups never get neighbouring hues
+    const ORDER = [0, 4, 1, 5, 2, 6, 3, 7];
+    const slot = new Map();
+    byType[CLUSTER].slice().sort((a, b) => Math.atan2(Y[a], X[a]) - Math.atan2(Y[b], X[b])).forEach((c, k) => slot.set(c, ORDER[k % 8]));
+    slotOf = new Int8Array(N).fill(-1);
+    for (let i = 0; i < N; i++) {
+      if (T[i] >= SOURCE) continue;
+      const root = T[i] === CLUSTER ? i : chain(i)[0];
+      if (root != null && slot.has(root)) slotOf[i] = slot.get(root);
+    }
     // names sort the way people expect, not by file order
     for (const t of [CLUSTER, DOMAIN, TOPIC, CONCEPT]) byType[t].sort((a, b) => label[a].localeCompare(label[b]));
     // the database totals when the export carries them; the node counts above double-count a finding cited under more than one concept
     const tot = data.totals;
-    statsEl.textContent = tot ? S.stats(tot.biases, tot.findings, tot.sources, tot.authors)
+    statsText = tot ? S.stats(tot.biases, tot.findings, tot.sources, tot.authors)
       : S.stats(byType[CONCEPT].length, byType[FINDING].length, byType[SOURCE].length, byType[AUTHOR].length);
+    if (statsEl) statsEl.textContent = statsText;
     buildGrid();
   }
   function conceptsUnder(i) {
@@ -124,7 +156,7 @@
     for (let gx = cx - span; gx <= cx + span; gx++) for (let gy = cy - span; gy <= cy + span; gy++) {
       const cell = grid.get(gx + ',' + gy); if (!cell) continue;
       for (const i of cell) {
-        if (focus && !focus.has(i)) continue;
+        if ((focus && !focus.has(i)) || hidden(i)) continue;
         const d = Math.hypot(X[i] - wx, Y[i] - wy) * cam.k - screenR(i);
         // favour the more important node when two are equally close
         const score = d - (7 - T[i]) * 0.6;
@@ -166,7 +198,7 @@
     const prevFit = fitK, wasHome = cam.k === prevFit;
     // leave room round the rim for the cluster names on either side
     const room = rimOn() ? Math.min(H * 0.41, W / 2 - rimWidth()) : Math.min(H * 0.44, W * 0.47);
-    fitK = Math.max(60, room) / 1100;
+    fitK = Math.max(60, room) / (OUT + 60);
     if (wasHome || !cam.k) { cam.k = fitK; cam.x = 0; cam.y = 0; }
     needsDraw = true;
   }
@@ -210,6 +242,7 @@
   }
   const home = () => flyTo(0, 0, fitK);
   function flyToNode(i) {
+    if (hidden(i)) return fitTo(adj[i].filter((j) => T[j] === SOURCE));
     const k = Math.max(cam.k, fitK * ({ 0: 1.7, 1: 2.3, 2: 3.2, 3: 3.4 }[T[i]] || 5));
     // full-screen map on phones: the peek bar covers the bottom, so lift the node
     const lift = app.classList.contains('is-exploring') ? (H * 0.12) / k : 0;
@@ -244,12 +277,14 @@
 
     // edges: one path per style, so a few thousand lines cost a few strokes
     const zoomed = k / fitK;
+    const G = theme.groups;
     ctx.lineWidth = 1;
+    const shown = (a, b) => !hidden(a) && !hidden(b);
     const strokeEdges = (color, alpha, pick) => {
       ctx.beginPath();
       for (let e = 0; e < edges.length; e += 2) {
         const a = edges[e], b = edges[e + 1];
-        if (!pick(a, b)) continue;
+        if (!shown(a, b) || !pick(a, b)) continue;
         ctx.moveTo(sx(a), sy(a)); ctx.lineTo(sx(b), sy(b));
       }
       ctx.strokeStyle = color; ctx.globalAlpha = alpha; ctx.stroke();
@@ -257,7 +292,23 @@
     const inner = (a, b) => Math.max(T[a], T[b]) <= CONCEPT;
     if (active) {
       strokeEdges(theme.border, 0.14, (a, b) => !(active.has(a) && active.has(b)) && (inner(a, b) || zoomed > 2));
-      strokeEdges(theme.tealText, 0.55, (a, b) => active.has(a) && active.has(b));
+      if (G) {
+        // lit edges take the hue of their group, so a path reads back to where it starts
+        const by = new Map();
+        for (let e = 0; e < edges.length; e += 2) {
+          const a = edges[e], b = edges[e + 1];
+          if (!shown(a, b) || !(active.has(a) && active.has(b))) continue;
+          const sl = slotOf[T[a] > T[b] && slotOf[a] >= 0 ? a : slotOf[b] >= 0 ? b : a];
+          const c = sl >= 0 ? G[sl].full : theme.text2;
+          if (!by.has(c)) by.set(c, []);
+          by.get(c).push(a, b);
+        }
+        for (const [c, list] of by) {
+          ctx.beginPath();
+          for (let n = 0; n < list.length; n += 2) { ctx.moveTo(sx(list[n]), sy(list[n])); ctx.lineTo(sx(list[n + 1]), sy(list[n + 1])); }
+          ctx.strokeStyle = c; ctx.globalAlpha = 0.6; ctx.stroke();
+        }
+      } else strokeEdges(theme.tealText, 0.55, (a, b) => active.has(a) && active.has(b));
     } else {
       strokeEdges(theme.borderStrong, 0.55, inner);
       strokeEdges(theme.border, zoomed > 1.6 ? 0.7 : 0.45, (a, b) => !inner(a, b));
@@ -271,34 +322,41 @@
       // bow toward the map's centre, so cross-links read as arcs through it
       ctx.moveTo(sx(a), sy(a)); ctx.quadraticCurveTo(mx + (ox - mx) * 0.18, my + (oy - my) * 0.18, sx(b), sy(b));
     }
-    ctx.strokeStyle = theme.teal; ctx.globalAlpha = active ? 0.6 : 0.16; ctx.stroke();
+    // with hues on the nodes the arcs step back to a neutral line
+    ctx.strokeStyle = G ? theme.text2 : theme.teal; ctx.globalAlpha = active ? 0.6 : G ? 0.12 : 0.16; ctx.stroke();
 
-    // nodes: one path per style and per lit/dimmed, back to front by rank
+    // nodes: one path per colour, lit and dimmed apart, back to front by rank;
+    // whatever falls outside the lit set loses its hue and fades to grey
     const onScreen = (x, y) => x > -20 && y > -20 && x < W + 20 && y < H + 20;
-    const batch = (list, alpha, fill, stroke) => {
-      for (const dim of [true, false]) {
-        if (dim && !active) continue;
-        ctx.beginPath();
-        let any = false;
-        for (const i of list) {
-          if (active && active.has(i) === dim) continue;
-          const x = sx(i), y = sy(i); if (!onScreen(x, y)) continue;
-          const r = screenR(i);
-          ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, Math.PI * 2); any = true;
-        }
-        if (!any) continue;
-        ctx.globalAlpha = alpha * (dim ? 0.1 : 1);
-        if (fill) { ctx.fillStyle = fill; ctx.fill(); }
-        if (stroke) stroke();
+    const circles = (ids) => { ctx.beginPath(); for (const i of ids) { const x = sx(i), y = sy(i), r = screenR(i); ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, Math.PI * 2); } };
+    const dash = (color) => { ctx.setLineDash([2, 2]); ctx.strokeStyle = color; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]); };
+    // colorOf gives the fill; outline nodes are filled with the page and drawn with a dashed line instead
+    const batch = (list, alpha, colorOf, outline) => {
+      const lit = new Map(), dim = [];
+      for (const i of list) {
+        if (hidden(i) || !onScreen(sx(i), sy(i))) continue;
+        if (active && !active.has(i)) { dim.push(i); continue; }
+        const c = colorOf(i);
+        if (!lit.has(c)) lit.set(c, []);
+        lit.get(c).push(i);
+      }
+      if (dim.length) {
+        circles(dim); ctx.globalAlpha = alpha * 0.12;
+        if (outline) { ctx.fillStyle = theme.bg; ctx.fill(); dash(theme.text3); } else { ctx.fillStyle = theme.text3; ctx.fill(); }
+      }
+      for (const [c, ids] of lit) {
+        circles(ids); ctx.globalAlpha = alpha;
+        if (outline) { ctx.fillStyle = theme.bg; ctx.fill(); dash(c); } else { ctx.fillStyle = c; ctx.fill(); }
       }
     };
+    const hue = (i, tone, plain) => (G && slotOf[i] >= 0 ? G[slotOf[i]][tone] : plain);
     const concepts = byType[CONCEPT];
-    batch(byType[AUTHOR], 0.55, theme.text3);
-    batch(byType[SOURCE], 1, theme.borderStrong);
-    batch(byType[APP].concat(byType[FINDING]), 0.8, theme.text3);
-    batch(concepts.filter((i) => extra[i].g === 'v'), 1, theme.teal);
-    batch(concepts.filter((i) => extra[i].g === 'p'), 1, theme.partial);
-    batch(concepts.filter((i) => extra[i].g === 'n'), 1, theme.bg, () => { ctx.setLineDash([2, 2]); ctx.strokeStyle = theme.text2; ctx.lineWidth = 1; ctx.stroke(); ctx.setLineDash([]); });
+    if (showAuthors) batch(byType[AUTHOR], 0.55, () => theme.text3);
+    batch(byType[SOURCE], 1, () => theme.borderStrong);
+    batch(byType[APP].concat(byType[FINDING]), 0.8, (i) => hue(i, 'soft', theme.text3));
+    batch(concepts.filter((i) => extra[i].g === 'v'), 1, (i) => hue(i, 'full', theme.teal));
+    batch(concepts.filter((i) => extra[i].g === 'p'), 1, (i) => hue(i, 'half', theme.partial));
+    batch(concepts.filter((i) => extra[i].g === 'n'), 1, (i) => hue(i, 'full', theme.text2), true);
     // concepts often repeated as myths carry a ring in the accent
     ctx.beginPath();
     for (const i of concepts) {
@@ -307,18 +365,19 @@
       ctx.moveTo(x + r, y); ctx.arc(x, y, r, 0, Math.PI * 2);
     }
     ctx.globalAlpha = 1; ctx.strokeStyle = theme.gold; ctx.lineWidth = 1.1; ctx.stroke();
-    batch(byType[TOPIC], 1, theme.text3);
-    batch(byType[DOMAIN], 1, theme.text2);
+    batch(byType[TOPIC], 1, (i) => hue(i, 'topic', theme.text3));
+    batch(byType[DOMAIN], 1, (i) => hue(i, 'full', theme.text2));
     for (const i of byType[CLUSTER]) {
       const x = sx(i), y = sy(i), r = screenR(i);
+      const c = hue(i, 'full', theme.text1);
       ctx.globalAlpha = active && !active.has(i) ? 0.1 : 1;
       ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2);
-      ctx.fillStyle = theme.bg; ctx.fill(); ctx.strokeStyle = theme.text1; ctx.lineWidth = 1.4; ctx.stroke();
-      ctx.beginPath(); ctx.arc(x, y, r * 0.35, 0, Math.PI * 2); ctx.fillStyle = theme.text1; ctx.fill();
+      ctx.fillStyle = theme.bg; ctx.fill(); ctx.strokeStyle = c; ctx.lineWidth = 1.4; ctx.stroke();
+      ctx.beginPath(); ctx.arc(x, y, r * 0.35, 0, Math.PI * 2); ctx.fillStyle = c; ctx.fill();
     }
     // the node in hand, and the one under the pointer
     for (const i of [current, hover]) {
-      if (i < 0) continue;
+      if (i < 0 || hidden(i)) continue;
       ctx.globalAlpha = 1; ctx.beginPath(); ctx.arc(sx(i), sy(i), screenR(i) + 4, 0, Math.PI * 2);
       ctx.strokeStyle = theme.text1; ctx.lineWidth = 1.2; ctx.stroke();
     }
@@ -342,7 +401,7 @@
       const a = Math.atan2(Y[i], X[i]), c = Math.cos(a), sn = Math.sin(a);
       const lines = rimLines(label[i]);
       const w = Math.max(...lines.map((l) => ctx.measureText(l).width));
-      return { i, c, sn, lines, w, h: lines.length * 14, side: c >= 0 ? 1 : -1, y: sn * 1085 * cam.k + oy };
+      return { i, c, sn, lines, w, h: lines.length * 14, side: c >= 0 ? 1 : -1, y: sn * (OUT + 45) * cam.k + oy };
     });
     for (const side of [1, -1]) {
       const col = items.filter((it) => it.side === side).sort((p, q) => p.y - q.y);
@@ -350,20 +409,21 @@
     }
     for (const it of items) {
       const { i, c, sn, lines, w } = it;
-      const x = c * 1085 * cam.k + ox;
+      const x = c * (OUT + 45) * cam.k + ox;
+      const col = theme.groups && slotOf[i] >= 0 ? theme.groups[slotOf[i]].full : theme.tealText;
       const lx = it.side > 0 ? x : x - w, ly = it.y - (lines.length - 1) * 7;
       ctx.globalAlpha = focus && !focus.has(i) ? 0.3 : 1;
       // a short tick from the rim toward the name
       ctx.beginPath();
-      ctx.moveTo(c * 1040 * cam.k + ox, sn * 1040 * cam.k + oy);
-      ctx.lineTo(c * 1070 * cam.k + ox, sn * 1070 * cam.k + oy);
-      ctx.strokeStyle = theme.teal; ctx.lineWidth = 1; ctx.stroke();
+      ctx.moveTo(c * OUT * cam.k + ox, sn * OUT * cam.k + oy);
+      ctx.lineTo(c * (OUT + 30) * cam.k + ox, sn * (OUT + 30) * cam.k + oy);
+      ctx.strokeStyle = col; ctx.lineWidth = 1; ctx.stroke();
       ctx.textAlign = it.side > 0 ? 'left' : 'right';
       const ax = it.side > 0 ? lx : lx + w;
       lines.forEach((l, n) => {
         ctx.lineWidth = 3.5; ctx.strokeStyle = theme.bg; ctx.lineJoin = 'round';
         ctx.strokeText(l, ax, ly + n * 14);
-        ctx.fillStyle = i === hover || i === current ? theme.text1 : theme.tealText;
+        ctx.fillStyle = i === hover || i === current ? theme.text1 : col;
         ctx.fillText(l, ax, ly + n * 14);
       });
       ctx.textAlign = 'left';
@@ -384,9 +444,10 @@
     };
     const want = (i) => {
       const t = T[i];
+      if (hidden(i)) return false;
       if (t === CLUSTER && z <= 2.2 && rimOn()) return false;   // named on the rim instead
       // with something lit, name what it holds; evidence only once you are close
-      if (focus) return focus.has(i) && (t <= CONCEPT || z > 4.5 || i === current || i === hover || adj[current]?.includes(i));
+      if (focus) return focus.has(i) && (t <= CONCEPT || z > 4.5 || i === current || i === hover || adj[current]?.includes(i) || !!query);
       if (i === hover) return true;
       return (t === CLUSTER && (z > 2.2 || (!rimOn() && z > 1.4))) || (t === DOMAIN && z > 1.25) || (t === CONCEPT && z > 2.1) || (t === TOPIC && z > 4) || (t >= FINDING && z > 7);
     };
@@ -412,7 +473,7 @@
       // a halo in the page colour keeps text legible over lines
       ctx.lineWidth = 3.5; ctx.strokeStyle = theme.bg; ctx.lineJoin = 'round';
       ctx.strokeText(text, lx, ly);
-      ctx.fillStyle = big ? theme.tealText : t === CONCEPT || t === DOMAIN ? theme.text1 : theme.text2;
+      ctx.fillStyle = big ? (theme.groups && slotOf[i] >= 0 ? theme.groups[slotOf[i]].full : theme.tealText) : t === CONCEPT || t === DOMAIN ? theme.text1 : theme.text2;
       ctx.fillText(text, lx, ly);
     }
     ctx.letterSpacing = '0px';
@@ -449,14 +510,18 @@
   function fromHash() {
     const parts = location.hash.replace(/^#\/?/, '').split('/').filter(Boolean);
     if (parts[0] === 'grade' && parts[1]) return { grade: parts[1] };
+    if (parts[0] === 'especialidad' && parts[1]) return { spec: parts[1] };
+    if (parts[0] === 'buscar' && parts[1]) return { q: decodeURIComponent(parts.slice(1).join('/')) };
     const id = parts[parts.length - 1];
     return { node: id && byId.has(id) ? byId.get(id) : -1 };
   }
 
   /* ── navigation: one call moves the map and the cards together ── */
   function go(i, opts = {}) {
+    if (query) endSearch();
+    if (i !== -1 && opts.open !== false) setPanel(true);
     current = i;
-    grade = null;
+    grade = null; spec = null;
     gradeBtns.forEach((b) => b.setAttribute('aria-pressed', 'false'));
     focus = i === -1 ? null : focusOf(i);
     renderCrumbs();
@@ -471,8 +536,10 @@
   }
   function goGrade(g, opts = {}) {
     if (grade === g) return go(-1, opts);
+    if (query) endSearch();
+    setPanel(true);
     current = -1;
-    grade = g;
+    grade = g; spec = null;
     focus = gradeFocus(g);
     gradeBtns.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.grade === g)));
     renderCrumbs();
@@ -482,26 +549,50 @@
     needsDraw = true;
   }
 
+  function goSpec(id, opts = {}) {
+    const s = specById.get(id);
+    if (!s) return go(-1, opts);
+    if (query) endSearch();
+    setPanel(true);
+    current = -1; grade = null; spec = s;
+    gradeBtns.forEach((b) => b.setAttribute('aria-pressed', 'false'));
+    const list = s.concepts.map((c) => byId.get(c.id)).filter((j) => j != null);
+    // the starting concepts and their path to the centre, so the map names only those
+    focus = new Set();
+    list.forEach((i) => chain(i).forEach((m) => focus.add(m)));
+    renderCrumbs();
+    renderSpec(s, list);
+    if (opts.fly !== false) fitTo(list);
+    if (opts.push !== false) history.pushState(null, '', '#especialidad/' + s.id);
+    if (app.classList.contains('is-exploring')) showPeek(-1);
+    needsDraw = true;
+  }
+  // the address of whatever is open, for going back to it after a search
+  const stateHash = (b) => (b.spec ? '#especialidad/' + b.spec.id : b.grade ? '#grade/' + b.grade : hashFor(b.node));
+
   /* ── the column: crumbs and cards ── */
   const esc = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const dot = (j) => `<span class="bgx-dot bgx-dot--${S.typeKey[T[j]]}${T[j] === CONCEPT ? ' bgx-dot--' + extra[j].g : ''}" aria-hidden="true"></span>`;
+  const hueVar = (j) => (theme.groups && slotOf && slotOf[j] >= 0 ? ` style="--hue: var(--g${slotOf[j] + 1})"` : '');
+  const dot = (j) => `<span class="bgx-dot bgx-dot--${S.typeKey[T[j]]}${T[j] === CONCEPT ? ' bgx-dot--' + extra[j].g : ''}"${hueVar(j)} aria-hidden="true"></span>`;
 
   function renderCrumbs() {
     const path = current === -1 ? [] : chain(current);
-    const items = [`<li><button type="button" class="bgx-crumb" data-node="-1"${path.length || grade ? '' : ' aria-current="page"'}>${esc(S.home)}</button></li>`];
+    const items = [`<li><button type="button" class="bgx-crumb" data-node="-1"${path.length || grade || query || spec ? '' : ' aria-current="page"'}>${esc(S.home)}</button></li>`];
     path.forEach((j, n) => {
       const last = n === path.length - 1;
       items.push(`<li><button type="button" class="bgx-crumb" data-node="${j}"${last ? ' aria-current="page"' : ''}>${esc(label[j])}</button></li>`);
     });
     if (grade) items.push(`<li><span class="bgx-crumb" aria-current="page">${esc(S.grade[grade])}</span></li>`);
+    if (query) items.push(`<li><span class="bgx-crumb" aria-current="page">${esc(S.search)}</span></li>`);
+    if (spec) items.push(`<li><span class="bgx-crumb" aria-current="page">${esc(spec.name)}</span></li>`);
     crumbs.innerHTML = `<ol>${items.join('')}</ol>`;
   }
 
   // the evidence scale for whatever sits beneath a card
-  function bar(list) {
+  function bar(list, owner) {
     const c = { v: 0, p: 0, n: 0 };
     list.forEach((j) => { c[extra[j].g] = (c[extra[j].g] || 0) + 1; });
-    return `<span class="bgx-bar" role="img" aria-label="${esc(S.barLabel(c.v, c.p, c.n))}">${['v', 'p', 'n'].map((g) => (c[g] ? `<i class="bgx-bar-${g}" style="flex:${c[g]}"></i>` : '')).join('')}</span>`;
+    return `<span class="bgx-bar"${owner != null ? hueVar(owner) : ''} role="img" aria-label="${esc(S.barLabel(c.v, c.p, c.n))}">${['v', 'p', 'n'].map((g) => (c[g] ? `<i class="bgx-bar-${g}" style="flex:${c[g]}"></i>` : '')).join('')}</span>`;
   }
   // the Spanish title of a concept, shown under its English name (only the Spanish build carries it)
   const alt = (j) => (T[j] === CONCEPT && extra[j].n ? `<span class="bgx-alt">${esc(extra[j].n)}</span>` : '');
@@ -509,10 +600,11 @@
   function card(j) {
     const t = T[j], x = extra[j];
     let meta = '';
-    if (t < CONCEPT) meta = `<span class="bgx-card-meta">${esc(S.concepts((below.get(j) || []).length))}</span>${bar(below.get(j) || [])}`;
+    if (t < CONCEPT) meta = `<span class="bgx-card-meta">${esc(S.concepts((below.get(j) || []).length))}</span>${bar(below.get(j) || [], j)}`;
     else if (t === CONCEPT) meta = `<span class="bgx-card-meta">${esc([S.kind[x.k], S.grade[x.g]].filter(Boolean).join(' · '))}${x.m === 'high' ? ` · <em>${esc(S.mythShort)}</em>` : ''}</span>`;
     else meta = `<span class="bgx-card-meta">${esc(S.type[t])}</span>`;
-    return `<li><button type="button" class="bgx-card" data-node="${j}">${t >= CONCEPT ? dot(j) : ''}<span class="bgx-card-name">${esc(label[j])}${alt(j)}</span>${meta}</button></li>`;
+    const hit = query && hits.get(j) ? `<span class="bgx-alt">${esc(S.matched ? S.matched(hits.get(j)) : hits.get(j))}</span>` : '';
+    return `<li><button type="button" class="bgx-card" data-node="${j}">${t >= CONCEPT ? dot(j) : ''}<span class="bgx-card-name">${esc(label[j])}${alt(j)}${hit}</span>${meta}</button></li>`;
   }
   function cards(title, list, max) {
     if (!list.length) return '';
@@ -525,6 +617,7 @@
 
   function renderCard(i) {
     let html = '';
+    if (i === -1 && welcomeTpl) return renderWelcome();
     if (i === -1) {
       html = `<h2 class="bgx-name bgx-sr" tabindex="-1">${esc(S.home)}</h2><p class="bgx-lead">${esc(S.intro)}</p>${cards(S.h.clusters, byType[CLUSTER])}`;
     } else {
@@ -533,7 +626,7 @@
         html = head(i, S.type[t]);
         if (x.d) html += `<p class="bgx-desc">${esc(x.d)}</p>`;
         const list = below.get(i) || [];
-        html += `<p class="bgx-counts">${esc(S.concepts(list.length))}</p>${bar(list)}`;
+        html += `<p class="bgx-counts">${esc(S.concepts(list.length))}</p>${bar(list, i)}`;
         if (t === TOPIC) {
           html += cards(S.h.concepts, kids(i, CONCEPT));
           html += cards(S.h.loose, kids(i, FINDING));
@@ -566,7 +659,7 @@
       }
     }
     body.innerHTML = html;
-    body.scrollTop = 0;
+    colEl.scrollTop = 0;
   }
 
   // A concept's full entry: description, the studies behind it, the
@@ -599,10 +692,50 @@
       .catch(() => { const el = document.getElementById('bgxDetail'); if (el) el.innerHTML = `<p class="bgx-counts">${esc(S.loadError)}</p>`; });
   }
 
+  // The lab's starting card: the page's template, with its slots filled from the graph
+  const specChips = (list) => list.map((x) => `<button type="button" class="bgx-chip" data-spec="${esc(x.id)}">${esc(x.name)}</button>`).join('');
+  let surveyUrl = null;
+  function renderWelcome() {
+    body.replaceChildren(welcomeTpl.content.cloneNode(true));
+    const slot = (n) => body.querySelector(`[data-slot="${n}"]`);
+    const el = {
+      stats: slot('stats'), hook: slot('hook'), evidence: slot('evidence'),
+      specs: slot('specs'), clusters: slot('clusters'), survey: slot('survey'),
+    };
+    if (el.stats) el.stats.textContent = statsText;
+    if (el.hook) el.hook.innerHTML = `<ul class="bgx-cards">${el.hook.dataset.ids.split(' ').map((id) => byId.get(id)).filter((j) => j != null).map(card).join('')}</ul>`;
+    if (el.evidence) {
+      const c = { v: 0, p: 0, n: 0 };
+      byType[CONCEPT].forEach((j) => { c[extra[j].g] = (c[extra[j].g] || 0) + 1; });
+      el.evidence.innerHTML = `<p class="bgx-desc">${esc(S.evidence(byType[CONCEPT].length, c.v, c.p, c.n))}</p>${bar(byType[CONCEPT])}`
+        + `<div class="bgx-chips">${['v', 'p', 'n'].map((g) => `<button type="button" class="bgx-chip" data-grade-pick="${g}"><span class="bgx-dot bgx-dot--${g}"></span>${esc(S.grade[g])}: ${c[g]}</button>`).join('')}</div>`;
+    }
+    if (el.specs) {
+      el.specs.innerHTML = specChips(specs);
+      el.specs.closest('[data-section]')?.toggleAttribute('hidden', !specs.length);
+    }
+    if (el.clusters) el.clusters.innerHTML = cards(S.h.clusters, byType[CLUSTER]);
+    if (el.survey) {
+      const show = (url) => { if (!url) return; el.survey.hidden = false; el.survey.querySelector('a[data-survey]')?.setAttribute('href', url); };
+      if (surveyUrl !== null) show(surveyUrl);
+      else if (el.survey.dataset.src) fetch(el.survey.dataset.src).then((r) => r.json()).then((cfg) => { surveyUrl = cfg.surveyUrl || ''; if (current === -1 && !grade && !spec && !query) show(surveyUrl); }).catch(() => { surveyUrl = ''; });
+    }
+    colEl.scrollTop = 0;
+  }
+
+  function renderSpec(s, list) {
+    body.innerHTML = `<p class="bgx-type">${esc(S.spec.type)}</p><h2 class="bgx-name" tabindex="-1">${esc(s.name)}</h2>`
+      + `<h3 class="bgx-h3">${esc(S.spec.decisions)}</h3><p class="bgx-desc">${esc(s.decisions)}</p>`
+      + `<h3 class="bgx-h3">${esc(S.spec.help)}</h3><p class="bgx-desc">${esc(s.help)}</p>`
+      + cards(S.spec.start, list)
+      + `<h3 class="bgx-h3">${esc(S.spec.others)}</h3><div class="bgx-chips">${specChips(specs.filter((x) => x !== s))}</div>`;
+    colEl.scrollTop = 0;
+  }
+
   function renderGrade(g) {
     const list = byType[CONCEPT].filter((i) => extra[i].g === g);
     body.innerHTML = `<p class="bgx-type">${esc(S.h.byGrade)}</p><h2 class="bgx-name" tabindex="-1">${esc(S.grade[g])}</h2><p class="bgx-desc">${esc(S.gradeNote[g])}</p>${cards(S.concepts(list.length), list)}`;
-    body.scrollTop = 0;
+    colEl.scrollTop = 0;
   }
 
   // anything with a data-node in the column navigates; cards also point at the map
@@ -610,9 +743,12 @@
   // land where the card changed instead of on a button that no longer exists
   const focusCard = () => { const h = body.querySelector('.bgx-name'); if (h) h.focus({ preventScroll: true }); };
   function onPick(e) {
+    const sp = e.target.closest('[data-spec]'), gp = e.target.closest('[data-grade-pick]');
     const b = e.target.closest('[data-node]');
-    if (!b) return;
-    go(Number(b.dataset.node));
+    if (!b && !sp && !gp) return;
+    if (sp) goSpec(sp.dataset.spec);
+    else if (gp) goGrade(gp.dataset.gradePick);
+    else go(Number(b.dataset.node));
     focusCard();
     if (stacked.matches) stage.parentElement.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
   }
@@ -624,6 +760,10 @@
     if (h !== hover) { hover = h; needsDraw = true; }
   });
   body.addEventListener('mouseleave', () => { if (hover !== -1) { hover = -1; needsDraw = true; } });
+  body.addEventListener('focusin', (e) => {
+    const b = e.target.closest('.bgx-card');
+    if (b) { hover = Number(b.dataset.node); needsDraw = true; }
+  });
 
   gradeBtns.forEach((b) => b.addEventListener('click', () => goGrade(b.dataset.grade)));
 
@@ -663,11 +803,16 @@
     }
     return best;
   }
-  let results = [], hits = new Map(), active = -1;
+  // A search is a state of its own, like an evidence filter: the column lists the
+  // results by kind and the map lights them. Clearing it returns to where you were.
+  let results = [], hits = new Map(), query = '', before = null, searchTimer;
   function search(raw) {
     const q = norm(raw);
-    results = []; active = -1; hits = new Map();
-    if (q.length < 2) { searchList.innerHTML = ''; searchInput.setAttribute('aria-expanded', 'false'); searchInput.removeAttribute('aria-activedescendant'); return; }
+    if (q.length < 2) { if (query) restore(); return; }
+    if (!query) before = { node: current, grade, spec };
+    query = raw.trim();
+    history.replaceState(null, '', '#buscar/' + encodeURIComponent(query));
+    hits = new Map();
     const qw = q.split(' ');
     const scored = [];
     for (let i = 0; i < N; i++) {
@@ -688,30 +833,70 @@
       scored.push([i, total, shown]);
     }
     scored.sort((a, b) => a[1] - b[1] || T[b[0]] - T[a[0]] || label[a[0]].length - label[b[0]].length);
-    results = scored.slice(0, 8).map((r) => { hits.set(r[0], r[2]); return r[0]; });
-    searchList.innerHTML = results.length
-      ? results.map((i, n) => `<li role="option" id="bgxOpt${n}" data-node="${i}" aria-selected="false">${dot(i)}<span>${esc(label[i])}${alt(i)}${hits.get(i) ? `<span class="bgx-alt">${esc(S.matched ? S.matched(hits.get(i)) : hits.get(i))}</span>` : ''}</span><small>${esc(S.type[T[i]])}</small></li>`).join('')
-      : `<li class="bgx-empty" role="option" aria-disabled="true">${esc(S.noResults)}</li>`;
-    searchInput.setAttribute('aria-expanded', 'true');
+    results = scored.slice(0, 80).map((r) => { hits.set(r[0], r[2]); return r[0]; });
+    current = -1; grade = null; spec = null; hover = -1;
+    gradeBtns.forEach((btn) => btn.setAttribute('aria-pressed', 'false'));
+    focus = new Set(results);
+    app.classList.add('is-searching');
+    setPanel(true);
+    renderCrumbs();
+    renderResults();
+    needsDraw = true;
+    // the map and the announcement wait until typing pauses
+    clearTimeout(searchTimer);
+    searchTimer = setTimeout(() => { statusEl.textContent = S.found(results.length); fitTo(results); }, 280);
   }
-  function highlight(n) {
-    active = n;
-    searchList.querySelectorAll('[role="option"]').forEach((li, k) => li.setAttribute('aria-selected', String(k === n)));
-    if (n >= 0) searchInput.setAttribute('aria-activedescendant', 'bgxOpt' + n); else searchInput.removeAttribute('aria-activedescendant');
+  function renderResults() {
+    const order = [CONCEPT, TOPIC, DOMAIN, CLUSTER, SOURCE, AUTHOR];
+    const title = { [CONCEPT]: S.h.concepts, [TOPIC]: S.h.topics, [DOMAIN]: S.h.children[0], [CLUSTER]: S.h.clusters, [SOURCE]: S.h.sources, [AUTHOR]: S.h.authors };
+    let html = `<p class="bgx-type">${esc(S.search)}</p><h2 class="bgx-name" tabindex="-1">«${esc(query)}»</h2><p class="bgx-counts">${esc(S.found(results.length))}</p>`;
+    html += results.length ? order.map((t) => cards(title[t], results.filter((i) => T[i] === t), 30)).join('') : `<p class="bgx-desc">${esc(S.noResults)}</p>`;
+    body.innerHTML = html;
+    colEl.scrollTop = 0;
   }
+  // frame every result, without zooming past what a concept would get
+  function fitTo(list) {
+    if (!showAuthors) list = [...new Set(list.flatMap((i) => (hidden(i) ? adj[i].filter((j) => T[j] === SOURCE) : [i])))];
+    if (!list.length || !W) return;
+    if (list.length === 1) return flyToNode(list[0]);
+    let x0 = Infinity, y0 = Infinity, x1 = -Infinity, y1 = -Infinity;
+    for (const i of list) { x0 = Math.min(x0, X[i]); x1 = Math.max(x1, X[i]); y0 = Math.min(y0, Y[i]); y1 = Math.max(y1, Y[i]); }
+    const k = Math.min(fitK * 3.4, (W * 0.8) / Math.max(1, x1 - x0), (H * 0.8) / Math.max(1, y1 - y0));
+    flyTo((x0 + x1) / 2, (y0 + y1) / 2, k);
+  }
+  function endSearch() {
+    query = ''; results = []; hits = new Map();
+    clearTimeout(searchTimer);
+    searchInput.value = '';
+    statusEl.textContent = '';
+    app.classList.remove('is-searching');
+  }
+  // back to the card or filter that was open before the search
+  function restore() {
+    const b = before || { node: -1, grade: null, spec: null };
+    endSearch();
+    history.replaceState(null, '', stateHash(b) || location.pathname);
+    if (b.spec) goSpec(b.spec.id, { push: false });
+    else if (b.grade) goGrade(b.grade, { push: false });
+    else go(b.node, { push: false, open: false });
+  }
+  const resultCards = () => Array.from(body.querySelectorAll('.bgx-card'));
   searchInput.addEventListener('input', () => search(searchInput.value));
   searchInput.addEventListener('keydown', (e) => {
-    if (e.key === 'ArrowDown' && results.length) { highlight((active + 1) % results.length); e.preventDefault(); }
-    else if (e.key === 'ArrowUp' && results.length) { highlight((active - 1 + results.length) % results.length); e.preventDefault(); }
-    else if (e.key === 'Enter' && results.length) { pick(results[Math.max(0, active)]); e.preventDefault(); }
-    else if (e.key === 'Escape') { searchInput.value = ''; search(''); }
+    if (e.key === 'ArrowDown' && query) { resultCards()[0]?.focus(); e.preventDefault(); }
+    else if (e.key === 'Enter' && results.length) { const i = results[0]; go(i); focusCard(); e.preventDefault(); }
+    else if (e.key === 'Escape') { if (query) restore(); else searchInput.blur(); e.preventDefault(); }
   });
-  searchList.addEventListener('click', (e) => { const li = e.target.closest('[data-node]'); if (li) pick(Number(li.dataset.node)); });
-  function pick(i) {
-    searchInput.value = ''; search('');
-    go(i);
-    focusCard();
-  }
+  // arrow keys walk the results; up from the first goes back to the box
+  body.addEventListener('keydown', (e) => {
+    if (!query || (e.key !== 'ArrowDown' && e.key !== 'ArrowUp')) return;
+    const list = resultCards(), n = list.indexOf(document.activeElement);
+    if (n === -1) return;
+    e.preventDefault();
+    if (e.key === 'ArrowDown') list[Math.min(n + 1, list.length - 1)].focus();
+    else if (n === 0) searchInput.focus();
+    else list[n - 1].focus();
+  });
 
   /* ── zoom buttons ── */
   document.querySelectorAll('[data-zoom]').forEach((b) => b.addEventListener('click', () => {
@@ -779,7 +964,8 @@
   let hintTimer;
   canvas.addEventListener('wheel', (e) => {
     if (!mapLive()) return;
-    if (!(e.ctrlKey || e.metaKey) && !app.classList.contains('is-exploring')) {
+    // a page that never scrolls (the lab) lets the plain wheel zoom, as a map does
+    if (!(e.ctrlKey || e.metaKey) && !app.classList.contains('is-exploring') && !S.wheelZoom) {
       hintEl.classList.add('is-on');
       clearTimeout(hintTimer); hintTimer = setTimeout(() => hintEl.classList.remove('is-on'), 1400);
       return;
@@ -809,33 +995,168 @@
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key !== 'Escape' || e.target === searchInput) return;
+    if (e.key !== 'Escape' || e.target === searchInput || helpEl?.open) return;
     if (app.classList.contains('is-exploring')) explore(false);
-    else if (current !== -1 || grade) go(-1);
+    else if (query) restore();
+    else if (current !== -1 || grade || spec) go(-1);
   });
+
+  /* ── the column: fold it away for a full-width map, or drag its edge ── */
+  function setPanel(open) {
+    if (!panelBtn || app.classList.contains('is-collapsed') !== open) return;
+    app.classList.toggle('is-collapsed', !open);
+    panelBtn.setAttribute('aria-expanded', String(open));
+    panelBtn.title = S.panel(open);
+  }
+  panelBtn?.addEventListener('click', () => setPanel(app.classList.contains('is-collapsed')));
+  const COL_KEY = 'beco-explorer-col';
+  function setCol(w) {
+    const max = Math.max(320, app.clientWidth * 0.6);
+    w = Math.round(Math.max(288, Math.min(max, w)));
+    app.style.setProperty('--bgx-col', w + 'px');
+    resizer.setAttribute('aria-valuenow', String(w));
+    resizer.setAttribute('aria-valuemin', '288');
+    resizer.setAttribute('aria-valuemax', String(Math.round(max)));
+    return w;
+  }
+  if (resizer) {
+    try { const w = Number(localStorage.getItem(COL_KEY)); if (w) setCol(w); } catch (e) { /* storage off: keep the default width */ }
+    const save = (w) => { try { localStorage.setItem(COL_KEY, String(w)); } catch (e) { /* not kept */ } };
+    resizer.addEventListener('pointerdown', (e) => {
+      resizer.setPointerCapture(e.pointerId);
+      resizer.classList.add('is-dragging');
+      e.preventDefault();
+    });
+    resizer.addEventListener('pointermove', (e) => {
+      if (!resizer.hasPointerCapture(e.pointerId)) return;
+      setCol(app.getBoundingClientRect().right - e.clientX);
+    });
+    const release = (e) => {
+      if (!resizer.hasPointerCapture(e.pointerId)) return;
+      resizer.releasePointerCapture(e.pointerId);
+      resizer.classList.remove('is-dragging');
+      save(colEl.getBoundingClientRect().width);
+    };
+    resizer.addEventListener('pointerup', release);
+    resizer.addEventListener('pointercancel', release);
+    resizer.addEventListener('keydown', (e) => {
+      const step = e.key === 'ArrowLeft' ? 32 : e.key === 'ArrowRight' ? -32 : 0;
+      if (!step) return;
+      e.preventDefault();
+      save(setCol(colEl.getBoundingClientRect().width + step));
+    });
+  }
+
+  /* ── the specialties menu in the bar (lab only) ── */
+  const specsWrap = document.getElementById('bgxSpecs');
+  const specMenu = document.getElementById('bgxSpecMenu');
+  const specBtn = specsWrap?.querySelector('.bgx-specs-btn');
+  function fillSpecMenu() {
+    if (!specsWrap || !specs.length) return;
+    specMenu.innerHTML = specs.map((x) => `<li><button type="button" data-spec="${esc(x.id)}">${esc(x.name)}</button></li>`).join('');
+    specsWrap.hidden = false;
+  }
+  function specMenuOpen(open) {
+    specMenu.hidden = !open;
+    specBtn.setAttribute('aria-expanded', String(open));
+    if (!open) return;
+    const items = Array.from(specMenu.querySelectorAll('button'));
+    items.forEach((b) => b.setAttribute('aria-current', String(!!spec && spec.id === b.dataset.spec)));
+    (items.find((b) => b.getAttribute('aria-current') === 'true') || items[0])?.focus();
+  }
+  if (specsWrap) {
+    specBtn.addEventListener('click', () => specMenuOpen(specMenu.hidden));
+    specMenu.addEventListener('click', (e) => {
+      const b = e.target.closest('[data-spec]');
+      if (!b) return;
+      specMenuOpen(false);
+      goSpec(b.dataset.spec);
+      focusCard();
+      if (stacked.matches) stage.parentElement.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'start' });
+    });
+    specsWrap.addEventListener('keydown', (e) => {
+      if (specMenu.hidden) return;
+      const items = Array.from(specMenu.querySelectorAll('button')), n = items.indexOf(document.activeElement);
+      if (e.key === 'Escape') { specMenuOpen(false); specBtn.focus(); e.stopPropagation(); }
+      else if (e.key === 'ArrowDown') { items[(n + 1) % items.length].focus(); e.preventDefault(); }
+      else if (e.key === 'ArrowUp') { items[(n - 1 + items.length) % items.length].focus(); e.preventDefault(); }
+    });
+    document.addEventListener('click', (e) => { if (!specMenu.hidden && !specsWrap.contains(e.target)) specMenuOpen(false); });
+  }
+
+  /* ── the logo goes back to the starting card without leaving the page ── */
+  document.querySelectorAll('[data-home]').forEach((a) => a.addEventListener('click', (e) => {
+    if (!N) return;
+    e.preventDefault();
+    if (app.classList.contains('is-exploring')) explore(false);
+    if (query) endSearch();
+    setPanel(true);
+    go(-1);
+  }));
+
+  /* ── how to read the map ── */
+  document.querySelectorAll('[data-help]').forEach((b) => b.addEventListener('click', () => helpEl?.showModal()));
+  helpEl?.querySelector('[data-help-close]')?.addEventListener('click', () => helpEl.close());
+  // a click on the backdrop lands on the dialog itself
+  helpEl?.addEventListener('click', (e) => { if (e.target === helpEl) helpEl.close(); });
+
+  /* ── once you use the app, it takes the whole screen and the intro scrolls away ── */
+  function snapIn() {
+    if (stacked.matches) return;
+    // a page with a fixed nav above the app sets scroll-margin-top, and the app stops under it
+    const top = app.getBoundingClientRect().top - (parseFloat(getComputedStyle(app).scrollMarginTop) || 0);
+    if (Math.abs(top) > 2) window.scrollTo({ top: window.scrollY + top, behavior: reduceMotion ? 'auto' : 'smooth' });
+  }
+  app.addEventListener('pointerdown', (e) => { if (!e.target.closest('.bgx-resize')) snapIn(); });
+  app.addEventListener('focusin', snapIn);
+  document.addEventListener('keydown', (e) => {
+    if (e.key !== '/' || e.metaKey || e.ctrlKey || e.altKey || helpEl?.open) return;
+    if (e.target.closest('input, textarea, select, [contenteditable="true"]')) return;
+    e.preventDefault();
+    searchInput.focus();
+  });
+
+  // a shorter placeholder where the box is narrow
+  if (searchInput.dataset.short) {
+    const long = searchInput.placeholder;
+    const sync = () => { searchInput.placeholder = stacked.matches ? searchInput.dataset.short : long; };
+    sync(); stacked.addEventListener('change', sync);
+  }
 
   /* ── boot ── */
   hintEl.textContent = S.zoomHint(/Mac|iPhone|iPad/.test(navigator.platform || navigator.userAgent));
   readTheme();
   new MutationObserver(readTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
   window.addEventListener('resize', resize);
+  // the map's box also changes when the column folds or is dragged
+  if ('ResizeObserver' in window) new ResizeObserver(resize).observe(stage);
   stacked.addEventListener('change', () => { if (!stacked.matches) explore(false); resize(); });
-  fetch(S.graphUrl || '/assets/data/beco-graph/graph.json')
-    .then((r) => r.json())
-    .then((data) => {
+  const getSpecs = S.specsUrl ? fetch(S.specsUrl).then((r) => r.json()).catch(() => []) : Promise.resolve([]);
+  function enter(st, opts) {
+    if (st.q) { searchInput.value = st.q; search(st.q); clearTimeout(searchTimer); statusEl.textContent = S.found(results.length); if (opts.fly !== false) fitTo(results); }
+    else if (st.spec && specById.has(st.spec)) goSpec(st.spec, opts);
+    else if (st.grade && S.grade[st.grade]) goGrade(st.grade, opts);
+    else go(st.node ?? -1, opts);
+  }
+  Promise.all([fetch(S.graphUrl || '/assets/data/beco-graph/graph.json').then((r) => r.json()), getSpecs])
+    .then(([data, sp]) => {
       load(data);
+      specs = Array.isArray(sp) ? sp : [];
+      specs.forEach((x) => specById.set(x.id, x));
+      fillSpecMenu();
       resize();
       const start = fromHash();
-      if (start.grade && S.grade[start.grade]) goGrade(start.grade, { push: false, fly: false });
-      else go(start.node, { push: false, fly: false });
+      enter(start, { push: false, fly: false });
       if (current !== -1) { const k = clampK(fitK * ({ 0: 1.7, 1: 2.3, 2: 3.2, 3: 3.4 }[T[current]] || 5)); Object.assign(cam, { x: X[current], y: Y[current], k }); }
+      else if (focus && focus.size && (spec || query)) fitTo(spec ? spec.concepts.map((c) => byId.get(c.id)).filter((j) => j != null) : results);
       app.classList.add('is-ready');
       requestAnimationFrame(draw);
     })
     .catch(() => { app.classList.add('is-error'); body.innerHTML = `<p class="bgx-counts">${esc(S.loadError)}</p>`; });
   window.addEventListener('popstate', () => {
     if (!N) return;
-    const s = fromHash();
-    if (s.grade) goGrade(s.grade, { push: false }); else go(s.node, { push: false });
+    const st = fromHash();
+    if (!st.q && query) endSearch();
+    enter(st, { push: false });
   });
 })();
