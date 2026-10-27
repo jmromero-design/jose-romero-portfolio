@@ -29,6 +29,9 @@ AI search tools quote this site, so facts and conventions must match on every pa
 ## Build (Eleventy)
 
 - **Pages live in `src/`** with the same folder tree as the URLs (`src/work/<slug>.html`, `src/es/…`). Edit those, never `_site/` (generated, gitignored).
+- **The `<head>` comes from front matter** (since phase 2, 2026-10-27): each page's front matter holds `title`, `description`, `ogImage`, plus optional `ogTitle`, `ogDescription`, `twitterDescription`, `ogType`, `robots`. `src/_includes/base.njk` builds the canonical, markdown-twin link, Open Graph, Twitter and hreflang tags from those and the page's folder, and adds the stylesheet, fonts, favicons, language detection and Vercel analytics. Pages start with `{% extends "base.njk" %}` and fill three blocks: `head` (JSON-LD, extra preloads), `styles` (the page's `<style>`) and `body` (`<body>` to `</html>`). `404.html` stays standalone.
+- **Build fails on broken content rules:** title over 60 characters, any description (meta, og, twitter) over 160, or not exactly one `<h1>` (`eleventy.config.js`, transform `content-rules`).
+- **Asset versions live in `src/_data/site.js`** (`cssVersion`, `mainJsVersion`). Bump them there after changing `main.css` or `main.js`; no page needs editing.
 - **Shared parts are includes** in `src/_includes/`: `nav.njk`, `footer.njk`, `cta.njk`. A page calls them with `{% include "nav.njk" %}` and so on. Language comes from the folder (`src/es/` = Spanish), the language-toggle target is computed, and the nav's current section is the page's front matter `navCurrent: work|about|thinking`.
 - **Standard closing CTA:** the page's front matter holds `ctaHeading`, `ctaBody` and `ctaCv` (true adds the Download CV button), and the page body has `{% include "cta.njk" %}`. The homepages, Thinking indexes and a few special pages keep their own CTA markup inline (different animation classes).
 - **Footer date:** `src/_data/site.js` → `updated: "2026-10-27"`. Change it by hand when the site's content changes; every page's "Updated October 2026" follows. Also holds the email and LinkedIn URLs.
@@ -64,7 +67,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 pages (under `src/`).** Current: `main.css?v=51` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" src`.
+3. **After any change to `main.css` or `main.js`, bump `cssVersion` / `mainJsVersion` in `src/_data/site.js`.** Current: `main.css?v=51` / `main.js?v=19`. Pages read them from there.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -292,7 +295,7 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 - **Don't add `<br>` after `<em class="accent-italic">`** — the break goes *before*, not after.
 - **Don't put page-specific rules in main.css** — use a `<style>` block in the page `<head>`.
 - **Don't add global rules to a page `<style>` block** — they won't apply to other pages.
-- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 39 pages in `src/`.
+- **Don't forget to bump `cssVersion` / `mainJsVersion`** in `src/_data/site.js` after any CSS or JS change.
 - **Don't re-add Lucide** — icons are already inlined in `main.js`.
 - **Don't add card numbers** — intentionally removed June 2026.
 - **Don't use `min-width` on SVG diagrams** — all diagrams are mobile-first portrait viewBox.

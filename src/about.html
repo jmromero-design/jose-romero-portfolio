@@ -3,37 +3,12 @@ navCurrent: "about"
 ctaHeading: "Your hardest problem<br><em class=\"accent-italic\">is a good place to start.</em>"
 ctaBody: "Open to senior product design roles and selective consulting engagements, in English or Spanish."
 ctaCv: true
+title: "About · Jose Romero, Senior Product Designer"
+description: "12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-about.webp?v=3"
 ---
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About · Jose Romero, Senior Product Designer</title>
-  <meta name="description"
-    content="12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/about/">
-  <link rel="alternate" type="text/markdown" href="/md/about/index.md">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="About · Jose Romero, Senior Product Designer">
-  <meta property="og:description"
-    content="12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain.">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-about.webp?v=3">
-  <meta property="og:url" content="https://www.joseromerodesign.com/about/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta property="og:locale" content="en_US">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About · Jose Romero, Senior Product Designer">
-  <meta name="twitter:description"
-    content="12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain.">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-about.webp?v=3">
-
-  <!-- Schema.org AboutPage -->
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,7 +60,6 @@ ctaCv: true
     "inLanguage": "en"
   }
   </script>
-
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -106,26 +80,11 @@ ctaCv: true
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/assets/images/portrait-standing.webp" as="image" fetchpriority="high"
     imagesrcset="/assets/images/portrait-standing-520.webp?v=2 520w, /assets/images/portrait-standing.webp 778w"
     imagesizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 900px) 40vw, 420px">
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-
-  <!-- Alternate language versions -->
-  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/about/">
-  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/about/">
-  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/about/">
-
-  <!-- Language detection: must run before page renders -->
-  <script src="/assets/js/lang-detect.js"></script>
-
+{% endblock %}
+{% block styles %}
   <style>
     .portrait-img {
       width: 100%;
@@ -203,10 +162,8 @@ ctaCv: true
     .testimonial-role { color: var(--text-tertiary); }
     .testimonial-note { color: var(--text-tertiary); font-size: var(--text-xs); font-style: italic; }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
-
+{% endblock %}
+{% block body %}
 <body>
 
   <div class="v4-glow" aria-hidden="true"></div>
@@ -696,9 +653,10 @@ ctaCv: true
   ══════════════════════════════════════════ -->
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
   <script src="/assets/js/about-toolkit.js?v=3" defer></script>
 
 </body>
 
 </html>
+{% endblock %}

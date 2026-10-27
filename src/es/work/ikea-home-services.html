@@ -3,30 +3,12 @@ navCurrent: "work"
 ctaHeading: "¿Tienes un reto<br><em class=\"accent-italic\">parecido a este?</em>"
 ctaBody: "Si estás construyendo un marketplace de dos lados dentro de una marca que cuida cada detalle, lo he hecho desde el primer flujo hasta el producto en vivo. Abierto a roles de product design senior y proyectos de consultoría selectivos, en inglés o español."
 ctaCv: false
+title: "IKEA Home Services · Jose Romero"
+description: "El marketplace P2P de mejoras del hogar de IKEA, del concepto al lanzamiento en siete regiones españolas. Más de 500.000 descargas y 4.9/5 de satisfacción."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-ikea-home-services-es.webp?v=2"
 ---
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>IKEA Home Services · Jose Romero</title>
-  <meta name="description" content="El marketplace P2P de mejoras del hogar de IKEA, del concepto al lanzamiento en siete regiones españolas. Más de 500.000 descargas y 4.9/5 de satisfacción.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/es/work/ikea-home-services/">
-  <link rel="alternate" type="text/markdown" href="/md/es/work/ikea-home-services/index.md">
-  <meta property="og:title" content="IKEA Home Services · Jose Romero">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-ikea-home-services-es.webp?v=2">
-  <meta property="og:url" content="https://www.joseromerodesign.com/es/work/ikea-home-services/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta property="og:locale" content="es_ES">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="IKEA Home Services · Jose Romero">
-  <meta name="twitter:description" content="El marketplace P2P de mejoras del hogar de IKEA, del concepto al lanzamiento en siete regiones españolas. Más de 500.000 descargas y 4.9/5 de satisfacción.">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-ikea-home-services-es.webp?v=2">
-
-  <!-- Schema.org CreativeWork -->
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,10 +41,6 @@ ctaCv: false
     }
   }
   </script>
-
-  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/work/ikea-home-services/">
-  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/work/ikea-home-services/">
-  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-home-services/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,15 +67,8 @@ ctaCv: false
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <script src="/assets/js/lang-detect.js"></script>
+{% endblock %}
+{% block styles %}
   <style>
     /* Cover — phone trio on the teal motif */
     .cover-comp {
@@ -200,9 +171,8 @@ ctaCv: false
       .media-annotated .shot-phone { width: 180px; justify-self: center; }
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 
   <a href="#main" class="skip-nav">Skip to content</a>
@@ -571,7 +541,8 @@ ctaCv: false
 
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
   <script src="/assets/js/case-nav.js?v=1" defer></script>
 </body>
 </html>
+{% endblock %}

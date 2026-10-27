@@ -1,27 +1,12 @@
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jose Romero, Senior Product Designer</title>
-  <meta name="description" content="Senior product designer, 12 years in enterprise products, CRO and behavioural strategy. Embedded at IKEA, working from Zaragoza, Spain.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/">
-  <meta property="og:title" content="Jose Romero, Senior Product Designer">
-  <meta property="og:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA.">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-default.webp?v=2">
-  <meta property="og:url" content="https://www.joseromerodesign.com/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta property="og:locale" content="en_US">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Jose Romero, Senior Product Designer">
-  <meta name="twitter:description" content="Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy.">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-default.webp?v=2">
-  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/">
-  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/">
-  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/">
-
-  <!-- Schema.org Person -->
+---
+title: "Jose Romero, Senior Product Designer"
+description: "Senior product designer, 12 years in enterprise products, CRO and behavioural strategy. Embedded at IKEA, working from Zaragoza, Spain."
+ogDescription: "Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA."
+twitterDescription: "Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
+---
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -70,11 +55,6 @@
     "@id": "https://www.joseromerodesign.com/#person"
   }
   </script>
-
-  <!-- Schema.org Organization — Jose Romero's independent design practice,
-       distinct from the Person schema above, so agents can verify the
-       practice itself (contact point, address) rather than just the
-       individual. -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -108,17 +88,8 @@
     ]
   }
   </script>
-
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <script src="/assets/js/lang-detect.js"></script>
-
+{% endblock %}
+{% block styles %}
   <style>
 
     /* ═══════════════════════════════════════════════
@@ -1351,9 +1322,8 @@
       .v4-path-row { grid-template-columns: 1fr; gap: var(--sp-2); }
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 
   <div class="v4-glow" aria-hidden="true"></div>
@@ -2053,7 +2023,7 @@
   <!-- ═══ 9. FOOTER ═══ -->
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
 
   <script>
     // v4 interaction layer — scroll reveals for this page's .v4-r elements.
@@ -2550,3 +2520,4 @@
 
 </body>
 </html>
+{% endblock %}

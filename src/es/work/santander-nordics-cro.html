@@ -3,30 +3,12 @@ navCurrent: "work"
 ctaHeading: "¿Tienes un reto<br><em class=\"accent-italic\">parecido a este?</em>"
 ctaBody: "Si experimentas en un funnel regulado y multimercado donde cada cambio necesita aprobación, he liderado ese tipo de programa. Abierto a roles de product design senior y proyectos de consultoría selectivos, en inglés o español."
 ctaCv: false
+title: "Santander Nordics · Programa CRO · Jose Romero"
+description: "Diseñador UX/CRO líder en la optimización de préstamos, tarjetas y depósitos en Dinamarca, Suecia, Finlandia y Noruega."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-santander-nordics-cro-es.webp?v=2"
 ---
-<!DOCTYPE html>
-<html lang="es" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Santander Nordics · Programa CRO · Jose Romero</title>
-  <meta name="description" content="Diseñador UX/CRO líder en la optimización de préstamos, tarjetas y depósitos en Dinamarca, Suecia, Finlandia y Noruega.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/es/work/santander-nordics-cro/">
-  <link rel="alternate" type="text/markdown" href="/md/es/work/santander-nordics-cro/index.md">
-  <meta property="og:title" content="Santander Nordics · Programa CRO · Jose Romero">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-santander-nordics-cro-es.webp?v=2">
-  <meta property="og:url" content="https://www.joseromerodesign.com/es/work/santander-nordics-cro/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta property="og:locale" content="es_ES">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Santander Nordics · Programa CRO · Jose Romero">
-  <meta name="twitter:description" content="Diseñador UX/CRO líder en la optimización de préstamos, tarjetas y depósitos en Dinamarca, Suecia, Finlandia y Noruega.">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-santander-nordics-cro-es.webp?v=2">
-
-  <!-- Schema.org CreativeWork -->
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -59,10 +41,6 @@ ctaCv: false
     }
   }
   </script>
-
-  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/work/santander-nordics-cro/">
-  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/work/santander-nordics-cro/">
-  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/santander-nordics-cro/">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -89,15 +67,8 @@ ctaCv: false
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <script src="/assets/js/lang-detect.js"></script>
+{% endblock %}
+{% block styles %}
   <style>
     /* Cover — composición de 3 teléfonos */
     .cover-comp {
@@ -171,9 +142,8 @@ ctaCv: false
     .sn-phone img { display: block; width: 100%; height: auto; border-radius: 19px; }
     @media (max-width: 600px) { .sn-ab-card { grid-template-columns: 1fr; } }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 
   <a href="#main" class="skip-nav">Skip to content</a>
@@ -403,7 +373,8 @@ ctaCv: false
 
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
   <script src="/assets/js/case-nav.js?v=1" defer></script>
 </body>
 </html>
+{% endblock %}

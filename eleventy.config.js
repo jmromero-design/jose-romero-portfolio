@@ -35,6 +35,24 @@ module.exports = function (eleventyConfig) {
     return lang === "es" ? `${name} de ${y}` : `${name} ${y}`;
   });
 
+  // Build-time checks for the site's content rules (see CLAUDE.md): titles
+  // <= 60 characters, meta/og/twitter descriptions <= 160, one <h1> per page.
+  // A page that breaks one fails the build, so it never reaches Vercel.
+  eleventyConfig.addTransform("content-rules", function (content) {
+    if (!(this.page.outputPath || "").endsWith(".html")) return content;
+    const where = this.page.inputPath;
+    const problems = [];
+    const title = (content.match(/<title>(.*?)<\/title>/s) || [])[1];
+    if (title && title.length > 60) problems.push(`title is ${title.length} characters (max 60)`);
+    for (const m of content.matchAll(/<meta\s+(?:name|property)="((?:og:|twitter:)?description)"\s+content="([^"]*)"/g)) {
+      if (m[2].length > 160) problems.push(`${m[1]} is ${m[2].length} characters (max 160)`);
+    }
+    const h1 = (content.match(/<h1[\s>]/g) || []).length;
+    if (h1 !== 1) problems.push(`${h1} <h1> elements (need exactly 1)`);
+    if (problems.length) throw new Error(`${where}: ${problems.join("; ")}`);
+    return content;
+  });
+
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     htmlTemplateEngine: "njk",

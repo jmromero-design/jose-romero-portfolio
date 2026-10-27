@@ -3,25 +3,12 @@ navCurrent: "work"
 ctaHeading: "Have a problem<br><em class=\"accent-italic\">shaped like this one?</em>"
 ctaBody: "If you’re designing financial products people trust with their savings, I’ve worked on exactly that. Open to senior product design roles and selective consulting engagements, in English or Spanish."
 ctaCv: false
+title: "Mapfre · AFIN Financial App · Jose Romero"
+description: "Lead UX designer on AFIN, Mapfre’s self-service finance app: progressive disclosure, and a Financial Advisor built on trust and transparent data use."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-mapfre-afin.webp?v=2"
 ---
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mapfre · AFIN Financial App · Jose Romero</title>
-  <meta name="description" content="Lead UX designer on AFIN, Mapfre’s self-service finance app: progressive disclosure, and a Financial Advisor built on trust and transparent data use.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/">
-  <link rel="alternate" type="text/markdown" href="/md/work/mapfre-afin-digital-expansion/index.md">
-  <meta property="og:title" content="Mapfre · AFIN Financial App · Jose Romero">
-  <meta property="og:description" content="Lead UX designer on AFIN, Mapfre’s self-service finance app: progressive disclosure, and a Financial Advisor built on trust and transparent data use.">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-mapfre-afin.webp?v=2">
-  <meta property="og:url" content="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mapfre · AFIN Financial App · Jose Romero">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-mapfre-afin.webp?v=2">
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,14 +67,8 @@ ctaCv: false
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">  <!-- Alternate language versions -->  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/">  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/work/mapfre-afin-digital-expansion/">  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/">  <!-- Language detection -->  <script src="/assets/js/lang-detect.js"></script>
+{% endblock %}
+{% block styles %}
   <style>
     .cover-comp {
       position: absolute; inset: 0;
@@ -215,9 +196,8 @@ ctaCv: false
       .media-annotated .shot-phone { width: 180px; }
     }
   </style>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 
   <a href="#main" class="skip-nav">Skip to content</a>
@@ -600,7 +580,8 @@ ctaCv: false
 
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
   <script src="/assets/js/case-nav.js?v=1" defer></script>
 </body>
 </html>
+{% endblock %}

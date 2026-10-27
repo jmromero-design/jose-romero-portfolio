@@ -3,25 +3,13 @@ navCurrent: "work"
 ctaHeading: "Have a problem<br><em class=\"accent-italic\">shaped like this one?</em>"
 ctaBody: "If your team is adding AI and its output is getting harder to trust, I can help design where people make the calls. Open to senior product design roles and selective consulting engagements, in English or Spanish."
 ctaCv: false
+title: "AI Workflow Design Framework · Jose Romero"
+description: "A multi-agent AI workflow framework designed from first principles for a global retailer, with AI treated as part of the process to design."
+ogDescription: "Designing AI into a product design workflow as a structured process layer, not as a shortcut."
+ogImage: "https://www.joseromerodesign.com/assets/images/og-ai-workflow-framework.webp?v=2"
 ---
-<!DOCTYPE html>
-<html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Workflow Design Framework · Jose Romero</title>
-  <meta name="description" content="A multi-agent AI workflow framework designed from first principles for a global retailer, with AI treated as part of the process to design.">
-  <link rel="canonical" href="https://www.joseromerodesign.com/work/ai-workflow-framework/">
-  <link rel="alternate" type="text/markdown" href="/md/work/ai-workflow-framework/index.md">
-  <meta property="og:title" content="AI Workflow Design Framework · Jose Romero">
-  <meta property="og:description" content="Designing AI into a product design workflow as a structured process layer, not as a shortcut.">
-  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-ai-workflow-framework.webp?v=2">
-  <meta property="og:url" content="https://www.joseromerodesign.com/work/ai-workflow-framework/">
-  <meta property="og:type" content="website">
-  <meta property="og:site_name" content="Jose Romero">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="AI Workflow Design Framework · Jose Romero">
-  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-ai-workflow-framework.webp?v=2">
+{% extends "base.njk" %}
+{% block head %}
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -80,10 +68,8 @@ ctaCv: false
     ]
   }
   </script>
-  <link rel="stylesheet" href="/assets/css/main.css?v=51">
-  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
-  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+{% endblock %}
+{% block styles %}
   <style>
     /* Top-anchored (not centered): as the box shrinks at narrow widths,
        the top (board chrome + top of the screenshot) stays fully
@@ -105,17 +91,8 @@ ctaCv: false
     .media-artifact figcaption{width:100%;max-width:860px;font-size:0.8125rem;color:var(--text-tertiary);line-height:1.6;position:relative;z-index:1}
     @media(max-width:640px){.cover-ai-comp{padding:14px 16px;gap:8px}.cover-ai-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
   </style>
-  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
-  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
-  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/work/ai-workflow-framework/">
-  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/work/ai-workflow-framework/">
-  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ai-workflow-framework/">
-  <script src="/assets/js/lang-detect.js"></script>
-  <script defer src="/_vercel/insights/script.js"></script>
-  <script defer src="/_vercel/speed-insights/script.js"></script>
-</head>
+{% endblock %}
+{% block body %}
 <body>
 
   <a href="#main" class="skip-nav">Skip to content</a>
@@ -582,8 +559,9 @@ ctaCv: false
 
   {% include "footer.njk" %}
 
-  <script src="/assets/js/main.js?v=19"></script>
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}"></script>
   <script src="/assets/js/case-nav.js?v=1" defer></script>
 
 </body>
 </html>
+{% endblock %}
