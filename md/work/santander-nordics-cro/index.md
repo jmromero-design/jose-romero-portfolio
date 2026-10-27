@@ -76,6 +76,44 @@ Control Variant
 
 **Insurance add-on nudge:** Behavioural nudge applied at the insurance decision point in the loan funnel. Timing and framing derived from anxiety-reduction and commitment heuristics.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Keep returning to the application form
+
+Why
+
+It was the highest-stakes step and the one where most people dropped off, so a gain there counted for more than one on a landing page.
+
+Result
+
+The form was rebuilt test by test, and the winning version became the default in all four markets.
+
+### Ship only on a significant uplift in the two largest markets
+
+Why
+
+So that no result rested on one market, one culture or one season. The method we agreed with Santander was stricter than on most projects.
+
+Cost
+
+A win in a single market stayed a test result and did not go live.
+
+Result
+
+What reached the live funnels had held up in more than one market.
+
+### Check every live test against the approved spec
+
+Why
+
+Every variant needed legal sign-off in four markets, and a misconfigured test produces misleading data. Implementation fidelity is as much a design responsibility as the variant itself.
+
+Result
+
+Results were collected only from variants that matched what had been approved.
+
 Learnings
 
 ## What multi-market CRO teaches you about design

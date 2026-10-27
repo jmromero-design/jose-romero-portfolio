@@ -68,7 +68,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, bump `cssVersion` / `mainJsVersion` in `src/_data/site.js`.** Current: `main.css?v=51` / `main.js?v=19`. Pages read them from there.
+3. **After any change to `main.css` or `main.js`, bump `cssVersion` / `mainJsVersion` in `src/_data/site.js`.** Current: `main.css?v=52` / `main.js?v=19`. Pages read them from there.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 

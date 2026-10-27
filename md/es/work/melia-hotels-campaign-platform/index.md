@@ -70,6 +70,40 @@ Trabajar con un equipo de ingeniería rotativo a lo largo del encargo también m
 
 **Matriz de permisos de usuario.** Uno de los dos documentos de referencia que diseñé para especificar la lógica de acceso en 8 roles y 15 secciones de la plataforma, usado directamente por los ingenieros como fuente de verdad para la configuración de permisos en backend y el renderizado condicional en frontend.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Preguntar «enséñame qué se rompe», no «qué quieres»
+
+Por qué
+
+Los directivos describen la solución que ya tienen en la cabeza. Preguntar qué se rompe da un problema sobre el que se puede diseñar.
+
+Resultado
+
+Los talleres dieron un modelo compartido de cómo avanza una campaña: idea, brief, pieza, aprobación, programación, revisión de resultados.
+
+### Construir un marco de tiempos mínimos como columna vertebral de la arquitectura
+
+Por qué
+
+Recoge el plazo mínimo que necesita cada fase y módulo, a partir de un conocimiento profundo del proceso de campañas.
+
+Resultado
+
+Cada configuración de campaña se validaba contra él.
+
+### Separar el producto por rol tras las primeras pruebas
+
+Por qué
+
+Las pruebas mostraron dos grupos con necesidades distintas: creadores que querían ir rápido y responsables de marketing que querían visibilidad y control.
+
+Resultado
+
+Puertas de aprobación, una vista de calendario de campañas y paneles de informes, nada de ello en el brief original. La interfaz pasó de gestor de contenidos a una estructura centrada en el flujo de trabajo.
+
 Resultado
 
 ## Activa en todos los mercados de Meliá

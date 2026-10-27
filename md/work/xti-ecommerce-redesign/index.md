@@ -68,6 +68,40 @@ _**Product detail · mobile scroll**: product hero and ATC, size and colour sele
 
 _The redesign concentrated effort on the highest drop-off stages: product listing and product detail. Brand expression earns its space at the top of the funnel; conversion mechanics take over from the listing page down._
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Map the platform's constraints before designing anything
+
+Why
+
+Magento's component model, URL structure and filtering logic set the boundaries of the UX before any design choice is made. Knowing them first rules out the elegant solution that cannot be built.
+
+Result
+
+The brief became: what is the best UX we can build on this platform?
+
+### Test the information architecture before high-fidelity design
+
+Why
+
+Problems found in card sorting and tree testing are far cheaper than problems found in live data, especially on a migration where structural changes after launch carry development cost.
+
+Result
+
+The category and navigation structure was validated in Optimal Workshop before any high-fidelity screens.
+
+### Concentrate the effort on the listing and product detail pages
+
+Why
+
+They are the highest-traffic, highest-drop-off stages of a fashion funnel. Brand expression earns its space at the top; conversion mechanics take over from the listing page down.
+
+Result
+
+The store launched on Magento and stayed XTI's main store for about three years.
+
 Learnings
 
 ## Platform constraints are a design brief, not an obstacle

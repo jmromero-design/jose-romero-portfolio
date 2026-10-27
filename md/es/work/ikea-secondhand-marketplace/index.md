@@ -70,6 +70,36 @@ Trabajar entre dos productos de marketplace tiene un efecto secundario útil: lo
 
 La integración del catálogo IKEA requirió una estrecha colaboración con ingeniería para definir el contrato de datos entre el catálogo y la UI. ¿Qué campos estaban siempre disponibles? ¿Cuáles eran opcionales o con datos inconsistentes? Las respuestas dieron forma a la jerarquía de información de cada página de anuncio.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Diseñar de forma modular cuando el producto se expandió
+
+Por qué
+
+Lo que valía en España no podía quedar fijado en componentes que iban a servir en Noruega o Portugal, donde cambian los sistemas de pago, la ley de consumo y los hábitos de segunda mano.
+
+Resultado
+
+Cada fase de expansión puso a prueba los supuestos de localización antes del siguiente despliegue.
+
+### Dejar que el contrato de datos del catálogo fije la jerarquía del anuncio
+
+Por qué
+
+Con ingeniería, listamos qué campos da siempre el catálogo de IKEA y cuáles llegan opcionales o incompletos. Las respuestas decidieron la jerarquía de información de cada anuncio.
+
+Resultado
+
+El vendedor no escribe descripciones de producto; medidas, materiales y datos de montaje salen del catálogo.
+
+### Construir los flujos de anuncio, confianza y reseñas pensando en los dos marketplaces
+
+Por qué
+
+Un patrón que funciona en un producto suele orientar al otro, y la deuda de diseño de uno se ve antes cuando mantienes los dos coherentes.
+
 Estado
 
 ## Activo en cinco mercados, escalando más

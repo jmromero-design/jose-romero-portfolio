@@ -90,6 +90,28 @@ Outcomes
 
 These are published figures from Ingka Group. The product launched in Madrid in September 2024 and has since expanded to seven Spanish regions as of May 2026, with continued growth in progress.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Run the research inside IKEA stores
+
+Why
+
+Recruiting on site and testing flows on real devices gave faster signal than remote testing, and matched how people find the product anyway.
+
+### Map the two sides separately, then design where they meet
+
+Why
+
+Homeowners and professionals have different mental models and different ideas of success. Each side's flows came first; booking, confirmation, dispute resolution and review mechanics came after.
+
+### Treat accessibility as a requirement from the first flow
+
+Why
+
+The product had to meet IKEA's own accessibility standards and WCAG AA across iOS and Android, so it was a requirement from day one rather than an audit at the end.
+
 Learnings
 
 ## What building inside a large brand teaches you

@@ -86,6 +86,44 @@ El engagement de IQOS Club mejoró durante el período del programa. Las cifras 
 
 El resultado más duradero para mí fue metodológico: ejecutar CRO con volúmenes de tráfico bajos agudiza tu pensamiento sobre qué hace buena a una hipótesis y qué constituye evidencia significativa. La disciplina de tomar decisiones de alta calidad con datos limitados es transferible a casi cualquier contexto de diseño.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Subir la calidad de cada hipótesis en lugar de lanzar más tests
+
+Por qué
+
+Al portal solo entran socios, así que los experimentos tardan más en alcanzar significación y es más fácil actuar sobre un falso positivo. Con menos experimentos posibles, cada uno tiene que estar mejor argumentado.
+
+Coste
+
+Se podían lanzar menos experimentos.
+
+Resultado
+
+Un pipeline que ordenaba las hipótesis por impacto frente a coste de implementación, apoyado en analítica, mapas de calor y revisión heurística.
+
+### Lanzar las variantes en VWO para no esperar a un sprint de desarrollo
+
+Por qué
+
+Los recursos de desarrollo se compartían con otros trabajos, y VWO permitía tests A/B y personalización sin mucha ingeniería.
+
+Resultado
+
+El cliente acabó usando VWO como canal rápido para campañas de lanzamiento, con modales en producción horas después de lanzar un producto.
+
+### Personalizar por segmento en lugar de optimizar una sola experiencia
+
+Por qué
+
+La base de socios es heterogénea, y la alternativa era imponer a todos una única experiencia optimizada.
+
+Resultado
+
+Los socios con más de 2.500 puntos ven un CTA de canje; los de menos de 500, CTAs para ganar puntos. Mismo hero, distinta intención principal.
+
 Evolución del alcance
 
 ## Las herramientas de CRO como canal de entrega de campañas

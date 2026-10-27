@@ -1,0 +1,22 @@
+{%- set es = (lang == "es") -%}
+{%- set items = decisions[page.fileSlug][lang] -%}
+<div class="cs-section reveal" id="{{ 'decisiones' if es else 'decisions' }}">
+            <span class="eyebrow">{{ 'Decisiones' if es else 'Decisions' }}</span>
+            <h2>{{ 'Tres decisiones que marcaron el trabajo' if es else 'Three decisions that shaped the work' }}</h2>
+            <ol class="cs-decisions">
+{%- for i in items %}
+              <li class="cs-decision">
+                <h3>{{ i.h }}</h3>
+                <dl>
+                  <dt>{{ 'Por qué' if es else 'Why' }}</dt><dd>{{ i.why }}</dd>
+{%- if i.cost %}
+                  <dt>{{ 'Coste' if es else 'Cost' }}</dt><dd>{{ i.cost }}</dd>
+{%- endif %}
+{%- if i.result %}
+                  <dt>{{ 'Resultado' if es else 'Result' }}</dt><dd>{{ i.result }}</dd>
+{%- endif %}
+                </dl>
+              </li>
+{%- endfor %}
+            </ol>
+          </div>

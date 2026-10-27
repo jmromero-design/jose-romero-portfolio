@@ -124,6 +124,40 @@ Las features complejas suelen implicar a múltiples stakeholders: producto, inge
 
 Este trabajo está en curso y se está compartiendo con profesionales senior de diseño en Garaje de Ideas como parte de un programa activo de formación en IA.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Primero los principios, después las herramientas
+
+Por qué
+
+Documentar alrededor de las herramientas, sin un principio estructural debajo, es una cosa más que mantener al día.
+
+Resultado
+
+Cada una de las cuatro herramientas recibió un único papel, sin solaparse. Las convenciones de nombres salieron de esos papeles, y el onboarding salió de los nombres.
+
+### Crear las claves de traducción en diseño, no en desarrollo
+
+Por qué
+
+Las claves creadas tarde, por ingeniería, comprimían el plazo de traducción y dejaban a QA sin forma de comprobar el idioma antes del lanzamiento. Los errores de traducción los detectaban los usuarios.
+
+Resultado
+
+La traducción pasó a ser una vía paralela, y QA pudo verificar la calidad del idioma antes del lanzamiento por primera vez.
+
+### Mirar primero Skapa, adaptar si hace falta, justificar lo nuevo
+
+Por qué
+
+Sin una regla, los huecos del sistema de diseño se rellenaban sin criterio común: cada diseñador decidía distinto y no dejaba rastro.
+
+Resultado
+
+Un componente nuevo necesita justificación escrita y revisión de gobernanza antes de llegar a producción.
+
 Resultado
 
 ## La adopción fue desigual, pero la estructura aguantó

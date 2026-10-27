@@ -90,6 +90,40 @@ _Trust calibration tiers. Calibrated trust, knowing what to review versus scruti
 
 _Trust calibration artifact, active reference for evaluating AI output: High Confidence (review efficiently), Scrutinise Carefully (deep human review), Validate Externally (independent source required). The key rule: AI fluency is a trigger for more scrutiny, not less._
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Treat AI like any other part of the system
+
+Why
+
+Asking which tool to use produced outputs that drifted while still looking plausible. The better question was where AI belongs in the process and how we would know it was doing that job well.
+
+Result
+
+A process architecture that does not depend on any AI tool, so it survives tool migrations and team turnover.
+
+### Put a named human decision at every gate
+
+Why
+
+AI-assisted work fails quietly, so each phase gate requires a decision from a named person, not an acknowledgement. The orchestrator coordinates and does not decide; no tier approves its own output.
+
+Result
+
+AI advances only after human sign-off. Gates are hard stops, not formalities.
+
+### Make trust calibration explicit
+
+Why
+
+Judging AI output quickly without losing rigour is a skill no design programme teaches. Outputs fall into three tiers: review efficiently, scrutinise carefully, validate externally.
+
+Result
+
+The rule the team works by: AI fluency is a trigger for more scrutiny, not less.
+
 Outcome
 
 ## A framework that separates process from tooling

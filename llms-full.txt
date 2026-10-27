@@ -589,6 +589,28 @@ Outcomes
 
 These are published figures from Ingka Group. The product launched in Madrid in September 2024 and has since expanded to seven Spanish regions as of May 2026, with continued growth in progress.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Run the research inside IKEA stores
+
+Why
+
+Recruiting on site and testing flows on real devices gave faster signal than remote testing, and matched how people find the product anyway.
+
+### Map the two sides separately, then design where they meet
+
+Why
+
+Homeowners and professionals have different mental models and different ideas of success. Each side's flows came first; booking, confirmation, dispute resolution and review mechanics came after.
+
+### Treat accessibility as a requirement from the first flow
+
+Why
+
+The product had to meet IKEA's own accessibility standards and WCAG AA across iOS and Android, so it was a requirement from day one rather than an audit at the end.
+
 Learnings
 
 ## What building inside a large brand teaches you
@@ -671,6 +693,36 @@ Approach
 Working across two marketplace products has a useful side effect: patterns that work in one tend to inform the other, and design debt in one becomes visible faster when you're maintaining consistency across both. The listing creation flow, the trust and safety messaging, the review architecture: these were developed with cross-product consistency in mind.
 
 The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.
+
+Decisions
+
+## Three decisions that shaped the work
+
+### Design for modularity once the product expanded
+
+Why
+
+Assumptions that held in Spain could not be hardcoded into components that would serve Norway or Portugal, where payment systems, consumer law and second-hand habits differ.
+
+Result
+
+Each expansion phase stress-tested the localisation assumptions before the next rollout.
+
+### Let the catalogue data contract set the listing hierarchy
+
+Why
+
+Working with engineering, we listed which fields the IKEA catalogue always provides and which arrive optional or patchy. Those answers decided the information hierarchy of every listing page.
+
+Result
+
+Sellers do not write product descriptions; dimensions, materials and assembly data come from the catalogue.
+
+### Build listing, trust and review flows for both marketplaces at once
+
+Why
+
+A pattern that works in one product tends to inform the other, and design debt in one shows up faster when you keep both consistent.
 
 Status
 
@@ -759,6 +811,44 @@ Control Variant
 
 **Insurance add-on nudge:** Behavioural nudge applied at the insurance decision point in the loan funnel. Timing and framing derived from anxiety-reduction and commitment heuristics.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Keep returning to the application form
+
+Why
+
+It was the highest-stakes step and the one where most people dropped off, so a gain there counted for more than one on a landing page.
+
+Result
+
+The form was rebuilt test by test, and the winning version became the default in all four markets.
+
+### Ship only on a significant uplift in the two largest markets
+
+Why
+
+So that no result rested on one market, one culture or one season. The method we agreed with Santander was stricter than on most projects.
+
+Cost
+
+A win in a single market stayed a test result and did not go live.
+
+Result
+
+What reached the live funnels had held up in more than one market.
+
+### Check every live test against the approved spec
+
+Why
+
+Every variant needed legal sign-off in four markets, and a misconfigured test produces misleading data. Implementation fidelity is as much a design responsibility as the variant itself.
+
+Result
+
+Results were collected only from variants that matched what had been approved.
+
 Learnings
 
 ## What multi-market CRO teaches you about design
@@ -843,6 +933,40 @@ The platform evolved significantly from its initial design. Early testing reveal
 Working with a rotating engineering team across the engagement also taught me a great deal about design-to-development handoff. Consistency in component naming, documentation of interaction states, and explicit specification of edge cases, the unglamorous work of design systems, became increasingly important as the team changed and institutional knowledge had to live in the documentation, not in people's heads. The engagement concluded with a structured handover: documentation, training sessions for the Meliá team, and a role-based access model that ensured each user type had the tools and interface they needed to manage and evolve the platform independently.
 
 **User permissions matrix.** One of two reference documents I designed to specify access logic across 8 roles and 15 platform sections, used directly by engineers as the source of truth for backend permission configuration and frontend conditional rendering.
+
+Decisions
+
+## Three decisions that shaped the work
+
+### Ask "show me what breaks", not "what do you want"
+
+Why
+
+Senior stakeholders describe the solution they have already pictured. Asking what breaks gets a problem statement you can design for.
+
+Result
+
+The workshops produced a shared model of how a campaign moves: idea, brief, asset, approval, scheduling, performance review.
+
+### Build a minimum-times framework as the architecture's backbone
+
+Why
+
+It maps the minimum lead time each phase and module needs, drawn from deep knowledge of the campaign process.
+
+Result
+
+Every campaign setup was validated against it.
+
+### Split the product by role after early testing
+
+Why
+
+Testing showed two groups with different needs: creators who wanted to move fast, and marketing managers who wanted visibility and control.
+
+Result
+
+Approval gateways, a visual campaign timeline and reporting dashboards, none of them in the original brief. The interface moved from content management to a workflow-first structure.
 
 Outcome
 
@@ -951,6 +1075,44 @@ Running concurrent programmes for the same client required clear workload manage
 
 Daily communication with the Mapfre teams and Capgemini in English, across multiple markets and time zones, required documentation and status management rigorous enough that all parties stayed aligned without constant synchronisation. In a multi-agency environment, the cost of miscommunication lands on the design team first, and fast feedback loops between design, development, and client are the only effective mitigation.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Separate intentional divergence from accidental drift before redesigning
+
+Why
+
+Some differences between markets were regulatory or cultural; most had piled up because each market built on its own. The two need different fixes, and mixing them up either breaks something a market needs or preserves an accident as policy.
+
+Result
+
+Verti Italy and Germany now share one design system with Verti's branding intact.
+
+### Aim for coherence, not uniformity
+
+Why
+
+Verti has a strong brand inside the Mapfre family, so the work at the boundary between the corporate system and Verti's own look had to be careful.
+
+Result
+
+Components, patterns and flows are defined once and adapted at the surface layer.
+
+### Narrow the CRO scope to what could be measured
+
+Why
+
+The teams were isolated from each other and the data across products was not mature enough for proper experiments. Smaller, more mature parts of the process could reach significance on a realistic timeline.
+
+Cost
+
+The scope got smaller.
+
+Result
+
+It surfaced refactoring that had to happen before testing was possible, so the programme did not get far while I was on it.
+
 Learnings
 
 ## What multi-market platform work teaches you
@@ -1054,6 +1216,36 @@ The engagement included a significant design operations challenge from the outse
 
 Coordination with Capgemini, the development partner, was a constant throughout: disciplined handoff and regular multi-team alignment were essential across design, client, and engineering teams operating under different organisational structures. The multi-device scope (desktop, tablet, and mobile) added a further layer of specification and handoff complexity to every delivery.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Layer the app with progressive disclosure
+
+Why
+
+The app had to feel simple for customers who are not financially sophisticated and still hold up for long-term decisions. The default view carries what most people need most of the time; detail and action are one deliberate tap deeper.
+
+Result
+
+The Financial Advisor sits at the deepest layer: always available, never intrusive.
+
+### Show the reasoning behind every recommendation
+
+Why
+
+Pushing too hard reads as a sales tool, and that costs more trust than not recommending at all.
+
+Result
+
+Each suggested product came with why this product, why now and what assumption sat behind it. Users could accept it, change the inputs or ignore it.
+
+### Offer a callback when someone tries to leave the advisory flow
+
+Why
+
+Leaving the advisory flow mid-way used to mean a lost session. A "We'll call you" offer turns the exit into a route to assisted help.
+
 Learnings
 
 ## What financial UX teaches you about trust
@@ -1155,6 +1347,44 @@ The IQOS Club engagement improved across the programme period. Specific figures 
 
 The more durable outcome for me was methodological: running CRO at low traffic volumes sharpens your thinking about what makes a good hypothesis and what constitutes meaningful evidence. The discipline of making high-quality decisions with limited data is transferable to almost any design context.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Raise the quality of each hypothesis instead of running more tests
+
+Why
+
+Only existing members visit the portal, so experiments take longer to reach significance and a false positive is more likely to be acted on. With fewer experiments possible, each one has to be better argued.
+
+Cost
+
+Fewer experiments could run.
+
+Result
+
+A pipeline that ranked hypotheses by impact against implementation cost, built on analytics, heatmaps and heuristic review.
+
+### Run variants in VWO so nothing waited for a development sprint
+
+Why
+
+Development resources were shared with other work, and VWO could run both A/B tests and personalisation without heavy engineering.
+
+Result
+
+The client came to use VWO as a fast channel for launch campaigns, with modals live within hours of a product launch.
+
+### Personalise by segment instead of optimising one experience
+
+Why
+
+The membership base is heterogeneous, and the alternative was forcing one optimised experience on all of it.
+
+Result
+
+Members with 2,500+ points see a redeem call to action; those under 500 see earn-oriented ones. Same hero, different primary intent.
+
 Scope evolution
 
 ## CRO tooling as a campaign delivery channel
@@ -1237,6 +1467,40 @@ The creative direction took cues from fashion editorial: clean layouts, generous
 _**Product detail · mobile scroll**: product hero and ATC, size and colour selection, similar products and reviews. The highest drop-off point in the funnel._
 
 _The redesign concentrated effort on the highest drop-off stages: product listing and product detail. Brand expression earns its space at the top of the funnel; conversion mechanics take over from the listing page down._
+
+Decisions
+
+## Three decisions that shaped the work
+
+### Map the platform's constraints before designing anything
+
+Why
+
+Magento's component model, URL structure and filtering logic set the boundaries of the UX before any design choice is made. Knowing them first rules out the elegant solution that cannot be built.
+
+Result
+
+The brief became: what is the best UX we can build on this platform?
+
+### Test the information architecture before high-fidelity design
+
+Why
+
+Problems found in card sorting and tree testing are far cheaper than problems found in live data, especially on a migration where structural changes after launch carry development cost.
+
+Result
+
+The category and navigation structure was validated in Optimal Workshop before any high-fidelity screens.
+
+### Concentrate the effort on the listing and product detail pages
+
+Why
+
+They are the highest-traffic, highest-drop-off stages of a fashion funnel. Brand expression earns its space at the top; conversion mechanics take over from the listing page down.
+
+Result
+
+The store launched on Magento and stayed XTI's main store for about three years.
 
 Learnings
 
@@ -1377,6 +1641,40 @@ Complex features usually involve multiple stakeholders: product, engineering, co
 
 This work is ongoing and is being shared with senior design professionals at Garaje de Ideas as part of an active AI literacy programme.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Principles first, tools second
+
+Why
+
+Documentation written around the tools, without a structural principle underneath, is one more thing to keep updated.
+
+Result
+
+Each of the four tools got one non-overlapping job. Naming conventions followed from those roles, and onboarding followed from the naming.
+
+### Create translation keys during design, not development
+
+Why
+
+Keys created late, by engineering, squeezed the translation window and left QA no way to check language before release. Translation errors were being caught by users.
+
+Result
+
+Translations became a parallel track, and QA could verify language quality before release for the first time.
+
+### Check Skapa first, adapt if needed, justify anything new
+
+Why
+
+Without a rule, gaps in the design system got filled inconsistently: every designer made a different call and left no trail.
+
+Result
+
+A new component needs written justification and a governance review before it enters production.
+
 Outcome
 
 ## Imperfect adoption. Structural bones held.
@@ -1483,6 +1781,40 @@ Design leads and systems thinkers tend to pick this up quickly, mostly because t
 _Trust calibration tiers. Calibrated trust, knowing what to review versus scrutinise versus validate externally, is a skill that develops with practice and should be made explicit across the team._
 
 _Trust calibration artifact, active reference for evaluating AI output: High Confidence (review efficiently), Scrutinise Carefully (deep human review), Validate Externally (independent source required). The key rule: AI fluency is a trigger for more scrutiny, not less._
+
+Decisions
+
+## Three decisions that shaped the work
+
+### Treat AI like any other part of the system
+
+Why
+
+Asking which tool to use produced outputs that drifted while still looking plausible. The better question was where AI belongs in the process and how we would know it was doing that job well.
+
+Result
+
+A process architecture that does not depend on any AI tool, so it survives tool migrations and team turnover.
+
+### Put a named human decision at every gate
+
+Why
+
+AI-assisted work fails quietly, so each phase gate requires a decision from a named person, not an acknowledgement. The orchestrator coordinates and does not decide; no tier approves its own output.
+
+Result
+
+AI advances only after human sign-off. Gates are hard stops, not formalities.
+
+### Make trust calibration explicit
+
+Why
+
+Judging AI output quickly without losing rigour is a skill no design programme teaches. Outputs fall into three tiers: review efficiently, scrutinise carefully, validate externally.
+
+Result
+
+The rule the team works by: AI fluency is a trigger for more scrutiny, not less.
 
 Outcome
 

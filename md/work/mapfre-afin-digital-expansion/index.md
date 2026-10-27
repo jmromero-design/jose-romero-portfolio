@@ -88,6 +88,36 @@ The engagement included a significant design operations challenge from the outse
 
 Coordination with Capgemini, the development partner, was a constant throughout: disciplined handoff and regular multi-team alignment were essential across design, client, and engineering teams operating under different organisational structures. The multi-device scope (desktop, tablet, and mobile) added a further layer of specification and handoff complexity to every delivery.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Layer the app with progressive disclosure
+
+Why
+
+The app had to feel simple for customers who are not financially sophisticated and still hold up for long-term decisions. The default view carries what most people need most of the time; detail and action are one deliberate tap deeper.
+
+Result
+
+The Financial Advisor sits at the deepest layer: always available, never intrusive.
+
+### Show the reasoning behind every recommendation
+
+Why
+
+Pushing too hard reads as a sales tool, and that costs more trust than not recommending at all.
+
+Result
+
+Each suggested product came with why this product, why now and what assumption sat behind it. Users could accept it, change the inputs or ignore it.
+
+### Offer a callback when someone tries to leave the advisory flow
+
+Why
+
+Leaving the advisory flow mid-way used to mean a lost session. A "We'll call you" offer turns the exit into a route to assisted help.
+
 Learnings
 
 ## What financial UX teaches you about trust

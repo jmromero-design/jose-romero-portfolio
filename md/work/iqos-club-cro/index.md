@@ -86,6 +86,44 @@ The IQOS Club engagement improved across the programme period. Specific figures 
 
 The more durable outcome for me was methodological: running CRO at low traffic volumes sharpens your thinking about what makes a good hypothesis and what constitutes meaningful evidence. The discipline of making high-quality decisions with limited data is transferable to almost any design context.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Raise the quality of each hypothesis instead of running more tests
+
+Why
+
+Only existing members visit the portal, so experiments take longer to reach significance and a false positive is more likely to be acted on. With fewer experiments possible, each one has to be better argued.
+
+Cost
+
+Fewer experiments could run.
+
+Result
+
+A pipeline that ranked hypotheses by impact against implementation cost, built on analytics, heatmaps and heuristic review.
+
+### Run variants in VWO so nothing waited for a development sprint
+
+Why
+
+Development resources were shared with other work, and VWO could run both A/B tests and personalisation without heavy engineering.
+
+Result
+
+The client came to use VWO as a fast channel for launch campaigns, with modals live within hours of a product launch.
+
+### Personalise by segment instead of optimising one experience
+
+Why
+
+The membership base is heterogeneous, and the alternative was forcing one optimised experience on all of it.
+
+Result
+
+Members with 2,500+ points see a redeem call to action; those under 500 see earn-oriented ones. Same hero, different primary intent.
+
 Scope evolution
 
 ## CRO tooling as a campaign delivery channel

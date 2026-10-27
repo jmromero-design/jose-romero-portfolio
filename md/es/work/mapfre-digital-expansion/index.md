@@ -94,6 +94,44 @@ Gestionar programas concurrentes para el mismo cliente requirió una clara gesti
 
 La comunicación diaria con los equipos de Mapfre y Capgemini en inglés, a través de múltiples mercados y zonas horarias, requirió una documentación y gestión del estado lo suficientemente rigurosa como para que todas las partes se mantuvieran alineadas sin sincronizaciones constantes. En un entorno multiagencia, el coste de la mala comunicación recae primero en el equipo de diseño, y los ciclos de feedback rápidos entre diseño, desarrollo y cliente son la única mitigación efectiva.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Separar la divergencia intencionada de la deriva accidental antes de rediseñar
+
+Por qué
+
+Algunas diferencias entre mercados eran regulatorias o culturales; la mayoría se habían acumulado porque cada mercado construía por su cuenta. Cada tipo pide un arreglo distinto, y confundirlos rompe algo que un mercado necesita o convierte un accidente en norma.
+
+Resultado
+
+Verti Italia y Alemania comparten ahora un sistema de diseño con la marca de Verti intacta.
+
+### Buscar coherencia, no uniformidad
+
+Por qué
+
+Verti tiene una marca fuerte dentro de la familia Mapfre, así que el trabajo en el límite entre el sistema corporativo y el estilo propio de Verti tenía que ser cuidadoso.
+
+Resultado
+
+Componentes, patrones y flujos se definen una vez y se adaptan en la capa superficial.
+
+### Acotar el alcance del CRO a lo que se podía medir
+
+Por qué
+
+Los equipos estaban aislados entre sí y los datos de los productos no eran lo bastante maduros para experimentar bien. Las partes más pequeñas y maduras del proceso podían alcanzar significación en un plazo realista.
+
+Coste
+
+El alcance se redujo.
+
+Resultado
+
+Salió a la luz un trabajo de refactorización necesario antes de poder testear, así que el programa no avanzó mucho mientras estuve.
+
 Aprendizajes
 
 ## Lo que el diseño de plataforma multipaís enseña

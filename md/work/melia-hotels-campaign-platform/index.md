@@ -70,6 +70,40 @@ Working with a rotating engineering team across the engagement also taught me a 
 
 **User permissions matrix.** One of two reference documents I designed to specify access logic across 8 roles and 15 platform sections, used directly by engineers as the source of truth for backend permission configuration and frontend conditional rendering.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Ask "show me what breaks", not "what do you want"
+
+Why
+
+Senior stakeholders describe the solution they have already pictured. Asking what breaks gets a problem statement you can design for.
+
+Result
+
+The workshops produced a shared model of how a campaign moves: idea, brief, asset, approval, scheduling, performance review.
+
+### Build a minimum-times framework as the architecture's backbone
+
+Why
+
+It maps the minimum lead time each phase and module needs, drawn from deep knowledge of the campaign process.
+
+Result
+
+Every campaign setup was validated against it.
+
+### Split the product by role after early testing
+
+Why
+
+Testing showed two groups with different needs: creators who wanted to move fast, and marketing managers who wanted visibility and control.
+
+Result
+
+Approval gateways, a visual campaign timeline and reporting dashboards, none of them in the original brief. The interface moved from content management to a workflow-first structure.
+
 Outcome
 
 ## Live across all Meliá markets

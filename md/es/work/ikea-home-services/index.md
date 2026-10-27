@@ -90,6 +90,28 @@ Resultados
 
 Estas son cifras publicadas por Ingka Group. El producto se lanzó en Madrid en septiembre de 2024 y desde entonces se ha expandido a siete regiones españolas a mayo de 2026, con crecimiento continuo en curso.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Hacer la investigación dentro de las tiendas de IKEA
+
+Por qué
+
+Reclutar en el sitio y probar los flujos en dispositivos reales daba señal más rápida que las pruebas remotas, y encajaba con el canal por el que la gente descubre el producto.
+
+### Mapear las dos partes por separado y diseñar después donde se encuentran
+
+Por qué
+
+Propietarios y profesionales tienen modelos mentales y criterios de éxito distintos. Primero los flujos de cada lado; después reserva, confirmación, resolución de disputas y reseñas.
+
+### Tratar la accesibilidad como requisito desde el primer flujo
+
+Por qué
+
+El producto tenía que cumplir los estándares de accesibilidad de IKEA y WCAG AA en iOS y Android, así que fue un requisito desde el primer día y no una auditoría al final.
+
 Aprendizajes
 
 ## Lo que enseña construir dentro de una gran marca

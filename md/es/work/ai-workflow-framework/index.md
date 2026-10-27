@@ -90,6 +90,40 @@ _Niveles de calibración de confianza. La confianza calibrada, saber qué revisa
 
 _Artefacto de calibración de confianza, referencia activa para evaluar outputs de IA: Alta Confianza (revisar con eficiencia), Escrutar Cuidadosamente (revisión humana profunda), Validar Externamente (fuente independiente requerida). La regla clave: la fluidez de la IA es un activador para mayor escrutinio, no para menos._
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Tratar la IA como cualquier otra parte del sistema
+
+Por qué
+
+Preguntar qué herramienta usar daba resultados que se desviaban sin dejar de parecer plausibles. La mejor pregunta era dónde encaja la IA en el proceso y cómo sabríamos que hace bien ese trabajo.
+
+Resultado
+
+Una arquitectura de proceso que no depende de ninguna herramienta de IA, así que sobrevive a cambios de herramienta y a la rotación del equipo.
+
+### Poner una decisión humana con nombre en cada puerta
+
+Por qué
+
+El trabajo asistido por IA falla en silencio, así que cada puerta de fase exige la decisión de una persona concreta, no un simple enterado. El orquestador coordina pero no decide; ningún nivel aprueba su propia salida.
+
+Resultado
+
+La IA avanza solo tras la aprobación humana. Las puertas son paradas obligatorias, no trámites.
+
+### Hacer explícita la calibración de confianza
+
+Por qué
+
+Juzgar rápido la salida de la IA sin perder rigor es una habilidad que ningún programa de diseño enseña. Las salidas caen en tres niveles: revisar con eficiencia, escrutar con cuidado, validar con una fuente externa.
+
+Resultado
+
+La regla del equipo: la fluidez de la IA es una señal para escrutar más, no menos.
+
 Resultado
 
 ## Un framework que separa el proceso de las herramientas

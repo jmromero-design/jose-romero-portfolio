@@ -76,6 +76,44 @@ Control Variante
 
 **Nudge de seguro adicional:** nudge conductual aplicado en el punto de decisión del seguro dentro del funnel de préstamo. El timing y el encuadre se derivaron de heurísticas de reducción de ansiedad y compromiso.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Volver una y otra vez al formulario de solicitud
+
+Por qué
+
+Era el paso con más en juego y donde más gente abandonaba, así que una mejora ahí pesaba más que una en una landing.
+
+Resultado
+
+El formulario se reconstruyó test a test, y la versión ganadora pasó a ser el estándar en los cuatro mercados.
+
+### Publicar solo con una mejora significativa en los dos mercados mayores
+
+Por qué
+
+Para que ningún resultado dependiera de un solo mercado, una cultura o una temporada. El método que acordamos con Santander era más estricto que en la mayoría de proyectos.
+
+Coste
+
+Una victoria en un solo mercado se quedaba en resultado de test y no salía a producción.
+
+Resultado
+
+Lo que llegó a los embudos en producción había aguantado en más de un mercado.
+
+### Revisar cada test en vivo contra la especificación aprobada
+
+Por qué
+
+Cada variante necesitaba aprobación legal en cuatro mercados, y un test mal configurado da datos engañosos. Que se implemente fiel a lo aprobado es tan responsabilidad de diseño como la propia variante.
+
+Resultado
+
+Solo se recogieron resultados de variantes que coincidían con lo aprobado.
+
 Aprendizajes
 
 ## Lo que el CRO multipaís enseña sobre diseño

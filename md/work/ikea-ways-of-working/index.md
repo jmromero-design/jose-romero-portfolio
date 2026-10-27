@@ -124,6 +124,40 @@ Complex features usually involve multiple stakeholders: product, engineering, co
 
 This work is ongoing and is being shared with senior design professionals at Garaje de Ideas as part of an active AI literacy programme.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Principles first, tools second
+
+Why
+
+Documentation written around the tools, without a structural principle underneath, is one more thing to keep updated.
+
+Result
+
+Each of the four tools got one non-overlapping job. Naming conventions followed from those roles, and onboarding followed from the naming.
+
+### Create translation keys during design, not development
+
+Why
+
+Keys created late, by engineering, squeezed the translation window and left QA no way to check language before release. Translation errors were being caught by users.
+
+Result
+
+Translations became a parallel track, and QA could verify language quality before release for the first time.
+
+### Check Skapa first, adapt if needed, justify anything new
+
+Why
+
+Without a rule, gaps in the design system got filled inconsistently: every designer made a different call and left no trail.
+
+Result
+
+A new component needs written justification and a governance review before it enters production.
+
 Outcome
 
 ## Imperfect adoption. Structural bones held.

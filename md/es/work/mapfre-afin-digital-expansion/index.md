@@ -86,6 +86,36 @@ El encargo incluyó también un reto importante de operaciones de diseño desde 
 
 La coordinación con Capgemini, el partner de desarrollo, fue una constante durante todo el encargo: procesos de handoff disciplinados y alineación regular entre equipos eran esenciales en un entorno donde diseño, cliente e ingeniería operaban bajo estructuras organizativas distintas. El alcance multidispositivo (escritorio, tablet y móvil) añadió una capa adicional de complejidad en las especificaciones y el proceso de entrega.
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Organizar la app en capas con divulgación progresiva
+
+Por qué
+
+La app tenía que resultar sencilla para quien no domina las finanzas y aun así sostener decisiones a largo plazo. La vista por defecto lleva lo que casi todos necesitan casi siempre; el detalle y la acción quedan a un toque deliberado de distancia.
+
+Resultado
+
+El Asesor Financiero vive en la capa más profunda: siempre disponible, nunca intrusivo.
+
+### Mostrar el razonamiento detrás de cada recomendación
+
+Por qué
+
+Empujar demasiado parece una herramienta de ventas, y eso cuesta más confianza que no recomendar nada.
+
+Resultado
+
+Cada producto sugerido iba con por qué este producto, por qué ahora y qué suposición había detrás. El usuario podía aceptarlo, cambiar los datos de entrada o ignorarlo.
+
+### Ofrecer una llamada cuando alguien intenta salir del flujo de asesoramiento
+
+Por qué
+
+Salir del flujo de asesoramiento a mitad suponía una sesión perdida. Un «Te llamamos» convierte la salida en una vía hacia ayuda asistida.
+
 Aprendizajes
 
 ## Lo que el UX financiero enseña sobre la confianza

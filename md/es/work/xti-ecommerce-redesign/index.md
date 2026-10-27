@@ -68,6 +68,40 @@ _**Detalle de producto · scroll móvil**: hero de producto y carrito, selecció
 
 _El rediseño concentró el esfuerzo en las etapas de mayor abandono: listado y detalle de producto. La expresión de marca tiene su espacio en la parte superior del funnel; las mecánicas de conversión toman el control desde el listado hacia abajo._
 
+Decisiones
+
+## Tres decisiones que marcaron el trabajo
+
+### Mapear las restricciones de la plataforma antes de diseñar nada
+
+Por qué
+
+El modelo de componentes, la estructura de URLs y la lógica de filtrado de Magento marcan los límites de la UX antes de tomar ninguna decisión de diseño. Conocerlos de entrada descarta la solución elegante que no se puede construir.
+
+Resultado
+
+El brief pasó a ser: ¿cuál es la mejor UX que podemos construir sobre esta plataforma?
+
+### Probar la arquitectura de información antes del diseño de alta fidelidad
+
+Por qué
+
+Los problemas que salen en card sorting y tree testing cuestan mucho menos que los que salen en datos reales, sobre todo en una migración donde cambiar la estructura tras el lanzamiento supone coste de desarrollo.
+
+Resultado
+
+La estructura de categorías y navegación se validó en Optimal Workshop antes de diseñar ninguna pantalla en alta fidelidad.
+
+### Concentrar el esfuerzo en el listado y la ficha de producto
+
+Por qué
+
+Son las etapas con más tráfico y más abandono de un embudo de moda. La marca gana su espacio arriba; la mecánica de conversión toma el relevo desde el listado hacia abajo.
+
+Resultado
+
+La tienda salió en Magento y fue la tienda principal de XTI durante unos tres años.
+
 Aprendizajes
 
 ## Las restricciones de plataforma son un briefing de diseño, no un obstáculo

@@ -70,6 +70,36 @@ Working across two marketplace products has a useful side effect: patterns that 
 
 The IKEA catalogue integration required close collaboration with engineering to define the data contract between the catalogue and the UI. What fields were always available? What fields were optional or inconsistently populated? The answers shaped the information hierarchy of every listing page.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Design for modularity once the product expanded
+
+Why
+
+Assumptions that held in Spain could not be hardcoded into components that would serve Norway or Portugal, where payment systems, consumer law and second-hand habits differ.
+
+Result
+
+Each expansion phase stress-tested the localisation assumptions before the next rollout.
+
+### Let the catalogue data contract set the listing hierarchy
+
+Why
+
+Working with engineering, we listed which fields the IKEA catalogue always provides and which arrive optional or patchy. Those answers decided the information hierarchy of every listing page.
+
+Result
+
+Sellers do not write product descriptions; dimensions, materials and assembly data come from the catalogue.
+
+### Build listing, trust and review flows for both marketplaces at once
+
+Why
+
+A pattern that works in one product tends to inform the other, and design debt in one shows up faster when you keep both consistent.
+
 Status
 
 ## Live in five markets, scaling further

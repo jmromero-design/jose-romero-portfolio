@@ -94,6 +94,44 @@ Running concurrent programmes for the same client required clear workload manage
 
 Daily communication with the Mapfre teams and Capgemini in English, across multiple markets and time zones, required documentation and status management rigorous enough that all parties stayed aligned without constant synchronisation. In a multi-agency environment, the cost of miscommunication lands on the design team first, and fast feedback loops between design, development, and client are the only effective mitigation.
 
+Decisions
+
+## Three decisions that shaped the work
+
+### Separate intentional divergence from accidental drift before redesigning
+
+Why
+
+Some differences between markets were regulatory or cultural; most had piled up because each market built on its own. The two need different fixes, and mixing them up either breaks something a market needs or preserves an accident as policy.
+
+Result
+
+Verti Italy and Germany now share one design system with Verti's branding intact.
+
+### Aim for coherence, not uniformity
+
+Why
+
+Verti has a strong brand inside the Mapfre family, so the work at the boundary between the corporate system and Verti's own look had to be careful.
+
+Result
+
+Components, patterns and flows are defined once and adapted at the surface layer.
+
+### Narrow the CRO scope to what could be measured
+
+Why
+
+The teams were isolated from each other and the data across products was not mature enough for proper experiments. Smaller, more mature parts of the process could reach significance on a realistic timeline.
+
+Cost
+
+The scope got smaller.
+
+Result
+
+It surfaced refactoring that had to happen before testing was possible, so the programme did not get far while I was on it.
+
 Learnings
 
 ## What multi-market platform work teaches you
