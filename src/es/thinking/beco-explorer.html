@@ -346,6 +346,8 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer-es.web
       .bgx-intro { padding: calc(var(--nav-height) + var(--sp-4)) var(--gutter) var(--sp-5); }
       .bgx-intro .btn { display: none; }
       .bgx-app { display: block; height: auto; min-height: 0; border-bottom: 0; }
+      /* hold the cards' space while the graph loads, so the page below does not jump when they arrive */
+      .bgx-app:not(.is-ready):not(.is-error) .bgx-body { min-height: 56rem; }
       .bgx-toolbar { position: sticky; top: 0; z-index: 20; transition: top 350ms ease; }
       .nav:not(.nav--hidden) ~ main .bgx-toolbar { top: var(--nav-height); }
       .bgx-search-wrap { flex: 1 1 0; min-width: 0; max-width: none; }
@@ -425,7 +427,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer-es.web
       <div>
         <span class="bgx-eyebrow">Investigación personal</span>
         <h1 id="bgx-title">Explora el <em>grafo BECO.</em></h1>
-        <p class="bgx-stats" id="bgxStats"></p>
+        <p class="bgx-stats" id="bgxStats">{{ beco.es.biases }} conceptos · {{ beco.es.findings }} hallazgos · {{ beco.es.sources }} fuentes · {{ beco.es.authors }} autores</p>
       </div>
       <button type="button" class="btn btn-ghost" data-help aria-haspopup="dialog">Cómo leer el mapa</button>
     </header>
