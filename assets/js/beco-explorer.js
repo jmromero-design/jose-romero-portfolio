@@ -503,13 +503,16 @@
     list.forEach((j) => { c[extra[j].g] = (c[extra[j].g] || 0) + 1; });
     return `<span class="bgx-bar" role="img" aria-label="${esc(S.barLabel(c.v, c.p, c.n))}">${['v', 'p', 'n'].map((g) => (c[g] ? `<i class="bgx-bar-${g}" style="flex:${c[g]}"></i>` : '')).join('')}</span>`;
   }
+  // the Spanish title of a concept, shown under its English name (only the Spanish build carries it)
+  const alt = (j) => (T[j] === CONCEPT && extra[j].n ? `<span class="bgx-alt">${esc(extra[j].n)}</span>` : '');
+  const t_alt = (j) => (T[j] === CONCEPT && extra[j].n ? `<p class="bgx-alt-title">${esc(extra[j].n)}</p>` : '');
   function card(j) {
     const t = T[j], x = extra[j];
     let meta = '';
     if (t < CONCEPT) meta = `<span class="bgx-card-meta">${esc(S.concepts((below.get(j) || []).length))}</span>${bar(below.get(j) || [])}`;
     else if (t === CONCEPT) meta = `<span class="bgx-card-meta">${esc([S.kind[x.k], S.grade[x.g]].filter(Boolean).join(' · '))}${x.m === 'high' ? ` · <em>${esc(S.mythShort)}</em>` : ''}</span>`;
     else meta = `<span class="bgx-card-meta">${esc(S.type[t])}</span>`;
-    return `<li><button type="button" class="bgx-card" data-node="${j}">${t >= CONCEPT ? dot(j) : ''}<span class="bgx-card-name">${esc(label[j])}</span>${meta}</button></li>`;
+    return `<li><button type="button" class="bgx-card" data-node="${j}">${t >= CONCEPT ? dot(j) : ''}<span class="bgx-card-name">${esc(label[j])}${alt(j)}</span>${meta}</button></li>`;
   }
   function cards(title, list, max) {
     if (!list.length) return '';
@@ -518,7 +521,7 @@
     return `<h3 class="bgx-h3">${esc(title)}</h3><ul class="bgx-cards">${list.slice(0, limit).map(card).join('')}</ul>${more}`;
   }
   const kids = (i, t) => adj[i].filter((j) => T[j] === t).sort((a, b) => label[a].localeCompare(label[b]));
-  const head = (i, typeText) => `<p class="bgx-type">${esc(typeText)}</p><h2 class="bgx-name" tabindex="-1">${esc(label[i])}</h2>`;
+  const head = (i, typeText) => `<p class="bgx-type">${esc(typeText)}</p><h2 class="bgx-name" tabindex="-1">${esc(label[i])}</h2>${t_alt(i)}`;
 
   function renderCard(i) {
     let html = '';
@@ -638,7 +641,7 @@
     results.sort((a, b) => a[1] - b[1] || T[a[0]] - T[b[0]] || label[a[0]].length - label[b[0]].length);
     results = results.slice(0, 8).map((r) => r[0]);
     searchList.innerHTML = results.length
-      ? results.map((i, n) => `<li role="option" id="bgxOpt${n}" data-node="${i}" aria-selected="false">${dot(i)}<span>${esc(label[i])}</span><small>${esc(S.type[T[i]])}</small></li>`).join('')
+      ? results.map((i, n) => `<li role="option" id="bgxOpt${n}" data-node="${i}" aria-selected="false">${dot(i)}<span>${esc(label[i])}${alt(i)}</span><small>${esc(S.type[T[i]])}</small></li>`).join('')
       : `<li class="bgx-empty" role="option" aria-disabled="true">${esc(S.noResults)}</li>`;
     searchInput.setAttribute('aria-expanded', 'true');
   }
