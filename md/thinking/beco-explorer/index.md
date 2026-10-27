@@ -8,6 +8,8 @@ Personal research
 
 # Explore the _BECO graph._
 
+254 concepts · 465 findings · 452 sources · 1094 authors
+
 Red ring: often repeated as a myth
 
 ## How to read the map

@@ -2502,8 +2502,14 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
       function pauseDemo() { clearInterval(demoTimer); demoTimer = null; }
       function stopDemo() { demoOn = false; pauseDemo(); }
       section.addEventListener('click', (e) => { if (!e.target.closest('.st-toggle')) stopDemo(); }, true);
+      // hovering or focusing inside the section pauses the cycle (WCAG 2.2.2); leaving resumes it
+      section.addEventListener('pointerenter', pauseDemo);
+      section.addEventListener('pointerleave', () => { if (section.matches(':focus-within')) return; if (demoOn && inView) startDemo(); });
+      section.addEventListener('focusin', pauseDemo);
+      section.addEventListener('focusout', (e) => { if (!section.contains(e.relatedTarget) && demoOn && inView && !section.matches(':hover')) startDemo(); });
+      let inView = false;
       new IntersectionObserver((entries) => {
-        entries.forEach((e) => (e.isIntersecting ? startDemo() : pauseDemo()));
+        entries.forEach((e) => { inView = e.isIntersecting; if (inView && !section.matches(':hover, :focus-within')) startDemo(); else pauseDemo(); });
       }, { rootMargin: '-30% 0px -30% 0px' }).observe(section);
 
       // clicking anywhere outside the drawing's surfaces and the panel, or

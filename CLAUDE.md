@@ -33,6 +33,9 @@ AI search tools quote this site, so facts and conventions must match on every pa
 - **Build fails on broken content rules:** title over 60 characters, any description (meta, og, twitter) over 160, or not exactly one `<h1>` (`eleventy.config.js`, transform `content-rules`).
 - **Asset versions live in `src/_data/site.js`** (`cssVersion`, `mainJsVersion`). Bump them there after changing `main.css` or `main.js`; no page needs editing.
 - **Case-study list:** `src/_data/projects.js` (see Next-project chain below).
+- **Decision logs:** `src/_data/decisions.js` holds three decisions per case study (EN and ES) and `src/_includes/decisions.njk` renders them before the last section; each entry must restate something the page already says. A new case study needs an entry there and the include in the page (plus a nav item).
+- **BECO totals** for the explorer's stats line come from `src/_data/beco.js` (reads each language's `graph.json`), so the line is in the HTML before the graph loads.
+- **Accessibility check:** `Designing the portfolio/tools/a11y_audit.js` runs in the browser on a built page (alt text, names, headings, landmarks, target sizes, contrast, focus and reduced-motion rules). Turn off transitions first or colours are read mid-fade.
 - **Shared parts are includes** in `src/_includes/`: `nav.njk`, `footer.njk`, `cta.njk`. A page calls them with `{% include "nav.njk" %}` and so on. Language comes from the folder (`src/es/` = Spanish), the language-toggle target is computed, and the nav's current section is the page's front matter `navCurrent: work|about|thinking`.
 - **Standard closing CTA:** the page's front matter holds `ctaHeading`, `ctaBody` and `ctaCv` (true adds the Download CV button), and the page body has `{% include "cta.njk" %}`. The homepages, Thinking indexes and a few special pages keep their own CTA markup inline (different animation classes).
 - **Footer date:** `src/_data/site.js` → `updated: "2026-10-27"`. Change it by hand when the site's content changes; every page's "Updated October 2026" follows. Also holds the email and LinkedIn URLs.
@@ -68,7 +71,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, bump `cssVersion` / `mainJsVersion` in `src/_data/site.js`.** Current: `main.css?v=52` / `main.js?v=19`. Pages read them from there.
+3. **After any change to `main.css` or `main.js`, bump `cssVersion` / `mainJsVersion` in `src/_data/site.js`.** Current: `main.css?v=53` / `main.js?v=19`. Pages read them from there.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 

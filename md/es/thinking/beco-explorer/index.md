@@ -8,6 +8,8 @@ Investigación personal
 
 # Explora el _grafo BECO._
 
+254 conceptos · 465 hallazgos · 452 fuentes · 1094 autores
+
 Anillo rojo: se repite a menudo como mito
 
 ## Cómo leer el mapa
