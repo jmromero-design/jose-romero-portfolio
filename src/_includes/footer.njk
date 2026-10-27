@@ -1,0 +1,22 @@
+{%- set es = (lang == "es") -%}
+{%- set p = '/es' if es else '' -%}
+<footer class="v4-footer" role="contentinfo">
+    <div class="v4-footer-top">
+      <p class="v4-footer-word">Jose <em>Romero</em></p>
+      <nav class="v4-footer-nav" aria-label="{{ 'Navegación del pie de página' if es else 'Footer navigation' }}">
+        <a href="{{ p }}/work/">{{ 'Trabajo' if es else 'Work' }}</a>
+        <a href="{{ p }}/about/">{{ 'Sobre mí' if es else 'About' }}</a>
+        <a href="{{ p }}/thinking/">{{ 'Reflexiones' if es else 'Thinking' }}</a>
+        <a href="{{ site.linkedin }}" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:{{ site.email }}">Email</a>
+        <a href="{{ p }}/contact/">{{ 'Contacto' if es else 'Contact' }}</a>
+        <a href="{{ p }}/privacy/">{{ 'Privacidad' if es else 'Privacy' }}</a>
+        <a href="/assets/cv/jose-romero-cv-{{ lang }}.pdf" download>{{ 'Descargar CV' if es else 'Download CV' }}</a>
+      </nav>
+    </div>
+    <div class="v4-footer-meta">
+      <span class="v4-footer-sign">{{ 'Diseño que funciona dentro de la complejidad.' if es else 'Design that works inside complexity.' }}</span>
+      <span>{{ 'Hecho a mano, estático, sin cookies de seguimiento.' if es else 'Hand-built, static, no tracking cookies.' }}</span>
+      <span>{{ 'Actualizado en' if es else 'Updated' }} {{ site.updated | monthYear(lang) }}</span>
+    </div>
+  </footer>

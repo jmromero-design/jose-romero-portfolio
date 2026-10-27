@@ -1,0 +1,21 @@
+{%- set es = (lang == "es") -%}
+<nav class="nav" role="navigation" aria-label="{{ 'Navegación principal' if es else 'Main navigation' }}">
+    <a href="{{ '/es/' if es else '/' }}" class="nav-logo nav-pill" aria-label="{{ 'Jose Romero, Inicio' if es else 'Jose Romero, Home' }}">
+      Jose <span class="logo-surname">Romero</span>
+    </a>
+    <ul class="nav-links nav-pill" role="list">
+      <li><a href="{{ '/es' if es }}/work/"{% if navCurrent == "work" %} aria-current="{{ navCurrentValue }}"{% endif %}>{{ 'Trabajo' if es else 'Work' }}</a></li>
+      <li><a href="{{ '/es' if es }}/about/"{% if navCurrent == "about" %} aria-current="{{ navCurrentValue }}"{% endif %}>{{ 'Sobre mí' if es else 'About' }}</a></li>
+      <li><a href="{{ '/es' if es }}/thinking/"{% if navCurrent == "thinking" %} aria-current="{{ navCurrentValue }}"{% endif %}>{{ 'Reflexiones' if es else 'Thinking' }}</a></li>
+      <li><a href="mailto:{{ site.email }}" class="nav-cta">{{ 'Contacto' if es else 'Contact' }}</a></li>
+    </ul>
+    <div class="lang-toggle nav-pill" aria-label="Language / Idioma">
+      {% if es %}<a href="{{ altUrl }}" class="lang-link" data-lang-switch="en" hreflang="en">EN</a>{% else %}<span class="lang-current" aria-current="true">EN</span>{% endif %}
+      <span class="lang-sep" aria-hidden="true">·</span>
+      {% if es %}<span class="lang-current" aria-current="true">ES</span>{% else %}<a href="{{ altUrl }}" class="lang-link" data-lang-switch="es" hreflang="es">ES</a>{% endif %}
+    </div>
+    <button class="theme-toggle nav-pill" aria-label="{{ 'Cambiar modo de color' if es else 'Toggle colour mode' }}" title="{{ 'Cambiar modo de color' if es else 'Toggle colour mode' }}">○</button>
+    <button class="nav-toggle nav-pill" aria-label="{{ 'Abrir menú' if es else 'Toggle menu' }}" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>

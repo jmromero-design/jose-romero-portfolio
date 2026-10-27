@@ -4,3 +4,5 @@
 
 # Design working files — not for production
 Designing the portfolio/
+node_modules/
+_site/

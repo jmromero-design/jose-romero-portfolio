@@ -1,0 +1,615 @@
+---
+navCurrent: "work"
+ctaHeading: "Have a problem<br><em class=\"accent-italic\">shaped like this one?</em>"
+ctaBody: "If your team’s process lives in people’s heads, I can help write it down so it survives the next reorganisation. Open to senior product design roles and selective consulting engagements, in English or Spanish."
+ctaCv: false
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IKEA Ways of Working System · Jose Romero</title>
+  <meta name="description" content="A cross-tool design operations framework for IKEA’s New Business Platform, spanning Figma, Jira, Confluence and Phrase, built to run without its author.">
+  <link rel="canonical" href="https://www.joseromerodesign.com/work/ikea-ways-of-working/">
+  <link rel="alternate" type="text/markdown" href="/md/work/ikea-ways-of-working/index.md">
+  <meta property="og:title" content="IKEA Ways of Working System · Jose Romero">
+  <meta property="og:description" content="Cross-tool design operations framework built from first principles. Replacing person-dependent process with something documented, teachable, and resilient.">
+  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-ikea-ways-of-working.webp?v=2">
+  <meta property="og:url" content="https://www.joseromerodesign.com/work/ikea-ways-of-working/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="IKEA Ways of Working System · Jose Romero">
+  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-ikea-ways-of-working.webp?v=2">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    "name": "IKEA Ways of Working System",
+    "description": "Cross-tool design operations framework for IKEA's New Business Platform team.",
+    "creator": {
+      "@type": "Person",
+      "@id": "https://www.joseromerodesign.com/#person",
+      "name": "Jose Romero"
+    },
+    "url": "https://www.joseromerodesign.com/work/ikea-ways-of-working/",
+    "inLanguage": "en",
+    "temporalCoverage": "2025/..",
+    "datePublished": "2026-06-05",
+    "dateModified": "2026-10-24",
+    "image": "https://www.joseromerodesign.com/assets/images/og-ikea-ways-of-working.webp",
+    "keywords": [
+      "Design Operations",
+      "Systems",
+      "Facilitation"
+    ],
+    "sponsor": {
+      "@type": "Organization",
+      "name": "IKEA / Ingka Group"
+    },
+    "isPartOf": {
+      "@type": "CollectionPage",
+      "@id": "https://www.joseromerodesign.com/work/"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.joseromerodesign.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Work",
+        "item": "https://www.joseromerodesign.com/work/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "IKEA Ways of Working System",
+        "item": "https://www.joseromerodesign.com/work/ikea-ways-of-working/"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/css/main.css?v=51">
+  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
+  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <style>
+    /* Top-anchored (not centered): as the box shrinks at narrow widths,
+       the top (board chrome + top of the screenshot) stays fully
+       visible and only the bottom trims, instead of cropping both ends. */
+    .cover-wow-comp{position:absolute;inset:0;background:var(--bg-surface);overflow:hidden;display:flex;align-items:flex-start;justify-content:center;gap:14px;padding:20px 24px}
+    .cover-wow-comp::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:var(--bg-surface-2);right:6%;top:-60px;box-shadow:0 0 0 100px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 220px color-mix(in srgb,var(--gold) 4%,var(--bg-surface));pointer-events:none}
+    .cover-wow-col{position:relative;z-index:1}
+    .cover-wow-col.primary{flex:5}
+    .cover-wow-col.secondary{flex:4}
+    .comp-board{border:1px solid var(--border-strong);border-radius:var(--radius-lg);overflow:hidden;box-shadow:0 20px 64px -20px rgba(0,0,0,.7)}
+    .comp-board-bar{background:#1a1a1a;padding:7px 12px;display:flex;align-items:center;gap:7px}
+    .comp-board-bar i{width:8px;height:8px;border-radius:50%;background:var(--border-strong);display:block}
+    .comp-board-label{margin-left:8px;font-size:10px;color:var(--text-tertiary);font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+    .comp-board-screen{overflow:hidden}
+    .comp-board-screen img{display:block;width:100%;height:auto}
+    .media-artifact{position:relative;overflow:hidden;border:1px solid var(--border-default);border-radius:var(--radius-lg);background:var(--bg-surface);padding:var(--sp-8) var(--sp-6);margin-block:var(--sp-10) var(--sp-3);margin-inline:0;display:flex;flex-direction:column;align-items:center;gap:var(--sp-5)}
+    .media-artifact::before{content:'';position:absolute;width:200px;height:200px;border-radius:50%;background:var(--bg-surface-2);right:-50px;bottom:-80px;box-shadow:0 0 0 80px color-mix(in srgb,var(--gold) 8%,var(--bg-surface-2)),0 0 0 180px color-mix(in srgb,var(--gold) 4%,var(--bg-surface-2)),0 0 0 290px color-mix(in srgb,var(--gold) 2%,var(--bg-surface));pointer-events:none}
+    .media-artifact img{display:block;width:100%;height:auto;border-radius:calc(var(--radius-lg) - 4px);position:relative;z-index:1;max-width:860px;box-shadow:0 4px 24px -4px rgba(0,0,0,.35)}
+    .media-artifact figcaption{width:100%;max-width:860px;font-size:0.8125rem;color:var(--text-tertiary);line-height:1.6;position:relative;z-index:1}
+    @media(max-width:640px){.cover-wow-comp{padding:14px 16px;gap:8px}.cover-wow-col.secondary{display:none}.media-artifact{padding:var(--sp-6) var(--sp-4)}}
+  </style>
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/work/ikea-ways-of-working/">
+  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/work/ikea-ways-of-working/">
+  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/work/ikea-ways-of-working/">
+  <script src="/assets/js/lang-detect.js"></script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+
+  <a href="#main" class="skip-nav">Skip to content</a>
+  {% include "nav.njk" %}
+
+  <main id="main">
+
+    <section class="cs-hero section">
+      <div class="container">
+
+        <div class="breadcrumb hero-animate">
+          <a href="/work/">Work</a>
+          <span>→</span>
+          <span>IKEA Ways of Working</span>
+        </div>
+
+        <div class="hero-animate">
+          <span class="eyebrow">Design Operations · Systems · Facilitation</span>
+        </div>
+
+        <h1 class="cs-hero-title" aria-label="A process designed to survive people.">
+          <span class="v4-mask"><span class="v4-line">A process designed to</span></span>
+          <span class="v4-mask"><span class="v4-line v4-line--accent">survive people.</span></span>
+        </h1>
+
+        <p class="body-lg hero-animate" style="max-width: 62ch; margin-bottom: var(--sp-6);">
+          When I joined the IKEA Home Services team, there was no shared working system. I built one: a cross-tool framework spanning Figma, Jira, Confluence, and Phrase, from first principles.
+        </p>
+
+        <div class="hero-animate" style="display: flex; gap: var(--sp-3); flex-wrap: wrap;">
+          <span class="tag tag--gold">IKEA · Current</span>
+          <span class="tag tag--teal">Garaje de Ideas × IKEA</span>
+          <span class="tag">Design Operations</span>
+        </div>
+
+      </div>
+    </section>
+
+    <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
+
+    <section class="section" style="padding-top: 0;">
+      <div class="container">
+
+        <div class="cs-details-bar reveal">
+          <div class="cs-detail">
+            <span class="cs-detail-label">Client</span>
+            <span class="cs-detail-value">IKEA / Ingka Group</span>
+          </div>
+          <div class="cs-detail">
+            <span class="cs-detail-label">Agency</span>
+            <span class="cs-detail-value">Garaje de Ideas / Groupe EDG</span>
+          </div>
+          <div class="cs-detail">
+            <span class="cs-detail-label">My role</span>
+            <span class="cs-detail-value">Design Operations Lead</span>
+          </div>
+          <div class="cs-detail">
+            <span class="cs-detail-label">Period</span>
+            <span class="cs-detail-value">2025–Present</span>
+          </div>
+          <div class="cs-detail">
+            <span class="cs-detail-label">Scope</span>
+            <span class="cs-detail-value">Process Design · Documentation · Tool Architecture · AI Workflow Design · Facilitation</span>
+          </div>
+        </div>
+
+        <section class="cs-brief reveal" aria-labelledby="cs-brief-title">
+          <h2 class="cs-brief-title" id="cs-brief-title">In short</h2>
+          <dl class="cs-brief-list">
+            <div>
+              <dt>The problem</dt>
+              <dd>When I joined, the team’s process lived in people’s heads: files scattered across tools, no agreed home for anything, and translation errors reaching users before anyone caught them.</dd>
+            </div>
+            <div>
+              <dt>What I did</dt>
+              <dd>I mapped the real work, wrote rules for what lives in Figma, Confluence, Jira and Phrase, redesigned the content workflow into five phases with clear owners, and set a rule for when to adapt Skapa components.</dd>
+            </div>
+            <div>
+              <dt>Result</dt>
+              <dd>Adoption is uneven, but the structure holds: newcomers onboard without a personal guide, handoffs share one shape, and QA now catches translation errors before release.</dd>
+            </div>
+          </dl>
+        </section>
+
+        <div class="cs-body-grid">
+
+          <div class="cs-body-main">
+
+            <div class="cs-cover reveal">
+          <div class="cover-wow-comp" role="img" aria-label="IKEA Ways of Working: system architecture board and Skapa-First component decision framework">
+            <div class="cover-wow-col primary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">WoW System Architecture</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="" width="2488" height="1770" loading="eager">
+                </div>
+              </div>
+            </div>
+            <div class="cover-wow-col secondary">
+              <div class="comp-board">
+                <div class="comp-board-bar"><i></i><i></i><i></i><span class="comp-board-label">Skapa-First Decision Framework</span></div>
+                <div class="comp-board-screen">
+                  <img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="" width="2470" height="1860" loading="eager">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="container--narrow" style="margin: 0 auto;">
+
+          <!-- THE PROBLEM -->
+          <div class="cs-section reveal" id="the-problem">
+            <span class="eyebrow">The problem</span>
+            <h2>Eight failure modes, not one</h2>
+            <p>When I joined the team, the working process existed, but only in people's heads. Files were spread across Figma, Confluence, and local drives with no consistent structure. Nobody could say for certain what belonged in Figma, what in Confluence, or what in Jira, and the answer changed depending on who you asked.</p>
+            <p>What looked like a cultural problem was a structural one. A root cause audit surfaced eight distinct failure modes actively slowing the team down. They were not independent; each fed the others:</p>
+          </div>
+
+          <!-- DIAGRAM 1: Root Causes -->
+          <figure class="diagram-block reveal" aria-label="Eight root causes of workflow breakdown">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 360" width="100%" role="img" aria-label="Eight interlocking root causes diagram">
+                <defs>
+                  <style>
+                    .rct { font-family: var(--font-body); font-size: 9.5px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .rcs { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                  </style>
+                </defs>
+                <!-- Card 1: Disorganized Figma Files — gold (design layer) -->
+                <rect x="8" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="8" width="3" height="80" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="rct" x="18" y="27">Disorganized</text>
+                <text class="rct" x="18" y="39">Figma Files</text>
+                <text class="rcs" x="18" y="57">Wasted search time,</text>
+                <text class="rcs" x="18" y="68">risk of outdated designs</text>
+                <!-- Card 2: Delayed Translations — teal (process layer) -->
+                <rect x="184" y="8" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="8" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                <text class="rct" x="194" y="27">Delayed</text>
+                <text class="rct" x="194" y="39">Translations</text>
+                <text class="rcs" x="194" y="57">Phrase updated too late,</text>
+                <text class="rcs" x="194" y="68">creating release bottlenecks</text>
+                <!-- Card 3: Inefficient Key Process — gold (design layer) -->
+                <rect x="8" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="96" width="3" height="80" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="rct" x="18" y="115">Inefficient</text>
+                <text class="rct" x="18" y="127">Content Key Process</text>
+                <text class="rcs" x="18" y="145">Keys created late by eng,</text>
+                <text class="rcs" x="18" y="156">blocking parallel work</text>
+                <!-- Card 4: Untestable Translations — teal (process layer) -->
+                <rect x="184" y="96" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="96" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                <text class="rct" x="194" y="115">Untestable</text>
+                <text class="rct" x="194" y="127">Translations</text>
+                <text class="rcs" x="194" y="145">QA unable to verify</text>
+                <text class="rcs" x="194" y="156">language before release</text>
+                <!-- Card 5: Disconnected Tools — teal (process layer) -->
+                <rect x="8" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="184" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                <text class="rct" x="18" y="203">Disconnected</text>
+                <text class="rct" x="18" y="215">Tools</text>
+                <text class="rcs" x="18" y="233">Fragmented workflow,</text>
+                <text class="rcs" x="18" y="244">reduced team efficiency</text>
+                <!-- Card 6: Insufficient Handoff — gold (design layer) -->
+                <rect x="184" y="184" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="184" width="3" height="80" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="rct" x="194" y="203">Insufficient</text>
+                <text class="rct" x="194" y="215">Handoff</text>
+                <text class="rcs" x="194" y="233">Dev misinterpretations</text>
+                <text class="rcs" x="194" y="244">and rework cycles</text>
+                <!-- Card 7: Unclear Naming — gold (design layer) -->
+                <rect x="8" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="8" y="272" width="3" height="80" rx="1.5" fill="var(--gold)" opacity="0.6"/>
+                <text class="rct" x="18" y="291">Unclear Naming</text>
+                <text class="rct" x="18" y="303">Methodology</text>
+                <text class="rcs" x="18" y="321">Friction locating assets</text>
+                <text class="rcs" x="18" y="332">and information</text>
+                <!-- Card 8: Unclear Info Architecture — teal (process layer) -->
+                <rect x="184" y="272" width="168" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.3" stroke-width="1"/>
+                <rect x="184" y="272" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.6"/>
+                <text class="rct" x="194" y="291">Unclear Info</text>
+                <text class="rct" x="194" y="303">Architecture</text>
+                <text class="rcs" x="194" y="321">Product structure hard</text>
+                <text class="rcs" x="194" y="332">to navigate or understand</text>
+              </svg>
+            </div>
+            <figcaption>Eight interlocking failure modes. The underlying pattern: information held informally, and no owner for the gaps between tools.</figcaption>
+          </figure>
+
+          <!-- APPROACH -->
+          <div class="cs-section reveal" id="approach">
+            <span class="eyebrow">Approach</span>
+            <h2>Principles first, tools second</h2>
+            <p>The first step was making the existing state legible. Mapping what was actually happening, not the ideal, not what people believed happened, revealed that the problems were structural, not behavioural. People weren't being careless; the system had no clear rules about who owned what at which stage.</p>
+            <p>The obvious move is to audit the tools first and write documentation around them, but that gets the order backwards. Without a structural principle underneath it, documentation is just one more thing to keep updated.</p>
+            <p>I started by mapping the actual work: the types of tasks the team performed, their interdependencies, the decisions that kept getting lost, the questions that kept being asked by new team members. From that map, I derived a set of structural rules: what type of information lives in each tool, when it moves between tools, who owns it at each stage.</p>
+
+            <div class="pull-quote">
+              <p>"Design truth lives in Figma, context truth in Confluence, progress truth in Jira, and the moment the same fact exists in two of those without one clearly overriding the other, something's already gone wrong."</p>
+            </div>
+
+            <p>Once the principles were clear, the documentation wrote itself. Tools were assigned roles. Naming conventions followed from those roles. Onboarding followed from the naming conventions.</p>
+          </div>
+
+          <!-- THE FRAMEWORK -->
+          <div class="cs-section reveal" id="the-framework">
+            <span class="eyebrow">The framework</span>
+            <h2>Four tools, one backbone</h2>
+            <p>The framework assigns a single, non-overlapping role to each of the four primary tools. The rule is simple enough to hold in memory without documentation:</p>
+          </div>
+
+          <!-- DIAGRAM 2: Tool Hierarchy (mobile-first vertical) -->
+          <figure class="diagram-block reveal" aria-label="Four-tool information hierarchy">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 376" width="100%" role="img" aria-label="Four-tool information hierarchy diagram with connecting spine">
+                <defs>
+                  <style>
+                    .tw-hub { font-family: var(--font-body); font-size: 8px; font-weight: 700; letter-spacing: 1.5px; fill: var(--gold); text-anchor: middle; }
+                    .tw-num { font-family: var(--font-body); font-size: 8.5px; font-weight: 600; letter-spacing: 1px; text-anchor: start; }
+                    .tw-role { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .tw-desc { font-family: var(--font-body); font-size: 8.5px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                  </style>
+                </defs>
+                <!-- Hub pill -->
+                <rect x="120" y="6" width="120" height="24" rx="12" fill="none" stroke="var(--gold)" stroke-width="1.2"/>
+                <text class="tw-hub" x="180" y="22">TRUTH HUB</text>
+                <!-- Spine -->
+                <line x1="20" y1="30" x2="20" y2="362" stroke="var(--gold)" stroke-width="1" opacity="0.18" stroke-dasharray="3 3"/>
+                <!-- FIGMA -->
+                <line x1="20" y1="78" x2="38" y2="78" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <circle cx="20" cy="78" r="4.5" fill="var(--bg-surface)" stroke="var(--gold)" stroke-width="1.5" opacity="0.5"/>
+                <rect x="38" y="40" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <rect x="38" y="40" width="3" height="76" rx="1.5" fill="var(--gold)" opacity="0.4"/>
+                <text class="tw-num" x="49" y="59" fill="var(--text-secondary)">01 / FIGMA</text>
+                <text class="tw-role" x="344" y="59" fill="var(--teal)">DESIGN TRUTH</text>
+                <text class="tw-desc" x="49" y="76">Component libraries, design tokens &amp; UI kits.</text>
+                <text class="tw-desc" x="49" y="89">Visual source of truth: specs exported to engineering.</text>
+                <!-- JIRA -->
+                <line x1="20" y1="162" x2="38" y2="162" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <circle cx="20" cy="162" r="4.5" fill="var(--bg-surface)" stroke="var(--gold)" stroke-width="1.5" opacity="0.5"/>
+                <rect x="38" y="124" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <rect x="38" y="124" width="3" height="76" rx="1.5" fill="var(--gold)" opacity="0.4"/>
+                <text class="tw-num" x="49" y="143" fill="var(--text-secondary)">02 / JIRA</text>
+                <text class="tw-role" x="344" y="143" fill="var(--teal)">PROGRESS TRUTH</text>
+                <text class="tw-desc" x="49" y="160">Sprint mapping &amp; status tracking. Tickets linked</text>
+                <text class="tw-desc" x="49" y="173">to design files. Not a design repository.</text>
+                <!-- CONFLUENCE -->
+                <line x1="20" y1="246" x2="38" y2="246" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <circle cx="20" cy="246" r="4.5" fill="var(--bg-surface)" stroke="var(--gold)" stroke-width="1.5" opacity="0.5"/>
+                <rect x="38" y="208" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <rect x="38" y="208" width="3" height="76" rx="1.5" fill="var(--gold)" opacity="0.4"/>
+                <text class="tw-num" x="49" y="227" fill="var(--text-secondary)">03 / CONFLUENCE</text>
+                <text class="tw-role" x="344" y="227" fill="var(--teal)">CONTEXT TRUTH</text>
+                <text class="tw-desc" x="49" y="244">WoW specs &amp; decision rationale. Translates</text>
+                <text class="tw-desc" x="49" y="257">principles into shared standards and onboarding.</text>
+                <!-- PHRASE -->
+                <line x1="20" y1="330" x2="38" y2="330" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <circle cx="20" cy="330" r="4.5" fill="var(--bg-surface)" stroke="var(--gold)" stroke-width="1.5" opacity="0.5"/>
+                <rect x="38" y="292" width="314" height="76" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <rect x="38" y="292" width="3" height="76" rx="1.5" fill="var(--gold)" opacity="0.4"/>
+                <text class="tw-num" x="49" y="311" fill="var(--text-secondary)">04 / PHRASE</text>
+                <text class="tw-role" x="344" y="311" fill="var(--teal)">COPY TRUTH</text>
+                <text class="tw-desc" x="49" y="328">Global copy &amp; localisation dictionary. Translations</text>
+                <text class="tw-desc" x="49" y="341">injected into design and code from one source.</text>
+              </svg>
+            </div>
+            <figcaption>One rule: every tool has one job. The system holds because the principle is simple enough to remember without the documentation.</figcaption>
+          </figure>
+
+          <figure class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact1-wow-system-architecture.webp" alt="WoW system architecture board: tool roles for Figma, Jira, Confluence and Phrase; Figma file structure with five product files; Skapa library hierarchy extending to Home Improver Library; five-phase content workflow" width="2488" height="1770" loading="lazy">
+            <figcaption>Working reference artifact: the complete WoW system architecture as distributed to the team. Covers tool-role assignments, Figma project structure, Skapa library hierarchy, and the five-phase content workflow in a single reference surface.</figcaption>
+          </figure>
+
+          <!-- FIVE-PHASE WORKFLOW -->
+          <div class="cs-section reveal" id="the-content-workflow">
+            <span class="eyebrow">The content workflow</span>
+            <h2>Five phases. Two owners.</h2>
+            <p>Alongside the tool framework, the team needed a clear workflow for how design work, particularly content and translations, moved through the production cycle. The existing process had no defined phases, no explicit ownership handoffs, and no point at which translations could be verified before they reached users.</p>
+            <p>The redesigned workflow is structured as five phases with explicit ownership. Phases one through three are designer-owned: content is defined, localisation keys are set up, and designs are handed off. Phases four and five are engineering-owned: implementation, integration, and QA happen here. The release is the output of a completed cycle, not a deadline that compresses earlier phases.</p>
+            <p>The critical structural change was in Phase Two. Content localisation keys, the strings that feed the translation system, had to be created during design, not during development. Moving key creation earlier made translations a parallel track from Phase Two onward, which meant they were ready when QA began rather than still in progress.</p>
+          </div>
+
+          <!-- DIAGRAM 3: Five-Phase Workflow -->
+          <figure class="diagram-block reveal" aria-label="Five-phase content and design workflow">
+            <div class="diagram-wrap">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 532" width="100%" role="img" aria-label="Five-phase workflow with ownership and translation callouts">
+                <defs>
+                  <style>
+                    .ph-num { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--gold); text-anchor: middle; dominant-baseline: middle; }
+                    .ph-num-eng { font-family: var(--font-body); font-size: 12px; font-weight: 600; fill: var(--teal); text-anchor: middle; dominant-baseline: middle; }
+                    .ph-title { font-family: var(--font-body); font-size: 10px; font-weight: 600; fill: var(--text-secondary); text-anchor: start; }
+                    .ph-owner { font-family: var(--font-body); font-size: 7px; font-weight: 600; letter-spacing: 1px; text-anchor: end; }
+                    .ph-desc { font-family: var(--font-body); font-size: 8px; font-weight: 300; fill: var(--text-tertiary); text-anchor: start; }
+                    .ph-tag { font-family: var(--font-body); font-size: 7px; font-weight: 600; text-anchor: start; }
+                  </style>
+                </defs>
+
+                <!-- PHASE 1 -->
+                <circle cx="24" cy="40" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="40">1</text>
+                <rect x="48" y="0" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title" x="60" y="22">Design &amp; Content Initiation</text>
+                <text class="ph-owner" x="344" y="22" fill="var(--gold)">DESIGNER</text>
+                <text class="ph-desc" x="60" y="40">Define content strategy, structure screens and flows.</text>
+                <text class="ph-desc" x="60" y="52">Establish base design with content placeholders.</text>
+
+                <!-- Connector 1→2 -->
+                <line x1="24" y1="80" x2="24" y2="90" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,89 28,89 24,96" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- PHASE 2 (gold accent — translation track starts, key design decision) -->
+                <circle cx="24" cy="136" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="136">2</text>
+                <rect x="48" y="96" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="96" width="3" height="80" rx="1.5" fill="var(--gold)" opacity="0.5"/>
+                <text class="ph-title" x="60" y="118">Content Keys Setup</text>
+                <text class="ph-owner" x="344" y="118" fill="var(--gold)">DESIGNER</text>
+                <text class="ph-desc" x="60" y="136">Create and assign localisation keys directly in design.</text>
+                <text class="ph-desc" x="60" y="148">Translation agency receives strings: parallel track begins.</text>
+                <rect x="60" y="158" width="120" height="12" rx="6" fill="var(--gold)" opacity="0.10"/>
+                <text class="ph-tag" x="66" y="167" fill="var(--gold)">← translation track begins here</text>
+
+                <!-- Connector 2→3 -->
+                <line x1="24" y1="176" x2="24" y2="186" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,185 28,185 24,192" fill="var(--gold)" opacity="0.3"/>
+
+                <!-- PHASE 3 -->
+                <circle cx="24" cy="232" r="16" fill="var(--bg-surface-2)" stroke="var(--gold)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num" x="24" y="232">3</text>
+                <rect x="48" y="192" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--border-default)" stroke-width="1"/>
+                <text class="ph-title" x="60" y="214">Handoff &amp; Development</text>
+                <text class="ph-owner" x="344" y="214" fill="var(--gold)">DESIGNER → ENG</text>
+                <text class="ph-desc" x="60" y="232">Finalise specs, handoff notes, Figma annotations.</text>
+                <text class="ph-desc" x="60" y="244">Engineering begins implementation from handed-off designs.</text>
+
+                <!-- Connector 3→4 (ownership transition — slightly different style) -->
+                <line x1="24" y1="272" x2="24" y2="282" stroke="var(--border-strong)" stroke-width="1.5" opacity="0.5"/>
+                <polygon points="20,281 28,281 24,288" fill="var(--border-strong)" opacity="0.5"/>
+
+                <!-- PHASE 4 (engineering, teal accent + translation verified) -->
+                <circle cx="24" cy="328" r="16" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng" x="24" y="328">4</text>
+                <rect x="48" y="288" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="288" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.5"/>
+                <text class="ph-title" x="60" y="310">QA Integration</text>
+                <text class="ph-owner" x="344" y="310" fill="var(--teal)">ENGINEERING</text>
+                <text class="ph-desc" x="60" y="328">Feature tested in pre-production. Technical and functional</text>
+                <text class="ph-desc" x="60" y="340">review. Translation verification included for all markets.</text>
+                <rect x="60" y="350" width="110" height="12" rx="6" fill="var(--teal)" opacity="0.10"/>
+                <text class="ph-tag" x="66" y="359" fill="var(--teal)">✓ translations verified in QA</text>
+
+                <!-- Connector 4→5 -->
+                <line x1="24" y1="368" x2="24" y2="378" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
+                <polygon points="20,377 28,377 24,384" fill="var(--teal)" opacity="0.3"/>
+
+                <!-- PHASE 5 -->
+                <circle cx="24" cy="424" r="16" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-width="1.2" opacity="0.8"/>
+                <text class="ph-num-eng" x="24" y="424">5</text>
+                <rect x="48" y="384" width="304" height="80" rx="5" fill="var(--bg-surface-2)" stroke="var(--teal)" stroke-opacity="0.4" stroke-width="1"/>
+                <rect x="48" y="384" width="3" height="80" rx="1.5" fill="var(--teal)" opacity="0.5"/>
+                <text class="ph-title" x="60" y="406">Release QA</text>
+                <text class="ph-owner" x="344" y="406" fill="var(--teal)">ENGINEERING</text>
+                <text class="ph-desc" x="60" y="424">Final issue corrections. Internal QA pass complete.</text>
+                <text class="ph-desc" x="60" y="436">Market corrections validated before production push.</text>
+
+                <!-- Connector 5→Release -->
+                <line x1="24" y1="464" x2="24" y2="474" stroke="var(--teal)" stroke-width="1" opacity="0.5"/>
+                <polygon points="20,473 28,473 24,480" fill="var(--teal)" opacity="0.5"/>
+
+                <!-- RELEASE BADGE -->
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="var(--teal)" opacity="0.06"/>
+                <rect x="48" y="480" width="304" height="44" rx="8" fill="none" stroke="var(--teal)" stroke-width="1.5" opacity="0.5"/>
+                <text x="200" y="499" font-family="var(--font-body)" font-size="10px" font-weight="600" fill="var(--teal)" text-anchor="middle">Feature Production Release</text>
+                <text x="200" y="514" font-family="var(--font-body)" font-size="8px" font-weight="300" fill="var(--text-tertiary)" text-anchor="middle">Translations shipped, verified, ready for all markets</text>
+              </svg>
+            </div>
+            <figcaption>Five phases, two owners. The key structural change: translation keys set up in Phase 2 (design), not Phase 4 (engineering), which made them verifiable in QA for the first time.</figcaption>
+          </figure>
+
+          <figure class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact2-feature-design-workflow.webp" alt="Feature design workflow board: six-step branching lifecycle from main file to branch deletion; branch naming convention; handoff protocol table with logic, content keys, accessibility and behaviour columns; Jira integration rule" width="2358" height="1742" loading="lazy">
+            <figcaption>Branch-level workflow artifact, showing how the five-phase process maps to daily Figma work: branch lifecycle from creation to deletion, naming conventions, handoff protocol, and Jira integration in one operational view.</figcaption>
+          </figure>
+
+          <!-- FIGMA FRAMEWORK -->
+          <div class="cs-section reveal" id="figma-framework">
+            <span class="eyebrow">Figma framework</span>
+            <h2>Component decisions, not component chaos.</h2>
+            <p>File structure and naming conventions solve the organisation problem. Component governance solves a different one: when to use what already exists, when to adapt it, and when to propose something new.</p>
+            <p>IKEA's Skapa design system provides a solid foundation of icons, foundations, and components. But a product team building features for the Home App will eventually encounter scenarios Skapa doesn't cover. Without a rule, those gaps get filled inconsistently: every designer making a different call, with no trail and no review. The Skapa-First decision framework makes the rule explicit: check Skapa first, adapt if needed, and only propose new components when no existing solution is feasible, with written justification and a governance review before anything enters production.</p>
+          </div>
+
+          <figure class="media-artifact reveal">
+            <img src="/assets/images/work/ikea-ways-of-working/artifact3-skapa-decision-framework.webp" alt="Skapa-First component decision framework: decision diamond asking if there is a direct match in Skapa; three evaluation paths: YES use directly, MAYBE adapt or propose variant, NO justify and follow governance; Home Improver Library as the extension layer" width="2470" height="1860" loading="lazy">
+            <figcaption>Component governance artifact, the Skapa-First decision framework as distributed to designers. Three evaluation paths: YES (use directly), MAYBE (adapt as a variant), NO (justify and submit for governance review before production).</figcaption>
+          </figure>
+
+          <!-- MAKING TRANSLATIONS TESTABLE -->
+          <div class="cs-section reveal" id="phrase-optimization">
+            <span class="eyebrow">Phrase optimisation</span>
+            <h2>From untestable to verifiable</h2>
+            <p>The translation workflow was the most acute failure point. In the existing state, localisation keys were created late in the cycle, typically by engineering, not design, which compressed the translation window, forced localisation to happen in parallel with development rather than before it, and left QA with no mechanism to verify language quality before release. Translation errors were caught by end users, not by the team.</p>
+            <p>The redesigned workflow shifted both the ownership and timing of key creation. Designers create content keys during Phase Two, as part of the design process, before handoff. This turns translation into a parallel track that is ready when development completes. Quality assurance now includes a dedicated translation review step: language errors are catchable before they ship.</p>
+
+            <div class="pull-quote">
+              <p>"If you can't test a problem before release, you will ship it. Testable translations weren't a nice-to-have; they were the reason the quality bar held."</p>
+            </div>
+
+            <p>The change also reduced the cognitive load on engineering. When keys arrive in development already created and named correctly, engineers aren't making content decisions under deadline. The system produces better work because each role is doing the work it's positioned to do.</p>
+          </div>
+
+          <!-- AI WORKFLOW DESIGN -->
+          <div class="cs-section reveal" id="ai-workflow-design">
+            <span class="eyebrow">AI workflow design</span>
+            <h2>When the process is solid, you can design what comes next.</h2>
+            <p>Fixing the structural failures was necessary. But it also opened a different question: now that handoffs and ownership were explicit and documented, which parts of the design workflow could be fundamentally restructured, not just improved, using AI?</p>
+            <p>Two threads emerged from this:</p>
+
+            <div class="role-sub-project" style="margin-top: var(--sp-6);">
+              <h6>Shape Up facilitation</h6>
+              <p>Shape Up sessions are cognitively demanding: problem framing, constraint definition, appetite-setting, and rough solution sketching, all compressed into a few hours. I designed and tested facilitation workflows that use AI to support the shaping process: structuring prompting sequences, helping surface edge cases before pitches are written, and synthesizing multi-participant outputs into pitch-ready documentation.</p>
+            </div>
+
+            <div class="role-sub-project" style="margin-top: var(--sp-4);">
+              <h6>Multi-agent orchestration for product shaping</h6>
+              <p>Complex features usually involve multiple stakeholders: product, engineering, content, business. For those, I designed a multi-agent approach that distributes the shaping task across specialized agents: problem decomposition, constraint mapping, and solution evaluation. Outputs are structured to flow directly into the Confluence documentation format established by the ways-of-working system. The process and the AI layer are the same system.</p>
+            </div>
+
+            <div class="pull-quote" style="margin-top: var(--sp-6);">
+              <p>"Most designers pick up AI as another tool in the kit. What I'm doing here is closer to designing AI into the workflow itself, a different skill, and honestly the direction systems thinking was always heading anyway."</p>
+            </div>
+
+            <p style="margin-top: var(--sp-6);">This work is ongoing and is being shared with senior design professionals at Garaje de Ideas as part of an active AI literacy programme.</p>
+          </div>
+
+          <!-- OUTCOME -->
+          <div class="cs-section reveal" id="outcome">
+            <span class="eyebrow">Outcome</span>
+            <h2>Imperfect adoption. Structural bones held.</h2>
+            <p>Adoption has been uneven, which was expected. Some habits stuck fast, others are still catching on team by team, and a few corners of the process still get worked out informally rather than by the book.</p>
+            <p>But the structural bones held. New team members can now onboard without needing a personal guide through every tool. Handoffs have a consistent shape. When the process breaks down, it breaks down in identifiable ways: a naming convention ignored, a Confluence page not updated. Both get fixed by adjusting documentation, not by hunting through files or asking the right person.</p>
+            <p>The translation workflow change had the most immediate effect: QA could verify language quality before release for the first time. The feedback loop shortened from "a user reports a translation issue" to "QA catches it in pre-production."</p>
+            <p>Honestly, that's fine by me. I'd rather have a system that keeps functioning when people cut corners than one that only works if everybody follows it to the letter. The second kind looks great on paper and falls apart the day its one caretaker goes on holiday.</p>
+          </div>
+
+        </div>
+
+          </div>
+
+          <nav class="cs-nav" aria-label="Section navigation">
+            <div class="cs-nav-rail">
+              <div class="cs-nav-track"></div>
+              <div class="cs-nav-fill"></div>
+              <ol class="cs-nav-list">
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-problem"><span class="cs-nav-num">01</span>The problem</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#approach"><span class="cs-nav-num">02</span>Approach</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-framework"><span class="cs-nav-num">03</span>The framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#the-content-workflow"><span class="cs-nav-num">04</span>The content workflow</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#figma-framework"><span class="cs-nav-num">05</span>Figma framework</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#phrase-optimization"><span class="cs-nav-num">06</span>Phrase optimisation</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#ai-workflow-design"><span class="cs-nav-num">07</span>AI workflow design</a></li>
+                <li class="cs-nav-item"><a class="cs-nav-link" href="#outcome"><span class="cs-nav-num">08</span>Outcome</a></li>
+              </ol>
+            </div>
+          </nav>
+
+        </div>
+
+      </div>
+    </section>
+    <section class="section--sm" style="border-top: 1px solid var(--border-default);">
+      <div class="container">
+        <a href="/work/ai-workflow-framework/" class="next-project reveal">
+          <div>
+            <div class="next-project-label">Next project</div>
+            <div class="next-project-title">AI Workflow Framework →</div>
+          </div>
+          <span style="color: var(--gold); font-size: var(--text-3xl); font-family: var(--font-display);">→</span>
+        </a>
+        <nav class="cs-more" data-case-more aria-label="More case studies"></nav>
+      </div>
+    </section>
+
+
+    {% include "cta.njk" %}
+
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/case-nav.js?v=1" defer></script>
+</body>
+</html>

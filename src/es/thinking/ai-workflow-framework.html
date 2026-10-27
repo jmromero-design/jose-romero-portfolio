@@ -1,0 +1,1166 @@
+---
+navCurrent: "thinking"
+ctaHeading: "¿Le das vueltas<br><em class=\"accent-italic\">a las mismas preguntas?</em>"
+ctaBody: "Si tu equipo está viendo dónde encaja la IA en el proceso, me alegra comparar notas. Abierto a roles de product design senior y proyectos de consultoría selectivos, en inglés o español."
+ctaCv: false
+---
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Diseñar con IA · Jose Romero</title>
+  <meta name="description"
+    content="Un framework para diseñar producto con personas al mando y agentes de apoyo: arquitectura de procesos, checkpoints reales, drift y lo que exige la IA.">
+  <link rel="canonical" href="https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/">
+  <link rel="alternate" type="text/markdown" href="/md/es/thinking/ai-workflow-framework/index.md">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Diseñar con IA · Jose Romero">
+  <meta property="og:description"
+    content="Un framework para diseñar producto con personas al mando y agentes de apoyo: arquitectura de procesos, checkpoints reales, drift y lo que exige la IA.">
+  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2">
+  <meta property="og:url" content="https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Diseñar con IA · Jose Romero">
+  <meta name="twitter:description"
+    content="Un framework para el diseño de producto liderado por humanos y asistido por agentes.">
+  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Diseñar con IA",
+    "description": "Un framework para diseñar producto con personas al mando y agentes de apoyo: arquitectura de procesos, checkpoints reales, drift y lo que exige la IA.",
+    "image": "https://www.joseromerodesign.com/assets/images/og-default-es.webp",
+    "inLanguage": "es",
+    "datePublished": "2026-06-11",
+    "dateModified": "2026-10-25",
+    "author": {
+      "@type": "Person",
+      "@id": "https://www.joseromerodesign.com/#person",
+      "name": "Jose Romero",
+      "url": "https://www.joseromerodesign.com/about/",
+      "sameAs": [
+        "https://www.linkedin.com/in/joseromerodesign/"
+      ]
+    },
+    "mainEntityOfPage": "https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://www.joseromerodesign.com/es/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Reflexiones",
+        "item": "https://www.joseromerodesign.com/es/thinking/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Diseñar con IA",
+        "item": "https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/css/main.css?v=51">
+  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
+  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/">
+  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/">
+  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/ai-workflow-framework/">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       ARTICLE LAYOUT — AI WORKFLOW FRAMEWORK
+       fwa- prefix (framework article)
+    ═══════════════════════════════════════════════ */
+
+    .fwa {
+      --fwa-sidebar: 200px;
+      --fwa-gap: 56px;
+      --fwa-body: 640px;
+      --fwa-note-w: 196px;
+    }
+
+    .fwa-hero {
+      padding-block: var(--sp-20) 0;
+      border-bottom: 1px solid var(--border-default);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .fwa-hero::after {
+      content: '';
+      position: absolute;
+      top: 0; right: 0; bottom: 0;
+      width: 50%;
+      background: radial-gradient(ellipse 600px 500px at 80% 40%,
+        color-mix(in srgb, var(--gold) 5%, transparent),
+        transparent 70%);
+      pointer-events: none;
+    }
+
+    .fwa-hero-inner {
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: clamp(var(--sp-6), 5vw, var(--sp-16));
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: var(--sp-8);
+      align-items: end;
+    }
+
+    @media (max-width: 767px) {
+      .fwa-hero-inner { grid-template-columns: 1fr; }
+    }
+
+    .fwa-hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+      margin-bottom: var(--sp-8);
+    }
+
+    .fwa-hero-kicker-text {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fwa-hero-kicker-sep {
+      width: 32px;
+      height: 1px;
+      background: var(--border-strong);
+      flex-shrink: 0;
+    }
+
+    .fwa-hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(3.2rem, 8vw, 7.5rem);
+      font-weight: 400;
+      line-height: 0.92;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: var(--sp-7);
+    }
+
+    .fwa-hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .fwa-hero-sub {
+      font-family: var(--font-body);
+      font-size: clamp(var(--text-base), 1.8vw, var(--text-lg));
+      font-weight: 400;
+      color: var(--text-secondary);
+      max-width: 52ch;
+      line-height: 1.65;
+      padding-bottom: var(--sp-12);
+    }
+
+    .fwa-hero-right {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+      padding-bottom: var(--sp-12);
+      text-align: right;
+    }
+
+    @media (max-width: 767px) {
+      .fwa-hero-right { display: none; }
+    }
+
+    /* Mobile loses the desktop meta column entirely along with the
+       right-side flex layout it depends on — reading time, topic, and
+       context are useful orientation for an 18-minute piece, so give
+       mobile its own compact line instead of dropping them. */
+    .fwa-hero-meta-mobile { display: none; }
+    @media (max-width: 767px) {
+      .fwa-hero-meta-mobile {
+        display: block;
+        margin-top: var(--sp-5);
+        font-family: var(--font-body);
+        font-size: var(--text-xs);
+        color: var(--text-tertiary);
+        line-height: 1.6;
+      }
+      .fwa-hero-meta-mobile strong { color: var(--text-secondary); font-weight: 500; }
+    }
+
+    .fwa-hero-meta-row {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: var(--text-tertiary);
+      white-space: nowrap;
+    }
+
+    .fwa-hero-meta-row strong {
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .fwa-outer {
+      max-width: 1280px;
+      margin-inline: auto;
+      padding-inline: clamp(var(--sp-6), 5vw, var(--sp-16));
+      padding-block: var(--sp-20) var(--sp-24);
+    }
+
+    @media (min-width: 1100px) {
+      .fwa-outer {
+        display: flex;
+        align-items: flex-start;
+        gap: var(--fwa-gap);
+      }
+    }
+
+    .fwa-sidebar { display: none; }
+
+    @media (min-width: 1100px) {
+      .fwa-sidebar {
+        display: block;
+        width: var(--fwa-sidebar);
+        flex-shrink: 0;
+        position: sticky;
+        top: 88px;
+        max-height: calc(100vh - 120px);
+        overflow-y: auto;
+        z-index: 10;
+        padding: var(--sp-5) var(--sp-4) var(--sp-5) var(--sp-3);
+        /* A floating panel over scrolling text is the clearest possible
+           use case for glass — the ambient cursor glow and the article's
+           own copy show through as they pass underneath, instead of the
+           sidebar sitting on a flat opaque plate. */
+        border-radius: var(--radius-md);
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
+          color-mix(in srgb, var(--bg-surface) 55%, transparent);
+        backdrop-filter: blur(20px) saturate(1.6);
+        -webkit-backdrop-filter: blur(20px) saturate(1.6);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      [data-theme="light"] .fwa-sidebar {
+        background:
+          linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.18)),
+          color-mix(in srgb, var(--bg-surface) 45%, transparent);
+        border-color: rgba(255, 255, 255, 0.6);
+      }
+    }
+
+    .fwa-toc-label {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-4);
+    }
+
+    /* Rail — overall reading progress through the chapter list, same
+       track+fill technique as the case-study nav and About's experience
+       spine. The per-link border-left below is a separate "you are here"
+       cue for the current chapter; the rail shows progress through all
+       of them at a glance. */
+    .fwa-toc-rail { position: relative; }
+    .fwa-toc-track {
+      position: absolute;
+      left: 0; top: 4px; bottom: 4px;
+      width: 1px;
+      background: var(--border-default);
+    }
+    .fwa-toc-fill {
+      position: absolute;
+      left: 0; top: 4px;
+      width: 1px;
+      height: 0%;
+      background: var(--gold);
+      transition: height 0.1s linear;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .fwa-toc-fill { transition: none; }
+    }
+
+    .fwa-toc-list {
+      list-style: none;
+      padding-left: var(--sp-4);
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .fwa-toc-list a {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--text-tertiary);
+      text-decoration: none;
+      display: flex;
+      align-items: flex-start;
+      gap: var(--sp-2);
+      padding-block: 8px;
+      line-height: 1.35;
+      transition: color 0.15s, border-color 0.15s;
+      border-left: 2px solid transparent;
+      padding-left: var(--sp-3);
+    }
+
+    .fwa-toc-list a:hover {
+      color: var(--text-secondary);
+      border-left-color: var(--border-strong);
+    }
+
+    .fwa-toc-list li.is-active a {
+      color: var(--text-primary);
+      border-left-color: var(--gold);
+    }
+
+    .fwa-toc-num {
+      font-family: var(--font-display); font-weight: 400;
+      font-size: 12px;
+      color: var(--gold);
+      opacity: 0.5;
+      flex-shrink: 0;
+      margin-top: 1px;
+      transition: opacity 0.15s;
+    }
+
+    .fwa-toc-list li.is-active .fwa-toc-num { opacity: 1; }
+
+    /* ── In short — the argument in four lines, read before the long
+       version. Chapter links sit underneath only where the sidebar
+       Contents is hidden. */
+    .fwa-brief {
+      margin-bottom: var(--sp-16);
+      padding: var(--sp-6) 0 0;
+      border-top: 2px solid var(--gold);
+    }
+    .fwa-brief-title {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+      margin-bottom: var(--sp-5);
+    }
+    .fwa-brief-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-4); }
+    .fwa-brief-list li { font-size: var(--text-base); line-height: 1.65; color: var(--text-secondary); max-width: 38em; }
+    .fwa-brief-list strong { color: var(--text-primary); font-weight: 600; }
+    .fwa-brief-jump {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-5);
+      margin-top: var(--sp-6);
+      font-size: var(--text-sm);
+    }
+    .fwa-brief-jump span { color: var(--text-tertiary); }
+    .fwa-brief-jump a { color: var(--teal-text); text-decoration: none; }
+    .fwa-brief-jump a:hover { color: var(--gold); }
+    @media (min-width: 1100px) {
+      .fwa-brief-jump { display: none; }
+    }
+
+    /* ── Main article body ───────────────────── */
+    .fwa-body { flex: 1; min-width: 0; }
+
+    /* ── Back-links — deliberately its own component, separate from the
+       Contents/TOC above: this one leaves the article, the TOC never
+       does. Shown at every width, not just mobile, now that it's the
+       only place these links live. */
+    .fwa-back-links {
+      display: flex;
+      gap: var(--sp-5);
+      padding-bottom: var(--sp-6);
+      margin-bottom: var(--sp-6);
+      border-bottom: 1px solid var(--border-default);
+    }
+    .fwa-back-links a {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      text-decoration: none;
+      transition: color 0.15s;
+    }
+    .fwa-back-links a:hover { color: var(--gold); }
+
+    .fwa-preface {
+      padding-bottom: var(--sp-10);
+      border-bottom: 1px solid var(--border-default);
+      margin-bottom: var(--sp-4);
+      scroll-margin-top: calc(var(--nav-height) + var(--sp-6));
+    }
+
+    .fwa-preface-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-5);
+    }
+
+    .fwa-chapter {
+      margin-block: var(--sp-16) var(--sp-8);
+      padding-block: var(--sp-5) var(--sp-6);
+      border-top: 1px solid var(--border-strong);
+      scroll-margin-top: calc(var(--nav-height) + var(--sp-6));
+    }
+
+    @media (min-width: 1100px) {
+      .fwa-chapter {
+        margin-left: calc(-1 * (var(--fwa-sidebar) + var(--fwa-gap)));
+        padding-left: calc(var(--fwa-sidebar) + var(--fwa-gap));
+      }
+    }
+
+    .fwa-ch-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: var(--sp-4);
+      margin-bottom: var(--sp-3);
+    }
+
+    .fwa-ch-num {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+      font-weight: 400;
+      color: var(--gold);
+      line-height: 1;
+      letter-spacing: -0.03em;
+    }
+
+    .fwa-ch-tag {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--text-tertiary);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .fwa-ch-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      max-width: var(--fwa-body);
+      margin: 0;
+    }
+
+    .fwa-intro {
+      font-family: var(--font-body);
+      font-size: clamp(var(--text-base), 1.6vw, var(--text-xl));
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      max-width: var(--fwa-body);
+      margin-bottom: var(--sp-6);
+    }
+
+    .fwa-p {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      max-width: var(--fwa-body);
+      margin-bottom: var(--sp-5);
+    }
+
+    .fwa-h3 {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-top: var(--sp-9);
+      margin-bottom: var(--sp-3);
+      max-width: var(--fwa-body);
+    }
+
+    .fwa-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 var(--sp-5) 0;
+      max-width: var(--fwa-body);
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-3);
+    }
+
+    .fwa-list li {
+      font-family: var(--font-body);
+      font-size: var(--text-base);
+      font-weight: 400;
+      color: var(--text-secondary);
+      line-height: 1.7;
+      padding-left: var(--sp-5);
+      position: relative;
+    }
+
+    .fwa-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 12px;
+      height: 1px;
+      background: var(--gold);
+      opacity: 0.6;
+    }
+
+    .fwa-list li strong { color: var(--text-primary); font-weight: 500; }
+
+    .fwa-note {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.02)),
+        color-mix(in srgb, var(--bg-surface) 55%, transparent);
+      backdrop-filter: blur(16px) saturate(1.5);
+      -webkit-backdrop-filter: blur(16px) saturate(1.5);
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-left: 2px solid var(--teal);
+      padding: var(--sp-4) var(--sp-5);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      margin-block: var(--sp-6);
+    }
+    [data-theme="light"] .fwa-note {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)),
+        color-mix(in srgb, var(--bg-surface) 45%, transparent);
+      border-color: rgba(255, 255, 255, 0.6);
+      border-left-color: var(--teal);
+    }
+
+    .fwa-note-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Floating the note into the margin needs .fwa-body to actually have
+       ~256px of slack beyond the 640px text column (note width + gap) —
+       true once .fwa-outer has reached its own 1280px max-width, but not
+       yet at the 1100px breakpoint where the sidebar itself turns on:
+       there, .fwa-outer is still narrower than its cap, .fwa-body has far
+       less spare width, and the fixed negative margin-right below (tuned
+       for the wide case) pulls the note back until it sits flush against
+       the text with no gap at all. Below this wider breakpoint the note
+       stays in its plain full-width block state instead (see the base
+       .fwa-note rule above) rather than floating into a margin that
+       isn't reliably there yet. */
+    @media (min-width: 1360px) {
+      .fwa-note {
+        float: right;
+        width: var(--fwa-note-w);
+        margin-left: var(--sp-7);
+        margin-right: calc(-1 * (var(--fwa-note-w) + var(--sp-7)));
+        margin-top: var(--sp-1);
+        margin-bottom: var(--sp-5);
+        clear: right;
+      }
+    }
+
+    /* Matches the site's own testimonial-quote convention (About page) —
+       a quiet left rule and italic type, not a filled box. A pull quote
+       is a typographic accent, not a UI panel; it doesn't need glass or
+       a background wash to earn its emphasis. */
+    .fwa-pull {
+      margin-block: var(--sp-10);
+      padding: var(--sp-2) 0 var(--sp-2) var(--sp-8);
+      border-left: 2px solid var(--gold);
+      max-width: var(--fwa-body);
+      clear: both;
+    }
+
+    .fwa-pull p {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2vw, 1.45rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-primary);
+      line-height: 1.45;
+      letter-spacing: -0.01em;
+      margin: 0;
+    }
+
+    .fwa-stripe {
+      margin-block: var(--sp-14);
+      padding-block: var(--sp-10);
+      border-top: 1px solid var(--border-default);
+      border-bottom: 1px solid var(--border-default);
+    }
+
+    @media (min-width: 1100px) {
+      .fwa-stripe {
+        margin-left: calc(-1 * (var(--fwa-sidebar) + var(--fwa-gap)));
+        padding-left: calc(var(--fwa-sidebar) + var(--fwa-gap));
+      }
+    }
+
+    .fwa-stripe-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--text-primary);
+      max-width: 48ch;
+      line-height: 1.3;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    /* This is a mockup of an actual AI-generated UI artifact, not a text
+       callout — a floating glass panel reads as "this is a distinct
+       interface object" in a way a flat bordered box doesn't. */
+    .fwa-artifact {
+      margin-block: var(--sp-8);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      max-width: var(--fwa-body);
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.015)),
+        color-mix(in srgb, var(--bg-surface) 60%, transparent);
+      backdrop-filter: blur(18px) saturate(1.6);
+      -webkit-backdrop-filter: blur(18px) saturate(1.6);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08), 0 24px 60px -20px rgba(0, 0, 0, 0.6);
+    }
+    [data-theme="light"] .fwa-artifact {
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15)),
+        color-mix(in srgb, var(--bg-surface) 50%, transparent);
+      border-color: rgba(255, 255, 255, 0.65);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.75), 0 24px 60px -20px rgba(0, 0, 0, 0.18);
+    }
+
+    .fwa-artifact-header {
+      padding: var(--sp-3) var(--sp-5);
+      background: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      gap: var(--sp-3);
+    }
+    [data-theme="light"] .fwa-artifact-header {
+      background: rgba(255, 255, 255, 0.25);
+      border-bottom-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .fwa-artifact-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--teal-text);
+    }
+
+    .fwa-artifact-tag {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 400;
+      color: var(--text-secondary);
+    }
+
+    .fwa-artifact-body { padding: var(--sp-5); }
+
+    .fwa-artifact-fields {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+    }
+
+    .fwa-artifact-field dt {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-1);
+    }
+
+    .fwa-artifact-field dd {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 400;
+      color: var(--text-primary);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .fwa-artifact-footer {
+      margin-top: var(--sp-5);
+      padding-top: var(--sp-4);
+      border-top: 1px solid var(--border-default);
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--gold);
+    }
+
+    .fwa-section::after { content: ''; display: table; clear: both; }
+
+    .fwa-closing {
+      margin-top: var(--sp-16);
+      padding-top: var(--sp-10);
+      border-top: 1px solid var(--border-default);
+    }
+
+    .fwa-closing-label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-tertiary);
+      margin-bottom: var(--sp-5);
+    }
+
+    /* Uses the site's own .btn/.btn-primary/.btn-ghost — this used to be
+       a bespoke bordered-text-link style that didn't match the .v4-cta
+       buttons two sections below it on the same page. */
+    .fwa-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+  </style>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+
+<body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVEGACIÓN
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  {% include "nav.njk" %}
+
+  <div class="cs-progress" aria-hidden="true"><div class="cs-progress-fill"></div></div>
+
+  <main id="main" class="fwa">
+
+    <!-- ══════════════════════════════════════════
+         HERO
+    ══════════════════════════════════════════ -->
+    <div class="fwa-hero">
+      <div class="fwa-hero-inner">
+
+        <div class="fwa-hero-left">
+          <div class="fwa-hero-kicker hero-animate">
+            <span class="fwa-hero-kicker-text">Pensamiento · IA · Diseño de Procesos</span>
+            <span class="fwa-hero-kicker-sep" aria-hidden="true"></span>
+          </div>
+          <h1 class="fwa-hero-title" aria-label="Diseñar con IA">
+            <span class="v4-mask"><span class="v4-line">Diseñar</span></span>
+            <span class="v4-mask"><span class="v4-line v4-line--accent">con IA</span></span>
+          </h1>
+          <p class="fwa-hero-sub hero-animate">
+            Un framework para el diseño de producto liderado por humanos y asistido por agentes.<br>
+            Sobre arquitectura de procesos, checkpoints reales, drift y lo que la integración de IA exige verdaderamente.
+          </p>
+          <p class="fwa-hero-meta-mobile">
+            <strong>Operaciones de Diseño</strong> · IKEA / Ingka Group · <time datetime="2026-06-11">junio de 2026</time>, actualizado en <time datetime="2026-10-25">octubre de 2026</time> · Lectura de 18 min
+          </p>
+        </div>
+
+        <div class="fwa-hero-right hero-animate" aria-label="Metadatos del artículo">
+          <div class="fwa-hero-meta-row"><strong>Tema</strong> · Operaciones de Diseño</div>
+          <div class="fwa-hero-meta-row"><strong>Contexto</strong> · IKEA / Ingka Group</div>
+          <div class="fwa-hero-meta-row"><strong>Publicado</strong> · <time datetime="2026-06-11">junio de 2026</time></div>
+          <div class="fwa-hero-meta-row"><strong>Actualizado</strong> · <time datetime="2026-10-25">octubre de 2026</time></div>
+          <div class="fwa-hero-meta-row"><strong>Lectura</strong> · 18 min</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         ARTÍCULO
+    ══════════════════════════════════════════ -->
+    <div class="fwa-outer">
+
+      <!-- ── Sidebar TOC (escritorio) ───────── -->
+      <!-- Solo navegación dentro de la página — la etiqueta "Contenidos"
+           y el aria-label son una promesa explícita; un componente que
+           te lleva a otra página no pertenece a esta misma lista (para
+           eso están los enlaces de vuelta, por separado, más abajo). -->
+      <aside class="fwa-sidebar" aria-label="Tabla de contenidos">
+        <p class="fwa-toc-label">Contenidos</p>
+        <div class="fwa-toc-rail">
+          <span class="fwa-toc-track" aria-hidden="true"></span>
+          <span class="fwa-toc-fill" aria-hidden="true"></span>
+          <ul class="fwa-toc-list" role="list">
+            <li><a href="#preface"><span class="fwa-toc-num" aria-hidden="true">—</span>Prefacio</a></li>
+            <li><a href="#ch01"><span class="fwa-toc-num" aria-hidden="true">01</span>El reencuadre</a></li>
+            <li><a href="#ch02"><span class="fwa-toc-num" aria-hidden="true">02</span>La arquitectura</a></li>
+            <li><a href="#ch03"><span class="fwa-toc-num" aria-hidden="true">03</span>Humano en el loop</a></li>
+            <li><a href="#ch04"><span class="fwa-toc-num" aria-hidden="true">04</span>Facilitación</a></li>
+            <li><a href="#ch05"><span class="fwa-toc-num" aria-hidden="true">05</span>Lo que exige</a></li>
+          </ul>
+        </div>
+      </aside>
+
+      <!-- ── Cuerpo del artículo ────────────── -->
+      <div class="fwa-body">
+
+        <!-- Enlaces de vuelta — un componente separado del TOC de arriba,
+             a propósito: este sí abandona el artículo, el TOC nunca. -->
+        <div class="fwa-back-links">
+          <a href="/es/work/ai-workflow-framework/">← Caso de estudio</a>
+          <a href="/es/thinking/">← Todas las reflexiones</a>
+        </div>
+
+        <section class="fwa-brief reveal" aria-labelledby="fwa-brief-title">
+          <h2 class="fwa-brief-title" id="fwa-brief-title">En resumen</h2>
+          <ul class="fwa-brief-list" role="list">
+            <li><strong>Empieza por el flujo de trabajo.</strong> Antes de elegir herramientas de IA, decide cómo se estructura el proceso y dónde deciden las personas. La IA añadida a un proceso desordenado solo acelera el desorden.</li>
+            <li><strong>Tres niveles, cinco fases.</strong> Un Orquestador mantiene el contexto del proyecto, los Agentes de Fase llevan Discovery, Shaping, Betting, Building y Retrospectiva, y Agentes de Tarea muy acotados hacen una sola cosa cada uno. Cada fase tiene criterios de salida.</li>
+            <li><strong>Puntos de control que una persona tiene que superar.</strong> Cada fase termina con un Bloque de Confirmación que una persona concreta lee con ojo crítico y aprueba. Releer la intención original en cada paso mantiene a raya la deriva.</li>
+            <li><strong>Cambia el trabajo del diseñador.</strong> Menos producción y más dirección, revisión y criterio. La responsabilidad sigue siendo de las personas, y quien facilita hace que el grupo cuestione lo que devuelve la IA.</li>
+          </ul>
+          <nav class="fwa-brief-jump" aria-label="Ir a">
+            <span>Ir a</span>
+            <a href="#ch01">El reencuadre</a>
+            <a href="#ch02">La arquitectura</a>
+            <a href="#ch03">Humano en el loop</a>
+            <a href="#ch04">Facilitación</a>
+            <a href="#ch05">Lo que exige</a>
+          </nav>
+        </section>
+
+        <!-- PREFACIO -->
+        <section class="fwa-preface fwa-section" id="preface" aria-label="Prefacio">
+          <p class="fwa-preface-label reveal">Prefacio</p>
+
+          <p class="fwa-intro reveal">La mayoría de los equipos de diseño con los que hablo se quedan atascados en la pregunta equivocada. "¿Qué herramienta de IA deberíamos usar?" es una pregunta de compras disfrazada de pregunta de diseño, y responderla primero es justo la razón por la que tantos equipos terminan con demos espectaculares, resultados que varían sin motivo aparente, y un proceso más difícil de auditar que el que tenían antes.</p>
+
+          <p class="fwa-p reveal">La pregunta más interesante es: si estuvieras diseñando un flujo de trabajo desde cero, sabiendo que los agentes de IA formarían parte de él, ¿cómo estructurarías el proceso? ¿Dónde estarían los humanos? ¿Qué harían realmente? ¿Qué gestionarían los agentes? ¿Y cómo sabrías si está funcionando?</p>
+
+          <p class="fwa-p reveal">Esa es la pregunta que este framework intenta responder. Surgió de trabajo real dentro del equipo de diseño de experiencia digital de IKEA, y se amplió después en algo que puede operar independientemente de cualquier conjunto de herramientas específico. Lo que sigue es el argumento completo, incluyendo las partes que fallaron antes de funcionar.</p>
+        </section>
+
+        <!-- CAPÍTULO 01 -->
+        <div class="fwa-chapter reveal" id="ch01">
+          <div class="fwa-ch-eyebrow">
+            <span class="fwa-ch-num" aria-hidden="true">01</span>
+            <span class="fwa-ch-tag">Diseño de procesos</span>
+          </div>
+          <h2 class="fwa-ch-title">El reencuadre</h2>
+        </div>
+
+        <section class="fwa-section">
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">La diferencia entre usar una herramienta y diseñar un flujo de trabajo tiene consecuencias reales. Una herramienta que usas es opcional e intercambiable. Una capa de flujo de trabajo que has diseñado forma parte de la arquitectura: perfil de riesgo diferente, nivel de cuidado diferente.</p>
+          </aside>
+
+          <p class="fwa-p reveal">La mayoría de los equipos que he visto tratan la IA como una funcionalidad más, pegada encima del flujo de trabajo que ya tenían: un plugin de Figma que genera variantes de texto, una pestaña de ChatGPT resumiendo notas de investigación, un asistente escribiendo el primer borrador. Nada de eso está mal en sí mismo. El problema es que, usada así, la IA simplemente hereda lo que ya estaba roto en el proceso.</p>
+
+          <p class="fwa-p reveal">Si añades IA a un proceso improvisado, se vuelve más rápido y sigue siendo improvisado. Las decisiones que nunca se documentaron siguen sin documentarse, y ahora vuelven equivocadas y con mucha seguridad. Y si el equipo no se ha puesto de acuerdo en qué está intentando conseguir, la IA optimizará para otra cosa sin avisar.</p>
+
+          <blockquote class="fwa-pull reveal">
+            <p>La trampa es el resultado pulido: hace que un proceso poco claro parezca terminado.</p>
+          </blockquote>
+
+          <p class="fwa-p reveal">Lo que funcionó fue tratar la IA como cualquier otro problema de diseño de sistemas: fijar los inputs, los outputs, los traspasos, quién decide qué y cuándo: el flujo de trabajo primero, con la IA diseñada dentro de él después, no al revés.</p>
+
+          <p class="fwa-p reveal">La pregunta útil dejó de ser "¿qué puede hacer la IA?" y pasó a ser "¿dónde encaja esto de verdad en el proceso, y cómo sabría yo si no estuviera funcionando?" Más lenta de responder, pero es la que importa.</p>
+
+        </section>
+
+        <!-- CAPÍTULO 02 -->
+        <div class="fwa-chapter reveal" id="ch02">
+          <div class="fwa-ch-eyebrow">
+            <span class="fwa-ch-num" aria-hidden="true">02</span>
+            <span class="fwa-ch-tag">Arquitectura de sistemas</span>
+          </div>
+          <h2 class="fwa-ch-title">La arquitectura</h2>
+        </div>
+
+        <section class="fwa-section">
+
+          <p class="fwa-intro reveal">El framework organiza el trabajo de diseño asistido por IA en tres niveles de agentes que operan en cinco fases.</p>
+
+          <h3 class="fwa-h3 reveal">Los tres niveles</h3>
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">El apetito fijo y el alcance variable de Shape Up encajan bien aquí. El apetito limita la gestión de contexto del Orquestador. Los momentos de betting table se convierten en puntos de decisión reales, donde una persona tiene que elegir.</p>
+          </aside>
+
+          <p class="fwa-p reveal"><strong style="color: var(--text-primary); font-weight: 500;">Nivel 1: el Orquestador</strong> ocupa la cúspide. Su trabajo es gestionar el contexto a lo largo de todo el proyecto: mantener el registro del proyecto, resumir los outputs de cada fase, coordinar los traspasos entre fases y escalar a los responsables de decisiones cuando algo es genuinamente ambiguo o relevante. El Orquestador gestiona las condiciones en las que se toman las decisiones de diseño; las decisiones siguen siendo de las personas.</p>
+
+          <p class="fwa-p reveal"><strong style="color: var(--text-primary); font-weight: 500;">Nivel 2: Agentes de Fase</strong> son propietarios de una única fase: Descubrimiento, Definición, Apuesta, Construcción o Retrospectiva. Reciben inputs del Orquestador, coordinan los Agentes de Tarea dentro de su fase y producen outputs estructurados para revisión humana al final de la fase.</p>
+
+          <p class="fwa-p reveal"><strong style="color: var(--text-primary); font-weight: 500;">Nivel 3: Agentes de Tarea</strong> son especialistas con alcance muy específico. Un agente de análisis de restricciones. Un agente de síntesis de necesidades de usuario. Un agente de registro de decisiones. Un agente de monitorización de alcance. Cada uno hace una sola cosa dentro de su fase y produce un output estructurado que alimenta directamente la síntesis del Agente de Fase. Esa especificidad es deliberada: un alcance pequeño significa responsabilidad clara, y un fallo queda contenido.</p>
+
+          <h3 class="fwa-h3 reveal">Las cinco fases</h3>
+
+          <p class="fwa-p reveal">Las fases siguen el ritmo central de la metodología Shape Up: el descubrimiento da forma al problema, la definición produce una propuesta, la apuesta compromete el alcance, la construcción lo ejecuta, y la retrospectiva hace evolucionar el propio framework. Cada fase tiene criterios de salida explícitos: condiciones que deben cumplirse antes de que el framework avance.</p>
+
+          <p class="fwa-p reveal">Esto importa porque previene el fallo más común en los flujos de trabajo asistidos por IA: fases que se completan técnicamente pero que no resuelven nada realmente. Los criterios de salida fuerzan la resolución. Evitan que la apariencia de progreso oculte su ausencia.</p>
+
+          <h3 class="fwa-h3 reveal">Por qué importa la estructura</h3>
+
+          <p class="fwa-p reveal">La jerarquía de tres niveles existe para contener. Un agente que opera con un mandato demasiado amplio derivará. Un agente que recibe inputs mal definidos alucinará de forma plausible. La jerarquía crea las condiciones bajo las cuales cada agente puede ser fiable: alcance claro, inputs bien formados, outputs estructurados y una capa de revisión humana en cada transición significativa.</p>
+
+          <blockquote class="fwa-pull reveal">
+            <p>La jerarquía crea las condiciones bajo las cuales cada agente puede ser fiable. Alcance claro, inputs bien formados, outputs estructurados y una capa de revisión humana en cada transición significativa.</p>
+          </blockquote>
+
+        </section>
+
+        <!-- BANDA DE TEXTO COMPLETO -->
+        <div class="fwa-stripe reveal">
+          <p class="fwa-stripe-text">Diseña bien el proceso y la IA queda como una capa más dentro de él.</p>
+        </div>
+
+        <!-- CAPÍTULO 03 -->
+        <div class="fwa-chapter reveal" id="ch03">
+          <div class="fwa-ch-eyebrow">
+            <span class="fwa-ch-num" aria-hidden="true">03</span>
+            <span class="fwa-ch-tag">Confianza y gobernanza</span>
+          </div>
+          <h2 class="fwa-ch-title">Humano en el loop, de verdad</h2>
+        </div>
+
+        <section class="fwa-section">
+
+          <p class="fwa-intro reveal">He dejado de fiarme de la frase "humano en el loop" por sí sola: cubre desde un rol de decisión real hasta un diálogo de confirmación que nadie lee antes de darle a aceptar. Muchos flujos de trabajo prometen supervisión humana y entregan un trámite.</p>
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">Un output de IA con alta confianza es motivo para revisar con más cuidado. Un texto fluido también puede estar mal. Esto es contraintuitivo y vale la pena explicitarlo a todo el equipo.</p>
+          </aside>
+
+          <p class="fwa-p reveal">El framework adopta una posición diferente: los checkpoints humanos deben ser puertas duras: momentos donde el flujo de trabajo literalmente no puede avanzar hasta que una persona concreta decida, con un registro de quién decidió y por qué. Una notificación o un correo de resumen no cuentan.</p>
+
+          <h3 class="fwa-h3 reveal">Cómo es un checkpoint genuino</h3>
+
+          <p class="fwa-p reveal">Cada transición de fase significativa requiere un Bloque de Confirmación: un output estructurado de IA que captura el entendimiento actual del agente sobre el problema, los supuestos que lleva adelante y las decisiones que permanecen abiertas. El trabajo del revisor es leerlo de forma adversarial: ¿qué está mal aquí? ¿Qué falta? ¿Qué ha cambiado?</p>
+
+          <div class="fwa-artifact reveal" aria-label="Ejemplo de Bloque de Confirmación">
+            <div class="fwa-artifact-header">
+              <span class="fwa-artifact-label">Bloque de Confirmación</span>
+              <span class="fwa-artifact-tag">Fase de Descubrimiento · Pendiente de revisión humana</span>
+            </div>
+            <div class="fwa-artifact-body">
+              <dl class="fwa-artifact-fields">
+                <div class="fwa-artifact-field">
+                  <dt>Declaración del problema</dt>
+                  <dd>Los usuarios en el flujo de onboarding abandonan en el paso de carga de documentos debido a la complejidad percibida y la incertidumbre sobre el manejo de datos. Señal primaria: analítica de abandono + grabaciones de sesiones de usabilidad (n=12).</dd>
+                </div>
+                <div class="fwa-artifact-field">
+                  <dt>Supuestos llevados adelante</dt>
+                  <dd>Persona principal: usuarios primerizos con baja confianza técnica. Métrica de éxito: reducción del abandono en el paso de carga. Alcance: solo mobile nativo. Paridad con desktop no en este ciclo.</dd>
+                </div>
+                <div class="fwa-artifact-field">
+                  <dt>Decisiones diferidas</dt>
+                  <dd>Si rediseñar la UI de carga o solo añadir orientación contextual. Requiere resolución humana antes de que comience la fase de Definición.</dd>
+                </div>
+                <div class="fwa-artifact-field">
+                  <dt>Preguntas abiertas</dt>
+                  <dd>Aprobación legal del texto revisado sobre manejo de datos. Dependencia del equipo de backend para el calendario de validación de archivos.</dd>
+                </div>
+              </dl>
+              <p class="fwa-artifact-footer">→ Por favor confirma, corrige o amplía antes de que el flujo de trabajo avance.</p>
+            </div>
+          </div>
+
+          <p class="fwa-p reveal">Si una persona lee ese resumen y no tiene nada que corregir, yo lo tomaría como una señal amarilla. Puede que el agente haya capturado de verdad una fase bien estructurada. O puede que el revisor lo haya leído por encima. He aprendido a asumir lo segundo hasta que tenga motivos para pensar lo contrario.</p>
+
+          <h3 class="fwa-h3 reveal">El problema del drift</h3>
+
+          <p class="fwa-p reveal">Nadie habla del drift como modo de fallo, probablemente porque no se anuncia. Desde dentro, simplemente parece que el proyecto avanza.</p>
+
+          <p class="fwa-p reveal">El drift es la divergencia gradual entre el modelo de trabajo de la IA y la intención real del equipo. Es diferente de un error puntual, que es visible y corregible. El drift es acumulativo: pequeñas desalineaciones que se acumulan a través de las fases hasta que la brecha entre "lo que estamos construyendo" y "lo que dijimos que construiríamos" se vuelve significativa.</p>
+
+          <p class="fwa-p reveal">Se manifiesta como drift de encuadre (la declaración del problema cambia sutilmente), drift de persona (el usuario objetivo se aleja de la investigación), o drift de prioridades (las compensaciones resueltas antes se vuelven a ponderar silenciosamente). Cuando es visible, varias fases de trabajo pueden estar construidas sobre una base incorrecta.</p>
+
+          <p class="fwa-p reveal">Las defensas contra el drift son estructurales: un documento de contexto del proyecto actualizado y revisado en cada transición de fase; la intención original releída desde el documento escrito en cada gate de fase; y bloques de confirmación que sacan a la superficie el encuadre actual del problema del agente para comparación humana.</p>
+
+          <p class="fwa-p reveal">La defensa más importante es cultural: un entorno de equipo donde cuestionar el encuadre de la IA es esperado y recompensado.</p>
+
+          <h3 class="fwa-h3 reveal">El contexto como disciplina de diseño</h3>
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">La arquitectura de contexto es diseño de información. Estructurar una interfaz compleja exige los mismos instintos: jerarquía, compresión, qué mostrar y qué diferir. Se transfieren directamente a la gestión del contexto en un sistema multi-agente.</p>
+          </aside>
+
+          <p class="fwa-p reveal">Trabajar con modelos de lenguaje en un flujo de trabajo multifase significa aceptar una restricción real: los agentes no tienen memoria de la manera en que los miembros humanos del equipo sí la tienen. Cada uno opera dentro de una ventana de contexto: un espacio limitado de información que puede procesar activamente. Cuando esa ventana se llena, el contexto se resume, comprime o pierde.</p>
+
+          <p class="fwa-p reveal">Así se comporta la tecnología, y diseñar alrededor de eso resultó ser una habilidad en sí misma. El framework lo gestiona con cuatro mecanismos:</p>
+
+          <ul class="fwa-list reveal">
+            <li><strong>Inicialización del contexto</strong>: un documento de proyecto vivo mantenido a través de todas las fases, reinyectado al inicio de cada fase</li>
+            <li><strong>Resumen incremental</strong>: compresión estructurada de los outputs de fase que preserva las decisiones y las preguntas abiertas</li>
+            <li><strong>Inyección selectiva</strong>: paquetes de contexto específicos por tarea que dan a cada agente solo lo que necesita para su alcance</li>
+            <li><strong>Auditoría de contexto</strong>: revisión liderada por humanos de la precisión del contexto en cada límite de fase</li>
+          </ul>
+
+          <p class="fwa-p reveal">La habilidad de la arquitectura de contexto, saber qué información debe llevarse hacia adelante, cómo comprimirla sin perder señal, cuándo el contexto ha derivado de la realidad, es una de las habilidades más subestimadas en el trabajo de diseño aumentado por IA. También es una de las más enseñables.</p>
+
+        </section>
+
+        <!-- CAPÍTULO 04 -->
+        <div class="fwa-chapter reveal" id="ch04">
+          <div class="fwa-ch-eyebrow">
+            <span class="fwa-ch-num" aria-hidden="true">04</span>
+            <span class="fwa-ch-tag">Liderazgo y práctica</span>
+          </div>
+          <h2 class="fwa-ch-title">Facilitación</h2>
+        </div>
+
+        <section class="fwa-section">
+
+          <p class="fwa-intro reveal">Integrar la IA en un flujo de trabajo de diseño le da al facilitador un trabajo distinto.</p>
+
+          <p class="fwa-p reveal">El cambio más visible: el facilitador ya no es el procesador principal de información del grupo. La IA gestiona gran parte de la transcripción, el etiquetado y la síntesis preliminar. Esto libera atención, pero también crea nuevas demandas. El facilitador ahora vigila la sala y también el sistema, rastreando lo que la IA está haciendo con el input del grupo y preparando a los participantes para interactuar críticamente con esos outputs en lugar de pasivamente.</p>
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">El patrón que he visto con más frecuencia: un grupo que ha estado en una sesión de dos horas acepta una síntesis de IA como autoritativa porque parece organizada. El facilitador necesita modelar el escepticismo, y seguir haciéndolo.</p>
+          </aside>
+
+          <p class="fwa-p reveal">Hay un riesgo específico aquí. Cuando la IA resume un taller de dos horas en un conjunto de clusters de insights bien definidos, los participantes tienden a aceptar ese resumen como autoritativo, porque parece organizado y confiado. El facilitador debe resistir esto activamente: incitando al grupo a interrogar la síntesis, identificar qué se perdió en la compresión y sacar a la superficie los desacuerdos que el sistema puede haber suavizado.</p>
+
+          <blockquote class="fwa-pull reveal">
+            <p>El facilitador vigila la sala y el sistema a la vez. Y cuando los dos se contradicen, la sala gana.</p>
+          </blockquote>
+
+          <h3 class="fwa-h3 reveal">Lo que no cambia</h3>
+
+          <ul class="fwa-list reveal">
+            <li><strong>Mantener el propósito</strong>: la IA puede rastrear temas pero no puede mantener la intención. El facilitador es el propietario de por qué se realiza la sesión.</li>
+            <li><strong>Leer la sala</strong>: ningún modelo puede sentir cuándo un equipo está perdiendo confianza en el proceso, cuándo una voz está siendo sistemáticamente diferida, o cuándo el grupo está a punto de comprometerse con algo que realmente no entiende.</li>
+            <li><strong>Juicios de valor</strong>: cuando la síntesis de la IA contradice la lectura del facilitador de la sala, el juicio del facilitador tiene precedencia. Siempre.</li>
+          </ul>
+
+          <h3 class="fwa-h3 reveal">La norma que vale la pena proteger</h3>
+
+          <p class="fwa-p reveal">La condición más importante para la facilitación aumentada por IA es una que no puede diseñarse en el sistema: la normalización del escepticismo hacia el output de la IA.</p>
+
+          <p class="fwa-p reveal">En los equipos que hacen esto bien, cuestionar el output del sistema se lee como alguien haciendo bien su trabajo. "No creo que esto recoja lo que realmente dijimos" vale mucho más que el silencio educado que suele recibir.</p>
+
+          <p class="fwa-p reveal">Construir esta norma requiere liderazgo explícito. El facilitador debe modelar el escepticismo: haciendo preguntas críticas sobre la síntesis de la IA frente al grupo, elogiando los desafíos y dejando claro que la IA es un colaborador con un rol definido y acotado, cuyo output siempre se revisa.</p>
+
+        </section>
+
+        <!-- CAPÍTULO 05 -->
+        <div class="fwa-chapter reveal" id="ch05">
+          <div class="fwa-ch-eyebrow">
+            <span class="fwa-ch-num" aria-hidden="true">05</span>
+            <span class="fwa-ch-tag">Habilidades y calibración</span>
+          </div>
+          <h2 class="fwa-ch-title">Lo que esto exige</h2>
+        </div>
+
+        <section class="fwa-section">
+
+          <p class="fwa-intro reveal">La integración de IA cambia el rol del diseñador.</p>
+
+          <p class="fwa-p reveal">Se dedica menos tiempo a la producción en sí: primeros borradores, síntesis estructurada, aplicar un patrón repetitivo una y otra vez; casi todo eso ha pasado a los agentes. Se dedica más tiempo a marcar dirección, evaluar lo que vuelve, e integrar entre fases, sobre todo en los juicios donde la necesidad del usuario, las restricciones del negocio y la calidad del diseño no encajan de forma limpia. La responsabilidad sobre el resultado no se ha movido ni un centímetro.</p>
+
+          <p class="fwa-p reveal">La responsabilidad sigue siendo del diseñador. Lo que cambia la IA es el trabajo necesario para cumplirla.</p>
+
+          <h3 class="fwa-h3 reveal">Las habilidades con las que la educación en diseño aún no ha llegado</h3>
+
+          <aside class="fwa-note reveal">
+            <p class="fwa-note-text">Los revisores cansados aceptan más. Incluye tiempo y estructura para la revisión cuidadosa en el proceso en sí. No confíes en la disciplina del equipo para hacer el trabajo que debería hacer el proceso.</p>
+          </aside>
+
+          <ul class="fwa-list reveal">
+            <li><strong>Craft del prompt</strong>: establecer la dirección para un agente con suficiente especificidad para guiar un output útil y suficiente apertura para permitir una contribución genuina. Esto se parece más a la escritura de briefs que a la especificación. La precisión importa más que la longitud.</li>
+            <li><strong>Evaluación del output</strong>: evaluar el output de IA crítica y rápidamente: qué es correcto, qué es incorrecto, qué necesita investigación. Esto requiere tanto conocimiento del dominio como un modelo mental claro de lo que el trabajo debe lograr.</li>
+            <li><strong>Arquitectura de contexto</strong>: decidir qué información debe llevarse adelante a través de las fases, cómo debe comprimirse y qué puede dejarse atrás de forma segura. Un nuevo tipo de diseño de información que los diseñadores senior están bien posicionados para desarrollar.</li>
+            <li><strong>Detección de drift</strong>: notar cuándo el encuadre de la IA ha cambiado sutilmente de la intención original. Esto requiere mantener la intención original visible y releerla regularmente desde el documento escrito.</li>
+            <li><strong>Confianza calibrada</strong>: saber cuándo el output de la IA es probablemente fiable y cuándo requiere un escrutinio más profundo. La calibración se desarrolla con la práctica y debe hacerse explícita en todo el equipo.</li>
+          </ul>
+
+          <h3 class="fwa-h3 reveal">El framework como práctica viva</h3>
+
+          <p class="fwa-p reveal">Un framework tratado como terminado deja de mejorar. La fase de retrospectiva está específicamente diseñada para evitar esto: al final de cada ciclo, el equipo revisa el propio framework además del trabajo de diseño. Qué funcionó. Qué generó carga sin valor. Qué necesita cambiar.</p>
+
+          <p class="fwa-p reveal">Las prácticas descritas aquí son el resultado de una experimentación real: lo que ha funcionado, lo que ha fallado y lo que se ha aprendido. Describen dónde está la práctica hoy, y va a seguir cambiando. Cada equipo que adopte este framework encontrará situaciones que no aborda completamente. La respuesta correcta es adaptar el framework y dejar por escrito qué cambió.</p>
+
+        </section>
+
+        <!-- CIERRE -->
+        <div class="fwa-closing reveal">
+          <p class="fwa-closing-label">Para cerrar</p>
+
+          <p class="fwa-intro">El framework es un intento de hacer el juicio humano más efectivo. La capa de IA existe para servir al proceso. El proceso existe para servir al diseño. El diseño existe para servir a las personas que lo usan.</p>
+
+          <p class="fwa-conclusion">Los agentes, el flujo de trabajo, las herramientas: nada de eso importa tanto como que esa cadena de responsabilidad aguante de principio a fin. Ese es el punto real.</p>
+
+          <div class="fwa-cta-row">
+            <a href="/es/thinking/" class="btn btn-ghost">
+              <span class="arrow arrow--left">←</span> Volver al Pensamiento
+            </a>
+            <a href="/es/work/ai-workflow-framework/" class="btn btn-primary">
+              Ver el caso de estudio <span class="arrow">→</span>
+            </a>
+          </div>
+        </div>
+
+      </div><!-- /fwa-body -->
+    </div><!-- /fwa-outer -->
+
+    {% include "cta.njk" %}
+
+  </main>
+
+  <!-- ══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════ -->
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js?v=19" defer></script>
+
+</body>
+
+</html>

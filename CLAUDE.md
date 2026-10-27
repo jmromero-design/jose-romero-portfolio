@@ -1,6 +1,6 @@
 # Jose Romero Portfolio — Claude Reference
 
-Static HTML/CSS portfolio. No build step, no framework, no JS bundler.
+Static HTML/CSS portfolio built with Eleventy (since 2026-10-27, branch `eleventy`; see § Build). No framework, no JS bundler: pages are plain HTML in `src/` and the output is plain HTML in `_site/`.
 Deploy: push to `main` on `jmromero-design/jose-romero-portfolio` → Vercel auto-deploys.
 Live: https://www.joseromerodesign.com (the bare domain redirects here; canonicals, sitemap, llms.txt and JSON-LD all use www) · Vercel project: `prj_yrqqL9ZRSixjZM1rjNRp8hW6iTEj`
 
@@ -20,15 +20,29 @@ AI search tools quote this site, so facts and conventions must match on every pa
 - **Facts that appear on several pages** must read the same everywhere, including `llms.txt` and `middleware.js`: e.g. IKEA Home Services is live in "seven Spanish **regions**"; BECO counts come from `assets/data/beco-explorer/tree.json` totals (452 sources, 254 named concepts, 465 findings, 227 real-world examples as of 2026-10-26).
 - **One `<h1>` per page.** Slide or section headings are `<h2>`.
 - **Meta descriptions ≤ 160 characters** (og:/twitter:description too); titles ≤ 60.
-- **Markdown for AI tools:** every page except the homepage has a generated markdown twin under `md/<path>/index.md`, served by `middleware.js` to requests with `Accept: text/markdown` and linked from each page's `<head>`; `llms-full.txt` concatenates the English ones. **After editing any page copy, run `python3 scripts/build_markdown.py`** or the markdown goes stale. The homepage's agent summary is hand-written in `middleware.js`; update it when the homepage story changes.
+- **Markdown for AI tools:** every page except the homepage has a generated markdown twin under `md/<path>/index.md`, served by `middleware.js` to requests with `Accept: text/markdown` and linked from each page's `<head>`; `llms-full.txt` concatenates the English ones. **After editing any page copy, run `npm run build:all`** or the markdown goes stale. The homepage's agent summary is hand-written in `middleware.js`; update it when the homepage story changes.
 - **Structured data:** the Person has one `@id` (`https://www.joseromerodesign.com/#person`) that articles, case studies and index pages reference; every page but the homepages has a `BreadcrumbList`; Work and Thinking are `CollectionPage` + `ItemList` (add new entries there); the explorer is a `Dataset`. New pages should follow the same pattern.
 - **Dates:** case studies carry `temporalCoverage` / `datePublished` / `dateModified` in their JSON-LD; the Thinking articles carry Article JSON-LD and a visible "Published · Updated" line. When an article's or case study's content changes, update `dateModified` and the visible "Updated" date.
+
+---
+
+## Build (Eleventy)
+
+- **Pages live in `src/`** with the same folder tree as the URLs (`src/work/<slug>.html`, `src/es/…`). Edit those, never `_site/` (generated, gitignored).
+- **Shared parts are includes** in `src/_includes/`: `nav.njk`, `footer.njk`, `cta.njk`. A page calls them with `{% include "nav.njk" %}` and so on. Language comes from the folder (`src/es/` = Spanish), the language-toggle target is computed, and the nav's current section is the page's front matter `navCurrent: work|about|thinking`.
+- **Standard closing CTA:** the page's front matter holds `ctaHeading`, `ctaBody` and `ctaCv` (true adds the Download CV button), and the page body has `{% include "cta.njk" %}`. The homepages, Thinking indexes and a few special pages keep their own CTA markup inline (different animation classes).
+- **Footer date:** `src/_data/site.js` → `updated: "2026-10-27"`. Change it by hand when the site's content changes; every page's "Updated October 2026" follows. Also holds the email and LinkedIn URLs.
+- **Commands:** `npm start` (live server on :3456 via `.claude/launch.json`), `npm run build` (writes `_site/`), `npm run build:all` (build, regenerate markdown twins and `llms-full.txt`, build again). `vercel.json` runs `npx eleventy` and serves `_site/`.
+- Not pages, so they stay at the repo root and are copied untouched: `assets/`, `md/`, favicons, `robots.txt`, `sitemap.xml`, `llms*.txt`. `middleware.js` also stays at the root.
+- `scripts/build_markdown.py` reads the built pages in `_site/`; `scripts/build_hero_map.mjs` writes into `src/index.html` and `src/es/index.html`.
+- `Designing the portfolio/tools/compare_build.py` diffs `_site/` against the pre-migration pages on `main` (whitespace-normalised), for checking a build change.
 
 ---
 
 ## File structure
 
 ```
+src/                       Pages (see Build). Below, URLs; every path is under src/ in the repo
 /                          EN pages (root)
 /es/                       ES pages (mirrors EN exactly)
 /work/<slug>/              EN case studies (10 total)
@@ -50,7 +64,7 @@ Designing the portfolio/   Local working folder — gitignored, not deployed
 
 1. **Global styles go in `main.css` only.** Never add global patterns to a page `<style>` block.
 2. **Page-specific styles go in a `<style>` block in the page's `<head>`.** Never pollute `main.css` with single-page rules. **Exception:** component families shared across an EN+ES page pair (e.g. `.home-hero`, `.about-intro-grid`) may live in `main.css` to avoid duplicating identical rules in both language files.
-3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 HTML files.** Current: `main.css?v=51` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" . --include="*.html"`.
+3. **After any change to `main.css` or `main.js`, increment the version query string in all 39 pages (under `src/`).** Current: `main.css?v=51` / `main.js?v=19`. Find with: `grep -rn "main.css?v=" src`.
 4. **Mobile breakpoints in main.css:** `@media (max-width: 768px)` for tablet/mobile, `@media (max-width: 480px)` for narrow mobile (gutter shrinks to `1.25rem` here). Two separate `@media (max-width: 480px)` blocks exist — mind cascade order.
 5. **`h1 br { display: none }` at `≤768px`** is a global rule — it hides hard breaks before `<em class="accent-italic">` so the italic accent flows inline on mobile. Don't remove it.
 
@@ -278,7 +292,7 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 - **Don't add `<br>` after `<em class="accent-italic">`** — the break goes *before*, not after.
 - **Don't put page-specific rules in main.css** — use a `<style>` block in the page `<head>`.
 - **Don't add global rules to a page `<style>` block** — they won't apply to other pages.
-- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 39 HTML files.
+- **Don't forget to bump `?v=N`** after any CSS or JS change — applies to all 39 pages in `src/`.
 - **Don't re-add Lucide** — icons are already inlined in `main.js`.
 - **Don't add card numbers** — intentionally removed June 2026.
 - **Don't use `min-width` on SVG diagrams** — all diagrams are mobile-first portrait viewBox.

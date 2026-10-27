@@ -1,0 +1,602 @@
+---
+navCurrent: "thinking"
+ctaHeading: "Using behavioural science<br><em class=\"accent-italic\">in product decisions?</em>"
+ctaBody: "BECO is how I check a claim before it shapes a design. If your team needs that kind of rigour, let’s talk. Open to senior product design roles and selective consulting engagements, in English or Spanish."
+ctaCv: false
+---
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore the BECO Knowledge Graph · Jose Romero</title>
+  <meta name="description"
+    content="The whole BECO knowledge graph on one zoomable map, with a card for anything you pick and each concept graded by how well the research backs it.">
+  <link rel="canonical" href="https://www.joseromerodesign.com/thinking/beco-explorer/">
+  <link rel="alternate" type="text/markdown" href="/md/thinking/beco-explorer/index.md">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Explore the BECO Knowledge Graph · Jose Romero">
+  <meta property="og:description"
+    content="The whole BECO knowledge graph on one zoomable map, with cards to read whatever you pick, each concept graded by how well the research backs it.">
+  <meta property="og:image" content="https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v=2">
+  <meta property="og:url" content="https://www.joseromerodesign.com/thinking/beco-explorer/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Jose Romero">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Explore the BECO Knowledge Graph · Jose Romero">
+  <meta name="twitter:description"
+    content="The whole BECO knowledge graph on one zoomable map, with cards to read whatever you pick, each concept graded by how well the research backs it.">
+  <meta name="twitter:image" content="https://www.joseromerodesign.com/assets/images/og-beco-explorer.webp?v=2">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.joseromerodesign.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Thinking",
+        "item": "https://www.joseromerodesign.com/thinking/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Explore the BECO Knowledge Graph",
+        "item": "https://www.joseromerodesign.com/thinking/beco-explorer/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dataset",
+    "name": "BECO Knowledge Graph",
+    "description": "The whole BECO knowledge graph on one zoomable map, with a card for anything you pick and each concept graded by how well the research backs it. Each concept links to the findings, DOI-verified sources and authors behind it.",
+    "url": "https://www.joseromerodesign.com/thinking/beco-explorer/",
+    "inLanguage": "en",
+    "creator": {
+      "@type": "Person",
+      "@id": "https://www.joseromerodesign.com/#person",
+      "name": "Jose Romero"
+    },
+    "isAccessibleForFree": true,
+    "keywords": [
+      "behavioural science",
+      "cognitive biases",
+      "heuristics",
+      "design laws",
+      "evidence grading",
+      "knowledge graph"
+    ],
+    "dateModified": "2026-10-24",
+    "variableMeasured": "Evidence grade: verified, partially backed, or no rigorous backing found",
+    "distribution": [
+      {
+        "@type": "DataDownload",
+        "encodingFormat": "application/json",
+        "contentUrl": "https://www.joseromerodesign.com/assets/data/beco-graph/graph.json"
+      }
+    ]
+  }
+  </script>
+  <link rel="stylesheet" href="/assets/css/main.css?v=51">
+  <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->
+  <link rel="preload" href="/assets/fonts/bitter-latin-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/assets/fonts/bitter-latin-italic.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" href="/favicon.ico?v=2" sizes="any">
+  <link rel="icon" href="/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=2">
+
+  <!-- Alternate language versions -->
+  <link rel="alternate" hreflang="en" href="https://www.joseromerodesign.com/thinking/beco-explorer/">
+  <link rel="alternate" hreflang="es" href="https://www.joseromerodesign.com/es/thinking/beco-explorer/">
+  <link rel="alternate" hreflang="x-default" href="https://www.joseromerodesign.com/thinking/beco-explorer/">
+
+  <!-- Language detection — must run before page renders -->
+  <script src="/assets/js/lang-detect.js"></script>
+
+  <style>
+    /* ═══════════════════════════════════════════════
+       BECO EXPLORER — bgx- prefix (same layout as the BECO lab's explorer)
+       One page, two ways into the same graph: a canvas map and a column
+       of cards. Drawing, cards and their wiring live in
+       /assets/js/beco-explorer.js (shared with the ES page); wording is
+       passed in through window.BGX_STRINGS at the end of this file.
+    ═══════════════════════════════════════════════ */
+
+    /* ── group hues: one per cluster, same lightness, no reds (red is the myth ring).
+       OKLCH L 0.77 / C 0.12 on dark, L 0.53 / C 0.13 on light, hues 62°–318°.
+       The map sets them round the dial in an alternating order. ── */
+    :root {
+      --g1: #EDA15B; --g2: #C9B54D; --g3: #8CC777; --g4: #40CEB4;
+      --g5: #2FC9E2; --g6: #73BAFD; --g7: #ABA9FE; --g8: #D59AE8;
+    }
+    [data-theme="light"] {
+      --g1: #9C5906; --g2: #7C6C0E; --g3: #427D2B; --g4: #0C7D6C;
+      --g5: #0B798A; --g6: #1B70B3; --g7: #645FB3; --g8: #8A509C;
+    }
+    @media (prefers-color-scheme: light) {
+      :root:not([data-theme="dark"]) {
+        --g1: #9C5906; --g2: #7C6C0E; --g3: #427D2B; --g4: #0C7D6C;
+        --g5: #0B798A; --g6: #1B70B3; --g7: #645FB3; --g8: #8A509C;
+      }
+    }
+
+    /* ── intro: the page's name and counts, scrolled away once you use the map ── */
+    .bgx-intro {
+      display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap;
+      gap: var(--sp-4) var(--sp-8);
+      padding: calc(var(--nav-height) + var(--sp-8)) var(--gutter) var(--sp-6);
+    }
+    .bgx-eyebrow {
+      font-size: var(--text-xs); font-weight: 600;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--teal-text);
+      display: flex; align-items: center; gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
+    }
+    .bgx-eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--teal); }
+    .bgx-intro h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      text-wrap: balance;
+      color: var(--text-primary);
+      margin: 0 0 var(--sp-2);
+    }
+    .bgx-intro h1 em { font-style: italic; color: var(--gold); }
+    .bgx-stats { font-size: var(--text-sm); color: var(--text-tertiary); margin: 0; font-variant-numeric: tabular-nums; }
+
+    /* ── the app fills the screen: toolbar on top, map left, cards right ── */
+    .bgx-app {
+      --bgx-col: min(27rem, 36vw);
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) var(--bgx-col);
+      grid-template-rows: auto minmax(0, 1fr);
+      grid-template-areas: "bar bar" "map col";
+      height: 100svh;
+      min-height: 560px;
+      border-block: 1px solid var(--border-default);
+    }
+    .bgx-app.is-collapsed { grid-template-columns: minmax(0, 1fr) 0; }
+    .bgx-app.is-collapsed .bgx-col, .bgx-app.is-collapsed .bgx-resize { display: none; }
+    .bgx-col {
+      grid-area: col;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+      padding: 0 var(--gutter) var(--sp-10) var(--sp-6);
+      border-left: 1px solid var(--border-default);
+    }
+    .bgx-map { grid-area: map; position: relative; min-height: 0; }
+
+    /* ── the site nav stays put on this page; the app stops right under it, and the
+       intro's bottom space is what shows behind the nav once the app has the screen ── */
+    @media (min-width: 901px) {
+      .nav.nav--hidden { transform: none; }
+      .bgx-intro { padding-bottom: var(--nav-height); }
+      .bgx-app { height: calc(100svh - var(--nav-height)); scroll-margin-top: var(--nav-height); }
+    }
+
+    /* the column's left edge drags wider or narrower */
+    .bgx-resize {
+      grid-area: col; justify-self: start;
+      position: relative; z-index: 3;
+      width: 12px; margin-left: -6px;
+      cursor: col-resize; touch-action: none;
+    }
+    .bgx-resize::after { content: ''; position: absolute; inset-block: 0; left: 5px; width: 2px; background: transparent; transition: background var(--ease-fast); }
+    .bgx-resize:hover::after, .bgx-resize.is-dragging::after, .bgx-resize:focus-visible::after { background: var(--teal); }
+    .bgx-resize:focus-visible { outline: none; }
+
+    /* ── toolbar ── */
+    .bgx-toolbar {
+      grid-area: bar;
+      position: relative; z-index: 4;
+      display: flex; align-items: center; flex-wrap: wrap;
+      gap: var(--sp-2) var(--sp-4);
+      padding: var(--sp-3) var(--gutter);
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--border-default);
+    }
+    .bgx-tools-end { display: flex; align-items: center; gap: var(--sp-2); margin-left: auto; }
+
+    /* ── search ── */
+    .bgx-search-wrap { position: relative; flex: 1 1 18rem; max-width: 36rem; }
+    .bgx-search {
+      width: 100%;
+      font: inherit; font-size: var(--text-sm);
+      color: var(--text-primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      padding: var(--sp-2) var(--sp-10) var(--sp-2) var(--sp-5);
+      min-height: 40px;
+    }
+    .bgx-search::placeholder { color: var(--text-tertiary); }
+    .bgx-search:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-kbd {
+      position: absolute; right: var(--sp-4); top: 50%; transform: translateY(-50%);
+      font: inherit; font-size: 0.75rem; line-height: 1.5;
+      color: var(--text-tertiary);
+      border: 1px solid var(--border-default); border-radius: 4px;
+      padding: 0 6px;
+      pointer-events: none;
+    }
+    .bgx-search:focus ~ .bgx-kbd, .bgx-search:not(:placeholder-shown) ~ .bgx-kbd { display: none; }
+
+    /* ── crumbs ── */
+    .bgx-crumbs {
+      position: sticky; top: 0; z-index: 2;
+      padding-block: var(--sp-3);
+      background: var(--bg-base);
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: var(--sp-5);
+    }
+    .bgx-crumbs ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 2px 0; font-size: 0.8125rem; }
+    .bgx-crumbs li { display: inline-flex; align-items: center; color: var(--text-tertiary); min-width: 0; }
+    .bgx-crumbs li + li::before { content: '/'; margin-inline: var(--sp-2); color: var(--border-strong); }
+    .bgx-crumb {
+      font: inherit; color: var(--teal-text);
+      background: none; border: 0; padding: 0; cursor: pointer;
+      max-width: 14rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+    }
+    .bgx-crumb:hover { color: var(--gold); }
+    .bgx-crumb[aria-current="page"] { color: var(--text-secondary); cursor: default; }
+    .bgx-crumb:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+
+    /* ── cards ── */
+    .bgx-lead { font-size: var(--text-base); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-2); }
+    .bgx-type { font-size: var(--text-xs); letter-spacing: 0.12em; text-transform: uppercase; color: var(--teal-text); margin: 0 0 var(--sp-2); }
+    .bgx-name { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); line-height: 1.15; color: var(--text-primary); margin: 0 0 var(--sp-4); }
+    .bgx-name:focus { outline: none; }
+    /* the root card names itself for screen readers only */
+    .bgx-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    .bgx-badges { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin: 0 0 var(--sp-4); }
+    .bgx-grade, .bgx-myth { font-size: 0.75rem; padding: 3px 10px; border-radius: 999px; border: 1px solid var(--border-default); color: var(--text-secondary); }
+    .bgx-grade--v { border-color: var(--teal); color: var(--teal-text); }
+    .bgx-grade--p { border-color: color-mix(in srgb, var(--teal) 50%, var(--bg-base)); }
+    .bgx-grade--n { border-style: dashed; }
+    .bgx-myth { border-color: var(--gold); color: var(--gold); }
+    .bgx-desc { font-size: var(--text-sm); line-height: 1.65; color: var(--text-secondary); margin: 0 0 var(--sp-4); }
+    .bgx-aliases { font-size: 0.8125rem; color: var(--text-tertiary); margin: 0 0 var(--sp-3); }
+    .bgx-note { font-size: 0.8125rem; line-height: 1.6; color: var(--text-tertiary); border-left: 2px solid var(--border-strong); padding-left: var(--sp-3); margin: 0 0 var(--sp-4); }
+    .bgx-note--myth { border-left-color: var(--gold); }
+    .bgx-counts { font-size: 0.8125rem; color: var(--text-tertiary); margin: 0 0 var(--sp-2); }
+    .bgx-h3 { font-family: var(--font-body); font-size: var(--text-xs); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-tertiary); margin: var(--sp-6) 0 var(--sp-3); }
+    .bgx-cards { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--sp-2); }
+    .bgx-card {
+      width: 100%;
+      display: grid; grid-template-columns: auto minmax(0, 1fr); align-items: center;
+      column-gap: var(--sp-2); row-gap: 4px;
+      text-align: left;
+      font: inherit; color: var(--text-primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-md);
+      padding: var(--sp-3) var(--sp-4);
+      cursor: pointer;
+      transition: border-color var(--ease-fast), background-color var(--ease-fast);
+    }
+    .bgx-card:hover { border-color: var(--teal); background: var(--bg-surface-2); }
+    .bgx-card:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-card > :not(.bgx-dot) { grid-column: 2; }
+    .bgx-card > .bgx-card-name:first-child, .bgx-card > .bgx-card-name:first-child ~ * { grid-column: 1 / -1; }
+    .bgx-card-name { font-size: var(--text-sm); font-weight: 500; line-height: 1.35; }
+    .bgx-alt { display: block; font-weight: 400; font-size: 0.8em; color: var(--text-tertiary); }
+    .bgx-alt-title { font-size: var(--text-base); color: var(--text-secondary); margin: calc(-1 * var(--sp-3)) 0 var(--sp-4); }
+    .bgx-card-meta { font-size: 0.75rem; color: var(--text-tertiary); }
+    .bgx-card-meta em { font-style: normal; color: var(--gold); }
+    .bgx-more { font-size: 0.75rem; color: var(--text-tertiary); margin: var(--sp-2) 0 0; }
+    .bgx-finding { padding: var(--sp-3) 0; border-top: 1px solid var(--border-subtle); }
+    .bgx-finding p { font-size: var(--text-sm); line-height: 1.6; color: var(--text-secondary); margin: 0 0 var(--sp-2); }
+    .bgx-finding .bgx-cite { font-size: 0.75rem; color: var(--text-tertiary); margin: 0; }
+    .bgx-finding a { color: var(--teal-text); }
+    .bgx-finding a:hover { color: var(--gold); }
+    .bgx-example-title { font-weight: 500; }
+
+    /* evidence bar: the same teal scale as the homepage feature */
+    .bgx-bar { display: flex; gap: 2px; height: 5px; width: 100%; margin: 2px 0 0; }
+    .bgx-counts + .bgx-bar { margin-bottom: var(--sp-2); height: 7px; }
+    .bgx-bar i { border-radius: 999px; }
+    .bgx-bar-v { background: var(--hue, var(--teal)); }
+    .bgx-bar-p { background: color-mix(in srgb, var(--hue, var(--teal)) 50%, var(--bg-base)); }
+    .bgx-bar-n { border: 1px dashed var(--border-strong); }
+
+    /* swatches */
+    .bgx-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; background: var(--text-tertiary); display: inline-block; }
+    .bgx-dot--v { background: var(--hue, var(--text-secondary)); }
+    .bgx-dot--p { background: color-mix(in srgb, var(--hue, var(--text-secondary)) 50%, var(--bg-base)); }
+    .bgx-dot--n { background: transparent; border: 1px dashed var(--hue, var(--text-secondary)); }
+    .bgx-dot--finding, .bgx-dot--app { background: color-mix(in srgb, var(--hue, var(--text-tertiary)) 55%, var(--bg-base)); }
+    .bgx-dot--cluster { background: transparent; border: 1.5px solid var(--text-primary); }
+    .bgx-dot--domain { background: var(--text-secondary); }
+    .bgx-dot--source { background: var(--border-strong); border-radius: 2px; }
+    .bgx-dot--author { width: 6px; height: 6px; }
+    .bgx-dot--myth { background: transparent; border: 1.5px solid var(--gold); }
+
+    /* ── the map ── */
+    .bgx-stage {
+      position: absolute; inset: 0;
+      overflow: hidden;
+      background: radial-gradient(ellipse 60% 55% at 50% 50%, color-mix(in srgb, var(--teal) 6%, transparent), transparent 70%), var(--bg-base);
+    }
+    .bgx-canvas { position: absolute; inset: 0; display: block; cursor: grab; touch-action: none; opacity: 0; transition: opacity 0.6s ease; }
+    .bgx-app.is-ready .bgx-canvas { opacity: 1; }
+    .bgx-loading { position: absolute; inset: 0; display: grid; place-items: center; font-size: var(--text-sm); color: var(--text-tertiary); pointer-events: none; transition: opacity 0.4s ease; margin: 0; }
+    .bgx-app.is-ready .bgx-loading { opacity: 0; }
+
+    .bgx-row { display: flex; flex-wrap: wrap; gap: var(--sp-2); align-items: center; }
+    .bgx-chip, .bgx-icon-btn {
+      font: inherit; font-size: 0.8125rem;
+      color: var(--text-secondary);
+      background: color-mix(in srgb, var(--bg-surface) 88%, transparent);
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+      border: 1px solid var(--border-default);
+      border-radius: 999px;
+      padding: var(--sp-2) var(--sp-3);
+      display: inline-flex; align-items: center; gap: var(--sp-2);
+      cursor: pointer;
+      transition: border-color var(--ease-fast), color var(--ease-fast);
+    }
+    .bgx-chip:hover, .bgx-icon-btn:hover { border-color: var(--teal); color: var(--text-primary); }
+    .bgx-chip[aria-pressed="true"] { border-color: var(--teal); color: var(--text-primary); background: var(--bg-surface-2); }
+    .bgx-chip:focus-visible, .bgx-icon-btn:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; }
+    .bgx-icon-btn { width: 36px; height: 36px; padding: 0; justify-content: center; font-size: 1rem; }
+    .bgx-icon-btn--wide { width: auto; padding-inline: var(--sp-3); font-size: 0.8125rem; }
+    .bgx-key { display: flex; align-items: center; gap: var(--sp-2); margin: 0; font-size: 0.75rem; color: var(--text-tertiary); text-shadow: 0 0 8px var(--bg-base); }
+
+    .bgx-hint {
+      position: absolute; z-index: 3; left: 50%; top: 50%;
+      transform: translate(-50%, -50%);
+      padding: var(--sp-3) var(--sp-5); margin: 0;
+      border-radius: 999px;
+      background: color-mix(in srgb, var(--bg-surface) 92%, transparent);
+      border: 1px solid var(--border-default);
+      font-size: var(--text-sm); color: var(--text-primary);
+      pointer-events: none; opacity: 0; transition: opacity 0.25s ease;
+    }
+    .bgx-hint.is-on { opacity: 1; }
+
+    .bgx-open, .bgx-done, .bgx-peek { display: none; }
+    .bgx-stage > .bgx-key { position: absolute; z-index: 2; left: var(--gutter); bottom: var(--sp-5); }
+    /* mid-width screens: the evidence filters keep their dots, the names go to the tooltip */
+    @media (min-width: 901px) and (max-width: 1280px) {
+      .bgx-chip-text { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+    }
+
+    /* ── narrow screens: intro, a toolbar that stays put, a map preview, then the cards ── */
+    @media (max-width: 900px) {
+      .bgx-intro { padding: calc(var(--nav-height) + var(--sp-4)) var(--gutter) var(--sp-5); }
+      .bgx-intro .btn { display: none; }
+      .bgx-app { display: block; height: auto; min-height: 0; border-bottom: 0; }
+      .bgx-toolbar { position: sticky; top: 0; z-index: 20; transition: top 350ms ease; }
+      .nav:not(.nav--hidden) ~ main .bgx-toolbar { top: var(--nav-height); }
+      .bgx-search-wrap { flex: 1 1 0; min-width: 0; max-width: none; }
+      .bgx-grades { order: 3; flex: 1 0 100%; flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+      .bgx-chip { white-space: nowrap; flex-shrink: 0; }
+      .bgx-zoom, .bgx-panel-btn, .bgx-resize, .bgx-kbd, .bgx-stage > .bgx-key { display: none; }
+      .bgx-tools-end { margin-left: 0; }
+      .bgx-col { overflow: visible; border-left: 0; padding: 0 var(--gutter) var(--sp-16); }
+      .bgx-crumbs { position: static; }
+      .bgx-map { height: 52svh; min-height: 300px; border-bottom: 1px solid var(--border-default); margin-bottom: var(--sp-2); }
+      /* while searching, the results come straight under the search box */
+      .bgx-app.is-searching:not(.is-exploring) .bgx-map { display: none; }
+      .bgx-canvas { touch-action: pan-y; cursor: default; }
+      .bgx-open { display: inline-flex; position: absolute; z-index: 3; right: var(--gutter); bottom: var(--sp-4); }
+
+      /* full screen once opened, with the toolbar over the top of the map */
+      .bgx-app.is-exploring .bgx-map { position: fixed; inset: 0; z-index: 1000; height: 100dvh; margin: 0; border: 0; }
+      main .bgx-app.is-exploring .bgx-toolbar {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 1001;
+        background: color-mix(in srgb, var(--bg-base) 90%, transparent);
+        backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      }
+      .bgx-app.is-exploring .bgx-canvas { touch-action: none; }
+      .bgx-app.is-exploring .bgx-open { display: none; }
+      .bgx-app.is-exploring .bgx-done { display: inline-flex; }
+      .bgx-app.is-exploring .bgx-peek:not([hidden]) {
+        display: flex; align-items: center; gap: var(--sp-3);
+        position: absolute; z-index: 3; left: var(--sp-3); right: var(--sp-3); bottom: var(--sp-3);
+        padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-5);
+        background: color-mix(in srgb, var(--bg-surface) 94%, transparent);
+        backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+        border: 1px solid var(--border-default); border-radius: var(--radius-lg);
+      }
+      .bgx-peek-name { flex: 1; min-width: 0; font-size: var(--text-sm); font-weight: 500; color: var(--text-primary); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    }
+    html.bgx-lock, html.bgx-lock body { overflow: hidden; }
+
+    /* ── how to read the map: a dialog, opened from the toolbar or the intro ── */
+    .bgx-help {
+      position: fixed; inset: 0; margin: auto;
+      height: fit-content;
+      width: min(34rem, calc(100vw - 2 * var(--gutter)));
+      max-height: calc(100dvh - 2 * var(--sp-6));
+      padding: var(--sp-8);
+      color: var(--text-primary);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 24px 60px rgb(0 0 0 / 0.35);
+    }
+    [data-theme="light"] .bgx-help { box-shadow: 0 24px 60px rgb(0 0 0 / 0.12); }
+    .bgx-help::backdrop { background: rgb(0 0 0 / 0.5); }
+    .bgx-help h2 { font-family: var(--font-display); font-weight: 500; font-size: var(--text-2xl); line-height: 1.15; margin: 0 var(--sp-10) var(--sp-4) 0; }
+    .bgx-help p { font-size: var(--text-sm); line-height: 1.65; color: var(--text-secondary); margin: 0 0 var(--sp-4); }
+    .bgx-help ul { list-style: none; padding: 0; margin: 0 0 var(--sp-4); display: grid; gap: var(--sp-2); }
+    .bgx-help li { display: flex; gap: var(--sp-3); align-items: baseline; font-size: var(--text-sm); line-height: 1.55; color: var(--text-secondary); }
+    .bgx-help li .bgx-dot { transform: translateY(1px); }
+    .bgx-help kbd { font: inherit; font-size: 0.75rem; border: 1px solid var(--border-default); border-radius: 4px; padding: 0 5px; }
+    .bgx-help-close { position: absolute; top: var(--sp-5); right: var(--sp-5); }
+    .bgx-help-foot { display: flex; flex-wrap: wrap; align-items: center; gap: var(--sp-3); margin-top: var(--sp-6); }
+    </style>
+</head>
+
+<body>
+
+  <div class="v4-glow" aria-hidden="true"></div>
+
+  <!-- ══════════════════════════════════════════
+       NAVIGATION
+  ══════════════════════════════════════════ -->
+  <a href="#main" class="skip-nav">Skip to content</a>
+  {% include "nav.njk" %}
+
+  <main id="main">
+
+    <header class="bgx-intro">
+      <div>
+        <span class="bgx-eyebrow">Personal research</span>
+        <h1 id="bgx-title">Explore the <em>BECO graph.</em></h1>
+        <p class="bgx-stats" id="bgxStats"></p>
+      </div>
+      <button type="button" class="btn btn-ghost" data-help aria-haspopup="dialog">How to read the map</button>
+    </header>
+
+    <section class="bgx-app" id="bgxApp" aria-labelledby="bgx-title">
+      <div class="bgx-toolbar">
+        <button type="button" class="bgx-icon-btn bgx-icon-btn--wide bgx-done" id="bgxDone">Done</button>
+        <div class="bgx-search-wrap" role="search">
+          <input type="search" class="bgx-search" id="bgxSearch" placeholder="Find a concept, topic, source or author"
+                 aria-label="Find a concept, topic, source or author" aria-controls="bgxBody" autocomplete="off" data-short="Search">
+          <kbd class="bgx-kbd" aria-hidden="true">/</kbd>
+        </div>
+        <div class="bgx-row bgx-grades" role="group" aria-label="Show concepts by how well the research backs them">
+          <button type="button" class="bgx-chip" data-grade="v" aria-pressed="false" title="Verified"><span class="bgx-dot bgx-dot--v"></span><span class="bgx-chip-text">Verified</span></button>
+          <button type="button" class="bgx-chip" data-grade="p" aria-pressed="false" title="Partially backed"><span class="bgx-dot bgx-dot--p"></span><span class="bgx-chip-text">Partially backed</span></button>
+          <button type="button" class="bgx-chip" data-grade="n" aria-pressed="false" title="No rigorous backing"><span class="bgx-dot bgx-dot--n"></span><span class="bgx-chip-text">No rigorous backing</span></button>
+        </div>
+        <div class="bgx-tools-end">
+          <div class="bgx-row bgx-zoom">
+            <button type="button" class="bgx-icon-btn" data-zoom="in" aria-label="Zoom in">+</button>
+            <button type="button" class="bgx-icon-btn" data-zoom="out" aria-label="Zoom out">−</button>
+            <button type="button" class="bgx-icon-btn bgx-icon-btn--wide" data-zoom="reset">Whole map</button>
+          </div>
+          <button type="button" class="bgx-icon-btn bgx-panel-btn" id="bgxPanel" aria-controls="bgxCol" aria-expanded="true" aria-label="Card" title="Hide the card">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="2.5" width="13" height="11" rx="2" fill="none" stroke="currentColor"/><path d="M10 2.5v11" stroke="currentColor"/></svg>
+          </button>
+          <button type="button" class="bgx-icon-btn" data-help aria-haspopup="dialog" aria-label="How to read the map" title="How to read the map">?</button>
+        </div>
+      </div>
+
+      <div class="bgx-map">
+        <div class="bgx-stage" id="bgxStage">
+          <canvas class="bgx-canvas" id="bgxCanvas" aria-hidden="true"></canvas>
+          <p class="bgx-loading">Drawing the graph…</p>
+          <p class="bgx-key"><span class="bgx-dot bgx-dot--myth"></span>Red ring: often repeated as a myth</p>
+          <p class="bgx-hint" id="bgxHint" aria-hidden="true"></p>
+          <button type="button" class="btn btn-ghost bgx-open" id="bgxOpen">Open the map</button>
+          <div class="bgx-peek" id="bgxPeek" hidden>
+            <span class="bgx-peek-name" data-peek-name></span>
+            <button type="button" class="btn btn-primary" data-peek-read>Read it</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="bgx-resize" id="bgxResize" role="separator" aria-orientation="vertical" aria-controls="bgxCol" aria-label="Card width" tabindex="0"></div>
+      <div class="bgx-col" id="bgxCol">
+        <nav class="bgx-crumbs" id="bgxCrumbs" aria-label="Where you are"></nav>
+        <div class="bgx-body" id="bgxBody"><p class="bgx-lead">Loading the graph…</p></div>
+      </div>
+      <p class="bgx-sr" id="bgxStatus" role="status"></p>
+    </section>
+
+    <dialog class="bgx-help" id="bgxHelp" aria-labelledby="bgxHelpTitle">
+      <h2 id="bgxHelpTitle">How to read the map</h2>
+      <button type="button" class="bgx-icon-btn bgx-help-close" data-help-close aria-label="Close">×</button>
+      <p>
+        BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they end up
+        in a design decision. The eight clusters sit at the centre; outward come the domains, topics and named
+        concepts, then the findings and real-world examples behind each concept, and at the edge the sources.
+      </p>
+      <p>
+        Nothing is placed by hand. Each item sits near what it's linked to, and the thin arcs join concepts the
+        research treats as related. The people who wrote the sources aren't drawn on the map; you'll find them on
+        each source's card.
+      </p>
+      <ul>
+        <li><span class="bgx-dot bgx-dot--v" style="--hue: var(--g1)"></span><span class="bgx-dot bgx-dot--v" style="--hue: var(--g6)"></span>Colour tells you the cluster: every dot takes its cluster's colour, and the cluster names round the map use the same one.</li>
+        <li><span class="bgx-dot bgx-dot--v"></span>Solid fill: the research supports it.</li>
+        <li><span class="bgx-dot bgx-dot--p"></span>Pale fill: partly supported, with caveats worth knowing.</li>
+        <li><span class="bgx-dot bgx-dot--n"></span>Dashed outline: no rigorous backing found yet.</li>
+        <li><span class="bgx-dot bgx-dot--myth"></span>Red ring: often repeated in design circles in a form the studies don't support.</li>
+      </ul>
+      <h3 class="bgx-h3">Getting around</h3>
+      <ul>
+        <li><span>Drag the map to move around; pinch, or hold ⌘ or Ctrl while scrolling, to zoom.</span></li>
+        <li><span>Pick any dot to open its card; the cards move the map too.</span></li>
+        <li><span>Press <kbd>/</kbd> to jump to search. Results light up on the map.</span></li>
+      </ul>
+      <p>It's a snapshot I regenerate after each research round, not a live database.</p>
+      <div class="bgx-help-foot">
+        <a href="/thinking/beco-knowledge-graph/" class="btn btn-ghost">How it's built <span class="arrow">→</span></a>
+      </div>
+    </dialog>
+
+    {% include "cta.njk" %}
+
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script>
+    // Wording for /assets/js/beco-explorer.js. Arrays are indexed by node type, centre outward.
+    window.BGX_STRINGS = {
+      stats: (c, f, s, a) => `${c} concepts · ${f} findings · ${s} sources · ${a} authors`,
+      home: 'All clusters',
+      intro: 'Every concept in BECO, from the eight clusters down to the studies behind each one and the people who ran them. Pick a card to move the map there, or pick anything on the map to read its card.',
+      type: ['Cluster', 'Domain', 'Topic', 'Concept', 'Finding', 'Real-world example', 'Source', 'Author'],
+      typeKey: ['cluster', 'domain', 'topic', 'concept', 'finding', 'app', 'source', 'author'],
+      kind: { bias: 'Bias', heuristic: 'Heuristic', law: 'Law', effect: 'Effect', principle: 'Principle', fallacy: 'Fallacy', illusion: 'Illusion', concept: 'Concept' },
+      grade: { v: 'Verified', p: 'Partially backed', n: 'No rigorous backing found' },
+      gradeNote: {
+        v: 'Concepts the research supports, each backed by at least one solid study.',
+        p: 'Concepts with some support, but with caveats worth knowing before you lean on them.',
+        n: 'Concepts that get cited a lot, where no rigorous backing has turned up yet.',
+      },
+      myth: { moderate: 'Sometimes repeated as a myth', high: 'Often repeated as a myth' },
+      mythShort: 'myth risk',
+      replication: { replicated: 'Replicated', disputed: 'Replication disputed', undetermined: 'Replication not yet established', not_applicable: 'Not a replication question' },
+      ethics: { user_beneficial: 'Works in the user’s favour', mixed: 'Mixed for the user', manipulative_risk: 'Risk of manipulation', unclear: 'Effect on the user unclear' },
+      concepts: (n) => `${n} ${n === 1 ? 'concept' : 'concepts'}`,
+      barLabel: (v, p, n) => `${v} verified, ${p} partially backed, ${n} with no rigorous backing`,
+      more: (n) => `and ${n} more`,
+      aliases: (list) => `Also known as ${list}`,
+      loading: 'Loading…',
+      loadError: 'This didn’t load. Try again in a moment.',
+      noResults: 'Nothing by that name',
+      matched: (t) => `Matches “${t}”`,
+      search: 'Search',
+      found: (n) => (n ? `${n} ${n === 1 ? 'result' : 'results'}` : 'No results'),
+      panel: (open) => (open ? 'Hide the card' : 'Show the card'),
+      hideAuthors: true,
+      noFindings: 'No findings recorded yet.',
+      h: {
+        clusters: 'Clusters', concepts: 'Concepts', loose: 'Findings not yet tied to a concept',
+        children: ['Domains', 'Topics', 'Concepts'],
+        related: 'Related concepts', topics: 'Topics', about: 'About', source: 'Source',
+        supports: 'Evidence for', authors: 'Authors', sources: 'Sources',
+        findings: 'The evidence', examples: 'Real-world examples', byGrade: 'Concepts by evidence',
+      },
+      zoomHint: (mac) => `Pinch or ${mac ? '⌘' : 'Ctrl'} + scroll to zoom`,
+    };
+  </script>
+  <script src="/assets/js/main.js?v=19" defer></script>
+  <script src="/assets/js/beco-explorer.js?v=6" defer></script>
+</body>
+</html>

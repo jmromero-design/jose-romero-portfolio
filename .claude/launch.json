@@ -4,7 +4,11 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "npx",
-      "runtimeArgs": ["serve", "-p", "3456", "."],
+      "runtimeArgs": [
+        "eleventy",
+        "--serve",
+        "--port=3456"
+      ],
       "port": 3456
     }
   ]

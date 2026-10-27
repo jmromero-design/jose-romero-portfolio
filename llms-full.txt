@@ -1871,18 +1871,32 @@ Personal research
 
 # Explore the _BECO graph._
 
-## How to _read it._
+Red ring: often repeated as a myth
 
-BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they end up in a design decision. The map draws all of it at once: the eight clusters at the centre, then domains, topics and named concepts, then the findings and real-world examples behind each concept, and at the edge the sources and the people who wrote them. The cards beside it read whatever you pick.
+## How to read the map
 
-Nothing is placed by hand. Each item sits near what it's linked to, so concepts that share topics, studies or authors end up close together, and the teal arcs connect concepts the research treats as related. It's a snapshot I regenerate after each research round, not a live database.
+BECO is a knowledge graph I'm building to check which behavioural-science claims hold up before they end up in a design decision. The eight clusters sit at the centre; outward come the domains, topics and named concepts, then the findings and real-world examples behind each concept, and at the edge the sources.
 
-- Solid teal: the research supports it.
+Nothing is placed by hand. Each item sits near what it's linked to, and the thin arcs join concepts the research treats as related. The people who wrote the sources aren't drawn on the map; you'll find them on each source's card.
 
-- Pale teal: partly supported, with caveats worth knowing.
+- Colour tells you the cluster: every dot takes its cluster's colour, and the cluster names round the map use the same one.
+
+- Solid fill: the research supports it.
+
+- Pale fill: partly supported, with caveats worth knowing.
 
 - Dashed outline: no rigorous backing found yet.
 
 - Red ring: often repeated in design circles in a form the studies don't support.
+
+### Getting around
+
+- Drag the map to move around; pinch, or hold ⌘ or Ctrl while scrolling, to zoom.
+
+- Pick any dot to open its card; the cards move the map too.
+
+- Press / to jump to search. Results light up on the map.
+
+It's a snapshot I regenerate after each research round, not a live database.
 
 [How it's built →](https://www.joseromerodesign.com/thinking/beco-knowledge-graph/)

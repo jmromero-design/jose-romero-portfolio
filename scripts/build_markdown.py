@@ -4,7 +4,8 @@ build_markdown.py: markdown versions of every page, for AI tools and agents.
 
 For each page in sitemap.xml (except the homepage, whose agent summary is
 written by hand in middleware.js) this converts the page's <main> into clean
-markdown and writes it to md/<path>/index.md. middleware.js serves those files
+markdown and writes it to md/<path>/index.md. It reads the built pages in
+_site/, so build first (npm run build:all does build, markdown, build). middleware.js serves those files
 to any request that asks for text/markdown, and each page links its version
 with <link rel="alternate" type="text/markdown">.
 
@@ -167,7 +168,7 @@ def page_files():
     locs = re.findall(r"<loc>" + re.escape(SITE) + r"([^<]*)</loc>", (ROOT / "sitemap.xml").read_text())
     for loc in locs:
         rel = loc.strip("/")
-        f = ROOT / (rel + ".html" if rel else "index.html")
+        f = ROOT / "_site" / (rel + ".html" if rel else "index.html")
         if f.exists():
             yield loc, f
 

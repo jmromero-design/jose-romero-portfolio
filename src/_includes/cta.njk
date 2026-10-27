@@ -1,0 +1,31 @@
+{%- set es = (lang == "es") -%}
+<section class="v4-cta v4-bleed" aria-labelledby="cta-heading">
+      <div class="v4-cta-grid" aria-hidden="true"></div>
+      <span class="eyebrow eyebrow--bare reveal">{{ 'Disponible' if es else 'Available' }}</span>
+      <h2 id="cta-heading" class="reveal">
+        {{ ctaHeading | safe }}
+      </h2>
+      <p class="reveal">
+        {{ ctaBody | safe }}
+      </p>
+      <div class="v4-cta-actions reveal">
+        <span class="v4-magnet">
+          <a href="{{ site.linkedin }}"
+             target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            {{ 'Conectar en LinkedIn' if es else 'Connect on LinkedIn' }} <span class="arrow">→</span>
+          </a>
+        </span>
+        <span class="v4-magnet">
+          <a href="mailto:{{ site.email }}" class="btn btn-ghost">
+            {{ 'Enviar un correo' if es else 'Send an email' }} <span class="arrow">→</span>
+          </a>
+        </span>
+        {%- if ctaCv %}
+        <span class="v4-magnet">
+          <a href="/assets/cv/jose-romero-cv-{{ lang }}.pdf" download class="btn btn-ghost">
+            {{ 'Descargar CV' if es else 'Download CV' }} <span class="arrow">→</span>
+          </a>
+        </span>
+        {%- endif %}
+      </div>
+    </section>

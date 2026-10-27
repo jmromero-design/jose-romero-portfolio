@@ -1,0 +1,13 @@
+{
+  "name": "jose-romero-portfolio",
+  "private": true,
+  "description": "Static portfolio built with Eleventy. Source pages live in src/, output goes to _site/.",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve --port=3456",
+    "build:all": "eleventy && python3 scripts/build_markdown.py && eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2"
+  }
+}

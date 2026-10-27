@@ -5,7 +5,7 @@
 // Positions follow the original 400×460 map, so the hero composition holds.
 //
 // Writes inline SVG between <!-- hero-map:start --> and <!-- hero-map:end -->
-// in index.html and es/index.html. Re-run after editing anything here:
+// in src/index.html and src/es/index.html. Re-run after editing anything here:
 //   node scripts/build_hero_map.mjs
 import { readFileSync, writeFileSync } from 'node:fs';
 
@@ -182,7 +182,7 @@ function svg(lang) {
   return out.join('\n');
 }
 
-for (const [file, lang] of [['index.html', 'en'], ['es/index.html', 'es']]) {
+for (const [file, lang] of [['src/index.html', 'en'], ['src/es/index.html', 'es']]) {
   const s = readFileSync(file, 'utf8');
   const re = /(<!-- hero-map:start -->)[\s\S]*?(<!-- hero-map:end -->)/;
   if (!re.test(s)) throw new Error(`${file}: hero-map markers not found`);
