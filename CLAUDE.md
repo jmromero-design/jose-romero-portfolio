@@ -32,6 +32,7 @@ AI search tools quote this site, so facts and conventions must match on every pa
 - **The `<head>` comes from front matter** (since phase 2, 2026-10-27): each page's front matter holds `title`, `description`, `ogImage`, plus optional `ogTitle`, `ogDescription`, `twitterDescription`, `ogType`, `robots`. `src/_includes/base.njk` builds the canonical, markdown-twin link, Open Graph, Twitter and hreflang tags from those and the page's folder, and adds the stylesheet, fonts, favicons, language detection and Vercel analytics. Pages start with `{% extends "base.njk" %}` and fill three blocks: `head` (JSON-LD, extra preloads), `styles` (the page's `<style>`) and `body` (`<body>` to `</html>`). `404.html` stays standalone.
 - **Build fails on broken content rules:** title over 60 characters, any description (meta, og, twitter) over 160, or not exactly one `<h1>` (`eleventy.config.js`, transform `content-rules`).
 - **Asset versions live in `src/_data/site.js`** (`cssVersion`, `mainJsVersion`). Bump them there after changing `main.css` or `main.js`; no page needs editing.
+- **Case-study list:** `src/_data/projects.js` (see Next-project chain below).
 - **Shared parts are includes** in `src/_includes/`: `nav.njk`, `footer.njk`, `cta.njk`. A page calls them with `{% include "nav.njk" %}` and so on. Language comes from the folder (`src/es/` = Spanish), the language-toggle target is computed, and the nav's current section is the page's front matter `navCurrent: work|about|thinking`.
 - **Standard closing CTA:** the page's front matter holds `ctaHeading`, `ctaBody` and `ctaCv` (true adds the Download CV button), and the page body has `{% include "cta.njk" %}`. The homepages, Thinking indexes and a few special pages keep their own CTA markup inline (different animation classes).
 - **Footer date:** `src/_data/site.js` → `updated: "2026-10-27"`. Change it by hand when the site's content changes; every page's "Updated October 2026" follows. Also holds the email and LinkedIn URLs.
@@ -245,7 +246,7 @@ footer
 
 ### Next-project chain (case studies)
 
-01 → 02 → 03 → 04 → 05 → 06 → 07 → 08 → 09 → 10 → 01 (loops). Applies EN and ES separately. If adding or reordering a case study, update both the outgoing link on the previous study and the incoming URL on the following one.
+01 → 02 → … → 10 → 01 (loops), generated from `src/_data/projects.js` (slug plus EN and ES titles, in reading order) by `src/_includes/next-project.njk`; the same list feeds the Work pages' `ItemList` JSON-LD (`project-items.njk`). To add or reorder a case study, edit that file, then add the page and the matching entry in `assets/js/case-nav.js` (its own list of ten, for the "More case studies" switcher) and the sitemap.
 
 ---
 
