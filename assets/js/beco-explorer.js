@@ -634,7 +634,7 @@
       } else if (t === CONCEPT) {
         html = head(i, S.kind[x.k] || S.type[t]);
         html += `<p class="bgx-badges"><span class="bgx-grade bgx-grade--${x.g}">${esc(S.grade[x.g])}</span>${x.m === 'high' || x.m === 'moderate' ? `<span class="bgx-myth">${esc(S.myth[x.m])}</span>` : ''}</p>`;
-        html += `<div id="bgxDetail" class="bgx-detail"><p class="bgx-desc">${esc(S.loading)}</p></div>`;
+        html += `<div id="bgxDetail" class="bgx-detail"${hueVar(i)}><p class="bgx-desc">${esc(S.loading)}</p></div>`;
         html += cards(S.h.related, relAdj[i].slice().sort((a, b) => label[a].localeCompare(label[b])));
         html += cards(S.h.topics, kids(i, TOPIC));
         loadConcept(i);
@@ -674,7 +674,9 @@
         let html = '';
         if (b.aliases && b.aliases.length) html += `<p class="bgx-aliases">${esc(S.aliases(b.aliases.join(', ')))}</p>`;
         html += `<p class="bgx-desc">${esc(b.description)}</p>`;
-        if (b.design_relevance_note) html += `<p class="bgx-note">${esc(b.design_relevance_note)}</p>`;
+        // What the concept means for design work is often the reason to read
+        // the entry, so it gets its own heading and the body size.
+        if (b.design_relevance_note) html += `<section class="bgx-design">${S.h.design ? `<h3 class="bgx-h3">${esc(S.h.design)}</h3>` : ''}<p>${esc(b.design_relevance_note)}</p></section>`;
         if (b.myth_risk_note && (b.myth_risk === 'moderate' || b.myth_risk === 'high')) html += `<p class="bgx-note bgx-note--myth">${esc(b.myth_risk_note)}</p>`;
         html += `<h3 class="bgx-h3">${esc(S.h.findings)}</h3>`;
         html += (b.findings || []).length ? b.findings.map((f) => {
