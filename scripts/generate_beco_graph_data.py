@@ -44,6 +44,11 @@ GRADE = {"verified": "v", "partial": "p", "no_rigorous_backing_found": "n"}
 SEED = 7
 
 
+# descriptions travel whole: the cards show them in full, so a clipped copy would read as the whole text
+def whole(text):
+    return " ".join((text or "").split())
+
+
 def clip(text, n):
     text = " ".join((text or "").split())
     return text if len(text) <= n else text[: n - 1].rstrip() + "…"
@@ -66,7 +71,7 @@ def build():
 
     def evidence(owner, f, fkey):
         fi = node(fkey, "finding", clip(f.get("source_title"), 90),
-                  {"r": f.get("replication_status") or "", "d": clip(f.get("description"), 220)})
+                  {"r": f.get("replication_status") or "", "d": whole(f.get("description"))})
         link(owner, fi)
         skey = "src:" + (f.get("source_doi") or f.get("source_title") or fkey).lower()
         si = node(skey, "source", clip(f.get("source_title"), 120),
@@ -83,10 +88,10 @@ def build():
         if cname not in clusters:
             slug = "cluster-" + "-".join("".join(ch if ch.isalnum() else " " for ch in cname.lower()).split())
             clusters[cname] = node("cl:" + cname, "cluster", cname, {"id": slug})
-        di = node(d["id"], "domain", d["name"], {"id": d["id"], "d": clip(d.get("description"), 200)})
+        di = node(d["id"], "domain", d["name"], {"id": d["id"], "d": whole(d.get("description"))})
         link(clusters[cname], di)
         for tp in d["topics"]:
-            ti = node(tp["id"], "topic", tp["name"], {"id": tp["id"], "d": clip(tp.get("description"), 240)})
+            ti = node(tp["id"], "topic", tp["name"], {"id": tp["id"], "d": whole(tp.get("description"))})
             link(di, ti)
             for f in tp.get("standalone_findings") or []:
                 evidence(ti, f, f["id"])
@@ -215,6 +220,8 @@ def main():
         out_nodes.append(row)
     data = {
         "generated_at": tree.get("generated_at"),
+        # database totals: the node counts double-count a finding cited under several concepts
+        "totals": tree.get("totals"),
         "types": TYPES,
         "nodes": out_nodes,
         "edges": [v for e in edges for v in e],
