@@ -628,20 +628,69 @@
   gradeBtns.forEach((b) => b.addEventListener('click', () => goGrade(b.dataset.grade)));
 
   /* ── search ── */
-  let results = [], active = -1;
-  function search(q) {
-    q = q.trim().toLowerCase();
-    results = []; active = -1;
-    if (q.length < 2) { searchList.innerHTML = ''; searchInput.setAttribute('aria-expanded', 'false'); searchInput.removeAttribute('aria-activedescendant'); return; }
-    for (let i = 0; i < N && results.length < 60; i++) {
-      if (T[i] === FINDING || T[i] === APP) continue;
-      const at = label[i].toLowerCase().indexOf(q);
-      if (at !== -1) results.push([i, at === 0 ? 0 : 1]);
+  // Matches the English name, the Spanish title, the Spanish terms and the English aliases of a concept, and the names of groups,
+  // domains and topics. Ignores case and accents, takes the words in any order, accepts the start of a word, a plural, and one typo.
+  const norm = (t) => String(t).normalize('NFD').replace(/[\u0300-\u036f]/g, '').toLowerCase().replace(/[^a-z0-9 ]+/g, ' ').replace(/\s+/g, ' ').trim();
+  const stem = (w) => (w.length > 4 && w.endsWith('es') ? w.slice(0, -2) : w.length > 3 && w.endsWith('s') ? w.slice(0, -1) : w);
+  const near = (a, b) => { // one edit apart
+    if (a === b) return true;
+    const d = a.length - b.length;
+    if (d > 1 || d < -1) return false;
+    let i = 0; while (i < a.length && i < b.length && a[i] === b[i]) i++;
+    if (d === 0) return a.slice(i + 1) === b.slice(i + 1) || (a[i] === b[i + 1] && a[i + 1] === b[i] && a.slice(i + 2) === b.slice(i + 2));
+    return d > 0 ? a.slice(i + 1) === b.slice(i) : a.slice(i) === b.slice(i + 1);
+  };
+  const fields = new Array(N);
+  function fieldsOf(i) {
+    if (fields[i]) return fields[i];
+    const x = extra[i], f = [[label[i], 0, '']];
+    if (x.n) f.push([x.n, 1, '']);
+    for (const t of x.t || []) f.push([t, 2, t]);
+    for (const t of x.al || []) f.push([t, 2, t]);
+    return (fields[i] = f.map(([text, w, shown]) => ({ text: norm(text), words: norm(text).split(' ').map(stem), w, shown })));
+  }
+  // score of one query word against one field: lower is better, null when it does not match
+  function wordScore(q, f) {
+    const qs = stem(q);
+    let best = null;
+    for (const w of f.words) {
+      let sc = null;
+      if (w === qs) sc = 0;
+      else if (w.startsWith(qs)) sc = 1;
+      else if (qs.length >= 5 && near(qs, w.slice(0, qs.length)) ) sc = 3;
+      else if (qs.length >= 4 && w.includes(qs)) sc = 4;
+      if (sc !== null && (best === null || sc < best)) best = sc;
     }
-    results.sort((a, b) => a[1] - b[1] || T[a[0]] - T[b[0]] || label[a[0]].length - label[b[0]].length);
-    results = results.slice(0, 8).map((r) => r[0]);
+    return best;
+  }
+  let results = [], hits = new Map(), active = -1;
+  function search(raw) {
+    const q = norm(raw);
+    results = []; active = -1; hits = new Map();
+    if (q.length < 2) { searchList.innerHTML = ''; searchInput.setAttribute('aria-expanded', 'false'); searchInput.removeAttribute('aria-activedescendant'); return; }
+    const qw = q.split(' ');
+    const scored = [];
+    for (let i = 0; i < N; i++) {
+      if (T[i] === FINDING || T[i] === APP) continue;
+      const fs = fieldsOf(i);
+      let total = 0, shown = '', ok = true;
+      const whole = fs.find((f) => f.text === q || f.text.startsWith(q + ' '));
+      for (const w of qw) {
+        let best = null, bf = null;
+        for (const f of fs) { const sc = wordScore(w, f); if (sc !== null) { const v = sc * 10 + f.w; if (best === null || v < best) { best = v; bf = f; } } }
+        if (best === null) { ok = false; break; }
+        total += best;
+        if (bf.shown && !shown) shown = bf.shown;
+      }
+      if (!ok) continue;
+      if (whole) total -= 20 - whole.w * 5;
+      if (shown && fs.some((f) => !f.shown && qw.every((w) => wordScore(w, f) !== null))) shown = '';
+      scored.push([i, total, shown]);
+    }
+    scored.sort((a, b) => a[1] - b[1] || T[b[0]] - T[a[0]] || label[a[0]].length - label[b[0]].length);
+    results = scored.slice(0, 8).map((r) => { hits.set(r[0], r[2]); return r[0]; });
     searchList.innerHTML = results.length
-      ? results.map((i, n) => `<li role="option" id="bgxOpt${n}" data-node="${i}" aria-selected="false">${dot(i)}<span>${esc(label[i])}${alt(i)}</span><small>${esc(S.type[T[i]])}</small></li>`).join('')
+      ? results.map((i, n) => `<li role="option" id="bgxOpt${n}" data-node="${i}" aria-selected="false">${dot(i)}<span>${esc(label[i])}${alt(i)}${hits.get(i) ? `<span class="bgx-alt">${esc(S.matched ? S.matched(hits.get(i)) : hits.get(i))}</span>` : ''}</span><small>${esc(S.type[T[i]])}</small></li>`).join('')
       : `<li class="bgx-empty" role="option" aria-disabled="true">${esc(S.noResults)}</li>`;
     searchInput.setAttribute('aria-expanded', 'true');
   }
