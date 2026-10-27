@@ -286,7 +286,8 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-beco-explorer-es.web
 
     /* evidence bar: the same teal scale as the homepage feature */
     .bgx-bar { display: flex; gap: 2px; height: 5px; width: 100%; margin: 2px 0 0; }
-    .bgx-counts + .bgx-bar { margin-bottom: var(--sp-2); height: 7px; }
+    /* a bar standing on its own keeps 16px clear of whatever follows (chips, cards) */
+    .bgx-counts + .bgx-bar, .bgx-desc + .bgx-bar { margin-bottom: var(--sp-4); height: 7px; }
     .bgx-bar i { border-radius: 999px; }
     .bgx-bar-v { background: var(--hue, var(--teal)); }
     .bgx-bar-p { background: color-mix(in srgb, var(--hue, var(--teal)) 50%, var(--bg-base)); }
