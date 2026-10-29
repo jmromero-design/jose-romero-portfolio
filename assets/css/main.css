@@ -1710,10 +1710,12 @@ strong { font-weight: 500; color: var(--text-primary); }
   border-bottom: 1px solid var(--border-default);
   text-decoration: none;
 }
+.cs-more-top { display: flex; align-items: baseline; justify-content: space-between; gap: var(--sp-2); }
 .cs-more-client { font-size: var(--text-xs); letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-tertiary); }
 .cs-more-title { font-family: var(--font-display); font-size: var(--text-lg); line-height: 1.3; color: var(--text-primary); transition: color var(--ease-fast); }
 .cs-more-item:hover .cs-more-title, .cs-more-item:focus-visible .cs-more-title { color: var(--gold); }
 .cs-more-item.is-viewed .cs-more-title { color: var(--text-tertiary); }
+.cs-more-tags { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: auto; }
 .cs-more-seen { font-size: var(--text-xs); color: var(--teal-text); }
 .cs-more-seen::before { content: '\2713'; margin-right: var(--sp-1); }
 .cs-more-all { display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-6); font-size: var(--text-sm); color: var(--teal-text); text-decoration: none; }
