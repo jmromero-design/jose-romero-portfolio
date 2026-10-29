@@ -36,7 +36,9 @@ import sys
 from datetime import date
 from pathlib import Path
 
-BECO_REPO = "/Users/joseromero/Documents/Projects/BECO Knowledge Graph"
+BECO_REPO = os.environ.get("BECO_REPO") or os.path.expanduser(
+    "~/Code/30 Independiente/beco-knowledge-graph"
+)
 sys.path.insert(0, BECO_REPO)
 import neo4j_env  # noqa: E402
 
