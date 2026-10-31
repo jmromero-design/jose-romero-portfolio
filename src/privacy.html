@@ -31,7 +31,7 @@ robots: "noindex"
 {% block styles %}
   <style>
     .legal-hero { padding-block: clamp(var(--sp-16), 8vw, var(--sp-24)) var(--sp-10); }
-    .legal-body { max-width: 68ch; margin-inline: 0; padding-bottom: clamp(var(--sp-16), 8vw, var(--sp-24)); }
+    .legal-body { max-width: 68ch; padding-bottom: clamp(var(--sp-16), 8vw, var(--sp-24)); }
     .legal-body h2 { font-size: var(--text-xl); font-family: var(--font-body); font-weight: 500; margin-top: var(--sp-10); margin-bottom: var(--sp-3); }
     .legal-body p { margin-bottom: var(--sp-4); }
     .legal-body ul { list-style: disc; padding-left: var(--sp-6); margin-bottom: var(--sp-4); }
@@ -59,7 +59,8 @@ robots: "noindex"
     </section>
 
     <section class="section">
-      <div class="container legal-body reveal">
+      <div class="container">
+        <div class="legal-body reveal">
         <p class="body-lg">
           This is a personal portfolio site, not a product with an account system, so there isn't much to collect.
           Here's exactly what happens.
@@ -99,6 +100,7 @@ robots: "noindex"
           correct, or delete. If you have any question about this notice, or about an email you've sent me,
           reach out at <a href="mailto:joseromero.next@gmail.com" class="v4-sweep">joseromero.next@gmail.com</a>.
         </p>
+        </div>
       </div>
     </section>
 
