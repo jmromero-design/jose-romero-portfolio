@@ -1,0 +1,5 @@
+{%- set p = e.project -%}
+        <div class="v4-preview-group" data-project="{{ p.dataProject }}">
+          <div class="v4-frame pv-a"><img src="/assets/images/work/{{ p.slug }}/{{ p.images[1] }}" alt="" width="{{ e.sizes[1][0] }}" height="{{ e.sizes[1][1] }}" loading="lazy" decoding="async"></div>
+          <div class="v4-frame pv-b"><img src="/assets/images/work/{{ p.slug }}/{{ p.images[0] }}" alt="" width="{{ e.sizes[0][0] }}" height="{{ e.sizes[0][1] }}" loading="lazy" decoding="async"></div>
+        </div>

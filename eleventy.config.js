@@ -15,6 +15,7 @@ const MONTHS = {
 };
 
 const projects = require("./src/_data/projects.js");
+const home = require("./src/_data/home.js");
 const fs = require("node:fs");
 const path = require("node:path");
 
@@ -155,6 +156,35 @@ module.exports = function (eleventyConfig) {
       const open = (r.content.match(/<a[\s>]/g) || []).length;
       const close = (r.content.match(/<\/a>/g) || []).length;
       if (open !== close) problems.push(`${r.inputPath}: ${open} <a> opened, ${close} closed`);
+    }
+
+    // Homepage: every entry has to resolve to a study, each featured one needs
+    // its row and preview group (two data-project occurrences), and compact
+    // links carry none, so a missing include shows up here.
+    for (const e of [...home.featured, ...home.more]) {
+      if (!e.project) problems.push(`home.js: "${e.slug}" has no entry in projects.js`);
+    }
+    for (const e of home.featured) {
+      if (!Array.isArray(e.sizes) || e.sizes.length !== 2) {
+        problems.push(`home.js: "${e.slug}" needs two image sizes`);
+      }
+    }
+    for (const r of html) {
+      if (!["/", "/es/"].includes(urlOf(r.outputPath))) continue;
+      const seen = {};
+      for (const m of r.content.matchAll(/data-project="([a-z0-9]+)"/g)) {
+        seen[m[1]] = (seen[m[1]] || 0) + 1;
+      }
+      for (const e of home.featured) {
+        if (!e.project) continue;
+        const n = seen[e.project.dataProject] || 0;
+        if (n !== 2) problems.push(`${r.inputPath}: ${e.project.dataProject} appears ${n} time(s), expected 2 (row + preview)`);
+      }
+      for (const k of Object.keys(seen)) {
+        if (!home.featured.some((e) => e.project && e.project.dataProject === k)) {
+          problems.push(`${r.inputPath}: data-project "${k}" is not a featured homepage study`);
+        }
+      }
     }
 
     if (problems.length) throw new Error(problems.join("; "));

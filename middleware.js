@@ -58,7 +58,7 @@ in at the bottom decides which tools get picked up on the way to the top.
 Where it lands: a decision a team can build, covering what to make next, why
 it matters, and how to tell if it worked.
 
-## Selected work
+## Case studies
 
 - [IKEA Home Services](https://www.joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
 - [IKEA Second-hand Marketplace](https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/) — resale platform live in five European countries

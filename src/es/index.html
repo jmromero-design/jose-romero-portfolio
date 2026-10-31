@@ -1557,98 +1557,17 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
 
       <div class="v4-work-head v4-r">
         <h2 id="work-heading">Trabajo <em>seleccionado.</em></h2>
-        <p>Nueve casos de estudio en producto, CRO y operaciones de diseño. Pasa el ratón para ver una vista previa.</p>
+        <p>{{ (home.featured.length + home.more.length) | countWord(lang) }} casos de estudio en producto, CRO y operaciones de diseño. Pasa el ratón para ver una vista previa.</p>
       </div>
 
       <div class="v4-index">
-
-        <a class="v4-row v4-r" href="/es/work/ikea-home-services/" data-project="hs">
-          <div class="v4-row-main">
-            <div class="v4-row-thumbs" aria-hidden="true">
-              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" width="620" height="1348" loading="lazy" decoding="async"></div>
-              <div class="v4-frame"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" width="620" height="1348" loading="lazy" decoding="async"></div>
-            </div>
-            <span class="v4-row-client">Garaje de Ideas × IKEA</span>
-            <h3 class="v4-row-title">IKEA Home Services</h3>
-            <p class="v4-row-desc">Marketplace P2P de servicios, activo en siete regiones españolas. Más de 500.000 descargas, 4.9/5 de satisfacción.</p>
-          </div>
-          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Diseño de Producto · Marketplace</span>
-          <span class="arrow">→</span>
-        </a>
-
-        <a class="v4-row v4-r" href="/es/work/mapfre-afin-digital-expansion/" data-project="afin">
-          <div class="v4-row-main">
-            <div class="v4-row-thumbs" aria-hidden="true">
-              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" width="361" height="750" loading="lazy" decoding="async"></div>
-              <div class="v4-frame"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" width="361" height="749" loading="lazy" decoding="async"></div>
-            </div>
-            <span class="v4-row-client">Flat 101 × Mapfre España</span>
-            <h3 class="v4-row-title">Mapfre · App Financiera AFIN</h3>
-            <p class="v4-row-desc">Gestión financiera de autoservicio para una de las mayores aseguradoras de España, construida sobre la confianza del usuario.</p>
-          </div>
-          <span class="v4-row-tags">Diseño de Producto · FinTech</span>
-          <span class="arrow">→</span>
-        </a>
-
-        <a class="v4-row v4-r" href="/es/work/santander-nordics-cro/" data-project="sn">
-          <div class="v4-row-main">
-            <div class="v4-row-thumbs" aria-hidden="true">
-              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" width="620" height="1711" loading="lazy" decoding="async"></div>
-              <div class="v4-frame"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" width="620" height="1718" loading="lazy" decoding="async"></div>
-            </div>
-            <span class="v4-row-client">Flat 101 × Santander</span>
-            <h3 class="v4-row-title">Santander Nordics · Programa CRO</h3>
-            <p class="v4-row-desc">Experimentación basada en datos en cuatro mercados regulados: Dinamarca, Suecia, Finlandia y Noruega.</p>
-          </div>
-          <span class="v4-row-tags">CRO · Banca</span>
-          <span class="arrow">→</span>
-        </a>
-
+{% for e in home.featured %}
+        {% include "home-row.njk" %}
+{% endfor %}
         <div class="v4-index-label v4-r">Más casos de estudio</div>
-
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/ikea-secondhand-marketplace/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">IKEA Second-hand Marketplace</h3>
-          </div>
-          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Comercio Circular</span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/ikea-ways-of-working/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">IKEA · Sistema de Formas de Trabajar</h3>
-          </div>
-          <span class="v4-row-tags"><span class="v4-tag-current">Actual</span> · Design Ops</span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/ai-workflow-framework/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">Framework de Diseño con IA</h3>
-          </div>
-          <span class="v4-row-tags">Framework · Arquitectura de Proceso</span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/mapfre-digital-expansion/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">Mapfre · Expansión Digital</h3>
-          </div>
-          <span class="v4-row-tags">Multi-mercado · CRO</span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/iqos-club-cro/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">IQOS Club España · Programa CRO</h3>
-          </div>
-          <span class="v4-row-tags">Economía Conductual · Fidelización</span>
-          <span class="arrow">→</span>
-        </a>
-        <a class="v4-row v4-row--compact v4-r" href="/es/work/xti-ecommerce-redesign/">
-          <div class="v4-row-main">
-            <h3 class="v4-row-title">XTI Store · Rediseño E-commerce</h3>
-          </div>
-          <span class="v4-row-tags">E-commerce · Datos de Comportamiento</span>
-          <span class="arrow">→</span>
-        </a>
-
+{% for e in home.more %}
+        {% include "home-row.njk" %}
+{% endfor %}
       </div>
 
       <div class="v4-work-cta v4-r">
@@ -1657,18 +1576,9 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
 
       <!-- Vista previa flotante — composiciones superpuestas por proyecto -->
       <div class="v4-preview" aria-hidden="true">
-        <div class="v4-preview-group" data-project="hs">
-          <div class="v4-frame pv-a"><img src="/assets/images/work/ikea-home-services/hs-service-info.webp" alt="" width="620" height="1348" loading="lazy" decoding="async"></div>
-          <div class="v4-frame pv-b"><img src="/assets/images/work/ikea-home-services/hs-homepage.webp" alt="" width="620" height="1348" loading="lazy" decoding="async"></div>
-        </div>
-        <div class="v4-preview-group" data-project="afin">
-          <div class="v4-frame pv-a"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-start.webp" alt="" width="361" height="749" loading="lazy" decoding="async"></div>
-          <div class="v4-frame pv-b"><img src="/assets/images/work/mapfre-afin-digital-expansion/afin-m-proposal.webp" alt="" width="361" height="750" loading="lazy" decoding="async"></div>
-        </div>
-        <div class="v4-preview-group" data-project="sn">
-          <div class="v4-frame pv-a"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-original.webp" alt="" width="620" height="1718" loading="lazy" decoding="async"></div>
-          <div class="v4-frame pv-b"><img src="/assets/images/work/santander-nordics-cro/sn-funnel-step2-variant.webp" alt="" width="620" height="1711" loading="lazy" decoding="async"></div>
-        </div>
+{% for e in home.featured %}
+{% include "home-preview.njk" %}
+{% endfor %}
       </div>
 
     </section>
