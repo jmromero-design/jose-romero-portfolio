@@ -227,6 +227,7 @@ def full_order(loc, rank):
 
 def main():
     pages = {}
+    written = set()
     for loc, f in page_files():
         if loc in ("/", "/es/", "/404/"):
             continue
@@ -237,6 +238,21 @@ def main():
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(md)
         pages[loc] = md
+        written.add(out)
+
+    # Remove twins for pages that no longer exist, or middleware keeps serving
+    # the old text for a URL the site dropped.
+    for old in sorted((ROOT / "md").rglob("index.md")):
+        if old in written:
+            continue
+        old.unlink()
+        for parent in old.parents:
+            if parent == ROOT / "md":
+                break
+            if any(parent.iterdir()):
+                break
+            parent.rmdir()
+        print(f"removed orphan twin: {old.relative_to(ROOT)}")
 
     rank = project_order()
     english = [
