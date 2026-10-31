@@ -13,6 +13,7 @@ og-<slug>-es.webp for the Spanish pages.
 
     python3 scripts/build_og_images.py
 """
+import datetime
 import html
 import pathlib
 import subprocess
@@ -25,10 +26,15 @@ IMAGES = ROOT / "assets" / "images"
 VISUALS = ROOT / "Designing the portfolio" / "og-visuals"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
+# Years of practice, counted the same way build_cv.py and the site do
+# (site.careerStart in src/_data/site.js).
+CAREER_START = 2014
+YEARS = datetime.date.today().year - CAREER_START
+
 # slug: (eyebrow, title, description)
 CARDS = {
     "default": ("Senior product designer", "Jose Romero",
-                "12 years in digital products, CRO and behavioural strategy. Now embedded at IKEA."),
+                f"{YEARS} years in digital products, CRO and behavioural strategy. Now embedded at IKEA."),
     "ai-workflow-framework": ("AI workflow design", "AI Workflow Framework",
                               "A multi-agent workflow for product design, with a person signing off every phase."),
     "ikea-home-services": ("Marketplace · Mobile", "IKEA Home Services",
@@ -54,9 +60,9 @@ CARDS = {
 
 CARDS.update({
     "about": ("About", "Hard problems, by choice.",
-              "Senior product designer, 12 years in digital products, CRO and design systems. Now embedded at IKEA."),
+              f"Senior product designer, {YEARS} years in digital products, CRO and design systems. Now embedded at IKEA."),
     "thinking": ("Thinking", "Essays, research and positions",
-                 "On AI in design teams, behavioural science and how teams work, from 12 years of practice."),
+                 f"On AI in design teams, behavioural science and how teams work, from {YEARS} years of practice."),
     "beco-knowledge-graph": ("Research · BECO", "A knowledge graph that grades its own evidence",
                              "420 DOI-verified sources behind 243 behavioural-science concepts."),
     "beco-explorer": ("Interactive · BECO", "Explore the BECO graph",
@@ -66,7 +72,7 @@ CARDS.update({
 # the Spanish pages get their own cards: og-<slug>-es.webp
 CARDS_ES = {
     "default": ("Senior product designer", "Jose Romero",
-                "12 años en productos digitales, CRO y estrategia conductual. Ahora integrado en IKEA."),
+                f"{YEARS} años en productos digitales, CRO y estrategia conductual. Ahora integrado en IKEA."),
     "ai-workflow-framework": ("Diseño de flujos con IA", "Framework de flujos con IA",
                               "Un flujo multiagente para diseño de producto, con una persona que aprueba cada fase."),
     "ikea-home-services": ("Marketplace · Móvil", "IKEA Home Services",
@@ -92,7 +98,7 @@ CARDS_ES = {
 
 CARDS_ES.update({
     "about": ("Sobre mí", "Problemas difíciles, por elección.",
-              "Senior product designer, 12 años en productos digitales, CRO y sistemas de diseño. Ahora integrado en IKEA."),
+              f"Senior product designer, {YEARS} años en productos digitales, CRO y sistemas de diseño. Ahora integrado en IKEA."),
     "thinking": ("Reflexiones", "Ensayos, investigación y posiciones",
                  "Sobre IA en equipos de diseño, ciencia del comportamiento y cómo trabajan los equipos."),
     "beco-knowledge-graph": ("Investigación · BECO", "Un grafo que califica su propia evidencia",

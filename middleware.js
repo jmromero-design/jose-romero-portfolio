@@ -20,6 +20,11 @@
 //     so a CDN never serves the markdown variant to a browser or the
 //     HTML variant to an agent.
 
+// Year the professional practice starts. The site's copy of this value lives
+// in src/_data/site.js (careerStart), a CommonJS module this ESM edge function
+// does not import, so the two have to change together by hand.
+const CAREER_START = 2014;
+
 export const config = {
   matcher: [
     '/((?!assets/|_vercel/|md/|favicon\\.ico|favicon\\.svg|apple-touch-icon\\.png|robots\\.txt|sitemap\\.xml|llms\\.txt|llms-full\\.txt).*)',
@@ -28,7 +33,7 @@ export const config = {
 
 const HOMEPAGE_MARKDOWN = `# Jose Romero — Senior Product Designer
 
-Senior product designer based in Zaragoza, Spain, with ${new Date().getFullYear() - 2014} years of
+Senior product designer based in Zaragoza, Spain, with ${new Date().getFullYear() - CAREER_START} years of
 professional experience across digital product design, conversion rate
 optimisation (CRO), behavioural economics, and design operations. Works in
 English and Spanish; English is fluent and his professional working language.
