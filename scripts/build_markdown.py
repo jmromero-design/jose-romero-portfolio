@@ -2,12 +2,12 @@
 """
 build_markdown.py: markdown versions of every page, for AI tools and agents.
 
-For each page in sitemap.xml (except the homepage, whose agent summary is
-written by hand in middleware.js) this converts the page's <main> into clean
+For every built page (except the homepages, whose agent summary is written by
+hand in middleware.js, and the 404) this converts the page's <main> into clean
 markdown and writes it to md/<path>/index.md. It reads the built pages in
-_site/, so build first (npm run build:all does build, markdown, build). middleware.js serves those files
-to any request that asks for text/markdown, and each page links its version
-with <link rel="alternate" type="text/markdown">.
+_site/, so build first (npm run build:all does build, markdown, build).
+middleware.js serves those files to any request that asks for text/markdown,
+and each page links its version with <link rel="alternate" type="text/markdown">.
 
 It also writes llms-full.txt: every English page in one file, so an assistant
 can read the whole portfolio in a single request.
@@ -164,13 +164,22 @@ class ToMarkdown(HTMLParser):
             self.link_text += data
 
 
+def url_of(path):
+    """_site/work/x.html -> /work/x/ ; _site/es/index.html -> /es/ ; _site/index.html -> /"""
+    rel = path.relative_to(ROOT / "_site").as_posix()
+    if rel == "index.html":
+        return "/"
+    if rel.endswith("/index.html"):
+        return "/" + rel[: -len("index.html")]
+    return "/" + rel[: -len(".html")] + "/"
+
+
 def page_files():
-    locs = re.findall(r"<loc>" + re.escape(SITE) + r"([^<]*)</loc>", (ROOT / "sitemap.xml").read_text())
-    for loc in locs:
-        rel = loc.strip("/")
-        f = ROOT / "_site" / (rel + ".html" if rel else "index.html")
-        if f.exists():
-            yield loc, f
+    """Every built page. Read from _site rather than the sitemap: the sitemap
+    leaves out pages robots already ignore (the two privacy pages are noindex),
+    and those still need a markdown twin."""
+    for f in sorted((ROOT / "_site").rglob("*.html")):
+        yield url_of(f), f
 
 
 def convert(f):
@@ -193,11 +202,33 @@ def convert(f):
     return title, unescape(desc.group(1)) if desc else "", clean
 
 
+def project_order():
+    """Reading order of the case studies, from the data file that already
+    defines it. Falls back to alphabetical if the file stops matching."""
+    src = (ROOT / "src/_data/projects.js").read_text()
+    slugs = re.findall(r'slug:\s*"([a-z0-9-]+)"', src)
+    return {f"/work/{s}/": i for i, s in enumerate(slugs)}
+
+
+SECTION_ORDER = ["/about/", "/work/", "/thinking/"]
+
+
+def full_order(loc, rank):
+    """Order of llms-full.txt: section pages first, then case studies in reading
+    order, then the Thinking articles, then anything else."""
+    if loc in SECTION_ORDER:
+        return (0, SECTION_ORDER.index(loc), "")
+    if loc.startswith("/work/"):
+        return (1, rank.get(loc, 999), loc)
+    if loc.startswith("/thinking/"):
+        return (2, 0, loc)
+    return (3, 0, loc)
+
+
 def main():
-    full = []
-    written = 0
+    pages = {}
     for loc, f in page_files():
-        if loc == "/" or loc == "/es/":
+        if loc in ("/", "/es/", "/404/"):
             continue
         title, desc, blocks = convert(f)
         url = SITE + loc
@@ -205,16 +236,23 @@ def main():
         out = ROOT / "md" / loc.strip("/") / "index.md"
         out.parent.mkdir(parents=True, exist_ok=True)
         out.write_text(md)
-        written += 1
-        if not loc.startswith("/es/") and loc not in ("/privacy/", "/contact/"):
-            full.append(f"\n\n---\n\n{md}")
+        pages[loc] = md
+
+    rank = project_order()
+    english = [
+        loc for loc in pages
+        if not loc.startswith("/es/") and loc not in ("/privacy/", "/contact/")
+    ]
+    english.sort(key=lambda loc: full_order(loc, rank))
+    full = "".join(f"\n\n---\n\n{pages[loc]}" for loc in english)
+
     head = (ROOT / "llms.txt").read_text().split("\n## ")[0].strip()
     (ROOT / "llms-full.txt").write_text(
         head + "\n\nThis file holds the full text of every English page on the site, one after another, "
         "so an assistant can read the whole portfolio in one request. Each page is also available on its own "
         "as markdown: request the page with Accept: text/markdown, or open /md/<path>/index.md.\n"
-        + "".join(full))
-    print(f"{written} markdown pages, llms-full.txt {len((ROOT / 'llms-full.txt').read_text().split())} words")
+        + full)
+    print(f"{len(pages)} markdown pages, llms-full.txt {len((ROOT / 'llms-full.txt').read_text().split())} words")
 
 
 if __name__ == "__main__":
