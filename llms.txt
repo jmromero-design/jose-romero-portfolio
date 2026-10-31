@@ -56,7 +56,7 @@ Senior UX/CRO Designer across 4–8 concurrent enterprise accounts:
   The application form was redesigned from winning experiments and became the
   default in all four markets; changes shipped only after significant uplifts
   in at least the two largest markets.
-- Meliá Hotels International · Campaign Management Platform: 3-year engagement,
+- Meliá Hotels · Campaign Platform: 3-year engagement,
   zero-to-one internal tool, live across all Meliá markets globally.
 - Mapfre · AFIN Financial App: self-service financial app covering investments,
   savings, and pension plans. Progressive disclosure information architecture
@@ -100,7 +100,7 @@ Featured case studies (10):
 01. [IKEA Home Services](https://www.joseromerodesign.com/work/ikea-home-services/) · product design, marketplace, mobile
 02. [IKEA Second-hand Marketplace](https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/) · product design, circular commerce, multi-market
 03. [Santander Nordics · CRO Programme](https://www.joseromerodesign.com/work/santander-nordics-cro/) · banking, multi-market, legally constrained testing
-04. [Meliá Hotels · Campaign Management Platform](https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/) · zero-to-one, hospitality, web application
+04. [Meliá Hotels · Campaign Platform](https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/) · zero-to-one, hospitality, web application
 05. [Mapfre · AFIN Financial App](https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/) · FinTech, mobile, progressive disclosure IA
 06. [Mapfre · Digital Expansion](https://www.joseromerodesign.com/work/mapfre-digital-expansion/) · Verti redesign, Latin America, design system, CRO
 07. [IQOS Club Spain · CRO Programme](https://www.joseromerodesign.com/work/iqos-club-cro/) · loyalty, behavioural economics, low-traffic testing

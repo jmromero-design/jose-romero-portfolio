@@ -6,7 +6,7 @@ eleventyExcludeFromCollections: true
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {%- for item in collections.all | sort(attribute="data.cleanUrl") %}
-{%- if item.data.cleanUrl != "/404/" and item.data.robots != "noindex" %}
+{%- if item.data.cleanUrl != "/404/" and "noindex" not in (item.data.robots or "") %}
   <url>
     <loc>{{ site.url }}{{ item.data.cleanUrl }}</loc>
     <xhtml:link rel="alternate" hreflang="en"        href="{{ site.url }}{{ item.data.enUrl }}"/>

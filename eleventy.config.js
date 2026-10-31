@@ -1,9 +1,10 @@
 // Eleventy build for the portfolio.
 //
 // Pages live in src/ (same folder tree as the live URLs). The shared nav,
-// footer and closing CTA are includes in src/_includes/. Everything that is
-// not a page (CSS, JS, images, fonts, data, markdown twins, robots, sitemap,
-// llms files) stays at the repo root and is copied to _site/ untouched.
+// footer and closing CTA are includes in src/_includes/. Assets and files that
+// are not pages (CSS, JS, images, fonts, markdown twins, robots, llms files)
+// stay at the repo root and are copied to _site/ untouched. The sitemap is the
+// exception: src/sitemap.njk generates it from the pages that built.
 //
 // Pages are written to _site/<path>.html (not <path>/index.html) so Vercel's
 // cleanUrls + trailingSlash behaviour stays exactly what it was before.
@@ -14,6 +15,8 @@ const MONTHS = {
 };
 
 const projects = require("./src/_data/projects.js");
+const fs = require("node:fs");
+const path = require("node:path");
 
 module.exports = function (eleventyConfig) {
   [
@@ -100,6 +103,10 @@ module.exports = function (eleventyConfig) {
       if (!Array.isArray(p.images) || p.images.length !== 2) {
         problems.push(`${p.slug}: needs exactly two images, found ${Array.isArray(p.images) ? p.images.length : 0}`);
       }
+      for (const img of p.images || []) {
+        const file = path.join(__dirname, "assets", "images", "work", p.slug, img);
+        if (!fs.existsSync(file)) problems.push(`${p.slug}: image not found, assets/images/work/${p.slug}/${img}`);
+      }
     }
     const keys = new Set(projects.map((p) => p.dataProject));
     if (keys.size !== projects.length) {
@@ -131,7 +138,7 @@ module.exports = function (eleventyConfig) {
     const inSitemap = new Map();
     for (const loc of locs) inSitemap.set(loc, (inSitemap.get(loc) || 0) + 1);
     const expected = html
-      .filter((r) => !/name="robots" content="noindex"/.test(r.content))
+      .filter((r) => !/name="robots"[^>]*content="[^"]*noindex/.test(r.content))
       .map((r) => urlOf(r.outputPath))
       .filter((loc) => loc !== "/404/");
     for (const loc of expected) {
@@ -140,6 +147,14 @@ module.exports = function (eleventyConfig) {
     }
     for (const loc of inSitemap.keys()) {
       if (!expected.includes(loc)) problems.push(`sitemap.xml: ${loc} is not a page this build should list`);
+    }
+
+    // Every page must close the anchors it opens. A stray </a> from a hand
+    // edit is invalid HTML that browsers forgive, so nothing else notices it.
+    for (const r of html) {
+      const open = (r.content.match(/<a[\s>]/g) || []).length;
+      const close = (r.content.match(/<\/a>/g) || []).length;
+      if (open !== close) problems.push(`${r.inputPath}: ${open} <a> opened, ${close} closed`);
     }
 
     if (problems.length) throw new Error(problems.join("; "));
