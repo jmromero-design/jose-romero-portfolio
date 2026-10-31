@@ -1,8 +1,8 @@
 ---
 title: "Jose Romero, Senior Product Designer"
-description: "Senior product designer con 12 años en productos digitales empresariales, CRO y estrategia conductual. Integrado en IKEA, desde Zaragoza, España."
-ogDescription: "Senior product designer con 12 años de experiencia en productos digitales empresariales, CRO y estrategia conductual. Actualmente integrado en IKEA."
-twitterDescription: "Senior product designer con 12 años de experiencia en productos digitales empresariales, CRO y estrategia conductual."
+description: "Senior product designer con %YEARS% años en productos digitales empresariales, CRO y estrategia conductual. Integrado en IKEA, desde Zaragoza, España."
+ogDescription: "Senior product designer con %YEARS% años de experiencia en productos digitales empresariales, CRO y estrategia conductual. Actualmente integrado en IKEA."
+twitterDescription: "Senior product designer con %YEARS% años de experiencia en productos digitales empresariales, CRO y estrategia conductual."
 ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
 ---
 {% extends "base.njk" %}
@@ -12,7 +12,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jose Romero",
-    "description": "Senior product designer con 12 años de experiencia en productos digitales empresariales, CRO y estrategia conductual. Actualmente integrado en IKEA. Trabajando desde Zaragoza, España.",
+    "description": "Senior product designer con {{ site.careerStart | yearsSince }} años de experiencia en productos digitales empresariales, CRO y estrategia conductual. Actualmente integrado en IKEA. Trabajando desde Zaragoza, España.",
     "jobTitle": "Senior Product Designer",
     "email": "joseromero.next@gmail.com",
     "url": "https://www.joseromerodesign.com",
@@ -1520,7 +1520,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
     <section class="v4-manifest v4-bleed" aria-label="Posicionamiento">
       <div class="v4-manifest-inner">
         <p class="v4-lead v4-r">
-          Llevo <span class="v4-lead-years">12 años diseñando productos digitales</span> para empresas con
+          Llevo <span class="v4-lead-years">{{ site.careerStart | yearsSince }} años diseñando productos digitales</span> para empresas con
           <strong>equipos grandes, problemas complicados y decisiones que salen caras si se equivocan.</strong>
         </p>
         <p class="v4-sub v4-r" style="--d: 0.14s;">
@@ -1586,7 +1586,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default-es.webp?v=2"
     <!-- ═══ 5. SOBRE MÍ ═══ -->
     <section class="v4-about v4-bleed" aria-labelledby="about-heading">
       <h2 id="about-heading" class="v4-r">
-        Doce años.<br>
+        {{ site.careerStart | yearsSince | countWord(lang) }} años.<br>
         <em>Una forma de trabajar consistente.</em>
       </h2>
       <div class="v4-about-grid">

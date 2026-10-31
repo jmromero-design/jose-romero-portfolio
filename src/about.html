@@ -4,7 +4,7 @@ ctaHeading: "Your hardest problem<br><em class=\"accent-italic\">is a good place
 ctaBody: "Open to senior product design roles and selective consulting engagements, in English or Spanish."
 ctaCv: true
 title: "About · Jose Romero, Senior Product Designer"
-description: "12 years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain."
+description: "%YEARS% years designing digital products for banking, retail, marketplaces, hospitality and insurance. Now embedded in IKEA’s New Business Platform in Spain."
 ogImage: "https://www.joseromerodesign.com/assets/images/og-about.webp?v=3"
 ---
 {% extends "base.njk" %}
@@ -206,7 +206,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-about.webp?v=3"
               <span class="v4-mask"><span class="v4-line v4-line--accent">by choice.</span></span>
             </h1>
 
-            <p class="body-lg hero-animate" style="margin-bottom: var(--sp-4);">I’m Jose Romero, a senior product designer with 12 years in digital products, CRO and design systems. I work in English and Spanish from Zaragoza, and I’m currently embedded in IKEA’s New Business Platform, designing two peer-to-peer marketplaces.</p>
+            <p class="body-lg hero-animate" style="margin-bottom: var(--sp-4);">I’m Jose Romero, a senior product designer with {{ site.careerStart | yearsSince }} years in digital products, CRO and design systems. I work in English and Spanish from Zaragoza, and I’m currently embedded in IKEA’s New Business Platform, designing two peer-to-peer marketplaces.</p>
 
             <p class="hero-animate">Before that: three years running UX and CRO for enterprise clients at Flat 101, and a design studio I co-founded in Havana.</p>
           </div>
@@ -223,7 +223,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-about.webp?v=3"
 
         <div class="section-header reveal" style="margin-bottom: var(--sp-12);">
           <span class="eyebrow">Career</span>
-          <h2 id="clients-heading">Brands I've designed for,<br><em class="accent-italic">across twelve years.</em></h2>
+          <h2 id="clients-heading">Brands I've designed for,<br><em class="accent-italic">across {{ site.careerStart | yearsSince | countWord(lang) | lower }} years.</em></h2>
           <p class="section-sub">None of it was planned. The projects got harder, longer and fewer, until I ended up inside one product team.</p>
         </div>
 

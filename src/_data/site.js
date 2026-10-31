@@ -7,6 +7,9 @@ module.exports = {
   mainJsVersion: 20,
   // lang-detect.js runs before the page renders, so it carries its own version.
   langJsVersion: 2,
+  // Year the professional practice starts. Claims like "twelve years" are
+  // derived from this at build time, so they age instead of drifting.
+  careerStart: 2014,
   // Month shown in the footer ("Updated October 2026"). Set by hand when the
   // site's content last changed in a way worth telling readers about.
   updated: "2026-10-29",

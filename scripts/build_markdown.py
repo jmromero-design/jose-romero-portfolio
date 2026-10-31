@@ -262,7 +262,8 @@ def main():
     english.sort(key=lambda loc: full_order(loc, rank))
     full = "".join(f"\n\n---\n\n{pages[loc]}" for loc in english)
 
-    head = (ROOT / "llms.txt").read_text().split("\n## ")[0].strip()
+    # llms.txt is generated into _site by src/llms.njk, so read the build.
+    head = (ROOT / "_site" / "llms.txt").read_text().split("\n## ")[0].strip()
     (ROOT / "llms-full.txt").write_text(
         head + "\n\nThis file holds the full text of every English page on the site, except the homepage (its summary is served on its own), Contact and Privacy, one after another, "
         "so an assistant can read the whole portfolio in one request. Each page is also available on its own "

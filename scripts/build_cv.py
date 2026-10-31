@@ -9,6 +9,7 @@ Chrome to A4 PDF, with real, selectable text and live links.
     python3 scripts/build_cv.py
 """
 import html
+import datetime
 import pathlib
 import subprocess
 import tempfile
@@ -17,12 +18,16 @@ ROOT = pathlib.Path(__file__).resolve().parent.parent
 OUT = ROOT / "assets" / "cv"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
+# Years of practice, counted the same way the site does (site.careerStart).
+CAREER_START = 2014
+YEARS = datetime.date.today().year - CAREER_START
+
 CV = {
     "en": {
         "title": "Senior Product Designer",
         "place": "Zaragoza, Spain",
         "summary": (
-            "Senior product designer with 12 years in enterprise digital products, conversion optimisation (CRO), "
+            f"Senior product designer with {YEARS} years in enterprise digital products, conversion optimisation (CRO), "
             "behavioural science and design operations. Embedded in IKEA’s New Business Platform, where AI now runs "
             "through most of my work: agentic reporting, multi-agent design workflows, and facilitation that turns AI "
             "output into material teams can act on. I do my best work inside complexity: multi-market products, "
@@ -90,7 +95,7 @@ CV = {
         "title": "Senior Product Designer",
         "place": "Zaragoza, España",
         "summary": (
-            "Senior product designer con 12 años en productos digitales enterprise, optimización de la conversión (CRO), "
+            f"Senior product designer con {YEARS} años en productos digitales enterprise, optimización de la conversión (CRO), "
             "ciencia del comportamiento y operaciones de diseño. Integrado en la New Business Platform de IKEA, donde la IA "
             "atraviesa ya casi todo mi trabajo: informes con agentes, flujos de diseño multiagente y una facilitación que "
             "convierte lo que produce la IA en material con el que un equipo puede actuar. Trabajo mejor dentro de la "

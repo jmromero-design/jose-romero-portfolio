@@ -14,6 +14,7 @@ const MONTHS = {
   es: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
 };
 
+const site = require("./src/_data/site.js");
 const projects = require("./src/_data/projects.js");
 const home = require("./src/_data/home.js");
 const fs = require("node:fs");
@@ -29,7 +30,6 @@ module.exports = function (eleventyConfig) {
     "favicon.ico",
     "favicon.svg",
     "robots.txt",
-    "llms.txt",
     "llms-full.txt",
   ].forEach((p) => eleventyConfig.addPassthroughCopy(p));
 
@@ -41,13 +41,27 @@ module.exports = function (eleventyConfig) {
   });
 
   // "Ten case studies" / "Diez casos de estudio" from projects.length, so the
-  // Work hero cannot drift from the list the same page renders.
+  // Work hero cannot drift from the list the same page renders. Used for the
+  // years of experience too; above twenty the numeral is the better read
+  // ("21 years"), so the list stops there and callers fall back to digits.
   const COUNT_WORDS = {
-    en: ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"],
-    es: ["Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez", "Once", "Doce"],
+    en: ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve",
+      "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen", "Twenty"],
+    es: ["Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez", "Once", "Doce",
+      "Trece", "Catorce", "Quince", "Dieciséis", "Diecisiete", "Dieciocho", "Diecinueve", "Veinte"],
   };
   eleventyConfig.addFilter("countWord", (n, lang) =>
     (COUNT_WORDS[lang === "es" ? "es" : "en"][n] || String(n))
+  );
+
+  // Years of practice, counted from site.careerStart. Build-time, so the HTML,
+  // the markdown twins and llms-full.txt all carry the same number.
+  const yearsOfPractice = () => new Date().getFullYear() - Number(site.careerStart);
+  eleventyConfig.addFilter("yearsSince", (year) => new Date().getFullYear() - Number(year));
+  // "%YEARS%" in front matter (which Nunjucks does not render) becomes the
+  // number, so meta descriptions age with everything else.
+  eleventyConfig.addFilter("fillYears", (text) =>
+    String(text ?? "").replace(/%YEARS%/g, String(yearsOfPractice()))
   );
 
   // Build-time checks for the site's content rules (see CLAUDE.md): titles
@@ -185,6 +199,12 @@ module.exports = function (eleventyConfig) {
           problems.push(`${r.inputPath}: data-project "${k}" is not a featured homepage study`);
         }
       }
+    }
+
+    // A %YEARS% token left in the output means a page used it where the
+    // filter never runs (front matter only becomes meta through base.njk).
+    for (const r of html) {
+      if (r.content.includes("%YEARS%")) problems.push(`${r.inputPath}: unreplaced %YEARS% token`);
     }
 
     if (problems.length) throw new Error(problems.join("; "));

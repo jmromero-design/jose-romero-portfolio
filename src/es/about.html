@@ -4,8 +4,8 @@ ctaHeading: "Tu problema más difícil<br><em class=\"accent-italic\">es un buen
 ctaBody: "Abierto a roles de product design senior y proyectos de consultoría selectivos, en inglés o español."
 ctaCv: true
 title: "Sobre mí · Jose Romero, Senior Product Designer"
-description: "12 años diseñando productos digitales para banca, retail, marketplaces, hostelería y seguros. Ahora integrado en la New Business Platform de IKEA."
-ogDescription: "12 años diseñando productos digitales para cuentas empresariales en banca, retail, marketplace, hostelería y seguros."
+description: "%YEARS% años diseñando productos digitales para banca, retail, marketplaces, hostelería y seguros. Ahora integrado en la New Business Platform de IKEA."
+ogDescription: "%YEARS% años diseñando productos digitales para cuentas empresariales en banca, retail, marketplace, hostelería y seguros."
 ogImage: "https://www.joseromerodesign.com/assets/images/og-about-es.webp?v=3"
 ---
 {% extends "base.njk" %}
@@ -199,7 +199,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-about-es.webp?v=3"
               <span class="v4-mask"><span class="v4-line v4-line--accent">por elección.</span></span>
             </h1>
 
-            <p class="body-lg hero-animate" style="margin-bottom: var(--sp-4);">Soy Jose Romero, senior product designer con 12 años en productos digitales, CRO y sistemas de diseño. Trabajo en inglés y español desde Zaragoza, y ahora mismo estoy integrado en la New Business Platform de IKEA, diseñando dos marketplaces P2P.</p>
+            <p class="body-lg hero-animate" style="margin-bottom: var(--sp-4);">Soy Jose Romero, senior product designer con {{ site.careerStart | yearsSince }} años en productos digitales, CRO y sistemas de diseño. Trabajo en inglés y español desde Zaragoza, y ahora mismo estoy integrado en la New Business Platform de IKEA, diseñando dos marketplaces P2P.</p>
 
             <p class="hero-animate">Antes: tres años llevando UX y CRO para clientes enterprise en Flat 101, y un estudio de diseño que cofundé en La Habana.</p>
           </div>
@@ -216,7 +216,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-about-es.webp?v=3"
 
         <div class="section-header reveal" style="margin-bottom: var(--sp-12);">
           <span class="eyebrow">Trayectoria</span>
-          <h2 id="clients-heading">Marcas para las que he diseñado,<br><em class="accent-italic">a lo largo de doce años.</em></h2>
+          <h2 id="clients-heading">Marcas para las que he diseñado,<br><em class="accent-italic">a lo largo de {{ site.careerStart | yearsSince | countWord(lang) | lower }} años.</em></h2>
           <p class="section-sub">Nada de esto estaba planeado. Los proyectos se volvieron más difíciles, más largos y menos frecuentes, hasta acabar dentro de un único equipo de producto.</p>
         </div>
 

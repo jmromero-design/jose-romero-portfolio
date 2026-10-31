@@ -1,8 +1,8 @@
 ---
 title: "Jose Romero, Senior Product Designer"
-description: "Senior product designer, 12 years in enterprise products, CRO and behavioural strategy. Embedded at IKEA, working from Zaragoza, Spain."
-ogDescription: "Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA."
-twitterDescription: "Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy."
+description: "Senior product designer, %YEARS% years in enterprise products, CRO and behavioural strategy. Embedded at IKEA, working from Zaragoza, Spain."
+ogDescription: "Senior product designer with %YEARS% years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA."
+twitterDescription: "Senior product designer with %YEARS% years of experience across enterprise digital products, CRO, and behavioural strategy."
 ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
 ---
 {% extends "base.njk" %}
@@ -12,7 +12,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Jose Romero",
-    "description": "Senior product designer with 12 years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA. Working from Zaragoza, Spain.",
+    "description": "Senior product designer with {{ site.careerStart | yearsSince }} years of experience across enterprise digital products, CRO, and behavioural strategy. Currently embedded at IKEA. Working from Zaragoza, Spain.",
     "jobTitle": "Senior Product Designer",
     "email": "joseromero.next@gmail.com",
     "url": "https://www.joseromerodesign.com",
@@ -1519,7 +1519,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
     <section class="v4-manifest v4-bleed" aria-label="Positioning">
       <div class="v4-manifest-inner">
         <p class="v4-lead v4-r">
-          <span class="v4-lead-years">Twelve years designing digital products</span> for companies with
+          <span class="v4-lead-years">{{ site.careerStart | yearsSince | countWord(lang) }} years designing digital products</span> for companies with
           <strong>large teams, hard problems, and decisions that actually cost something if they go wrong.</strong>
         </p>
         <p class="v4-sub v4-r" style="--d: 0.14s;">
@@ -1585,7 +1585,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
     <!-- ═══ 5. ABOUT ═══ -->
     <section class="v4-about v4-bleed" aria-labelledby="about-heading">
       <h2 id="about-heading" class="v4-r">
-        Twelve years.<br>
+        {{ site.careerStart | yearsSince | countWord(lang) }} years.<br>
         <em>One consistent way of working.</em>
       </h2>
       <div class="v4-about-grid">

@@ -28,7 +28,7 @@ export const config = {
 
 const HOMEPAGE_MARKDOWN = `# Jose Romero — Senior Product Designer
 
-Senior product designer based in Zaragoza, Spain, with 12 years of
+Senior product designer based in Zaragoza, Spain, with ${new Date().getFullYear() - 2014} years of
 professional experience across digital product design, conversion rate
 optimisation (CRO), behavioural economics, and design operations. Works in
 English and Spanish at professional level.
