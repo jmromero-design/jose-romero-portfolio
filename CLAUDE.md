@@ -30,8 +30,8 @@ AI search tools quote this site, so facts and conventions must match on every pa
 
 - **Pages live in `src/`** with the same folder tree as the URLs (`src/work/<slug>.html`, `src/es/…`). Edit those, never `_site/` (generated, gitignored).
 - **The `<head>` comes from front matter** (since phase 2, 2026-10-27): each page's front matter holds `title`, `description`, `ogImage`, plus optional `ogTitle`, `ogDescription`, `twitterDescription`, `ogType`, `robots`. `src/_includes/base.njk` builds the canonical, markdown-twin link, Open Graph, Twitter and hreflang tags from those and the page's folder, and adds the stylesheet, fonts, favicons, language detection and Vercel analytics. Pages start with `{% extends "base.njk" %}` and fill three blocks: `head` (JSON-LD, extra preloads), `styles` (the page's `<style>`) and `body` (`<body>` to `</html>`). `404.html` stays standalone.
-- **Build fails on broken content rules:** title over 60 characters, any description (meta, og, twitter) over 160, or not exactly one `<h1>` (`eleventy.config.js`, transform `content-rules`).
-- **Asset versions live in `src/_data/site.js`** (`cssVersion`, `mainJsVersion`). Bump them there after changing `main.css` or `main.js`; no page needs editing.
+- **Build fails on broken content rules:** title over 60 characters, any description (meta, og, twitter) over 160, or not exactly one `<h1>` (`eleventy.config.js`, transform `content-rules`). A second `eleventy.after` check fails the build when an `hreflang` alternate points at a page this build did not produce, which is what catches an English-only page before the nav toggle and the language redirect send visitors to a 404.
+- **Asset versions live in `src/_data/site.js`** (`cssVersion`, `mainJsVersion`, `langJsVersion`). Bump them there after changing `main.css`, `main.js` or `lang-detect.js`; no page needs editing.
 - **Case-study list:** `src/_data/projects.js` (see Next-project chain below).
 - **Decision logs:** `src/_data/decisions.js` holds three decisions per case study (EN and ES) and `src/_includes/decisions.njk` renders them before the last section; each entry must restate something the page already says. A new case study needs an entry there and the include in the page (plus a nav item).
 - **BECO totals** for the explorer's stats line come from `src/_data/beco.js` (reads each language's `graph.json`), so the line is in the HTML before the graph loads.
@@ -292,7 +292,7 @@ The canonical copy (fixed, do not paraphrase):
 
 ## EN / ES parity
 
-Every EN page has a matching ES equivalent. When editing content or structure, apply the same change to both. The language toggle in the nav (`/lang-detect.js`) handles redirects. Alternate `hreflang` links are in each page's `<head>`.
+Every EN page has a matching ES equivalent. When editing content or structure, apply the same change to both. The language toggle in the nav (`/lang-detect.js`) handles redirects, and it reads the page's own `<link rel="alternate" hreflang="es">` rather than keeping a list of translated paths, so a new page is covered the day it is added and a page without an alternate is left alone. Alternate `hreflang` links are in each page's `<head>`, and the build fails if one points at a page that was not built.
 
 ---
 

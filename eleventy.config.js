@@ -53,6 +53,35 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
+  // Every alternate link has to point at a page this build produced. The nav
+  // language toggle reads the same `altUrl`, and `lang-detect.js` now redirects
+  // from the alternate itself, so all three break together if a page is added
+  // in one language only. 404 is standalone and emits no alternates.
+  eleventyConfig.on("eleventy.after", ({ results }) => {
+    const html = results.filter((r) => (r.outputPath || "").endsWith(".html") && r.content);
+    // Pages are written as <path>.html (see src.11tydata.js), so an index page
+    // keeps its /index.html and every other page loses its trailing slash.
+    const urlOf = (outputPath) => {
+      const rel = outputPath.split(/[\\/]_site[\\/]/).pop() || "";
+      if (rel === "index.html") return "/";
+      if (rel.endsWith("/index.html") || rel.endsWith("\\index.html")) return "/" + rel.slice(0, -"index.html".length);
+      return "/" + rel.replace(/\.html$/, "/");
+    };
+    const built = new Set(html.map((r) => urlOf(r.outputPath)));
+    const problems = [];
+    for (const r of html) {
+      for (const m of r.content.matchAll(
+        /<link rel="alternate" hreflang="(en|es|x-default)" href="([^"]+)">/g
+      )) {
+        const target = new URL(m[2]).pathname;
+        if (!built.has(target)) {
+          problems.push(`${r.inputPath}: hreflang ${m[1]} -> ${target}, which this build did not produce`);
+        }
+      }
+    }
+    if (problems.length) throw new Error(`Broken language alternates: ${problems.join("; ")}`);
+  });
+
   return {
     dir: { input: "src", output: "_site", includes: "_includes", data: "_data" },
     htmlTemplateEngine: "njk",
