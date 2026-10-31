@@ -285,6 +285,7 @@ The canonical copy (fixed, do not paraphrase):
 - Source PNGs: `Designing the portfolio/project_images/<slug>/` (local, gitignored)
 - CVs (`assets/cv/jose-romero-cv-en.pdf`, `-es.pdf`): built by `python3 scripts/build_cv.py` (copy in its `CV` dict, rendered in Bitter + Outfit to one A4 page via headless Chrome). Keep its facts identical to the site; re-run after any change to roles, outcomes or figures, and check both still fit one page.
 - Share images (`assets/images/og-*.webp`, 2400×1260): built by `python3 scripts/build_og_images.py` (Bitter + Outfit text panel rendered in headless Chrome, project visuals from `Designing the portfolio/og-visuals/`). English cards come from `CARDS`, Spanish ones (`og-<slug>-es.webp`, used by every `/es/` page) from `CARDS_ES`. Edit the copy there and re-run; then bump the `?v=` on the `og:image` / `twitter:image` meta tags so social previews refresh.
+- LinkedIn banner (`Designing the portfolio/linkedin-banner.png`, 1584×396 plus a 3168×792 `@2x`): built by `python3 scripts/build_linkedin_banner.py`, which pulls the tokens from `main.css` and the complexity map, its CSS and its four pressure colours out of the homepage hero, so it follows the site. It also writes the banner's HTML next to the PNG. Not part of the deployed site.
 - Work card images: two overlapping frames (`wc-phone--back` / `wc-phone--front` for mobile-first projects; `wc-desktop--back` / `wc-desktop--front` for desktop/artifact projects).
 
 ---
