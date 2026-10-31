@@ -3,7 +3,7 @@
 Jose Romero is a senior product designer based in Zaragoza, Spain, with 12 years
 of professional experience across digital product design, conversion rate
 optimisation (CRO), behavioural economics, and design operations.
-He works in English and Spanish at professional level (C1 English).
+He works in English and Spanish; English is fluent and his professional working language.
 
 This file holds the full text of every English page on the site, except the homepage (its summary is served on its own), Contact and Privacy, one after another, so an assistant can read the whole portfolio in one request. Each page is also available on its own as markdown: request the page with Accept: text/markdown, or open /md/<path>/index.md.
 
