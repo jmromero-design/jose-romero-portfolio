@@ -5,7 +5,7 @@ of professional experience across digital product design, conversion rate
 optimisation (CRO), behavioural economics, and design operations.
 He works in English and Spanish at professional level (C1 English).
 
-This file holds the full text of every English page on the site, one after another, so an assistant can read the whole portfolio in one request. Each page is also available on its own as markdown: request the page with Accept: text/markdown, or open /md/<path>/index.md.
+This file holds the full text of every English page on the site, except Contact and Privacy, one after another, so an assistant can read the whole portfolio in one request. Each page is also available on its own as markdown: request the page with Accept: text/markdown, or open /md/<path>/index.md.
 
 
 ---
