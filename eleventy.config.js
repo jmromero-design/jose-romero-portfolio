@@ -13,6 +13,8 @@ const MONTHS = {
   es: ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
 };
 
+const projects = require("./src/_data/projects.js");
+
 module.exports = function (eleventyConfig) {
   [
     "assets",
@@ -35,6 +37,16 @@ module.exports = function (eleventyConfig) {
     return lang === "es" ? `${name} de ${y}` : `${name} ${y}`;
   });
 
+  // "Ten case studies" / "Diez casos de estudio" from projects.length, so the
+  // Work hero cannot drift from the list the same page renders.
+  const COUNT_WORDS = {
+    en: ["Zero", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven", "Twelve"],
+    es: ["Cero", "Uno", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete", "Ocho", "Nueve", "Diez", "Once", "Doce"],
+  };
+  eleventyConfig.addFilter("countWord", (n, lang) =>
+    (COUNT_WORDS[lang === "es" ? "es" : "en"][n] || String(n))
+  );
+
   // Build-time checks for the site's content rules (see CLAUDE.md): titles
   // <= 60 characters, meta/og/twitter descriptions <= 160, one <h1> per page.
   // A page that breaks one fails the build, so it never reaches Vercel.
@@ -53,10 +65,14 @@ module.exports = function (eleventyConfig) {
     return content;
   });
 
-  // Every alternate link has to point at a page this build produced. The nav
-  // language toggle reads the same `altUrl`, and `lang-detect.js` now redirects
-  // from the alternate itself, so all three break together if a page is added
-  // in one language only. 404 is standalone and emits no alternates.
+  // Build checks on the written output, which run after every page is built.
+  //
+  // 1. Every alternate link has to point at a page this build produced. The nav
+  //    language toggle reads the same `altUrl`, and `lang-detect.js` redirects
+  //    from the alternate itself, so all three break together if a page is added
+  //    in one language only. 404 is standalone and emits no alternates.
+  // 2. On the Work index pages, every study needs a row and its hover preview
+  //    group, matched on data-project, or hovering a row previews nothing.
   eleventyConfig.on("eleventy.after", ({ results }) => {
     const html = results.filter((r) => (r.outputPath || "").endsWith(".html") && r.content);
     // Pages are written as <path>.html (see src.11tydata.js), so an index page
@@ -79,7 +95,32 @@ module.exports = function (eleventyConfig) {
         }
       }
     }
-    if (problems.length) throw new Error(`Broken language alternates: ${problems.join("; ")}`);
+    // Work index pages: each study needs a row and its hover preview group,
+    // matched on data-project, or hovering a row silently previews nothing.
+    for (const p of projects) {
+      if (!Array.isArray(p.images) || p.images.length !== 2) {
+        problems.push(`${p.slug}: needs exactly two images, found ${Array.isArray(p.images) ? p.images.length : 0}`);
+      }
+    }
+    const keys = new Set(projects.map((p) => p.dataProject));
+    if (keys.size !== projects.length) {
+      problems.push("projects.js: dataProject keys are not unique");
+    }
+    for (const r of html) {
+      if (!/^\/(es\/)?work\/$/.test(urlOf(r.outputPath))) continue;
+      const seen = {};
+      for (const m of r.content.matchAll(/data-project="([a-z0-9]+)"/g)) {
+        seen[m[1]] = (seen[m[1]] || 0) + 1;
+      }
+      for (const p of projects) {
+        const n = seen[p.dataProject] || 0;
+        if (n !== 2) problems.push(`${r.inputPath}: ${p.dataProject} appears ${n} time(s), expected 2 (row + preview)`);
+      }
+      for (const k of Object.keys(seen)) {
+        if (!keys.has(k)) problems.push(`${r.inputPath}: data-project "${k}" has no entry in projects.js`);
+      }
+    }
+    if (problems.length) throw new Error(problems.join("; "));
   });
 
   return {

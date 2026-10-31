@@ -52,9 +52,9 @@ Actual · Diseño de Producto · Marketplace · Comercio Circular → Flat 101 �
 
 Diseñador líder UX/CRO en cuatro mercados nórdicos a lo largo del proyecto en Flat 101.
 
-CRO · Banca · Multipaís → Flat 101 × Meliá Hotels International
+CRO · Banca · Multipaís → Flat 101 × Meliá
 
-### Meliá Hotels International · Plataforma de Campañas
+### Meliá Hotels · Plataforma de Campañas
 
 Proyecto de 3 años. Plataforma construida desde cero, activa en todos los mercados de Meliá.
 

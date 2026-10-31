@@ -1,0 +1,15 @@
+{%- set es = (lang == "es") -%}
+{%- set w = p.work[lang] -%}
+<a class="v4-row reveal" href="{{ '/es' if es }}/work/{{ p.slug }}/" data-project="{{ p.dataProject }}">
+          <div class="v4-row-main">
+            <div class="v4-row-thumbs" aria-hidden="true">
+              <div class="v4-frame{% if p.wide %} v4-frame--wide{% endif %}"><img src="/assets/images/work/{{ p.slug }}/{{ p.images[0] }}" alt="" loading="lazy" decoding="async"></div>
+              <div class="v4-frame{% if p.wide %} v4-frame--wide{% endif %}"><img src="/assets/images/work/{{ p.slug }}/{{ p.images[1] }}" alt="" loading="lazy" decoding="async"></div>
+            </div>
+            <span class="v4-row-client">{{ p.client }}</span>
+            <h3 class="v4-row-title">{{ p.es if es else p.en }}</h3>
+            <p class="v4-row-desc">{{ w.desc }}</p>
+          </div>
+          <span class="v4-row-tags">{% if p.current %}<span class="v4-tag-current">{{ 'Actual' if es else 'Current' }}</span> · {% endif %}{{ w.tags }}</span>
+          <span class="arrow">→</span>
+        </a>

@@ -1,0 +1,5 @@
+{%- set pv = [p.images[1], p.images[0]] if p.previewSwap else p.images -%}
+        <div class="v4-preview-group" data-project="{{ p.dataProject }}">
+          <div class="v4-frame{% if p.wide %} v4-frame--wide{% endif %} pv-a"><img src="/assets/images/work/{{ p.slug }}/{{ pv[0] }}" alt="" loading="lazy" decoding="async"></div>
+          <div class="v4-frame{% if p.wide %} v4-frame--wide{% endif %} pv-b"><img src="/assets/images/work/{{ p.slug }}/{{ pv[1] }}" alt="" loading="lazy" decoding="async"></div>
+        </div>

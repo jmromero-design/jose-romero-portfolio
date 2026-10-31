@@ -52,9 +52,9 @@ Current · Product Design · Marketplace · Circular Commerce → Flat 101 × Sa
 
 Lead UX/CRO designer across four Nordic markets throughout the Flat 101 engagement.
 
-CRO · Banking · Multi-market → Flat 101 × Meliá Hotels International
+CRO · Banking · Multi-market → Flat 101 × Meliá
 
-### Meliá Hotels International · Campaign Platform
+### Meliá Hotels · Campaign Platform
 
 3-year engagement. Platform built from zero, live across all Meliá markets.
 
