@@ -44,7 +44,7 @@ and an AI workflow design framework for the design team.
 
 Every project arrives with pressure from four directions: the business, the
 people using the product, the technology underneath, and the organisation
-making the calls. Above that sit five layers of work, each with a few tools.
+making the calls. Above that sit six layers of work, each with a few tools.
 None of it runs in a fixed order, and no project needs all of it. What comes
 in at the bottom decides which tools get picked up on the way to the top.
 
@@ -53,6 +53,7 @@ in at the bottom decides which tools get picked up on the way to the top.
 - Craft: information architecture, design systems, interface and interaction design, content and UX writing, choice architecture
 - Validation: A/B and multivariate testing, usability testing, accessibility review, localisation QA, metrics and reporting
 - Systems: ways of working, facilitation and workshops, mentoring, documentation and handoff, a shared insight library, AI-assisted workflows
+- Product: the built thing the other layers feed, with its decision record, tested prototype, prioritised backlog and success metrics
 
 Where it lands: a decision a team can build, covering what to make next, why
 it matters, and how to tell if it worked.
@@ -60,9 +61,10 @@ it matters, and how to tell if it worked.
 ## Selected work
 
 - [IKEA Home Services](https://www.joseromerodesign.com/work/ikea-home-services/) — peer-to-peer marketplace, 500,000+ downloads
-- [Mapfre · AFIN Financial App](https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/) — self-service financial app
+- [IKEA Second-hand Marketplace](https://www.joseromerodesign.com/work/ikea-secondhand-marketplace/) — resale platform live in five European countries
 - [Santander Nordics · CRO Programme](https://www.joseromerodesign.com/work/santander-nordics-cro/) — multi-market CRO under regulatory constraints; the redesigned application form became the default in all four markets
 - [Meliá Hotels · Campaign Platform](https://www.joseromerodesign.com/work/melia-hotels-campaign-platform/) — zero-to-one internal tool
+- [Mapfre · AFIN Financial App](https://www.joseromerodesign.com/work/mapfre-afin-digital-expansion/) — self-service financial app
 - [Mapfre · Digital Expansion](https://www.joseromerodesign.com/work/mapfre-digital-expansion/) — Verti platform redesign across Europe
 - [IQOS Club Spain · CRO Programme](https://www.joseromerodesign.com/work/iqos-club-cro/) — loyalty and behavioural economics
 - [XTI Store · E-commerce Redesign](https://www.joseromerodesign.com/work/xti-ecommerce-redesign/) — fashion retail within platform constraints
