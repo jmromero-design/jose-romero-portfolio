@@ -1,0 +1,15 @@
+{%- set es = (lang == "es") -%}
+{%- set lp = '/es' if es else '' -%}
+        <nav class="cs-more" data-case-more data-current-slug="{{ page.fileSlug }}" aria-label="{{ 'Más casos de estudio' if es else 'More case studies' }}">
+          <h2 class="cs-more-heading">{{ 'Todos los casos de estudio' if es else 'All case studies' }}</h2>
+          <ul class="cs-more-list">
+            {%- for s in projects %}{% if s.slug != page.fileSlug %}
+            <li><a class="cs-more-item" href="{{ lp }}/work/{{ s.slug }}/" data-slug="{{ s.slug }}">
+              <span class="cs-more-top"><span class="cs-more-client">{{ s.client }}</span><span class="cs-more-seen">{{ 'Visto' if es else 'Viewed' }}</span></span>
+              <span class="cs-more-title">{{ s.es if es else s.en }}</span>
+              <span class="cs-more-tags">{{ s.tags[lang] | join(' · ') }}</span>
+            </a></li>
+            {%- endif %}{% endfor %}
+          </ul>
+          <a class="cs-more-all" href="{{ lp }}/work/">{{ 'Volver al índice completo' if es else 'Back to the full index' }} <span class="arrow">→</span></a>
+        </nav>

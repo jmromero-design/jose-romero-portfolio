@@ -5,8 +5,8 @@
 //     pages' ItemList structured data (project-items.njk), from `en` / `es`
 //   - the Work index rows and their hover previews (work-row.njk,
 //     work-preview.njk), from `client`, `images`, `wide`, `current` and `work`
-//   - the case-study switcher (case-nav.js), from `slug`, `client`, `en`, `es`
-//     and `tags`
+//   - the case-study switcher (case-switcher.njk) and its viewed marks
+//     (main.js), from `slug`, `client`, `en`, `es` and `tags`
 //
 // Adding a case study still means its own page pair, an entry here, a
 // decisions.js entry, an llms.txt line, an About link and an OG card. `images`
@@ -25,6 +25,7 @@ module.exports = [
     es: "IKEA Home Services",
     images: ["hs-homepage.webp", "hs-service-info.webp"],
     previewSwap: true,
+    tags: { en: ["Zero to one", "Multi-region"], es: ["De cero a uno", "Multi-región"] },
     wide: false,
     current: true,
     work: {
@@ -46,6 +47,7 @@ module.exports = [
     es: "IKEA Second-hand Marketplace",
     images: ["sh-homepage.webp", "sh-product-page.webp"],
     previewSwap: true,
+    tags: { en: ["Zero to one", "Multi-market"], es: ["De cero a uno", "Multimercado"] },
     wide: false,
     current: true,
     work: {
@@ -67,6 +69,7 @@ module.exports = [
     es: "Santander Nordics · Programa CRO",
     images: ["sn-funnel-step2-variant.webp", "sn-funnel-step2-original.webp"],
     previewSwap: true,
+    tags: { en: ["Regulated multi-market", "Conversion"], es: ["Multimercado regulado", "Conversión"] },
     wide: false,
     current: false,
     work: {
@@ -88,6 +91,7 @@ module.exports = [
     es: "Meliá Hotels · Plataforma de Campañas",
     images: ["artifact1-overview.webp", "artifact5-budget.webp"],
     previewSwap: true,
+    tags: { en: ["Zero to one", "Internal platform"], es: ["De cero a uno", "Plataforma interna"] },
     wide: true,
     current: false,
     work: {
@@ -109,6 +113,7 @@ module.exports = [
     es: "Mapfre · App AFIN",
     images: ["afin-m-proposal.webp", "afin-m-start.webp"],
     previewSwap: true,
+    tags: { en: ["Trust", "Complex decisions"], es: ["Confianza", "Decisiones complejas"] },
     wide: false,
     current: false,
     work: {
@@ -130,6 +135,7 @@ module.exports = [
     es: "Mapfre · Expansión Digital",
     images: ["verti-home-desktop.webp", "offices-desktop.webp"],
     previewSwap: false,
+    tags: { en: ["Multi-market", "Legacy constraints"], es: ["Multimercado", "Restricciones heredadas"] },
     wide: true,
     current: false,
     work: {
@@ -151,6 +157,7 @@ module.exports = [
     es: "IQOS Club España · Programa CRO",
     images: ["hp-v6-desktop.webp", "hp-control-desktop.webp"],
     previewSwap: true,
+    tags: { en: ["Regulated", "Conversion"], es: ["Regulado", "Conversión"] },
     wide: true,
     current: false,
     work: {
@@ -172,6 +179,7 @@ module.exports = [
     es: "XTI Store · Rediseño E-commerce",
     images: ["plp-m-s1.webp", "pdp-m-s1.webp"],
     previewSwap: false,
+    tags: { en: ["Legacy constraints", "Redesign"], es: ["Restricciones heredadas", "Rediseño"] },
     wide: false,
     current: false,
     work: {
@@ -193,6 +201,7 @@ module.exports = [
     es: "IKEA · Sistema de Formas de Trabajar",
     images: ["artifact1-wow-system-architecture.webp", "artifact3-skapa-decision-framework.webp"],
     previewSwap: false,
+    tags: { en: ["Ways of working", "Adoption"], es: ["Formas de trabajo", "Adopción"] },
     wide: true,
     current: true,
     work: {
@@ -214,6 +223,7 @@ module.exports = [
     es: "Framework de Diseño de Flujos IA",
     images: ["artifact1-multi-agent-orchestration.webp", "artifact2-five-phase-workflow.webp"],
     previewSwap: false,
+    tags: { en: ["AI workflow", "Ways of working"], es: ["Flujos con IA", "Formas de trabajo"] },
     wide: true,
     current: false,
     work: {

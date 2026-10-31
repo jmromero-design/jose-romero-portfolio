@@ -3,8 +3,8 @@ module.exports = {
   url: "https://www.joseromerodesign.com",
   // Version query strings for the shared CSS and JS. Bump here after a change
   // to assets/css/main.css or assets/js/main.js; every page picks it up.
-  cssVersion: 54,
-  mainJsVersion: 19,
+  cssVersion: 55,
+  mainJsVersion: 20,
   // lang-detect.js runs before the page renders, so it carries its own version.
   langJsVersion: 2,
   // Month shown in the footer ("Updated October 2026"). Set by hand when the

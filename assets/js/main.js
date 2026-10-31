@@ -616,4 +616,30 @@
     update();
   })();
 
+  /* ----------------------------------------------------------
+     CASE-STUDY SWITCHER · VIEWED MARKS
+     The list itself is rendered by case-switcher.njk, so readers get
+     it without JavaScript. This only remembers which studies have been
+     opened in this browser (localStorage, nothing leaves the device)
+     and reveals the "Viewed" label the template already wrote.
+     ---------------------------------------------------------- */
+  (function caseSwitcherViewed() {
+    const nav = document.querySelector('[data-case-more]');
+    if (!nav) return;
+
+    const KEY = 'jr-viewed';
+    const current = nav.getAttribute('data-current-slug');
+    let viewed = [];
+    try { viewed = JSON.parse(localStorage.getItem(KEY) || '[]'); } catch (e) { viewed = []; }
+
+    if (current && !viewed.includes(current)) {
+      viewed.push(current);
+      try { localStorage.setItem(KEY, JSON.stringify(viewed)); } catch (e) { /* private mode: no marks */ }
+    }
+
+    nav.querySelectorAll('[data-slug]').forEach(link => {
+      if (viewed.includes(link.getAttribute('data-slug'))) link.classList.add('is-viewed');
+    });
+  })();
+
 })();

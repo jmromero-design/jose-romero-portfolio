@@ -1681,8 +1681,9 @@ strong { font-weight: 500; color: var(--text-primary); }
   color: var(--text-primary);
 }
 
-/* All case studies, under the next-project link (assets/js/case-nav.js).
-   Ones already opened in this browser are marked and step back a little. */
+/* All case studies, under the next-project link (src/_includes/case-switcher.njk).
+   The list is server-rendered; main.js only marks the ones already opened in
+   this browser and reveals the label the template wrote. */
 .cs-more { margin-top: var(--sp-12); }
 .cs-more-heading {
   font-family: var(--font-body);
@@ -1716,7 +1717,8 @@ strong { font-weight: 500; color: var(--text-primary); }
 .cs-more-item:hover .cs-more-title, .cs-more-item:focus-visible .cs-more-title { color: var(--gold); }
 .cs-more-item.is-viewed .cs-more-title { color: var(--text-tertiary); }
 .cs-more-tags { font-size: var(--text-xs); color: var(--text-tertiary); margin-top: auto; }
-.cs-more-seen { font-size: var(--text-xs); color: var(--teal-text); }
+.cs-more-seen { display: none; font-size: var(--text-xs); color: var(--teal-text); white-space: nowrap; }
+.cs-more-item.is-viewed .cs-more-seen { display: inline; }
 .cs-more-seen::before { content: '\2713'; margin-right: var(--sp-1); }
 .cs-more-all { display: inline-flex; align-items: center; gap: var(--sp-2); margin-top: var(--sp-6); font-size: var(--text-sm); color: var(--teal-text); text-decoration: none; }
 .cs-more-all:hover { color: var(--gold); }

@@ -566,7 +566,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-mapfre-afin.webp?v=2
     <section class="section--sm" style="border-top: 1px solid var(--border-default);">
       <div class="container">
         {% include "next-project.njk" %}
-        <nav class="cs-more" data-case-more aria-label="More case studies"></nav>
+        {% include "case-switcher.njk" %}
       </div>
     </section>
 
@@ -578,7 +578,6 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-mapfre-afin.webp?v=2
   {% include "footer.njk" %}
 
   <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
-  <script src="/assets/js/case-nav.js?v=2" defer></script>
 </body>
 </html>
 {% endblock %}
