@@ -103,7 +103,7 @@ module.exports = function (eleventyConfig) {
       if (!Array.isArray(p.images) || p.images.length !== 2) {
         problems.push(`${p.slug}: needs exactly two images, found ${Array.isArray(p.images) ? p.images.length : 0}`);
       }
-      for (const img of p.images || []) {
+      for (const img of Array.isArray(p.images) ? p.images : []) {
         const file = path.join(__dirname, "assets", "images", "work", p.slug, img);
         if (!fs.existsSync(file)) problems.push(`${p.slug}: image not found, assets/images/work/${p.slug}/${img}`);
       }
