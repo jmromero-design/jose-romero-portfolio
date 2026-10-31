@@ -1,0 +1,18 @@
+---
+permalink: /sitemap.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+{%- for item in collections.all | sort(attribute="data.cleanUrl") %}
+{%- if item.data.cleanUrl != "/404/" and item.data.robots != "noindex" %}
+  <url>
+    <loc>{{ site.url }}{{ item.data.cleanUrl }}</loc>
+    <xhtml:link rel="alternate" hreflang="en"        href="{{ site.url }}{{ item.data.enUrl }}"/>
+    <xhtml:link rel="alternate" hreflang="es"        href="{{ site.url }}{{ item.data.esUrl }}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ item.data.enUrl }}"/>
+  </url>
+{%- endif %}
+{%- endfor %}
+</urlset>

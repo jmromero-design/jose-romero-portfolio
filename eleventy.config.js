@@ -25,7 +25,6 @@ module.exports = function (eleventyConfig) {
     "favicon.ico",
     "favicon.svg",
     "robots.txt",
-    "sitemap.xml",
     "llms.txt",
     "llms-full.txt",
   ].forEach((p) => eleventyConfig.addPassthroughCopy(p));
@@ -120,6 +119,29 @@ module.exports = function (eleventyConfig) {
         if (!keys.has(k)) problems.push(`${r.inputPath}: data-project "${k}" has no entry in projects.js`);
       }
     }
+
+    // Sitemap: every built page except the 404 and anything marked noindex, and
+    // each of them exactly once.
+    const sitemap = results.find((r) => (r.outputPath || "").endsWith("sitemap.xml"));
+    const SITE = "https://www.joseromerodesign.com";
+    const locs = sitemap
+      ? [...sitemap.content.matchAll(/<loc>([^<]+)<\/loc>/g)]
+          .map((m) => m[1].replace(SITE, ""))
+      : [];
+    const inSitemap = new Map();
+    for (const loc of locs) inSitemap.set(loc, (inSitemap.get(loc) || 0) + 1);
+    const expected = html
+      .filter((r) => !/name="robots" content="noindex"/.test(r.content))
+      .map((r) => urlOf(r.outputPath))
+      .filter((loc) => loc !== "/404/");
+    for (const loc of expected) {
+      const n = inSitemap.get(loc) || 0;
+      if (n !== 1) problems.push(`sitemap.xml: ${loc} appears ${n} time(s), expected 1`);
+    }
+    for (const loc of inSitemap.keys()) {
+      if (!expected.includes(loc)) problems.push(`sitemap.xml: ${loc} is not a page this build should list`);
+    }
+
     if (problems.length) throw new Error(problems.join("; "));
   });
 
