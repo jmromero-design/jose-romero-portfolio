@@ -6,3 +6,6 @@
 Designing the portfolio/
 node_modules/
 _site/
+
+# Working notes, kept local (state-keeper)
+STATE.md
