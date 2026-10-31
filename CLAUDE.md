@@ -294,7 +294,7 @@ The canonical copy (fixed, do not paraphrase):
 
 ## EN / ES parity
 
-Every EN page has a matching ES equivalent. When editing content or structure, apply the same change to both. The language toggle in the nav (`/lang-detect.js`) handles redirects, and it reads the page's own `<link rel="alternate" hreflang="es">` rather than keeping a list of translated paths, so a new page is covered the day it is added and a page without an alternate is left alone. Alternate `hreflang` links are in each page's `<head>`, and the build fails if one points at a page that was not built.
+Every EN page has a matching ES equivalent. When editing content or structure, apply the same change to both. That includes Contact and Privacy: both have Spanish twins, so the redirect sends Spanish browsers to them (decided 2026-10-31). Turning it off for a page means dropping its `hreflang="es"` alternate, which is also what the nav toggle reads. The language toggle in the nav (`/lang-detect.js`) handles redirects, and it reads the page's own `<link rel="alternate" hreflang="es">` rather than keeping a list of translated paths, so a new page is covered the day it is added and a page without an alternate is left alone. Alternate `hreflang` links are in each page's `<head>`, and the build fails if one points at a page that was not built.
 
 ---
 
