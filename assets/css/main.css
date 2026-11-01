@@ -3501,3 +3501,7 @@ strong { font-weight: 500; color: var(--text-primary); }
   .cs-decision dl { grid-template-columns: 1fr; gap: var(--sp-1); }
   .cs-decision dd { margin-bottom: var(--sp-3); }
 }
+
+/* Motion pause (homepage control, remembered across pages): the scroll cue's
+   line stops looping. data-motion is set on <html>, see assets/js/hero-motion.js. */
+[data-motion="paused"] .v4-scroll-cue::after { animation: none; }

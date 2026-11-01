@@ -493,14 +493,17 @@
         }, SWAP);
       }
 
+      // the homepage's motion control pauses this too (data-motion on <html>)
+      const paused = () => document.documentElement.getAttribute('data-motion') === 'paused';
       function start() {
-        if (timer || !onScreen || document.hidden || !pool.length) return;
+        if (timer || paused() || !onScreen || document.hidden || !pool.length) return;
         timer = setInterval(swap, EVERY);
       }
       function stop() { clearInterval(timer); timer = null; }
 
       new IntersectionObserver(([e]) => { onScreen = e.isIntersecting; onScreen ? start() : stop(); }).observe(root);
       document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+      document.addEventListener('jr:motion', (e) => (e.detail.paused ? stop() : start()));
       breakpoints.forEach((mq) => mq.addEventListener('change', build));
       build();
     });

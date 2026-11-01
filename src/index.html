@@ -177,11 +177,10 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
       -webkit-mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
       mask-image: linear-gradient(to right, transparent 0%, rgba(0,0,0,0.6) 22%, black 42%);
       opacity: 0;
-      transform: translateX(48px) scale(1.02);
-      animation: v4Illo 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.55s forwards;
+      animation: v4Illo 0.35s ease-out 0.1s forwards;
     }
     @keyframes v4Illo {
-      to { opacity: 1; transform: translateX(0) scale(1); }
+      to { opacity: 1; transform: none; }
     }
     /* The map is the "How I work" stack seen from above (built by
        scripts/build_hero_map.mjs): base platforms, the Evidence slab, the
@@ -218,12 +217,108 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
     .hm .hm-pname { font-family: var(--font-body); font-size: 8px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; fill: var(--c); }
 
     .hm .hm-glow { fill: url(#hmGlow); }
-    .hm .hm-route { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-linecap: round; opacity: 0.85;
-      stroke-dasharray: 1; stroke-dashoffset: 1; animation: hmDraw 1.6s cubic-bezier(0.65, 0, 0.35, 1) 1.5s forwards; }
-    .hm .hm-routes > g:nth-child(2) .hm-route { animation-delay: 1.65s; }
-    .hm .hm-routes > g:nth-child(3) .hm-route { animation-delay: 1.8s; }
-    .hm .hm-routes > g:nth-child(4) .hm-route { animation-delay: 1.95s; }
-    @keyframes hmDraw { to { stroke-dashoffset: 0; } }
+    /* hero-entry:start (written by scripts/build_hero_map.mjs; edit it there) */
+    .hm { --t0: 0.3s; }
+    .hm .hm-route { fill: none; stroke: var(--c); stroke-width: 1.6; stroke-linecap: round; opacity: 0.85; stroke-dasharray: 1; }
+
+    /* entry */
+    .hm [data-in] {
+      transform-box: fill-box; transform-origin: center;
+      animation-duration: var(--dur, 0.5s);
+      animation-delay: calc(var(--t0) + var(--e, 0s));
+      animation-timing-function: var(--ease, cubic-bezier(0.2, 0.8, 0.2, 1));
+      animation-fill-mode: backwards;
+    }
+    .hm [data-in="fade"]  { animation-name: hmFade; }
+    .hm [data-in="label"] { animation-name: hmFade; animation-duration: 0.9s; animation-timing-function: ease; }
+    .hm [data-in="pop"]   { animation-name: hmPop; --ease: cubic-bezier(0.22, 1, 0.36, 1); }
+    .hm [data-in="draw"]  { animation-name: hmDraw; --ease: cubic-bezier(0.33, 1, 0.68, 1); }
+    /* the slabs and the cap grow from small and spin into place */
+    .hm [data-in="spin"] {
+      animation-name: hmSpin, hmAppear;
+      animation-duration: var(--dur), calc(var(--dur) * 0.4);
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1), ease-out;
+    }
+    /* the knot turns round the map's centre, so swirling parts use the view box */
+    .hm [data-in="swirl"] {
+      transform-box: view-box; transform-origin: 200px 230px;
+      animation-name: hmSwirl, hmAppear;
+      animation-duration: var(--sd), calc(var(--sd) * 0.35);
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1), ease-out;
+    }
+    .hm [data-in="swirl"][data-draw] {
+      animation-name: hmSwirl, hmAppear, hmDraw;
+      animation-duration: var(--sd), calc(var(--sd) * 0.35), var(--sd);
+      animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1), ease-out, cubic-bezier(0.33, 1, 0.68, 1);
+      stroke-dasharray: 1;
+    }
+    /* phones: the small parts arrive as one group, without the knot */
+    .hm [data-in][data-solo] { animation-name: none; }
+    @media (min-width: 1151px) {
+      .hm .hm-fine[data-in] { animation-name: none; }
+      .hm [data-in="swirl"][data-solo] { animation-name: hmSwirl, hmAppear; }
+      .hm [data-in="swirl"][data-solo][data-draw] { animation-name: hmSwirl, hmAppear, hmDraw; }
+    }
+    @keyframes hmFade   { from { opacity: 0; } }
+    @keyframes hmAppear { from { opacity: 0; } }
+    @keyframes hmPop    { from { opacity: 0; transform: scale(var(--s, 0.4)); } }
+    @keyframes hmSpin   { from { transform: rotate(var(--rot)) scale(var(--s)); } }
+    @keyframes hmDraw   { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
+    /* one spiral, eased out: from the turned knot to its place, no stop on the way */
+    @keyframes hmSwirl {
+      from { transform: rotate(var(--sw0)) translate(var(--x), var(--y)) translate(var(--px), var(--py)) rotate(var(--r)) translate(var(--nx), var(--ny)); }
+      to   { transform: rotate(0deg) translate(0px, 0px) translate(var(--px), var(--py)) rotate(0deg) translate(var(--nx), var(--ny)); }
+    }
+
+    /* loop: satellites and specks sway round their pillar and back, like a
+       pendulum; labels turn back against the sway to stay level */
+    .hm .hm-sway {
+      transform-box: view-box; transform-origin: var(--ox) var(--oy);
+      animation: hmSway var(--per) ease-in-out var(--ph) infinite alternate;
+    }
+    .hm .hm-upright {
+      transform-box: fill-box; transform-origin: center;
+      animation: hmUpright var(--per) ease-in-out var(--ph) infinite alternate;
+    }
+    @keyframes hmSway    { from { transform: rotate(calc(var(--amp) * -1)); } to { transform: rotate(var(--amp)); } }
+    @keyframes hmUpright { from { transform: rotate(var(--amp)); } to { transform: rotate(calc(var(--amp) * -1)); } }
+    @media (max-width: 1150px) { .hm { --t0: 0.7s; } }
+
+    /* pause control, two attributes on <html>: data-motion="paused" freezes
+       every motion where it is; data-motion-skip (a pause chosen on an
+       earlier visit) skips the entry for this visit, so the map opens
+       finished and resuming plays only the loop */
+    [data-motion="paused"] .hm *, .v4-hero-illo.is-off .hm * { animation-play-state: paused !important; }
+    [data-motion-skip] .hm [data-in] { animation: none !important; }
+    .v4-motion {
+      display: inline-flex; align-items: center; gap: var(--sp-2);
+      min-height: 2.25rem; padding: var(--sp-1) var(--sp-3);
+      margin-left: auto; align-self: flex-end;
+      font-family: var(--font-body); font-size: var(--text-xs); letter-spacing: 0.04em;
+      color: var(--text-tertiary); background: none;
+      border: 1px solid var(--border-default); border-radius: 999px; cursor: pointer;
+      transition: color var(--ease-fast), border-color var(--ease-fast);
+    }
+    .v4-motion:hover { color: var(--text-primary); border-color: var(--border-strong); }
+    .v4-motion:focus-visible { outline: 2px solid var(--teal); outline-offset: 3px; }
+    .v4-motion-icon { width: 10px; height: 10px; flex: none; position: relative; }
+    .v4-motion-icon::before, .v4-motion-icon::after {
+      content: ''; position: absolute; top: 0; width: 3px; height: 10px; border-radius: 1px; background: currentColor;
+    }
+    .v4-motion-icon::before { left: 1px; }
+    .v4-motion-icon::after  { right: 1px; }
+    .v4-motion[data-paused] .v4-motion-icon::before {
+      left: 1px; width: 0; height: 0; border-radius: 0; background: none;
+      border-style: solid; border-width: 5px 0 5px 9px; border-color: transparent transparent transparent currentColor;
+    }
+    .v4-motion[data-paused] .v4-motion-icon::after { display: none; }
+    @media (max-width: 1150px) { .v4-motion { margin-left: 0; align-self: flex-start; } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .hm [data-in], .hm .hm-sway, .hm .hm-upright { animation: none !important; }
+      .v4-motion { display: none; }
+    }
+    /* hero-entry:end */
     .hm .hm-plug  { fill: var(--bg-surface); stroke: var(--c); stroke-width: 1; }
     .hm .hm-spark { fill: var(--c); }
     .hm .hm-route-label { font-family: var(--font-body); font-size: 7.5px; font-weight: 500; letter-spacing: 0.04em; fill: var(--c); }
@@ -238,7 +333,6 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
     .hm .hm-core-c { font-family: var(--font-display); font-style: italic; font-weight: 500; font-size: 8.5px; fill: var(--text-primary); }
     .hm .hm-fade { fill: url(#hmFade); }
     @media (prefers-reduced-motion: reduce) {
-      .hm .hm-route { animation: none; stroke-dashoffset: 0; }
       .hm .hm-spark { display: none; }
     }
 
@@ -1358,133 +1452,191 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
   <radialGradient id="hmFade" cx="50%" cy="50%" r="60%"><stop offset="70%" style="stop-color:var(--bg-base);stop-opacity:0"/><stop offset="100%" style="stop-color:var(--bg-base);stop-opacity:1"/></radialGradient>
 </defs>
 <g class="hm-base">
-<g class="hm-plat" style="--c:var(--st-b)"><rect class="hm-edge" x="6" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="6" width="188" height="218" rx="18"/></g>
-<g class="hm-plat" style="--c:var(--st-u)"><rect class="hm-edge" x="206" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="6" width="188" height="218" rx="18"/></g>
-<g class="hm-plat" style="--c:var(--st-t)"><rect class="hm-edge" x="6" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="236" width="188" height="218" rx="18"/></g>
-<g class="hm-plat" style="--c:var(--st-o)"><rect class="hm-edge" x="206" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="236" width="188" height="218" rx="18"/></g>
-<circle class="hm-venn" style="--c:var(--st-b)" cx="142" cy="142" r="142"/>
-<circle class="hm-venn" style="--c:var(--st-u)" cx="258" cy="142" r="142"/>
-<circle class="hm-venn" style="--c:var(--st-t)" cx="142" cy="318" r="142"/>
-<circle class="hm-venn" style="--c:var(--st-o)" cx="258" cy="318" r="142"/>
-<line class="hm-thread" x1="40" y1="90" x2="87.3" y2="126.2"/>
-<circle class="hm-speck" cx="40" cy="90" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="40" cy="90" r="1.6"/>
-<line class="hm-thread" x1="74" y1="34" x2="100.2" y2="117.2"/>
-<circle class="hm-speck" cx="74" cy="34" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="74" cy="34" r="2"/>
-<line class="hm-thread" x1="172" y1="44" x2="122.2" y2="120.2"/>
-<circle class="hm-speck" cx="172" cy="44" r="4"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="172" cy="44" r="1.4"/>
-<line class="hm-thread" x1="40" y1="156" x2="82.5" y2="147.2"/>
-<circle class="hm-speck" cx="40" cy="156" r="3"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="40" cy="156" r="1.1"/>
-<line class="hm-thread" x1="184" y1="54" x2="125" y2="122.3"/>
-<circle class="hm-speck" cx="184" cy="54" r="3"/><circle class="hm-speck-c" style="--c:var(--st-b)" cx="184" cy="54" r="1.1"/>
-<line class="hm-thread" x1="228" y1="44" x2="277.8" y2="120.2"/>
-<circle class="hm-speck" cx="228" cy="44" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="228" cy="44" r="1.6"/>
-<line class="hm-thread" x1="326" y1="34" x2="299.8" y2="117.2"/>
-<circle class="hm-speck" cx="326" cy="34" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="326" cy="34" r="2"/>
-<line class="hm-thread" x1="366" y1="98" x2="314.3" y2="128.7"/>
-<circle class="hm-speck" cx="366" cy="98" r="4"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="366" cy="98" r="1.4"/>
-<line class="hm-thread" x1="358" y1="154" x2="317.6" y2="146.7"/>
-<circle class="hm-speck" cx="358" cy="154" r="3"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="358" cy="154" r="1.1"/>
-<line class="hm-thread" x1="216" y1="54" x2="275" y2="122.3"/>
-<circle class="hm-speck" cx="216" cy="54" r="3"/><circle class="hm-speck-c" style="--c:var(--st-u)" cx="216" cy="54" r="1.1"/>
-<line class="hm-thread" x1="40" y1="378" x2="87.3" y2="341.8"/>
-<circle class="hm-speck" cx="40" cy="378" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="40" cy="378" r="1.6"/>
-<line class="hm-thread" x1="74" y1="434" x2="100.2" y2="350.8"/>
-<circle class="hm-speck" cx="74" cy="434" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="74" cy="434" r="2"/>
-<line class="hm-thread" x1="172" y1="424" x2="122.2" y2="347.8"/>
-<circle class="hm-speck" cx="172" cy="424" r="4"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="172" cy="424" r="1.4"/>
-<line class="hm-thread" x1="22" y1="312" x2="82.3" y2="321.8"/>
-<circle class="hm-speck" cx="22" cy="312" r="3"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="22" cy="312" r="1.1"/>
-<line class="hm-thread" x1="108" y1="450" x2="108" y2="352"/>
-<circle class="hm-speck" cx="108" cy="450" r="3"/><circle class="hm-speck-c" style="--c:var(--st-t)" cx="108" cy="450" r="1.1"/>
-<line class="hm-thread" x1="360" y1="378" x2="312.7" y2="341.8"/>
-<circle class="hm-speck" cx="360" cy="378" r="4.5"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="360" cy="378" r="1.6"/>
-<line class="hm-thread" x1="326" y1="434" x2="299.8" y2="350.8"/>
-<circle class="hm-speck" cx="326" cy="434" r="5.5"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="326" cy="434" r="2"/>
-<line class="hm-thread" x1="228" y1="424" x2="277.8" y2="347.8"/>
-<circle class="hm-speck" cx="228" cy="424" r="4"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="228" cy="424" r="1.4"/>
-<line class="hm-thread" x1="378" y1="312" x2="317.7" y2="321.8"/>
-<circle class="hm-speck" cx="378" cy="312" r="3"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="378" cy="312" r="1.1"/>
-<line class="hm-thread" x1="292" y1="450" x2="292" y2="352"/>
-<circle class="hm-speck" cx="292" cy="450" r="3"/><circle class="hm-speck-c" style="--c:var(--st-o)" cx="292" cy="450" r="1.1"/>
-<line class="hm-link" style="--c:var(--st-b)" x1="75.9" y1="108.3" x2="90.1" y2="123.2"/>
-<g class="hm-node" style="--c:var(--st-b)"><circle class="hm-node-edge" cx="68" cy="102" r="10"/><circle class="hm-node-top" cx="68" cy="100" r="10"/><circle class="hm-node-c" cx="68" cy="100" r="2.6"/></g>
-<text class="hm-sat-label" x="68" y="122" text-anchor="middle">Strategy</text>
-<line class="hm-link" style="--c:var(--st-b)" x1="144" y1="83.8" x2="121.7" y2="119.9"/>
-<g class="hm-node" style="--c:var(--st-b)"><circle class="hm-node-edge" cx="150" cy="76" r="10"/><circle class="hm-node-top" cx="150" cy="74" r="10"/><circle class="hm-node-c" cx="150" cy="74" r="2.6"/></g>
-<text class="hm-sat-label" x="150" y="96" text-anchor="middle">Research</text>
-<line class="hm-link" style="--c:var(--st-u)" x1="257.8" y1="83.9" x2="278.8" y2="119.6"/>
-<g class="hm-node" style="--c:var(--st-u)"><circle class="hm-node-edge" cx="252" cy="76" r="10"/><circle class="hm-node-top" cx="252" cy="74" r="10"/><circle class="hm-node-c" cx="252" cy="74" r="2.6"/></g>
-<text class="hm-sat-label" x="252" y="96" text-anchor="middle">Journeys</text>
-<line class="hm-link" style="--c:var(--st-u)" x1="324.1" y1="108.3" x2="309.9" y2="123.2"/>
-<g class="hm-node" style="--c:var(--st-u)"><circle class="hm-node-edge" cx="332" cy="102" r="10"/><circle class="hm-node-top" cx="332" cy="100" r="10"/><circle class="hm-node-c" cx="332" cy="100" r="2.6"/></g>
-<text class="hm-sat-label" x="332" y="122" text-anchor="middle">Stakeholders</text>
-<line class="hm-link" style="--c:var(--st-t)" x1="75.9" y1="359.7" x2="90.1" y2="344.8"/>
-<g class="hm-node" style="--c:var(--st-t)"><circle class="hm-node-edge" cx="68" cy="370" r="10"/><circle class="hm-node-top" cx="68" cy="368" r="10"/><circle class="hm-node-c" cx="68" cy="368" r="2.6"/></g>
-<text class="hm-sat-label" x="68" y="390" text-anchor="middle">Systems</text>
-<line class="hm-link" style="--c:var(--st-t)" x1="144" y1="384.2" x2="121.7" y2="348.1"/>
-<g class="hm-node" style="--c:var(--st-t)"><circle class="hm-node-edge" cx="150" cy="396" r="10"/><circle class="hm-node-top" cx="150" cy="394" r="10"/><circle class="hm-node-c" cx="150" cy="394" r="2.6"/></g>
-<text class="hm-sat-label" x="150" y="416" text-anchor="middle">Data</text>
-<line class="hm-link" style="--c:var(--st-o)" x1="324.1" y1="359.7" x2="309.9" y2="344.8"/>
-<g class="hm-node" style="--c:var(--st-o)"><circle class="hm-node-edge" cx="332" cy="370" r="10"/><circle class="hm-node-top" cx="332" cy="368" r="10"/><circle class="hm-node-c" cx="332" cy="368" r="2.6"/></g>
-<text class="hm-sat-label" x="332" y="390" text-anchor="middle">Process</text>
-<line class="hm-link" style="--c:var(--st-o)" x1="257.8" y1="384.1" x2="278.8" y2="348.4"/>
-<g class="hm-node" style="--c:var(--st-o)"><circle class="hm-node-edge" cx="252" cy="396" r="10"/><circle class="hm-node-top" cx="252" cy="394" r="10"/><circle class="hm-node-c" cx="252" cy="394" r="2.6"/></g>
-<text class="hm-sat-label" x="252" y="416" text-anchor="middle">Teams</text>
+<g class="hm-plat" data-in="swirl" style="--c:var(--st-b);--x:38.9px;--y:26.5px;--px:-100px;--py:-115px;--nx:100px;--ny:115px;--sw0:45.7deg;--r:3.4deg;--e:0.044s;--sd:2.021s"><rect class="hm-edge" x="6" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="6" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" data-in="swirl" style="--c:var(--st-u);--x:-21.7px;--y:49.8px;--px:100px;--py:-115px;--nx:-100px;--ny:115px;--sw0:36.9deg;--r:3.1deg;--e:0.062s;--sd:2.021s"><rect class="hm-edge" x="206" y="11" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="6" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="6" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" data-in="swirl" style="--c:var(--st-t);--x:22.2px;--y:-46.3px;--px:-100px;--py:115px;--nx:100px;--ny:-115px;--sw0:43.2deg;--r:3deg;--e:0.017s;--sd:2.021s"><rect class="hm-edge" x="6" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="6" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="6" y="236" width="188" height="218" rx="18"/></g>
+<g class="hm-plat" data-in="swirl" style="--c:var(--st-o);--x:-45px;--y:-28.8px;--px:100px;--py:115px;--nx:-100px;--ny:-115px;--sw0:40.4deg;--r:2.6deg;--e:0.083s;--sd:2.021s"><rect class="hm-edge" x="206" y="241" width="188" height="218" rx="18"/><rect class="hm-top" x="206" y="236" width="188" height="218" rx="18"/><rect class="hm-sheen" x="206" y="236" width="188" height="218" rx="18"/></g>
+<circle class="hm-venn" pathLength="1" data-in="swirl" data-draw style="--c:var(--st-b);--x:41.8px;--y:30.8px;--px:-58px;--py:-88px;--nx:58px;--ny:88px;--sw0:58.1deg;--r:0deg;--e:0.013s;--sd:1.975s" cx="142" cy="142" r="142"/>
+<circle class="hm-venn" pathLength="1" data-in="swirl" data-draw style="--c:var(--st-u);--x:-13.7px;--y:50.1px;--px:58px;--py:-88px;--nx:-58px;--ny:88px;--sw0:69deg;--r:0deg;--e:0.078s;--sd:1.975s" cx="258" cy="142" r="142"/>
+<circle class="hm-venn" pathLength="1" data-in="swirl" data-draw style="--c:var(--st-t);--x:14.5px;--y:-54.6px;--px:-58px;--py:88px;--nx:58px;--ny:-88px;--sw0:67.5deg;--r:0deg;--e:0.053s;--sd:1.975s" cx="142" cy="318" r="142"/>
+<circle class="hm-venn" pathLength="1" data-in="swirl" data-draw style="--c:var(--st-o);--x:-50.6px;--y:-37.7px;--px:58px;--py:88px;--nx:-58px;--ny:-88px;--sw0:55.2deg;--r:0deg;--e:0.03s;--sd:1.975s" cx="258" cy="318" r="142"/>
+<g class="hm-fine" data-in="fade" style="--e:1.02s;--dur:0.765s">
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:14.3deg;--per:35.4s;--ph:-67s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:134.3px;--y:67.5px;--px:-160px;--py:-140px;--nx:160px;--ny:140px;--sw0:140.2deg;--r:19.4deg;--e:0.031s;--sd:2.081s" x1="40" y1="90" x2="87.3" y2="126.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:134.3px;--y:67.5px;--px:-160px;--py:-140px;--nx:160px;--ny:140px;--sw0:140.2deg;--r:19.4deg;--e:0.031s;--sd:2.081s" cx="40" cy="90" r="4.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-b);--x:134.3px;--y:67.5px;--px:-160px;--py:-140px;--nx:160px;--ny:140px;--sw0:140.2deg;--r:19.4deg;--e:0.031s;--sd:2.081s" cx="40" cy="90" r="1.6"/>
 </g>
-<circle class="hm-glow" cx="200" cy="230" r="140"/>
-<g class="hm-slab hm-evidence"><rect class="hm-edge" x="116" y="151" width="168" height="168" rx="24"/><rect class="hm-top" x="116" y="146" width="168" height="168" rx="24"/><rect class="hm-sheen" x="116" y="146" width="168" height="168" rx="24"/></g>
-<g class="hm-slab hm-mid"><rect class="hm-edge" x="138" y="170.4" width="124" height="124" rx="20"/><rect class="hm-top" x="138" y="168" width="124" height="124" rx="20"/><rect class="hm-sheen" x="138" y="168" width="124" height="124" rx="20"/></g>
-<g class="hm-slab hm-mid"><rect class="hm-edge" x="144" y="176.4" width="112" height="112" rx="19"/><rect class="hm-top" x="144" y="174" width="112" height="112" rx="19"/><rect class="hm-sheen" x="144" y="174" width="112" height="112" rx="19"/></g>
-<g class="hm-slab hm-mid"><rect class="hm-edge" x="150" y="182.4" width="100" height="100" rx="18"/><rect class="hm-top" x="150" y="180" width="100" height="100" rx="18"/><rect class="hm-sheen" x="150" y="180" width="100" height="100" rx="18"/></g>
-<g class="hm-slab hm-mid"><rect class="hm-edge" x="156" y="188.4" width="88" height="88" rx="17"/><rect class="hm-top" x="156" y="186" width="88" height="88" rx="17"/><rect class="hm-sheen" x="156" y="186" width="88" height="88" rx="17"/></g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:15.7deg;--per:28.9s;--ph:-18.7s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:143.7px;--y:113.4px;--px:-126px;--py:-196px;--nx:126px;--ny:196px;--sw0:151.9deg;--r:14.9deg;--e:0.012s;--sd:2.101s" x1="74" y1="34" x2="100.2" y2="117.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:143.7px;--y:113.4px;--px:-126px;--py:-196px;--nx:126px;--ny:196px;--sw0:151.9deg;--r:14.9deg;--e:0.012s;--sd:2.101s" cx="74" cy="34" r="5.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-b);--x:143.7px;--y:113.4px;--px:-126px;--py:-196px;--nx:126px;--ny:196px;--sw0:151.9deg;--r:14.9deg;--e:0.012s;--sd:2.101s" cx="74" cy="34" r="2"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:14.6deg;--per:46.3s;--ph:-76.5s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:57.6px;--y:112.1px;--px:-28px;--py:-186px;--nx:28px;--ny:186px;--sw0:152.2deg;--r:11.5deg;--e:0.058s;--sd:2.057s" x1="172" y1="44" x2="122.2" y2="120.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:57.6px;--y:112.1px;--px:-28px;--py:-186px;--nx:28px;--ny:186px;--sw0:152.2deg;--r:11.5deg;--e:0.058s;--sd:2.057s" cx="172" cy="44" r="4"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-b);--x:57.6px;--y:112.1px;--px:-28px;--py:-186px;--nx:28px;--ny:186px;--sw0:152.2deg;--r:11.5deg;--e:0.058s;--sd:2.057s" cx="172" cy="44" r="1.4"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:15.9deg;--per:45.6s;--ph:-76.4s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:137.5px;--y:10.4px;--px:-160px;--py:-74px;--nx:160px;--ny:74px;--sw0:141.6deg;--r:16.8deg;--e:0.055s;--sd:2.045s" x1="40" y1="156" x2="82.5" y2="147.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:137.5px;--y:10.4px;--px:-160px;--py:-74px;--nx:160px;--ny:74px;--sw0:141.6deg;--r:16.8deg;--e:0.055s;--sd:2.045s" cx="40" cy="156" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-b);--x:137.5px;--y:10.4px;--px:-160px;--py:-74px;--nx:160px;--ny:74px;--sw0:141.6deg;--r:16.8deg;--e:0.055s;--sd:2.045s" cx="40" cy="156" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:14.5deg;--per:26.1s;--ph:-17.1s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:59.6px;--y:122.3px;--px:-16px;--py:-176px;--nx:16px;--ny:176px;--sw0:182.4deg;--r:17deg;--e:0.07s;--sd:2.045s" x1="184" y1="54" x2="125" y2="122.3"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:59.6px;--y:122.3px;--px:-16px;--py:-176px;--nx:16px;--ny:176px;--sw0:182.4deg;--r:17deg;--e:0.07s;--sd:2.045s" cx="184" cy="54" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-b);--x:59.6px;--y:122.3px;--px:-16px;--py:-176px;--nx:16px;--ny:176px;--sw0:182.4deg;--r:17deg;--e:0.07s;--sd:2.045s" cx="184" cy="54" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:14.2deg;--per:44.1s;--ph:-56.7s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:24.4px;--y:145.8px;--px:28px;--py:-186px;--nx:-28px;--ny:186px;--sw0:172.3deg;--r:21.7deg;--e:0.047s;--sd:2.057s" x1="228" y1="44" x2="277.8" y2="120.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:24.4px;--y:145.8px;--px:28px;--py:-186px;--nx:-28px;--ny:186px;--sw0:172.3deg;--r:21.7deg;--e:0.047s;--sd:2.057s" cx="228" cy="44" r="4.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-u);--x:24.4px;--y:145.8px;--px:28px;--py:-186px;--nx:-28px;--ny:186px;--sw0:172.3deg;--r:21.7deg;--e:0.047s;--sd:2.057s" cx="228" cy="44" r="1.6"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:15.8deg;--per:26.5s;--ph:-44.2s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-46.5px;--y:177.9px;--px:126px;--py:-196px;--nx:-126px;--ny:196px;--sw0:151deg;--r:13.6deg;--e:0.001s;--sd:2.101s" x1="326" y1="34" x2="299.8" y2="117.2"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-46.5px;--y:177.9px;--px:126px;--py:-196px;--nx:-126px;--ny:196px;--sw0:151deg;--r:13.6deg;--e:0.001s;--sd:2.101s" cx="326" cy="34" r="5.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-u);--x:-46.5px;--y:177.9px;--px:126px;--py:-196px;--nx:-126px;--ny:196px;--sw0:151deg;--r:13.6deg;--e:0.001s;--sd:2.101s" cx="326" cy="34" r="2"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:13.7deg;--per:47.9s;--ph:-94.5s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-96px;--y:127.2px;--px:166px;--py:-132px;--nx:-166px;--ny:132px;--sw0:165.7deg;--r:17.5deg;--e:0.061s;--sd:2.08s" x1="366" y1="98" x2="314.3" y2="128.7"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-96px;--y:127.2px;--px:166px;--py:-132px;--nx:-166px;--ny:132px;--sw0:165.7deg;--r:17.5deg;--e:0.061s;--sd:2.08s" cx="366" cy="98" r="4"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-u);--x:-96px;--y:127.2px;--px:166px;--py:-132px;--nx:-166px;--ny:132px;--sw0:165.7deg;--r:17.5deg;--e:0.061s;--sd:2.08s" cx="366" cy="98" r="1.4"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:14.4deg;--per:47.9s;--ph:-54.3s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-95.6px;--y:97.1px;--px:158px;--py:-76px;--nx:-158px;--ny:76px;--sw0:166deg;--r:20.1deg;--e:0.012s;--sd:2.044s" x1="358" y1="154" x2="317.6" y2="146.7"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-95.6px;--y:97.1px;--px:158px;--py:-76px;--nx:-158px;--ny:76px;--sw0:166deg;--r:20.1deg;--e:0.012s;--sd:2.044s" cx="358" cy="154" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-u);--x:-95.6px;--y:97.1px;--px:158px;--py:-76px;--nx:-158px;--ny:76px;--sw0:166deg;--r:20.1deg;--e:0.012s;--sd:2.044s" cx="358" cy="154" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:14.9deg;--per:42.2s;--ph:-83.6s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:23.9px;--y:113.8px;--px:16px;--py:-176px;--nx:-16px;--ny:176px;--sw0:146.1deg;--r:19.9deg;--e:0.073s;--sd:2.045s" x1="216" y1="54" x2="275" y2="122.3"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:23.9px;--y:113.8px;--px:16px;--py:-176px;--nx:-16px;--ny:176px;--sw0:146.1deg;--r:19.9deg;--e:0.073s;--sd:2.045s" cx="216" cy="54" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-u);--x:23.9px;--y:113.8px;--px:16px;--py:-176px;--nx:-16px;--ny:176px;--sw0:146.1deg;--r:19.9deg;--e:0.073s;--sd:2.045s" cx="216" cy="54" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:15.3deg;--per:38.8s;--ph:-66.3s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:78.2px;--y:-147.5px;--px:-160px;--py:148px;--nx:160px;--ny:-148px;--sw0:181.9deg;--r:16.4deg;--e:0.02s;--sd:2.086s" x1="40" y1="378" x2="87.3" y2="341.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:78.2px;--y:-147.5px;--px:-160px;--py:148px;--nx:160px;--ny:-148px;--sw0:181.9deg;--r:16.4deg;--e:0.02s;--sd:2.086s" cx="40" cy="378" r="4.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-t);--x:78.2px;--y:-147.5px;--px:-160px;--py:148px;--nx:160px;--ny:-148px;--sw0:181.9deg;--r:16.4deg;--e:0.02s;--sd:2.086s" cx="40" cy="378" r="1.6"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:14.2deg;--per:31.5s;--ph:-30.1s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:37.6px;--y:-155.7px;--px:-126px;--py:204px;--nx:126px;--ny:-204px;--sw0:158.9deg;--r:16.8deg;--e:0.015s;--sd:2.108s" x1="74" y1="434" x2="100.2" y2="350.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:37.6px;--y:-155.7px;--px:-126px;--py:204px;--nx:126px;--ny:-204px;--sw0:158.9deg;--r:16.8deg;--e:0.015s;--sd:2.108s" cx="74" cy="434" r="5.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-t);--x:37.6px;--y:-155.7px;--px:-126px;--py:204px;--nx:126px;--ny:-204px;--sw0:158.9deg;--r:16.8deg;--e:0.015s;--sd:2.108s" cx="74" cy="434" r="2"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:15.9deg;--per:45.3s;--ph:-5.4s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-13.7px;--y:-126.9px;--px:-28px;--py:194px;--nx:28px;--ny:-194px;--sw0:144.3deg;--r:11.3deg;--e:0.009s;--sd:2.064s" x1="172" y1="424" x2="122.2" y2="347.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-13.7px;--y:-126.9px;--px:-28px;--py:194px;--nx:28px;--ny:-194px;--sw0:144.3deg;--r:11.3deg;--e:0.009s;--sd:2.064s" cx="172" cy="424" r="4"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-t);--x:-13.7px;--y:-126.9px;--px:-28px;--py:194px;--nx:28px;--ny:-194px;--sw0:144.3deg;--r:11.3deg;--e:0.009s;--sd:2.064s" cx="172" cy="424" r="1.4"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:15.3deg;--per:33.9s;--ph:-48.2s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:96.5px;--y:-86.4px;--px:-178px;--py:82px;--nx:178px;--ny:-82px;--sw0:160deg;--r:19.1deg;--e:0.031s;--sd:2.064s" x1="22" y1="312" x2="82.3" y2="321.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:96.5px;--y:-86.4px;--px:-178px;--py:82px;--nx:178px;--ny:-82px;--sw0:160deg;--r:19.1deg;--e:0.031s;--sd:2.064s" cx="22" cy="312" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-t);--x:96.5px;--y:-86.4px;--px:-178px;--py:82px;--nx:178px;--ny:-82px;--sw0:160deg;--r:19.1deg;--e:0.031s;--sd:2.064s" cx="22" cy="312" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:14.5deg;--per:32.4s;--ph:-50.4s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:15.8px;--y:-190.6px;--px:-92px;--py:220px;--nx:92px;--ny:-220px;--sw0:174.3deg;--r:15.5deg;--e:0.048s;--sd:2.106s" x1="108" y1="450" x2="108" y2="352"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:15.8px;--y:-190.6px;--px:-92px;--py:220px;--nx:92px;--ny:-220px;--sw0:174.3deg;--r:15.5deg;--e:0.048s;--sd:2.106s" cx="108" cy="450" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-t);--x:15.8px;--y:-190.6px;--px:-92px;--py:220px;--nx:92px;--ny:-220px;--sw0:174.3deg;--r:15.5deg;--e:0.048s;--sd:2.106s" cx="108" cy="450" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:13.9deg;--per:35.5s;--ph:-65.3s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-124px;--y:-62.3px;--px:160px;--py:148px;--nx:-160px;--ny:-148px;--sw0:175.7deg;--r:20.1deg;--e:0.066s;--sd:2.086s" x1="360" y1="378" x2="312.7" y2="341.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-124px;--y:-62.3px;--px:160px;--py:148px;--nx:-160px;--ny:-148px;--sw0:175.7deg;--r:20.1deg;--e:0.066s;--sd:2.086s" cx="360" cy="378" r="4.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-o);--x:-124px;--y:-62.3px;--px:160px;--py:148px;--nx:-160px;--ny:-148px;--sw0:175.7deg;--r:20.1deg;--e:0.066s;--sd:2.086s" cx="360" cy="378" r="1.6"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:14.6deg;--per:47.4s;--ph:-41.4s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-121.6px;--y:-107.5px;--px:126px;--py:204px;--nx:-126px;--ny:-204px;--sw0:158.9deg;--r:20.1deg;--e:0.034s;--sd:2.108s" x1="326" y1="434" x2="299.8" y2="350.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-121.6px;--y:-107.5px;--px:126px;--py:204px;--nx:-126px;--ny:-204px;--sw0:158.9deg;--r:20.1deg;--e:0.034s;--sd:2.108s" cx="326" cy="434" r="5.5"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-o);--x:-121.6px;--y:-107.5px;--px:126px;--py:204px;--nx:-126px;--ny:-204px;--sw0:158.9deg;--r:20.1deg;--e:0.034s;--sd:2.108s" cx="326" cy="434" r="2"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:15.5deg;--per:47.7s;--ph:-47.3s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-60.6px;--y:-123.2px;--px:28px;--py:194px;--nx:-28px;--ny:-194px;--sw0:150.1deg;--r:20.7deg;--e:0.049s;--sd:2.064s" x1="228" y1="424" x2="277.8" y2="347.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-60.6px;--y:-123.2px;--px:28px;--py:194px;--nx:-28px;--ny:-194px;--sw0:150.1deg;--r:20.7deg;--e:0.049s;--sd:2.064s" cx="228" cy="424" r="4"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-o);--x:-60.6px;--y:-123.2px;--px:28px;--py:194px;--nx:-28px;--ny:-194px;--sw0:150.1deg;--r:20.7deg;--e:0.049s;--sd:2.064s" cx="228" cy="424" r="1.4"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:15deg;--per:29.6s;--ph:-23.1s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-141.7px;--y:-14.1px;--px:178px;--py:82px;--nx:-178px;--ny:-82px;--sw0:180.7deg;--r:17.1deg;--e:0.056s;--sd:2.064s" x1="378" y1="312" x2="317.7" y2="321.8"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-141.7px;--y:-14.1px;--px:178px;--py:82px;--nx:-178px;--ny:-82px;--sw0:180.7deg;--r:17.1deg;--e:0.056s;--sd:2.064s" cx="378" cy="312" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-o);--x:-141.7px;--y:-14.1px;--px:178px;--py:82px;--nx:-178px;--ny:-82px;--sw0:180.7deg;--r:17.1deg;--e:0.056s;--sd:2.064s" cx="378" cy="312" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:15.1deg;--per:41s;--ph:-79.2s">
+<line class="hm-thread" data-in="swirl" data-solo style="--x:-124.7px;--y:-134.8px;--px:92px;--py:220px;--nx:-92px;--ny:-220px;--sw0:154.4deg;--r:14.2deg;--e:0.008s;--sd:2.106s" x1="292" y1="450" x2="292" y2="352"/>
+<circle class="hm-speck" data-in="swirl" data-solo style="--x:-124.7px;--y:-134.8px;--px:92px;--py:220px;--nx:-92px;--ny:-220px;--sw0:154.4deg;--r:14.2deg;--e:0.008s;--sd:2.106s" cx="292" cy="450" r="3"/><circle class="hm-speck-c" data-in="swirl" data-solo style="--c:var(--st-o);--x:-124.7px;--y:-134.8px;--px:92px;--py:220px;--nx:-92px;--ny:-220px;--sw0:154.4deg;--r:14.2deg;--e:0.008s;--sd:2.106s" cx="292" cy="450" r="1.1"/>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:24.1deg;--per:43.3s;--ph:-83.3s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-b);--x:108.3px;--y:47.5px;--px:-132px;--py:-130px;--nx:132px;--ny:130px;--sw0:134.6deg;--r:18.5deg;--e:0.033s;--sd:2.054s" x1="75.9" y1="108.3" x2="90.1" y2="123.2"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-b);--x:104.2px;--y:56.4px;--px:-132px;--py:-130px;--nx:132px;--ny:130px;--sw0:125.3deg;--r:0deg;--e:0.079s;--sd:2.054s"><circle class="hm-node-edge" cx="68" cy="102" r="10"/><circle class="hm-node-top" cx="68" cy="100" r="10"/><circle class="hm-node-c" cx="68" cy="100" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.307s" x="68" y="122" text-anchor="middle">Strategy</text></g>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:142px;--amp:24.2deg;--per:32s;--ph:-30.9s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-b);--x:60.5px;--y:80.3px;--px:-50px;--py:-156px;--nx:50px;--ny:156px;--sw0:142.4deg;--r:18.7deg;--e:0.047s;--sd:2.032s" x1="144" y1="83.8" x2="121.7" y2="119.9"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-b);--x:71.7px;--y:97.5px;--px:-50px;--py:-156px;--nx:50px;--ny:156px;--sw0:153.7deg;--r:0deg;--e:0.051s;--sd:2.032s"><circle class="hm-node-edge" cx="150" cy="76" r="10"/><circle class="hm-node-top" cx="150" cy="74" r="10"/><circle class="hm-node-c" cx="150" cy="74" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.351s" x="150" y="96" text-anchor="middle">Research</text></g>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:24.6deg;--per:34.6s;--ph:-59.4s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-u);--x:4px;--y:115px;--px:52px;--py:-156px;--nx:-52px;--ny:156px;--sw0:134.4deg;--r:17.9deg;--e:0.079s;--sd:2.033s" x1="257.8" y1="83.9" x2="278.8" y2="119.6"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-u);--x:-6.6px;--y:125.8px;--px:52px;--py:-156px;--nx:-52px;--ny:156px;--sw0:126.8deg;--r:0deg;--e:0.045s;--sd:2.033s"><circle class="hm-node-edge" cx="252" cy="76" r="10"/><circle class="hm-node-top" cx="252" cy="74" r="10"/><circle class="hm-node-c" cx="252" cy="74" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.297s" x="252" y="96" text-anchor="middle">Journeys</text></g>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:142px;--amp:20.8deg;--per:26.1s;--ph:-39.2s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-u);--x:-55.8px;--y:94.6px;--px:132px;--py:-130px;--nx:-132px;--ny:130px;--sw0:161.8deg;--r:15.3deg;--e:0.05s;--sd:2.054s" x1="324.1" y1="108.3" x2="309.9" y2="123.2"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-u);--x:-65.9px;--y:119.9px;--px:132px;--py:-130px;--nx:-132px;--ny:130px;--sw0:161.7deg;--r:0deg;--e:0.072s;--sd:2.054s"><circle class="hm-node-edge" cx="332" cy="102" r="10"/><circle class="hm-node-top" cx="332" cy="100" r="10"/><circle class="hm-node-c" cx="332" cy="100" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.192s" x="332" y="122" text-anchor="middle">Stakeholders</text></g>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:20.4deg;--per:27.8s;--ph:-21.2s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-t);--x:59.7px;--y:-129.6px;--px:-132px;--py:138px;--nx:132px;--ny:-138px;--sw0:134.1deg;--r:18deg;--e:0.009s;--sd:2.059s" x1="75.9" y1="359.7" x2="90.1" y2="344.8"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-t);--x:59.4px;--y:-130.1px;--px:-132px;--py:138px;--nx:132px;--ny:-138px;--sw0:124.9deg;--r:0deg;--e:0.083s;--sd:2.059s"><circle class="hm-node-edge" cx="68" cy="370" r="10"/><circle class="hm-node-top" cx="68" cy="368" r="10"/><circle class="hm-node-c" cx="68" cy="368" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.248s" x="68" y="390" text-anchor="middle">Systems</text></g>
+</g>
+<g class="hm-sway" style="--ox:108px;--oy:326px;--amp:24.2deg;--per:41.2s;--ph:-3s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-t);--x:-4.1px;--y:-106.7px;--px:-50px;--py:164px;--nx:50px;--ny:-164px;--sw0:161deg;--r:15.4deg;--e:0.071s;--sd:2.04s" x1="144" y1="384.2" x2="121.7" y2="348.1"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-t);--x:-2.2px;--y:-115px;--px:-50px;--py:164px;--nx:50px;--ny:-164px;--sw0:129.7deg;--r:0deg;--e:0.026s;--sd:2.04s"><circle class="hm-node-edge" cx="150" cy="396" r="10"/><circle class="hm-node-top" cx="150" cy="394" r="10"/><circle class="hm-node-c" cx="150" cy="394" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.289s" x="150" y="416" text-anchor="middle">Data</text></g>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:22.6deg;--per:31.7s;--ph:-4.5s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-o);--x:-114.2px;--y:-63.4px;--px:132px;--py:138px;--nx:-132px;--ny:-138px;--sw0:156.1deg;--r:13.9deg;--e:0.063s;--sd:2.059s" x1="324.1" y1="359.7" x2="309.9" y2="344.8"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-o);--x:-104px;--y:-63.1px;--px:132px;--py:138px;--nx:-132px;--ny:-138px;--sw0:127deg;--r:0deg;--e:0.059s;--sd:2.059s"><circle class="hm-node-edge" cx="332" cy="370" r="10"/><circle class="hm-node-top" cx="332" cy="368" r="10"/><circle class="hm-node-c" cx="332" cy="368" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.168s" x="332" y="390" text-anchor="middle">Process</text></g>
+</g>
+<g class="hm-sway" style="--ox:292px;--oy:326px;--amp:24.6deg;--per:46.7s;--ph:-45.2s">
+<line class="hm-link" pathLength="1" data-in="swirl" data-solo data-draw style="--c:var(--st-o);--x:-72.3px;--y:-97.1px;--px:52px;--py:164px;--nx:-52px;--ny:-164px;--sw0:129.8deg;--r:18.2deg;--e:0.006s;--sd:2.041s" x1="257.8" y1="384.1" x2="278.8" y2="348.4"/>
+<g class="hm-node" data-in="swirl" data-solo style="--c:var(--st-o);--x:-58.9px;--y:-89.5px;--px:52px;--py:164px;--nx:-52px;--ny:-164px;--sw0:160.4deg;--r:0deg;--e:0.003s;--sd:2.041s"><circle class="hm-node-edge" cx="252" cy="396" r="10"/><circle class="hm-node-top" cx="252" cy="394" r="10"/><circle class="hm-node-c" cx="252" cy="394" r="2.6"/></g>
+<g class="hm-upright"><text class="hm-sat-label" data-in="label" style="--e:2.277s" x="252" y="416" text-anchor="middle">Teams</text></g>
+</g>
+</g>
+</g>
+<circle class="hm-glow" data-in="fade" style="--e:0.425s;--dur:1.36s" cx="200" cy="230" r="140"/>
+<g class="hm-slab hm-evidence" data-in="spin" style="--e:0.383s;--dur:1.615s;--s:0.12;--rot:140deg"><rect class="hm-edge" x="116" y="151" width="168" height="168" rx="24"/><rect class="hm-top" x="116" y="146" width="168" height="168" rx="24"/><rect class="hm-sheen" x="116" y="146" width="168" height="168" rx="24"/></g>
+<g class="hm-slab hm-mid" data-in="spin" style="--e:0.451s;--dur:1.573s;--s:0.15;--rot:120deg"><rect class="hm-edge" x="138" y="170.4" width="124" height="124" rx="20"/><rect class="hm-top" x="138" y="168" width="124" height="124" rx="20"/><rect class="hm-sheen" x="138" y="168" width="124" height="124" rx="20"/></g>
+<g class="hm-slab hm-mid" data-in="spin" style="--e:0.51s;--dur:1.53s;--s:0.15;--rot:105deg"><rect class="hm-edge" x="144" y="176.4" width="112" height="112" rx="19"/><rect class="hm-top" x="144" y="174" width="112" height="112" rx="19"/><rect class="hm-sheen" x="144" y="174" width="112" height="112" rx="19"/></g>
+<g class="hm-slab hm-mid" data-in="spin" style="--e:0.57s;--dur:1.488s;--s:0.15;--rot:90deg"><rect class="hm-edge" x="150" y="182.4" width="100" height="100" rx="18"/><rect class="hm-top" x="150" y="180" width="100" height="100" rx="18"/><rect class="hm-sheen" x="150" y="180" width="100" height="100" rx="18"/></g>
+<g class="hm-slab hm-mid" data-in="spin" style="--e:0.629s;--dur:1.445s;--s:0.15;--rot:75deg"><rect class="hm-edge" x="156" y="188.4" width="88" height="88" rx="17"/><rect class="hm-top" x="156" y="186" width="88" height="88" rx="17"/><rect class="hm-sheen" x="156" y="186" width="88" height="88" rx="17"/></g>
 <g class="hm-routes">
 <g style="--c:var(--st-b)">
-<path class="hm-route" pathLength="1" d="M108 142 C161.333 153.478 192 182.812 200 230"/>
-<circle class="hm-plug" cx="130.1" cy="148.2" r="2.4"/>
-<circle class="hm-plug" cx="166" cy="168.1" r="2.4"/>
-<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="2.6s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 142 C161.333 153.478 192 182.812 200 230"/></circle>
+<path class="hm-route" pathLength="1" data-in="draw" style="--e:0.977s;--dur:1.063s" d="M108 142 C161.333 153.478 192 182.812 200 230"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.36s;--dur:0.425s" cx="130.1" cy="148.2" r="2.4"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.572s;--dur:0.425s" cx="166" cy="168.1" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="2.7s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 142 C161.333 153.478 192 182.812 200 230"/></circle>
 </g>
 <g style="--c:var(--st-u)">
-<path class="hm-route" pathLength="1" d="M292 142 C282.667 181.536 252 210.87 200 230"/>
-<circle class="hm-plug" cx="283.4" cy="165.3" r="2.4"/>
-<circle class="hm-plug" cx="261.8" cy="193.9" r="2.4"/>
-<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="3.4s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 142 C282.667 181.536 252 210.87 200 230"/></circle>
+<path class="hm-route" pathLength="1" data-in="draw" style="--e:1.045s;--dur:1.063s" d="M292 142 C282.667 181.536 252 210.87 200 230"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.428s;--dur:0.425s" cx="283.4" cy="165.3" r="2.4"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.64s;--dur:0.425s" cx="261.8" cy="193.9" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="3.3s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 142 C282.667 181.536 252 210.87 200 230"/></circle>
 </g>
 <g style="--c:var(--st-t)">
-<path class="hm-route" pathLength="1" d="M108 326 C117.333 284.261 148 252.261 200 230"/>
-<circle class="hm-plug" cx="117.8" cy="298.7" r="2.4"/>
-<circle class="hm-plug" cx="138.2" cy="270.5" r="2.4"/>
-<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="4.1s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 326 C117.333 284.261 148 252.261 200 230"/></circle>
+<path class="hm-route" pathLength="1" data-in="draw" style="--e:1.113s;--dur:1.063s" d="M108 326 C117.333 284.261 148 252.261 200 230"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.496s;--dur:0.425s" cx="117.8" cy="298.7" r="2.4"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.708s;--dur:0.425s" cx="138.2" cy="270.5" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="3.9s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M108 326 C117.333 284.261 148 252.261 200 230"/></circle>
 </g>
 <g style="--c:var(--st-o)">
-<path class="hm-route" pathLength="1" d="M292 326 C240 319.043 209.333 287.043 200 230"/>
-<circle class="hm-plug" cx="252.7" cy="313.9" r="2.4"/>
-<circle class="hm-plug" cx="225.6" cy="291.8" r="2.4"/>
-<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="4.8s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 326 C240 319.043 209.333 287.043 200 230"/></circle>
+<path class="hm-route" pathLength="1" data-in="draw" style="--e:1.181s;--dur:1.063s" d="M292 326 C240 319.043 209.333 287.043 200 230"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.564s;--dur:0.425s" cx="252.7" cy="313.9" r="2.4"/>
+<circle class="hm-plug" data-in="pop" style="--e:1.776s;--dur:0.425s" cx="225.6" cy="291.8" r="2.4"/>
+<circle class="hm-spark" r="1.9"><animateMotion dur="5.5s" begin="4.5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1" calcMode="spline" keySplines="0.45 0 0.55 1" path="M292 326 C240 319.043 209.333 287.043 200 230"/></circle>
 </g>
 </g>
-<g class="hm-pillar" style="--c:var(--st-b)"><circle class="hm-pillar-edge" cx="108" cy="146" r="24"/><circle class="hm-pillar-top" cx="108" cy="142" r="24"/><circle class="hm-pillar-ring" cx="108" cy="142" r="15"/><circle class="hm-pillar-c" cx="108" cy="142" r="5.5"/></g>
-<text class="hm-pname" style="--c:var(--st-b)" x="108" y="109" text-anchor="middle">Business</text>
-<g class="hm-pillar" style="--c:var(--st-u)"><circle class="hm-pillar-edge" cx="292" cy="146" r="24"/><circle class="hm-pillar-top" cx="292" cy="142" r="24"/><circle class="hm-pillar-ring" cx="292" cy="142" r="15"/><circle class="hm-pillar-c" cx="292" cy="142" r="5.5"/></g>
-<text class="hm-pname" style="--c:var(--st-u)" x="292" y="109" text-anchor="middle">Users</text>
-<g class="hm-pillar" style="--c:var(--st-t)"><circle class="hm-pillar-edge" cx="108" cy="330" r="24"/><circle class="hm-pillar-top" cx="108" cy="326" r="24"/><circle class="hm-pillar-ring" cx="108" cy="326" r="15"/><circle class="hm-pillar-c" cx="108" cy="326" r="5.5"/></g>
-<text class="hm-pname" style="--c:var(--st-t)" x="108" y="369" text-anchor="middle">Technology</text>
-<g class="hm-pillar" style="--c:var(--st-o)"><circle class="hm-pillar-edge" cx="292" cy="330" r="24"/><circle class="hm-pillar-top" cx="292" cy="326" r="24"/><circle class="hm-pillar-ring" cx="292" cy="326" r="15"/><circle class="hm-pillar-c" cx="292" cy="326" r="5.5"/></g>
-<text class="hm-pname" style="--c:var(--st-o)" x="292" y="369" text-anchor="middle">Organisation</text>
-<g class="hm-slab hm-cap"><rect class="hm-edge" x="160" y="194" width="80" height="80" rx="16"/><rect class="hm-top" x="160" y="190" width="80" height="80" rx="16"/><rect class="hm-sheen" x="160" y="190" width="80" height="80" rx="16"/></g>
-<g class="hm-mark">
+<text class="hm-route-label" data-in="label" style="--c:var(--st-b);--e:2.04s" x="166" y="157" text-anchor="start">Viability</text>
+<text class="hm-route-label" data-in="label" style="--c:var(--st-u);--e:2.082s" x="278" y="201" text-anchor="start">Desirability</text>
+<text class="hm-route-label" data-in="label" style="--c:var(--st-t);--e:2.125s" x="124" y="276" text-anchor="end">Feasibility</text>
+<text class="hm-route-label" data-in="label" style="--c:var(--st-o);--e:2.167s" x="226" y="312" text-anchor="end">Scalability</text>
+<g class="hm-pillar" data-in="swirl" style="--c:var(--st-b);--x:79.4px;--y:34.9px;--px:-92px;--py:-88px;--nx:92px;--ny:88px;--sw0:104.5deg;--r:0deg;--e:0.031s;--sd:1.996s"><circle class="hm-pillar-edge" cx="108" cy="146" r="24"/><circle class="hm-pillar-top" cx="108" cy="142" r="24"/><circle class="hm-pillar-ring" cx="108" cy="142" r="15"/><circle class="hm-pillar-c" cx="108" cy="142" r="5.5"/></g>
+<text class="hm-pname" data-in="label" style="--c:var(--st-b);--e:1.955s" x="108" y="109" text-anchor="middle">Business</text>
+<g class="hm-pillar" data-in="swirl" style="--c:var(--st-u);--x:-30.7px;--y:63.6px;--px:92px;--py:-88px;--nx:-92px;--ny:88px;--sw0:111.8deg;--r:0deg;--e:0.024s;--sd:1.996s"><circle class="hm-pillar-edge" cx="292" cy="146" r="24"/><circle class="hm-pillar-top" cx="292" cy="142" r="24"/><circle class="hm-pillar-ring" cx="292" cy="142" r="15"/><circle class="hm-pillar-c" cx="292" cy="142" r="5.5"/></g>
+<text class="hm-pname" data-in="label" style="--c:var(--st-u);--e:1.997s" x="292" y="109" text-anchor="middle">Users</text>
+<g class="hm-pillar" data-in="swirl" style="--c:var(--st-t);--x:33px;--y:-73.8px;--px:-92px;--py:96px;--nx:92px;--ny:-96px;--sw0:131.7deg;--r:0deg;--e:0.066s;--sd:2.002s"><circle class="hm-pillar-edge" cx="108" cy="330" r="24"/><circle class="hm-pillar-top" cx="108" cy="326" r="24"/><circle class="hm-pillar-ring" cx="108" cy="326" r="15"/><circle class="hm-pillar-c" cx="108" cy="326" r="5.5"/></g>
+<text class="hm-pname" data-in="label" style="--c:var(--st-t);--e:2.04s" x="108" y="369" text-anchor="middle">Technology</text>
+<g class="hm-pillar" data-in="swirl" style="--c:var(--st-o);--x:-81.1px;--y:-39.7px;--px:92px;--py:96px;--nx:-92px;--ny:-96px;--sw0:125deg;--r:0deg;--e:0.058s;--sd:2.002s"><circle class="hm-pillar-edge" cx="292" cy="330" r="24"/><circle class="hm-pillar-top" cx="292" cy="326" r="24"/><circle class="hm-pillar-ring" cx="292" cy="326" r="15"/><circle class="hm-pillar-c" cx="292" cy="326" r="5.5"/></g>
+<text class="hm-pname" data-in="label" style="--c:var(--st-o);--e:2.082s" x="292" y="369" text-anchor="middle">Organisation</text>
+<g class="hm-slab hm-cap" data-in="spin" style="--e:0.765s;--dur:1.36s;--s:0.3;--rot:70deg"><rect class="hm-edge" x="160" y="194" width="80" height="80" rx="16"/><rect class="hm-top" x="160" y="190" width="80" height="80" rx="16"/><rect class="hm-sheen" x="160" y="190" width="80" height="80" rx="16"/></g>
+<g class="hm-mark" data-in="pop" style="--e:1.232s;--dur:0.85s;--s:0.7">
   <circle class="hm-ring hm-ring--outer" cx="200" cy="230" r="148"/>
   <circle class="hm-ring hm-ring--mid" cx="200" cy="230" r="96"/>
   <circle class="hm-ring hm-ring--gold" cx="200" cy="230" r="35"/>
   <circle class="hm-core" cx="200" cy="230" r="30"/>
-  <text class="hm-core-a" x="200" y="219.5" text-anchor="middle">Product</text>
+  <text class="hm-core-a" x="200" y="219.5" text-anchor="middle">Outcome</text>
   <text class="hm-core-c" x="200" y="230.5" text-anchor="middle">A decision</text>
-  <text class="hm-core-c" x="200" y="239.5" text-anchor="middle">made real</text>
+  <text class="hm-core-c" x="200" y="239.5" text-anchor="middle">you can build</text>
 </g>
-<text class="hm-route-label" style="--c:var(--st-b)" x="166" y="157" text-anchor="start">Viability</text>
-<text class="hm-route-label" style="--c:var(--st-u)" x="278" y="201" text-anchor="start">Desirability</text>
-<text class="hm-route-label" style="--c:var(--st-t)" x="124" y="276" text-anchor="end">Feasibility</text>
-<text class="hm-route-label" style="--c:var(--st-o)" x="226" y="312" text-anchor="end">Scalability</text>
 <rect class="hm-fade" width="400" height="460"/>
 </svg>
         <!-- hero-map:end -->
@@ -1509,6 +1661,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
             <li><b>5 years</b><span>running my own studio</span></li>
           </ul>
         </div>
+        <button class="v4-motion" type="button" data-motion-toggle data-label-pause="Pause motion" data-label-play="Play motion"><span class="v4-motion-icon" aria-hidden="true"></span><span class="v4-motion-text">Pause motion</span></button>
         <div class="v4-scroll-cue" aria-hidden="true">
           <span>Scroll</span>
         </div>
@@ -1948,6 +2101,7 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-default.webp?v=2"
   {% include "footer.njk" %}
 
   <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
+  <script src="/assets/js/hero-motion.js?v={{ site.heroJsVersion }}" defer></script>
 
   <script>
     // v4 interaction layer — scroll reveals for this page's .v4-r elements.

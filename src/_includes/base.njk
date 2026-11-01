@@ -43,6 +43,8 @@
 
   <!-- Language detection: must run before page renders -->
   <script src="/assets/js/lang-detect.js?v={{ site.langJsVersion }}"></script>
+  <!-- A pause chosen with the homepage's motion control: loops open still (see assets/js/hero-motion.js) -->
+  <script>try{if(localStorage.getItem('jr-motion')==='paused'){var h=document.documentElement;h.setAttribute('data-motion','paused');h.setAttribute('data-motion-skip','')}}catch(e){}</script>
 {%- block styles %}{% endblock %}
   <script defer src="/_vercel/insights/script.js"></script>
   <script defer src="/_vercel/speed-insights/script.js"></script>
