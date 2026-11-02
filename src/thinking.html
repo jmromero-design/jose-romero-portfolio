@@ -430,322 +430,15 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-thinking.webp?v=2"
       border-bottom: 1px solid var(--border-default);
     }
 
-    .v4-pos-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
-      gap: clamp(var(--sp-10), 5vw, var(--sp-16));
-      align-items: start;
-    }
-
-    /* No top border here — same reasoning as .v4-eindex: the section
-       heading marks the start, and this line was crowding the first
-       item's hover pane. */
-
-    /* Divider hidden only while this item's glass pane is actively showing
-       (hover) — never while merely open, so it doesn't fight the pane. */
-    .v4-pos-item {
-      border-bottom: 1px solid var(--border-default);
-      transition: border-color 0.35s ease;
-    }
-    .v4-pos-item:has(.v4-pos-trigger:hover) { border-bottom-color: transparent; }
-
-    /* Equal padding on all four sides, at rest — no shift on hover. The
-       matching negative margin keeps the text flush with the heading above;
-       only the glass pane (sized to the padding box) bleeds outward. */
-    .v4-pos-trigger {
-      -webkit-appearance: none;
-      appearance: none;
-      background: transparent;
-      border: none;
-      width: 100%;
-      text-align: left;
-      font: inherit;
-      color: inherit;
-      cursor: pointer;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: var(--sp-6);
-      position: relative;
-      padding: var(--sp-5);
-      margin-inline: calc(-1 * var(--sp-5));
-    }
-    .v4-pos-trigger:focus-visible { outline: 2px solid var(--teal); outline-offset: 2px; border-radius: 2px; }
-
-    /* Glass pane — shown only on hover/focus/press, matching the trigger's
-       own padding box exactly so the gap reads equal on all four sides. */
-    .v4-pos-trigger::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: var(--radius-lg);
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-        color-mix(in srgb, var(--bg-surface) 60%, transparent);
-      backdrop-filter: blur(26px) saturate(1.7);
-      -webkit-backdrop-filter: blur(26px) saturate(1.7);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 4px 24px -8px rgba(0, 0, 0, 0.4);
-      opacity: 0;
-      transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-      z-index: -1;
-      pointer-events: none;
-    }
-    [data-theme="light"] .v4-pos-trigger::before {
-      background: color-mix(in srgb, var(--bg-surface) 45%, transparent);
-      border-color: rgba(255, 255, 255, 0.65);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-    .v4-pos-trigger:hover::before,
-    .v4-pos-trigger:focus-visible::before,
-    .v4-pos-trigger:active::before { opacity: 1; }
-
-    .v4-pos-heading { min-width: 0; }
-    .v4-pos-topic {
-      display: block;
-      font-size: var(--text-xs);
-      color: var(--teal-text);
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      margin-bottom: var(--sp-3);
-    }
-    .v4-pos-title {
-      font-family: var(--font-display);
+    /* Positions reuse the essay rows; the claim is a sentence, so it sets
+       smaller and in italic, as the accordion did. */
+    .v4-erow--pos .v4-erow-title {
       font-style: italic;
-      font-weight: 400;
       font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
-      line-height: 1.4;
-      color: var(--text-secondary);
-      transition: color var(--ease-base);
-    }
-    .v4-pos-item.is-open .v4-pos-title { color: var(--text-primary); }
-    .v4-pos-trigger:hover .v4-pos-title { color: var(--text-primary); }
-
-    .v4-pos-icon {
-      flex-shrink: 0;
-      width: 28px; height: 28px;
-      border: 1px solid var(--border-default);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-      transition: border-color var(--ease-base), background var(--ease-base);
-    }
-    /* Gold border marks "open" persistently; the glass fill itself is a
-       hover-only affordance, same restraint as the pane around it. */
-    .v4-pos-item.is-open .v4-pos-icon,
-    .v4-pos-trigger:hover .v4-pos-icon { border-color: var(--gold); }
-    .v4-pos-trigger:hover .v4-pos-icon {
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.14), rgba(255, 255, 255, 0.03)),
-        color-mix(in srgb, var(--bg-surface) 60%, transparent);
-      backdrop-filter: blur(12px) saturate(1.5);
-      -webkit-backdrop-filter: blur(12px) saturate(1.5);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35);
-    }
-    [data-theme="light"] .v4-pos-trigger:hover .v4-pos-icon {
-      background: color-mix(in srgb, var(--bg-surface) 55%, transparent);
-      box-shadow: none;
-    }
-    .v4-pos-icon::before, .v4-pos-icon::after {
-      content: '';
-      position: absolute;
-      background: var(--text-secondary);
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.2s ease;
-    }
-    .v4-pos-icon::before { width: 11px; height: 1px; }
-    .v4-pos-icon::after { width: 1px; height: 11px; }
-    .v4-pos-item.is-open .v4-pos-icon::after { transform: rotate(90deg) scaleY(0); }
-    .v4-pos-item.is-open .v4-pos-icon::before,
-    .v4-pos-trigger:hover .v4-pos-icon::before,
-    .v4-pos-trigger:hover .v4-pos-icon::after { background: var(--gold); }
-
-    /* Animatable height via grid-template-rows */
-    .v4-pos-panel {
-      display: grid;
-      grid-template-rows: 0fr;
-      transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    .v4-pos-item.is-open .v4-pos-panel { grid-template-rows: 1fr; }
-    .v4-pos-panel-inner { overflow: hidden; min-height: 0; }
-    .v4-pos-body {
-      padding-bottom: clamp(var(--sp-8), 4vh, var(--sp-10));
-      opacity: 0;
-      transform: translateY(8px);
-      transition: opacity 0.4s ease 0.05s, transform 0.4s ease 0.05s;
-    }
-    .v4-pos-item.is-open .v4-pos-body { opacity: 1; transform: none; }
-    .v4-pos-body p {
-      font-size: var(--text-lg);
-      line-height: 1.75;
-      color: var(--text-secondary);
-      margin-bottom: var(--sp-5);
-    }
-    .v4-pos-body p:last-of-type { margin-bottom: var(--sp-6); }
-    .v4-pos-caption {
-      font-family: var(--font-display);
-      font-style: italic;
-      font-weight: 400;
-      font-size: var(--text-xl);
-      line-height: 1.55;
-      color: var(--text-primary);
-      border-left: 2px solid var(--gold);
-      padding-left: var(--sp-5);
-    }
-    .v4-pos-links { display: flex; flex-wrap: wrap; gap: var(--sp-2); margin-top: var(--sp-6); margin-inline: calc(-1 * var(--sp-5)); }
-    .v4-pos-link {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      gap: var(--sp-2);
-      padding: var(--sp-3) var(--sp-5);
-      border-radius: 999px;
-      font-size: var(--text-base);
-      font-weight: 500;
-      color: var(--gold);
-    }
-    .v4-pos-link .arrow { transition: transform var(--ease-base); }
-    .v4-pos-link:hover .arrow { transform: translateX(4px); }
-    /* No surface at rest — a glass tab appears only once picked up */
-    .v4-pos-link::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      border-radius: inherit;
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-        color-mix(in srgb, var(--bg-surface) 55%, transparent);
-      backdrop-filter: blur(20px) saturate(1.7);
-      -webkit-backdrop-filter: blur(20px) saturate(1.7);
-      border: 1px solid rgba(255, 255, 255, 0.22);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4);
-      opacity: 0;
-      transition: opacity 0.35s ease;
-      z-index: -1;
-    }
-    [data-theme="light"] .v4-pos-link::before {
-      background: color-mix(in srgb, var(--bg-surface) 50%, transparent);
-      border-color: rgba(255, 255, 255, 0.65);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
-    }
-    .v4-pos-link:hover::before, .v4-pos-link:focus-visible::before, .v4-pos-link:active::before { opacity: 1; }
-
-    /* Diagram inline — mobile / narrow layout only. Same glass material as
-       the desktop companion, so the visual journey matches without needing
-       a sticky panel or hover. Stable size (tallest diagram's ratio) with
-       centering, same as the desktop companion, so every card is the same
-       height regardless of which position is open. */
-    .v4-pos-diagram-inline {
-      display: none;
-      align-items: center;
-      justify-content: center;
-      aspect-ratio: 360 / 502;
-      margin-top: var(--sp-8);
-      margin-bottom: var(--sp-6);
-      border-radius: var(--radius-md);
-      padding: var(--sp-5);
-      overflow: hidden;
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.02)),
-        color-mix(in srgb, var(--bg-surface) 65%, transparent);
-      backdrop-filter: blur(24px) saturate(1.7);
-      -webkit-backdrop-filter: blur(24px) saturate(1.7);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 20px 44px -20px rgba(0, 0, 0, 0.4);
-    }
-    [data-theme="light"] .v4-pos-diagram-inline {
-      background: color-mix(in srgb, var(--bg-surface) 55%, transparent);
-      border-color: rgba(255, 255, 255, 0.65);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 16px 36px -18px rgba(0, 0, 0, 0.12);
-    }
-    .v4-pos-diagram-inline svg { width: 100%; height: auto; display: block; }
-
-    /* Sticky diagram companion — desktop only. The signature glass moment:
-       a magnifying pane held over whichever position is open, letting the
-       desk beneath show through, blurred. */
-    .v4-pos-companion {
-      position: sticky;
-      top: calc(var(--nav-height) + var(--sp-8));
-      /* Matches the tallest diagram's own ratio (Behavioral Economics,
-         360×502) so every diagram fits without cropping; shorter ones
-         are centered within this same stable frame below. */
-      aspect-ratio: 360 / 502;
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--sp-6);
-      background:
-        linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
-        color-mix(in srgb, var(--bg-surface) 55%, transparent);
-      backdrop-filter: blur(32px) saturate(1.8);
-      -webkit-backdrop-filter: blur(32px) saturate(1.8);
-      border: 1px solid rgba(255, 255, 255, 0.24);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.04), 0 24px 64px -20px rgba(0, 0, 0, 0.5);
-      transition: box-shadow 0.4s ease;
-    }
-    [data-theme="light"] .v4-pos-companion {
-      background: color-mix(in srgb, var(--bg-surface) 45%, transparent);
-      border-color: rgba(255, 255, 255, 0.6);
-      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 56px -22px rgba(0, 0, 0, 0.1);
-    }
-    .v4-pos-companion-empty {
-      font-family: var(--font-display); font-weight: 400;
-      font-style: italic;
-      font-size: var(--text-xl);
-      color: var(--text-tertiary);
-      text-align: center;
-      max-width: 20ch;
-      position: absolute;
-      opacity: 1;
-      transition: opacity 0.3s ease;
-    }
-    .v4-pos-companion.has-active .v4-pos-companion-empty { opacity: 0; }
-
-    /* Placeholder graphic — same ambient constellation vocabulary as the
-       hero, sized to the companion's own stable frame, so it never reads
-       as an empty box before a position is opened. */
-    .v4-pos-companion-placeholder {
-      position: absolute;
-      inset: var(--sp-6);
-      opacity: 0.5;
-      transition: opacity 0.3s ease;
-    }
-    .v4-pos-companion.has-active .v4-pos-companion-placeholder { opacity: 0; }
-    .v4-pos-companion-placeholder svg { width: 100%; height: 100%; display: block; }
-    .v4-pos-companion-placeholder .v4-hg-pulse {
-      transform-box: fill-box;
-      transform-origin: center;
-      animation: v4HgPulse 5s ease-in-out infinite;
-    }
-    .v4-pos-companion-placeholder .v4-hg-pulse--gold { animation-delay: 1.4s; }
-    @media (prefers-reduced-motion: reduce) {
-      .v4-pos-companion-placeholder .v4-hg-pulse { animation: none; }
+      line-height: 1.35;
+      max-width: 40ch;
     }
 
-    .v4-pos-companion-diagram {
-      position: absolute;
-      inset: var(--sp-6);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity 0.35s ease;
-    }
-    .v4-pos-companion-diagram.is-active { opacity: 1; }
-    .v4-pos-companion-diagram svg { width: 100%; height: auto; display: block; }
-
-    @media (max-width: 900px) {
-      .v4-pos-layout { grid-template-columns: 1fr; }
-      .v4-pos-companion { display: none; }
-      .v4-pos-diagram-inline { display: flex; }
-    }
-
-    /* No top border here — the last position's own border-bottom already
-       closes the list; a second line right beneath it (and right where the
-       sticky companion's bottom edge lands) was pure redundancy. */
     .v4-positions-note {
       margin-top: clamp(var(--sp-10), 6vh, var(--sp-14));
       text-align: center;
@@ -868,8 +561,6 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-thinking.webp?v=2"
       .v4-scroll-cue::after { animation: none; }
       .v4-r { opacity: 1; transform: none; filter: none; transition: none; }
       .v4-ediag-preview { display: none; }
-      .v4-pos-panel { transition: none; }
-      .v4-pos-body { transition: none; opacity: 1; transform: none; }
     }
 
     /* ═══ Responsive ═══ */
@@ -1326,6 +1017,11 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-thinking.webp?v=2"
             <img class="ediag-map--light" src="/assets/images/thinking/beco-knowledge-graph/graph-map-light.webp" alt="" width="900" height="900" loading="lazy" decoding="async">
           </div>
         </div>
+        {%- for p in positions.list %}
+        <div class="v4-ediag-preview-card" id="ediag-pos-{{ p.slug }}" hidden>
+          {% include "positions/" + p.slug + ".svg.njk" %}
+        </div>
+        {%- endfor %}
       </div>
 
     </section>
@@ -1338,87 +1034,21 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-thinking.webp?v=2"
         <p>Short takes on how I work. Open one to read it.</p>
       </div>
 
-      <div class="v4-pos-layout">
-
-        <div class="v4-pos-list v4-r" style="--d: 0.1s;">
-          {#- The four positions come from src/_data/positions.js, which also builds
-              each one's own page under /thinking/positions/. -#}
-          {%- for p in positions.list %}
-          {%- set t = p.en %}
-          <div class="v4-pos-item" data-pos="{{ loop.index0 }}">
-            <button class="v4-pos-trigger" aria-expanded="false" aria-controls="pos-panel-{{ loop.index0 }}" id="pos-trigger-{{ loop.index0 }}">
-              <span class="v4-pos-heading">
-                <span class="v4-pos-topic">{{ t.topic | safe }}</span>
-                <span class="v4-pos-title">{{ t.title | safe }}</span>
-              </span>
-              <span class="v4-pos-icon" aria-hidden="true"></span>
-            </button>
-            <div class="v4-pos-panel" id="pos-panel-{{ loop.index0 }}" role="region" aria-labelledby="pos-trigger-{{ loop.index0 }}">
-              <div class="v4-pos-panel-inner">
-                <div class="v4-pos-body">
-                  {%- for para in t.body %}
-                  <p>{{ para | safe }}</p>
-                  {%- endfor %}
-                  <blockquote class="v4-pos-caption">{{ t.caption | safe }}</blockquote>
-                  <div class="v4-pos-links">
-                    <a href="/thinking/positions/{{ p.slug }}/" class="v4-pos-link">Read it on its own page <span class="arrow">→</span></a>
-                    {%- if t.link %}
-                    <a href="{{ t.link.href }}" class="v4-pos-link">{{ t.link.label }} <span class="arrow">→</span></a>
-                    {%- endif %}
-                  </div>
-                  <div class="v4-pos-diagram-inline" aria-hidden="true" data-pos-diagram="{{ loop.index0 }}">
-                    {% include "positions/" + p.slug + ".svg.njk" %}
-                  </div>
-                </div>
-              </div>
+<div class="v4-eindex">
+        {#- From src/_data/positions.js; each row opens the position's own page and
+            previews its diagram like the essay rows above. -#}
+        {%- for p in positions.list %}
+        <a class="v4-erow v4-erow--pos v4-r" href="/thinking/positions/{{ p.slug }}/" data-diagram="pos-{{ p.slug }}" style="--d: {{ loop.index0 * 0.04 }}s;">
+          <div>
+            <span class="v4-erow-eyebrow">{{ p.en.topic | safe }}</span>
+            <div class="v4-erow-thumb" aria-hidden="true">
+              {% include "positions/" + p.slug + ".svg.njk" %}
             </div>
+            <h3 class="v4-erow-title">{{ p.en.title | safe }}</h3>
           </div>
-          {%- endfor %}
-
-        </div><!-- /v4-pos-list -->
-
-        <!-- Sticky diagram companion — desktop -->
-        <div class="v4-pos-companion v4-r" style="--d: 0.2s;" id="pos-companion" aria-hidden="true">
-          <div class="v4-pos-companion-placeholder" aria-hidden="true">
-            <svg viewBox="0 0 360 502" xmlns="http://www.w3.org/2000/svg">
-              <g fill="none" stroke="var(--border-strong)" stroke-width="1" opacity="0.6">
-                <line x1="180" y1="60" x2="90" y2="130"/>
-                <line x1="180" y1="60" x2="270" y2="140"/>
-                <line x1="90" y1="130" x2="180" y2="210"/>
-                <line x1="270" y1="140" x2="180" y2="210"/>
-                <line x1="180" y1="210" x2="100" y2="280"/>
-                <line x1="180" y1="210" x2="260" y2="300"/>
-                <line x1="100" y1="280" x2="180" y2="360"/>
-                <line x1="260" y1="300" x2="180" y2="360"/>
-                <line x1="180" y1="360" x2="130" y2="430"/>
-                <line x1="180" y1="360" x2="230" y2="440"/>
-              </g>
-              <line x1="180" y1="210" x2="230" y2="440" stroke="var(--teal)" stroke-width="1" stroke-dasharray="2 4" opacity="0.4"/>
-
-              <g fill="var(--text-tertiary)" opacity="0.55">
-                <circle cx="180" cy="60" r="5"/>
-                <circle cx="90" cy="130" r="4"/>
-                <circle cx="270" cy="140" r="4.5"/>
-                <circle cx="100" cy="280" r="4"/>
-                <circle cx="260" cy="300" r="4.5"/>
-                <circle cx="180" cy="360" r="5"/>
-                <circle cx="130" cy="430" r="4"/>
-              </g>
-
-              <!-- Teal accent node -->
-              <circle class="v4-hg-pulse" cx="180" cy="210" r="7" fill="var(--teal)" opacity="0.7"/>
-              <circle cx="180" cy="210" r="16" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.3"/>
-              <circle cx="180" cy="210" r="26" fill="none" stroke="var(--teal)" stroke-width="1" opacity="0.15"/>
-
-              <!-- Gold accent node -->
-              <circle class="v4-hg-pulse v4-hg-pulse--gold" cx="230" cy="440" r="8" fill="var(--gold)" opacity="0.7"/>
-              <circle cx="230" cy="440" r="18" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.3"/>
-              <circle cx="230" cy="440" r="29" fill="none" stroke="var(--gold)" stroke-width="1" opacity="0.15"/>
-            </svg>
-          </div>
-          <span class="v4-pos-companion-empty">Open a position to see how it maps.</span>
-        </div>
-
+          <span class="arrow">→</span>
+        </a>
+        {%- endfor %}
       </div>
 
       <p class="v4-positions-note v4-r" style="--d: 0.1s;">These positions will change. The work continues.</p>
@@ -1468,68 +1098,6 @@ ogImage: "https://www.joseromerodesign.com/assets/images/og-thinking.webp?v=2"
         });
       }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
       document.querySelectorAll('.v4-r').forEach((el) => io.observe(el));
-
-      /* ── Positions accordion ── */
-      const items = Array.from(document.querySelectorAll('.v4-pos-item'));
-      const companion = document.getElementById('pos-companion');
-      const companionDiagrams = new Map(); // idx -> wrapper element
-
-      function ensureCompanionDiagram(idx) {
-        if (companionDiagrams.has(idx)) return companionDiagrams.get(idx);
-        const source = document.querySelector('[data-pos-diagram="' + idx + '"] svg');
-        if (!source) return null;
-        const wrap = document.createElement('div');
-        wrap.className = 'v4-pos-companion-diagram';
-        wrap.appendChild(source.cloneNode(true));
-        companion.appendChild(wrap);
-        companionDiagrams.set(idx, wrap);
-        return wrap;
-      }
-
-      function showCompanion(idx) {
-        if (!fine) return;
-        companion.classList.add('has-active');
-        companionDiagrams.forEach((el) => el.classList.remove('is-active'));
-        const el = ensureCompanionDiagram(idx);
-        if (el) el.classList.add('is-active');
-      }
-
-      function clearCompanionIfNoneOpen() {
-        const anyOpen = items.some((it) => it.classList.contains('is-open'));
-        if (!anyOpen) {
-          companion.classList.remove('has-active');
-          companionDiagrams.forEach((el) => el.classList.remove('is-active'));
-        }
-      }
-
-      items.forEach((item) => {
-        const idx = item.dataset.pos;
-        const trigger = item.querySelector('.v4-pos-trigger');
-
-        trigger.addEventListener('click', () => {
-          const willOpen = !item.classList.contains('is-open');
-          items.forEach((it) => {
-            it.classList.remove('is-open');
-            it.querySelector('.v4-pos-trigger').setAttribute('aria-expanded', 'false');
-          });
-          if (willOpen) {
-            item.classList.add('is-open');
-            trigger.setAttribute('aria-expanded', 'true');
-            showCompanion(idx);
-          } else {
-            clearCompanionIfNoneOpen();
-          }
-        });
-
-        if (fine) {
-          trigger.addEventListener('pointerenter', () => showCompanion(idx));
-          trigger.addEventListener('pointerleave', () => {
-            const openItem = items.find((it) => it.classList.contains('is-open'));
-            if (openItem) { showCompanion(openItem.dataset.pos); }
-            else { clearCompanionIfNoneOpen(); }
-          });
-        }
-      });
 
       if (!fine || reduced) return;
 

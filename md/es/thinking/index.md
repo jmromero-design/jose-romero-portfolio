@@ -36,46 +36,22 @@ Interactivo · IA · Ciencia del Comportamiento →
 
 Ideas breves sobre cómo trabajo. Abre una para leerla.
 
-Hay una versión de la empatía que es emocional: te pones en el lugar de alguien y sientes lo que podría sentir. Eso tiene un valor real: es la base de la conexión personal y de la confianza profunda con los usuarios. Pero en el trabajo de diseño, especialmente dentro de grandes organizaciones, lo que resulta más útil en el día a día es un tipo diferente: la capacidad de mapear cómo otra persona entiende la situación, qué está optimizando, qué le preocupa y qué necesita que sea verdad para poder avanzar.
+Empatía Posicional
 
-Empecé a llamarlo empatía posicional: convive con la compasión, no la sustituye, y se ha convertido en una de las habilidades más útiles que tengo en el trabajo con grandes empresas. La mayoría de los problemas realmente difíciles en estos entornos no son visuales ni técnicos. La gente llega desalineada, trabajando con modelos mentales distintos del mismo problema, con incentivos que el briefing nunca menciona.
+### En el trabajo empresarial, la empatía que hace avanzar los proyectos es posicional.
 
-Si mapeas bien esa situación, sin perder tu propio criterio en el proceso, casi siempre encuentras la forma de avanzar. El objetivo es entender la situación lo suficiente como para que la gente deje de discutir sobre lo que no importa.
+→ Economía Conductual
 
-> La alineación con los stakeholders se mapea, igual que cualquier otro sistema.
+### La mayoría de las decisiones de diseño son decisiones de comportamiento disfrazadas de decisiones visuales.
 
-[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/positional-empathy/)
+→ Sistemas Resilientes
 
-El proceso de diseño estándar pregunta qué necesitan los usuarios. Es una pregunta razonable, pero no es la que más me ocupa. La pregunta desde la economía conductual es más concreta y, para mí, más útil: dado cómo funciona de verdad la cognición humana, con sus atajos, sesgos y dependencia del contexto, ¿qué va a hacer esta interfaz concreta que la gente haga?
+### El mejor proceso es el que no depende de ninguna persona para ser recordado.
 
-Años de optimización de conversión en banca, seguros, fidelización y e-commerce me enseñaron que la respuesta casi siempre está en detalles de los que nadie discute: el orden de la información en una página, si una elección se presenta como ganancia o como pérdida, si existe o no un valor por defecto. Fallar ahí hunde el diseño por muy buenas que sean las intenciones del briefing.
+→ IA & Práctica de Diseño
 
-Se trata de entender cómo se toman realmente las decisiones, bajo presión de tiempo, con información incompleta, moldeadas por el contexto, y diseñar para esa realidad en lugar de una versión idealizada de ella.
+### La IA ha cambiado cuánto de un trabajo de diseño es pensar frente a ejecutar, más de lo que casi nadie ha notado.
 
-> El enfoque conductual cambia directamente la arquitectura de la elección en lugar de preguntar más por lo que la gente prefiere.
-
-[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/behavioural-economics/)
-
-Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de trabajo compartido. Los archivos existían en todas partes. La jerarquía del trabajo, qué iba en Figma, qué en Confluence, qué en Jira, era poco clara y se aplicaba de forma inconsistente. El proceso que existía dependía de personas concretas para mantenerlo en la memoria y transmitirlo informalmente. Cuando esas personas no estaban disponibles, el sistema se derrumbaba.
-
-Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabajo real que hacía el equipo: los tipos de tareas, sus interdependencias, las decisiones que se perdían continuamente. A partir de ahí, derivé un conjunto de reglas estructurales, qué va dónde, cuándo y por qué, que podían documentarse, enseñarse y modificarse sin que yo tuviera que estar presente.
-
-La adopción fue desordenada, la verdad, pero la estructura de fondo aguantó de todas formas. Y eso era justo lo que buscaba: un proceso lo bastante sólido como para seguir funcionando aunque la gente no lo siga al pie de la letra. Ya ha sobrevivido a cambios en el equipo, a una ronda de incorporaciones nuevas y a las temporadas en que nadie tenía tiempo de cuidarlo. Esa es la prueba de verdad, y la ha superado.
-
-> Un buen sistema sigue funcionando aunque la gente no lo siga a la perfección.
-
-[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/resilient-systems/)
-
-Lo que he estado explorando durante el último año es qué ocurre cuando introduces la IA en un proceso de diseño que ya era complejo, concretamente, la metodología Shape Up que usa mi equipo en IKEA. Shape Up pide a las personas que mantengan mucho contexto, tomen decisiones de juicio con información incompleta y avancen rápidamente en decisiones de diseño que tienen consecuencias importantes más adelante.
-
-La IA puede procesar y producir información más rápido de lo que cualquier equipo puede absorberla. Lo que significa que el cuello de botella cambia. El trabajo pasa de generar opciones a darles sentido: tener suficiente contexto compartido para evaluar lo que la IA ha producido y decidir qué hacer con ello.
-
-Lo difícil de verdad resultó ser humano: conseguir que un proceso asistido por IA genere algo útil y no solo voluminoso, colocar los puntos de control justo donde hace falta el juicio humano, y evitar que una sala llena de gente se ahogue en texto generado por IA y pierda el hilo de la decisión que en realidad tenían que tomar.
-
-Todo eso es trabajo de facilitación. Y resulta que la facilitación también es diseño.
-
-> La IA cambia dónde hace falta el juicio. El cuello de botella pasa de la generación a la interpretación, y estructurar ese proceso es un problema de diseño.
-
-[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/ai-and-design-practice/) [Leer el framework completo →](https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/)
+→
 
 Estas posiciones cambiarán. El trabajo continúa.

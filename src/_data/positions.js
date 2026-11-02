@@ -1,8 +1,8 @@
 // The four short positions on the Thinking page, in the order it shows them.
 //
 // What reads from here:
-//   - the accordion on both Thinking indexes (src/thinking.html,
-//     src/es/thinking.html), which renders every field below
+//   - the positions index on both Thinking pages (src/thinking.html,
+//     src/es/thinking.html): topic, title and the diagram
 //   - each position's own page, /thinking/positions/<slug>/ and its Spanish
 //     twin, through src/_includes/position.njk
 //
