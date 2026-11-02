@@ -309,3 +309,7 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 - **Don't re-add Lucide** — icons are already inlined in `main.js`.
 - **Don't add card numbers** — intentionally removed June 2026.
 - **Don't use `min-width` on SVG diagrams** — all diagrams are mobile-first portrait viewBox.
+
+## Tasks
+
+`state-keeper task next` lists this repo's open tasks. Before editing files, start the one that matches the work with `state-keeper task start <id>`, or add one with `state-keeper task add --epic <n> --title "<title>" --by agent` if none does. Commits get a `Refs:` trailer automatically.
