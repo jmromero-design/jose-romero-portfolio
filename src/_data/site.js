@@ -13,7 +13,7 @@ module.exports = {
   careerStart: 2014,
   // Month shown in the footer ("Updated October 2026"). Set by hand when the
   // site's content last changed in a way worth telling readers about.
-  updated: "2026-10-29",
+  updated: "2026-11-02",
   email: "joseromero.next@gmail.com",
   linkedin: "https://www.linkedin.com/in/joseromerodesign/",
 };

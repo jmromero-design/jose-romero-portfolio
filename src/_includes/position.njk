@@ -1,0 +1,237 @@
+{#- One position on its own page. Copy and diagram come from src/_data/positions.js
+    and src/_includes/positions/<slug>.svg.njk, the same source the Thinking
+    accordion renders, so the two cannot drift. Page data is set in
+    src/thinking/positions/positions.11tydata.js. -#}
+{% extends "base.njk" %}
+{%- set es = (lang == "es") -%}
+{%- set base = "/es" if es else "" -%}
+{% block head %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": {{ position.title | dump | safe }},
+    "description": {{ position.description | dump | safe }},
+    "image": "{{ ogImage | replace('?v=2', '') }}",
+    "inLanguage": "{{ lang }}",
+    "datePublished": "{{ positions.published }}",
+    "dateModified": "{{ positions.updated }}",
+    "author": {
+      "@type": "Person",
+      "@id": "https://www.joseromerodesign.com/#person",
+      "name": "Jose Romero"
+    },
+    "isPartOf": { "@id": "{{ site.url }}{{ base }}/thinking/" },
+    "mainEntityOfPage": "{{ site.url }}{{ cleanUrl }}"
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "{{ 'Inicio' if es else 'Home' }}", "item": "{{ site.url }}{{ base }}/" },
+      { "@type": "ListItem", "position": 2, "name": "{{ 'Reflexiones' if es else 'Thinking' }}", "item": "{{ site.url }}{{ base }}/thinking/" },
+      { "@type": "ListItem", "position": 3, "name": {{ position.topic | replace('&amp;', '&') | dump | safe }}, "item": "{{ site.url }}{{ cleanUrl }}" }
+    ]
+  }
+  </script>
+{% endblock %}
+{% block styles %}
+  <style>
+    /* Position pages, pos- prefix. The diagram sits in the same glass frame
+       as the Thinking page's companion, held beside the text on wide screens. */
+    .pos-hero {
+      padding: calc(var(--nav-height) + var(--sp-16)) var(--gutter) var(--sp-16);
+      border-bottom: 1px solid var(--border-default);
+    }
+    .pos-hero-inner, .pos-article, .pos-others-inner { max-width: var(--max-width); margin-inline: auto; }
+    .pos-hero .eyebrow { margin-bottom: var(--sp-6); }
+    .pos-hero h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2.25rem, 5vw, var(--text-5xl));
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      max-width: 22ch;
+      text-wrap: balance;
+    }
+    .pos-meta {
+      margin-top: var(--sp-8);
+      font-size: var(--text-xs);
+      color: var(--text-tertiary);
+      letter-spacing: 0.05em;
+    }
+
+    .pos-article {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
+      gap: clamp(var(--sp-10), 5vw, var(--sp-16));
+      align-items: start;
+      padding: clamp(var(--sp-16), 10vh, var(--sp-24)) var(--gutter);
+      box-sizing: content-box;
+    }
+    .pos-body { max-width: 64ch; }
+    .pos-body p {
+      font-size: var(--text-lg);
+      line-height: 1.75;
+      color: var(--text-secondary);
+      margin-bottom: var(--sp-5);
+    }
+    .pos-link {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--sp-2);
+      margin-top: var(--sp-4);
+      font-weight: 500;
+      color: var(--gold);
+    }
+    .pos-link .arrow { transition: transform var(--ease-base); }
+    .pos-link:hover .arrow { transform: translateX(4px); }
+
+    .pos-figure {
+      position: sticky;
+      top: calc(var(--nav-height) + var(--sp-8));
+      margin: 0;
+    }
+    .pos-frame {
+      border-radius: var(--radius-lg);
+      padding: var(--sp-6);
+      background:
+        linear-gradient(155deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.02)),
+        color-mix(in srgb, var(--bg-surface) 55%, transparent);
+      border: 1px solid rgba(255, 255, 255, 0.24);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 24px 64px -20px rgba(0, 0, 0, 0.5);
+    }
+    [data-theme="light"] .pos-frame {
+      background: color-mix(in srgb, var(--bg-surface) 45%, transparent);
+      border-color: rgba(255, 255, 255, 0.6);
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.85), 0 24px 56px -22px rgba(0, 0, 0, 0.1);
+    }
+    .pos-frame svg { width: 100%; height: auto; display: block; }
+    .pos-figure figcaption {
+      margin-top: var(--sp-5);
+      padding-left: var(--sp-5);
+      border-left: 2px solid var(--gold);
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: var(--text-lg);
+      line-height: 1.55;
+      color: var(--text-primary);
+    }
+
+    .pos-others {
+      padding: clamp(var(--sp-16), 10vh, var(--sp-24)) var(--gutter);
+      border-top: 1px solid var(--border-default);
+    }
+    .pos-others h2 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: var(--text-3xl);
+      margin-bottom: var(--sp-8);
+    }
+    .pos-others ul { border-top: 1px solid var(--border-default); }
+    .pos-others li { border-bottom: 1px solid var(--border-default); }
+    .pos-others li a {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: var(--sp-6);
+      padding-block: var(--sp-6);
+    }
+    .pos-others-topic {
+      display: block;
+      font-size: var(--text-xs);
+      color: var(--teal-text);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: var(--sp-2);
+    }
+    .pos-others-title {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(var(--text-lg), 2.2vw, var(--text-2xl));
+      line-height: 1.4;
+      color: var(--text-secondary);
+      transition: color var(--ease-base);
+    }
+    .pos-others li a:hover .pos-others-title { color: var(--text-primary); }
+    .pos-others li .arrow { flex-shrink: 0; margin-top: var(--sp-6); color: var(--gold); transition: transform var(--ease-base); }
+    .pos-others li a:hover .arrow { transform: translateX(4px); }
+    .pos-others-all { display: inline-block; margin-top: var(--sp-8); font-size: var(--text-sm); color: var(--text-tertiary); }
+    .pos-others-all:hover { color: var(--gold); }
+
+    @media (max-width: 900px) {
+      .pos-article { grid-template-columns: 1fr; }
+      .pos-figure { position: static; max-width: 480px; }
+    }
+  </style>
+{% endblock %}
+{% block body %}
+<body>
+  <a href="#main" class="skip-nav">{{ 'Saltar al contenido' if es else 'Skip to content' }}</a>
+  {% include "nav.njk" %}
+
+  <main id="main">
+    <section class="pos-hero" aria-labelledby="pos-title">
+      <div class="pos-hero-inner">
+        <nav class="breadcrumb" aria-label="{{ 'Ruta' if es else 'Breadcrumb' }}">
+          <a href="{{ base }}/thinking/">{{ 'Reflexiones' if es else 'Thinking' }}</a>
+          <span aria-hidden="true">/</span>
+          <a href="{{ base }}/thinking/#positions">{{ 'Posiciones' if es else 'Positions' }}</a>
+        </nav>
+        <span class="eyebrow">{{ position.topic | safe }}</span>
+        <h1 id="pos-title">{{ position.title | safe }}</h1>
+        <p class="pos-meta">
+          {{ 'Publicado' if es else 'Published' }} <time datetime="{{ positions.published }}">{{ positions.published | monthYear(lang) }}</time>
+          · {{ 'Actualizado' if es else 'Updated' }} <time datetime="{{ positions.updated }}">{{ positions.updated | monthYear(lang) }}</time>
+        </p>
+      </div>
+    </section>
+
+    <article class="pos-article" aria-labelledby="pos-title">
+      <div class="pos-body">
+        {%- for para in position.body %}
+        <p>{{ para | safe }}</p>
+        {%- endfor %}
+        {%- if position.link %}
+        <a href="{{ position.link.href }}" class="pos-link">{{ position.link.label }} <span class="arrow">→</span></a>
+        {%- endif %}
+      </div>
+      <figure class="pos-figure">
+        <div class="pos-frame">
+          {% include "positions/" + positionSlug + ".svg.njk" %}
+        </div>
+        <figcaption>{{ position.caption | safe }}</figcaption>
+      </figure>
+    </article>
+
+    <section class="pos-others" aria-labelledby="pos-others-heading">
+      <div class="pos-others-inner">
+        <h2 id="pos-others-heading">{{ 'Otras posiciones' if es else 'Other positions' }}</h2>
+        <ul role="list">
+          {%- for o in otherPositions %}
+          <li>
+            <a href="{{ base }}/thinking/positions/{{ o.slug }}/">
+              <span>
+                <span class="pos-others-topic">{{ o.topic | safe }}</span>
+                <span class="pos-others-title">{{ o.title | safe }}</span>
+              </span>
+              <span class="arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          {%- endfor %}
+        </ul>
+        <a class="pos-others-all" href="{{ base }}/thinking/">{{ '← Todas las reflexiones' if es else '← All of Thinking' }}</a>
+      </div>
+    </section>
+
+    {% include "cta.njk" %}
+  </main>
+
+  {% include "footer.njk" %}
+
+  <script src="/assets/js/main.js?v={{ site.mainJsVersion }}" defer></script>
+</body>
+</html>
+{% endblock %}

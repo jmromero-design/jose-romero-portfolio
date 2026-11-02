@@ -44,6 +44,8 @@ Map that out accurately, without losing your own read on it, and you can usually
 
 > You map stakeholder alignment the same way you'd map any other system.
 
+[Read it on its own page →](https://www.joseromerodesign.com/thinking/positions/positional-empathy/)
+
 The standard design process asks what users need. That's a fine question, but it's not the one I spend most of my time on. The behavioural economics question asks something narrower and, I'd argue, more useful: given how people's cognition actually works, with its shortcuts and biases and context-dependence, what is this specific interface going to make them do?
 
 Years of conversion rate optimisation across banking, insurance, loyalty, and e-commerce taught me that the answer to that question usually comes down to details nobody thinks to argue about: the order information appears on a page, whether a choice is framed as a gain or a loss, whether there's a default option at all. Get those wrong and no amount of good intentions in the brief saves the design.
@@ -52,6 +54,8 @@ The point is to understand how decisions are actually made, under time pressure,
 
 > What users need and what users do are different questions. The behavioural approach changes the choice architecture itself instead of collecting more stated preferences.
 
+[Read it on its own page →](https://www.joseromerodesign.com/thinking/positions/behavioural-economics/)
+
 When I joined the IKEA Home Services team, there was no shared working system. Files existed everywhere. The hierarchy of work, what belonged in Figma, what in Confluence, what in Jira, was unclear and inconsistently applied. The process that existed depended on specific individuals to hold it in memory and transmit it informally. When those individuals weren't available, the system collapsed.
 
 My approach was to start with principles rather than tools. I mapped the actual work the team was doing: the types of tasks, their interdependencies, the decisions that kept getting lost. From that, I derived a set of structural rules, what goes where, when, and why, that could be documented, taught, and modified without requiring me to be present.
@@ -59,6 +63,8 @@ My approach was to start with principles rather than tools. I mapped the actual 
 Adoption was messy, honestly, but the underlying structure held up regardless. That's what I was aiming for: a process solid enough to keep working when people don't follow it to the letter. It's already outlived changes in the team, a round of new hires, and the stretches where nobody had time to babysit it. That's the real test, and it passed.
 
 > A good system keeps working when people don't follow it perfectly.
+
+[Read it on its own page →](https://www.joseromerodesign.com/thinking/positions/resilient-systems/)
 
 What I've been exploring over the past year is what happens when you introduce AI into a design process that was already complex, specifically, the Shape Up methodology my team uses at IKEA. Shape Up asks people to hold a lot of context, make judgment calls on incomplete information, and move quickly through shaping decisions that have long downstream consequences.
 
@@ -70,6 +76,6 @@ All of that is facilitation work. Which, it turns out, is design work too.
 
 > AI moves where judgment is needed. The bottleneck shifts from generation to sense-making, and structuring that process is a design problem.
 
-[Read the full framework →](https://www.joseromerodesign.com/thinking/ai-workflow-framework/)
+[Read it on its own page →](https://www.joseromerodesign.com/thinking/positions/ai-and-design-practice/) [Read the full framework →](https://www.joseromerodesign.com/thinking/ai-workflow-framework/)
 
 These positions will change. The work continues.

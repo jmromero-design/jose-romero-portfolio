@@ -44,6 +44,8 @@ Si mapeas bien esa situación, sin perder tu propio criterio en el proceso, casi
 
 > La alineación con los stakeholders se mapea, igual que cualquier otro sistema.
 
+[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/positional-empathy/)
+
 El proceso de diseño estándar pregunta qué necesitan los usuarios. Es una pregunta razonable, pero no es la que más me ocupa. La pregunta desde la economía conductual es más concreta y, para mí, más útil: dado cómo funciona de verdad la cognición humana, con sus atajos, sesgos y dependencia del contexto, ¿qué va a hacer esta interfaz concreta que la gente haga?
 
 Años de optimización de conversión en banca, seguros, fidelización y e-commerce me enseñaron que la respuesta casi siempre está en detalles de los que nadie discute: el orden de la información en una página, si una elección se presenta como ganancia o como pérdida, si existe o no un valor por defecto. Fallar ahí hunde el diseño por muy buenas que sean las intenciones del briefing.
@@ -52,6 +54,8 @@ Se trata de entender cómo se toman realmente las decisiones, bajo presión de t
 
 > El enfoque conductual cambia directamente la arquitectura de la elección en lugar de preguntar más por lo que la gente prefiere.
 
+[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/behavioural-economics/)
+
 Cuando me uní al equipo de IKEA Home Services, no había ningún sistema de trabajo compartido. Los archivos existían en todas partes. La jerarquía del trabajo, qué iba en Figma, qué en Confluence, qué en Jira, era poco clara y se aplicaba de forma inconsistente. El proceso que existía dependía de personas concretas para mantenerlo en la memoria y transmitirlo informalmente. Cuando esas personas no estaban disponibles, el sistema se derrumbaba.
 
 Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabajo real que hacía el equipo: los tipos de tareas, sus interdependencias, las decisiones que se perdían continuamente. A partir de ahí, derivé un conjunto de reglas estructurales, qué va dónde, cuándo y por qué, que podían documentarse, enseñarse y modificarse sin que yo tuviera que estar presente.
@@ -59,6 +63,8 @@ Mi enfoque fue empezar con principios en lugar de herramientas. Mapeé el trabaj
 La adopción fue desordenada, la verdad, pero la estructura de fondo aguantó de todas formas. Y eso era justo lo que buscaba: un proceso lo bastante sólido como para seguir funcionando aunque la gente no lo siga al pie de la letra. Ya ha sobrevivido a cambios en el equipo, a una ronda de incorporaciones nuevas y a las temporadas en que nadie tenía tiempo de cuidarlo. Esa es la prueba de verdad, y la ha superado.
 
 > Un buen sistema sigue funcionando aunque la gente no lo siga a la perfección.
+
+[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/resilient-systems/)
 
 Lo que he estado explorando durante el último año es qué ocurre cuando introduces la IA en un proceso de diseño que ya era complejo, concretamente, la metodología Shape Up que usa mi equipo en IKEA. Shape Up pide a las personas que mantengan mucho contexto, tomen decisiones de juicio con información incompleta y avancen rápidamente en decisiones de diseño que tienen consecuencias importantes más adelante.
 
@@ -70,6 +76,6 @@ Todo eso es trabajo de facilitación. Y resulta que la facilitación también es
 
 > La IA cambia dónde hace falta el juicio. El cuello de botella pasa de la generación a la interpretación, y estructurar ese proceso es un problema de diseño.
 
-[Leer el framework completo →](https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/)
+[Leer en su propia página →](https://www.joseromerodesign.com/es/thinking/positions/ai-and-design-practice/) [Leer el framework completo →](https://www.joseromerodesign.com/es/thinking/ai-workflow-framework/)
 
 Estas posiciones cambiarán. El trabajo continúa.
