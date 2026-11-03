@@ -1,0 +1,5 @@
+{"kind":"lookup","ids":["pf:261102-xhjc"],"cmd":"show","harness":"claude","at":"2026-11-02T18:14:35.187Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-xhjc"],"cmd":"show","harness":"claude","at":"2026-11-02T18:20:15.916Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-xhjc"],"cmd":"show","harness":"claude","at":"2026-11-02T18:20:16.179Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-xhjc","pf:261102-ircb","pf:261102-ggyu"],"cmd":"next","harness":"opencode","at":"2026-11-02T18:26:45.320Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-xhjc"],"cmd":"show","harness":"opencode","at":"2026-11-02T18:26:56.733Z","host":"BlackSlate.local"}

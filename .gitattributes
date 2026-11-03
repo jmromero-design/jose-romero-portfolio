@@ -1,1 +1,2 @@
 .tasks/ledger.jsonl merge=union
+.tasks/events.jsonl merge=union
