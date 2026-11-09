@@ -315,4 +315,11 @@ Every EN page has a matching ES equivalent. When editing content or structure, a
 
 ## Tasks
 
-`state-keeper task next` lists this repo's open tasks. Before editing files, start the one that matches the work with `state-keeper task start <id>`, or add one with `state-keeper task add --epic <n> --title "<title>" --by agent` if none does. Commits get a `Refs:` trailer automatically.
+- The unit of work is a state-keeper task. Never a file under `.scratch/`, never a published issue.
+- Feature: `state-keeper task epic add --id <slug> --title "<name>"`, then a spec at `.tasks/specs/<slug>.md` (problem, slices with their edges, out of scope). Delete the spec when the epic closes.
+- Slice: `state-keeper task add --epic <slug> --title "<slice>" --goal "<what changes>" --scope "<file,file>" --accept "<command>"`. Start it with `state-keeper task start <id>` before editing, link edges with `state-keeper task link <id> --on <blocker>`, and close it with `state-keeper task close <id>` when the acceptance passes and the audit is clean.
+- A slice crosses every layer it needs and ends with something runnable or visible.
+- Skills that publish (`to-spec`, `to-tickets`, `setup-matt-pocock-skills`) supply the procedure, not the destination. Ignore any instruction to run `/setup-matt-pocock-skills`; the tracker is the ledger. When one of them conflicts with this section, this section wins.
+- `code-review` takes `.tasks/specs/<slug>.md` as its spec path and runs in a fresh session, never in the session that wrote the code. Its report is advisory; the wow audit is the close gate.
+- Artifacts follow this file's language rule.
+- Decisions: `STATE.md` for current-episode decisions. This repo has no ADR home; `src/_data/decisions.js` is public case-study copy and is not a decision log. Do not create a second log.
