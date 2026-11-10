@@ -1,3 +1,15 @@
+// The three articles, for the Thinking feeds (src/thinking/feed.njk and its
+// Spanish twin). Title and description come from each page's own front
+// matter; only the dates live here, because the feed needs them as data.
+// Adding an article means a line here as well as its pages.
+// beco-explorer has no datePublished of its own; 2026-09-12 is its first commit.
+const articles = [
+  { slug: "ai-workflow-framework", published: "2026-06-11", updated: "2026-10-25" },
+  { slug: "beco-knowledge-graph", published: "2026-09-12", updated: "2026-10-24" },
+  { slug: "beco-explorer", published: "2026-09-12", updated: "2026-10-24" },
+];
+
+
 // The four short positions on the Thinking page, in the order it shows them.
 //
 // What reads from here:
@@ -12,16 +24,6 @@
 // languages and live in src/_includes/positions/<slug>.svg.njk. Adding a
 // position means an entry here, its diagram and a page file in each language
 // (a one-line extend, as the existing four are).
-// The three articles, for the Thinking feeds (src/thinking/feed.njk and its
-// Spanish twin). Title and description come from each page's own front
-// matter; only the dates live here, because the feed needs them as data.
-// Adding an article means a line here as well as its pages.
-const articles = [
-  { slug: "ai-workflow-framework", published: "2026-06-11", updated: "2026-10-25" },
-  { slug: "beco-knowledge-graph", published: "2026-09-12", updated: "2026-10-24" },
-  { slug: "beco-explorer", published: "2026-10-24", updated: "2026-10-24" },
-];
-
 module.exports = {
   articles,
   published: "2026-06-05",

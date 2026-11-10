@@ -27,7 +27,7 @@ eleventyExcludeFromCollections: true
     <description>Articles and short positions from Jose Romero on product design, behavioural science and AI.</description>
     <language>en</language>
     <atom:link href="{{ site.url }}/thinking/feed.xml" rel="self" type="application/rss+xml"/>
-    <lastBuildDate>{{ positions.updated | rfc822 }}</lastBuildDate>
+    <lastBuildDate>{{ (items | sort(attribute="date", reverse=true) | first).date | rfc822 }}</lastBuildDate>
 {%- for item in items | sort(attribute="date", reverse=true) %}
     <item>
       <title>{{ item.title | safe }}</title>
