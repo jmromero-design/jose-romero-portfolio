@@ -16,3 +16,6 @@
 {"ev":"task.close","id":"pf:261102-xhjc","how":"manual","because":"Pages live on main@63504c2; Jose reviewed them online on 2026-11-02. The audit step had nothing to check.","at":"2026-11-02T18:32:11Z","by":"agent"}
 {"ev":"task.start","id":"pf:261102-ehns","at":"2026-11-02T18:32:11Z","by":"human","harness":"other"}
 {"ev":"task.close","id":"pf:261102-ehns","how":"manual","because":"Deployed c86fcc1; live EN and ES Thinking pages show 4 position rows and 4 preview cards, no old accordion link","at":"2026-11-02T21:34:23Z","by":"human"}
+{"ev":"epic.add","id":"pf:slice-flow","title":"Slice flow rules","at":"2026-11-10T08:01:05Z","by":"agent"}
+{"ev":"task.add","id":"pf:261110-28r7","epic":"pf:slice-flow","title":"Task block names the launcher and one slice per session","at":"2026-11-10T08:01:05Z","by":"agent","goal":"AGENTS.md tells agents to start a slice with state-keeper slice and to use one fresh session per slice","scope":["AGENTS.md"],"accept":"grep -q 'state-keeper slice' AGENTS.md"}
+{"ev":"task.start","id":"pf:261110-28r7","at":"2026-11-10T08:01:14Z","by":"agent","harness":"claude","start_head":"abedf5a1f9cfd499a68408afbff0f678560ecb6f"}
