@@ -1,0 +1,41 @@
+---
+permalink: /thinking/feed.xml
+eleventyExcludeFromCollections: true
+---
+{#- RSS feed of every Thinking entry, summaries only. Positions come from
+    src/_data/positions.js; the three articles take title and description from
+    their own pages (matched by URL) and their dates from positions.articles. -#}
+{%- set lang = "en" -%}
+{%- set pre = "" -%}
+{%- set items = [] -%}
+{%- for a in positions.articles -%}
+  {%- set url = pre + "/thinking/" + a.slug + "/" -%}
+  {%- for page in collections.all -%}
+    {%- if page.data.cleanUrl == url -%}
+      {%- set items = (items.push({ url: url, title: page.data.title | replace(" · Jose Romero", ""), description: page.data.description, date: a.published }), items) -%}
+    {%- endif -%}
+  {%- endfor -%}
+{%- endfor -%}
+{%- for p in positions.list -%}
+  {%- set items = (items.push({ url: pre + "/thinking/positions/" + p.slug + "/", title: p[lang].topic, description: p[lang].description, date: positions.published }), items) -%}
+{%- endfor -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Thinking · Jose Romero</title>
+    <link>{{ site.url }}/thinking/</link>
+    <description>Articles and short positions from Jose Romero on product design, behavioural science and AI.</description>
+    <language>en</language>
+    <atom:link href="{{ site.url }}/thinking/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>{{ positions.updated | rfc822 }}</lastBuildDate>
+{%- for item in items | sort(attribute="date", reverse=true) %}
+    <item>
+      <title>{{ item.title | safe }}</title>
+      <link>{{ site.url }}{{ item.url }}</link>
+      <guid isPermaLink="true">{{ site.url }}{{ item.url }}</guid>
+      <pubDate>{{ item.date | rfc822 }}</pubDate>
+      <description>{{ item.description | safe }}</description>
+    </item>
+{%- endfor %}
+  </channel>
+</rss>

@@ -123,6 +123,15 @@
       ]
     },
     {
+      "source": "/(es/)?thinking/feed.xml",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "application/rss+xml; charset=utf-8"
+        }
+      ]
+    },
+    {
       "source": "/assets/images/(.*)",
       "headers": [
         {

@@ -31,6 +31,9 @@
   <link rel="alternate" hreflang="en" href="{{ site.url }}{{ enUrl }}">
   <link rel="alternate" hreflang="es" href="{{ site.url }}{{ esUrl }}">
   <link rel="alternate" hreflang="x-default" href="{{ site.url }}{{ enUrl }}">
+{%- if cleanUrl.startsWith("/thinking/") or cleanUrl.startsWith("/es/thinking/") %}
+  <link rel="alternate" type="application/rss+xml" title="{{ 'Reflexiones · Jose Romero' if lang == 'es' else 'Thinking · Jose Romero' }}" href="{{ '/es/thinking/feed.xml' if lang == 'es' else '/thinking/feed.xml' }}">
+{%- endif %}
 {%- block head %}{% endblock %}
   <link rel="stylesheet" href="/assets/css/main.css?v={{ site.cssVersion }}">
   <!-- Headings render in Bitter (regular and the italic accent): fetch both with the CSS, not after it -->

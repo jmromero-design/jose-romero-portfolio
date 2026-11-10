@@ -40,6 +40,9 @@ module.exports = function (eleventyConfig) {
     return lang === "es" ? `${name} de ${y}` : `${name} ${y}`;
   });
 
+  // "2026-10-27" -> "Tue, 27 Oct 2026 00:00:00 GMT", the date format RSS wants.
+  eleventyConfig.addFilter("rfc822", (iso) => new Date(`${iso}T00:00:00Z`).toUTCString());
+
   // "Ten case studies" / "Diez casos de estudio" from projects.length, so the
   // Work hero cannot drift from the list the same page renders. Used for the
   // years of experience too; above twenty the numeral is the better read
