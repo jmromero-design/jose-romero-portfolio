@@ -7,3 +7,7 @@
 {"kind":"lookup","ids":["pf:261102-ircb","pf:261102-ggyu"],"cmd":"next","harness":"opencode","at":"2026-11-09T10:24:58Z","host":"BlackSlate.local"}
 {"kind":"lookup","ids":["pf:261102-ircb","pf:261102-ggyu"],"cmd":"next","harness":"opencode","at":"2026-11-09T10:26:02Z","host":"BlackSlate.local"}
 {"kind":"lookup","ids":["pf:261110-28r7"],"cmd":"plan","harness":"claude","at":"2026-11-10T08:01:32Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-ggyu"],"cmd":"show","harness":"claude","at":"2026-11-10T08:54:02Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-ircb"],"cmd":"show","harness":"claude","at":"2026-11-10T08:54:02Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-ggyu"],"cmd":"show","harness":"claude","at":"2026-11-10T09:33:10Z","host":"BlackSlate.local"}
+{"kind":"lookup","ids":["pf:261102-ggyu"],"cmd":"show","harness":"claude","at":"2026-11-10T09:33:27Z","host":"BlackSlate.local"}
